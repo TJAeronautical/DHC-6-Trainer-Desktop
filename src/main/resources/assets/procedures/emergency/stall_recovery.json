@@ -1,0 +1,123 @@
+{
+  "rawName": "Stall Recovery",
+  "drillName": "Stall Recovery [Airborne]",
+  "category": "EMERGENCY",
+  "context": "Airborne",
+  "sourceNote": "Procedure identity/category/order normalized from 'DHC-6 Full Drill Procedure Index Normal Split.xlsx'. Excel is the governing app display allow-list. Existing procedure steps preserved for later content review. Previous note: Generic MCC callout shell generated from procedure titles only. This is not an approved AFM/POH/QRH/checklist replacement. Curated to the DHC-6 Trainer Abnormal/Emergency procedure allow-list.",
+  "variants": {
+    "LEGACY": {
+      "memory": [],
+      "flow": [
+        {
+          "stepNumber": 1,
+          "action": "Stall Recovery.",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.9; PM_CALLOUT"
+        },
+        {
+          "stepNumber": 2,
+          "action": "Recovering.",
+          "crewRole": "PF",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.9; PF_COMMAND"
+        },
+        {
+          "stepNumber": 3,
+          "action": "Reduce angle of attack and recover aircraft.",
+          "crewRole": "PF",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.9; PF_ACTION"
+        },
+        {
+          "stepNumber": 4,
+          "action": "Monitor attitude, altitude, airspeed, power, and terrain.",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.9; PM_ACTION"
+        },
+        {
+          "stepNumber": 5,
+          "action": "Positive rate / clear of stall.",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.9; PM_CALLOUT"
+        },
+        {
+          "stepNumber": 6,
+          "action": "Stall recovery checklist / after recovery checks.",
+          "crewRole": "PF",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.9; PF_COMMAND"
+        }
+      ]
+    },
+    "G950": {
+      "memory": [],
+      "flow": [
+        {
+          "stepNumber": 1,
+          "action": "Stall Recovery.",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.9; PM_CALLOUT"
+        },
+        {
+          "stepNumber": 2,
+          "action": "Recovering.",
+          "crewRole": "PF",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.9; PF_COMMAND"
+        },
+        {
+          "stepNumber": 3,
+          "action": "Reduce angle of attack and recover aircraft.",
+          "crewRole": "PF",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.9; PF_ACTION"
+        },
+        {
+          "stepNumber": 4,
+          "action": "Monitor attitude, altitude, airspeed, power, and terrain.",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.9; PM_ACTION"
+        },
+        {
+          "stepNumber": 5,
+          "action": "Positive rate / clear of stall.",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.9; PM_CALLOUT"
+        },
+        {
+          "stepNumber": 6,
+          "action": "Stall recovery checklist / after recovery checks.",
+          "crewRole": "PF",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.9; PF_COMMAND"
+        }
+      ]
+    }
+  },
+  "phaseTag": "Airborne",
+  "displayLabel": "Stall Recovery [Airborne]",
+  "sortOrder": 57,
+  "sourceSection": "3.9",
+  "procedureGroup": "Stall Recovery",
+  "manualSection": "Section 3",
+  "sequenceBasis": "User-approved working order",
+  "normalSplit": null
+}

@@ -1,0 +1,167 @@
+{
+    "rawName":  "Fuel Dipstick",
+    "drillName":  "Fuel Dipstick [Ground]",
+    "category":  "NORMAL",
+    "context":  "Ground",
+    "sourceNote":  "Procedure identity/category/order normalized from \u0027DHC-6 Full Drill Procedure Index Normal Split.xlsx\u0027. Excel is the governing app display allow-list. Existing procedure steps preserved for later content review. Previous note: Generic training callout structure based on user-provided Section 4 normal-procedure titles and generated PF/PM MCC callouts. Not an approved AFM/POH/checklist replacement.",
+    "variants":  {
+                     "LEGACY":  {
+                                    "memory":  [
+                                                   {
+                                                       "stepNumber":  1,
+                                                       "action":  "FUEL REQUIRED - CONFIRMED",
+                                                       "crewRole":  "PF",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.4.4 Fuel Dipstick"
+                                                   },
+                                                   {
+                                                       "stepNumber":  2,
+                                                       "action":  "FUEL QUANTITY - MEASURED",
+                                                       "crewRole":  "PM",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.4.4 Fuel Dipstick"
+                                                   },
+                                                   {
+                                                       "stepNumber":  3,
+                                                       "action":  "FUEL QUANTITY - SUFFICIENT",
+                                                       "crewRole":  "PF",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.4.4 Fuel Dipstick"
+                                                   },
+                                                   {
+                                                       "stepNumber":  4,
+                                                       "action":  "FUEL DIPSTICK CHECK - COMPLETE",
+                                                       "crewRole":  "PM",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.4.4 Fuel Dipstick"
+                                                   }
+                                               ],
+                                    "flow":  [
+                                                 {
+                                                     "stepNumber":  1,
+                                                     "action":  "Fuel dipstick check.",
+                                                     "crewRole":  "PF",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.4.4; PF_CALL"
+                                                 },
+                                                 {
+                                                     "stepNumber":  2,
+                                                     "action":  "Fuel quantity required ___.",
+                                                     "crewRole":  "PF",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.4.4; PF_CHALLENGE"
+                                                 },
+                                                 {
+                                                     "stepNumber":  3,
+                                                     "action":  "Fuel quantity measured ___.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.4.4; PM_RESPONSE"
+                                                 },
+                                                 {
+                                                     "stepNumber":  4,
+                                                     "action":  "Fuel sufficient?",
+                                                     "crewRole":  "PF",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.4.4; PF_CHALLENGE"
+                                                 },
+                                                 {
+                                                     "stepNumber":  5,
+                                                     "action":  "Fuel dipstick check complete.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.4.4; PM_COMPLETION"
+                                                 }
+                                             ]
+                                },
+                     "G950":  {
+                                  "memory":  [
+                                                 {
+                                                     "stepNumber":  1,
+                                                     "action":  "FUEL REQUIRED - CONFIRMED",
+                                                     "crewRole":  "PF",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.4.4 Fuel Dipstick"
+                                                 },
+                                                 {
+                                                     "stepNumber":  2,
+                                                     "action":  "FUEL QUANTITY - MEASURED",
+                                                     "crewRole":  "PM",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.4.4 Fuel Dipstick"
+                                                 },
+                                                 {
+                                                     "stepNumber":  3,
+                                                     "action":  "FUEL QUANTITY - SUFFICIENT",
+                                                     "crewRole":  "PF",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.4.4 Fuel Dipstick"
+                                                 },
+                                                 {
+                                                     "stepNumber":  4,
+                                                     "action":  "FUEL DIPSTICK CHECK - COMPLETE",
+                                                     "crewRole":  "PM",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.4.4 Fuel Dipstick"
+                                                 }
+                                             ],
+                                  "flow":  [
+                                               {
+                                                   "stepNumber":  1,
+                                                   "action":  "Fuel dipstick check.",
+                                                   "crewRole":  "PF",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.4.4; PF_CALL"
+                                               },
+                                               {
+                                                   "stepNumber":  2,
+                                                   "action":  "Fuel quantity required ___.",
+                                                   "crewRole":  "PF",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.4.4; PF_CHALLENGE"
+                                               },
+                                               {
+                                                   "stepNumber":  3,
+                                                   "action":  "Fuel quantity measured ___.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.4.4; PM_RESPONSE"
+                                               },
+                                               {
+                                                   "stepNumber":  4,
+                                                   "action":  "Fuel sufficient?",
+                                                   "crewRole":  "PF",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.4.4; PF_CHALLENGE"
+                                               },
+                                               {
+                                                   "stepNumber":  5,
+                                                   "action":  "Fuel dipstick check complete.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.4.4; PM_COMPLETION"
+                                               }
+                                           ]
+                              },
+                     "manualSection":  "Section 4",
+                     "sourceSection":  "4.4.4"
+                 },
+    "phaseTag":  "Ground",
+    "displayLabel":  "Fuel Dipstick [Ground]",
+    "sortOrder":  4,
+    "sourceSection":  "4.4.4",
+    "procedureGroup":  "Preparation and Inspection",
+    "manualSection":  "Section 4",
+    "sequenceBasis":  "Normal-procedure flow order",
+    "normalSplit":  "Everyday Actions"
+}

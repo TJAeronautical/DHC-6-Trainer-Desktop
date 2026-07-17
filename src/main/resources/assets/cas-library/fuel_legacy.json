@@ -1,0 +1,55 @@
+{
+  "schemaVersion": "1.0.0",
+  "profileId": "dhc6-legacy-fuel",
+  "variant": "LEGACY",
+  "messages": [
+    {
+      "display": "AFT BOOST1 PRESS",
+      "canonicalId": "AFT_BOOST1_PR",
+      "level": "CAUTION",
+      "meaning": "No.1 boost pump pressure low in AFT tank. Auto-changeover to No.2 should have occurred.",
+      "immediate": "Check BOOST2 PRESS. If auto-changeover confirmed: pull No.1 CB. If BOOST2 PRESS also lit: STBY BOOST PUMP EMER (AFT) ON.",
+      "qrhRef": "QRH Section 6.1"
+    },
+    {
+      "display": "AFT BOOST2 PRESS",
+      "canonicalId": "AFT_BOOST2_PR",
+      "level": "CAUTION",
+      "meaning": "No.2 standby boost pump pressure low in AFT tank. If both AFT lights on: both pumps failed.",
+      "immediate": "STBY BOOST PUMP EMER (AFT) ON \u2192 pull No.1 CB \u2192 if not restored: FUEL SELECTOR CROSSFEED.",
+      "qrhRef": "QRH Section 6.2"
+    },
+    {
+      "display": "FWD BOOST1 PRESS",
+      "canonicalId": "FWD_BOOST1_PR",
+      "level": "CAUTION",
+      "meaning": "No.1 boost pump pressure low in FWD tank.",
+      "immediate": "As per AFT BOOST1 PRESS.",
+      "qrhRef": "QRH Section 6.1"
+    },
+    {
+      "display": "FWD BOOST2 PRESS",
+      "canonicalId": "FWD_BOOST2_PR",
+      "level": "CAUTION",
+      "meaning": "No.2 boost pump pressure low in FWD tank.",
+      "immediate": "As per AFT BOOST2 PRESS.",
+      "qrhRef": "QRH Section 6.2"
+    },
+    {
+      "display": "AFT FUEL LOW",
+      "canonicalId": "FUEL_LOW_LEVEL_AFT",
+      "level": "CAUTION",
+      "meaning": "~200 lb remaining in AFT tank.",
+      "immediate": "Check quantity. Flicker on rotation: monitor. Steady in flight: fuel management.",
+      "qrhRef": "FCTM 6.3.3.8"
+    },
+    {
+      "display": "FWD FUEL LOW",
+      "canonicalId": "FUEL_LOW_LEVEL_FWD",
+      "level": "CAUTION",
+      "meaning": "~200 lb remaining in FWD tank.",
+      "immediate": "Initiate diversion or fuel management.",
+      "qrhRef": "FCTM 6.3.3.8"
+    }
+  ]
+}

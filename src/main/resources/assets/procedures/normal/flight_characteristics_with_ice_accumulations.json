@@ -1,0 +1,113 @@
+{
+    "rawName":  "Flight Characteristics with Ice Accumulations",
+    "drillName":  "Flight Characteristics with Ice Accumulations [Airborne]",
+    "category":  "NORMAL",
+    "context":  "Airborne",
+    "sourceNote":  "Procedure identity/category/order normalized from \u0027DHC-6 Full Drill Procedure Index Normal Split.xlsx\u0027. Excel is the governing app display allow-list. Existing procedure steps preserved for later content review. Previous note: Generic training callout structure based on user-provided Section 4 normal-procedure titles and generated PF/PM MCC callouts. Not an approved AFM/POH/checklist replacement.",
+    "variants":  {
+                     "LEGACY":  {
+                                    "memory":  [
+
+                                               ],
+                                    "flow":  [
+                                                 {
+                                                     "stepNumber":  1,
+                                                     "action":  "Ice accumulation observed.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.20.3; PM_CALLOUT"
+                                                 },
+                                                 {
+                                                     "stepNumber":  2,
+                                                     "action":  "Maintain safe speed and handling margin.",
+                                                     "crewRole":  "PF",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.20.3; PF_RESPONSE"
+                                                 },
+                                                 {
+                                                     "stepNumber":  3,
+                                                     "action":  "Airspeed monitored.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.20.3; PM_MONITOR"
+                                                 },
+                                                 {
+                                                     "stepNumber":  4,
+                                                     "action":  "Performance monitored.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.20.3; PM_MONITOR"
+                                                 },
+                                                 {
+                                                     "stepNumber":  5,
+                                                     "action":  "Handling characteristics monitored.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.20.3; PM_MONITOR"
+                                                 }
+                                             ]
+                                },
+                     "G950":  {
+                                  "memory":  [
+
+                                             ],
+                                  "flow":  [
+                                               {
+                                                   "stepNumber":  1,
+                                                   "action":  "Ice accumulation observed.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.20.3; PM_CALLOUT"
+                                               },
+                                               {
+                                                   "stepNumber":  2,
+                                                   "action":  "Maintain safe speed and handling margin.",
+                                                   "crewRole":  "PF",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.20.3; PF_RESPONSE"
+                                               },
+                                               {
+                                                   "stepNumber":  3,
+                                                   "action":  "Airspeed monitored.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.20.3; PM_MONITOR"
+                                               },
+                                               {
+                                                   "stepNumber":  4,
+                                                   "action":  "Performance monitored.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.20.3; PM_MONITOR"
+                                               },
+                                               {
+                                                   "stepNumber":  5,
+                                                   "action":  "Handling characteristics monitored.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.20.3; PM_MONITOR"
+                                               }
+                                           ]
+                              },
+                     "manualSection":  "Section 4",
+                     "sourceSection":  "4.20.3"
+                 },
+    "phaseTag":  "Airborne",
+    "displayLabel":  "Flight Characteristics with Ice Accumulations [Airborne]",
+    "sortOrder":  45,
+    "sourceSection":  "4.20.3",
+    "procedureGroup":  "Icing Operations",
+    "manualSection":  "Section 4",
+    "sequenceBasis":  "Normal-procedure flow order",
+    "normalSplit":  "Weather / Special Conditions"
+}

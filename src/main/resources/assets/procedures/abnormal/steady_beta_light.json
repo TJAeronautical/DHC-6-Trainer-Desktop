@@ -1,0 +1,139 @@
+{
+  "rawName": "Steady Beta Light",
+  "drillName": "Steady Beta Light [Airborne]",
+  "category": "ABNORMAL",
+  "context": "Airborne",
+  "sourceNote": "Procedure identity/category/order normalized from 'DHC-6 Full Drill Procedure Index Normal Split.xlsx'. Excel is the governing app display allow-list. Existing procedure steps preserved for later content review. Previous note: Generic MCC callout shell generated from procedure titles only. This is not an approved AFM/POH/QRH/checklist replacement. Curated to the DHC-6 Trainer Abnormal/Emergency procedure allow-list.",
+  "variants": {
+    "LEGACY": {
+      "memory": [],
+      "flow": [
+        {
+          "stepNumber": 1,
+          "action": "Steady Beta Light.",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.11.5; PM_CALLOUT"
+        },
+        {
+          "stepNumber": 2,
+          "action": "I have control, maintain flight path.",
+          "crewRole": "PF",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.11.5; PF_COMMAND"
+        },
+        {
+          "stepNumber": 3,
+          "action": "Confirm condition and affected system.",
+          "crewRole": "PF",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": true,
+          "reference": "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.11.5; PF_COMMAND"
+        },
+        {
+          "stepNumber": 4,
+          "action": "Condition confirmed, affected system identified.",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": true,
+          "reference": "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.11.5; PM_RESPONSE"
+        },
+        {
+          "stepNumber": 5,
+          "action": "Monitor aircraft state, engine/system indications, terrain, traffic, and configuration.",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.11.5; PM_ACTION"
+        },
+        {
+          "stepNumber": 6,
+          "action": "Steady Beta Light checklist.",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.11.5; PM_RESPONSE"
+        },
+        {
+          "stepNumber": 7,
+          "action": "Steady Beta Light checklist complete.",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.11.5; PM_COMPLETION"
+        }
+      ]
+    },
+    "G950": {
+      "memory": [],
+      "flow": [
+        {
+          "stepNumber": 1,
+          "action": "Steady Beta Light.",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.11.5; PM_CALLOUT"
+        },
+        {
+          "stepNumber": 2,
+          "action": "I have control, maintain flight path.",
+          "crewRole": "PF",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.11.5; PF_COMMAND"
+        },
+        {
+          "stepNumber": 3,
+          "action": "Confirm condition and affected system.",
+          "crewRole": "PF",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": true,
+          "reference": "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.11.5; PF_COMMAND"
+        },
+        {
+          "stepNumber": 4,
+          "action": "Condition confirmed, affected system identified.",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": true,
+          "reference": "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.11.5; PM_RESPONSE"
+        },
+        {
+          "stepNumber": 5,
+          "action": "Monitor aircraft state, engine/system indications, terrain, traffic, and configuration.",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.11.5; PM_ACTION"
+        },
+        {
+          "stepNumber": 6,
+          "action": "Steady Beta Light checklist.",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.11.5; PM_RESPONSE"
+        },
+        {
+          "stepNumber": 7,
+          "action": "Steady Beta Light checklist complete.",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.11.5; PM_COMPLETION"
+        }
+      ]
+    }
+  },
+  "phaseTag": "Airborne",
+  "displayLabel": "Steady Beta Light [Airborne]",
+  "sortOrder": 32,
+  "sourceSection": "3.11.5",
+  "procedureGroup": "Propeller Abnormalities",
+  "manualSection": "Section 3",
+  "sequenceBasis": "User-approved working order",
+  "normalSplit": null
+}

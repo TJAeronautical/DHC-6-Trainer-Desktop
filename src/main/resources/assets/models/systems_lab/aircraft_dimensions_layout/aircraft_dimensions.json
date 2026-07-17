@@ -1,0 +1,11 @@
+{
+  "aircraft_dimensions": {
+    "model": "models/3D_Model/dhc6_wheels_painted_training.glb",
+    "references": {
+      "figure_6_1": "models/Refs/Figure_6-1_Aircraft_Dimensions.png",
+      "figure_6_2": "models/Refs/Figure_6-2_Jig_Point.png",
+      "figure_6_3": "models/Refs/Figure_6-3_Aircraft_Stations.png",
+      "figure_6_4": "models/Refs/Figure_6-4_Area_Diagram.png"
+    }
+  }
+}

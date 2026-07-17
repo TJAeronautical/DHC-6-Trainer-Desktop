@@ -1,0 +1,182 @@
+{
+  "schemaId": "flashcard_deck",
+  "schemaVersion": "1.0.0",
+  "deckId": "propeller_system_core",
+  "deckName": "Propeller System — Core",
+  "description": "Bundled propeller cards for governors, feathering, beta/reverse range, NP limits and autofeather cues.",
+  "systemId": "propeller",
+  "variant": "BOTH",
+  "difficulty": "INTERMEDIATE",
+  "cards": [
+    {
+      "id": "feather_force",
+      "front": "What force drives the propeller toward feather?",
+      "back": "Springs and counterweights drive the propeller toward feather.",
+      "tags": [
+        "propeller",
+        "feather"
+      ],
+      "references": [
+        {
+          "source": "DHC6_FLASHCARDS_FILE",
+          "locator": "Q152"
+        }
+      ]
+    },
+    {
+      "id": "prop_governors",
+      "front": "How many governors are installed in the Twin Otter propeller system?",
+      "back": "Three: constant speed governor, overspeed governor, and fuel topping governor.",
+      "tags": [
+        "propeller",
+        "governors"
+      ],
+      "references": [
+        {
+          "source": "DHC6_FLASHCARDS_FILE",
+          "locator": "Q153"
+        }
+      ]
+    },
+    {
+      "id": "csu_max_speed",
+      "front": "What is the maximum governing speed of the CSU?",
+      "back": "96% NP.",
+      "tags": [
+        "propeller",
+        "csu",
+        "limits"
+      ],
+      "references": [
+        {
+          "source": "DHC6_FLASHCARDS_FILE",
+          "locator": "Q154"
+        }
+      ]
+    },
+    {
+      "id": "overspeed_governor_limit",
+      "front": "What is the limiting RPM of the overspeed governor?",
+      "back": "101.5% NP.",
+      "tags": [
+        "propeller",
+        "overspeed",
+        "limits"
+      ],
+      "references": [
+        {
+          "source": "DHC6_FLASHCARDS_FILE",
+          "locator": "Q155"
+        }
+      ]
+    },
+    {
+      "id": "fuel_topping_limit",
+      "front": "What is the limiting speed of the fuel topping governor?",
+      "back": "102% NP in the normal context; in reverse range the reset arm lowers the datum to about 91%.",
+      "tags": [
+        "propeller",
+        "fuel-topping-governor"
+      ],
+      "references": [
+        {
+          "source": "DHC6_FLASHCARDS_FILE",
+          "locator": "Q156,Q164"
+        }
+      ]
+    },
+    {
+      "id": "beta_reverse_oil_control",
+      "front": "What controls oil flow to the propeller in beta/reverse range?",
+      "back": "The beta reverse valve, actuated by the power lever in the reverse range.",
+      "tags": [
+        "propeller",
+        "beta",
+        "reverse"
+      ],
+      "references": [
+        {
+          "source": "DHC6_FLASHCARDS_FILE",
+          "locator": "Q160"
+        }
+      ]
+    },
+    {
+      "id": "reverse_np_limit",
+      "front": "What is the propeller speed limit in reverse range?",
+      "back": "91% NP, plus or minus 1%.",
+      "tags": [
+        "propeller",
+        "reverse",
+        "limits"
+      ],
+      "references": [
+        {
+          "source": "DHC6_FLASHCARDS_FILE",
+          "locator": "Q161"
+        }
+      ]
+    },
+    {
+      "id": "fuel_topping_action",
+      "front": "How does the fuel topping governor restrict fuel?",
+      "back": "By bleeding off PY reference air and restricting fuel to the engine.",
+      "tags": [
+        "propeller",
+        "fuel-topping-governor"
+      ],
+      "references": [
+        {
+          "source": "DHC6_FLASHCARDS_FILE",
+          "locator": "Q162-Q163"
+        }
+      ]
+    },
+    {
+      "id": "prop_diameter",
+      "front": "What is the Twin Otter propeller diameter?",
+      "back": "8 feet 6 inches.",
+      "tags": [
+        "propeller",
+        "dimensions"
+      ],
+      "references": [
+        {
+          "source": "DHC6_FLASHCARDS_FILE",
+          "locator": "Q167"
+        }
+      ]
+    },
+    {
+      "id": "standard_propeller",
+      "front": "What is the standard Twin Otter propeller?",
+      "back": "A Hartzell three-bladed reversing and full-feathering propeller.",
+      "tags": [
+        "propeller",
+        "type"
+      ],
+      "references": [
+        {
+          "source": "DHC6_FLASHCARDS_FILE",
+          "locator": "Q168"
+        }
+      ]
+    },
+    {
+      "id": "lost_engine_oil_pressure",
+      "front": "What happens to the propeller if engine oil pressure is lost?",
+      "back": "The propeller goes to feather.",
+      "tags": [
+        "propeller",
+        "oil-pressure",
+        "failure"
+      ],
+      "references": [
+        {
+          "source": "DHC6_FLASHCARDS_FILE",
+          "locator": "Q169"
+        }
+      ]
+    }
+  ]
+}

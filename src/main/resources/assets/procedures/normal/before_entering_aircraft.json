@@ -1,0 +1,151 @@
+{
+    "rawName":  "Before Entering Aircraft",
+    "drillName":  "Before Entering Aircraft [Ground]",
+    "category":  "NORMAL",
+    "context":  "Ground",
+    "sourceNote":  "Procedure identity/category/order normalized from \u0027DHC-6 Full Drill Procedure Index Normal Split.xlsx\u0027. Excel is the governing app display allow-list. Existing procedure steps preserved for later content review. Previous note: Generic training callout structure based on user-provided Section 4 normal-procedure titles and generated PF/PM MCC callouts. Not an approved AFM/POH/checklist replacement.",
+    "variants":  {
+                     "LEGACY":  {
+                                    "memory":  [
+                                                   {
+                                                       "stepNumber":  1,
+                                                       "action":  "WEATHER / NOTAMS / ROUTE - REVIEWED",
+                                                       "crewRole":  "PF",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.4.1 Before Entering Aircraft"
+                                                   },
+                                                   {
+                                                       "stepNumber":  2,
+                                                       "action":  "FUEL / PERFORMANCE / OPERATIONAL THREATS - REVIEWED",
+                                                       "crewRole":  "PF",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.4.1 Before Entering Aircraft"
+                                                   },
+                                                   {
+                                                       "stepNumber":  3,
+                                                       "action":  "AIRCRAFT DOCUMENTS / TECH LOG - CHECKED",
+                                                       "crewRole":  "PM",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.4.1 Before Entering Aircraft"
+                                                   },
+                                                   {
+                                                       "stepNumber":  4,
+                                                       "action":  "DEFECTS / MEL / CDL / REQUIRED EQUIPMENT - REVIEWED",
+                                                       "crewRole":  "PM",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.4.1 Before Entering Aircraft"
+                                                   }
+                                               ],
+                                    "flow":  [
+                                                 {
+                                                     "stepNumber":  1,
+                                                     "action":  "Before entering aircraft checks.",
+                                                     "crewRole":  "PF",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.4.1; PF_CALL"
+                                                 },
+                                                 {
+                                                     "stepNumber":  2,
+                                                     "action":  "Review weather, NOTAMs, route, fuel, performance, and operational threats.",
+                                                     "crewRole":  "PF",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.4.1"
+                                                 },
+                                                 {
+                                                     "stepNumber":  3,
+                                                     "action":  "Review aircraft documents, tech log, defects, MEL/CDL items, and required equipment.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.4.1"
+                                                 },
+                                                 {
+                                                     "stepNumber":  4,
+                                                     "action":  "Before entering aircraft checks complete.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.4.1; PM_COMPLETION"
+                                                 }
+                                             ]
+                                },
+                     "G950":  {
+                                  "memory":  [
+                                                 {
+                                                     "stepNumber":  1,
+                                                     "action":  "WEATHER / NOTAMS / ROUTE - REVIEWED",
+                                                     "crewRole":  "PF",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.4.1 Before Entering Aircraft"
+                                                 },
+                                                 {
+                                                     "stepNumber":  2,
+                                                     "action":  "FUEL / PERFORMANCE / OPERATIONAL THREATS - REVIEWED",
+                                                     "crewRole":  "PF",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.4.1 Before Entering Aircraft"
+                                                 },
+                                                 {
+                                                     "stepNumber":  3,
+                                                     "action":  "AIRCRAFT DOCUMENTS / TECH LOG - CHECKED",
+                                                     "crewRole":  "PM",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.4.1 Before Entering Aircraft"
+                                                 },
+                                                 {
+                                                     "stepNumber":  4,
+                                                     "action":  "DEFECTS / MEL / CDL / REQUIRED EQUIPMENT - REVIEWED",
+                                                     "crewRole":  "PM",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.4.1 Before Entering Aircraft"
+                                                 }
+                                             ],
+                                  "flow":  [
+                                               {
+                                                   "stepNumber":  1,
+                                                   "action":  "Before entering aircraft checks.",
+                                                   "crewRole":  "PF",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.4.1; PF_CALL"
+                                               },
+                                               {
+                                                   "stepNumber":  2,
+                                                   "action":  "Review weather, NOTAMs, route, fuel, performance, and operational threats.",
+                                                   "crewRole":  "PF",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.4.1"
+                                               },
+                                               {
+                                                   "stepNumber":  3,
+                                                   "action":  "Review aircraft documents, tech log, defects, MEL/CDL items, and required equipment.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.4.1"
+                                               },
+                                               {
+                                                   "stepNumber":  4,
+                                                   "action":  "Before entering aircraft checks complete.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.4.1; PM_COMPLETION"
+                                               }
+                                           ]
+                              },
+                     "manualSection":  "Section 4",
+                     "sourceSection":  "4.4.1"
+                 },
+    "phaseTag":  "Ground",
+    "displayLabel":  "Before Entering Aircraft [Ground]",
+    "sortOrder":  1,
+    "sourceSection":  "4.4.1",
+    "procedureGroup":  "Preparation and Inspection",
+    "manualSection":  "Section 4",
+    "sequenceBasis":  "Normal-procedure flow order",
+    "normalSplit":  "Everyday Actions"
+}

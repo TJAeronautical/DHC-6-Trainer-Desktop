@@ -1569,7 +1569,7 @@ private fun SettingsScreen(
         item {
             InfoCard(
                 "Content loader status",
-                "${procedures.procedures.size} procedures, ${flashcards.totalCards} flashcards, ${assetSnapshot.allResourcePaths.size} indexed packaged resources loaded from shared Android/core-res assets.",
+                "${procedures.procedures.size} procedures, ${flashcards.totalCards} flashcards, ${assetSnapshot.allResourcePaths.size} indexed packaged resources loaded from desktop-local assets.",
                 Modifier.fillMaxWidth()
             )
         }

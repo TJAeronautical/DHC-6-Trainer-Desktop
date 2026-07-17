@@ -1,0 +1,173 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://dhc6trainer.app/schema/procedure_patch.schema.json",
+  "title": "DHC-6 Procedure Patch",
+  "description": "Draft-07-compatible procedure patch schema for Android Studio JSON Schema inspection.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaId",
+    "schemaVersion",
+    "patchId",
+    "targetProcedureId",
+    "operations"
+  ],
+  "properties": {
+    "schemaId": {
+      "type": "string",
+      "enum": [
+        "procedure_patch"
+      ]
+    },
+    "schemaVersion": {
+      "type": "string",
+      "enum": [
+        "1.0.0"
+      ]
+    },
+    "patchId": {
+      "type": "string",
+      "minLength": 3
+    },
+    "targetProcedureId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "createdAtUtc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "description": {
+      "type": "string"
+    },
+    "operations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/definitions/operation"
+      }
+    }
+  },
+  "definitions": {
+    "operation": {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/addOperation"
+        },
+        {
+          "$ref": "#/definitions/replaceOperation"
+        },
+        {
+          "$ref": "#/definitions/removeOperation"
+        }
+      ]
+    },
+    "baseOperationFields": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1,
+          "description": "JSON Pointer path in the target procedure asset."
+        },
+        "reason": {
+          "type": "string"
+        }
+      }
+    },
+    "addOperation": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/baseOperationFields"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "op",
+            "path",
+            "value"
+          ],
+          "properties": {
+            "op": {
+              "type": "string",
+              "enum": [
+                "add"
+              ]
+            },
+            "path": {
+              "type": "string",
+              "minLength": 1
+            },
+            "value": true,
+            "reason": {
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+    "replaceOperation": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/baseOperationFields"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "op",
+            "path",
+            "value"
+          ],
+          "properties": {
+            "op": {
+              "type": "string",
+              "enum": [
+                "replace"
+              ]
+            },
+            "path": {
+              "type": "string",
+              "minLength": 1
+            },
+            "value": true,
+            "reason": {
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+    "removeOperation": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/baseOperationFields"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "op",
+            "path"
+          ],
+          "properties": {
+            "op": {
+              "type": "string",
+              "enum": [
+                "remove"
+              ]
+            },
+            "path": {
+              "type": "string",
+              "minLength": 1
+            },
+            "reason": {
+              "type": "string"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

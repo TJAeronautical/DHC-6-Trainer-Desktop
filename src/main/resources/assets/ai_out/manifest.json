@@ -1,0 +1,50 @@
+{
+  "schemaId": "ai_out_manifest",
+  "schemaVersion": "1.0.0",
+  "root": "ai_out",
+  "layout": {
+    "jobsRoot": "ai_out/jobs",
+    "jobSubfolders": [
+      "input",
+      "extracted",
+      "candidate",
+      "approved",
+      "published",
+      "logs"
+    ],
+    "schemasRoot": "ai_out/schema"
+  },
+  "contracts": {
+    "jobManifest": "ai_out/schema/ai_job_manifest.schema.json",
+    "extractionJob": "ai_out/schema/ai_extraction_job.schema.json",
+    "extractedProcedure": "ai_out/schema/ai_extracted_procedure.schema.json",
+    "extractedKnowledgeUnit": "ai_out/schema/ai_extracted_knowledge_unit.schema.json",
+    "drillBlueprint": "ai_out/schema/ai_drill_blueprint.schema.json",
+    "hitboxCalloutMap": "ai_out/schema/ai_hitbox_callout_map.schema.json",
+    "publishedManifest": "ai_out/schema/ai_published_manifest.schema.json",
+    "procedureSchema": "core-res/src/main/assets/schema/procedure.schema.json",
+    "procedurePatchSchema": "core-res/src/main/assets/schema/procedure_patch.schema.json",
+    "scenarioSnapshotsV2": "core-res/src/main/assets/schema/scenario_snapshots_v2.schema.json"
+  },
+  "statusModel": {
+    "allowed": [
+      "CANDIDATE",
+      "APPROVED",
+      "REJECTED",
+      "PUBLISHED"
+    ],
+    "publishRequires": [
+      "APPROVED"
+    ],
+    "publishWrites": [
+      "app/src/main/assets/procedures",
+      "app/src/main/assets/bindings",
+      "app/src/main/assets/cockpit"
+    ]
+  },
+  "notes": {
+    "idempotentPublish": true,
+    "recommendedJobIdFormat": "YYYYMMDD-HHMMSS-<shortTag>",
+    "schemaFamilies": "AI extraction artifacts use schemaVersion 2.0. AI output manifests use schemaVersion 1.0.0. Runtime procedure/scenario schemas are separate app contracts."
+  }
+}

@@ -1,0 +1,181 @@
+{
+    "rawName":  "Electrical Test",
+    "drillName":  "Electrical Test [Ground]",
+    "category":  "NORMAL",
+    "context":  "Ground",
+    "sourceNote":  "Procedure identity/category/order normalized from \u0027DHC-6 Full Drill Procedure Index Normal Split.xlsx\u0027. Excel is the governing app display allow-list. Existing procedure steps preserved for later content review. Previous note: Generic training callout structure based on user-provided Section 4 normal-procedure titles and generated PF/PM MCC callouts. Not an approved AFM/POH/checklist replacement.",
+    "variants":  {
+                     "LEGACY":  {
+                                    "memory":  [
+                                                   {
+                                                       "stepNumber":  1,
+                                                       "action":  "ELECTRICAL TEST - INITIATED",
+                                                       "crewRole":  "PF",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.8.7 Electrical Test"
+                                                   },
+                                                   {
+                                                       "stepNumber":  2,
+                                                       "action":  "GENERATORS - CHECKED",
+                                                       "crewRole":  "PM",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.8.7 Electrical Test"
+                                                   },
+                                                   {
+                                                       "stepNumber":  3,
+                                                       "action":  "BUS VOLTAGE - CHECKED",
+                                                       "crewRole":  "PM",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.8.7 Electrical Test"
+                                                   },
+                                                   {
+                                                       "stepNumber":  4,
+                                                       "action":  "LOAD - CHECKED",
+                                                       "crewRole":  "PM",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.8.7 Electrical Test"
+                                                   },
+                                                   {
+                                                       "stepNumber":  5,
+                                                       "action":  "ELECTRICAL TEST - COMPLETE",
+                                                       "crewRole":  "PM",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.8.7 Electrical Test"
+                                                   }
+                                               ],
+                                    "flow":  [
+                                                 {
+                                                     "stepNumber":  1,
+                                                     "action":  "Electrical test.",
+                                                     "crewRole":  "PF",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.8.7; PF_CALL"
+                                                 },
+                                                 {
+                                                     "stepNumber":  2,
+                                                     "action":  "Generators checked.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.8.7; PM_MONITOR"
+                                                 },
+                                                 {
+                                                     "stepNumber":  3,
+                                                     "action":  "Bus voltage checked.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.8.7; PM_MONITOR"
+                                                 },
+                                                 {
+                                                     "stepNumber":  4,
+                                                     "action":  "Load checked.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.8.7; PM_MONITOR"
+                                                 },
+                                                 {
+                                                     "stepNumber":  5,
+                                                     "action":  "Electrical test complete.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.8.7; PM_COMPLETION"
+                                                 }
+                                             ]
+                                },
+                     "G950":  {
+                                  "memory":  [
+                                                 {
+                                                     "stepNumber":  1,
+                                                     "action":  "ELECTRICAL TEST - INITIATED",
+                                                     "crewRole":  "PF",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.8.7 Electrical Test"
+                                                 },
+                                                 {
+                                                     "stepNumber":  2,
+                                                     "action":  "GENERATORS - CHECKED",
+                                                     "crewRole":  "PM",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.8.7 Electrical Test"
+                                                 },
+                                                 {
+                                                     "stepNumber":  3,
+                                                     "action":  "BUS VOLTAGE - CHECKED",
+                                                     "crewRole":  "PM",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.8.7 Electrical Test"
+                                                 },
+                                                 {
+                                                     "stepNumber":  4,
+                                                     "action":  "LOAD - CHECKED",
+                                                     "crewRole":  "PM",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.8.7 Electrical Test"
+                                                 },
+                                                 {
+                                                     "stepNumber":  5,
+                                                     "action":  "ELECTRICAL TEST - COMPLETE",
+                                                     "crewRole":  "PM",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.8.7 Electrical Test"
+                                                 }
+                                             ],
+                                  "flow":  [
+                                               {
+                                                   "stepNumber":  1,
+                                                   "action":  "Electrical test.",
+                                                   "crewRole":  "PF",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.8.7; PF_CALL"
+                                               },
+                                               {
+                                                   "stepNumber":  2,
+                                                   "action":  "Generators checked.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.8.7; PM_MONITOR"
+                                               },
+                                               {
+                                                   "stepNumber":  3,
+                                                   "action":  "Bus voltage checked.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.8.7; PM_MONITOR"
+                                               },
+                                               {
+                                                   "stepNumber":  4,
+                                                   "action":  "Load checked.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.8.7; PM_MONITOR"
+                                               },
+                                               {
+                                                   "stepNumber":  5,
+                                                   "action":  "Electrical test complete.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.8.7; PM_COMPLETION"
+                                               }
+                                           ]
+                              },
+                     "manualSection":  "Section 4",
+                     "sourceSection":  "4.8.7"
+                 },
+    "phaseTag":  "Ground",
+    "displayLabel":  "Electrical Test [Ground]",
+    "sortOrder":  30,
+    "sourceSection":  "4.8.7",
+    "procedureGroup":  "System Functional Checks",
+    "manualSection":  "Section 4",
+    "sequenceBasis":  "Normal-procedure flow order",
+    "normalSplit":  "System Tests"
+}

@@ -147,7 +147,7 @@ internal fun SystemGlbViewer(
                 }
             } else {
                 Text(
-                    text = "No GLB model found for this group. Add models under core-res/src/main/assets/models/systems_lab and rebuild. The PT6A-27 procedural engine renders as the fallback.",
+                    text = "No GLB model found for this group. Add models under src/main/resources/assets/models/systems_lab and rebuild. The PT6A-27 procedural engine renders as the fallback.",
                     color = Dhc6DesktopColors.TextSecondary,
                     fontSize = 12.sp,
                     lineHeight = 17.sp,

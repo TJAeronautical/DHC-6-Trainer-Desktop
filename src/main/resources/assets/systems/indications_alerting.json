@@ -1,0 +1,187 @@
+{
+  "schemaId": "system_description",
+  "schemaVersion": "1.0.0",
+  "systemId": "indications_alerting",
+  "systemName": "Indications and Alerting",
+  "variant": "BOTH",
+  "summary": "The DHC-6 operates in two distinct avionics variants that present crew alerting differently. Legacy aircraft use a conventional fixed annunciator panel with amber caution lights and red warning lights. G950-equipped aircraft (Manta Air fleet) display all crew alerts through the Garmin G950 Crew Alerting System (CAS), presented on the Primary Flight Display with three priority levels: WARNING (red), CAUTION (amber), and ADVISORY (white). The G950 also provides AHRS attitude/heading, air data, engine data on the MFD engine page, and GPS/SBAS navigation. Engine parameters are monitored via the MFD engine page rather than traditional round gauges.",
+  "references": [
+    {
+      "source": "FCTM",
+      "locator": "6.1 G950 Avionics System Overview, p.6-1\u20136",
+      "revision": "ISS 03 / REV 02 (Dec 2022)"
+    },
+    {
+      "source": "POH_AFM",
+      "locator": "Section 7.6 Instrument Panel, p.7-40\u201360",
+      "revision": "Rev 53 (10 Sep 2010)"
+    },
+    {
+      "source": "QRH",
+      "locator": "All CAS message sections",
+      "revision": "HBFO-002 ISS 01 REV 02"
+    }
+  ],
+  "modificationVariants": [
+    {
+      "id": "g950_suite",
+      "name": "Garmin G950 Integrated Avionics",
+      "serialRange": "Manta Air fleet (all current aircraft)",
+      "description": "Complete glass cockpit replacement: G950 PFD (Primary Flight Display) replaces conventional AI/HSI/VSI. G950 MFD (Multi-Function Display) presents engine data, moving map, and system pages. G950 CAS replaces individual annunciator lights. G950 GIA 63 integrates COM/NAV/GPS. GFC 700 autopilot (where fitted). G600 TXi may be fitted as backup/supplemental display.",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.1, p.6-1"
+        }
+      ]
+    },
+    {
+      "id": "legacy_panel",
+      "name": "Legacy Instrument Panel",
+      "serialRange": "Non-G950 aircraft",
+      "description": "Conventional round-gauge instruments: AI, HSI/DI, VSI, ASI, altimeter, turn coordinator. Engine parameters on individual gauges. Caution/warning lights on a fixed annunciator panel. FIRE PULL handle rather than push-switch. No integrated CAS.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.6, p.7-40"
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "id": "cas_system",
+      "name": "G950 Crew Alerting System (CAS)",
+      "description": "The G950 CAS presents all abnormal and emergency alerts in a priority-ranked scrolling list on the PFD. Three levels: WARNING (red background, audio tone, top of list) \u2014 immediate crew action required; CAUTION (amber, audio tone) \u2014 awareness and QRH action required; ADVISORY (white, no audio) \u2014 information only. New alerts since last scan are shown in reverse video. The 400-cycle system checks each sensor at least every 400 scan cycles.",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.1, p.6-2\u20135"
+        }
+      ]
+    },
+    {
+      "id": "legacy_annunciators",
+      "name": "Legacy Annunciator Panel",
+      "description": "Fixed panel of amber caution lights and red warning lights. Each light corresponds to a specific system fault. Positioned centrally on the instrument panel below the glare shield. Tested using the MASTER CAUTION/WARNING PRESS TO TEST button. No priority ranking \u2014 all lights are visible simultaneously.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.6, p.7-42"
+        }
+      ]
+    },
+    {
+      "id": "pfd",
+      "name": "Primary Flight Display (PFD) \u2014 G950",
+      "description": "The G950 PFD is the primary attitude/airspeed/altitude/navigation display. Shows: attitude (AHRS-derived), IAS, altitude, VSI, HSI with heading, nav source, CAS alert window. Failure of the PFD requires reversion to standby instruments. AHRS failure modes and reversion to alternate AHRS source are covered in the QRH G600 TXi AHRS/ADC Abnormalities procedure.",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.1, p.6-1"
+        }
+      ]
+    },
+    {
+      "id": "mfd_engine",
+      "name": "MFD Engine Data Page \u2014 G950",
+      "description": "The G950 MFD engine page displays all engine parameters: NG (%), NP (%), T5 (\u00b0C), Torque (psi), Fuel Flow (lb/hr), Oil Pressure (psi), Oil Temperature (\u00b0C), and Fuel Quantity (lb). These replace traditional engine gauges on G950 aircraft. Backup analogue gauges are retained for torque and T5 on most aircraft.",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.1, p.6-3"
+        }
+      ]
+    },
+    {
+      "id": "standby_instruments",
+      "name": "Standby Instruments",
+      "description": "Independently-powered standby Altimeter, ASI, and Attitude Indicator (AI). Must be used as cross-check when primary instruments fail or disagree. Powered from the standby battery or dedicated bus. The standby AI has its own gyro and does not depend on AHRS.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.6, p.7-44"
+        }
+      ]
+    },
+    {
+      "id": "master_warning",
+      "name": "Master Warning/Caution Lights",
+      "description": "Large red MASTER WARNING and amber MASTER CAUTION lights illuminate in the pilot's primary field of view when a new warning or caution condition occurs. On legacy aircraft: pressing the light acknowledges the current alert and extinguishes the master light; individual system lights remain on. On G950: alerts remain on CAS until the condition clears.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.6, p.7-42"
+        }
+      ]
+    }
+  ],
+  "controls": [
+    {
+      "id": "cas_acknowledge",
+      "name": "CAS Acknowledge / Master Caution Acknowledge",
+      "positions": [
+        "PRESSED (acknowledge)"
+      ],
+      "description": "On G950: new CAS messages are shown in reverse video until acknowledged. Pressing the CAS softkey acknowledges new alerts \u2014 changes their visual state but does not clear them if the condition persists. On legacy: pressing the MASTER CAUTION PRESS TO TEST button cancels the master caution annunciator.",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.1, p.6-4"
+        }
+      ]
+    },
+    {
+      "id": "g950_softkeys",
+      "name": "G950 Softkeys",
+      "positions": [
+        "Map / Engine / PFD / Back / CDI / BARO (variable)"
+      ],
+      "description": "Context-sensitive softkeys below each display select and navigate between pages. The ENGINE softkey on the MFD accesses the engine parameter page. PFD softkeys control CDI source, barometric setting, and flight director mode.",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.1, p.6-1"
+        }
+      ]
+    }
+  ],
+  "limits": [
+    {
+      "id": "400_cycle",
+      "parameter": "G950 CAS Sensor Scan Rate",
+      "value": "400 cycles \u2014 minimum sensor check interval",
+      "note": "Each parameter is checked at least once per 400 scan cycles, ensuring timely detection of system anomalies.",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.1, p.6-5"
+        }
+      ]
+    },
+    {
+      "id": "cas_hierarchy",
+      "parameter": "G950 CAS Alert Priority",
+      "value": "WARNING (red) > CAUTION (amber) > ADVISORY (white)",
+      "note": "New alerts since last scan displayed in reverse video. Acknowledged alerts return to normal display. Condition must clear for the message to remove from the list.",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.1, p.6-4"
+        }
+      ]
+    },
+    {
+      "id": "ahrs_cross_check",
+      "parameter": "AHRS Disagreement \u2014 Required Action",
+      "value": "Cross-check standby AI before acting on any AHRS disagreement",
+      "references": [
+        {
+          "source": "QRH",
+          "locator": "G600 TXi AHRS/ADC Abnormalities"
+        }
+      ]
+    }
+  ],
+  "casMessageRefs": []
+}

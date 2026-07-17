@@ -1,0 +1,147 @@
+{
+  "schemaId": "flashcard_deck",
+  "schemaVersion": "1.0.0",
+  "deckId": "electrical_limits_and_failures",
+  "deckName": "Electrical System — Limits & Failures",
+  "description": "Generator load limits, starter duty cycle, and the abnormal procedures for generator faults and total electrical failure.",
+  "systemId": "electrical",
+  "variant": "BOTH",
+  "difficulty": "INTERMEDIATE",
+  "cards": [
+    {
+      "id": "single_gen_load_ground_idle",
+      "front": "Single generator load limit on the ground at idle NG.",
+      "back": "0 to 0.5 loadmeter (0–100 A) — any OAT, no further limitation in this range.",
+      "tags": ["limits", "generator-load"],
+      "references": [
+        { "source": "POH_AFM", "locator": "Section 2.5.1, p.2-23" }
+      ]
+    },
+    {
+      "id": "single_gen_load_ground_mid",
+      "front": "Single generator load 0.5 to 1.0 on the ground — what NG is required and why?",
+      "back": "Idle NG plus 15%, any OAT. Required to keep T5 below the idle limit of 660°C.",
+      "tags": ["limits", "generator-load", "ng"],
+      "references": [
+        { "source": "POH_AFM", "locator": "Section 2.5.1, p.2-23" }
+      ]
+    },
+    {
+      "id": "single_gen_load_ground_hot",
+      "front": "Maximum single generator load on the ground when OAT is greater than 7°C, and why?",
+      "back": "0.8 maximum (160 A max). Reason: generator cooling.",
+      "tags": ["limits", "generator-load", "oat"],
+      "references": [
+        { "source": "POH_AFM", "locator": "Section 2.5.1, p.2-23" }
+      ]
+    },
+    {
+      "id": "single_gen_load_ground_cold",
+      "front": "Maximum single generator load on the ground when OAT is 7°C or less, and why?",
+      "back": "1.0 maximum (200 A max). Reason: generator capacity.",
+      "tags": ["limits", "generator-load", "oat"],
+      "references": [
+        { "source": "POH_AFM", "locator": "Section 2.5.1, p.2-23" }
+      ]
+    },
+    {
+      "id": "single_gen_load_inflight",
+      "front": "Maximum single generator load in flight.",
+      "back": "1.0 maximum (200 A max), any OAT. Reason: generator capacity.",
+      "tags": ["limits", "generator-load", "in-flight"],
+      "references": [
+        { "source": "POH_AFM", "locator": "Section 2.5.1, p.2-23" }
+      ]
+    },
+    {
+      "id": "starter_duty_cycle",
+      "front": "What is the starter duty cycle?",
+      "back": "25 seconds ON, 1 minute OFF, then 25 seconds ON, 1 minute OFF, then 25 seconds ON, followed by a 30 minute cooling period.",
+      "tags": ["limits", "starter"],
+      "references": [
+        { "source": "POH_AFM", "locator": "Section 2.5.2, p.2-23" }
+      ]
+    },
+    {
+      "id": "cross_generator_starting_prohibited",
+      "front": "Is cross-generator starting permitted?",
+      "back": "Prohibited except in an emergency such as an airstart. (Cross-generator starting means starting one engine while the other running engine's generator is on line and producing power.)",
+      "tags": ["limits", "starter", "prohibited"],
+      "references": [
+        { "source": "POH_AFM", "locator": "Section 2.5.2, p.2-23" }
+      ]
+    },
+    {
+      "id": "one_generator_light_procedure",
+      "front": "Initial steps when one GENERATOR caution light illuminates.",
+      "back": "1) GENERATOR switch (affected engine) — OFF. 2) GENERATOR switch (affected engine) — RESET once. 3) Check the GENERATOR light is out.",
+      "tags": ["abnormal", "generator-fail"],
+      "references": [
+        { "source": "POH_AFM", "locator": "Section 3.12.1, p.3-40" }
+      ]
+    },
+    {
+      "id": "one_generator_does_not_reset",
+      "front": "If a single generator does not reset on the first try, what is the next step (aircraft with single inverter switch)?",
+      "back": "4) INVERTER switch — SELECT NO. 1. 5) BUS TIE switch — OPEN. 6) GENERATOR switch (affected engine) — RESET once. 7) Check the GENERATOR light is out. 8) DC Loadmeter — check generator loads.",
+      "tags": ["abnormal", "generator-fail", "bus-tie"],
+      "references": [
+        { "source": "POH_AFM", "locator": "Section 3.12.1, p.3-40" }
+      ]
+    },
+    {
+      "id": "both_generator_lights",
+      "front": "First three steps when both GENERATOR caution lights illuminate (aircraft with single inverter switch).",
+      "back": "1) INVERTER switch — SELECT NO. 1. 2) BUS TIE switch — OPEN. 3) GENERATOR switches (both) — Both OFF.",
+      "tags": ["abnormal", "dual-generator-fail"],
+      "references": [
+        { "source": "POH_AFM", "locator": "Section 3.12.2, p.3-40" }
+      ]
+    },
+    {
+      "id": "total_electrical_failure_first_steps",
+      "front": "First three steps for Total Electrical Failure.",
+      "back": "1) BUS TIE switch — OPEN. 2) GENERATOR switches — both OFF. 3) GENERATOR switches — RESET individually, maximum two attempts each.",
+      "tags": ["abnormal", "total-electrical-failure"],
+      "references": [
+        { "source": "POH_AFM", "locator": "Section 3.12.3, p.3-41" }
+      ]
+    },
+    {
+      "id": "generator_overheat_first_action",
+      "front": "First action when a GENERATOR OVERHEAT caution light illuminates.",
+      "back": "1) GENERATOR switch (affected engine) — OFF. 2) DC Loadmeter — check generator load. If the overheat light goes out within 3 minutes, do NOT reset the affected generator.",
+      "tags": ["abnormal", "generator-overheat"],
+      "references": [
+        { "source": "POH_AFM", "locator": "Section 3.12.4, p.3-41" }
+      ]
+    },
+    {
+      "id": "generator_overheat_3_min_no_clear",
+      "front": "If the GENERATOR OVERHEAT light does NOT go out within 3 minutes, what should the crew do?",
+      "back": "Shut down the affected engine, or — if not safe or practical — visually monitor the engine cowling for evidence of fire near the oil dipstick access panel. Be prepared for a possible engine fire warning due to overheat of the fire sensor near the generator; if a fire warning occurs, complete the Engine Fire in Flight checklist.",
+      "tags": ["abnormal", "generator-overheat", "fire-risk"],
+      "references": [
+        { "source": "POH_AFM", "locator": "Section 3.12.4, p.3-41" }
+      ]
+    },
+    {
+      "id": "rccb_pop_in_flight",
+      "front": "Why might the crew not realise the RCCB has popped during flight?",
+      "back": "Because the generators supply the entire electrical system with power. The crew would most likely notice the failure only at engine shutdown when the generators are selected off, at which point all DC and AC power would be lost because the battery is isolated from the electrical system.",
+      "tags": ["rccb", "battery-protection"],
+      "references": [
+        { "source": "FCTM", "locator": "6.2.2.12, p.6-14" }
+      ]
+    },
+    {
+      "id": "current_limiter_partial_failure",
+      "front": "What happens if one current limiter melts but the others remain intact?",
+      "back": "Battery service remains available but is limited to 300 amps sustained. This is difficult to identify by the crew in flight or at shutdown, and the partial failure will most likely lead to total failure during the next engine start as the remaining limiters melt.",
+      "tags": ["current-limiters", "battery-protection"],
+      "references": [
+        { "source": "FCTM", "locator": "6.2.2.13, p.6-15" }
+      ]
+    }
+  ]
+}

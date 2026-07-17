@@ -1,0 +1,159 @@
+{
+  "schemaId": "flashcard_deck",
+  "schemaVersion": "1.0.0",
+  "deckId": "electrical_basics",
+  "deckName": "Electrical System — Basics",
+  "description": "Foundation knowledge cards for the DHC-6 DC electrical system: voltage, bus structure, switches, and what each control does.",
+  "systemId": "electrical",
+  "variant": "BOTH",
+  "difficulty": "BASICS",
+  "cards": [
+    {
+      "id": "voltage_and_distribution",
+      "front": "What is the DHC-6 main electrical system voltage and how is power distributed?",
+      "back": "28 VDC, single-wire installation with the airframe used as ground return. Primary DC power comes from two engine-driven starter-generators. Power is distributed through left and right main DC buses, connectable by a bus tie relay. A hot battery bus remains live whenever battery power is present.",
+      "tags": ["overview", "buses"],
+      "references": [
+        { "source": "POH_AFM", "locator": "Section 7.8, p.7-46" },
+        { "source": "FCTM", "locator": "6.2, p.6-8" }
+      ]
+    },
+    {
+      "id": "starter_generator_rating",
+      "front": "What is the rated output of each starter-generator?",
+      "back": "28.5 VDC, 200 amps. One is mounted on each engine's accessory gearbox; it functions as a direct-drive starter during start and as a DC generator once the engine is running.",
+      "tags": ["starter-generator", "rating"],
+      "references": [
+        { "source": "POH_AFM", "locator": "Section 7.8.7, p.7-53" },
+        { "source": "FCTM", "locator": "6.2.2.2, p.6-11" }
+      ]
+    },
+    {
+      "id": "main_battery_legacy",
+      "front": "What was the original DHC-6 main battery specification?",
+      "back": "24 VDC, 40 ampere-hour nickel-cadmium battery, located beneath the floor of the rear baggage compartment.",
+      "tags": ["battery", "legacy"],
+      "appliesToVariant": "LEGACY",
+      "references": [
+        { "source": "POH_AFM", "locator": "Section 7.8.1, p.7-46" }
+      ]
+    },
+    {
+      "id": "main_battery_manta",
+      "front": "What main battery is fitted to Manta Air DHC-6 aircraft?",
+      "back": "24 VDC, 48 ampere-hour lead-acid battery. The POH notes that operators commonly replace the original NiCad with lead-acid when cold-weather starting capability is not required.",
+      "tags": ["battery", "manta"],
+      "appliesToVariant": "G950",
+      "references": [
+        { "source": "FCTM", "locator": "6.2 and 6.2.2.1, pages 6-8 and 6-11" },
+        { "source": "POH_AFM", "locator": "Section 7.8.1, p.7-46" }
+      ]
+    },
+    {
+      "id": "dc_master_off_effect",
+      "front": "What is the effect of selecting the DC MASTER switch to OFF?",
+      "back": "All power to the aircraft is lost with the exception of the hot battery bus, which always remains powered directly from the battery.",
+      "tags": ["dc-master", "switches"],
+      "references": [
+        { "source": "FCTM", "locator": "6.2.1.1, p.6-9" },
+        { "source": "POH_AFM", "locator": "Section 7.8.4, p.7-51" }
+      ]
+    },
+    {
+      "id": "battery_external_positions",
+      "front": "What are the positions of the BATTERY/EXTERNAL switch and what does each do?",
+      "back": "Three positions: EXTERNAL connects an applied external power source and isolates the battery (battery cannot be charged from external power). OFF means neither battery relay nor external power relay is closed. BATTERY energises the battery relay so the battery powers the system; generators can also feed the system at BATTERY position if their output exceeds the battery voltage.",
+      "tags": ["battery-external", "switches"],
+      "references": [
+        { "source": "FCTM", "locator": "6.2.1.2 and 6.2.2.4, pages 6-9 and 6-12" },
+        { "source": "POH_AFM", "locator": "Section 7.8.5, p.7-51" }
+      ]
+    },
+    {
+      "id": "start_switch_behaviour",
+      "front": "Describe the START switch on the DC Master Panel.",
+      "back": "Three-position spring-loaded switch labelled LEFT, START, and RIGHT, spring-loaded to the centre START position. Selecting LEFT or RIGHT and holding it closes the reverse current relay for that engine and allows power to flow from the bus to the starter.",
+      "tags": ["start", "switches", "starter"],
+      "references": [
+        { "source": "FCTM", "locator": "6.2.1.3, p.6-9" }
+      ]
+    },
+    {
+      "id": "generator_switch_positions",
+      "front": "What are the three positions of each GENERATOR switch and what is the spring-loaded one?",
+      "back": "OFF, ON, and RESET. RESET is spring-loaded back to ON. Selecting RESET excites the generator field and resets the generator field relay; the switch then springs back to ON. The respective generator caution light should go out when the reset is successful.",
+      "tags": ["generator-switch", "switches"],
+      "references": [
+        { "source": "FCTM", "locator": "6.2.1.4, p.6-10" },
+        { "source": "POH_AFM", "locator": "Section 7.8.8, p.7-53" }
+      ]
+    },
+    {
+      "id": "bus_tie_normal_vs_open",
+      "front": "What does the BUS TIE switch do at NORMAL versus OPEN?",
+      "back": "At NORMAL the left and right main DC buses are tied and function as one bus; both generators share load equally. At OPEN the two buses are isolated and each generator supplies only its own bus. OPEN is used only for abnormal procedures.",
+      "tags": ["bus-tie", "switches"],
+      "references": [
+        { "source": "FCTM", "locator": "6.2.1.5 and 6.2.2.5, pages 6-10 and 6-12" },
+        { "source": "POH_AFM", "locator": "Section 7.8.6, p.7-52" }
+      ]
+    },
+    {
+      "id": "loadmeter_scale",
+      "front": "How are loadmeter readings interpreted?",
+      "back": "Scale runs −1.0 to +1.0 in 0.1 increments. A loadmeter reading of 0.1 represents 10 amps for battery readings and 20 amps for generator readings.",
+      "tags": ["loadmeter", "indications"],
+      "references": [
+        { "source": "POH_AFM", "locator": "Section 7.8.12, p.7-54" },
+        { "source": "FCTM", "locator": "6.2.1.6, p.6-10" }
+      ]
+    },
+    {
+      "id": "hot_battery_bus_loads",
+      "front": "What does the hot battery bus power, and when is it active?",
+      "back": "Powers the passenger door entrance lights and the baggage compartment lights. It is connected directly to the battery and is always live whenever battery power is present — including when the DC MASTER switch is OFF.",
+      "tags": ["hot-battery-bus", "buses"],
+      "references": [
+        { "source": "FCTM", "locator": "6.2.2.7, p.6-12" },
+        { "source": "POH_AFM", "locator": "Section 7.8.1, p.7-46" }
+      ]
+    },
+    {
+      "id": "external_power_charging",
+      "front": "Can the main battery be charged from external power?",
+      "back": "No. When EXTERNAL is selected the battery is completely isolated from the electrical system. Selecting BATTERY after start allows the generators to charge the battery and provides a means of back-up DC power in flight.",
+      "tags": ["external-power", "charging"],
+      "references": [
+        { "source": "FCTM", "locator": "6.2.2.4, p.6-12" }
+      ]
+    },
+    {
+      "id": "rccb_purpose",
+      "front": "What is the purpose of the Reverse Current Circuit Breaker (RCCB) on pre-S/N 631 aircraft?",
+      "back": "It protects the main battery from damage and possible overheat by tripping open and disconnecting the battery from the left DC bus if sustained charging current exceeds 450 amps.",
+      "tags": ["rccb", "battery-protection"],
+      "appliesToVariant": "BOTH",
+      "references": [
+        { "source": "FCTM", "locator": "6.2.2.12, p.6-14" }
+      ]
+    },
+    {
+      "id": "current_limiters_replacement",
+      "front": "Why were current limiters introduced and how many are there?",
+      "back": "Current limiters replaced the RCCB at S/N 631 (Mod 6/1651) because of the problems associated with unwanted tripping of the RCCB. Six time-delay 150-amp slow-blow fuses are installed: three in the power distribution box where the RCCB used to be and three in the main battery enclosure.",
+      "tags": ["current-limiters", "battery-protection", "modification"],
+      "references": [
+        { "source": "FCTM", "locator": "6.2.2.13, p.6-15" }
+      ]
+    },
+    {
+      "id": "circuit_breaker_panel_layout",
+      "front": "How is the main CB panel organised by bus?",
+      "back": "On the main panel each vertical row of CBs is fed from the same DC bus: rows 1 and 3 from the left DC bus, rows 2 and 4 from the right DC bus. FIRE EXT R, FIRE DET R, and FIRE DET FAULT IND R are exceptions — supplied from the left DC bus but located in the fourth row.",
+      "tags": ["circuit-breakers", "panel"],
+      "references": [
+        { "source": "FCTM", "locator": "6.2.2.15, p.6-16" }
+      ]
+    }
+  ]
+}

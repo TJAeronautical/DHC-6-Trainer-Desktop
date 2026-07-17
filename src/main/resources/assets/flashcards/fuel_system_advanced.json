@@ -1,0 +1,120 @@
+{
+  "schemaId": "flashcard_deck",
+  "schemaVersion": "1.0.0",
+  "deckId": "fuel_system_advanced",
+  "title": "Fuel System \u2014 Advanced",
+  "system": "FUEL",
+  "tier": "ADVANCED",
+  "cards": [
+    {
+      "id": "fsa_001",
+      "question": "What are the usable fuel capacities for the FWD and AFT tanks?",
+      "answer": "FWD tank: 1235 lb (686 L / 181 USG). AFT tank: 1341 lb (756 L / 197 USG). Combined: 2576 lb without wingtip tanks. Wingtip tanks add approximately 287 lb total.",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.3.2.1 Table, p.6-22"
+        }
+      ]
+    },
+    {
+      "id": "fsa_002",
+      "question": "Under NORM fuel selector, which tank feeds which engine?",
+      "answer": "FWD tank feeds the RIGHT engine. AFT tank feeds the LEFT engine. When BOTH ON FWD or BOTH ON AFT is selected, the crossfeed valve opens and both engines draw from the selected tank.",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.3.3.4, p.6-24"
+        }
+      ]
+    },
+    {
+      "id": "fsa_003",
+      "question": "What is the boost pump nominal output and what is its secondary function?",
+      "answer": "450 lb/hr at 22 psi. Secondary function: the excess output drives the ejector/jet-pump which transfers fuel from the three feeder cells into the collector cell, keeping the collector cell full as fuel burns.",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.3.3.2, p.6-23"
+        }
+      ]
+    },
+    {
+      "id": "fsa_004",
+      "question": "At what altitude does dual boost pump failure risk engine flameout?",
+      "answer": "Above 8,000 ft, engine flameout is possible if both boost pumps on the same tank fail. Below 8,000 ft, the engine-driven HP pump may sustain operation. A normal air start can be attempted below 20,000 ft once boost pump pressure is restored.",
+      "references": [
+        {
+          "source": "QRH",
+          "locator": "Section 6.2 Note, p.FL-1"
+        }
+      ]
+    },
+    {
+      "id": "fsa_005",
+      "question": "Is there a fuel imbalance limitation between the FWD and AFT tanks?",
+      "answer": "No specific fuel imbalance limitation exists between FWD and AFT tanks, provided aircraft CG remains within limits at all times.",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.3.2.1, p.6-22"
+        }
+      ]
+    },
+    {
+      "id": "fsa_006",
+      "question": "What does the FUEL LOW LEVEL light indicate and when is a brief flicker normal?",
+      "answer": "Approximately 200 lb remaining in the affected collector cell. A brief flicker on take-off rotation is normal due to fuel surge in the cell. A steady illumination in flight requires immediate fuel management action.",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.3.3.8, p.6-26"
+        }
+      ]
+    },
+    {
+      "id": "fsa_007",
+      "question": "Can fuel be transferred from one fuselage tank to the other?",
+      "answer": "No. It is not possible to transfer fuel from one fuselage tank to the other. The crossfeed valve allows an engine to draw from the opposite tank but the fuel cannot be physically moved across.",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.3.2.1, p.6-21"
+        }
+      ]
+    },
+    {
+      "id": "fsa_008",
+      "question": "When BOOST1 PR CAS illuminates but BOOST2 PR does NOT illuminate \u2014 what happened and what is the action?",
+      "answer": "No.1 pump pressure has dropped and the auto-changeover system has successfully energised No.2. No immediate crew action is required regarding the boost pumps \u2014 this is normal changeover. Action: pull No.1 boost pump circuit breaker on the main panel. It is NOT desirable to manually operate the STBY BOOST PUMP EMER switch if auto-changeover has already worked.",
+      "references": [
+        {
+          "source": "QRH",
+          "locator": "Section 6.1, p.FL-1"
+        }
+      ]
+    },
+    {
+      "id": "fsa_009",
+      "question": "Why should the FWD tank be filled first when refuelling a wheeled aircraft?",
+      "answer": "Filling the FWD tank first reduces the risk of the aircraft tipping backwards onto the jury strut or tail bumper, which can occur if the AFT tank is filled first (weight bias aft).",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.3.2.2, p.6-22"
+        }
+      ]
+    },
+    {
+      "id": "fsa_010",
+      "question": "Why might a fuel dipstick reading be inaccurate after recent pump operation?",
+      "answer": "An accurate dipstick reading may not be obtainable until fuel has equalised across all cells. This can take up to 12 hours after the boost pumps were last operated and 15 minutes after refuelling.",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.3.2.1 Note, p.6-22"
+        }
+      ]
+    }
+  ]
+}

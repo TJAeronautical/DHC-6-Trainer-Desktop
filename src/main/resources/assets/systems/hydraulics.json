@@ -1,0 +1,233 @@
+{
+  "schemaId": "system_description",
+  "schemaVersion": "1.0.0",
+  "systemId": "hydraulics",
+  "systemName": "Hydraulic System",
+  "variant": "BOTH",
+  "summary": "The DHC-6 hydraulic system is powered by a 28-VDC electric motor-driven pump drawing from the left DC bus. It operates three standard subsystems: wing flaps, nose-wheel steering, and wheel brakes. An emergency hand pump provides backup pressurisation. Two nitrogen-precharged accumulators (system and brake) store pressure for immediate service demand. System operation is fully automatic; a pressure switch cycles the electric pump to maintain working pressure within the specified range.",
+  "references": [
+    {
+      "source": "FCTM",
+      "locator": "Chapter 6.5 Hydraulic System, pages 6-55 to 6-59",
+      "revision": "ISS 03 / REV 02 (Dec 2022)"
+    },
+    {
+      "source": "POH_AFM",
+      "locator": "Section 7.19 Hydraulic System, pages 7-118 to 7-129",
+      "revision": "Rev 53 (10 Sep 2010)"
+    },
+    {
+      "source": "POH_AFM",
+      "locator": "Section 10.8.19 Hydraulic System Abnormalities, pages 10-76 to 10-77",
+      "revision": "Rev 53 (10 Sep 2010)"
+    },
+    {
+      "source": "QRH",
+      "locator": "Section 7 Hydraulic, page HD-1",
+      "revision": "HBFO-002 ISS 01 REV 02"
+    }
+  ],
+  "modificationVariants": [
+    {
+      "id": "mod_6_1570_pressure_switch",
+      "name": "Mod 6/1570 — Revised Pressure Switch",
+      "serialRange": "S/N 511 and later; earlier aircraft may be retrofitted",
+      "description": "Changed pressure switch cut-in/cut-out settings. Pre-mod: pump turns on at 1375 psi, off at 1550–1600 psi (drop trigger 150–300 psi). Post-mod: pump turns on at 1325 psi, off at 1525–1625 psi (drop trigger 300 psi). Normal operating range post-mod: 1225–1625 psi. Pre-mod: 1300–1600 psi. The change reduces pump cycling frequency.",
+      "references": [
+        { "source": "FCTM", "locator": "6.5.6, p.6-56" },
+        { "source": "POH_AFM", "locator": "Section 7.19.1, p.7-122" }
+      ]
+    },
+    {
+      "id": "mod_6_1654_hyd_caution_light",
+      "name": "Mod 6/1654 — HYD PUMP C/BKR OPEN Caution Light",
+      "serialRange": "S/N 531 standard; S/N 595 moved to pilot instrument panel (Mod 6/1654)",
+      "description": "An amber press-to-test HYD PUMP C/BKR OPEN caution light provides visual indication when the HYD OIL PUMP circuit breaker is open. From SN 595, relocated to the left pilot instrument panel to the left of the ASI. The HYD OIL PUMP CB should not be pulled except in an abnormality.",
+      "references": [
+        { "source": "POH_AFM", "locator": "Section 7.19.1, p.7-123" }
+      ]
+    },
+    {
+      "id": "mod_6_1728_handle_stowage",
+      "name": "Mod 6/1728 — Revised Hand Pump Handle Stowage",
+      "serialRange": "S/N 731 and later",
+      "description": "Hand pump handle stowed on sub-floor structure below the fire extinguisher, replacing the forward bulkhead stowage location.",
+      "references": [
+        { "source": "POH_AFM", "locator": "Section 7.19.2, p.7-123" }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "id": "electric_motor_pump",
+      "name": "Electric Motor and Pump",
+      "description": "A gear-type pump driven by a 28-VDC electric motor, powered from the left DC bus. Operates in short pulses of 3–5 seconds to maintain system pressure. The sound of pump cycling is clearly audible from the flight compartment. Controlled by HYD OIL PUMP circuit breaker on the main panel. Protected by a HYD PUMP C/BKR OPEN caution light (Mod 6/1654 onwards).",
+      "specifications": {
+        "voltage": "28 VDC",
+        "power_bus": "Left DC Bus",
+        "pump_type": "Gear type",
+        "pump_cycle_duration_sec": "3-5"
+      },
+      "references": [
+        { "source": "FCTM", "locator": "6.5.5, p.6-56" },
+        { "source": "POH_AFM", "locator": "Section 7.19.1, p.7-122" }
+      ]
+    },
+    {
+      "id": "hand_pump",
+      "name": "Emergency Hand Pump",
+      "description": "Located beneath the flight compartment floor with the socket accessible through a hinged door in the cockpit floor, right of the left pilot seat. Handle stowed on the forward bulkhead (pre-Mod 6/1728) or sub-floor below the fire extinguisher (Mod 6/1728). Operated by moving the lever back-and-forth. Approximately 30–40 strokes required to produce 1500 psi. NOT to be used as a normal means of operating the system — emergency backup only.",
+      "specifications": {
+        "strokes_to_1500psi": "30-40",
+        "access": "Cockpit floor hatch, right of left pilot seat"
+      },
+      "references": [
+        { "source": "FCTM", "locator": "6.5.3, p.6-55" },
+        { "source": "POH_AFM", "locator": "Section 7.19.2, p.7-123" },
+        { "source": "QRH", "locator": "Section 7.1 Note 1, p.HD-1" }
+      ]
+    },
+    {
+      "id": "reservoir",
+      "name": "Hydraulic Reservoir",
+      "description": "Located on the hydraulic power pack tray. Contains red-coloured flammable hydraulic fluid. Fluid level is checked with flaps retracted and system pressure at zero. Access via left or right fuselage access doors beneath the flight compartment. Any leaks must be investigated and corrected before turning the DC MASTER switch ON.",
+      "references": [
+        { "source": "FCTM", "locator": "6.5.7, p.6-57" },
+        { "source": "POH_AFM", "locator": "Section 7.19, p.7-119" }
+      ]
+    },
+    {
+      "id": "system_accumulator",
+      "name": "System (Damping) Accumulator",
+      "description": "A nitrogen-precharged accumulator on the hydraulic power pack tray that supplies pressure to all hydraulic subsystems (flaps, steering, brakes). Pre-charged at 750 psi nitrogen. Provides immediate pressure availability when a service is demanded and absorbs pump pressure surges. Pressure falls from normal working pressure to 750 psi in a relatively linear fashion, then drops sharply to zero. In event of pump failure, pressure is available until 750 psi is reached.",
+      "specifications": {
+        "nitrogen_precharge_psi": "750"
+      },
+      "references": [
+        { "source": "FCTM", "locator": "6.5.9, p.6-57" },
+        { "source": "POH_AFM", "locator": "Section 7.19, p.7-119" }
+      ]
+    },
+    {
+      "id": "brake_accumulator",
+      "name": "Brake Accumulator",
+      "description": "A separate nitrogen-precharged accumulator dedicated to supplementing and maintaining brake system pressure. Also pre-charged at 750 psi. When system accumulator pressure fails, the brake accumulator maintains a reserve for 2–3 brake applications. Brake pressure is indicated on the separate BRAKE HYD PRESSURE gauge.",
+      "specifications": {
+        "nitrogen_precharge_psi": "750"
+      },
+      "references": [
+        { "source": "FCTM", "locator": "6.5.9, p.6-57" },
+        { "source": "POH_AFM", "locator": "Section 7.19, p.7-119" }
+      ]
+    },
+    {
+      "id": "pressure_switch",
+      "name": "Pressure Switch",
+      "description": "Senses system pressure and controls the electric pump relay to maintain working pressure. Pre-Mod 6/1570: cuts in at ~1375 psi, cuts out at 1550–1600 psi. Post-Mod 6/1570 (SN 511+): cuts in at ~1325 psi, cuts out at 1525–1625 psi. Switch failure can cause the pump to run continuously; the system relief valve (1750 psi) protects against over-pressure.",
+      "references": [
+        { "source": "FCTM", "locator": "6.5.6, p.6-56" },
+        { "source": "POH_AFM", "locator": "Section 7.19.1, p.7-122" }
+      ]
+    },
+    {
+      "id": "system_relief_valve",
+      "name": "System Relief Valve",
+      "description": "Opens above 1750 psi to permit fluid circulation between the pump and reservoir in the event of pressure switch failure causing the pump to run continuously. Prevents system over-pressure damage.",
+      "specifications": {
+        "opens_psi": "1750"
+      },
+      "references": [
+        { "source": "FCTM", "locator": "6.5.10, p.6-58" }
+      ]
+    },
+    {
+      "id": "drain_tube",
+      "name": "Hydraulic Drain Tube",
+      "description": "Routes any leaked fluid from the power pack tray to a drain exit beneath the access doors. Due to the flammable nature of hydraulic fluid, any leaks must be corrected before the DC MASTER switch is turned ON.",
+      "references": [
+        { "source": "FCTM", "locator": "6.5.8, p.6-57" }
+      ]
+    }
+  ],
+  "controls": [
+    {
+      "id": "flap_selector",
+      "name": "Flap Selector",
+      "positions": ["UP", "10°", "20°", "30°", "FULL"],
+      "description": "Hydraulic flap selector valve. Directs pressure to extend or retract the flap actuator. Flaps should not be retracted until the aircraft has come to a full stop with parking brake set after a hand-pump-only landing.",
+      "references": [
+        { "source": "POH_AFM", "locator": "Section 7.19.5, p.7-125" },
+        { "source": "POH_AFM", "locator": "Section 10.8.19, p.10-76" }
+      ]
+    },
+    {
+      "id": "hand_pump_handle",
+      "name": "Emergency Hand Pump Handle",
+      "positions": ["STOWED", "OPERATING"],
+      "description": "Insert handle into floor socket and pump back-and-forth. 30–40 strokes to reach 1500 psi. Used when electric pump has failed. After landing with pump failed, do not retract flaps until stopped and parked.",
+      "references": [
+        { "source": "FCTM", "locator": "6.5.3, p.6-55" },
+        { "source": "QRH", "locator": "Section 7.1, p.HD-1" }
+      ]
+    }
+  ],
+  "limits": [
+    {
+      "id": "normal_pressure_post_mod",
+      "parameter": "Normal Operating Pressure (Post Mod 6/1570 / S/N 511+)",
+      "value": "1225–1625 psi",
+      "references": [
+        { "source": "FCTM", "locator": "6.5.6, p.6-56" },
+        { "source": "POH_AFM", "locator": "Section 10.8.19, p.10-76" }
+      ]
+    },
+    {
+      "id": "normal_pressure_pre_mod",
+      "parameter": "Normal Operating Pressure (Pre Mod 6/1570 / before S/N 511)",
+      "value": "1300–1600 psi",
+      "references": [
+        { "source": "POH_AFM", "locator": "Section 10.8.19, p.10-76" }
+      ]
+    },
+    {
+      "id": "min_pressure_flaps_extended",
+      "parameter": "Minimum Pressure — Flaps Extended",
+      "value": "1500 psi (maintain at all times with flaps extended)",
+      "note": "Hydraulic pressure may be zero in cruise with flaps retracted (air loads maintain flap position). Prior to flap extension, pressure must be restored to approximately 1500 psi.",
+      "references": [
+        { "source": "QRH", "locator": "Section 7.1 Note 2, p.HD-1" },
+        { "source": "POH_AFM", "locator": "Section 10.8.19, p.10-76" }
+      ]
+    },
+    {
+      "id": "relief_valve_setting",
+      "parameter": "System Relief Valve Opening Pressure",
+      "value": "1750 psi",
+      "references": [
+        { "source": "FCTM", "locator": "6.5.10, p.6-58" }
+      ]
+    },
+    {
+      "id": "accumulator_precharge",
+      "parameter": "Accumulator Nitrogen Precharge",
+      "value": "750 psi (both system and brake accumulators)",
+      "references": [
+        { "source": "FCTM", "locator": "6.5.9, p.6-57" }
+      ]
+    },
+    {
+      "id": "fluid_type",
+      "parameter": "Hydraulic Fluid Type",
+      "value": "MIL-H-5606 (red, flammable when vaporised)",
+      "note": "Confirm with maintenance manuals for approved substitute types.",
+      "references": [
+        { "source": "FCTM", "locator": "6.5.7, p.6-57" },
+        { "source": "POH_AFM", "locator": "Section 7.19, p.7-119" }
+      ]
+    }
+  ],
+  "casMessageRefs": [
+    "HYD_PUMP_LOW_PRESSURE",
+    "HYD_PUMP_CBR_OPEN"
+  ]
+}

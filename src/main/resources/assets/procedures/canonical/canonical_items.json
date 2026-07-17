@@ -1,0 +1,970 @@
+{
+  "schemaVersion": "1.0.0",
+  "items": [
+    {
+      "id": "AFT_BOOST1_PR",
+      "kind": "annunciator",
+      "displayName": "AFT BOOST1 PR",
+      "aliases": [
+        "AFT BOOST1 PR",
+        "AFT BOOST 1 PRESSURE",
+        "AFT BOOST1 PRESS"
+      ]
+    },
+    {
+      "id": "AFT_BOOST2_PR",
+      "kind": "annunciator",
+      "displayName": "AFT BOOST2 PR",
+      "aliases": [
+        "AFT BOOST2 PR",
+        "AFT BOOST 2 PRESSURE",
+        "AFT BOOST2 PRESS"
+      ]
+    },
+    {
+      "id": "AFT_BOOST_PUMP",
+      "kind": "control",
+      "displayName": "AFT BOOST PUMP",
+      "aliases": [
+        "AFT BOOST PUMP",
+        "AFT BOOST PUMPS"
+      ]
+    },
+    {
+      "id": "AUTOFEATHER_ARM",
+      "kind": "control",
+      "displayName": "AUTOFEATHER ARM",
+      "aliases": [
+        "AUTO FEATHER",
+        "AUTOFEATHER",
+        "AUTOFEATHER ARM"
+      ]
+    },
+    {
+      "id": "AUTOFEATHER_SELECT",
+      "kind": "control",
+      "displayName": "AUTOFEATHER SELECT",
+      "aliases": [
+        "AUTO FEATHER SELECT",
+        "SELECT AUTOFEATHER",
+        "AUTOFEATHER SELECT"
+      ]
+    },
+    {
+      "id": "AVIONICS_MASTER",
+      "kind": "control",
+      "displayName": "AVIONICS MASTER",
+      "aliases": [
+        "AVIONICS MASTER"
+      ]
+    },
+    {
+      "id": "BATTERY_MASTER",
+      "kind": "control",
+      "displayName": "BATTERY MASTER",
+      "aliases": [
+        "BATTERY MASTER"
+      ]
+    },
+    {
+      "id": "BEACON",
+      "kind": "control",
+      "displayName": "BEACON",
+      "aliases": [
+        "ROTATING BEACON"
+      ]
+    },
+    {
+      "id": "BUS_TIE",
+      "kind": "control",
+      "displayName": "BUS TIE",
+      "aliases": [
+        "BUS TIE"
+      ]
+    },
+    {
+      "id": "CABIN_PWR",
+      "kind": "control",
+      "displayName": "CABIN PWR",
+      "aliases": [
+        "CABIN PWR",
+        "CABIN LIGHTS"
+      ]
+    },
+    {
+      "id": "CAS_DISPLAY",
+      "kind": "indication",
+      "displayName": "CAS DISPLAY",
+      "aliases": [
+        "CAS",
+        "CAS DISPLAY",
+        "CREW ALERTING SYSTEM",
+        "CREW ALERTING SYSTEM DISPLAY"
+      ]
+    },
+    {
+      "id": "DC_GEN_L",
+      "kind": "control",
+      "displayName": "DC GENERATOR (L)",
+      "aliases": [
+        "DC GEN (LH)",
+        "DC GEN L",
+        "DC GENERATOR (L)",
+        "L DC GEN",
+        "LEFT DC GEN",
+        "LH DC GEN"
+      ]
+    },
+    {
+      "id": "DC_GEN_R",
+      "kind": "control",
+      "displayName": "DC GENERATOR (R)",
+      "aliases": [
+        "DC GEN (RH)",
+        "DC GEN R",
+        "DC GENERATOR (R)",
+        "R DC GEN",
+        "RH DC GEN",
+        "RIGHT DC GEN"
+      ]
+    },
+    {
+      "id": "DEICE_BOOTS",
+      "kind": "control",
+      "displayName": "DEICE BOOTS",
+      "aliases": [
+        "DE-ICE BOOTS",
+        "DEICE",
+        "DEICE BOOTS"
+      ]
+    },
+    {
+      "id": "DOCUMENTS_EFB",
+      "kind": "control",
+      "displayName": "DOCUMENTS / EFB",
+      "aliases": [
+        "DOCUMENTS/EFB",
+        "DOCUMENTS EFB",
+        "EFB",
+        "DOCUMENTS"
+      ]
+    },
+    {
+      "id": "EMERG_FUEL_SHUTOFF_L",
+      "kind": "control",
+      "displayName": "EMERGENCY FUEL SHUTOFF L",
+      "aliases": [
+        "FUEL EMERGENCY SWITCH L",
+        "EMERG FUEL SHUTOFF L",
+        "EMERGENCY FUEL SWITCH L"
+      ]
+    },
+    {
+      "id": "EMERG_FUEL_SHUTOFF_R",
+      "kind": "control",
+      "displayName": "EMERGENCY FUEL SHUTOFF R",
+      "aliases": [
+        "FUEL EMERGENCY SWITCH R",
+        "EMERG FUEL SHUTOFF R",
+        "EMERGENCY FUEL SWITCH R"
+      ]
+    },
+    {
+      "id": "ESS_BUS_FEED",
+      "kind": "control",
+      "displayName": "ESS BUS FEED",
+      "aliases": [
+        "ESS BUS FEED"
+      ]
+    },
+    {
+      "id": "EXTERNAL_POWER",
+      "kind": "control",
+      "displayName": "EXTERNAL POWER",
+      "aliases": [
+        "EXTERNAL POWER",
+        "EXT PWR",
+        "GPU"
+      ]
+    },
+    {
+      "id": "EXT_PWR",
+      "kind": "control",
+      "displayName": "EXTERNAL POWER",
+      "aliases": [
+        "EXT POWER",
+        "EXT PWR",
+        "EXTERNAL POWER",
+        "GPU"
+      ]
+    },
+    {
+      "id": "FIRE_HANDLE_L",
+      "kind": "control",
+      "displayName": "FIRE HANDLE (L)",
+      "aliases": [
+        "FIRE HANDLE (L)",
+        "FIRE HANDLE (LH)",
+        "FIRE HANDLE L",
+        "L FIRE HANDLE",
+        "LEFT FIRE HANDLE",
+        "LH FIRE HANDLE"
+      ]
+    },
+    {
+      "id": "FIRE_HANDLE_R",
+      "kind": "control",
+      "displayName": "FIRE HANDLE (R)",
+      "aliases": [
+        "FIRE HANDLE (R)",
+        "FIRE HANDLE (RH)",
+        "FIRE HANDLE R",
+        "R FIRE HANDLE",
+        "RH FIRE HANDLE",
+        "RIGHT FIRE HANDLE"
+      ]
+    },
+    {
+      "id": "FLOOD_LIGHTS",
+      "kind": "control",
+      "displayName": "FLOOD LIGHTS",
+      "aliases": [
+        "COCKPIT FLOOD",
+        "FLOOD LIGHTING",
+        "FLOOD LIGHTS"
+      ]
+    },
+    {
+      "id": "FUEL_BALANCE",
+      "kind": "control",
+      "displayName": "FUEL BALANCE",
+      "aliases": [
+        "FUEL BALANCE"
+      ]
+    },
+    {
+      "id": "FUEL_CROSSFEED",
+      "kind": "control",
+      "displayName": "FUEL CROSSFEED",
+      "aliases": [
+        "FUEL CROSSFEED, FUEL_SELECTOR, FUEL SELECT, FUEL_CROSSFEED"
+
+      ]
+    },
+    {
+      "id": "FUEL_FLOW_L",
+      "kind": "instrument",
+      "displayName": "FUEL FLOW L",
+      "aliases": [
+        "FUEL FLOW L",
+        "LEFT FUEL FLOW",
+        "L FUEL FLOW"
+      ]
+    },
+    {
+      "id": "FUEL_FLOW_R",
+      "kind": "instrument",
+      "displayName": "FUEL FLOW R",
+      "aliases": [
+        "FUEL FLOW R",
+        "RIGHT FUEL FLOW",
+        "R FUEL FLOW"
+      ]
+    },
+    {
+      "id": "FUEL_LEVER_L",
+      "kind": "control",
+      "displayName": "FUEL LEVER (L)",
+      "aliases": [
+        "FUEL LEVER (L)",
+        "FUEL LEVER (LH)",
+        "FUEL LEVER L",
+        "L FUEL LEVER",
+        "LEFT FUEL LEVER",
+        "LH FUEL LEVER"
+      ]
+    },
+    {
+      "id": "FUEL_LEVER_R",
+      "kind": "control",
+      "displayName": "FUEL LEVER (R)",
+      "aliases": [
+        "FUEL LEVER (R)",
+        "FUEL LEVER (RH)",
+        "FUEL LEVER R",
+        "R FUEL LEVER",
+        "RH FUEL LEVER",
+        "RIGHT FUEL LEVER"
+      ]
+    },
+    {
+      "id": "FUEL_PUMP_L",
+      "kind": "control",
+      "displayName": "FUEL PUMP (L)",
+      "aliases": [
+        "BOOST PUMP",
+        "FUEL BOOST PUMP",
+        "FUEL PUMP (L)",
+        "FUEL PUMP (LH)",
+        "FUEL PUMP L",
+        "L FUEL PUMP",
+        "LEFT FUEL PUMP",
+        "LH FUEL PUMP"
+      ]
+    },
+    {
+      "id": "FUEL_PUMP_R",
+      "kind": "control",
+      "displayName": "FUEL PUMP (R)",
+      "aliases": [
+        "BOOST PUMP",
+        "FUEL BOOST PUMP",
+        "FUEL PUMP (R)",
+        "FUEL PUMP (RH)",
+        "FUEL PUMP R",
+        "R FUEL PUMP",
+        "RH FUEL PUMP",
+        "RIGHT FUEL PUMP"
+      ]
+    },
+    {
+      "id": "FUEL_QUANTITY_L",
+      "kind": "indication",
+      "displayName": "FUEL QUANTITY L",
+      "aliases": [
+        "FUEL QUANTITY L",
+        "LEFT FUEL QUANTITY",
+        "L FUEL QTY"
+      ]
+    },
+    {
+      "id": "FUEL_QUANTITY_R",
+      "kind": "indication",
+      "displayName": "FUEL QUANTITY R",
+      "aliases": [
+        "FUEL QUANTITY R",
+        "RIGHT FUEL QUANTITY",
+        "R FUEL QTY"
+      ]
+    },
+    {
+      "id": "FUEL_SELECTOR",
+      "kind": "control",
+      "displayName": "FUEL SELECTOR",
+      "aliases": [
+        "FUEL SELECTOR"
+      ]
+    },
+    {
+      "id": "FWD_BOOST1_PR",
+      "kind": "annunciator",
+      "displayName": "FWD BOOST1 PR",
+      "aliases": [
+        "FWD BOOST1 PR",
+        "FWD BOOST 1 PRESSURE",
+        "FWD BOOST1 PRESS"
+      ]
+    },
+    {
+      "id": "FWD_BOOST2_PR",
+      "kind": "annunciator",
+      "displayName": "FWD BOOST2 PR",
+      "aliases": [
+        "FWD BOOST2 PR",
+        "FWD BOOST 2 PRESSURE",
+        "FWD BOOST2 PRESS"
+      ]
+    },
+    {
+      "id": "FWD_BOOST_PUMP",
+      "kind": "control",
+      "displayName": "FWD BOOST PUMP",
+      "aliases": [
+        "FWD BOOST PUMP",
+        "FWD BOOST PUMPS"
+      ]
+    },
+    {
+      "id": "GPU_SENSE",
+      "kind": "control",
+      "displayName": "GPU SENSE",
+      "aliases": [
+        "GPU SENSE",
+        "GROUND POWER SENSE"
+      ]
+    },
+    {
+      "id": "HYDRAULIC_PRESS_GAUGE",
+      "kind": "indication",
+      "displayName": "HYDRAULIC PRESS GAUGE",
+      "aliases": [
+        "HYDRAULIC PRESSURE",
+        "HYDRAULIC PRESS GAUGE",
+        "HYD PRESS"
+      ]
+    },
+    {
+      "id": "IGNITION_ARM",
+      "kind": "control",
+      "displayName": "IGNITION ARM",
+      "aliases": [
+        "IGNITION ARM"
+      ]
+    },
+    {
+      "id": "INVERTER_1",
+      "kind": "control",
+      "displayName": "INVERTER #1",
+      "aliases": [
+        "INVERTER #1",
+        "INVERTER 1"
+      ]
+    },
+    {
+      "id": "INVERTER_2",
+      "kind": "control",
+      "displayName": "INVERTER #2",
+      "aliases": [
+        "INVERTER #2",
+        "INVERTER 2"
+      ]
+    },
+    {
+      "id": "LANDING_LIGHTS",
+      "kind": "control",
+      "displayName": "LANDING LIGHTS",
+      "aliases": [
+        "LANDING LIGHT",
+        "LANDING LIGHTS",
+        "LDG LIGHTS"
+      ]
+    },
+    {
+      "id": "LANDING_LIGHT_L",
+      "kind": "control",
+      "displayName": "LANDING LIGHT L",
+      "aliases": [
+        "LANDING LIGHT L",
+        "LEFT LANDING LIGHT",
+        "L LANDING LIGHT"
+      ]
+    },
+    {
+      "id": "LANDING_LIGHT_R",
+      "kind": "control",
+      "displayName": "LANDING LIGHT R",
+      "aliases": [
+        "LANDING LIGHT R",
+        "RIGHT LANDING LIGHT",
+        "R LANDING LIGHT"
+      ]
+    },
+    {
+      "id": "L_DC_GEN",
+      "kind": "control",
+      "displayName": "L DC GEN",
+      "aliases": [
+        "L DC GEN",
+        "LEFT DC GEN",
+        "GENERATOR SWITCH L",
+        "LEFT GENERATOR SWITCH"
+      ]
+    },
+    {
+      "id": "L_GEN_FAIL",
+      "kind": "annunciator",
+      "displayName": "L GEN FAIL",
+      "aliases": [
+        "L GEN FAIL",
+        "LEFT GENERATOR FAILED",
+        "L GENERATOR FAIL"
+      ]
+    },
+    {
+      "id": "L_OIL_PRESS",
+      "kind": "annunciator",
+      "displayName": "L OIL PRESS",
+      "aliases": [
+        "L OIL PRESS",
+        "LEFT OIL PRESS LOW",
+        "L ENGINE OIL PRESS"
+      ]
+    },
+    {
+      "id": "MASTER_CAUTION",
+      "kind": "control",
+      "displayName": "MASTER CAUTION",
+      "aliases": [
+        "MASTER CAUT",
+        "MASTER CAUTION",
+        "MASTER CAUTION LIGHT",
+        "MC"
+      ]
+    },
+    {
+      "id": "MASTER_WARNING",
+      "kind": "control",
+      "displayName": "MASTER WARNING",
+      "aliases": [
+        "MASTER WARN",
+        "MASTER WARNING",
+        "MASTER WARNING LIGHT",
+        "MW"
+      ]
+    },
+    {
+      "id": "MFD_CENTER",
+      "kind": "indication",
+      "displayName": "MFD CENTER",
+      "aliases": [
+        "MFD",
+        "MFD CENTER",
+        "MULTI FUNCTION DISPLAY",
+        "MULTIFUNCTION DISPLAY"
+      ]
+    },
+    {
+      "id": "MFD_CENTRE",
+      "kind": "indication",
+      "displayName": "MFD CENTRE",
+      "aliases": [
+        "MFD CENTRE",
+        "MFD CENTER",
+        "MULTI FUNCTION DISPLAY"
+      ]
+    },
+    {
+      "id": "MSTR_CAUT_TEST",
+      "kind": "annunciator",
+      "displayName": "MSTR CAUT TEST",
+      "aliases": [
+        "MSTR CAUT TEST",
+        "MASTER CAUTION TEST",
+        "MSTR CAUTION TEST"
+      ]
+    },
+    {
+      "id": "NAV_LIGHTS",
+      "kind": "control",
+      "displayName": "NAV LIGHTS",
+      "aliases": [
+        "NAV LIGHT",
+        "NAV LIGHTS",
+        "POSITION LIGHTS"
+      ]
+    },
+    {
+      "id": "NG_L",
+      "kind": "instrument",
+      "displayName": "NG L",
+      "aliases": [
+        "NG L",
+        "LEFT NG",
+        "L NG"
+      ]
+    },
+    {
+      "id": "NG_R",
+      "kind": "instrument",
+      "displayName": "NG R",
+      "aliases": [
+        "NG R",
+        "RIGHT NG",
+        "R NG"
+      ]
+    },
+    {
+      "id": "NO_SMOKING_LIGHTS",
+      "kind": "control",
+      "displayName": "NO SMOKING LIGHTS",
+      "aliases": [
+        "NO SMOKING",
+        "CABIN SIGNS",
+        "NO SMOKING LIGHTS"
+      ]
+    },
+    {
+      "id": "NP_L",
+      "kind": "instrument",
+      "displayName": "NP L",
+      "aliases": [
+        "NP L",
+        "LEFT NP",
+        "L NP"
+      ]
+    },
+    {
+      "id": "NP_R",
+      "kind": "instrument",
+      "displayName": "NP R",
+      "aliases": [
+        "NP R",
+        "RIGHT NP",
+        "R NP"
+      ]
+    },
+    {
+      "id": "OHD_ELECTRICAL_PANEL",
+      "kind": "region",
+      "displayName": "OVERHEAD ELECTRICAL PANEL",
+      "aliases": [
+        "OHD ELECTRICAL PANEL",
+        "OVERHEAD ELECTRICAL PANEL"
+      ]
+    },
+    {
+      "id": "OHD_FUEL_PANEL",
+      "kind": "region",
+      "displayName": "OVERHEAD FUEL PANEL",
+      "aliases": [
+        "OHD FUEL PANEL",
+        "OVERHEAD FUEL PANEL"
+      ]
+    },
+    {
+      "id": "OHD_LIGHTS_PANEL",
+      "kind": "region",
+      "displayName": "OVERHEAD LIGHTS PANEL",
+      "aliases": [
+        "OHD LIGHTS PANEL",
+        "OVERHEAD LIGHTS PANEL"
+      ]
+    },
+    {
+      "id": "OHD_MAIN_PANEL",
+      "kind": "region",
+      "displayName": "OVERHEAD MAIN PANEL",
+      "aliases": [
+        "OHD MAIN PANEL",
+        "OVERHEAD MAIN PANEL"
+      ]
+    },
+    {
+      "id": "L_ENGINE_OIL_PRESS",
+      "kind": "instrument",
+      "displayName": "OIL PRESS L",
+      "aliases": [
+        "OIL PRESS L",
+        "LEFT OIL PRESS",
+        "L OIL PRESS"
+      ]
+    },
+    {
+      "id": "OIL_PRESS_R",
+      "kind": "instrument",
+      "displayName": "OIL PRESS R",
+      "aliases": [
+        "OIL PRESS R",
+        "RIGHT OIL PRESS",
+        "R OIL PRESS"
+      ]
+    },
+    {
+      "id": "OIL_TEMP_L",
+      "kind": "instrument",
+      "displayName": "OIL TEMP L",
+      "aliases": [
+        "OIL TEMP L",
+        "LEFT OIL TEMP",
+        "L OIL TEMP"
+      ]
+    },
+    {
+      "id": "OIL_TEMP_R",
+      "kind": "instrument",
+      "displayName": "OIL TEMP R",
+      "aliases": [
+        "OIL TEMP R",
+        "RIGHT OIL TEMP",
+        "R OIL TEMP"
+      ]
+    },
+    {
+      "id": "PANEL_LIGHTS",
+      "kind": "control",
+      "displayName": "PANEL LIGHTS",
+      "aliases": [
+        "INSTRUMENT LIGHTS",
+        "PANEL LIGHTING",
+        "PANEL LIGHTS"
+      ]
+    },
+    {
+      "id": "PFD_LEFT",
+      "kind": "indication",
+      "displayName": "PFD LEFT",
+      "aliases": [
+        "PFD",
+        "PFD LEFT",
+        "PRIMARY FLIGHT DISPLAY"
+      ]
+    },
+    {
+      "id": "PFD_RIGHT",
+      "kind": "indication",
+      "displayName": "PFD RIGHT",
+      "aliases": [
+        "PFD",
+        "PFD RIGHT",
+        "PRIMARY FLIGHT DISPLAY"
+      ]
+    },
+    {
+      "id": "PITOT_HEAT",
+      "kind": "control",
+      "displayName": "PITOT HEAT",
+      "aliases": [
+        "PITOT",
+        "PITOT HEAT",
+        "PITOT HEAT SWITCH",
+        "PITOT HT"
+      ]
+    },
+    {
+      "id": "POWER_LEVER_L",
+      "kind": "control",
+      "displayName": "POWER LEVER (L)",
+      "aliases": [
+        "L POWER LEVER",
+        "LEFT POWER LEVER",
+        "LH POWER LEVER",
+        "POWER LEVER (L)",
+        "POWER LEVER (LH)",
+        "POWER LEVER L"
+      ]
+    },
+    {
+      "id": "POWER_LEVER_R",
+      "kind": "control",
+      "displayName": "POWER LEVER (R)",
+      "aliases": [
+        "POWER LEVER (R)",
+        "POWER LEVER (RH)",
+        "POWER LEVER R",
+        "R POWER LEVER",
+        "RH POWER LEVER",
+        "RIGHT POWER LEVER"
+      ]
+    },
+    {
+      "id": "PROP_DEICE",
+      "kind": "control",
+      "displayName": "PROP DEICE",
+      "aliases": [
+        "PROP DE-ICE",
+        "PROP DEICE",
+        "PROPELLER DE-ICE",
+        "PROPELLER DEICE"
+      ]
+    },
+    {
+      "id": "POWER_LEVER_L",
+      "kind": "control",
+      "displayName": "PROP LEVER (L)",
+      "aliases": [
+        "L PROP LEVER",
+        "LEFT PROP LEVER",
+        "LH PROP LEVER",
+        "PROP LEVER (L)",
+        "PROP LEVER (LH)",
+        "Power Lever L"
+      ]
+    },
+    {
+      "id": "POWER_LEVER_R",
+      "kind": "control",
+      "displayName": "PROP LEVER (R)",
+      "aliases": [
+        "PROP LEVER (R)",
+        "PROP LEVER (RH)",
+        "Power Lever R",
+        "R PROP LEVER",
+        "RH PROP LEVER",
+        "RIGHT PROP LEVER"
+      ]
+    },
+    {
+      "id": "RESET_PROPS",
+      "kind": "annunciator",
+      "displayName": "RESET PROPS",
+      "aliases": [
+        "RESET PROPS",
+        "RESET PROP",
+        "RESET PROPS LIGHT"
+      ]
+    },
+    {
+      "id": "R_DC_GEN",
+      "kind": "control",
+      "displayName": "R DC GEN",
+      "aliases": [
+        "R DC GEN",
+        "RIGHT DC GEN",
+        "GENERATOR SWITCH R",
+        "RIGHT GENERATOR SWITCH"
+      ]
+    },
+    {
+      "id": "R_GEN_FAIL",
+      "kind": "annunciator",
+      "displayName": "R GEN FAIL",
+      "aliases": [
+        "R GEN FAIL",
+        "RIGHT GENERATOR FAILED",
+        "R GENERATOR FAIL"
+      ]
+    },
+    {
+      "id": "R_OIL_PRESS",
+      "kind": "annunciator",
+      "displayName": "R OIL PRESS",
+      "aliases": [
+        "R OIL PRESS",
+        "RIGHT OIL PRESS LOW",
+        "R ENGINE OIL PRESS"
+      ]
+    },
+    {
+      "id": "STARTER_SWITCH",
+      "kind": "control",
+      "displayName": "STARTER SWITCH",
+      "aliases": [
+        "STARTER SWITCH",
+        "START SELECTOR",
+        "STARTER"
+      ]
+    },
+    {
+      "id": "START_SELECTOR_L",
+      "kind": "control",
+      "displayName": "START SELECTOR (L)",
+      "aliases": [
+        "L START SELECTOR",
+        "LEFT START SELECTOR",
+        "LH START SELECTOR",
+        "START SELECTOR (L)",
+        "START SELECTOR (LH)",
+        "START SELECTOR L"
+      ]
+    },
+    {
+      "id": "START_SELECTOR_R",
+      "kind": "control",
+      "displayName": "START SELECTOR (R)",
+      "aliases": [
+        "R START SELECTOR",
+        "RH START SELECTOR",
+        "RIGHT START SELECTOR",
+        "START SELECTOR (R)",
+        "START SELECTOR (RH)",
+        "START SELECTOR R"
+      ]
+    },
+    {
+      "id": "STBY_BATT",
+      "kind": "control",
+      "displayName": "STBY BATT",
+      "aliases": [
+        "STANDBY BATTERY",
+        "STBY BATT",
+        "STBY BATTERY"
+      ]
+    },
+    {
+      "id": "STBY_BOOST_PUMP_AFT",
+      "kind": "control",
+      "displayName": "STANDBY BOOST PUMP AFT",
+      "aliases": [
+        "STBY BOOST PUMP AFT",
+        "STANDBY BOOST PUMP AFT",
+        "EMERGENCY BOOST PUMP AFT"
+      ]
+    },
+    {
+      "id": "STBY_BOOST_PUMP_FWD",
+      "kind": "control",
+      "displayName": "STANDBY BOOST PUMP FWD",
+      "aliases": [
+        "STBY BOOST PUMP FWD",
+        "STANDBY BOOST PUMP FWD",
+        "EMERGENCY BOOST PUMP FWD"
+      ]
+    },
+    {
+      "id": "STROBE",
+      "kind": "control",
+      "displayName": "STROBE",
+      "aliases": []
+    },
+    {
+      "id": "T5_L",
+      "kind": "instrument",
+      "displayName": "T5 L",
+      "aliases": [
+        "T5 L",
+        "LEFT T5",
+        "L T5"
+      ]
+    },
+    {
+      "id": "T5_R",
+      "kind": "instrument",
+      "displayName": "T5 R",
+      "aliases": [
+        "T5 R",
+        "RIGHT T5",
+        "R T5"
+      ]
+    },
+    {
+      "id": "TORQUE_L",
+      "kind": "instrument",
+      "displayName": "TORQUE L",
+      "aliases": [
+        "TORQUE L",
+        "LEFT TORQUE",
+        "L TORQUE"
+      ]
+    },
+    {
+      "id": "TORQUE_R",
+      "kind": "instrument",
+      "displayName": "TORQUE R",
+      "aliases": [
+        "TORQUE R",
+        "RIGHT TORQUE",
+        "R TORQUE"
+      ]
+    },
+    {
+      "id": "VDC_GAUGE",
+      "kind": "instrument",
+      "displayName": "VDC GAUGE",
+      "aliases": [
+        "VDC GAUGE",
+        "DC VOLTS",
+        "VOLTS"
+      ]
+    },
+    {
+      "id": "WINDSHIELD_HEAT",
+      "kind": "control",
+      "displayName": "WINDSHIELD HEAT",
+      "aliases": [
+        "WINDSCREEN HEAT",
+        "WINDSHIELD HEAT",
+        "WSHLD HEAT"
+      ]
+    },
+    {
+      "id": "WOW",
+      "kind": "instrument",
+      "displayName": "WEIGHT ON WHEELS",
+      "aliases": [
+        "WOW",
+        "WEIGHT ON WHEELS",
+        "ON GROUND"
+      ]
+    }
+  ]
+}

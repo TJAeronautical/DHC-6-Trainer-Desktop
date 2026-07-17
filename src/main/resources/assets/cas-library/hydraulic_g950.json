@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0.0",
+  "profileId": "dhc6-hydraulic",
+  "variant": "BOTH",
+  "messages": [
+    {
+      "display": "HYD PUMP LO PRESS",
+      "canonicalId": "HYD_PUMP_LOW_PRESSURE",
+      "level": "CAUTION",
+      "meaning": "Hydraulic system pressure below normal operating range. Either the electric pump has failed or hydraulic fluid has been lost.",
+      "immediate": "HYD HAND PUMP — OPERATE (30–40 strokes to 1500 psi). If pressure rises: pump has failed — check/pull HYD OIL PUMP CB. Maintain 1500 psi with flaps extended. If pressure does not rise after 30–40 strokes: fluid loss suspected — prepare for flapless landing.",
+      "qrhRef": "QRH Section 7.1 HD-1"
+    },
+    {
+      "display": "HYD PUMP CBR OPEN",
+      "canonicalId": "HYD_PUMP_CBR_OPEN",
+      "level": "CAUTION",
+      "meaning": "HYD OIL PUMP circuit breaker is open. Electric pump is not powered. Operating flaps, brakes, or steering will deplete accumulator pressure rapidly.",
+      "immediate": "Do not reset CB in flight. Use hand pump if pressure required. Plan accordingly for approach and landing.",
+      "qrhRef": "POH Section 10.8.19 / FCTM 6.5.11"
+    }
+  ]
+}

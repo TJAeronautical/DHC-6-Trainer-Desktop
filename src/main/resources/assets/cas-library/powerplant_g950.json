@@ -1,0 +1,103 @@
+{
+  "schemaVersion": "1.0.0",
+  "profileId": "dhc6-powerplant",
+  "variant": "BOTH",
+  "messages": [
+    {
+      "display": "L OIL PRESS",
+      "canonicalId": "L_ENGINE_OIL_PRESS",
+      "level": "CAUTION",
+      "meaning": "Left engine oil pressure low. Normal range above 72% NG: 85–105 psi. Caution range: 40–85 psi. Below 40 psi is unsafe.",
+      "immediate": "Check oil pressure value. If 40–85 psi, reduce power and plan to land. If below 40 psi, use the engine shutdown in flight procedure.",
+      "qrhRef": "QRH Engine / FCTM 6.4.5"
+    },
+    {
+      "display": "R OIL PRESS",
+      "canonicalId": "OIL_PRESS_R",
+      "level": "CAUTION",
+      "meaning": "Right engine oil pressure low.",
+      "immediate": "As for L OIL PRESS.",
+      "qrhRef": "QRH Engine / FCTM 6.4.5"
+    },
+    {
+      "display": "L T5 HIGH",
+      "canonicalId": "L T5 HIGH",
+      "level": "WARNING",
+      "meaning": "Left engine inter-turbine temperature (T5/ITT) above the applicable limit.",
+      "immediate": "Reduce power lever. If T5 cannot be maintained within limits, use the applicable engine shutdown in flight procedure.",
+      "qrhRef": "QRH Engine / FCTM 6.4.4"
+    },
+    {
+      "display": "R T5 HIGH",
+      "canonicalId": "T5_HIGH_R",
+      "level": "WARNING",
+      "meaning": "Right engine inter-turbine temperature (T5/ITT) above the applicable limit.",
+      "immediate": "As for L T5 HIGH.",
+      "qrhRef": "QRH Engine / FCTM 6.4.4"
+    },
+    {
+      "display": "L NG HIGH",
+      "canonicalId": "L NG HIGH",
+      "level": "WARNING",
+      "meaning": "Left engine gas generator speed (NG) above the applicable limit.",
+      "immediate": "Reduce power lever. If NG cannot be maintained within limits, use the applicable engine shutdown in flight procedure.",
+      "qrhRef": "QRH Engine / FCTM 6.4.4"
+    },
+    {
+      "display": "R NG HIGH",
+      "canonicalId": "NG_HIGH_R",
+      "level": "WARNING",
+      "meaning": "Right engine gas generator speed (NG) above the applicable limit.",
+      "immediate": "As for L NG HIGH.",
+      "qrhRef": "QRH Engine / FCTM 6.4.4"
+    },
+    {
+      "display": "L FIRE",
+      "canonicalId": "ENGINE_ENGINE_L FIRE",
+      "level": "WARNING",
+      "meaning": "Left engine fire or nacelle overheat detected.",
+      "immediate": "Maintain control, identify the affected engine, complete the engine fire memory/QRH sequence, isolate fuel, and discharge the extinguisher when directed.",
+      "qrhRef": "QRH Emergency / FCTM 6.4.8"
+    },
+    {
+      "display": "R FIRE",
+      "canonicalId": "FIRE_R",
+      "level": "WARNING",
+      "meaning": "Right engine fire or nacelle overheat detected.",
+      "immediate": "As for L FIRE — right engine.",
+      "qrhRef": "QRH Emergency / FCTM 6.4.8"
+    },
+    {
+      "display": "OEI",
+      "canonicalId": "OEI",
+      "level": "WARNING",
+      "meaning": "One-engine-inoperative training cue used by scenario snapshots.",
+      "immediate": "Maintain directional control, set maximum allowable power on the live engine, confirm configuration and continue the applicable OEI procedure.",
+      "qrhRef": "QRH Engine Failure / AFM Section 3"
+    },
+    {
+      "display": "AUTOFEATHER",
+      "canonicalId": "AUTOFEATHER",
+      "level": "ADVISORY",
+      "meaning": "Autofeather system selected or armed training cue.",
+      "immediate": "Confirm autofeather status as required by the phase of flight and applicable checklist.",
+      "qrhRef": "AFM Section 3 / Autofeather supplement"
+    },
+    {
+      "display": "BATTERY",
+      "canonicalId": "BATTERY",
+      "level": "CAUTION",
+      "meaning": "Battery system training cue. For legacy aircraft, battery overheat is a separate emergency/caution-light condition where fitted.",
+      "immediate": "Verify battery indication and electrical state. Use the applicable electrical or battery abnormal procedure.",
+      "qrhRef": "QRH Electrical / AFM Section 3"
+    },
+    {
+      "display": "CBV FAIL",
+      "canonicalId": "CBV_FAIL",
+      "level": "CAUTION",
+      "meaning": "Compressor bleed valve failed to close/open normally, affecting available power or engine temperature response.",
+      "immediate": "Monitor torque/T5 and apply the applicable abnormal procedure.",
+      "qrhRef": "FCTM / QRH abnormal"
+    }
+  ]
+}

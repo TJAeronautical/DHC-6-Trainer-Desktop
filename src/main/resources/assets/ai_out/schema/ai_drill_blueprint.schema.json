@@ -1,0 +1,315 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://dhc6trainer.app/schema/ai_drill_blueprint.schema.json",
+  "title": "AI Drill Blueprint",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "meta",
+    "drill"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "type": "string",
+      "enum": [
+        "2.0"
+      ]
+    },
+    "meta": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "blueprintId",
+        "createdAtUtc"
+      ],
+      "properties": {
+        "blueprintId": {
+          "type": "string"
+        },
+        "createdAtUtc": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "sourceDocumentId": {
+          "type": "string"
+        },
+        "sourceProcedureId": {
+          "type": "string"
+        },
+        "variant": {
+          "type": "string",
+          "enum": [
+            "LEGACY",
+            "G950",
+            "BOTH"
+          ]
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    },
+    "drill": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "drillId",
+        "title",
+        "mode",
+        "sections"
+      ],
+      "properties": {
+        "drillId": {
+          "type": "string",
+          "pattern": "^[a-z0-9_.-]{3,128}$"
+        },
+        "mode": {
+          "type": "string",
+          "enum": [
+            "FLASHCARD_QA",
+            "CHALLENGE_RESPONSE",
+            "COCKPIT_LOCATE",
+            "FLOW_EXECUTION",
+            "OPC_SCENARIO"
+          ]
+        },
+        "grading": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "strictWording": {
+              "type": "boolean"
+            },
+            "orderMatters": {
+              "type": "boolean"
+            },
+            "timeLimitSec": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "scoreBands": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "name",
+                  "minScore"
+                ],
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "minScore": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                }
+              }
+            }
+          }
+        },
+        "sections": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/definitions/drillSection"
+          }
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  },
+  "definitions": {
+    "drillSection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sectionId",
+        "title",
+        "items"
+      ],
+      "properties": {
+        "sectionId": {
+          "type": "string"
+        },
+        "items": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/definitions/drillItem"
+          }
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "drillItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "itemId",
+        "type"
+      ],
+      "properties": {
+        "itemId": {
+          "type": "string"
+        },
+        "crewRole": {
+          "type": "string",
+          "enum": [
+            "PF",
+            "PM",
+            "BOTH",
+            "PIC"
+          ]
+        },
+        "prompt": {
+          "type": "string"
+        },
+        "expected": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "text": {
+              "type": "string"
+            },
+            "acceptable": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "action": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "actionVerb": {
+              "type": "string"
+            },
+            "target": {
+              "type": "string"
+            },
+            "expectedValue": {
+              "type": "string"
+            }
+          }
+        },
+        "cockpit": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "targets": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/controlRef"
+              }
+            },
+            "mustTapTarget": {
+              "type": "boolean"
+            }
+          }
+        },
+        "audio": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "calloutText": {
+              "type": "string"
+            },
+            "timing": {
+              "type": "string",
+              "enum": [
+                "IMMEDIATE",
+                "ON_ITEM_SHOW",
+                "ON_ITEM_COMPLETE",
+                "DELAYED"
+              ]
+            }
+          }
+        },
+        "links": {
+          "type": "array",
+          "description": "Traceability into extracted procedure steps or knowledge units.",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "refType",
+              "refId"
+            ],
+            "properties": {
+              "refType": {
+                "type": "string",
+                "enum": [
+                  "EXTRACTED_STEP_ID",
+                  "PROCEDURE_ID",
+                  "KNOWLEDGE_UNIT_ID"
+                ]
+              },
+              "refId": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "PROMPT",
+            "RESPONSE",
+            "ACTION",
+            "LOCATE",
+            "EVALUATE"
+          ]
+        }
+      }
+    },
+    "controlRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "refType",
+        "refId"
+      ],
+      "properties": {
+        "refType": {
+          "type": "string",
+          "enum": [
+            "HITBOX",
+            "ANNUNCIATOR",
+            "CAS_MESSAGE",
+            "INSTRUMENT",
+            "PANEL_CONTROL"
+          ]
+        },
+        "refId": {
+          "type": "string"
+        },
+        "variant": {
+          "type": "string",
+          "enum": [
+            "LEGACY",
+            "G950",
+            "BOTH"
+          ]
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    }
+  }
+}

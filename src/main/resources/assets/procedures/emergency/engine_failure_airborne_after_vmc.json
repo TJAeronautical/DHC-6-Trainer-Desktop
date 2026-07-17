@@ -1,0 +1,897 @@
+{
+  "rawName": "Engine Failure Airborne, After VMC",
+  "drillName": "Engine Failure After Take-off — After V1 [Airborne]",
+  "category": "EMERGENCY",
+  "context": "Airborne",
+  "sourceNote": "Full MCC callout drill from FCTM HBTS-001 ISS03 Section 5.4.1, Group 1 procedure. Exact PF/PM callout language. Memory items per POH/AFM Section 3.4.1 / QRH EN-4 to EN-5. AUTOFEATHER and NEGATIVE FEATHER branches included. All ▲ items requiresConfirmation=true.",
+  "variants": {
+    "LEGACY": {
+      "memory": [
+        {
+          "stepNumber": 1,
+          "action": "ENGINE FAILURE AFTER TAKE-OFF — AFTER V1",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 2,
+          "action": "FIRE BELL (if applicable and installed) — MUTE",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 3,
+          "action": "POWER AND PROP LEVERS (both engines) — MAX POWER",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 4,
+          "action": "FLAPS — CONFIRM FLAPS 10°",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 5,
+          "action": "CLIMB — Vyse 86 KIAS WITH FLAPS 10°",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 6,
+          "action": "AUTOFEATHER — CHECK PROP FEATHERED",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 7,
+          "action": "IF PROPELLER HAS NOT AUTOMATICALLY FEATHERED:",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 8,
+          "action": "CONFIRM L/R PROP LEVER FEATHER (if negative autofeather)",
+          "crewRole": "PM",
+          "requiresConfirmation": true,
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 9,
+          "action": "CONFIRMED",
+          "crewRole": "PF",
+          "requiresConfirmation": true,
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 10,
+          "action": "FEATHERED",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 11,
+          "action": "AT SAFE ALTITUDE (ABOVE 400 FEET AGL):",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 12,
+          "action": "CONFIRM L/R ENGINE POWER LEVER RETARD TO 10 PSI",
+          "crewRole": "PM",
+          "requiresConfirmation": true,
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 13,
+          "action": "CONFIRMED",
+          "crewRole": "PF",
+          "requiresConfirmation": true,
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 14,
+          "action": "RETARD",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 15,
+          "action": "CONFIRM L/R PROP LEVER FEATHER",
+          "crewRole": "PM",
+          "requiresConfirmation": true,
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 16,
+          "action": "CONFIRMED",
+          "crewRole": "PF",
+          "requiresConfirmation": true,
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 17,
+          "action": "FEATHERED",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 18,
+          "action": "CONFIRM L/R ENGINE FUEL LEVER OFF",
+          "crewRole": "PM",
+          "requiresConfirmation": true,
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 19,
+          "action": "CONFIRMED",
+          "crewRole": "PF",
+          "requiresConfirmation": true,
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 20,
+          "action": "OFF",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 21,
+          "action": "CONFIRM L/R FUEL EMERGENCY SWITCH OFF",
+          "crewRole": "PM",
+          "requiresConfirmation": true,
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 22,
+          "action": "CONFIRMED",
+          "crewRole": "PF",
+          "requiresConfirmation": true,
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 23,
+          "action": "OFF",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 24,
+          "action": "CONFIRM L/R FUEL BOOST PUMP OFF",
+          "crewRole": "PM",
+          "requiresConfirmation": true,
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 25,
+          "action": "CONFIRMED",
+          "crewRole": "PF",
+          "requiresConfirmation": true,
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 26,
+          "action": "OFF",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        }
+      ],
+      "flow": [
+        {
+          "stepNumber": 1,
+          "action": "ENGINE FAILURE MAX POWER, FLAP 10 — adjust pitch for Vyse, maintain directional control with rudder, 5° bank to good engine if required",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE_AND_DO",
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 2,
+          "action": "MAX POWER, FLAP 10 SET — PROP LEVERS 96% NP both engines, FLAPS 10°, both propeller and power levers confirmed at max power setting",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE_AND_DO",
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 3,
+          "action": "CONFIRM L/R ENGINE FAILED",
+          "crewRole": "PF",
+          "requiresConfirmation": true,
+          "intent": "ANNOUNCE",
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 4,
+          "action": "CONFIRMED L/R ENGINE FAILED — T5 [check], Torque [check], WF [check], NG [check] confirmed",
+          "crewRole": "PM",
+          "requiresConfirmation": true,
+          "intent": "ANNOUNCE_AND_DO",
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 5,
+          "action": "AUTOFEATHER CONFIRMED — propeller feathered / NEGATIVE FEATHER — propeller has NOT automatically feathered",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03; MCC Callouts & Memory Items"
+        },
+        {
+          "stepNumber": 6,
+          "action": "MANUAL FEATHER — if autofeather negative",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03; MCC Callouts & Memory Items"
+        },
+        {
+          "stepNumber": 7,
+          "action": "CONFIRM L/R PROP LEVER FEATHER — positioning hand on affected propeller lever",
+          "crewRole": "PM",
+          "requiresConfirmation": true,
+          "intent": "ANNOUNCE_AND_DO",
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 8,
+          "action": "CONFIRMED",
+          "crewRole": "PF",
+          "requiresConfirmation": true,
+          "intent": "ANNOUNCE",
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 9,
+          "action": "FEATHERED — propeller lever at FEATHER position",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE_AND_DO",
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 10,
+          "action": "400 FEET",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03; MCC Callouts & Memory Items"
+        },
+        {
+          "stepNumber": 11,
+          "action": "CHECKED",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03; MCC Callouts & Memory Items"
+        },
+        {
+          "stepNumber": 12,
+          "action": "ADVISE ATC — L/R ENGINE FAILED, TURNING LEFT/RIGHT",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03; MCC Callouts & Memory Items"
+        },
+        {
+          "stepNumber": 13,
+          "action": "ATC ADVISED — L/R ENGINE FAILED TURNING L/R",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03; MCC Callouts & Memory Items"
+        },
+        {
+          "stepNumber": 14,
+          "action": "MEMORY ITEMS FOR ENGINE FAILURE AFTER TAKE OFF",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03; MCC Callouts & Memory Items"
+        },
+        {
+          "stepNumber": 15,
+          "action": "CONFIRM L/R ENGINE POWER LEVER RETARD TO 10 PSI",
+          "crewRole": "PM",
+          "requiresConfirmation": true,
+          "intent": "ANNOUNCE",
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 16,
+          "action": "CONFIRMED",
+          "crewRole": "PF",
+          "requiresConfirmation": true,
+          "intent": "ANNOUNCE",
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 17,
+          "action": "RETARD — POWER LEVER AT 10 PSI",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE",
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 18,
+          "action": "CONFIRM L/R PROP LEVER FEATHER",
+          "crewRole": "PM",
+          "requiresConfirmation": true,
+          "intent": "ANNOUNCE",
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 19,
+          "action": "CONFIRMED",
+          "crewRole": "PF",
+          "requiresConfirmation": true,
+          "intent": "ANNOUNCE",
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 20,
+          "action": "FEATHERED — PROP LEVER AT FEATHER",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE",
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 21,
+          "action": "CONFIRM L/R ENGINE FUEL LEVER OFF",
+          "crewRole": "PM",
+          "requiresConfirmation": true,
+          "intent": "ANNOUNCE",
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 22,
+          "action": "CONFIRMED",
+          "crewRole": "PF",
+          "requiresConfirmation": true,
+          "intent": "ANNOUNCE",
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 23,
+          "action": "OFF — FUEL LEVER OFF",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE",
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 24,
+          "action": "CONFIRM L/R FUEL EMERGENCY SWITCH OFF",
+          "crewRole": "PM",
+          "requiresConfirmation": true,
+          "intent": "ANNOUNCE",
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 25,
+          "action": "CONFIRMED",
+          "crewRole": "PF",
+          "requiresConfirmation": true,
+          "intent": "ANNOUNCE",
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 26,
+          "action": "OFF — FUEL EMERGENCY SWITCH OFF",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE",
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 27,
+          "action": "CONFIRM L/R FUEL BOOST PUMP OFF",
+          "crewRole": "PM",
+          "requiresConfirmation": true,
+          "intent": "ANNOUNCE",
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 28,
+          "action": "CONFIRMED",
+          "crewRole": "PF",
+          "requiresConfirmation": true,
+          "intent": "ANNOUNCE",
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 29,
+          "action": "OFF — FUEL BOOST PUMP OFF",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE",
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 30,
+          "action": "CHECKED — QRH FOR ENGINE FAILURE AFTER TAKE OFF",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03; MCC Callouts & Memory Items"
+        },
+        {
+          "stepNumber": 31,
+          "action": "MEMORY ITEMS COMPLETE",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03; MCC Callouts & Memory Items"
+        },
+        {
+          "stepNumber": 32,
+          "action": "QRH FOR ENGINE FAILURE AFTER TAKE OFF COMPLETE — non-memory items complete, complete AFTER TAKE-OFF, SINGLE ENGINE LANDING, SINGLE ENGINE GO-AROUND and DESCENT AND LANDING checklists at appropriate time",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03; MCC Callouts & Memory Items"
+        }
+      ]
+    },
+    "G950": {
+      "memory": [
+        {
+          "stepNumber": 1,
+          "action": "ENGINE FAILURE AFTER TAKE-OFF — AFTER V1",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 2,
+          "action": "FIRE BELL (if applicable and installed) — MUTE",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 3,
+          "action": "POWER AND PROP LEVERS (both engines) — MAX POWER",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 4,
+          "action": "FLAPS — CONFIRM FLAPS 10°",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 5,
+          "action": "CLIMB — Vyse 86 KIAS WITH FLAPS 10°",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 6,
+          "action": "AUTOFEATHER — CHECK PROP FEATHERED",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 7,
+          "action": "IF PROPELLER HAS NOT AUTOMATICALLY FEATHERED:",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 8,
+          "action": "CONFIRM L/R PROP LEVER FEATHER (if negative autofeather)",
+          "crewRole": "PM",
+          "requiresConfirmation": true,
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 9,
+          "action": "CONFIRMED",
+          "crewRole": "PF",
+          "requiresConfirmation": true,
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 10,
+          "action": "FEATHERED",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 11,
+          "action": "AT SAFE ALTITUDE (ABOVE 400 FEET AGL):",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 12,
+          "action": "CONFIRM L/R ENGINE POWER LEVER RETARD TO 10 PSI",
+          "crewRole": "PM",
+          "requiresConfirmation": true,
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 13,
+          "action": "CONFIRMED",
+          "crewRole": "PF",
+          "requiresConfirmation": true,
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 14,
+          "action": "RETARD",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 15,
+          "action": "CONFIRM L/R PROP LEVER FEATHER",
+          "crewRole": "PM",
+          "requiresConfirmation": true,
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 16,
+          "action": "CONFIRMED",
+          "crewRole": "PF",
+          "requiresConfirmation": true,
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 17,
+          "action": "FEATHERED",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 18,
+          "action": "CONFIRM L/R ENGINE FUEL LEVER OFF",
+          "crewRole": "PM",
+          "requiresConfirmation": true,
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 19,
+          "action": "CONFIRMED",
+          "crewRole": "PF",
+          "requiresConfirmation": true,
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 20,
+          "action": "OFF",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 21,
+          "action": "CONFIRM L/R FUEL EMERGENCY SWITCH OFF",
+          "crewRole": "PM",
+          "requiresConfirmation": true,
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 22,
+          "action": "CONFIRMED",
+          "crewRole": "PF",
+          "requiresConfirmation": true,
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 23,
+          "action": "OFF",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 24,
+          "action": "CONFIRM L/R FUEL BOOST PUMP OFF",
+          "crewRole": "PM",
+          "requiresConfirmation": true,
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 25,
+          "action": "CONFIRMED",
+          "crewRole": "PF",
+          "requiresConfirmation": true,
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 26,
+          "action": "OFF",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        }
+      ],
+      "flow": [
+        {
+          "stepNumber": 1,
+          "action": "ENGINE FAILURE MAX POWER, FLAP 10 — adjust pitch for Vyse, maintain directional control with rudder, 5° bank to good engine if required",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE_AND_DO",
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 2,
+          "action": "MAX POWER, FLAP 10 SET — PROP LEVERS 96% NP both engines, FLAPS 10°, both propeller and power levers confirmed at max power setting",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE_AND_DO",
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 3,
+          "action": "CONFIRM L/R ENGINE FAILED",
+          "crewRole": "PF",
+          "requiresConfirmation": true,
+          "intent": "ANNOUNCE",
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 4,
+          "action": "CONFIRMED L/R ENGINE FAILED — T5 [check], Torque [check], WF [check], NG [check] confirmed",
+          "crewRole": "PM",
+          "requiresConfirmation": true,
+          "intent": "ANNOUNCE_AND_DO",
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 5,
+          "action": "AUTOFEATHER CONFIRMED — propeller feathered / NEGATIVE FEATHER — propeller has NOT automatically feathered",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03; MCC Callouts & Memory Items"
+        },
+        {
+          "stepNumber": 6,
+          "action": "MANUAL FEATHER — if autofeather negative",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03; MCC Callouts & Memory Items"
+        },
+        {
+          "stepNumber": 7,
+          "action": "CONFIRM L/R PROP LEVER FEATHER — positioning hand on affected propeller lever",
+          "crewRole": "PM",
+          "requiresConfirmation": true,
+          "intent": "ANNOUNCE_AND_DO",
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 8,
+          "action": "CONFIRMED",
+          "crewRole": "PF",
+          "requiresConfirmation": true,
+          "intent": "ANNOUNCE",
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 9,
+          "action": "FEATHERED — propeller lever at FEATHER position",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE_AND_DO",
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 10,
+          "action": "400 FEET",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03; MCC Callouts & Memory Items"
+        },
+        {
+          "stepNumber": 11,
+          "action": "CHECKED",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03; MCC Callouts & Memory Items"
+        },
+        {
+          "stepNumber": 12,
+          "action": "ADVISE ATC — L/R ENGINE FAILED, TURNING LEFT/RIGHT",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03; MCC Callouts & Memory Items"
+        },
+        {
+          "stepNumber": 13,
+          "action": "ATC ADVISED — L/R ENGINE FAILED TURNING L/R",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03; MCC Callouts & Memory Items"
+        },
+        {
+          "stepNumber": 14,
+          "action": "MEMORY ITEMS FOR ENGINE FAILURE AFTER TAKE OFF",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03; MCC Callouts & Memory Items"
+        },
+        {
+          "stepNumber": 15,
+          "action": "CONFIRM L/R ENGINE POWER LEVER RETARD TO 10 PSI",
+          "crewRole": "PM",
+          "requiresConfirmation": true,
+          "intent": "ANNOUNCE",
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 16,
+          "action": "CONFIRMED",
+          "crewRole": "PF",
+          "requiresConfirmation": true,
+          "intent": "ANNOUNCE",
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 17,
+          "action": "RETARD — POWER LEVER AT 10 PSI",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE",
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 18,
+          "action": "CONFIRM L/R PROP LEVER FEATHER",
+          "crewRole": "PM",
+          "requiresConfirmation": true,
+          "intent": "ANNOUNCE",
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 19,
+          "action": "CONFIRMED",
+          "crewRole": "PF",
+          "requiresConfirmation": true,
+          "intent": "ANNOUNCE",
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 20,
+          "action": "FEATHERED — PROP LEVER AT FEATHER",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE",
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 21,
+          "action": "CONFIRM L/R ENGINE FUEL LEVER OFF",
+          "crewRole": "PM",
+          "requiresConfirmation": true,
+          "intent": "ANNOUNCE",
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 22,
+          "action": "CONFIRMED",
+          "crewRole": "PF",
+          "requiresConfirmation": true,
+          "intent": "ANNOUNCE",
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 23,
+          "action": "OFF — FUEL LEVER OFF",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE",
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 24,
+          "action": "CONFIRM L/R FUEL EMERGENCY SWITCH OFF",
+          "crewRole": "PM",
+          "requiresConfirmation": true,
+          "intent": "ANNOUNCE",
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 25,
+          "action": "CONFIRMED",
+          "crewRole": "PF",
+          "requiresConfirmation": true,
+          "intent": "ANNOUNCE",
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 26,
+          "action": "OFF — FUEL EMERGENCY SWITCH OFF",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE",
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 27,
+          "action": "CONFIRM L/R FUEL BOOST PUMP OFF",
+          "crewRole": "PM",
+          "requiresConfirmation": true,
+          "intent": "ANNOUNCE",
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 28,
+          "action": "CONFIRMED",
+          "crewRole": "PF",
+          "requiresConfirmation": true,
+          "intent": "ANNOUNCE",
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 29,
+          "action": "OFF — FUEL BOOST PUMP OFF",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE",
+          "reference": "POH/AFM Section 3.4.1; QRH EN-4 to EN-5"
+        },
+        {
+          "stepNumber": 30,
+          "action": "CHECKED — QRH FOR ENGINE FAILURE AFTER TAKE OFF",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03; MCC Callouts & Memory Items"
+        },
+        {
+          "stepNumber": 31,
+          "action": "MEMORY ITEMS COMPLETE",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03; MCC Callouts & Memory Items"
+        },
+        {
+          "stepNumber": 32,
+          "action": "QRH FOR ENGINE FAILURE AFTER TAKE OFF COMPLETE — non-memory items complete, complete AFTER TAKE-OFF, SINGLE ENGINE LANDING, SINGLE ENGINE GO-AROUND and DESCENT AND LANDING checklists at appropriate time",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03; MCC Callouts & Memory Items"
+        }
+      ]
+    }
+  }
+}

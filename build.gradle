@@ -30,9 +30,9 @@ dependencies {
 
 def desktopGeneratedResources = layout.buildDirectory.dir("generated/desktopResources")
 def coreAssetsCandidates = [
+        file("src/main/resources/assets"),
         file("../core-res/src/main/assets"),
-        file("../DHC-6-Trainer/core-res/src/main/assets"),
-        file("src/main/resources/assets")
+        file("../DHC-6-Trainer/core-res/src/main/assets")
 ]
 def coreAssetsDir = coreAssetsCandidates.find { it.exists() } ?: coreAssetsCandidates.first()
 

@@ -1,0 +1,31 @@
+{
+  "title": "5. Systems / Cockpit Instruments",
+  "defaultModelVariant": "wheels",
+  "availableModelVariants": [
+    "wheels",
+    "floats",
+    "skis"
+  ],
+  "references": [
+    {
+      "label": "Figure 7.23",
+      "assetPath": "models/systems_lab/systems_cockpit_instruments/Refs/Figure_7.23.png",
+      "originalZipEntry": "Figure 7,23.png"
+    },
+    {
+      "label": "Figure 7.24",
+      "assetPath": "models/systems_lab/systems_cockpit_instruments/Refs/Figure_7.24.png",
+      "originalZipEntry": "Figure 7.24.png"
+    },
+    {
+      "label": "Figure 10.5",
+      "assetPath": "models/systems_lab/systems_cockpit_instruments/Refs/Figure_10.5.png",
+      "originalZipEntry": "Figure 10.5.png"
+    },
+    {
+      "label": "Figure 10.7",
+      "assetPath": "models/systems_lab/systems_cockpit_instruments/Refs/Figure_10.7.png",
+      "originalZipEntry": "Figure 10.7.png"
+    }
+  ]
+}

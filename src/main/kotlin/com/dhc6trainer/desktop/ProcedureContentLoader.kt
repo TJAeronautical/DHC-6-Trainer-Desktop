@@ -77,7 +77,7 @@ internal object DesktopProcedureContentLoader {
         )
 
         if (loaded.isEmpty()) {
-            notes += "No procedures loaded. Confirm core-res/src/main/assets/procedures exists before running processResources."
+            notes += "No procedures loaded. Confirm src/main/resources/assets/procedures exists before running processResources."
         }
 
         return ProcedureLibrarySnapshot(
@@ -105,6 +105,7 @@ internal object DesktopProcedureContentLoader {
     private fun loadFromFileSystem(notes: MutableList<String>): List<ProcedureSummary> {
         val userDir = File(System.getProperty("user.dir")).canonicalFile
         val candidates = listOf(
+            File(userDir, "src/main/resources/assets/procedures"),
             File(userDir, "core-res/src/main/assets/procedures"),
             File(userDir.parentFile ?: userDir, "core-res/src/main/assets/procedures"),
             File(userDir, "../core-res/src/main/assets/procedures"),

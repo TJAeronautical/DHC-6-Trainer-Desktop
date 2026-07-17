@@ -1,0 +1,189 @@
+{
+  "schemaId": "system_rules",
+  "schemaVersion": "1.0.0",
+  "variant": "BOTH",
+  "engines": {
+    "LEFT": {
+      "linkedFuelLever": "FUEL_LEVER_L",
+      "linkedPowerLever": "POWER_LEVER_L",
+      "linkedPropLever": "PROP_LEVER_L",
+      "linkedGenerator": "DC_GEN_L",
+      "linkedFireHandle": "FIRE_HANDLE_L"
+    },
+    "RIGHT": {
+      "linkedFuelLever": "FUEL_LEVER_R",
+      "linkedPowerLever": "POWER_LEVER_R",
+      "linkedPropLever": "PROP_LEVER_R",
+      "linkedGenerator": "DC_GEN_R",
+      "linkedFireHandle": "FIRE_HANDLE_R"
+    }
+  },
+  "engineLogic": {
+    "fuelCutoff": {
+      "trigger": {
+        "leverPositionEquals": "CUTOFF"
+      },
+      "effects": {
+        "engineRunning": false,
+        "torque": 0,
+        "itt": "COOLDOWN",
+        "oilPressure": "DECAY",
+        "generatorOnline": false,
+        "cas": [
+          "ENGINE_SHUTDOWN"
+        ]
+      }
+    },
+    "powerIdle": {
+      "trigger": {
+        "powerLeverBelow": 0.05
+      },
+      "effects": {
+        "torque": "LOW",
+        "itt": "LOW"
+      }
+    },
+    "powerHigh": {
+      "trigger": {
+        "powerLeverAbove": 0.8
+      },
+      "effects": {
+        "torque": "HIGH",
+        "itt": "HIGH"
+      }
+    },
+    "flameout": {
+      "trigger": {
+        "fuelAvailable": false
+      },
+      "effects": {
+        "engineRunning": false,
+        "cas": [
+          "ENGINE_FLAMEOUT"
+        ]
+      }
+    }
+  },
+  "propLogic": {
+    "autofeatherArm": {
+      "trigger": {
+        "switch": "AUTOFEATHER_ARM",
+        "state": "ON"
+      },
+      "effects": {
+        "autofeatherArmed": true
+      }
+    },
+    "autofeatherDeploy": {
+      "trigger": {
+        "autofeatherArmed": true,
+        "torqueBelow": 0.2,
+        "powerLeverAbove": 0.6
+      },
+      "effects": {
+        "propFeathered": true,
+        "cas": [
+          "AUTOFEATHER_DEPLOYED"
+        ]
+      }
+    },
+    "manualFeather": {
+      "trigger": {
+        "propLeverEquals": "FEATHER"
+      },
+      "effects": {
+        "propFeathered": true
+      }
+    }
+  },
+  "fuelSystem": {
+    "boostPumpRequired": {
+      "trigger": {
+        "powerLeverAbove": 0.3,
+        "boostPumpOff": true
+      },
+      "effects": {
+        "fuelPressLow": true,
+        "cas": [
+          "FUEL_PRESSURE_LOW"
+        ]
+      }
+    },
+    "fuelStarvation": {
+      "trigger": {
+        "fuelPressLow": true
+      },
+      "effects": {
+        "engineRunning": false,
+        "cas": [
+          "ENGINE_FLAMEOUT"
+        ]
+      }
+    }
+  },
+  "electricalSystem": {
+    "batteryMasterOff": {
+      "trigger": {
+        "switch": "BATTERY_MASTER",
+        "state": "OFF"
+      },
+      "effects": {
+        "mainBusPowered": false,
+        "avionicsPowered": false,
+        "cas": [
+          "MAIN_BUS_OFF"
+        ]
+      }
+    },
+    "generatorOnline": {
+      "trigger": {
+        "engineRunning": true,
+        "generatorSwitchOn": true
+      },
+      "effects": {
+        "generatorOnline": true,
+        "mainBusPowered": true
+      }
+    },
+    "dualGeneratorFailure": {
+      "trigger": {
+        "leftGeneratorOnline": false,
+        "rightGeneratorOnline": false
+      },
+      "effects": {
+        "mainBusPowered": false,
+        "cas": [
+          "DUAL_GENERATOR_FAILURE"
+        ]
+      }
+    }
+  },
+  "fireSystem": {
+    "fireHandlePull": {
+      "trigger": {
+        "fireHandlePulled": true
+      },
+      "effects": {
+        "fuelShutoff": true,
+        "generatorOffline": true,
+        "bleedAirClosed": true,
+        "cas": [
+          "ENGINE_FIRE"
+        ]
+      }
+    }
+  },
+  "alerting": {
+    "masterWarningTriggers": [
+      "ENGINE_FIRE",
+      "DUAL_GENERATOR_FAILURE"
+    ],
+    "masterCautionTriggers": [
+      "FUEL_PRESSURE_LOW",
+      "ENGINE_FLAMEOUT",
+      "MAIN_BUS_OFF",
+      "AUTOFEATHER_DEPLOYED"
+    ]
+  }
+}
+

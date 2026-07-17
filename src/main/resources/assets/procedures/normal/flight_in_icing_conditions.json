@@ -1,0 +1,197 @@
+{
+    "rawName":  "Flight in Icing Conditions",
+    "drillName":  "Flight in Icing Conditions [Airborne]",
+    "category":  "NORMAL",
+    "context":  "Airborne",
+    "sourceNote":  "Procedure identity/category/order normalized from \u0027DHC-6 Full Drill Procedure Index Normal Split.xlsx\u0027. Excel is the governing app display allow-list. Existing procedure steps preserved for later content review. Previous note: Generic training callout structure based on user-provided Section 4 normal-procedure titles and generated PF/PM MCC callouts. Not an approved AFM/POH/checklist replacement.",
+    "variants":  {
+                     "LEGACY":  {
+                                    "memory":  [
+                                                   {
+                                                       "stepNumber":  1,
+                                                       "action":  "ICING CONDITIONS - IDENTIFIED",
+                                                       "crewRole":  "PM",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.20 Flight in Icing Conditions"
+                                                   },
+                                                   {
+                                                       "stepNumber":  2,
+                                                       "action":  "ICING PROCEDURES - APPLIED",
+                                                       "crewRole":  "PF",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.20 Flight in Icing Conditions"
+                                                   },
+                                                   {
+                                                       "stepNumber":  3,
+                                                       "action":  "INTAKE DEFLECTORS - AS REQUIRED",
+                                                       "crewRole":  "PF",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.20 Flight in Icing Conditions"
+                                                   },
+                                                   {
+                                                       "stepNumber":  4,
+                                                       "action":  "INTAKE DEFLECTORS - SELECTED / CHECKED",
+                                                       "crewRole":  "PM",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.20 Flight in Icing Conditions"
+                                                   },
+                                                   {
+                                                       "stepNumber":  5,
+                                                       "action":  "ICE ACCUMULATION - MONITORED",
+                                                       "crewRole":  "PM",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.20 Flight in Icing Conditions"
+                                                   }
+                                               ],
+                                    "flow":  [
+                                                 {
+                                                     "stepNumber":  1,
+                                                     "action":  "Icing conditions.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.20; PM_CALLOUT"
+                                                 },
+                                                 {
+                                                     "stepNumber":  2,
+                                                     "action":  "Icing procedures.",
+                                                     "crewRole":  "PF",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.20; PF_RESPONSE"
+                                                 },
+                                                 {
+                                                     "stepNumber":  3,
+                                                     "action":  "Intake deflectors as required.",
+                                                     "crewRole":  "PF",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.20; PF_CALL"
+                                                 },
+                                                 {
+                                                     "stepNumber":  4,
+                                                     "action":  "Intake deflectors selected / checked.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.20; PM_RESPONSE"
+                                                 },
+                                                 {
+                                                     "stepNumber":  5,
+                                                     "action":  "Ice accumulation monitored.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.20; PM_MONITOR"
+                                                 },
+                                                 {
+                                                     "stepNumber":  6,
+                                                     "action":  "Checked.",
+                                                     "crewRole":  "PF",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.20; PF_RESPONSE"
+                                                 }
+                                             ]
+                                },
+                     "G950":  {
+                                  "memory":  [
+                                                 {
+                                                     "stepNumber":  1,
+                                                     "action":  "ICING CONDITIONS - IDENTIFIED",
+                                                     "crewRole":  "PM",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.20 Flight in Icing Conditions"
+                                                 },
+                                                 {
+                                                     "stepNumber":  2,
+                                                     "action":  "ICING PROCEDURES - APPLIED",
+                                                     "crewRole":  "PF",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.20 Flight in Icing Conditions"
+                                                 },
+                                                 {
+                                                     "stepNumber":  3,
+                                                     "action":  "INTAKE DEFLECTORS - AS REQUIRED",
+                                                     "crewRole":  "PF",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.20 Flight in Icing Conditions"
+                                                 },
+                                                 {
+                                                     "stepNumber":  4,
+                                                     "action":  "INTAKE DEFLECTORS - SELECTED / CHECKED",
+                                                     "crewRole":  "PM",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.20 Flight in Icing Conditions"
+                                                 },
+                                                 {
+                                                     "stepNumber":  5,
+                                                     "action":  "ICE ACCUMULATION - MONITORED",
+                                                     "crewRole":  "PM",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.20 Flight in Icing Conditions"
+                                                 }
+                                             ],
+                                  "flow":  [
+                                               {
+                                                   "stepNumber":  1,
+                                                   "action":  "Icing conditions.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.20; PM_CALLOUT"
+                                               },
+                                               {
+                                                   "stepNumber":  2,
+                                                   "action":  "Icing procedures.",
+                                                   "crewRole":  "PF",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.20; PF_RESPONSE"
+                                               },
+                                               {
+                                                   "stepNumber":  3,
+                                                   "action":  "Intake deflectors as required.",
+                                                   "crewRole":  "PF",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.20; PF_CALL"
+                                               },
+                                               {
+                                                   "stepNumber":  4,
+                                                   "action":  "Intake deflectors selected / checked.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.20; PM_RESPONSE"
+                                               },
+                                               {
+                                                   "stepNumber":  5,
+                                                   "action":  "Ice accumulation monitored.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.20; PM_MONITOR"
+                                               },
+                                               {
+                                                   "stepNumber":  6,
+                                                   "action":  "Checked.",
+                                                   "crewRole":  "PF",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.20; PF_RESPONSE"
+                                               }
+                                           ]
+                              },
+                     "manualSection":  "Section 4",
+                     "sourceSection":  "4.20"
+                 },
+    "phaseTag":  "Airborne",
+    "displayLabel":  "Flight in Icing Conditions [Airborne]",
+    "sortOrder":  43,
+    "sourceSection":  "4.20",
+    "procedureGroup":  "Icing Operations",
+    "manualSection":  "Section 4",
+    "sequenceBasis":  "Normal-procedure flow order",
+    "normalSplit":  "Weather / Special Conditions"
+}

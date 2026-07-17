@@ -1,0 +1,104 @@
+{
+  "model": "pt6a27_cutaway.glb",
+  "space": "mesh_names",
+  "matchOrder": "mesh_first",
+  "note": "PT6A-27 cutaway rebuilt from the assembled Systems Lab parts model: real part geometry (gears, rotor stages, combustion liner, turbine wheels) at assembled positions. PT6A-27 architecture: rear air inlet, 3-stage axial + 1 centrifugal compressor, reverse-flow combustor, single-stage compressor turbine, single-stage free power turbine, forward exhaust, two-stage planetary reduction gearbox, rear accessory gearbox. Engine centerline runs along Z with the propeller at -Z. Each region lists the mesh node names that highlight with it; numbered '.NNN' duplicates normalize to the base name.",
+  "regions": [
+    {
+      "id": "air_inlet_case",
+      "label": "Air inlet case",
+      "meshNames": [
+        "air_inlet_case"
+      ]
+    },
+    {
+      "id": "compressor_case",
+      "label": "Compressor case",
+      "meshNames": [
+        "compressor_case",
+        "compressor_stator_stage_1",
+        "compressor_stator_stage_2",
+        "compressor_stator_stage_3",
+        "compressor_case_diffuser"
+      ]
+    },
+    {
+      "id": "compressor_rotor_stack",
+      "label": "Compressor rotor stack",
+      "meshNames": [
+        "compressor_rotor_stack",
+        "centrifugal_impeller",
+        "compressor_tie_rod"
+      ]
+    },
+    {
+      "id": "combustion_section",
+      "label": "Combustion section",
+      "meshNames": [
+        "combustion_section",
+        "combustion_section_liner"
+      ]
+    },
+    {
+      "id": "compressor_turbine_section",
+      "label": "Compressor turbine section",
+      "meshNames": [
+        "compressor_turbine_section",
+        "compressor_turbine_case_support",
+        "compressor_turbine_case_vane_ring"
+      ]
+    },
+    {
+      "id": "power_turbine_section",
+      "label": "Power turbine section",
+      "meshNames": [
+        "power_turbine_section",
+        "power_turbine_shaft",
+        "turbine_interstage_stator"
+      ]
+    },
+    {
+      "id": "exhaust_duct",
+      "label": "Exhaust duct",
+      "meshNames": [
+        "exhaust_duct"
+      ]
+    },
+    {
+      "id": "reduction_gearbox",
+      "label": "Reduction gearbox",
+      "meshNames": [
+        "reduction_gearbox",
+        "reduction_gearbox_main_gear",
+        "reduction_gearbox_centre_gear",
+        "reduction_gearbox_drive_gear_left",
+        "reduction_gearbox_drive_gear_lower",
+        "reduction_gearbox_idler_left",
+        "reduction_gearbox_idler_right",
+        "reduction_gearbox_idler_upper",
+        "propeller_shaft_coupling"
+      ]
+    },
+    {
+      "id": "accessory_gearbox",
+      "label": "Accessory gearbox",
+      "meshNames": [
+        "accessory_gearbox"
+      ]
+    },
+    {
+      "id": "fuel_control_and_lines",
+      "label": "Fuel control and lines",
+      "meshNames": [
+        "fuel_control_and_lines"
+      ]
+    },
+    {
+      "id": "oil_system_fittings",
+      "label": "Oil system fittings",
+      "meshNames": [
+        "oil_system_fittings"
+      ]
+    }
+  ]
+}

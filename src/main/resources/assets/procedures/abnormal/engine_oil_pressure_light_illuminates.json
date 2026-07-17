@@ -1,0 +1,657 @@
+{
+  "rawName": "Engine Oil Pressure Light Illuminates",
+  "drillName": "Oil Pressure CAS Annunciated — Below 40 PSI [Airborne]",
+  "category": "EMERGENCY",
+  "context": "Airborne",
+  "sourceNote": "Full MCC callout drill from FCTM HBTS-001 ISS03 Section 5.4.2, Group 2 procedure (confirm first). Exact callouts. Memory items = engine in-flight shutdown. If airspeed < 100 KIAS after power reduction, select FLAPS 10°. All ▲ items requiresConfirmation=true.",
+  "variants": {
+    "LEGACY": {
+      "memory": [
+        {
+          "stepNumber": 1,
+          "action": "OIL PRESSURE CAS MESSAGE ANNUNCIATED — BELOW 40 PSI",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 2,
+          "action": "OIL PRESSURE GAUGE — CHECK to confirm below 40 PSI",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 3,
+          "action": "POWER AND PROP LEVERS (UNAFFECTED ENGINE) — MAX POWER",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 4,
+          "action": "CONFIRM L/R ENGINE POWER LEVER RETARD TO 10 PSI",
+          "crewRole": "PM",
+          "requiresConfirmation": true,
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 5,
+          "action": "CONFIRMED",
+          "crewRole": "PF",
+          "requiresConfirmation": true,
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 6,
+          "action": "RETARD",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 7,
+          "action": "CONFIRM L/R PROP LEVER FEATHER",
+          "crewRole": "PM",
+          "requiresConfirmation": true,
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 8,
+          "action": "CONFIRMED",
+          "crewRole": "PF",
+          "requiresConfirmation": true,
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 9,
+          "action": "FEATHERED",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 10,
+          "action": "CONFIRM L/R ENGINE FUEL LEVER OFF",
+          "crewRole": "PM",
+          "requiresConfirmation": true,
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 11,
+          "action": "CONFIRMED",
+          "crewRole": "PF",
+          "requiresConfirmation": true,
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 12,
+          "action": "OFF",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 13,
+          "action": "CONFIRM L/R FUEL EMERGENCY SWITCH OFF",
+          "crewRole": "PM",
+          "requiresConfirmation": true,
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 14,
+          "action": "CONFIRMED",
+          "crewRole": "PF",
+          "requiresConfirmation": true,
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 15,
+          "action": "OFF",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 16,
+          "action": "CONFIRM L/R FUEL BOOST PUMP OFF",
+          "crewRole": "PM",
+          "requiresConfirmation": true,
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 17,
+          "action": "CONFIRMED",
+          "crewRole": "PF",
+          "requiresConfirmation": true,
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 18,
+          "action": "OFF",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        }
+      ],
+      "flow": [
+        {
+          "stepNumber": 1,
+          "action": "CONFIRM L/R OIL PRESSURE BELOW 40 PSI — acknowledging malfunction, maintaining directional control",
+          "crewRole": "PF",
+          "requiresConfirmation": true,
+          "intent": "ANNOUNCE_AND_DO",
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 2,
+          "action": "CONFIRMED L/R ENGINE OIL PRESSURE IS AT ___ PSI — oil pressure gauge checked",
+          "crewRole": "PM",
+          "requiresConfirmation": true,
+          "intent": "ANNOUNCE_AND_DO",
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 3,
+          "action": "SET MAX POWER L/R ENGINE",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE_AND_DO",
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 4,
+          "action": "MAX POWER SET — PROP LEVERS 96% NP, POWER LEVERS MAX unaffected engine confirmed",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE_AND_DO",
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 5,
+          "action": "MEMORY ITEMS FOR OIL PRESSURE CAS MSG ON",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 6,
+          "action": "INITIATING MEMORY ITEMS — if airspeed decays below 100 KIAS after power reduction, select FLAPS 10°",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 7,
+          "action": "CONFIRM L/R ENGINE POWER LEVER RETARD TO 10 PSI",
+          "crewRole": "PM",
+          "requiresConfirmation": true,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 8,
+          "action": "CONFIRMED",
+          "crewRole": "PF",
+          "requiresConfirmation": true,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 9,
+          "action": "RETARD — POWER LEVER AT 10 PSI",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 10,
+          "action": "CONFIRM L/R PROP LEVER FEATHER",
+          "crewRole": "PM",
+          "requiresConfirmation": true,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 11,
+          "action": "CONFIRMED",
+          "crewRole": "PF",
+          "requiresConfirmation": true,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 12,
+          "action": "FEATHERED — PROP LEVER AT FEATHER",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 13,
+          "action": "CONFIRM L/R ENGINE FUEL LEVER OFF",
+          "crewRole": "PM",
+          "requiresConfirmation": true,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 14,
+          "action": "CONFIRMED",
+          "crewRole": "PF",
+          "requiresConfirmation": true,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 15,
+          "action": "OFF — FUEL LEVER OFF",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 16,
+          "action": "CONFIRM L/R FUEL EMERGENCY SWITCH OFF",
+          "crewRole": "PM",
+          "requiresConfirmation": true,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 17,
+          "action": "CONFIRMED",
+          "crewRole": "PF",
+          "requiresConfirmation": true,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 18,
+          "action": "OFF — FUEL EMERGENCY SWITCH OFF",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 19,
+          "action": "CONFIRM L/R FUEL BOOST PUMP OFF",
+          "crewRole": "PM",
+          "requiresConfirmation": true,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 20,
+          "action": "CONFIRMED",
+          "crewRole": "PF",
+          "requiresConfirmation": true,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 21,
+          "action": "OFF — FUEL BOOST PUMP OFF",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 22,
+          "action": "CHECKED — QRH FOR OIL PRESSURE CAS MSG",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 23,
+          "action": "MEMORY ITEMS COMPLETE",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 24,
+          "action": "QRH FOR OIL PRESSURE CAS MSG COMPLETE",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        }
+      ]
+    },
+    "G950": {
+      "memory": [
+        {
+          "stepNumber": 1,
+          "action": "OIL PRESSURE CAS MESSAGE ANNUNCIATED — BELOW 40 PSI",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 2,
+          "action": "OIL PRESSURE GAUGE — CHECK to confirm below 40 PSI",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 3,
+          "action": "POWER AND PROP LEVERS (UNAFFECTED ENGINE) — MAX POWER",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 4,
+          "action": "CONFIRM L/R ENGINE POWER LEVER RETARD TO 10 PSI",
+          "crewRole": "PM",
+          "requiresConfirmation": true,
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 5,
+          "action": "CONFIRMED",
+          "crewRole": "PF",
+          "requiresConfirmation": true,
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 6,
+          "action": "RETARD",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 7,
+          "action": "CONFIRM L/R PROP LEVER FEATHER",
+          "crewRole": "PM",
+          "requiresConfirmation": true,
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 8,
+          "action": "CONFIRMED",
+          "crewRole": "PF",
+          "requiresConfirmation": true,
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 9,
+          "action": "FEATHERED",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 10,
+          "action": "CONFIRM L/R ENGINE FUEL LEVER OFF",
+          "crewRole": "PM",
+          "requiresConfirmation": true,
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 11,
+          "action": "CONFIRMED",
+          "crewRole": "PF",
+          "requiresConfirmation": true,
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 12,
+          "action": "OFF",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 13,
+          "action": "CONFIRM L/R FUEL EMERGENCY SWITCH OFF",
+          "crewRole": "PM",
+          "requiresConfirmation": true,
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 14,
+          "action": "CONFIRMED",
+          "crewRole": "PF",
+          "requiresConfirmation": true,
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 15,
+          "action": "OFF",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 16,
+          "action": "CONFIRM L/R FUEL BOOST PUMP OFF",
+          "crewRole": "PM",
+          "requiresConfirmation": true,
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 17,
+          "action": "CONFIRMED",
+          "crewRole": "PF",
+          "requiresConfirmation": true,
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 18,
+          "action": "OFF",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        }
+      ],
+      "flow": [
+        {
+          "stepNumber": 1,
+          "action": "CONFIRM L/R OIL PRESSURE BELOW 40 PSI — acknowledging malfunction, maintaining directional control",
+          "crewRole": "PF",
+          "requiresConfirmation": true,
+          "intent": "ANNOUNCE_AND_DO",
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 2,
+          "action": "CONFIRMED L/R ENGINE OIL PRESSURE IS AT ___ PSI — oil pressure gauge checked",
+          "crewRole": "PM",
+          "requiresConfirmation": true,
+          "intent": "ANNOUNCE_AND_DO",
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 3,
+          "action": "SET MAX POWER L/R ENGINE",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE_AND_DO",
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 4,
+          "action": "MAX POWER SET — PROP LEVERS 96% NP, POWER LEVERS MAX unaffected engine confirmed",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE_AND_DO",
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 5,
+          "action": "MEMORY ITEMS FOR OIL PRESSURE CAS MSG ON",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 6,
+          "action": "INITIATING MEMORY ITEMS — if airspeed decays below 100 KIAS after power reduction, select FLAPS 10°",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 7,
+          "action": "CONFIRM L/R ENGINE POWER LEVER RETARD TO 10 PSI",
+          "crewRole": "PM",
+          "requiresConfirmation": true,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 8,
+          "action": "CONFIRMED",
+          "crewRole": "PF",
+          "requiresConfirmation": true,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 9,
+          "action": "RETARD — POWER LEVER AT 10 PSI",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 10,
+          "action": "CONFIRM L/R PROP LEVER FEATHER",
+          "crewRole": "PM",
+          "requiresConfirmation": true,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 11,
+          "action": "CONFIRMED",
+          "crewRole": "PF",
+          "requiresConfirmation": true,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 12,
+          "action": "FEATHERED — PROP LEVER AT FEATHER",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 13,
+          "action": "CONFIRM L/R ENGINE FUEL LEVER OFF",
+          "crewRole": "PM",
+          "requiresConfirmation": true,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 14,
+          "action": "CONFIRMED",
+          "crewRole": "PF",
+          "requiresConfirmation": true,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 15,
+          "action": "OFF — FUEL LEVER OFF",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 16,
+          "action": "CONFIRM L/R FUEL EMERGENCY SWITCH OFF",
+          "crewRole": "PM",
+          "requiresConfirmation": true,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 17,
+          "action": "CONFIRMED",
+          "crewRole": "PF",
+          "requiresConfirmation": true,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 18,
+          "action": "OFF — FUEL EMERGENCY SWITCH OFF",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 19,
+          "action": "CONFIRM L/R FUEL BOOST PUMP OFF",
+          "crewRole": "PM",
+          "requiresConfirmation": true,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 20,
+          "action": "CONFIRMED",
+          "crewRole": "PF",
+          "requiresConfirmation": true,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 21,
+          "action": "OFF — FUEL BOOST PUMP OFF",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 22,
+          "action": "CHECKED — QRH FOR OIL PRESSURE CAS MSG",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 23,
+          "action": "MEMORY ITEMS COMPLETE",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        },
+        {
+          "stepNumber": 24,
+          "action": "QRH FOR OIL PRESSURE CAS MSG COMPLETE",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03 Section 5.4.2; MCC Callouts; QRH EN-3"
+        }
+      ]
+    }
+  }
+}

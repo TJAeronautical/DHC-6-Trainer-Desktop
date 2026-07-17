@@ -1,0 +1,198 @@
+{
+  "package_name": "com.dhc6trainer",
+  "source_base": "DHC-6-Trainer-PlayStore-v1.2.9.zip",
+  "release_package": "DHC-6-Trainer-PlayStore-v1.2.9-SystemsLabPropellerRelease.zip",
+  "version": {
+    "compileSdk": "37",
+    "minSdk": "26",
+    "targetSdk": "36",
+    "versionCode": "44",
+    "versionName": "1.2.9"
+  },
+  "asset_policy": "No Draco. Keep node hierarchy and materials. Fused user-supplied propeller.glb into hartzell_propeller.glb via scaled child subtree while preserving Hartzell training nodes.",
+  "models": [
+    {
+      "file": "beta_backup.glb",
+      "size_bytes": 7495500,
+      "size_kb": 7319.82,
+      "under_15000_kb": true,
+      "node_count": 2,
+      "named_node_count": 2,
+      "material_count": 1,
+      "named_material_count": 1,
+      "animation_count": 0,
+      "extensions_used": [],
+      "sha256": "7bf77311d04fccf27e122c2c1641ddb7679d0fd91d06246270d5221102661353"
+    },
+    {
+      "file": "bleed_valve.glb",
+      "size_bytes": 7825288,
+      "size_kb": 7641.88,
+      "under_15000_kb": true,
+      "node_count": 2,
+      "named_node_count": 2,
+      "material_count": 1,
+      "named_material_count": 1,
+      "animation_count": 0,
+      "extensions_used": [],
+      "sha256": "a149093ac0b51a500ac029a342bade3681da5c5ffb36b75293a4340d4953995c"
+    },
+    {
+      "file": "constant_speed_propeller.glb",
+      "size_bytes": 11616196,
+      "size_kb": 11343.94,
+      "under_15000_kb": true,
+      "node_count": 45,
+      "named_node_count": 45,
+      "material_count": 3,
+      "named_material_count": 3,
+      "animation_count": 0,
+      "extensions_used": [
+        "KHR_mesh_quantization"
+      ],
+      "sha256": "802ab8e0cafc38e38beda8a91123c664652690d392c68a4859812f4c5a847d73"
+    },
+    {
+      "file": "electrical_system_training.glb",
+      "size_bytes": 247356,
+      "size_kb": 241.56,
+      "under_15000_kb": true,
+      "node_count": 31,
+      "named_node_count": 31,
+      "material_count": 31,
+      "named_material_count": 31,
+      "animation_count": 0,
+      "extensions_used": [],
+      "sha256": "08be29b5aedfb7e1d3b2e953b551da13726b34f36d85c299cccbe6f4ed06ceb0"
+    },
+    {
+      "file": "environmental_bleed_training.glb",
+      "size_bytes": 158108,
+      "size_kb": 154.4,
+      "under_15000_kb": true,
+      "node_count": 20,
+      "named_node_count": 20,
+      "material_count": 20,
+      "named_material_count": 20,
+      "animation_count": 0,
+      "extensions_used": [],
+      "sha256": "039f74b91323dca70862879c648ac4e23caa3110ccf6e090911dec1d66cf0d67"
+    },
+    {
+      "file": "flight_controls_training.glb",
+      "size_bytes": 170204,
+      "size_kb": 166.21,
+      "under_15000_kb": true,
+      "node_count": 28,
+      "named_node_count": 28,
+      "material_count": 28,
+      "named_material_count": 28,
+      "animation_count": 0,
+      "extensions_used": [],
+      "sha256": "8290512283c8d41c823de2d40fcca86219004c026a195e3eef09e924c155c90e"
+    },
+    {
+      "file": "fuel_system_training.glb",
+      "size_bytes": 250688,
+      "size_kb": 244.81,
+      "under_15000_kb": true,
+      "node_count": 29,
+      "named_node_count": 29,
+      "material_count": 29,
+      "named_material_count": 29,
+      "animation_count": 0,
+      "extensions_used": [],
+      "sha256": "edf95c43cc179bea7a5c3db42dd7a69431e0d0b77cb684f0d4c4148fc9b6f40a"
+    },
+    {
+      "file": "hartzell_propeller.glb",
+      "size_bytes": 1359780,
+      "size_kb": 1327.91,
+      "under_15000_kb": true,
+      "node_count": 70,
+      "named_node_count": 70,
+      "material_count": 18,
+      "named_material_count": 4,
+      "animation_count": 0,
+      "extensions_used": [
+        "KHR_materials_specular"
+      ],
+      "sha256": "fc124d6d71b3a7ee77984ed888f22d2d0d086b9a4c17c946be744ff4643a2f1a"
+    },
+    {
+      "file": "hydraulic_pack_training.glb",
+      "size_bytes": 8592280,
+      "size_kb": 8390.9,
+      "under_15000_kb": true,
+      "node_count": 2206,
+      "named_node_count": 2206,
+      "material_count": 1,
+      "named_material_count": 1,
+      "animation_count": 0,
+      "extensions_used": [],
+      "sha256": "0ee55524d652dabeb7144f349b279adbda65d0d35650882c2a7e6a0813e57ef4"
+    },
+    {
+      "file": "main_gear_assembly.glb",
+      "size_bytes": 2927704,
+      "size_kb": 2859.09,
+      "under_15000_kb": true,
+      "node_count": 23,
+      "named_node_count": 23,
+      "material_count": 2,
+      "named_material_count": 2,
+      "animation_count": 0,
+      "extensions_used": [],
+      "sha256": "0748d907030df1c7ef72744529d5c00e4cead31491e9a18a5ba716b4040d69dc"
+    },
+    {
+      "file": "nose_gear_assembly.glb",
+      "size_bytes": 8037640,
+      "size_kb": 7849.26,
+      "under_15000_kb": true,
+      "node_count": 2,
+      "named_node_count": 2,
+      "material_count": 1,
+      "named_material_count": 0,
+      "animation_count": 0,
+      "extensions_used": [],
+      "sha256": "757446e648815a88334f935f314bf9b674f0e03e352a71c45e5e60fa1a5fb37f"
+    },
+    {
+      "file": "nosewheel_steering_training.glb",
+      "size_bytes": 5777764,
+      "size_kb": 5642.35,
+      "under_15000_kb": true,
+      "node_count": 10,
+      "named_node_count": 10,
+      "material_count": 3,
+      "named_material_count": 3,
+      "animation_count": 0,
+      "extensions_used": [],
+      "sha256": "e230ea4251c610c3814795074a5011da02f5fff2c856d27faf6bbc2c78796cce"
+    },
+    {
+      "file": "pt6a27_cutaway.glb",
+      "size_bytes": 14934316,
+      "size_kb": 14584.29,
+      "under_15000_kb": true,
+      "node_count": 107,
+      "named_node_count": 107,
+      "material_count": 32,
+      "named_material_count": 32,
+      "animation_count": 0,
+      "extensions_used": [
+        "KHR_materials_specular",
+        "KHR_mesh_quantization"
+      ],
+      "sha256": "ef5edb364c0bd4123169ef092b59c76e2058890294aa3a72b907a7ada0956498"
+    }
+  ],
+  "validation": {
+    "procedural_system_models": "PASS via scripts/validate_systems_lab_models.py",
+    "all_top_level_glbs_under_15000_kb": true,
+    "fused_hartzell_contains_group_node": true,
+    "release_build_executed": false,
+    "release_build_note": "Static release package only; Gradle build must be run locally/CI with signing properties."
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "rawName": "Propeller Overspeed — NP Exceeds Set RPM but at or below 101.5%",
+  "drillName": "Propeller Overspeed — NP at or below 101.5% [Airborne]",
+  "category": "ABNORMAL",
+  "context": "Airborne",
+  "mccGroup": "No memory items — CONFIRM then QRH directly",
+  "mccReference": "FCTM DHC-6 WIPLINE/G950 HBTS-001 ISS03 REV02 Section 5.6.2",
+  "variants": {
+    "LEGACY": {
+      "memory": [],
+      "flow": [
+        {
+          "stepNumber": 1,
+          "action": "CONFIRM L/R PROPELLER IS OVERSPEEDING — acknowledge malfunction and maintain directional control.",
+          "crewRole": "PF",
+          "intent": "ANNOUNCE_AND_DO",
+          "requiresConfirmation": true,
+          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-50; OM-B Ch 3 Sec 3.11.1.4"
+        },
+        {
+          "stepNumber": 2,
+          "action": "CONFIRMED L/R PROPELLER OVERSPEEDING, BELOW 101.5% — check NP, T5, Torque, WF and NG to confirm",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE_AND_DO",
+          "requiresConfirmation": true,
+          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-50; OM-B Ch 3 Sec 3.11.1.4"
+        },
+        {
+          "stepNumber": 3,
+          "action": "QRH FOR PROP OVERSPEED AT OR BELOW 101.5%",
+          "crewRole": "PF",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-50; OM-B Ch 3 Sec 3.11.1.4"
+        },
+        {
+          "stepNumber": 4,
+          "action": "Initiate QRH for Propeller Overspeed — NP exceeds set RPM but is at or below 101.5%.",
+          "crewRole": "PM",
+          "intent": "DO",
+          "requiresConfirmation": false,
+          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-50; OM-B Ch 3 Sec 3.11.1.4"
+        },
+        {
+          "stepNumber": 5,
+          "action": "CHECKED",
+          "crewRole": "PF",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-50; OM-B Ch 3 Sec 3.11.1.4"
+        },
+        {
+          "stepNumber": 6,
+          "action": "QRH FOR PROP OVERSPEED AT OR BELOW 101.5% COMPLETE",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-50; OM-B Ch 3 Sec 3.11.1.4"
+        }
+      ]
+    },
+    "G950": {
+      "memory": [],
+      "flow": [
+        {
+          "stepNumber": 1,
+          "action": "CONFIRM L/R PROPELLER IS OVERSPEEDING — acknowledge malfunction and maintain directional control.",
+          "crewRole": "PF",
+          "intent": "ANNOUNCE_AND_DO",
+          "requiresConfirmation": true,
+          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-50; OM-B Ch 3 Sec 3.11.1.4"
+        },
+        {
+          "stepNumber": 2,
+          "action": "CONFIRMED L/R PROPELLER OVERSPEEDING, BELOW 101.5% — check NP, T5, Torque, WF and NG to confirm",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE_AND_DO",
+          "requiresConfirmation": true,
+          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-50; OM-B Ch 3 Sec 3.11.1.4"
+        },
+        {
+          "stepNumber": 3,
+          "action": "QRH FOR PROP OVERSPEED AT OR BELOW 101.5%",
+          "crewRole": "PF",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-50; OM-B Ch 3 Sec 3.11.1.4"
+        },
+        {
+          "stepNumber": 4,
+          "action": "Initiate QRH for Propeller Overspeed — NP exceeds set RPM but is at or below 101.5%.",
+          "crewRole": "PM",
+          "intent": "DO",
+          "requiresConfirmation": false,
+          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-50; OM-B Ch 3 Sec 3.11.1.4"
+        },
+        {
+          "stepNumber": 5,
+          "action": "CHECKED",
+          "crewRole": "PF",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-50; OM-B Ch 3 Sec 3.11.1.4"
+        },
+        {
+          "stepNumber": 6,
+          "action": "QRH FOR PROP OVERSPEED AT OR BELOW 101.5% COMPLETE",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-50; OM-B Ch 3 Sec 3.11.1.4"
+        }
+      ]
+    }
+  },
+  "sourceNote": "Airline-quality MCC callouts from MCC CALLS AND MEMORY ITEMS.pdf DHC-6 WIPLINE/G950 HBTS-001 ISS03 REV02. Not an approved AFM/POH/QRH replacement.",
+  "phaseTag": "Airborne",
+  "displayLabel": "Propeller Overspeed — NP at or below 101.5%",
+  "sortOrder": 70,
+  "sourceSection": "3.11.1.4",
+  "procedureGroup": "Propeller",
+  "manualSection": "Section 3",
+  "sequenceBasis": "MCC CALLS AND MEMORY ITEMS.pdf 5.6.2",
+  "normalSplit": null
+}

@@ -1,0 +1,248 @@
+{
+  "rawName": "Total Electrical Failure",
+  "drillName": "Total Electrical Failure [Airborne]",
+  "category": "EMERGENCY",
+  "context": "Airborne",
+  "variants": {
+    "LEGACY": {
+      "memory": [
+        {
+          "stepNumber": 1,
+          "action": "Total Electrical Failure.",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "reference": "POH / AFM Section 3.12.3 Total Electrical Failure Page 3-41"
+        },
+        {
+          "stepNumber": 2,
+          "action": "GENERATOR SWITCHES — BOTH OFF",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "reference": "POH / AFM Section 3.12.3 Total Electrical Failure Page 3-41"
+        },
+        {
+          "stepNumber": 3,
+          "action": "GENERATOR SWITCHES — RESET INDIVIDUALLY",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "reference": "POH / AFM Section 3.12.3 Total Electrical Failure Page 3-41"
+        }
+      ],
+      "flow": [
+        {
+          "stepNumber": 1,
+          "action": "Total Electrical Failure.",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.12.3; PM_CALLOUT"
+        },
+        {
+          "stepNumber": 2,
+          "action": "I have control, maintain flight path.",
+          "crewRole": "PF",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.12.3; PF_COMMAND"
+        },
+        {
+          "stepNumber": 3,
+          "action": "Emergency procedure: Total Electrical Failure.",
+          "crewRole": "PF",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.12.3; PF_COMMAND"
+        },
+        {
+          "stepNumber": 4,
+          "action": "Emergency procedure: Total Electrical Failure.",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.12.3; PM_RESPONSE"
+        },
+        {
+          "stepNumber": 5,
+          "action": "Confirm condition and affected system.",
+          "crewRole": "PF",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": true,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.12.3; PF_COMMAND"
+        },
+        {
+          "stepNumber": 6,
+          "action": "Condition confirmed, affected system identified.",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": true,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.12.3; PM_RESPONSE"
+        },
+        {
+          "stepNumber": 7,
+          "action": "Memory items if applicable.",
+          "crewRole": "PF",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.12.3; PF_COMMAND"
+        },
+        {
+          "stepNumber": 8,
+          "action": "Monitor aircraft state, engine/system indications, terrain, traffic, and configuration.",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.12.3; PM_ACTION"
+        },
+        {
+          "stepNumber": 9,
+          "action": "Checklist.",
+          "crewRole": "PF",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.12.3; PF_COMMAND"
+        },
+        {
+          "stepNumber": 10,
+          "action": "Total Electrical Failure checklist.",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.12.3; PM_RESPONSE"
+        },
+        {
+          "stepNumber": 11,
+          "action": "Total Electrical Failure checklist complete.",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.12.3; PM_COMPLETION"
+        }
+      ]
+    },
+    "G950": {
+      "memory": [
+        {
+          "stepNumber": 1,
+          "action": "Total Electrical Failure.",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "reference": "POH / AFM Section 3.12.3 Total Electrical Failure Page 3-41"
+        },
+        {
+          "stepNumber": 2,
+          "action": "GENERATOR SWITCHES — BOTH OFF",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "reference": "POH / AFM Section 3.12.3 Total Electrical Failure Page 3-41"
+        },
+        {
+          "stepNumber": 3,
+          "action": "GENERATOR SWITCHES — RESET INDIVIDUALLY",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "reference": "POH / AFM Section 3.12.3 Total Electrical Failure Page 3-41"
+        }
+      ],
+      "flow": [
+        {
+          "stepNumber": 1,
+          "action": "Total Electrical Failure.",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.12.3; PM_CALLOUT"
+        },
+        {
+          "stepNumber": 2,
+          "action": "I have control, maintain flight path.",
+          "crewRole": "PF",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.12.3; PF_COMMAND"
+        },
+        {
+          "stepNumber": 3,
+          "action": "Emergency procedure: Total Electrical Failure.",
+          "crewRole": "PF",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.12.3; PF_COMMAND"
+        },
+        {
+          "stepNumber": 4,
+          "action": "Emergency procedure: Total Electrical Failure.",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.12.3; PM_RESPONSE"
+        },
+        {
+          "stepNumber": 5,
+          "action": "Confirm condition and affected system.",
+          "crewRole": "PF",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": true,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.12.3; PF_COMMAND"
+        },
+        {
+          "stepNumber": 6,
+          "action": "Condition confirmed, affected system identified.",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": true,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.12.3; PM_RESPONSE"
+        },
+        {
+          "stepNumber": 7,
+          "action": "Memory items if applicable.",
+          "crewRole": "PF",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.12.3; PF_COMMAND"
+        },
+        {
+          "stepNumber": 8,
+          "action": "Monitor aircraft state, engine/system indications, terrain, traffic, and configuration.",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.12.3; PM_ACTION"
+        },
+        {
+          "stepNumber": 9,
+          "action": "Checklist.",
+          "crewRole": "PF",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.12.3; PF_COMMAND"
+        },
+        {
+          "stepNumber": 10,
+          "action": "Total Electrical Failure checklist.",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.12.3; PM_RESPONSE"
+        },
+        {
+          "stepNumber": 11,
+          "action": "Total Electrical Failure checklist complete.",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.12.3; PM_COMPLETION"
+        }
+      ]
+    }
+  },
+  "sourceNote": "Procedure identity/category/order normalized from 'DHC-6 Full Drill Procedure Index Normal Split.xlsx'. Excel is the governing app display allow-list. Existing procedure steps preserved for later content review. Previous note: Generic MCC callout shell generated from procedure titles only. This is not an approved AFM/POH/QRH/checklist replacement. Curated to the DHC-6 Trainer Abnormal/Emergency procedure allow-list.",
+  "phaseTag": "Airborne",
+  "displayLabel": "Total Electrical Failure [Airborne]",
+  "sortOrder": 56,
+  "sourceSection": "3.12.3",
+  "procedureGroup": "Electrical Abnormalities",
+  "manualSection": "Section 3",
+  "sequenceBasis": "User-approved working order",
+  "normalSplit": null
+}
+

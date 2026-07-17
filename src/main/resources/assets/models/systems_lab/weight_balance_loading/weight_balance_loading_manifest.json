@@ -1,0 +1,21 @@
+{
+  "title": "3. Weight & Balance / Loading",
+  "defaultModelVariant": "wheels",
+  "availableModelVariants": [
+    "wheels",
+    "floats",
+    "skis"
+  ],
+  "references": [
+    {
+      "label": "Figure 6-11 Baggage Compartment Table",
+      "assetPath": "models/systems_lab/weight_balance_loading/Refs/Figure_6-11_Baggage_Compartment_Table.png",
+      "originalZipEntry": "Figure_6-11.png"
+    },
+    {
+      "label": "Figure 6-12 Cargo Compartment Freight Table",
+      "assetPath": "models/systems_lab/weight_balance_loading/Refs/Figure_6-12_Cargo_Compartment_Freight_Table.png",
+      "originalZipEntry": "Figure_6-12.png"
+    }
+  ]
+}

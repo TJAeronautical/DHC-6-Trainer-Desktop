@@ -1,0 +1,214 @@
+{
+  "schemaVersion": "1.0.0",
+  "phases": [
+    {
+      "id": "normal_before_start",
+      "displayName": "Normal - Before Start",
+      "aliases": [
+        "BEFORE START",
+        "PRE-START",
+        "PREFLIGHT",
+        "PRE FLIGHT"
+      ]
+    },
+    {
+      "id": "normal_start",
+      "displayName": "Normal - Start",
+      "aliases": [
+        "START",
+        "ENGINE START",
+        "STARTING"
+      ]
+    },
+    {
+      "id": "normal_taxi",
+      "displayName": "Normal - Taxi",
+      "aliases": [
+        "TAXI",
+        "BEFORE TAXI"
+      ]
+    },
+    {
+      "id": "normal_before_takeoff",
+      "displayName": "Normal - Before Takeoff",
+      "aliases": [
+        "BEFORE TAKEOFF",
+        "BEFORE TAKE-OFF",
+        "LINE UP",
+        "LINING UP",
+        "BEFORE TAKE OFF"
+      ]
+    },
+    {
+      "id": "normal_takeoff",
+      "displayName": "Normal - Takeoff",
+      "aliases": [
+        "TAKEOFF",
+        "TAKE-OFF",
+        "TAKE OFF"
+      ]
+    },
+    {
+      "id": "normal_after_takeoff",
+      "displayName": "Normal - After Takeoff",
+      "aliases": [
+        "AFTER TAKEOFF",
+        "AFTER TAKE-OFF",
+        "AFTER TAKE OFF"
+      ]
+    },
+    {
+      "id": "normal_climb",
+      "displayName": "Normal - Climb",
+      "aliases": [
+        "CLIMB",
+        "CLIMB OUT",
+        "CLIMB-OUT"
+      ]
+    },
+    {
+      "id": "normal_cruise",
+      "displayName": "Normal - Cruise",
+      "aliases": [
+        "CRUISE"
+      ]
+    },
+    {
+      "id": "normal_descent",
+      "displayName": "Normal - Descent",
+      "aliases": [
+        "DESCENT"
+      ]
+    },
+    {
+      "id": "normal_approach",
+      "displayName": "Normal - Approach",
+      "aliases": [
+        "APPROACH",
+        "DESCENT/APPROACH",
+        "APPROACH & LANDING"
+      ]
+    },
+    {
+      "id": "normal_landing",
+      "displayName": "Normal - Landing",
+      "aliases": [
+        "LANDING"
+      ]
+    },
+    {
+      "id": "normal_after_landing",
+      "displayName": "Normal - After Landing",
+      "aliases": [
+        "AFTER LANDING",
+        "CLEAR OF RUNWAY",
+        "AFTER LANDING/SHUTDOWN"
+      ]
+    },
+    {
+      "id": "normal_shutdown",
+      "displayName": "Normal - Shutdown",
+      "aliases": [
+        "SHUTDOWN",
+        "SECURE",
+        "PARKING",
+        "PARK"
+      ]
+    },
+    {
+      "id": "abnormal_start",
+      "displayName": "Abnormal - Start",
+      "aliases": [
+        "ABNORMAL START",
+        "STARTS"
+      ]
+    },
+    {
+      "id": "abnormal_engine",
+      "displayName": "Abnormal - Engine",
+      "aliases": [
+        "ENGINE"
+      ]
+    },
+    {
+      "id": "abnormal_propeller",
+      "displayName": "Abnormal - Propeller",
+      "aliases": [
+        "PROPELLER",
+        "PROP"
+      ]
+    },
+    {
+      "id": "abnormal_electrical",
+      "displayName": "Abnormal - Electrical",
+      "aliases": [
+        "ELECTRICAL",
+        "ELEC"
+      ]
+    },
+    {
+      "id": "abnormal_radio_instruments",
+      "displayName": "Abnormal - Radio & Instruments",
+      "aliases": [
+        "RADIO",
+        "INSTRUMENTS",
+        "RADIO & INSTRUMENTS"
+      ]
+    },
+    {
+      "id": "abnormal_fuel",
+      "displayName": "Abnormal - Fuel",
+      "aliases": [
+        "FUEL"
+      ]
+    },
+    {
+      "id": "abnormal_hydraulic",
+      "displayName": "Abnormal - Hydraulic",
+      "aliases": [
+        "HYDRAULIC",
+        "HYD"
+      ]
+    },
+    {
+      "id": "abnormal_misc",
+      "displayName": "Abnormal - Miscellaneous",
+      "aliases": [
+        "MISC",
+        "MISCELLANEOUS"
+      ]
+    },
+    {
+      "id": "emergency_engine",
+      "displayName": "Emergency - Engine",
+      "aliases": [
+        "ENGINE FAILURE",
+        "ENGINE"
+      ]
+    },
+    {
+      "id": "emergency_fire",
+      "displayName": "Emergency - Fire",
+      "aliases": [
+        "FIRE",
+        "ENGINE FIRE"
+      ]
+    },
+    {
+      "id": "emergency_electrical",
+      "displayName": "Emergency - Electrical",
+      "aliases": [
+        "ELECTRICAL",
+        "ELEC"
+      ]
+    },
+    {
+      "id": "emergency_misc",
+      "displayName": "Emergency - Miscellaneous",
+      "aliases": [
+        "MISC",
+        "MISCELLANEOUS"
+      ]
+    }
+  ]
+}

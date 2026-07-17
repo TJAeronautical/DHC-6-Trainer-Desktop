@@ -1,0 +1,1768 @@
+{
+  "_meta": {
+    "schemaVersion": 2,
+    "kind": "hitbox_snapshot",
+    "scope": "asset",
+    "fileName": "hitboxes_g950.json",
+    "app": {
+      "packageName": "com.dhc6trainer",
+      "versionName": "1.0.2",
+      "versionCode": 2
+    },
+    "variant": "G950"
+  },
+  "hitboxes": [
+    {
+      "id": "POWER_LEVER_L",
+      "type": "lever",
+      "rect": {
+        "x": 0.40334656834602356,
+        "y": 0.23263634741306305,
+        "w": 0.0508938767015934,
+        "h": 0.11838522553443909
+      },
+      "axis": {
+        "orientation": "vertical",
+        "min": 0,
+        "max": 1
+      },
+      "binding": {
+        "kind": "lever",
+        "leverId": "POWER_LEVER_L",
+        "leverClampMin": 1,
+        "leverClampMax": 0
+      }
+    },
+    {
+      "id": "POWER_LEVER_R",
+      "type": "lever",
+      "rect": {
+        "x": 0.45897671580314636,
+        "y": 0.2338150143623352,
+        "w": 0.051558975130319595,
+        "h": 0.11739147454500198
+      },
+      "axis": {
+        "orientation": "vertical",
+        "min": 0,
+        "max": 1
+      },
+      "binding": {
+        "kind": "lever",
+        "leverId": "POWER_LEVER_R",
+        "leverClampMin": 1,
+        "leverClampMax": 0
+      }
+    },
+    {
+      "id": "PROP_LEVER_R",
+      "type": "lever",
+      "rect": {
+        "x": 0.5374107360839844,
+        "y": 0.2396625280380249,
+        "w": 0.013744652271270752,
+        "h": 0.0976962149143219
+      },
+      "axis": {
+        "orientation": "vertical",
+        "min": 0,
+        "max": 1
+      },
+      "binding": {
+        "kind": "lever",
+        "leverId": "PROP_LEVER_R",
+        "action": "PROP_LEVER_R",
+        "switchAxis": "vertical"
+      }
+    },
+    {
+      "id": "PROP_LEVER_L",
+      "type": "lever",
+      "rect": {
+        "x": 0.5196349024772644,
+        "y": 0.23956656455993652,
+        "w": 0.015084564685821533,
+        "h": 0.0980527400970459
+      },
+      "axis": {
+        "orientation": "vertical",
+        "min": 0,
+        "max": 1
+      },
+      "binding": {
+        "kind": "lever",
+        "leverId": "PROP_LEVER_L",
+        "action": "PROP_LEVER_L",
+        "switchAxis": "vertical"
+      }
+    },
+    {
+      "id": "FUEL_LEVER_L",
+      "type": "lever",
+      "rect": {
+        "x": 0.5728963613510132,
+        "y": 0.23608915507793427,
+        "w": 0.012602945789694786,
+        "h": 0.09596189111471176
+      },
+      "axis": {
+        "orientation": "vertical",
+        "min": 0,
+        "max": 1
+      },
+      "binding": {
+        "kind": "lever",
+        "leverId": "FUEL_LEVER_L",
+        "leverClampMin": 0,
+        "leverClampMax": 1
+      }
+    },
+    {
+      "id": "FUEL_LEVER_R",
+      "type": "lever",
+      "rect": {
+        "x": 0.5909031629562378,
+        "y": 0.2360304594039917,
+        "w": 0.011591142974793911,
+        "h": 0.09632407128810883
+      },
+      "axis": {
+        "orientation": "vertical",
+        "min": 0,
+        "max": 1
+      },
+      "binding": {
+        "kind": "lever",
+        "leverId": "FUEL_LEVER_R",
+        "leverClampMin": 0,
+        "leverClampMax": 1
+      }
+    },
+    {
+      "id": "ANTI-COL_LIGHTS",
+      "type": "switch",
+      "rect": {
+        "x": 0.48252490162849426,
+        "y": 0.06879870593547821,
+        "w": 0.013965040445327759,
+        "h": 0.009448297321796417
+      },
+      "axis": {
+        "orientation": "vertical",
+        "min": 0,
+        "max": 1
+      },
+      "binding": {
+        "kind": "switch",
+        "action": "STROBE",
+        "switchId": "ANTI-COL_LIGHTS",
+        "switchMode": "2pos",
+        "switchAxis": "vertical",
+        "switchPositions": [
+          "OFF",
+          "ON"
+        ]
+      }
+    },
+    {
+      "id": "INTAKE_ANTI_ICE",
+      "type": "switch",
+      "rect": {
+        "x": 0.474298894405365,
+        "y": 0.019575145095586777,
+        "w": 0.014941302128136158,
+        "h": 0.010614101774990559
+      },
+      "axis": {
+        "orientation": "vertical",
+        "min": 0,
+        "max": 1
+      },
+      "binding": {
+        "kind": "switch",
+        "switchId": "INTAKE_ANTI_ICE",
+        "switchMode": "2pos",
+        "switchAxis": "vertical",
+        "switchPositions": [
+          "OFF",
+          "ON"
+        ]
+      }
+    },
+    {
+      "id": "AVIONICS_CIRCUIT_BREAKER_PANEL",
+      "type": "display",
+      "rect": {
+        "x": 0.47648364305496216,
+        "y": 0.7701826691627502,
+        "w": 0.09764902293682098,
+        "h": 0.10335366427898407
+      },
+      "binding": {
+        "kind": "display",
+        "displayId": "AVIONICS_CIRCUIT_BREAKER_PANEL"
+      }
+    },
+    {
+      "id": "BATTERY_MASTER",
+      "type": "switch",
+      "rect": {
+        "x": 0.3238871097564697,
+        "y": 0.2948523461818695,
+        "w": 0.014941302128136158,
+        "h": 0.010614101774990559
+      },
+      "binding": {
+        "kind": "switch",
+        "action": "BATTERY_MASTER",
+        "switchId": "BATTERY_MASTER",
+        "switchMode": "TwoPositionSwitch",
+        "switchAxis": "VERTICAL",
+        "switchPositions": [
+          "OFF",
+          "ON"
+        ]
+      }
+    },
+    {
+      "id": "BEACON",
+      "type": "switch",
+      "rect": {
+        "x": 0.5556562542915344,
+        "y": 0.06825987249612808,
+        "w": 0.014941302128136158,
+        "h": 0.010614101774990559
+      },
+      "binding": {
+        "kind": "switch",
+        "action": "BEACON",
+        "switchId": "BEACON",
+        "switchMode": "TwoPositionSwitch",
+        "switchAxis": "VERTICAL",
+        "switchPositions": [
+          "OFF",
+          "ON"
+        ]
+      }
+    },
+    {
+      "id": "BUS_TIE",
+      "type": "switch",
+      "rect": {
+        "x": 0.4524584710597992,
+        "y": 0.08566328138113022,
+        "w": 0.019353296607732773,
+        "h": 0.01263198722153902
+      },
+      "axis": {
+        "orientation": "vertical",
+        "min": 0,
+        "max": 1
+      },
+      "binding": {
+        "kind": "switch",
+        "action": "BUS_TIE",
+        "switchId": "BUS_TIE",
+        "switchMode": "3pos",
+        "switchAxis": "vertical",
+        "switchPositions": [
+          "UP",
+          "CENTER",
+          "DOWN"
+        ]
+      }
+    },
+    {
+      "id": "CABIN_DIM",
+      "type": "switch",
+      "rect": {
+        "x": 0.538963794708252,
+        "y": 0.040426842868328094,
+        "w": 0.014941302128136158,
+        "h": 0.010614101774990559
+      },
+      "binding": {
+        "kind": "switch",
+        "action": "CABIN_PWR",
+        "switchId": "CABIN_DIM",
+        "switchMode": "3pos",
+        "switchAxis": "vertical",
+        "switchPositions": [
+          "UP",
+          "CENTER",
+          "DOWN"
+        ]
+      }
+    },
+    {
+      "id": "CABIN_ENTRANCE",
+      "type": "switch",
+      "rect": {
+        "x": 0.5914111733436584,
+        "y": 0.04171657934784889,
+        "w": 0.014941302128136158,
+        "h": 0.010614101774990559
+      },
+      "axis": {
+        "orientation": "vertical",
+        "min": 0,
+        "max": 1
+      },
+      "binding": {
+        "kind": "switch",
+        "action": "CABIN_PWR",
+        "switchId": "CABIN_ENTRANCE",
+        "switchMode": "3pos",
+        "switchAxis": "vertical",
+        "switchPositions": [
+          "UP",
+          "CENTER",
+          "DOWN"
+        ]
+      }
+    },
+    {
+      "id": "CABIN_READING",
+      "type": "switch",
+      "rect": {
+        "x": 0.5732256770133972,
+        "y": 0.0417148657143116,
+        "w": 0.014941302128136158,
+        "h": 0.010614101774990559
+      },
+      "binding": {
+        "kind": "switch",
+        "action": "CABIN_PWR",
+        "switchId": "CABIN_READING",
+        "switchMode": "TwoPositionSwitch",
+        "switchAxis": "VERTICAL",
+        "switchPositions": [
+          "OFF",
+          "ON"
+        ]
+      }
+    },
+    {
+      "id": "DEICE_BOOTS_AREA",
+      "type": "switch",
+      "rect": {
+        "x": 0.4757477343082428,
+        "y": 0.04407494515180588,
+        "w": 0.014941302128136158,
+        "h": 0.010614101774990559
+      },
+      "axis": {
+        "orientation": "vertical",
+        "min": 0,
+        "max": 1
+      },
+      "binding": {
+        "kind": "switch",
+        "switchId": "DEICE_BOOTS_AREA",
+        "switchMode": "3pos",
+        "switchAxis": "vertical",
+        "switchPositions": [
+          "UP",
+          "CENTER",
+          "DOWN"
+        ]
+      }
+    },
+    {
+      "id": "DEICE_BOOTS_INT",
+      "type": "switch",
+      "rect": {
+        "x": 0.46113285422325134,
+        "y": 0.044053636491298676,
+        "w": 0.014941302128136158,
+        "h": 0.010614101774990559
+      },
+      "axis": {
+        "orientation": "vertical",
+        "min": 0,
+        "max": 1
+      },
+      "binding": {
+        "kind": "switch",
+        "switchId": "DEICE_BOOTS_INT",
+        "switchMode": "3pos",
+        "switchAxis": "VERTICAL",
+        "switchPositions": [
+          "UP",
+          "CENTER",
+          "DOWN"
+        ]
+      }
+    },
+    {
+      "id": "DEICE_BOOTS_PWR",
+      "type": "switch",
+      "rect": {
+        "x": 0.4461263120174408,
+        "y": 0.0439942292869091,
+        "w": 0.014941302128136158,
+        "h": 0.010614101774990559
+      },
+      "axis": {
+        "orientation": "vertical",
+        "min": 0,
+        "max": 1
+      },
+      "binding": {
+        "kind": "switch",
+        "switchId": "DEICE_BOOTS_PWR",
+        "switchMode": "3pos",
+        "switchAxis": "vertical",
+        "switchPositions": [
+          "UP",
+          "CENTER",
+          "DOWN"
+        ]
+      }
+    },
+    {
+      "id": "DEICE_BOOTS_STAB",
+      "type": "switch",
+      "rect": {
+        "x": 0.49070605635643005,
+        "y": 0.04410320147871971,
+        "w": 0.014941302128136158,
+        "h": 0.010614101774990559
+      },
+      "axis": {
+        "orientation": "vertical",
+        "min": 0,
+        "max": 1
+      },
+      "binding": {
+        "kind": "switch",
+        "action": "DEICE_BOOTS",
+        "switchId": "DEICE_BOOTS_STAB",
+        "switchMode": "3pos",
+        "switchAxis": "VERTICAL",
+        "switchPositions": [
+          "UP",
+          "CENTER",
+          "DOWN"
+        ]
+      }
+    },
+    {
+      "id": "DEICE_BOOTS_VALVE",
+      "type": "switch",
+      "rect": {
+        "x": 0.505473256111145,
+        "y": 0.04404538869857788,
+        "w": 0.014941302128136158,
+        "h": 0.010614101774990559
+      },
+      "axis": {
+        "orientation": "vertical",
+        "min": 0,
+        "max": 1
+      },
+      "binding": {
+        "kind": "switch",
+        "action": "DEICE_BOOTS",
+        "switchId": "DEICE_BOOTS_VALVE",
+        "switchMode": "3pos",
+        "switchAxis": "vertical",
+        "switchPositions": [
+          "UP",
+          "CENTER",
+          "DOWN"
+        ]
+      }
+    },
+    {
+      "id": "IGNITION_ARM",
+      "type": "switch",
+      "rect": {
+        "x": 0.3659406304359436,
+        "y": 0.30805161595344543,
+        "w": 0.016212528571486473,
+        "h": 0.023682357743382454
+      },
+      "binding": {
+        "kind": "switch",
+        "action": "IGNITION_ARM",
+        "switchId": "IGNITION_ARM",
+        "switchMode": "TwoPositionSwitch",
+        "switchPositions": [
+          "MANUAL",
+          "ARMED"
+        ]
+      }
+    },
+    {
+      "id": "IGNITER_L",
+      "type": "switch",
+      "rect": {
+        "x": 0.35439780354499817,
+        "y": 0.33614328503608704,
+        "w": 0.012146085500717163,
+        "h": 0.009893983602523804
+      },
+      "binding": {
+        "kind": "switch",
+        "switchId": "IGNITER_L",
+        "switchMode": "ThreePositionSwitch",
+        "switchAxis": "VERTICAL",
+        "switchPositions": [
+          "ONE",
+          "BOTH",
+          "TWO"
+        ]
+      }
+    },
+    {
+      "id": "IGNITER_R",
+      "type": "switch",
+      "rect": {
+        "x": 0.37516820430755615,
+        "y": 0.3361540138721466,
+        "w": 0.012478768825531006,
+        "h": 0.009713888168334961
+      },
+      "binding": {
+        "kind": "switch",
+        "switchId": "IGNITER_R",
+        "switchMode": "ThreePositionSwitch",
+        "switchAxis": "VERTICAL",
+        "switchPositions": [
+          "ONE",
+          "BOTH",
+          "TWO"
+        ]
+      }
+    },
+    {
+      "id": "INTAKE_DEFL",
+      "type": "switch",
+      "rect": {
+        "x": 0.5040942430496216,
+        "y": 0.019495680928230286,
+        "w": 0.014941302128136158,
+        "h": 0.010614101774990559
+      },
+      "axis": {
+        "orientation": "vertical",
+        "min": 0,
+        "max": 1
+      },
+      "binding": {
+        "kind": "switch",
+        "switchId": "INTAKE_DEFL",
+        "switchMode": "3pos",
+        "switchAxis": "vertical",
+        "switchPositions": [
+          "UP",
+          "CENTER",
+          "DOWN"
+        ]
+      }
+    },
+    {
+      "id": "LANDING_LIGHT_L",
+      "type": "switch",
+      "rect": {
+        "x": 0.31234151124954224,
+        "y": 0.3361836075782776,
+        "w": 0.014941302128136158,
+        "h": 0.010614101774990559
+      },
+      "binding": {
+        "kind": "switch",
+        "switchId": "LANDING_LIGHT_L",
+        "switchMode": "2pos",
+        "switchAxis": "vertical",
+        "switchPositions": [
+          "OFF",
+          "ON"
+        ]
+      }
+    },
+    {
+      "id": "LANDING_LIGHT_R",
+      "type": "switch",
+      "rect": {
+        "x": 0.3339887261390686,
+        "y": 0.33606716990470886,
+        "w": 0.014941302128136158,
+        "h": 0.010614101774990559
+      },
+      "axis": {
+        "orientation": "vertical",
+        "min": 0,
+        "max": 1
+      },
+      "binding": {
+        "kind": "switch",
+        "switchId": "LANDING_LIGHT_R",
+        "switchMode": "2pos",
+        "switchAxis": "vertical",
+        "switchPositions": [
+          "OFF",
+          "ON"
+        ]
+      }
+    },
+    {
+      "id": "L_DC_GEN",
+      "type": "switch",
+      "rect": {
+        "x": 0.4431857764720917,
+        "y": 0.10894648730754852,
+        "w": 0.014941302128136158,
+        "h": 0.010614101774990559
+      },
+      "binding": {
+        "kind": "switch",
+        "switchId": "L_DC_GEN",
+        "switchMode": "TwoPositionSwitch",
+        "switchAxis": "vertical",
+        "switchPositions": [
+          "ON",
+          "OFF"
+        ]
+      }
+    },
+    {
+      "id": "NO_SMOKING_LIGHTS",
+      "type": "switch",
+      "rect": {
+        "x": 0.5108141899108887,
+        "y": 0.0681132897734642,
+        "w": 0.014941302128136158,
+        "h": 0.010614101774990559
+      },
+      "binding": {
+        "kind": "switch",
+        "action": "FLOOD_LIGHTS",
+        "switchId": "NO_SMOKING_LIGHTS",
+        "switchMode": "TwoPositionSwitch",
+        "switchAxis": "VERTICAL",
+        "switchPositions": [
+          "OFF",
+          "ON"
+        ]
+      }
+    },
+    {
+      "id": "PITOT_HEAT_SWITCH",
+      "type": "switch",
+      "rect": {
+        "x": 0.5398593544960022,
+        "y": 0.0878014862537384,
+        "w": 0.01402890682220459,
+        "h": 0.009410075843334198
+      },
+      "axis": {
+        "orientation": "vertical",
+        "min": 0,
+        "max": 1
+      },
+      "binding": {
+        "kind": "switch",
+        "switchId": "PITOT_HEAT_SWITCH",
+        "switchMode": "2pos",
+        "switchAxis": "vertical",
+        "switchPositions": [
+          "OFF",
+          "ON"
+        ]
+      }
+    },
+    {
+      "id": "POS_LIGHTS",
+      "type": "switch",
+      "rect": {
+        "x": 0.4959883689880371,
+        "y": 0.06827846169471741,
+        "w": 0.014941302128136158,
+        "h": 0.010614101774990559
+      },
+      "binding": {
+        "kind": "switch",
+        "action": "NAV_LIGHTS",
+        "switchId": "POS_LIGHTS",
+        "switchMode": "TwoPositionSwitch",
+        "switchAxis": "VERTICAL",
+        "switchPositions": [
+          "OFF",
+          "ON"
+        ]
+      }
+    },
+    {
+      "id": "PROP_DEICE",
+      "type": "switch",
+      "rect": {
+        "x": 0.4591974914073944,
+        "y": 0.019450940191745758,
+        "w": 0.014941302128136158,
+        "h": 0.010614101774990559
+      },
+      "binding": {
+        "kind": "switch",
+        "action": "PROP_DEICE",
+        "switchId": "PROP_DEICE",
+        "switchMode": "2pos",
+        "switchAxis": "vertical",
+        "switchPositions": [
+          "OFF",
+          "ON"
+        ]
+      }
+    },
+    {
+      "id": "R_DC_GEN",
+      "type": "switch",
+      "rect": {
+        "x": 0.46803367137908936,
+        "y": 0.10872629284858704,
+        "w": 0.014941302128136158,
+        "h": 0.010614101774990559
+      },
+      "axis": {
+        "orientation": "vertical",
+        "min": 0,
+        "max": 1
+      },
+      "binding": {
+        "kind": "switch",
+        "switchId": "R_DC_GEN",
+        "switchMode": "TwoPositionSwitch",
+        "switchAxis": "vertical",
+        "switchPositions": [
+          "ON",
+          "OFF"
+        ]
+      }
+    },
+    {
+      "id": "STBY_BATTERY",
+      "type": "switch",
+      "rect": {
+        "x": 0.3666365444660187,
+        "y": 0.2947908043861389,
+        "w": 0.014941302128136158,
+        "h": 0.010614101774990559
+      },
+      "binding": {
+        "kind": "switch",
+        "switchId": "STBY_BATTERY",
+        "switchMode": "ThreePositionSwitch",
+        "switchAxis": "VERTICAL",
+        "switchPositions": [
+          "UP",
+          "OFF",
+          "DOWN"
+        ]
+      }
+    },
+    {
+      "id": "STARTER_SWITCH",
+      "type": "switch",
+      "rect": {
+        "x": 0.32224664092063904,
+        "y": 0.31717485189437866,
+        "w": 0.014941302128136158,
+        "h": 0.010614101774990559
+      },
+      "binding": {
+        "kind": "switch",
+        "switchId": "STARTER_SWITCH",
+        "switchMode": "ThreePositionSwitch",
+        "momentaryReturnMs": 180,
+        "switchAxis": "HORIZONTAL",
+        "switchPositions": [
+          "START_LEFT",
+          "OFF",
+          "START_RIGHT"
+        ]
+      }
+    },
+    {
+      "id": "WING_INSPECT",
+      "type": "switch",
+      "rect": {
+        "x": 0.4893200397491455,
+        "y": 0.019575152546167374,
+        "w": 0.014941302128136158,
+        "h": 0.010614101774990559
+      },
+      "axis": {
+        "orientation": "vertical",
+        "min": 0,
+        "max": 1
+      },
+      "binding": {
+        "kind": "switch",
+        "switchId": "WING_INSPECT",
+        "switchMode": "2pos",
+        "switchAxis": "vertical",
+        "switchPositions": [
+          "OFF",
+          "ON"
+        ]
+      }
+    },
+    {
+      "id": "WINDSHIELD_HEAT",
+      "type": "switch",
+      "rect": {
+        "x": 0.706619143486023,
+        "y": 0.3142452538013458,
+        "w": 0.019210245460271835,
+        "h": 0.013646702282130718
+      },
+      "binding": {
+        "kind": "switch",
+        "switchId": "WINDSHIELD_HEAT",
+        "switchMode": "TwoPositionSwitch",
+        "switchAxis": "VERTICAL",
+        "switchPositions": [
+          "OFF",
+          "ON"
+        ]
+      }
+    },
+    {
+      "id": "WINDSHIELD_MODE",
+      "type": "switch",
+      "rect": {
+        "x": 0.6786600351333618,
+        "y": 0.2908896803855896,
+        "w": 0.019210245460271835,
+        "h": 0.013646702282130718
+      },
+      "binding": {
+        "kind": "switch",
+        "switchId": "WINDSHIELD_MODE",
+        "switchMode": "ThreePositionSwitch",
+        "switchAxis": "VERTICAL",
+        "switchPositions": [
+          "SLOW",
+          "OFF",
+          "FAST"
+        ]
+      }
+    },
+    {
+      "id": "WINDSHIELD_POWER",
+      "type": "switch",
+      "rect": {
+        "x": 0.6604320406913757,
+        "y": 0.29067087173461914,
+        "w": 0.019210245460271835,
+        "h": 0.013646702282130718
+      },
+      "binding": {
+        "kind": "switch",
+        "switchId": "WINDSHIELD_POWER",
+        "switchMode": "TwoPositionSwitch",
+        "switchAxis": "VERTICAL",
+        "switchPositions": [
+          "OFF",
+          "ON"
+        ]
+      }
+    },
+    {
+      "id": "WINDSHIELD_WASHER",
+      "type": "button",
+      "rect": {
+        "x": 0.7069768905639648,
+        "y": 0.28974854946136475,
+        "w": 0.019210245460271835,
+        "h": 0.013646702282130718
+      },
+      "binding": {
+        "kind": "switch",
+        "switchId": "WINDSHIELD_WASHER",
+        "switchMode": "TwoPositionSwitch",
+        "switchAxis": "BUTTON",
+        "switchPositions": [
+          "OFF",
+          "ON"
+        ]
+      }
+    },
+    {
+      "id": "AILERON_TRIM",
+      "type": "switch",
+      "rect": {
+        "x": 0.24181205034255981,
+        "y": 0.9270875453948975,
+        "w": 0.02949807047843933,
+        "h": 0.014942049980163574
+      },
+      "binding": {
+        "kind": "switch",
+        "switchId": "AILERON_TRIM",
+        "switchMode": "ThreePositionSwitch",
+        "switchAxis": "HORIZONTAL",
+        "switchPositions": [
+          "LEFT_DOWN",
+          "DEFAULT",
+          "RIGHT_DOWN"
+        ]
+      }
+    },
+    {
+      "id": "FLAP_SELECTOR",
+      "type": "lever",
+      "rect": {
+        "x": 0.5042751431465149,
+        "y": 0.3959009647369385,
+        "w": 0.00842827558517456,
+        "h": 0.038385361433029175
+      },
+      "binding": {
+        "kind": "lever",
+        "leverId": "FLAP_SELECTOR",
+        "leverClampMin": 0,
+        "leverClampMax": 1
+      }
+    },
+    {
+      "id": "HYDRAULIC_PRESS_GAUGE",
+      "type": "instrument",
+      "rect": {
+        "x": 0.5807766318321228,
+        "y": 0.6439561247825623,
+        "w": 0.03599971532821655,
+        "h": 0.025916099548339844
+      },
+      "binding": {
+        "kind": "instrument",
+        "action": "HYDRAULIC_PRESS_GAUGE",
+        "instrumentId": "HYDRAULIC_PRESS_GAUGE"
+      }
+    },
+    {
+      "id": "FASTEN_SEATBELTS",
+      "type": "switch",
+      "rect": {
+        "x": 0.5258392095565796,
+        "y": 0.06813173741102219,
+        "w": 0.014941302128136158,
+        "h": 0.010614101774990559
+      },
+      "binding": {
+        "kind": "switch",
+        "switchId": "FASTEN_SEATBELTS",
+        "switchMode": "TwoPositionSwitch",
+        "switchPositions": [
+          "OFF",
+          "ON"
+        ]
+      }
+    },
+    {
+      "id": "FLIGHT_COMP",
+      "type": "switch",
+      "rect": {
+        "x": 0.5406590700149536,
+        "y": 0.06835637241601944,
+        "w": 0.014941302128136158,
+        "h": 0.010614101774990559
+      },
+      "binding": {
+        "kind": "switch",
+        "switchId": "FLIGHT_COMP",
+        "switchMode": "TwoPositionSwitch",
+        "switchPositions": [
+          "OFF",
+          "ON"
+        ]
+      }
+    },
+    {
+      "id": "CAUT_LT_TEST",
+      "type": "switch",
+      "rect": {
+        "x": 0.49676328897476196,
+        "y": 0.08787695318460464,
+        "w": 0.012823343276977539,
+        "h": 0.008744880557060242
+      },
+      "axis": {
+        "orientation": "vertical",
+        "min": 0,
+        "max": 1
+      },
+      "binding": {
+        "kind": "switch",
+        "switchId": "CAUT_LT_TEST",
+        "switchMode": "3pos",
+        "switchAxis": "vertical",
+        "switchPositions": [
+          "TEST",
+          "OFF",
+          "ON"
+        ]
+      }
+    },
+    {
+      "id": "TAXI_LIGHT",
+      "type": "switch",
+      "rect": {
+        "x": 0.5173450112342834,
+        "y": 0.08802029490470886,
+        "w": 0.012823343276977539,
+        "h": 0.008744880557060242
+      },
+      "axis": {
+        "orientation": "vertical",
+        "min": 0,
+        "max": 1
+      },
+      "binding": {
+        "kind": "switch",
+        "switchId": "TAXI_LIGHT",
+        "switchMode": "2pos",
+        "switchAxis": "vertical",
+        "switchPositions": [
+          "OFF",
+          "ON"
+        ]
+      }
+    },
+    {
+      "id": "AC_FUNCT",
+      "type": "switch",
+      "rect": {
+        "x": 0.5197457671165466,
+        "y": 0.1070438101887703,
+        "w": 0.014941302128136158,
+        "h": 0.010614101774990559
+      },
+      "axis": {
+        "orientation": "vertical",
+        "min": 0,
+        "max": 1
+      },
+      "binding": {
+        "kind": "switch",
+        "switchId": "AC_FUNCT",
+        "switchMode": "3pos",
+        "switchAxis": "vertical",
+        "switchPositions": [
+          "UP",
+          "CENTER",
+          "DOWN"
+        ]
+      }
+    },
+    {
+      "id": "AC_PWR",
+      "type": "switch",
+      "rect": {
+        "x": 0.5370784401893616,
+        "y": 0.10691278427839279,
+        "w": 0.014941302128136158,
+        "h": 0.010614101774990559
+      },
+      "axis": {
+        "orientation": "vertical",
+        "min": 0,
+        "max": 1
+      },
+      "binding": {
+        "kind": "switch",
+        "switchId": "AC_PWR",
+        "switchMode": "3pos",
+        "switchAxis": "vertical",
+        "switchPositions": [
+          "UP",
+          "CENTER",
+          "DOWN"
+        ]
+      }
+    },
+    {
+      "id": "STAB_DEICE_R",
+      "type": "switch",
+      "rect": {
+        "x": 0.5692200660705566,
+        "y": 0.01289778295904398,
+        "w": 0.014941302128136158,
+        "h": 0.010614101774990559
+      },
+      "binding": {
+        "kind": "switch",
+        "switchId": "STAB_DEICE_R",
+        "switchMode": "TwoPositionSwitch",
+        "switchPositions": [
+          "OFF",
+          "ON"
+        ]
+      }
+    },
+    {
+      "id": "STAB_DEICE_L",
+      "type": "switch",
+      "rect": {
+        "x": 0.5408637523651123,
+        "y": 0.012788087129592896,
+        "w": 0.014941302128136158,
+        "h": 0.010614101774990559
+      },
+      "binding": {
+        "kind": "switch",
+        "switchId": "STAB_DEICE_L",
+        "switchMode": "TwoPositionSwitch",
+        "switchPositions": [
+          "OFF",
+          "ON"
+        ]
+      }
+    },
+    {
+      "id": "BLEED_AIR_L",
+      "type": "switch",
+      "rect": {
+        "x": 0.57444828748703,
+        "y": 0.067616306245327,
+        "w": 0.014941302128136158,
+        "h": 0.010614101774990559
+      },
+      "binding": {
+        "kind": "switch",
+        "switchId": "BLEED_AIR_L",
+        "switchMode": "TwoPositionSwitch",
+        "switchPositions": [
+          "OFF",
+          "ON"
+        ]
+      }
+    },
+    {
+      "id": "BLEED_AIR_R",
+      "type": "switch",
+      "rect": {
+        "x": 0.5907498002052307,
+        "y": 0.06774447113275528,
+        "w": 0.014941302128136158,
+        "h": 0.010614101774990559
+      },
+      "binding": {
+        "kind": "switch",
+        "switchId": "BLEED_AIR_R",
+        "switchMode": "TwoPositionSwitch",
+        "switchPositions": [
+          "OFF",
+          "ON"
+        ]
+      }
+    },
+    {
+      "id": "BETA_SYS_CB",
+      "type": "switch",
+      "rect": {
+        "x": 0.08982168883085251,
+        "y": 0.08415697515010834,
+        "w": 0.014941302128136158,
+        "h": 0.010614101774990559
+      },
+      "binding": {
+        "kind": "switch",
+        "switchId": "BETA_SYS_CB",
+        "switchMode": "TwoPositionSwitch",
+        "switchPositions": [
+          "OFF",
+          "ON"
+        ]
+      }
+    },
+    {
+      "id": "AIL_TRIM_ACT_CB",
+      "type": "switch",
+      "rect": {
+        "x": 0.09038153290748596,
+        "y": 0.3114371597766876,
+        "w": 0.014941302128136158,
+        "h": 0.010614101774990559
+      },
+      "binding": {
+        "kind": "switch",
+        "switchId": "AIL_TRIM_ACT_CB",
+        "switchMode": "TwoPositionSwitch",
+        "switchPositions": [
+          "OFF",
+          "ON"
+        ]
+      }
+    },
+    {
+      "id": "HYD_OIL_PUMP_CB",
+      "type": "switch",
+      "rect": {
+        "x": 0.12385459989309311,
+        "y": 0.16546228528022766,
+        "w": 0.014941302128136158,
+        "h": 0.010614101774990559
+      },
+      "binding": {
+        "kind": "switch",
+        "switchId": "HYD_OIL_PUMP_CB",
+        "switchMode": "TwoPositionSwitch",
+        "switchPositions": [
+          "OFF",
+          "ON"
+        ]
+      }
+    },
+    {
+      "id": "TEMP_CONT_MODE",
+      "type": "switch",
+      "rect": {
+        "x": 0.5904672741889954,
+        "y": 0.08839081227779388,
+        "w": 0.014941302128136158,
+        "h": 0.010614101774990559
+      },
+      "axis": {
+        "orientation": "vertical",
+        "min": 0,
+        "max": 1
+      },
+      "binding": {
+        "kind": "switch",
+        "switchId": "TEMP_CONT_MODE",
+        "switchMode": "3pos",
+        "switchAxis": "vertical",
+        "switchPositions": [
+          "UP",
+          "CENTER",
+          "DOWN"
+        ]
+      }
+    },
+    {
+      "id": "TEMP_CONT",
+      "type": "switch",
+      "rect": {
+        "x": 0.5720467567443848,
+        "y": 0.08825045824050903,
+        "w": 0.014941302128136158,
+        "h": 0.010614101774990559
+      },
+      "axis": {
+        "orientation": "vertical",
+        "min": 0,
+        "max": 1
+      },
+      "binding": {
+        "kind": "switch",
+        "switchId": "TEMP_CONT",
+        "switchMode": "3pos",
+        "switchAxis": "vertical",
+        "switchPositions": [
+          "UP",
+          "CENTER",
+          "DOWN"
+        ]
+      }
+    },
+    {
+      "id": "FIRE_DETECT_TEST",
+      "type": "button",
+      "rect": {
+        "x": 0.4836151897907257,
+        "y": 0.500217616558075,
+        "w": 0.02350427396595478,
+        "h": 0.016679301857948303
+      },
+      "binding": {
+        "kind": "switch",
+        "switchId": "FIRE_DETECT_TEST",
+        "switchMode": "TwoPositionSwitch",
+        "switchAxis": "BUTTON",
+        "switchPositions": [
+          "ON",
+          "OFF"
+        ]
+      }
+    },
+    {
+      "id": "AFT_BOOST_PUMP",
+      "type": "switch",
+      "rect": {
+        "x": 0.46958473324775696,
+        "y": 0.65423583984375,
+        "w": 0.014941302128136158,
+        "h": 0.010614101774990559
+      },
+      "binding": {
+        "kind": "switch",
+        "action": "FUEL_PUMP_L",
+        "switchId": "AFT_BOOST_PUMP",
+        "switchMode": "TwoPositionSwitch",
+        "switchAxis": "VERTICAL",
+        "switchPositions": [
+          "OFF",
+          "ON"
+        ]
+      }
+    },
+    {
+      "id": "AVIONICS_MASTER",
+      "type": "switch",
+      "rect": {
+        "x": 0.49670663475990295,
+        "y": 0.687393844127655,
+        "w": 0.019210245460271835,
+        "h": 0.013646702282130718
+      },
+      "binding": {
+        "kind": "switch",
+        "switchId": "AVIONICS_MASTER",
+        "switchMode": "2pos",
+        "switchAxis": "VERTICAL",
+        "switchPositions": [
+          "OFF",
+          "ON"
+        ]
+      }
+    },
+    {
+      "id": "FUEL_SELECTOR",
+      "type": "knob",
+      "rect": {
+        "x": 0.5001609325408936,
+        "y": 0.6622827649116516,
+        "w": 0.012947618961334229,
+        "h": 0.014881312847137451
+      },
+      "binding": {
+        "kind": "switch",
+        "action": "FUEL_CROSSFEED",
+        "switchId": "FUEL_CROSSFEED",
+        "switchMode": "ThreePositionSwitch",
+        "switchAxis": "HORIZONTAL",
+        "switchPositions": [
+          "BOTH_AFT",
+          "DEFAULT",
+          "BOTH_FWD"
+        ]
+      }
+    },
+    {
+      "id": "FWD_BOOST_PUMP",
+      "type": "switch",
+      "rect": {
+        "x": 0.5298412442207336,
+        "y": 0.6544858813285828,
+        "w": 0.014941302128136158,
+        "h": 0.010614101774990559
+      },
+      "binding": {
+        "kind": "switch",
+        "switchId": "FWD_BOOST_PUMP",
+        "switchMode": "TwoPositionSwitch",
+        "switchAxis": "VERTICAL",
+        "switchPositions": [
+          "OFF",
+          "ON"
+        ]
+      }
+    },
+    {
+      "id": "STBY_BOOST_PUMP_AFT",
+      "type": "switch",
+      "rect": {
+        "x": 0.47004032135009766,
+        "y": 0.6679942607879639,
+        "w": 0.014778494834899902,
+        "h": 0.010645031929016113
+      },
+      "binding": {
+        "kind": "switch",
+        "switchId": "STBY_BOOST_PUMP_AFT",
+        "switchMode": "TwoPositionSwitch",
+        "switchAxis": "VERTICAL",
+        "switchPositions": [
+          "OFF",
+          "ON"
+        ]
+      }
+    },
+    {
+      "id": "STBY_BOOST_PUMP_FWD",
+      "type": "switch",
+      "rect": {
+        "x": 0.528740406036377,
+        "y": 0.6681793332099915,
+        "w": 0.015684783458709717,
+        "h": 0.0107499361038208
+      },
+      "binding": {
+        "kind": "switch",
+        "switchId": "STBY_BOOST_PUMP_FWD",
+        "switchMode": "TwoPositionSwitch",
+        "switchAxis": "VERTICAL",
+        "switchPositions": [
+          "OFF",
+          "ON"
+        ]
+      }
+    },
+    {
+      "id": "AUTOFEATHER_SELECT",
+      "type": "button",
+      "rect": {
+        "x": 0.18345773220062256,
+        "y": 0.5236867070198059,
+        "w": 0.031982291489839554,
+        "h": 0.018015088513493538
+      },
+      "binding": {
+        "kind": "switch",
+        "switchId": "AUTOFEATHER_SELECT",
+        "switchMode": "TwoPositionSwitch",
+        "switchAxis": "BUTTON",
+        "switchPositions": [
+          "ON",
+          "OFF"
+        ]
+      }
+    },
+    {
+      "id": "CHECKLIST",
+      "type": "display",
+      "rect": {
+        "x": 0.7892559170722961,
+        "y": 0.8202674984931946,
+        "w": 0.21074408292770386,
+        "h": 0.17973250150680542
+      },
+      "binding": {
+        "kind": "switch",
+        "displayId": "CHECKLIST",
+        "switchId": "CHECKLIST",
+        "switchMode": "TwoPositionSwitch",
+        "switchAxis": "BUTTON",
+        "switchPositions": [
+          "OFF",
+          "ON"
+        ]
+      }
+    },
+    {
+      "id": "FIRE_PUSH_SWITCH_L",
+      "type": "button",
+      "rect": {
+        "x": 0.43891119956970215,
+        "y": 0.4974668622016907,
+        "w": 0.03205128386616707,
+        "h": 0.022744502872228622
+      },
+      "binding": {
+        "kind": "switch",
+        "action": "FIRE_PUSH_SWITCH_L",
+        "switchId": "FIRE_PUSH_SWITCH_L",
+        "switchMode": "TwoPositionSwitch",
+        "switchAxis": "BUTTON",
+        "switchPositions": [
+          "ON",
+          "OFF"
+        ]
+      }
+    },
+    {
+      "id": "FIRE_PUSH_SWITCH_R",
+      "type": "button",
+      "rect": {
+        "x": 0.5183003544807434,
+        "y": 0.4977794289588928,
+        "w": 0.03205128386616707,
+        "h": 0.022744502872228622
+      },
+      "binding": {
+        "kind": "switch",
+        "action": "FIRE_PUSH_SWITCH_R",
+        "switchId": "FIRE_PUSH_SWITCH_R",
+        "switchMode": "TwoPositionSwitch",
+        "switchAxis": "BUTTON",
+        "switchPositions": [
+          "ON",
+          "OFF"
+        ]
+      }
+    },
+    {
+      "id": "FUEL_SOV_L",
+      "type": "button",
+      "rect": {
+        "x": 0.3990439176559448,
+        "y": 0.4975644648075104,
+        "w": 0.03205128386616707,
+        "h": 0.022744502872228622
+      },
+      "binding": {
+        "kind": "switch",
+        "switchId": "FUEL_SOV_L",
+        "switchMode": "TwoPositionSwitch",
+        "switchAxis": "BUTTON",
+        "switchPositions": [
+          "ON",
+          "OFF"
+        ]
+      }
+    },
+    {
+      "id": "FUEL_SOV_R",
+      "type": "button",
+      "rect": {
+        "x": 0.5601321458816528,
+        "y": 0.49741607904434204,
+        "w": 0.03205128386616707,
+        "h": 0.022744502872228622
+      },
+      "binding": {
+        "kind": "switch",
+        "switchId": "FUEL_SOV_R",
+        "switchMode": "TwoPositionSwitch",
+        "switchAxis": "BUTTON",
+        "switchPositions": [
+          "ON",
+          "OFF"
+        ]
+      }
+    },
+    {
+      "id": "MASTER_CAUTION_LEFT",
+      "type": "button",
+      "rect": {
+        "x": 0.24705128371715546,
+        "y": 0.5233917832374573,
+        "w": 0.03417113423347473,
+        "h": 0.018262028694152832
+      },
+      "binding": {
+        "kind": "switch",
+        "switchId": "MASTER_CAUTION",
+        "switchMode": "TwoPositionSwitch",
+        "switchAxis": "BUTTON",
+        "switchPositions": [
+          "ON",
+          "OFF"
+        ]
+      }
+    },
+    {
+      "id": "MASTER_CAUTION_RIGHT",
+      "type": "button",
+      "rect": {
+        "x": 0.7838054895401001,
+        "y": 0.5231543183326721,
+        "w": 0.03270512819290161,
+        "h": 0.016748573631048203
+      },
+      "binding": {
+        "kind": "switch",
+        "switchId": "MASTER_CAUTION",
+        "switchMode": "TwoPositionSwitch",
+        "switchAxis": "BUTTON",
+        "switchPositions": [
+          "ON",
+          "OFF"
+        ]
+      }
+    },
+    {
+      "id": "MASTER_WARNING_LEFT",
+      "type": "button",
+      "rect": {
+        "x": 0.21568383276462555,
+        "y": 0.5235230922698975,
+        "w": 0.030838876962661743,
+        "h": 0.018073558807373047
+      },
+      "binding": {
+        "kind": "switch",
+        "switchId": "MASTER_WARNING",
+        "switchMode": "TwoPositionSwitch",
+        "switchAxis": "BUTTON",
+        "switchPositions": [
+          "ON",
+          "OFF"
+        ]
+      }
+    },
+    {
+      "id": "MASTER_WARNING_RIGHT",
+      "type": "button",
+      "rect": {
+        "x": 0.7521673440933228,
+        "y": 0.522742748260498,
+        "w": 0.03270512819290161,
+        "h": 0.016748573631048203
+      },
+      "binding": {
+        "kind": "switch",
+        "switchId": "MASTER_WARNING",
+        "switchMode": "TwoPositionSwitch",
+        "switchAxis": "BUTTON",
+        "switchPositions": [
+          "ON",
+          "OFF"
+        ]
+      }
+    },
+    {
+      "id": "FMS_SYSTEM",
+      "type": "display",
+      "rect": {
+        "x": 0.4460720717906952,
+        "y": 0.7114073038101196,
+        "w": 0.12221208214759827,
+        "h": 0.050549447536468506
+      },
+      "binding": {
+        "kind": "display",
+        "displayId": "FMS_SYSTEM"
+      }
+    },
+    {
+      "id": "MFD_CENTER",
+      "type": "instrument",
+      "rect": {
+        "x": 0.4186016619205475,
+        "y": 0.5393391251564026,
+        "w": 0.05873054265975952,
+        "h": 0.07875680923461914
+      },
+      "binding": {
+        "kind": "display",
+        "instrumentId": "MFD_CENTRE"
+      }
+    },
+    {
+      "id": "PFD_LEFT",
+      "type": "display",
+      "rect": {
+        "x": 0.17025026679039001,
+        "y": 0.5498887300491333,
+        "w": 0.15711401402950287,
+        "h": 0.06954300403594971
+      },
+      "binding": {
+        "kind": "display",
+        "action": "PFD_LEFT",
+        "displayId": "PFD_LEFT"
+      }
+    },
+    {
+      "id": "PFD_RIGHT",
+      "type": "display",
+      "rect": {
+        "x": 0.6737497448921204,
+        "y": 0.5483222603797913,
+        "w": 0.16063199937343597,
+        "h": 0.06933200359344482
+      },
+      "binding": {
+        "kind": "display",
+        "action": "PFD_RIGHT",
+        "displayId": "PFD_RIGHT"
+      }
+    },
+    {
+      "id": "MFD_CENTRE_DISPLAY",
+      "type": "display",
+      "rect": {
+        "x": 0.47741618752479553,
+        "y": 0.5388596653938293,
+        "w": 0.1517242193222046,
+        "h": 0.07920980453491211
+      },
+      "binding": {
+        "kind": "display",
+        "action": "MFD_CENTRE_DISPLAY",
+        "displayId": "MFD_CENTRE_DISPLAY"
+      }
+    },
+    {
+      "id": "AVIONICS_PANEL_L",
+      "type": "display",
+      "rect": {
+        "x": 0.11786168813705444,
+        "y": 0.5445674657821655,
+        "w": 0.02533632516860962,
+        "h": 0.08390963077545166
+      },
+      "binding": {
+        "kind": "display",
+        "displayId": "AVIONICS_PANEL_L"
+      }
+    },
+    {
+      "id": "AVIONICS_PANEL_R",
+      "type": "display",
+      "rect": {
+        "x": 0.8575444221496582,
+        "y": 0.5436712503433228,
+        "w": 0.027363836765289307,
+        "h": 0.08402222394943237
+      },
+      "binding": {
+        "kind": "display",
+        "displayId": "AVIONICS_PANEL_R"
+      }
+    },
+    {
+      "id": "STBY_INST",
+      "type": "instrument",
+      "rect": {
+        "x": 0.35354742407798767,
+        "y": 0.5529605150222778,
+        "w": 0.044024646282196045,
+        "h": 0.07071387767791748
+      },
+      "binding": {
+        "kind": "instrument",
+        "instrumentId": "STBY_INST"
+      }
+    },
+    {
+      "id": "BRAKE_PRESS",
+      "type": "instrument",
+      "rect": {
+        "x": 0.40105941891670227,
+        "y": 0.6467456817626953,
+        "w": 0.0351429283618927,
+        "h": 0.025345921516418457
+      },
+      "binding": {
+        "kind": "instrument",
+        "action": "BRAKE_PRESS",
+        "instrumentId": "BRAKE_PRESS"
+      }
+    },
+    {
+      "id": "ELT",
+      "type": "display",
+      "rect": {
+        "x": 0.6270418167114258,
+        "y": 0.644665002822876,
+        "w": 0.03855764865875244,
+        "h": 0.04175502061843872
+      },
+      "binding": {
+        "kind": "switch",
+        "action": "ELT",
+        "displayId": "ELT",
+        "switchId": "ELT",
+        "switchMode": "TwoPositionSwitch",
+        "switchPositions": [
+          "ON",
+          "OFF"
+        ]
+      }
+    }
+  ]
+}

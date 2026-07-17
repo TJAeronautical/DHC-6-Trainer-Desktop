@@ -1,0 +1,66 @@
+{
+  "schemaVersion": "1.0.0",
+  "extraction": {
+    "extractionId": "2b6b9c73-3e40-4e6b-98e0-1d2f0e9a9c51",
+    "createdAtUtc": "2026-02-11T09:00:00Z",
+    "model": {
+      "provider": "openai",
+      "name": "gpt-5.x"
+    },
+    "pipeline": {
+      "steps": [
+        {
+          "name": "pdf_to_text"
+        },
+        {
+          "name": "procedure_parse"
+        }
+      ]
+    }
+  },
+  "source": {
+    "documentId": "HBFO-002_QRH_G950_ISS01REV02",
+    "title": "QRH G950",
+    "type": "PDF",
+    "revision": "ISS01REV02"
+  },
+  "procedure": {
+    "procedureId": "prop_uncommanded_feather",
+    "title": "UNCOMMANDED FEATHER",
+    "category": "ABNORMAL",
+    "variant": "G950",
+    "phase": {
+      "phaseId": "abnormal_propeller"
+    },
+    "steps": [
+      {
+        "stepId": "step_01_power_prop_unaffected_max",
+        "order": 1,
+        "kind": "ACTION",
+        "actor": "BOTH",
+        "rawText": "POWER AND PROP LEVERS (Unaffected Engine) — MAX POWER",
+        "controls": [
+          {
+            "refType": "HITBOX",
+            "refId": "POWER_LEVER_R",
+            "variant": "G950",
+            "confidence": 0.72
+          }
+        ],
+        "provenance": {
+          "page": 1,
+          "textQuote": "POWER AND PROP LEVERS (Unaffected Engine)...MAX POWER",
+          "region": {
+            "x": 0.11,
+            "y": 0.34,
+            "w": 0.78,
+            "h": 0.08
+          }
+        },
+        "ai": {
+          "confidence": 0.86
+        }
+      }
+    ]
+  }
+}

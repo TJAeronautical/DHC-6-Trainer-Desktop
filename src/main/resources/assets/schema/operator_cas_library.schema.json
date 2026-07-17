@@ -1,0 +1,72 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://dhc6trainer.app/schema/operator_cas_library.schema.json",
+  "title": "Operator CAS Library",
+  "description": "Android Studio compatible Draft-07 schema for an operator-specific CAS/annunciator library.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "profileId",
+    "variant",
+    "messages"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "type": "string",
+      "enum": [
+        "1.0.0"
+      ]
+    },
+    "profileId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "variant": {
+      "type": "string",
+      "enum": [
+        "DHC6_SERIES_300_LEGACY",
+        "DHC6_SERIES_300_G950_NXI",
+        "LEGACY",
+        "G950"
+      ]
+    },
+    "messages": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/definitions/message"
+      }
+    }
+  },
+  "definitions": {
+    "message": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "display",
+        "level",
+        "canonicalId"
+      ],
+      "properties": {
+        "display": {
+          "type": "string",
+          "minLength": 1
+        },
+        "level": {
+          "type": "string",
+          "enum": [
+            "WARNING",
+            "CAUTION",
+            "ADVISORY",
+            "STATUS"
+          ]
+        },
+        "canonicalId": {
+          "type": "string",
+          "pattern": "^[A-Z0-9_]+$"
+        }
+      }
+    }
+  }
+}

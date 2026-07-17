@@ -1,0 +1,251 @@
+{
+  "schemaId": "system_description",
+  "schemaVersion": "1.0.0",
+  "systemId": "fuel",
+  "systemName": "Fuel System",
+  "variant": "BOTH",
+  "summary": "The DHC-6 fuel system consists of two fuselage tanks (FWD and AFT), each divided into four flexible nylon-rubber cells: one collector cell and three feeder cells. Under NORM selection the FWD tank feeds the right engine and the AFT tank feeds the left engine. Fuel cannot be transferred between tanks but either engine can be crossfed from either tank. Each collector cell contains two DC-electric boost pumps; No.1 runs continuously and No.2 auto-starts on pressure loss. A crossfeed valve, operated by the FUEL SELECTOR switch, allows both engines to draw from one tank.",
+  "references": [
+    {
+      "source": "FCTM",
+      "locator": "Chapter 6.3 Fuel System, pages 6-20 to 6-29",
+      "revision": "ISS 03 / REV 02 (Dec 2022)"
+    },
+    {
+      "source": "POH_AFM",
+      "locator": "Section 7.12 Fuel System, pages 7-71 to 7-95",
+      "revision": "Rev 53 (10 Sep 2010)"
+    },
+    {
+      "source": "POH_AFM",
+      "locator": "Section 2.3 Fuel Limitations, pages 2-9 to 2-10",
+      "revision": "Rev 53 (10 Sep 2010)"
+    },
+    {
+      "source": "QRH",
+      "locator": "Section 6 Fuel, pages FL-1 to FL-3",
+      "revision": "HBFO-002 ISS 01 REV 02"
+    }
+  ],
+  "modificationVariants": [
+    {
+      "id": "wingtip_tanks",
+      "name": "Wingtip Fuel Tanks (optional)",
+      "serialRange": "Special order on Series 300",
+      "description": "Optional wingtip tanks each hold 144 lb (65 L / 17 USG) and gravity-feed into their respective fuselage feeder cells via a fuel-tight rib. Wing tip tanks are non-drainable in flight. Total capacity with wingtips: FWD 1379 lb, AFT 1485 lb (FCTM Table 6.3.1.1).",
+      "references": [
+        { "source": "FCTM", "locator": "6.3.2.1, p.6-22" },
+        { "source": "POH_AFM", "locator": "Section 7.12.1, p.7-71" }
+      ]
+    },
+    {
+      "id": "water_drain_mdo_011430",
+      "name": "Water Drain Manifold (Mod 011430 / Mod 6/1182)",
+      "serialRange": "All Series 300 production (cut in at SN 231)",
+      "description": "Water drain valve installed at the lowest point of the crossfeed manifold to permit water contamination drainage during preflight inspection.",
+      "references": [
+        { "source": "POH_AFM", "locator": "Section 7.12.3, p.7-79" }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "id": "fwd_tank",
+      "name": "Forward Fuselage Tank",
+      "description": "Four interconnected nylon-rubber cells (Nos. 1–4). Cell 4 is the collector cell containing both boost pumps, a low-level float switch, a level control valve, a quick-drain, and a capacitance probe. Cells 1–3 are feeder cells each with one capacitance probe. The FWD tank feeds the RIGHT engine under NORM selection. Filling sequence: fill FWD tank first to prevent aircraft tail-tipping.",
+      "specifications": {
+        "usable_lb": "1235",
+        "usable_litres": "686",
+        "usable_usg": "181",
+        "collector_cell_number": "4",
+        "feeds_engine": "Right (NORM)"
+      },
+      "references": [
+        { "source": "FCTM", "locator": "6.3.2.1, p.6-22" },
+        { "source": "POH_AFM", "locator": "Section 7.12.1, p.7-71" }
+      ]
+    },
+    {
+      "id": "aft_tank",
+      "name": "Aft Fuselage Tank",
+      "description": "Four interconnected nylon-rubber cells (Nos. 5–8). Cell 5 is the collector cell. Cells 6–8 are feeder cells. The AFT tank feeds the LEFT engine under NORM selection. The aft tank has slightly greater capacity than the FWD tank. There is no limitation on fuel imbalance between the two tanks provided CG remains within limits.",
+      "specifications": {
+        "usable_lb": "1341",
+        "usable_litres": "756",
+        "usable_usg": "197",
+        "collector_cell_number": "5",
+        "feeds_engine": "Left (NORM)"
+      },
+      "references": [
+        { "source": "FCTM", "locator": "6.3.2.1, p.6-22" },
+        { "source": "POH_AFM", "locator": "Section 7.12.1, p.7-71" }
+      ]
+    },
+    {
+      "id": "boost_pumps",
+      "name": "Boost Pumps (No.1 and No.2 per collector cell)",
+      "description": "Two constant-speed DC electric boost pumps are installed in each collector cell (4 pumps total). No.1 runs as the primary pump under normal conditions. No.2 auto-starts when pressure drops below approximately 2–3 psi (automatic changeover). Nominal pump output is 450 lb/hr at 22 psi. The boost pump also drives the ejector/jet-pump which transfers fuel from feeder cells into the collector cell. The standby boost pump emergency (STBY BOOST PUMP EMER) switch on each side allows manual selection of No.2 if auto-changeover fails.",
+      "specifications": {
+        "nominal_output_lb_hr": "450",
+        "nominal_pressure_psi": "22",
+        "auto_changeover_pressure_psi": "2-3"
+      },
+      "references": [
+        { "source": "FCTM", "locator": "6.3.3.1 and 6.3.3.2, p.6-23" },
+        { "source": "POH_AFM", "locator": "Section 7.12.3, p.7-79" }
+      ]
+    },
+    {
+      "id": "ejector",
+      "name": "Ejector (Jet Pump / Motive Flow Valve)",
+      "description": "Excess boost-pump output is routed through a venturi ejector in the lower manifold. The venturi effect draws fuel from the three feeder cells into the collector cell. A one-way flapper valve at the base of the collector cell prevents reverse flow. A level control valve stops flow once the collector cell is full. All three feeder cells empty at the same rate while the collector cell remains full.",
+      "references": [
+        { "source": "FCTM", "locator": "6.3.3.2, p.6-23" },
+        { "source": "POH_AFM", "locator": "Section 7.12.3, p.7-79" }
+      ]
+    },
+    {
+      "id": "crossfeed_valve",
+      "name": "Crossfeed Valve",
+      "description": "A two-position DC-electric valve controlled by the FUEL SELECTOR rotary switch (BOTH ON FWD / NORM / BOTH ON AFT). Normally CLOSED. When BOTH ON FWD or BOTH ON AFT is selected the valve opens and both engines can draw from the selected tank. Used for fuel balancing or to supply a running engine from the opposite tank after pump failure.",
+      "references": [
+        { "source": "FCTM", "locator": "6.3.3.3, p.6-24" },
+        { "source": "POH_AFM", "locator": "Section 7.12.3, p.7-80" }
+      ]
+    },
+    {
+      "id": "fuel_emergency_shutoff",
+      "name": "Fuel Emergency Shutoff Valve",
+      "description": "A normally-open solenoid valve in each engine fuel supply line. Located at the firewall. Controlled by the FUEL EMERGENCY L/R switch on the emergency panel. Selecting OFF closes the valve and completely shuts off fuel to that engine. Must be selected OFF during the engine fire in-flight and engine shutdown procedures after the fuel lever is already at CUTOFF.",
+      "references": [
+        { "source": "POH_AFM", "locator": "Section 7.12.5, p.7-86" },
+        { "source": "FCTM", "locator": "6.3.3.5, p.6-25" }
+      ]
+    },
+    {
+      "id": "fuel_quantity_indication",
+      "name": "Fuel Quantity Indication",
+      "description": "Capacitance probes in each cell (one per feeder cell, one in the collector cell) feed the fuel quantity gauges. Gauges show FWD and AFT quantities separately on the instrument panel. The fuel dipstick procedure is used to verify quantity; accurate dipstick readings may require 12 hours after boost pump operation and 15 minutes after refuelling for fuel to equalise across cells.",
+      "references": [
+        { "source": "FCTM", "locator": "6.3.2.1, p.6-22" },
+        { "source": "POH_AFM", "locator": "Section 7.12.4, p.7-82" }
+      ]
+    },
+    {
+      "id": "fuel_low_level_light",
+      "name": "Fuel Low-Level Float Switch",
+      "description": "A float switch in each collector cell illuminates the FUEL LOW LEVEL light (or CAS message on G950) when approximately 200 lb remain in that tank. A brief flicker on takeoff rotation is normal due to fuel surge. A steady illumination in flight requires immediate action.",
+      "references": [
+        { "source": "FCTM", "locator": "6.3.3.8, p.6-26" },
+        { "source": "POH_AFM", "locator": "Section 7.12.4, p.7-83" }
+      ]
+    },
+    {
+      "id": "fuel_heater",
+      "name": "Fuel Heater",
+      "description": "A fuel-to-oil heat exchanger installed in the engine low-pressure fuel supply line. Engine oil warms the fuel before it reaches the HP pump, preventing ice crystal formation in the fuel. Also pre-conditions engine oil on cold starts. See also OIL system for operating temperature recommendations.",
+      "references": [
+        { "source": "FCTM", "locator": "6.4.6.2, p.6-43" },
+        { "source": "POH_AFM", "locator": "Section 7.12.7, p.7-93" }
+      ]
+    }
+  ],
+  "controls": [
+    {
+      "id": "fuel_lever",
+      "name": "Fuel Lever (L/R)",
+      "positions": ["RUN", "CUTOFF"],
+      "description": "Controls the fuel cutoff valve in the FCU. RUN = fuel flows to combustion chamber. CUTOFF = fuel flow stopped; engine shutdown. Moving to CUTOFF with the engine running initiates a normal shutdown.",
+      "references": [
+        { "source": "FCTM", "locator": "6.4.6.1, p.6-43" },
+        { "source": "POH_AFM", "locator": "Section 7.12.6, p.7-90" }
+      ]
+    },
+    {
+      "id": "fuel_selector",
+      "name": "Fuel Selector Switch",
+      "positions": ["BOTH ON FWD", "NORM", "BOTH ON AFT"],
+      "description": "Controls the crossfeed valve. NORM: FWD→right engine, AFT→left engine, crossfeed closed. BOTH ON FWD: crossfeed open, both engines draw from FWD tank. BOTH ON AFT: crossfeed open, both engines draw from AFT tank.",
+      "references": [
+        { "source": "FCTM", "locator": "6.3.3.4, p.6-24" },
+        { "source": "POH_AFM", "locator": "Section 7.12.3, p.7-80" }
+      ]
+    },
+    {
+      "id": "boost_pump_switches",
+      "name": "Boost Pump Switches (BOOST PUMP L/R NO.1 / NO.2)",
+      "positions": ["ON", "OFF"],
+      "description": "No.1 boost pump switch is normally ON. No.2 auto-changeover is automatic but the STBY BOOST PUMP EMER switch on the overhead panel can manually energise No.2 if the auto-changeover fails.",
+      "references": [
+        { "source": "FCTM", "locator": "6.3.3.1, p.6-23" },
+        { "source": "QRH", "locator": "Section 6.1, p.FL-1" }
+      ]
+    },
+    {
+      "id": "fuel_emergency_switches",
+      "name": "Fuel Emergency Switches (L/R)",
+      "positions": ["NORMAL", "OFF"],
+      "description": "Guarded switches on the emergency panel. OFF closes the firewall fuel shutoff valve for that engine. Used in fire and engine shutdown in-flight procedures after fuel lever is at CUTOFF.",
+      "references": [
+        { "source": "FCTM", "locator": "6.3.3.5, p.6-25" },
+        { "source": "POH_AFM", "locator": "Section 7.12.5, p.7-86" }
+      ]
+    }
+  ],
+  "limits": [
+    {
+      "id": "approved_fuel",
+      "parameter": "Approved Fuel Type",
+      "value": "JET A, JET A-1, JET B (emergency only), JP-4, JP-8",
+      "note": "JET A-1 is the standard. JET B and JP-4 are approved for use in emergency or specific conditions only. AVGAS is not approved.",
+      "references": [
+        { "source": "POH_AFM", "locator": "Section 2.3, p.2-9" }
+      ]
+    },
+    {
+      "id": "total_usable_capacity",
+      "parameter": "Total Usable Fuel (no tip tanks)",
+      "value": "2576 lb (1442 L / 378 USG)",
+      "note": "FWD 1235 lb + AFT 1341 lb. With wingtip tanks: add 287 lb (168 L) per side.",
+      "references": [
+        { "source": "FCTM", "locator": "6.3.2.1 Table, p.6-22" }
+      ]
+    },
+    {
+      "id": "fuel_imbalance",
+      "parameter": "Fuel Imbalance",
+      "value": "No specific limit",
+      "note": "No limitation on fuel imbalance between FWD and AFT tanks PROVIDED aircraft CG remains within limits at all times.",
+      "references": [
+        { "source": "FCTM", "locator": "6.3.2.1, p.6-22" },
+        { "source": "POH_AFM", "locator": "Section 7.12.1, p.7-73" }
+      ]
+    },
+    {
+      "id": "minimum_fuel_altitude",
+      "parameter": "Flameout Risk — Dual Boost Pump Failure",
+      "value": "Above 8,000 ft: flameout possible",
+      "note": "At altitudes above 8,000 ft, engine flameout is possible if both boost pumps on the same tank fail and supply is not restored. Air start may be attempted below 20,000 ft once boost pump pressure is restored.",
+      "references": [
+        { "source": "QRH", "locator": "Section 6.2 Note, p.FL-1" }
+      ]
+    },
+    {
+      "id": "low_level_trigger",
+      "parameter": "Fuel Low-Level Warning Trigger",
+      "value": "Approximately 200 lb remaining in collector cell",
+      "note": "Brief FUEL LOW LEVEL flicker on rotation is normal. A steady light requires immediate fuel management.",
+      "references": [
+        { "source": "FCTM", "locator": "6.3.3.8, p.6-26" }
+      ]
+    }
+  ],
+  "casMessageRefs": [
+    "AFT_BOOST1_PR",
+    "AFT_BOOST2_PR",
+    "FWD_BOOST1_PR",
+    "FWD_BOOST2_PR",
+    "FUEL_LOW_LEVEL_AFT",
+    "FUEL_LOW_LEVEL_FWD"
+  ]
+}

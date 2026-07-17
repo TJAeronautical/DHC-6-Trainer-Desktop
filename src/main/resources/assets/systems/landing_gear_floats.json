@@ -1,0 +1,180 @@
+{
+  "schemaId": "system_description",
+  "schemaVersion": "1.0.0",
+  "systemId": "landing_gear_floats",
+  "systemName": "Landing Gear \u2014 Floats",
+  "variant": "BOTH",
+  "summary": "The Wipline 13000 floats (standard Manta Air configuration) replace the conventional landplane undercarriage. The float configuration changes several critical operational aspects: there are no brakes or nose wheel steering (hydraulic pressure is used for flaps only), CG limits shift aft (float loading is predominantly aft), VMC increases due to aft CG effects, and water rudder provides directional control on water. The floatplane has specific take-off and landing airspeeds and performance data in AFM Supplement 9-20. Dock line attachment points, water rudder operation, and step taxiing techniques are float-specific skills.",
+  "references": [
+    {
+      "source": "POH_AFM",
+      "locator": "Section 7.20.7 Floatplane, p.7-129\u2013130",
+      "revision": "Rev 53 (10 Sep 2010)"
+    },
+    {
+      "source": "POH_AFM",
+      "locator": "AFM Supplement 9-20 Floatplane Operation SFAR 23, p.9-20-1 to 9-20-40",
+      "revision": "Rev 53 (10 Sep 2010)"
+    },
+    {
+      "source": "FCTM",
+      "locator": "Chapter 5 Simulated Emergencies \u2014 Float ops notes, p.5-5\u20135-8",
+      "revision": "ISS 03 / REV 02 (Dec 2022)"
+    }
+  ],
+  "modificationVariants": [
+    {
+      "id": "wipline_13000",
+      "name": "Wipline 13000 Floats",
+      "serialRange": "Manta Air standard float configuration",
+      "description": "Wipline 13000-series floats with water rudder. Maximum water draft at MTOW (~12,500 lb): 29 inches. At ~8,500 lb: 24.5 inches. Minimum water depth for safe water operations must exceed the float draft.",
+      "references": [
+        {
+          "source": "QRH",
+          "locator": "Section 14.2 Water Draft"
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "id": "float_structure",
+      "name": "Float Structure",
+      "description": "Two all-metal floats, one under each main wing. Each float is divided into multiple watertight compartments for buoyancy reserve if one compartment floods. The floats mount to the aircraft via struts attached to the main fuselage frames.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.20.7, p.7-129"
+        }
+      ]
+    },
+    {
+      "id": "water_rudder",
+      "name": "Water Rudder",
+      "description": "Mounted at the stern of each float. Connected to the aircraft rudder pedals via cables, providing directional control on the water at low speeds. Water rudder is retracted for take-off and approach/landing. If the water rudder cable breaks: directional control on water is via differential power.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.20.7.1, p.7-129"
+        }
+      ]
+    },
+    {
+      "id": "step",
+      "name": "Float Step",
+      "description": "The step is the planing surface break on the underside of each float. During take-off, the aircraft transitions from displacement mode (floating on hull) to planing on the step before lift-off. Step taxi technique involves maintaining a specific power setting to keep the aircraft on the step for efficient water taxiing.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.20.7, p.7-129"
+        }
+      ]
+    },
+    {
+      "id": "dock_lines",
+      "name": "Dock Line Attachment Points",
+      "description": "Cleats and attachment points on each float bow and stern for securing the aircraft at a dock or mooring. Float keel has inspection access panels for bilge inspection.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.20.7, p.7-129"
+        }
+      ]
+    },
+    {
+      "id": "float_bilge",
+      "name": "Float Bilge Compartments",
+      "description": "Each float has inspection ports to check for water ingress. A small amount of water in the float bilge is normal; excessive ingress indicates a compromised compartment. Bilge must be checked during pre-flight walk-around.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.20.7, p.7-129"
+        }
+      ]
+    }
+  ],
+  "controls": [
+    {
+      "id": "water_rudder_control",
+      "name": "Water Rudder Control",
+      "positions": [
+        "DOWN (in water)",
+        "UP (retracted \u2014 take-off/landing)"
+      ],
+      "description": "Mechanical linkage to both water rudders via a control lever in the cockpit or by rudder pedal cable connection. Must be retracted before take-off and for landing.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.20.7.1, p.7-129"
+        }
+      ]
+    }
+  ],
+  "limits": [
+    {
+      "id": "water_draft",
+      "parameter": "Minimum Water Depth (Wipline 13000)",
+      "value": "29 inches at MTOW (12,500 lb) / 24.5 inches at ~8,500 lb",
+      "note": "Water draft is the float displacement depth \u2014 minimum water depth must exceed this to prevent float grounding.",
+      "references": [
+        {
+          "source": "QRH",
+          "locator": "Section 14.2 Water Draft"
+        }
+      ]
+    },
+    {
+      "id": "no_brakes",
+      "parameter": "Brakes and Nose Wheel Steering",
+      "value": "NOT FITTED",
+      "note": "Float aircraft has no wheel brakes and no nose wheel steering. Directional control on water is via water rudder and differential power. This changes all ground/water emergency procedures.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 9-20.3.1, p.9-20-3"
+        }
+      ]
+    },
+    {
+      "id": "hyd_floats",
+      "parameter": "Hydraulic System Use on Floats",
+      "value": "Flaps only (no brakes, no nose wheel steering)",
+      "note": "Loss of hydraulic pressure on a floatplane is less critical than on a landplane as hydraulic pressure is only needed for flaps.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 9-20.3.1, p.9-20-3"
+        }
+      ]
+    },
+    {
+      "id": "cg_aft",
+      "parameter": "CG \u2014 Float Aircraft",
+      "value": "CG limits shifted: FWD 25% MAC / AFT 32% MAC (float T/O&L)",
+      "note": "Float aircraft typically loads with CG toward aft limit due to float configuration. Most aircraft in AFT CG range when loaded \u2014 minimise tail compartment loading where possible.",
+      "references": [
+        {
+          "source": "QRH",
+          "locator": "Section 11.1, p.MB-1"
+        },
+        {
+          "source": "FCTM",
+          "locator": "VMC discussion, p.5-7"
+        }
+      ]
+    },
+    {
+      "id": "vmc_float",
+      "parameter": "VMC \u2014 Float Configuration",
+      "value": "67 KCAS (red radial on float ASI)",
+      "note": "Float VMC is higher than wheel VMC due to aft CG effect increasing rudder force requirement. Blue line (VYSE) on float ASI: 89 KCAS (flaps 0).",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 9-20.2.2, p.9-20-11"
+        }
+      ]
+    }
+  ],
+  "casMessageRefs": []
+}

@@ -1,0 +1,19 @@
+{
+  "model": "dhc6_wheels_painted_training.glb",
+  "space": "mesh_names",
+  "matchOrder": "mesh_first",
+  "note": "Aliases for the painted DHC-6 wheels airframe. The Aircraft General lab exposes a Tail_Group part, but the GLB models the empennage as the aft fuselage plus individual elevator meshes, so those meshes are aliased here.",
+  "regions": [
+    {
+      "id": "Tail_Group",
+      "label": "Tail group (empennage)",
+      "meshNames": [
+        "Fus_Aft",
+        "Elevator_1_Left",
+        "Elevator_1_Right",
+        "Elevator_2_Left",
+        "Elevator_2_Right"
+      ]
+    }
+  ]
+}

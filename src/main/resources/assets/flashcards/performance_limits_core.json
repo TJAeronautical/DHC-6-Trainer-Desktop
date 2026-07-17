@@ -1,0 +1,168 @@
+{
+  "schemaId": "flashcard_deck",
+  "schemaVersion": "1.0.0",
+  "deckId": "performance_limits_core",
+  "deckName": "Performance & Limitations — Core",
+  "description": "Bundled performance cards for airspeed terminology, takeoff/climb references, runway terminology and power setting discipline.",
+  "systemId": "performance",
+  "variant": "BOTH",
+  "difficulty": "INTERMEDIATE",
+  "cards": [
+    {
+      "id": "vmc_definition",
+      "front": "What is VMC in the DHC-6 AFM?",
+      "back": "Minimum control speed single engine: the lowest speed at which the aircraft is controllable in flight in takeoff configuration with one engine at maximum power and the other feathered.",
+      "tags": [
+        "performance",
+        "airspeed",
+        "vmc"
+      ],
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 0.10, VMC"
+        }
+      ]
+    },
+    {
+      "id": "vy_10_flap",
+      "front": "At maximum takeoff weight, what is best rate of climb speed with 10° flap?",
+      "back": "80 KIAS, regardless of number of engines operating.",
+      "tags": [
+        "performance",
+        "vy",
+        "climb"
+      ],
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 0.10, VY Note"
+        }
+      ]
+    },
+    {
+      "id": "vy_flaps_up_two_engine",
+      "front": "At maximum takeoff weight, what is best rate of climb speed with flaps up and both engines operating?",
+      "back": "100 KIAS.",
+      "tags": [
+        "performance",
+        "vy",
+        "climb"
+      ],
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 0.10, VY Note"
+        }
+      ]
+    },
+    {
+      "id": "vyse_note",
+      "front": "At maximum takeoff weight, what configuration is required for best rate of climb with one engine operating?",
+      "back": "80 KIAS with 10° flap, functioning engine at 96% NP and maximum continuous power, the other propeller feathered, and flaps precisely set to 10°.",
+      "tags": [
+        "performance",
+        "vyse",
+        "oei"
+      ],
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 0.10, VYSE Note"
+        }
+      ]
+    },
+    {
+      "id": "vfe_definition",
+      "front": "What is VFE?",
+      "back": "Maximum flap extended speed: the highest speed permitted with flaps in a specified position.",
+      "tags": [
+        "performance",
+        "airspeed",
+        "flaps"
+      ],
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 0.10, VFE"
+        }
+      ]
+    },
+    {
+      "id": "vb_definition",
+      "front": "What is VB?",
+      "back": "Gust penetration speed: the maximum speed recommended for flight in rough air.",
+      "tags": [
+        "performance",
+        "airspeed",
+        "rough-air"
+      ],
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 0.10, VB"
+        }
+      ]
+    },
+    {
+      "id": "takeoff_distance",
+      "front": "What is takeoff distance?",
+      "back": "Distance from a standing start with full takeoff power set before brake release to reach 50 ft AGL with both engines, or 35 ft AGL one-engine-inoperative.",
+      "tags": [
+        "performance",
+        "takeoff-distance"
+      ],
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 0.13, Take-off Distance"
+        }
+      ]
+    },
+    {
+      "id": "accelerate_stop",
+      "front": "What is accelerate-stop distance?",
+      "back": "Distance to accelerate from standing start to the specified decision/rotation speed, reject the takeoff, and stop completely.",
+      "tags": [
+        "performance",
+        "accelerate-stop"
+      ],
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 0.13, Accelerate-Stop Distance"
+        }
+      ]
+    },
+    {
+      "id": "wet_vs_contaminated",
+      "front": "What is the difference between wet and contaminated runway in the AFM terminology?",
+      "back": "Wet runway has a shiny water layer without significant standing water; more than 0.125 in / 3 mm standing water is considered contaminated.",
+      "tags": [
+        "performance",
+        "runway"
+      ],
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 0.13, Wet Runway and Contaminated Runway"
+        }
+      ]
+    },
+    {
+      "id": "reduced_power_takeoff",
+      "front": "Are reduced power takeoffs approved in the Revision 53 AFM baseline?",
+      "back": "No. Permission for reduced power takeoffs in Series 300 DHC-6 aircraft was rescinded; calculated takeoff torque must be set for each takeoff.",
+      "tags": [
+        "performance",
+        "takeoff-power"
+      ],
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 0.8.3, Withdrawal of Approval for Reduced Power Take-Offs"
+        }
+      ]
+    }
+  ]
+}

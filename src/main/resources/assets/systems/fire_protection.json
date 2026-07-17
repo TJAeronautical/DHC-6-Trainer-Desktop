@@ -1,0 +1,279 @@
+{
+  "schemaId": "system_description",
+  "schemaVersion": "1.0.0",
+  "systemId": "fire_protection",
+  "systemName": "Fire Protection",
+  "variant": "BOTH",
+  "summary": "Each engine nacelle has an independent fire detection system (4 thermal sensors, 2 electrical loops) and an independent fire extinguishing system (one pressurised bottle per nacelle, Freon 13B1 or Halon 1211). Both systems are powered exclusively from the left DC bus \u2014 neither works if the DC MASTER switch is OFF or left bus power is unavailable. Pulling the FIRE PULL handle (legacy) or pushing the FIRE PUSH TO DISCHARGE switch (G950) electrically fires a squib at the base of the bottle, discharging all contents into the accessory gearbox area in one blast. Crucially, pulling the handle does NOT shut off the fuel supply \u2014 the fire procedure order is mandatory.",
+  "references": [
+    {
+      "source": "FCTM",
+      "locator": "6.4.8 Fire Protection, p.6-46\u201348",
+      "revision": "ISS 03 / REV 02 (Dec 2022)"
+    },
+    {
+      "source": "POH_AFM",
+      "locator": "Section 7.15 Fire Protection, p.7-98\u2013100",
+      "revision": "Rev 53 (10 Sep 2010)"
+    },
+    {
+      "source": "QRH",
+      "locator": "Emergency Section Engine Fire In Flight",
+      "revision": "HBFO-002 ISS 01 REV 02"
+    }
+  ],
+  "modificationVariants": [
+    {
+      "id": "g950_fire_switch",
+      "name": "G950 Fire Push to Discharge Switch",
+      "serialRange": "G950-equipped aircraft (Manta Air fleet)",
+      "description": "Replaces the legacy FIRE PULL handle with a FIRE PUSH TO DISCHARGE switch located above the Secondary Display on the G950 panel. The switch illuminates red when a nacelle overheat/fire is detected. Pushing the switch discharges the extinguishing agent. Function is identical to pulling the FIRE PULL handle on legacy aircraft.",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.4.8.1, p.6-46"
+        }
+      ]
+    },
+    {
+      "id": "fire_bell_mute",
+      "name": "Fire Bell Mute Switch Location",
+      "serialRange": "SN 311 and later \u2014 at extreme left of instrument panel; earlier aircraft \u2014 on AC fuse panel structure below main CB panel",
+      "description": "Two-position guarded switch (ON / MUTE). Silences the fire warning bell without affecting the visual fire warning light. Location changed at SN 311.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.15.5, p.7-100"
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "id": "thermal_sensors",
+      "name": "Thermal Fire Sensors (4 per engine)",
+      "description": "Four bimetallic strip detector units and interconnecting harnesses on each engine nacelle. When exposed to excessive heat the bimetallic strips close an electrical circuit, illuminating the FIRE PULL handle and ringing the fire bell. The circuit opens when the heat source is removed \u2014 the fire warning ceases automatically. Detection is automatic whenever the left DC bus is powered.",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.4.8.2, p.6-46"
+        },
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.15, p.7-98"
+        }
+      ]
+    },
+    {
+      "id": "dual_loop_design",
+      "name": "Dual-Loop Detection Circuit",
+      "description": "Each engine has a normally-powered loop and a back-up (ground) loop. Under normal operation, power flows through FIRE DET L/R circuit breakers to the powered loop. If a ground fault occurs in the powered loop, the magnetic FIRE DET FAULT IND circuit breaker disconnects the faulted loop and simultaneously connects the backup loop, maintaining detection capability. This means the system continues to function even with a ground fault \u2014 the same fault that would disable a single-loop system.",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.4.8.3, p.6-47"
+        },
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.15, p.7-98"
+        }
+      ]
+    },
+    {
+      "id": "fire_bottle",
+      "name": "Fire Extinguisher Bottle",
+      "description": "One steel pressure bottle per engine nacelle, located in the accessory compartment. Contents: Freon 13B1 or Halon 1211 \u2014 a liquid under pressure that converts to gas on discharge, extinguishing fire by displacing oxygen and cooling components. The gas does not damage engine components and leaves no evidence of discharge. Contents are discharged entirely in a single blast. There is no partial or repeated discharge capability. No cockpit indication confirms the bottle has discharged.",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.4.8.4, p.6-47"
+        },
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.15.2, p.7-100"
+        }
+      ]
+    },
+    {
+      "id": "squib",
+      "name": "Squib (Explosive Cartridge)",
+      "description": "Located at the base of the fire bottle at the flood valve. When electrically activated by the FIRE PULL handle (legacy) or FIRE PUSH TO DISCHARGE switch (G950), the squib detonates, puncturing the metal seal on the bottle and releasing all contents in one blast. Power is supplied through the L or R FIRE EXT circuit breaker on the main panel.",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.4.8.4, p.6-47"
+        },
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.15.2, p.7-100"
+        }
+      ]
+    },
+    {
+      "id": "yellow_disc",
+      "name": "Yellow Indicating Disc",
+      "description": "Located on the inboard side of each nacelle (aft of the pair). Blown out when the extinguisher bottle is discharged by normal system operation (FIRE PULL handle pulled / DISCHARGE switch pushed). A small amount of extinguishing agent is routed to the yellow disc. If the yellow disc is missing on preflight, the bottle has been deliberately discharged \u2014 it must be replaced before flight.",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.4.8.5, p.6-48"
+        },
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.15.3, p.7-100"
+        }
+      ]
+    },
+    {
+      "id": "red_disc",
+      "name": "Red Indicating Disc",
+      "description": "Located on the inboard side of each nacelle (forward of the pair). Blown out when the thermal relief valve on the bottle opens due to overheating \u2014 the bottle contents discharged due to excessive thermal expansion pressure (bottle temperature 98\u2013104\u00b0C). If the red disc is missing on preflight, the entire bottle contents have been vented overboard from thermal causes \u2014 the bottle must be replaced before flight.",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.4.8.5, p.6-48"
+        },
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.15.3, p.7-100"
+        }
+      ]
+    },
+    {
+      "id": "portable_extinguishers",
+      "name": "Portable Fire Extinguishers",
+      "description": "A portable extinguisher is installed in the flight compartment. A second portable extinguisher is normally installed in the rear of the passenger cabin. For use on any fire not addressed by the engine fire extinguishing system (cabin fire, electrical fire, baggage fire).",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.4.8, p.6-46"
+        },
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.15, p.7-98"
+        }
+      ]
+    }
+  ],
+  "controls": [
+    {
+      "id": "fire_pull_handle",
+      "name": "FIRE PULL Handle (Legacy) / FIRE PUSH TO DISCHARGE Switch (G950)",
+      "positions": [
+        "ARMED (normal)",
+        "PULLED/PUSHED (discharge)"
+      ],
+      "description": "Legacy: T-bar handle with red warning light at each end. Pulling the handle fires the squib. G950: illuminated push-button switch above Secondary Display. Pushing discharges the agent. CRITICAL: Pulling/pushing does NOT shut off fuel supply. The fire procedure order (power lever \u2192 prop feather \u2192 fuel lever \u2192 fuel emergency \u2192 FIRE PULL \u2192 discharge \u2192 boost pump off) must be followed exactly.",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.4.8.4, p.6-47"
+        },
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.15.2, p.7-100"
+        }
+      ]
+    },
+    {
+      "id": "fire_det_test",
+      "name": "FIRE DETECTION TEST Switch",
+      "positions": [
+        "OFF (spring-loaded)",
+        "TEST (momentary)"
+      ],
+      "description": "Two-position spring-loaded switch. Holding TEST connects both wire loops in series through warning lights and the fire bell to ground. If all fire warning lights illuminate and bell rings: both detection loops are serviceable. Test each engine circuit independently.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.15.4, p.7-100"
+        }
+      ]
+    },
+    {
+      "id": "fire_bell_mute_sw",
+      "name": "FIRE BELL MUTE Switch",
+      "positions": [
+        "ON",
+        "MUTE"
+      ],
+      "description": "Guarded switch. MUTE silences the fire warning bell without extinguishing the visual fire warning light. Located at the extreme left of the instrument panel (SN 311+) or on AC fuse panel below main CB panel (earlier aircraft).",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.15.5, p.7-100"
+        }
+      ]
+    }
+  ],
+  "limits": [
+    {
+      "id": "dc_bus_dependency",
+      "parameter": "System Power Dependency",
+      "value": "Left DC bus only",
+      "note": "Both fire detection AND fire extinguishing are inoperative if DC MASTER is OFF or left DC bus has no power. This is a critical crew knowledge item.",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.4.8, p.6-46"
+        }
+      ]
+    },
+    {
+      "id": "no_cross_feed",
+      "parameter": "Cross-Feed Between Bottles",
+      "value": "NOT POSSIBLE",
+      "note": "Left and right engine systems are completely independent. You cannot discharge one bottle into the other engine nacelle.",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.4.8.4, p.6-47"
+        }
+      ]
+    },
+    {
+      "id": "no_cockpit_discharge_indication",
+      "parameter": "Discharge Indication in Cockpit",
+      "value": "NONE",
+      "note": "There is no flight compartment indication that the bottle has discharged. The FIRE PULL light remains on as long as an overheat condition exists \u2014 NOT because the bottle is charged.",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.4.8.4, p.6-47"
+        }
+      ]
+    },
+    {
+      "id": "thermal_relief_temp",
+      "parameter": "Thermal Relief Valve Opening Temperature",
+      "value": "98\u00b0C to 104\u00b0C (208\u00b0F to 220\u00b0F)",
+      "note": "If the bottle reaches this temperature (e.g., in a nacelle fire without human action), the thermal plug melts and the contents vent overboard via the thermal relief valve \u2014 shown by the red disc being blown out.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.15.3, p.7-100"
+        }
+      ]
+    },
+    {
+      "id": "fire_procedure_sequence",
+      "parameter": "Fire Procedure Sequence (MANDATORY ORDER)",
+      "value": "1-MAX POWER (good engine) 2-Power lever affected IDLE 3-Prop lever FEATHER 4-Fuel lever CUTOFF 5-Fuel Emergency OFF 6-FIRE PULL/PUSH 7-Extinguisher DISCHARGE 8-Boost pump OFF",
+      "note": "Pulling the handle before fuel lever CUTOFF and fuel emergency OFF will discharge the agent while fuel continues to burn \u2014 the procedure order is mandatory.",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.4.8.4, p.6-47"
+        },
+        {
+          "source": "QRH",
+          "locator": "Emergency Engine Fire In Flight"
+        }
+      ]
+    }
+  ],
+  "casMessageRefs": [
+    "FIRE_L",
+    "FIRE_R"
+  ]
+}

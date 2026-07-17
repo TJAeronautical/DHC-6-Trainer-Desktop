@@ -1,0 +1,123 @@
+{
+  "rawName": "Known Source of Fire or Smoke",
+  "drillName": "Known Source of Fire or Smoke [Ground/Airborne]",
+  "category": "EMERGENCY",
+  "context": "Ground/Airborne",
+  "sourceNote": "Procedure identity/category/order normalized from 'DHC-6 Full Drill Procedure Index Normal Split.xlsx'. Excel is the governing app display allow-list. Existing procedure steps preserved for later content review. Previous note: Generic MCC callout shell generated from procedure titles only. This is not an approved AFM/POH/QRH/checklist replacement. Curated to the DHC-6 Trainer Abnormal/Emergency procedure allow-list.",
+  "variants": {
+    "LEGACY": {
+      "memory": [],
+      "flow": [
+        {
+          "stepNumber": 1,
+          "action": "Known Source of Fire or Smoke.",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.4.3.1; PM_CALLOUT"
+        },
+        {
+          "stepNumber": 2,
+          "action": "I have control, maintain safe flight path.",
+          "crewRole": "PF",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.4.3.1; PF_COMMAND"
+        },
+        {
+          "stepNumber": 3,
+          "action": "Oxygen / smoke protection as required.",
+          "crewRole": "PF",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.4.3.1; PF_COMMAND"
+        },
+        {
+          "stepNumber": 4,
+          "action": "Identify source if possible and monitor passengers/cabin.",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.4.3.1; PM_ACTION"
+        },
+        {
+          "stepNumber": 5,
+          "action": "Known Source of Fire or Smoke checklist.",
+          "crewRole": "PF",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.4.3.1; PF_COMMAND"
+        },
+        {
+          "stepNumber": 6,
+          "action": "Known Source of Fire or Smoke checklist complete.",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.4.3.1; PM_COMPLETION"
+        }
+      ]
+    },
+    "G950": {
+      "memory": [],
+      "flow": [
+        {
+          "stepNumber": 1,
+          "action": "Known Source of Fire or Smoke.",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.4.3.1; PM_CALLOUT"
+        },
+        {
+          "stepNumber": 2,
+          "action": "I have control, maintain safe flight path.",
+          "crewRole": "PF",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.4.3.1; PF_COMMAND"
+        },
+        {
+          "stepNumber": 3,
+          "action": "Oxygen / smoke protection as required.",
+          "crewRole": "PF",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.4.3.1; PF_COMMAND"
+        },
+        {
+          "stepNumber": 4,
+          "action": "Identify source if possible and monitor passengers/cabin.",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.4.3.1; PM_ACTION"
+        },
+        {
+          "stepNumber": 5,
+          "action": "Known Source of Fire or Smoke checklist.",
+          "crewRole": "PF",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.4.3.1; PF_COMMAND"
+        },
+        {
+          "stepNumber": 6,
+          "action": "Known Source of Fire or Smoke checklist complete.",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.4.3.1; PM_COMPLETION"
+        }
+      ]
+    }
+  },
+  "phaseTag": "Ground/Airborne",
+  "displayLabel": "Known Source of Fire or Smoke [Ground/Airborne]",
+  "sortOrder": 52,
+  "sourceSection": "3.4.3.1",
+  "procedureGroup": "Smoke and Fire",
+  "manualSection": "Section 3",
+  "sequenceBasis": "User-approved working order",
+  "normalSplit": null
+}

@@ -1,0 +1,139 @@
+{
+  "rawName": "Left or Right 400 Cycle Light Illuminated",
+  "drillName": "Left or Right 400 Cycle Light Illuminated [Airborne]",
+  "category": "ABNORMAL",
+  "context": "Airborne",
+  "sourceNote": "Procedure identity/category/order normalized from 'DHC-6 Full Drill Procedure Index Normal Split.xlsx'. Excel is the governing app display allow-list. Existing procedure steps preserved for later content review. Previous note: Generic MCC callout shell generated from procedure titles only. This is not an approved AFM/POH/QRH/checklist replacement. Legacy variant only: inverter switch/check procedures are not presented for the G950 variant in this trainer build. Curated to the DHC-6 Trainer Abnormal/Emergency procedure allow-list.",
+  "variants": {
+    "LEGACY": {
+      "memory": [],
+      "flow": [
+        {
+          "stepNumber": 1,
+          "action": "Left or Right 400 Cycle Light Illuminated.",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.12.6; PM_CALLOUT"
+        },
+        {
+          "stepNumber": 2,
+          "action": "I have control, maintain flight path.",
+          "crewRole": "PF",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.12.6; PF_COMMAND"
+        },
+        {
+          "stepNumber": 3,
+          "action": "Confirm condition and affected system.",
+          "crewRole": "PF",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": true,
+          "reference": "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.12.6; PF_COMMAND"
+        },
+        {
+          "stepNumber": 4,
+          "action": "Condition confirmed, affected system identified.",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": true,
+          "reference": "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.12.6; PM_RESPONSE"
+        },
+        {
+          "stepNumber": 5,
+          "action": "Monitor aircraft state, engine/system indications, terrain, traffic, and configuration.",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.12.6; PM_ACTION"
+        },
+        {
+          "stepNumber": 6,
+          "action": "Left or Right 400 Cycle Light Illuminated (aircraft with two inverter switches) checklist.",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.12.6; PM_RESPONSE"
+        },
+        {
+          "stepNumber": 7,
+          "action": "Left or Right 400 Cycle Light Illuminated (aircraft with two inverter switches) checklist complete.",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.12.6; PM_COMPLETION"
+        }
+      ]
+    },
+    "BOTH": {
+      "memory": [],
+      "flow": [
+        {
+          "stepNumber": 1,
+          "action": "Left or Right 400 Cycle Light Illuminated.",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.12.6; PM_CALLOUT"
+        },
+        {
+          "stepNumber": 2,
+          "action": "I have control, maintain flight path.",
+          "crewRole": "PF",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.12.6; PF_COMMAND"
+        },
+        {
+          "stepNumber": 3,
+          "action": "Confirm condition and affected system.",
+          "crewRole": "PF",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": true,
+          "reference": "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.12.6; PF_COMMAND"
+        },
+        {
+          "stepNumber": 4,
+          "action": "Condition confirmed, affected system identified.",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": true,
+          "reference": "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.12.6; PM_RESPONSE"
+        },
+        {
+          "stepNumber": 5,
+          "action": "Monitor aircraft state, engine/system indications, terrain, traffic, and configuration.",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.12.6; PM_ACTION"
+        },
+        {
+          "stepNumber": 6,
+          "action": "Left or Right 400 Cycle Light Illuminated (aircraft with two inverter switches) checklist.",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.12.6; PM_RESPONSE"
+        },
+        {
+          "stepNumber": 7,
+          "action": "Left or Right 400 Cycle Light Illuminated (aircraft with two inverter switches) checklist complete.",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.12.6; PM_COMPLETION"
+        }
+      ]
+    }
+  },
+  "phaseTag": "Airborne",
+  "displayLabel": "Left or Right 400 Cycle Light Illuminated [Airborne]",
+  "sortOrder": 22,
+  "sourceSection": "3.12.6",
+  "procedureGroup": "Electrical",
+  "manualSection": "Section 3",
+  "sequenceBasis": "User-approved working order",
+  "normalSplit": null
+}

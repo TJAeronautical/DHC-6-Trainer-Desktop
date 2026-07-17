@@ -1,0 +1,163 @@
+{
+  "rawName": "One Engine Inoperative Landing",
+  "drillName": "One Engine Inoperative — Landing [Airborne]",
+  "category": "EMERGENCY",
+  "context": "Airborne",
+  "sourceNote": "Full MCC callout drill from FCTM HBTS-001 ISS03 Section 5.3.3. No memory items — procedural steps only. Single engine approach brief, configuration, final, missed approach brief and landing included.",
+  "variants": {
+    "LEGACY": {
+      "memory": [],
+      "flow": [
+        {
+          "stepNumber": 1,
+          "action": "SINGLE ENGINE LANDING — BRIEF: failed engine confirmed L/R, planning single engine approach, minimum landing configuration confirmed, Vref [speed] bug set",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03 Section 5.3.3; MCC Callouts"
+        },
+        {
+          "stepNumber": 2,
+          "action": "BRIEF ACKNOWLEDGED — Vref single engine [speed] confirmed, FLAP setting [check], approach minima [check]",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03 Section 5.3.3; MCC Callouts"
+        },
+        {
+          "stepNumber": 3,
+          "action": "CONFIRM SINGLE ENGINE CONFIGURATION — power L/R engine [setting], props [check], fuel [check], electrics [check]",
+          "crewRole": "PF",
+          "requiresConfirmation": true,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03 Section 5.3.3; MCC Callouts"
+        },
+        {
+          "stepNumber": 4,
+          "action": "CONFIGURATION CONFIRMED — power [setting], airspeed [Vref], configuration [clean/flap setting], QRH SINGLE ENGINE LANDING checklist running",
+          "crewRole": "PM",
+          "requiresConfirmation": true,
+          "intent": "ANNOUNCE_AND_DO",
+          "reference": "FCTM HBTS-001 ISS03 Section 5.3.3; MCC Callouts"
+        },
+        {
+          "stepNumber": 5,
+          "action": "FINAL APPROACH — single engine, maintaining Vref, rudder trim confirmed, go-around power immediately available",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03 Section 5.3.3; MCC Callouts"
+        },
+        {
+          "stepNumber": 6,
+          "action": "FINAL CHECKLIST COMPLETE — gear [check], flaps [check], autofeather [check if applicable]",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03 Section 5.3.3; MCC Callouts"
+        },
+        {
+          "stepNumber": 7,
+          "action": "GO-AROUND — single engine: advance power lever L/R engine, maintain Vyse, call for SINGLE ENGINE GO-AROUND checklist if required",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03 Section 5.3.3; MCC Callouts"
+        },
+        {
+          "stepNumber": 8,
+          "action": "TOUCHDOWN — maintaining directional control on landing roll, no reverse on live engine only",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03 Section 5.3.3; MCC Callouts"
+        },
+        {
+          "stepNumber": 9,
+          "action": "COMPLETING AFTER LANDING CHECKLIST — single engine configuration",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03 Section 5.3.3; MCC Callouts"
+        }
+      ]
+    },
+    "G950": {
+      "memory": [],
+      "flow": [
+        {
+          "stepNumber": 1,
+          "action": "SINGLE ENGINE LANDING — BRIEF: failed engine confirmed L/R, planning single engine approach, minimum landing configuration confirmed, Vref [speed] bug set",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03 Section 5.3.3; MCC Callouts"
+        },
+        {
+          "stepNumber": 2,
+          "action": "BRIEF ACKNOWLEDGED — Vref single engine [speed] confirmed, FLAP setting [check], approach minima [check]",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03 Section 5.3.3; MCC Callouts"
+        },
+        {
+          "stepNumber": 3,
+          "action": "CONFIRM SINGLE ENGINE CONFIGURATION — power L/R engine [setting], props [check], fuel [check], electrics [check]",
+          "crewRole": "PF",
+          "requiresConfirmation": true,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03 Section 5.3.3; MCC Callouts"
+        },
+        {
+          "stepNumber": 4,
+          "action": "CONFIGURATION CONFIRMED — power [setting], airspeed [Vref], configuration [clean/flap setting], QRH SINGLE ENGINE LANDING checklist running",
+          "crewRole": "PM",
+          "requiresConfirmation": true,
+          "intent": "ANNOUNCE_AND_DO",
+          "reference": "FCTM HBTS-001 ISS03 Section 5.3.3; MCC Callouts"
+        },
+        {
+          "stepNumber": 5,
+          "action": "FINAL APPROACH — single engine, maintaining Vref, rudder trim confirmed, go-around power immediately available",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03 Section 5.3.3; MCC Callouts"
+        },
+        {
+          "stepNumber": 6,
+          "action": "FINAL CHECKLIST COMPLETE — gear [check], flaps [check], autofeather [check if applicable]",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03 Section 5.3.3; MCC Callouts"
+        },
+        {
+          "stepNumber": 7,
+          "action": "GO-AROUND — single engine: advance power lever L/R engine, maintain Vyse, call for SINGLE ENGINE GO-AROUND checklist if required",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03 Section 5.3.3; MCC Callouts"
+        },
+        {
+          "stepNumber": 8,
+          "action": "TOUCHDOWN — maintaining directional control on landing roll, no reverse on live engine only",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03 Section 5.3.3; MCC Callouts"
+        },
+        {
+          "stepNumber": 9,
+          "action": "COMPLETING AFTER LANDING CHECKLIST — single engine configuration",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "intent": "ANNOUNCE",
+          "reference": "FCTM HBTS-001 ISS03 Section 5.3.3; MCC Callouts"
+        }
+      ]
+    }
+  }
+}

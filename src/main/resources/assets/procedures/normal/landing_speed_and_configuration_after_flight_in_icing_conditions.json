@@ -1,0 +1,151 @@
+{
+    "rawName":  "Landing Speed and Configuration after Flight in Icing Conditions",
+    "drillName":  "Landing Speed and Configuration after Flight in Icing Conditions [Airborne]",
+    "category":  "NORMAL",
+    "context":  "Airborne",
+    "sourceNote":  "Procedure identity/category/order normalized from \u0027DHC-6 Full Drill Procedure Index Normal Split.xlsx\u0027. Excel is the governing app display allow-list. Existing procedure steps preserved for later content review. Previous note: Generic training callout structure based on user-provided Section 4 normal-procedure titles and generated PF/PM MCC callouts. Not an approved AFM/POH/checklist replacement.",
+    "variants":  {
+                     "LEGACY":  {
+                                    "memory":  [
+                                                   {
+                                                       "stepNumber":  1,
+                                                       "action":  "LANDING AFTER ICING CONDITIONS - BRIEFED",
+                                                       "crewRole":  "PF",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.20.2 Landing Speed and Configuration after Flight in Icing Conditions"
+                                                   },
+                                                   {
+                                                       "stepNumber":  2,
+                                                       "action":  "LANDING SPEED - ADJUSTED",
+                                                       "crewRole":  "PF",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.20.2 Landing Speed and Configuration after Flight in Icing Conditions"
+                                                   },
+                                                   {
+                                                       "stepNumber":  3,
+                                                       "action":  "LANDING CONFIGURATION - ADJUSTED",
+                                                       "crewRole":  "PM",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.20.2 Landing Speed and Configuration after Flight in Icing Conditions"
+                                                   },
+                                                   {
+                                                       "stepNumber":  4,
+                                                       "action":  "ICE CONTAMINATION EFFECTS - MONITORED",
+                                                       "crewRole":  "PM",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.20.2 Landing Speed and Configuration after Flight in Icing Conditions"
+                                                   }
+                                               ],
+                                    "flow":  [
+                                                 {
+                                                     "stepNumber":  1,
+                                                     "action":  "Landing after icing conditions.",
+                                                     "crewRole":  "PF",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.20.2; PF_CALL"
+                                                 },
+                                                 {
+                                                     "stepNumber":  2,
+                                                     "action":  "Landing speed and configuration adjusted.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.20.2; PM_MONITOR"
+                                                 },
+                                                 {
+                                                     "stepNumber":  3,
+                                                     "action":  "Checked.",
+                                                     "crewRole":  "PF",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.20.2; PF_RESPONSE"
+                                                 },
+                                                 {
+                                                     "stepNumber":  4,
+                                                     "action":  "Approach monitored for ice contamination effects.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.20.2; PM_MONITOR"
+                                                 }
+                                             ]
+                                },
+                     "G950":  {
+                                  "memory":  [
+                                                 {
+                                                     "stepNumber":  1,
+                                                     "action":  "LANDING AFTER ICING CONDITIONS - BRIEFED",
+                                                     "crewRole":  "PF",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.20.2 Landing Speed and Configuration after Flight in Icing Conditions"
+                                                 },
+                                                 {
+                                                     "stepNumber":  2,
+                                                     "action":  "LANDING SPEED - ADJUSTED",
+                                                     "crewRole":  "PF",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.20.2 Landing Speed and Configuration after Flight in Icing Conditions"
+                                                 },
+                                                 {
+                                                     "stepNumber":  3,
+                                                     "action":  "LANDING CONFIGURATION - ADJUSTED",
+                                                     "crewRole":  "PM",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.20.2 Landing Speed and Configuration after Flight in Icing Conditions"
+                                                 },
+                                                 {
+                                                     "stepNumber":  4,
+                                                     "action":  "ICE CONTAMINATION EFFECTS - MONITORED",
+                                                     "crewRole":  "PM",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.20.2 Landing Speed and Configuration after Flight in Icing Conditions"
+                                                 }
+                                             ],
+                                  "flow":  [
+                                               {
+                                                   "stepNumber":  1,
+                                                   "action":  "Landing after icing conditions.",
+                                                   "crewRole":  "PF",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.20.2; PF_CALL"
+                                               },
+                                               {
+                                                   "stepNumber":  2,
+                                                   "action":  "Landing speed and configuration adjusted.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.20.2; PM_MONITOR"
+                                               },
+                                               {
+                                                   "stepNumber":  3,
+                                                   "action":  "Checked.",
+                                                   "crewRole":  "PF",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.20.2; PF_RESPONSE"
+                                               },
+                                               {
+                                                   "stepNumber":  4,
+                                                   "action":  "Approach monitored for ice contamination effects.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.20.2; PM_MONITOR"
+                                               }
+                                           ]
+                              },
+                     "manualSection":  "Section 4",
+                     "sourceSection":  "4.20.2"
+                 },
+    "phaseTag":  "Airborne",
+    "displayLabel":  "Landing Speed and Configuration after Flight in Icing Conditions [Airborne]",
+    "sortOrder":  44,
+    "sourceSection":  "4.20.2",
+    "procedureGroup":  "Icing Operations",
+    "manualSection":  "Section 4",
+    "sequenceBasis":  "Normal-procedure flow order",
+    "normalSplit":  "Weather / Special Conditions"
+}

@@ -1,0 +1,167 @@
+{
+  "schemaId": "flashcard_deck",
+  "schemaVersion": "1.0.0",
+  "deckId": "ice_rain_protection_core",
+  "deckName": "Ice & Rain Protection — Core",
+  "description": "Bundled cards for bleed-air de-ice boot operation, pneumatic pressure and icing terminology.",
+  "systemId": "ice_rain_protection",
+  "variant": "BOTH",
+  "difficulty": "BASICS",
+  "cards": [
+    {
+      "id": "bleed_air_systems",
+      "front": "What aircraft systems are operated by bleed air?",
+      "back": "Environmental system, de-ice boots, intake deflectors, and autopilot.",
+      "tags": [
+        "ice-rain",
+        "bleed-air"
+      ],
+      "references": [
+        {
+          "source": "DHC6_FLASHCARDS_FILE",
+          "locator": "Q75"
+        }
+      ]
+    },
+    {
+      "id": "deice_boot_pressure",
+      "front": "What bleed air pressure is regulated for de-ice boot operation?",
+      "back": "18 PSI.",
+      "tags": [
+        "ice-rain",
+        "deice-boots",
+        "pressure"
+      ],
+      "references": [
+        {
+          "source": "DHC6_FLASHCARDS_FILE",
+          "locator": "Q76"
+        }
+      ]
+    },
+    {
+      "id": "max_bleed_pressure",
+      "front": "What is the maximum allowed bleed air pressure?",
+      "back": "25 PSI.",
+      "tags": [
+        "ice-rain",
+        "bleed-air",
+        "limits"
+      ],
+      "references": [
+        {
+          "source": "DHC6_FLASHCARDS_FILE",
+          "locator": "Q77"
+        }
+      ]
+    },
+    {
+      "id": "auto_fast_cycle",
+      "front": "What is the complete boot cycle time in auto-fast mode?",
+      "back": "About 1 minute: 5-5-3-3 timing with 44 seconds off.",
+      "tags": [
+        "ice-rain",
+        "deice-boots",
+        "cycle"
+      ],
+      "references": [
+        {
+          "source": "DHC6_FLASHCARDS_FILE",
+          "locator": "Q78"
+        }
+      ]
+    },
+    {
+      "id": "auto_slow_cycle",
+      "front": "What is the complete boot cycle time in auto-slow mode?",
+      "back": "About 3 minutes: 5-5-3-3 timing followed by 164 seconds off.",
+      "tags": [
+        "ice-rain",
+        "deice-boots",
+        "cycle"
+      ],
+      "references": [
+        {
+          "source": "DHC6_FLASHCARDS_FILE",
+          "locator": "Q79"
+        }
+      ]
+    },
+    {
+      "id": "tail_boot_blue_lights",
+      "front": "What do two blue tail-boot lights indicate when equipped?",
+      "back": "Only that pressure is available for boot inflation.",
+      "tags": [
+        "ice-rain",
+        "deice-boots"
+      ],
+      "references": [
+        {
+          "source": "DHC6_FLASHCARDS_FILE",
+          "locator": "Q80"
+        }
+      ]
+    },
+    {
+      "id": "pneumatic_low_pressure",
+      "front": "What does the pneumatic low-pressure light indicate?",
+      "back": "Insufficient pressure is available to inflate the boots.",
+      "tags": [
+        "ice-rain",
+        "pneumatic",
+        "cas"
+      ],
+      "references": [
+        {
+          "source": "DHC6_FLASHCARDS_FILE",
+          "locator": "Q81"
+        }
+      ]
+    },
+    {
+      "id": "prop_boot_requirements",
+      "front": "What is required for optional propeller boot operation?",
+      "back": "Electrical power and oil pressure above 40 PSI.",
+      "tags": [
+        "ice-rain",
+        "propeller-boots"
+      ],
+      "references": [
+        {
+          "source": "DHC6_FLASHCARDS_FILE",
+          "locator": "Q82"
+        }
+      ]
+    },
+    {
+      "id": "icing_conditions",
+      "front": "How does the AFM define icing conditions?",
+      "back": "The presence of atmospheric moisture and temperature conducive to airplane icing.",
+      "tags": [
+        "ice-rain",
+        "icing"
+      ],
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 0.11, Icing Conditions"
+        }
+      ]
+    },
+    {
+      "id": "supercooled_drops",
+      "front": "What are supercooled drops?",
+      "back": "Water drops that remain unfrozen below 0°C and may freeze on contact with aircraft surfaces.",
+      "tags": [
+        "ice-rain",
+        "icing"
+      ],
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 0.11, Supercooled Drops"
+        }
+      ]
+    }
+  ]
+}

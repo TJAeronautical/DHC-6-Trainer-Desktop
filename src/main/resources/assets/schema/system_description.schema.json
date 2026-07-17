@@ -1,0 +1,249 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://dhc6trainer.app/schema/system_description.schema.json",
+  "title": "DHC-6 System Description",
+  "description": "Schema for descriptive content about an aircraft system (electrical, fuel, hydraulic, etc.). Companion to system_rules.json which holds simulator behaviour rules; this file holds the prose, components, limits, controls and CAS messages that the knowledge/flashcard features consume.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaId",
+    "schemaVersion",
+    "systemId",
+    "systemName",
+    "variant",
+    "summary",
+    "references",
+    "components"
+  ],
+  "properties": {
+    "schemaId": {
+      "type": "string",
+      "const": "system_description"
+    },
+    "schemaVersion": {
+      "type": "string",
+      "enum": ["1.0.0"]
+    },
+    "systemId": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+$",
+      "description": "Stable identifier, e.g. 'electrical', 'fuel', 'hydraulic', 'powerplant'."
+    },
+    "systemName": {
+      "type": "string",
+      "minLength": 1
+    },
+    "variant": {
+      "type": "string",
+      "enum": ["LEGACY", "G950", "BOTH"],
+      "description": "Cockpit/avionics variant this content applies to. Airframe configuration (wheels/floats/skis/amphib) is a separate concern carried per-component or per-limit."
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Two- to four-sentence overview suitable for a study card or screen header."
+    },
+    "references": {
+      "type": "array",
+      "minItems": 1,
+      "description": "Top-level source citations for this document. Per-fact citations live on each component, limit, switch, or CAS entry.",
+      "items": {
+        "$ref": "#/definitions/reference"
+      }
+    },
+    "components": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/definitions/component"
+      }
+    },
+    "controls": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/control"
+      }
+    },
+    "limits": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/limit"
+      }
+    },
+    "casMessageRefs": {
+      "type": "array",
+      "description": "canonicalIds of CAS messages defined in the operator CAS library that this system can annunciate.",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Z0-9_]+$"
+      }
+    },
+    "modificationVariants": {
+      "type": "array",
+      "description": "Hardware modification states that change system behaviour (e.g. RCCB vs current limiters at S/N 631).",
+      "items": {
+        "$ref": "#/definitions/modificationVariant"
+      }
+    }
+  },
+  "definitions": {
+    "reference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source", "locator"],
+      "properties": {
+        "source": {
+          "type": "string",
+          "enum": ["POH_AFM", "FCTM", "QRH", "OPERATOR_OM", "MANUFACTURER_BULLETIN"]
+        },
+        "locator": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Section number or page reference, e.g. 'Section 7.8.7' or 'p.6-12'."
+        },
+        "revision": {
+          "type": "string",
+          "description": "Document revision, e.g. 'Rev 53 (10 Sep 2010)' or 'ISS 03 / REV 02 (Dec 2022)'."
+        },
+        "verbatim": {
+          "type": "boolean",
+          "description": "True if a verbatim quote (under 15 words) is used. Defaults to false."
+        }
+      }
+    },
+    "component": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "description", "references"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]+$"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "specifications": {
+          "type": "object",
+          "description": "Free-form key/value spec pairs (e.g. voltage, rating, location).",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "appliesToVariant": {
+          "type": "string",
+          "enum": ["LEGACY", "G950", "BOTH"],
+          "description": "Optional; overrides the document-level variant for this specific component."
+        },
+        "appliesToModification": {
+          "type": "string",
+          "description": "Optional; the modificationVariant.id this component is conditioned on."
+        },
+        "references": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/definitions/reference"
+          }
+        }
+      }
+    },
+    "control": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "label", "positions", "description", "references"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]+$"
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Cockpit label as it appears on the switch, e.g. 'DC MASTER'."
+        },
+        "location": {
+          "type": "string"
+        },
+        "positions": {
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["label", "behaviour"],
+            "properties": {
+              "label": { "type": "string" },
+              "behaviour": { "type": "string" },
+              "springLoaded": { "type": "boolean" }
+            }
+          }
+        },
+        "description": { "type": "string" },
+        "appliesToVariant": {
+          "type": "string",
+          "enum": ["LEGACY", "G950", "BOTH"]
+        },
+        "references": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/definitions/reference" }
+        }
+      }
+    },
+    "limit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "value", "rationale", "references"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]+$"
+        },
+        "name": { "type": "string", "minLength": 1 },
+        "value": { "type": "string", "minLength": 1 },
+        "condition": {
+          "type": "string",
+          "description": "When this limit applies, e.g. 'On ground, OAT > 7°C'."
+        },
+        "rationale": { "type": "string" },
+        "regulatoryStatus": {
+          "type": "string",
+          "enum": ["AFM_APPROVED", "OPERATOR_GUIDANCE", "MANUFACTURER_RECOMMENDED"]
+        },
+        "references": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/definitions/reference" }
+        }
+      }
+    },
+    "modificationVariant": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "description", "references"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]+$"
+        },
+        "name": { "type": "string" },
+        "serialRange": {
+          "type": "string",
+          "description": "e.g. 'Pre S/N 631' or 'S/N 631 and later (Mod 6/1651)'."
+        },
+        "description": { "type": "string" },
+        "references": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/definitions/reference" }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,203 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://dhc6trainer.app/ai_out/schema/ai_job_manifest.schema.json",
+  "title": "AI Job Manifest",
+  "description": "Android Studio compatible Draft-07 schema for AI extraction job manifests.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaId",
+    "schemaVersion",
+    "jobId",
+    "status",
+    "createdAt",
+    "source",
+    "outputs",
+    "audit",
+    "quality"
+  ],
+  "properties": {
+    "schemaId": {
+      "type": "string",
+      "enum": [
+        "ai_job_manifest"
+      ]
+    },
+    "schemaVersion": {
+      "type": "string",
+      "enum": [
+        "1.0.0"
+      ]
+    },
+    "jobId": {
+      "type": "string",
+      "minLength": 6
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "CANDIDATE",
+        "APPROVED",
+        "REJECTED",
+        "PUBLISHED"
+      ]
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "source": {
+      "$ref": "#/definitions/source"
+    },
+    "outputs": {
+      "$ref": "#/definitions/outputs"
+    },
+    "audit": {
+      "$ref": "#/definitions/audit"
+    },
+    "quality": {
+      "$ref": "#/definitions/quality"
+    }
+  },
+  "definitions": {
+    "nullableDateTime": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date-time"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "nullableString": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "displayName",
+        "sourcePath",
+        "sha256"
+      ],
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": [
+            "PDF",
+            "IMAGE",
+            "TXT",
+            "JSON",
+            "MIXED"
+          ]
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "sourcePath": {
+          "type": "string"
+        },
+        "sha256": {
+          "type": "string"
+        }
+      }
+    },
+    "outputs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "extractionJob",
+        "procedures",
+        "knowledgeUnits",
+        "drills",
+        "hitboxCalloutMaps"
+      ],
+      "properties": {
+        "extractionJob": {
+          "type": "string"
+        },
+        "procedures": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "knowledgeUnits": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "drills": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "hitboxCalloutMaps": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "audit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "approvedBy",
+        "approvedAt",
+        "publishedAt",
+        "publishedManifest"
+      ],
+      "properties": {
+        "approvedBy": {
+          "$ref": "#/definitions/nullableString"
+        },
+        "approvedAt": {
+          "$ref": "#/definitions/nullableDateTime"
+        },
+        "publishedAt": {
+          "$ref": "#/definitions/nullableDateTime"
+        },
+        "publishedManifest": {
+          "$ref": "#/definitions/nullableString"
+        }
+      }
+    },
+    "quality": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaValidated",
+        "linkValidated",
+        "warnings"
+      ],
+      "properties": {
+        "schemaValidated": {
+          "type": "boolean"
+        },
+        "linkValidated": {
+          "type": "boolean"
+        },
+        "warnings": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

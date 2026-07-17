@@ -1,0 +1,107 @@
+{
+  "rawName": "Ditching",
+  "drillName": "Ditching [Airborne]",
+  "category": "EMERGENCY",
+  "context": "Airborne",
+  "sourceNote": "Procedure identity/category/order normalized from 'DHC-6 Full Drill Procedure Index Normal Split.xlsx'. Excel is the governing app display allow-list. Existing procedure steps preserved for later content review. Previous note: Generic MCC callout shell generated from procedure titles only. This is not an approved AFM/POH/QRH/checklist replacement. Curated to the DHC-6 Trainer Abnormal/Emergency procedure allow-list.",
+  "variants": {
+    "LEGACY": {
+      "memory": [],
+      "flow": [
+        {
+          "stepNumber": 1,
+          "action": "Ditching.",
+          "crewRole": "PF",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.7.7; PF_COMMAND"
+        },
+        {
+          "stepNumber": 2,
+          "action": "Mayday call and transponder as required.",
+          "crewRole": "PF",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.7.7; PF_COMMAND"
+        },
+        {
+          "stepNumber": 3,
+          "action": "Transmit distress call, prepare cabin, monitor landing area and configuration.",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.7.7; PM_ACTION"
+        },
+        {
+          "stepNumber": 4,
+          "action": "Ditching (Landing in Water) checklist.",
+          "crewRole": "PF",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.7.7; PF_COMMAND"
+        },
+        {
+          "stepNumber": 5,
+          "action": "Ditching (Landing in Water) checklist complete.",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.7.7; PM_COMPLETION"
+        }
+      ]
+    },
+    "G950": {
+      "memory": [],
+      "flow": [
+        {
+          "stepNumber": 1,
+          "action": "Ditching.",
+          "crewRole": "PF",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.7.7; PF_COMMAND"
+        },
+        {
+          "stepNumber": 2,
+          "action": "Mayday call and transponder as required.",
+          "crewRole": "PF",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.7.7; PF_COMMAND"
+        },
+        {
+          "stepNumber": 3,
+          "action": "Transmit distress call, prepare cabin, monitor landing area and configuration.",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.7.7; PM_ACTION"
+        },
+        {
+          "stepNumber": 4,
+          "action": "Ditching (Landing in Water) checklist.",
+          "crewRole": "PF",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.7.7; PF_COMMAND"
+        },
+        {
+          "stepNumber": 5,
+          "action": "Ditching (Landing in Water) checklist complete.",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.7.7; PM_COMPLETION"
+        }
+      ]
+    }
+  },
+  "phaseTag": "Airborne",
+  "displayLabel": "Ditching [Airborne]",
+  "sortOrder": 64,
+  "sourceSection": "3.7.7",
+  "procedureGroup": "Abnormal Landings",
+  "manualSection": "Section 3",
+  "sequenceBasis": "User-approved working order",
+  "normalSplit": null
+}

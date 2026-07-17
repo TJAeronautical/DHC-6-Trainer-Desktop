@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "1.0.0",
+  "profileId": "dhc6-propeller",
+  "variant": "BOTH",
+  "messages": [
+    {
+      "display": "BETA",
+      "canonicalId": "BETA_LIGHT",
+      "level": "CAUTION",
+      "meaning": "Normal beta oil pressure has been lost. The beta backup system has activated and is routing engine oil to the propeller hub beta piston. The BETA light plus an aural warning (both illuminate together). The backup provides limited beta control but NO feathering capability.",
+      "immediate": "If intermittent BETA: QRH Intermittent Beta procedure — land as soon as practical. If steady BETA: QRH Steady Beta procedure — land as soon as possible.",
+      "qrhRef": "QRH Section 3 Propeller / FCTM 6.7.9"
+    },
+    {
+      "display": "RESET PROPS",
+      "canonicalId": "RESET_PROPS",
+      "level": "CAUTION",
+      "meaning": "One or both prop levers not at MAX RPM (96% NP) when the aircraft is configured for take-off or when required by procedures.",
+      "immediate": "Verify prop lever position. Advance to MAX RPM for take-off.",
+      "qrhRef": "FCTM Normal Procedures Before Take-Off"
+    },
+    {
+      "display": "AUTOFEATHER ARM",
+      "canonicalId": "PROP_AUTO_FEATHER_ARM",
+      "level": "ADVISORY",
+      "meaning": "Autofeather system is armed. All three arming conditions met: switch ON, both power levers above 86–88% NG microswitch, and torque on both engines above arming threshold.",
+      "immediate": "Advisory only. Normal indication during take-off roll when autofeather is armed. Confirm ARM light illuminated at take-off power.",
+      "qrhRef": "FCTM 6.7.8 / QRH Autofeather check"
+    }
+  ]
+}

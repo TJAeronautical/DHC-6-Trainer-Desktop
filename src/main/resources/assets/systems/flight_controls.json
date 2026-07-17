@@ -1,0 +1,265 @@
+{
+  "schemaId": "system_description",
+  "schemaVersion": "1.0.0",
+  "systemId": "flight_controls",
+  "systemName": "Flight Controls",
+  "variant": "BOTH",
+  "summary": "The DHC-6 primary flight controls are conventional mechanical systems \u2014 cables, pulleys, and linkages \u2014 from either seat via dual-Y control column and rudder pedals. Trim tabs on left elevator, left aileron, and rudder provide force relief. Geared servo tabs on each aileron and the rudder give aerodynamic assistance. The right elevator carries an automatic flap-elevator interconnect trim tab. Secondary controls are hydraulically actuated flaps. Stall warning: two leading-edge vanes (left wing) plus a mechanical stall bar.",
+  "references": [
+    {
+      "source": "FCTM",
+      "locator": "Chapter 6.6 Flight Controls, pages 6-59 to 6-64",
+      "revision": "ISS 03 / REV 02 (Dec 2022)"
+    },
+    {
+      "source": "POH_AFM",
+      "locator": "Section 7.21 Flight Controls, pages 7-134 to 7-147",
+      "revision": "Rev 53 (10 Sep 2010)"
+    }
+  ],
+  "modificationVariants": [
+    {
+      "id": "vortex_generators",
+      "name": "Vortex Generators",
+      "serialRange": "All production Series 300",
+      "description": "On both sides of the vertical stabilizer and under the horizontal stabilizer. Enhance rudder/elevator effectiveness at low airspeed. Must not be bent during washing.",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.6.6.2, p.6-63"
+        }
+      ]
+    },
+    {
+      "id": "stall_horn",
+      "name": "Stall Warning Horn",
+      "serialRange": "Standard SN 311+; optional earlier",
+      "description": "Auditory horn simultaneous with STALL light. Earlier aircraft may be light-only.",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.6.6.4, p.6-63"
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "id": "aileron",
+      "name": "Ailerons",
+      "description": "Conventional differential ailerons. Movement differential increases with flap deflection. Spring-loaded to neutral. Left aileron: geared servo tab + electric trim tab. Right aileron: geared servo tab only.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.21, p.7-134"
+        },
+        {
+          "source": "FCTM",
+          "locator": "6.6.1, p.6-59"
+        }
+      ]
+    },
+    {
+      "id": "elevator",
+      "name": "Elevators",
+      "description": "Two mechanical elevators with wiper seals for low-speed performance. Left elevator: manually adjustable trim tab. Right elevator: automatic flap-elevator interconnect trim tab (no crew control).",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.6.5.2, p.6-62"
+        },
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.21.3, p.7-134"
+        }
+      ]
+    },
+    {
+      "id": "flap_elevator_interconnect",
+      "name": "Flap-Elevator Interconnect Trim Tab",
+      "description": "Fully automatic mechanical linkage between flap actuator and right elevator trim tab. Compensates for pitch change during flap operation. Cannot be overridden from cockpit.",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.6.5.3, p.6-62"
+        },
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.21.4, p.7-135"
+        }
+      ]
+    },
+    {
+      "id": "rudder",
+      "name": "Rudder",
+      "description": "Mechanical from interconnected pedals. Wiper seal. Upper trailing edge: manually adjustable trim tab. Lower trailing edge: geared servo tab (opposite to rudder deflection). Pedals also function as independent brake pedals.",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.6.5.4, p.6-62"
+        }
+      ]
+    },
+    {
+      "id": "wing_flaps",
+      "name": "Wing Flaps",
+      "description": "Hydraulically actuated split flaps. Positions 10\u00b0/20\u00b0/30\u00b0/40\u00b0 \u2014 no detents, visual check required. Flap position indicator on windshield centre post. Ailerons droop with flap extension. Flaps extend faster than retract by design.",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.6.4 and 6.6.6.1, p.6-60\u201363"
+        }
+      ]
+    },
+    {
+      "id": "control_column",
+      "name": "Control Column and Wheels",
+      "description": "Dual-Y at aircraft centreline. Control wheels interconnected via chain-and-sprocket. Fore/aft for elevators. Nose wheel steering lever on left wheel hub. Mic/intercom switches on each wheel.",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.6.1, p.6-59"
+        }
+      ]
+    },
+    {
+      "id": "stall_warning",
+      "name": "Stall Warning Vanes",
+      "description": "Two leading-edge vanes on left wing. Lower vane always active; upper vane active only with flaps >12\u00b0. Illuminates red STALL light and horn 4\u20139 kts above stall.",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.6.6.4, p.6-63"
+        }
+      ]
+    },
+    {
+      "id": "stall_bar",
+      "name": "Stall Bar",
+      "description": "Metal bar on left wing leading edge. Disrupts airflow at high AoA causing a column buffet warning. Float aircraft: additional bar on right wing. MANDATORY for dispatch \u2014 cannot be deferred.",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.6.6.5, p.6-64"
+        }
+      ]
+    }
+  ],
+  "controls": [
+    {
+      "id": "elevator_trim",
+      "name": "Elevator Trim Wheel",
+      "positions": [
+        "NOSE DOWN",
+        "T/O RANGE (\u00b13\u00b0)",
+        "NOSE UP"
+      ],
+      "description": "Mechanical jackscrew. White band = take-off range.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.21.3, p.7-134"
+        }
+      ]
+    },
+    {
+      "id": "aileron_trim",
+      "name": "Aileron Trim Switch",
+      "positions": [
+        "LW DN",
+        "NEUTRAL",
+        "RW DN"
+      ],
+      "description": "Electric, spring-loaded to OFF. Runaway: operate switch in appropriate direction, pull AIL TRIM ACT CB when force relieved.",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.6.3 and 6.6.7.1, p.6-60 and 6-64"
+        }
+      ]
+    },
+    {
+      "id": "rudder_trim",
+      "name": "Rudder Trim Wheel",
+      "positions": [
+        "LEFT",
+        "T.O. (slightly right of centre)",
+        "RIGHT"
+      ],
+      "description": "Mechanical. T/O: slightly right of centre.",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.6.3, p.6-60"
+        }
+      ]
+    },
+    {
+      "id": "flap_lever",
+      "name": "Flap Selector Lever",
+      "positions": [
+        "0\u00b0",
+        "10\u00b0",
+        "20\u00b0",
+        "30\u00b0",
+        "40\u00b0"
+      ],
+      "description": "Overhead console, no detents. Locking device must be released before movement.",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.6.4, p.6-60"
+        }
+      ]
+    }
+  ],
+  "limits": [
+    {
+      "id": "vfe_10",
+      "parameter": "VFE \u2014 Flaps 0\u201310\u00b0",
+      "value": "105 KCAS / 103 KIAS",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 2.3 Table 2-1"
+        }
+      ]
+    },
+    {
+      "id": "vfe_full",
+      "parameter": "VFE \u2014 Flaps >10\u00b0 to 37.5\u00b0",
+      "value": "95 KCAS / 93 KIAS",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 2.3 Table 2-1"
+        }
+      ]
+    },
+    {
+      "id": "stall_warning_margin",
+      "parameter": "Stall Warning Activation",
+      "value": "4\u20139 kt above stall",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.6.6.4, p.6-63"
+        }
+      ]
+    },
+    {
+      "id": "stall_bar_dispatch",
+      "parameter": "Stall Bar \u2014 Dispatch",
+      "value": "MANDATORY \u2014 no deferral permitted",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.6.6.5, p.6-64"
+        }
+      ]
+    }
+  ],
+  "casMessageRefs": [
+    "STALL_WARNING"
+  ]
+}

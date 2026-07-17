@@ -1,0 +1,357 @@
+{
+  "schemaId": "systems_lab_cross_reference",
+  "schemaVersion": "1.0.0",
+  "purpose": "Maps every Systems Lab section to primary 3D model asset, secondary poster references, source areas, flashcard/SRS alignment, and manual test expectations.",
+  "entries": [
+    {
+      "system_id": "GENERAL",
+      "display_title": "General",
+      "primary_3d_asset": "models/systems_lab/placeholders/general_placeholder.glb",
+      "secondary_png_or_poster_refs": "systems/posters/oxygen_system_schematic.png; systems/posters/pitot_static_system_schematic.png; systems/posters/main_and_nose_gear.png",
+      "primary_source_area": "POH/AFM Section 0, 1, 7; Maintenance Training Manual Aircraft General 5-12",
+      "srs_flashcard_deck_alignment": "general / emergency_equipment / limitations",
+      "training_focus": "Aircraft overview, exits, QRH structure, limitations and general operating context",
+      "manual_test_expectation": "3D overview loads first; reference posters are only opened from secondary reference controls."
+    },
+    {
+      "system_id": "ATA_100",
+      "display_title": "ATA 100",
+      "primary_3d_asset": "models/systems_lab/placeholders/ata_100_placeholder.glb",
+      "secondary_png_or_poster_refs": "none",
+      "primary_source_area": "Maintenance Training Manual ATA 100 Chapter 1",
+      "srs_flashcard_deck_alignment": "general",
+      "training_focus": "Manual structure, ATA chapter/section/subject numbering, test definitions",
+      "manual_test_expectation": "3D placeholder board loads first; text explains ATA structure."
+    },
+    {
+      "system_id": "AIRCRAFT_GENERAL",
+      "display_title": "Aircraft Dimensions & Layout",
+      "primary_3d_asset": "models/systems_lab/aircraft_dimensions_layout/3D_Model/dhc6_wheels_painted_training.glb",
+      "secondary_png_or_poster_refs": "models/systems_lab/aircraft_dimensions_layout/Refs/Figure_6-1_Aircraft_Dimensions.png; models/systems_lab/aircraft_dimensions_layout/Refs/Figure_6-2_Jig_Point.png; models/systems_lab/aircraft_dimensions_layout/Refs/Figure_6-3_Aircraft_Stations.png; models/systems_lab/aircraft_dimensions_layout/Refs/Figure_6-4_Area_Diagram.png",
+      "primary_source_area": "Maintenance Training Manual Figures 6-1 to 6-4; POH/AFM Section 1/6 aircraft general references",
+      "srs_flashcard_deck_alignment": "general",
+      "training_focus": "Aircraft dimensions, jig point, aircraft stations and five-area inspection/build layout",
+      "manual_test_expectation": "Aircraft Dimensions & Layout GLB loads first. Pins 1-4 correspond to Figure 6-1, Figure 6-2, Figure 6-3 and Figure 6-4 reference PNGs."
+    },
+    {
+      "system_id": "STANDARD_AIRFRAME_PRACTICES",
+      "display_title": "20 Standard Airframe Practices",
+      "primary_3d_asset": "models/systems_lab/placeholders/standard_airframe_practices_placeholder.glb",
+      "secondary_png_or_poster_refs": "none",
+      "primary_source_area": "Maintenance Training Manual ATA 20",
+      "srs_flashcard_deck_alignment": "general",
+      "training_focus": "Standard practices, servicing, general maintenance mental model",
+      "manual_test_expectation": "3D placeholder loads first."
+    },
+    {
+      "system_id": "EQUIPMENT_FURNISHINGS",
+      "display_title": "25 Equipment and Furnishings",
+      "primary_3d_asset": "models/systems_lab/placeholders/equipment_furnishings_placeholder.glb",
+      "secondary_png_or_poster_refs": "systems/posters/oxygen_system_schematic.png",
+      "primary_source_area": "Maintenance Training Manual ATA 25",
+      "srs_flashcard_deck_alignment": "emergency_equipment / general",
+      "training_focus": "Cabin equipment, furnishing locations, safety equipment",
+      "manual_test_expectation": "3D cabin/equipment placeholder loads first; oxygen/poster reference secondary."
+    },
+    {
+      "system_id": "STRUCTURES",
+      "display_title": "51-57 Structures",
+      "primary_3d_asset": "models/systems_lab/placeholders/structures_placeholder.glb",
+      "secondary_png_or_poster_refs": "none",
+      "primary_source_area": "Maintenance Training Manual ATA 51-57; POH/AFM Section 7",
+      "srs_flashcard_deck_alignment": "general",
+      "training_focus": "Fuselage, wing, empennage, stations, structural zones",
+      "manual_test_expectation": "3D structure placeholder loads first."
+    },
+    {
+      "system_id": "LIMITATIONS",
+      "display_title": "Limitations",
+      "primary_3d_asset": "models/systems_lab/placeholders/limitations_placeholder.glb",
+      "secondary_png_or_poster_refs": "none",
+      "primary_source_area": "POH/AFM Section 2; flashcards performance_limits_core",
+      "srs_flashcard_deck_alignment": "performance_limits_core",
+      "training_focus": "Limits, power, speed, configuration and mandatory operating constraints",
+      "manual_test_expectation": "3D performance/limits board loads first."
+    },
+    {
+      "system_id": "POWERPLANT",
+      "display_title": "Powerplant",
+      "primary_3d_asset": "models/systems_lab/pt6a27_cutaway.glb",
+      "secondary_png_or_poster_refs": "systems/posters/powerplant_engine_cutaway.png; systems/posters/engine_station.png; systems/posters/combustion_chamber.png; systems/posters/compressor_bleed_valve_overview.png",
+      "primary_source_area": "Maintenance Training Manual ATA 71/72; POH/AFM Section 7; PT6 training manual",
+      "srs_flashcard_deck_alignment": "powerplant_pt6_core; powerplant_limits_and_failures",
+      "training_focus": "PT6A-27 airflow, compressor, combustion, turbine, accessory gearbox, operating limits",
+      "manual_test_expectation": "Real PT6 cutaway GLB loads first; engine posters are secondary."
+    },
+    {
+      "system_id": "ENGINE_STANDARD_PRACTICES",
+      "display_title": "70 Engine Standard Practices",
+      "primary_3d_asset": "models/systems_lab/placeholders/engine_standard_practices_placeholder.glb",
+      "secondary_png_or_poster_refs": "systems/posters/engine_station.png",
+      "primary_source_area": "Maintenance Training Manual ATA 70",
+      "srs_flashcard_deck_alignment": "powerplant_pt6_core",
+      "training_focus": "Engine standard practices, inspection and maintenance context",
+      "manual_test_expectation": "3D engine-practices placeholder loads first."
+    },
+    {
+      "system_id": "ENGINE",
+      "display_title": "72 Engine",
+      "primary_3d_asset": "models/systems_lab/placeholders/engine_placeholder.glb",
+      "secondary_png_or_poster_refs": "systems/posters/powerplant_engine_cutaway.png; systems/posters/engine_station.png",
+      "primary_source_area": "Maintenance Training Manual ATA 72; PT6 training manual",
+      "srs_flashcard_deck_alignment": "powerplant_pt6_core; powerplant_limits_and_failures",
+      "training_focus": "Engine core components and operating indications",
+      "manual_test_expectation": "3D engine placeholder loads first until replaced by a dedicated engine GLB."
+    },
+    {
+      "system_id": "IGNITION",
+      "display_title": "74 Ignition",
+      "primary_3d_asset": "models/systems_lab/placeholders/ignition_placeholder.glb",
+      "secondary_png_or_poster_refs": "none",
+      "primary_source_area": "Maintenance Training Manual ATA 74; POH/AFM start procedures",
+      "srs_flashcard_deck_alignment": "powerplant_pt6_core",
+      "training_focus": "Ignition, start light-off and failed-start mental model",
+      "manual_test_expectation": "3D ignition placeholder loads first."
+    },
+    {
+      "system_id": "STARTING",
+      "display_title": "80 Starting",
+      "primary_3d_asset": "models/systems_lab/placeholders/starting_placeholder.glb",
+      "secondary_png_or_poster_refs": "none",
+      "primary_source_area": "Maintenance Training Manual ATA 80; POH/AFM normal/abnormal starts",
+      "srs_flashcard_deck_alignment": "powerplant_pt6_core; powerplant_limits_and_failures",
+      "training_focus": "Starter-generator, start sequence, hot/hung/no-light-up starts",
+      "manual_test_expectation": "3D starting placeholder loads first."
+    },
+    {
+      "system_id": "PROPELLER",
+      "display_title": "Propeller",
+      "primary_3d_asset": "models/systems_lab/propeller_hub_training.glb",
+      "secondary_png_or_poster_refs": "systems/posters/propeller_csu_schematic_interactive.png; systems/posters/beta_backup_autofeather_interactive.png",
+      "primary_source_area": "Maintenance Training Manual ATA 61; POH/AFM Section 7",
+      "srs_flashcard_deck_alignment": "propeller_system_core; propeller_advanced",
+      "training_focus": "CSU, overspeed governor, beta/reverse, feather forces, autofeather bridge",
+      "manual_test_expectation": "Real propeller hub GLB loads first; CSU/beta posters are secondary."
+    },
+    {
+      "system_id": "FUEL",
+      "display_title": "Fuel",
+      "primary_3d_asset": "models/systems_lab/placeholders/fuel_placeholder.glb",
+      "secondary_png_or_poster_refs": "systems/posters/fuel_system_flow_interactive.png; systems/posters/fuel_system.png; systems/posters/engine_fuel_flow_schematic.png",
+      "primary_source_area": "Maintenance Training Manual ATA 28; POH/AFM Section 7",
+      "srs_flashcard_deck_alignment": "fuel_system_core; fuel_system_advanced",
+      "training_focus": "Tanks, cells, boost pumps, crossfeed, wing tanks, fuel low/transfer failures",
+      "manual_test_expectation": "3D fuel placeholder loads first; PNG fuel schematics are secondary."
+    },
+    {
+      "system_id": "ELECTRICAL",
+      "display_title": "Electrical",
+      "primary_3d_asset": "models/systems_lab/placeholders/electrical_placeholder.glb",
+      "secondary_png_or_poster_refs": "systems/posters/electrical_system.png",
+      "primary_source_area": "POH/AFM Section 7; FCTM electrical section",
+      "srs_flashcard_deck_alignment": "electrical_basics; electrical_limits_and_failures",
+      "training_focus": "28 VDC buses, starter-generators, battery, bus tie, inverter/AC supplies",
+      "manual_test_expectation": "3D electrical placeholder loads first; electrical poster secondary."
+    },
+    {
+      "system_id": "HYDRAULICS",
+      "display_title": "Hydraulics",
+      "primary_3d_asset": "models/systems_lab/hydraulic_pack_training.glb",
+      "secondary_png_or_poster_refs": "systems/posters/hydraulic_system.png; systems/posters/hydraulic_power_package_tray.png; systems/posters/main_and_nose_gear.png",
+      "primary_source_area": "Maintenance Training Manual hydraulic references; POH/AFM Section 7",
+      "srs_flashcard_deck_alignment": "hydraulic_system_core; hydraulic_advanced",
+      "training_focus": "Hydraulic power pack, hand pump, pressure, brakes, flaps, steering, ski loads",
+      "manual_test_expectation": "Real hydraulic pack GLB loads first; hydraulic posters secondary."
+    },
+    {
+      "system_id": "FLIGHT_CONTROLS",
+      "display_title": "Flight Controls",
+      "primary_3d_asset": "models/systems_lab/placeholders/flight_controls_placeholder.glb",
+      "secondary_png_or_poster_refs": "systems/posters/flap_system.png",
+      "primary_source_area": "POH/AFM Section 7; flashcards flight_controls_core/advanced",
+      "srs_flashcard_deck_alignment": "flight_controls_core; flight_controls_advanced",
+      "training_focus": "Cable/pulley controls, flaps, servo tabs, trim tabs, FEI tab, stall vane logic",
+      "manual_test_expectation": "3D flight-controls placeholder loads first; flap poster secondary."
+    },
+    {
+      "system_id": "LANDING_GEAR_FLOATS",
+      "display_title": "Landing Gear / Floats",
+      "primary_3d_asset": "models/systems_lab/landing_gear_floats_training.glb",
+      "secondary_png_or_poster_refs": "systems/posters/main_and_nose_gear.png",
+      "primary_source_area": "POH/AFM supplements for float operations; Maintenance Training Manual Aircraft General",
+      "srs_flashcard_deck_alignment": "hydraulic_system_core; performance_limits_core",
+      "training_focus": "Float configuration, water handling context, landing gear comparison",
+      "manual_test_expectation": "Real float gear GLB loads first."
+    },
+    {
+      "system_id": "LANDING_GEAR_WHEELS",
+      "display_title": "Landing Gear / Wheels",
+      "primary_3d_asset": "models/systems_lab/landing_gear_wheels_training.glb",
+      "secondary_png_or_poster_refs": "systems/posters/main_and_nose_gear.png",
+      "primary_source_area": "Maintenance Training Manual Aircraft General / landing gear references",
+      "srs_flashcard_deck_alignment": "hydraulic_system_core",
+      "training_focus": "Fixed tricycle gear, brakes, steering, nosewheel, tires and oleo context",
+      "manual_test_expectation": "Real wheels gear GLB loads first."
+    },
+    {
+      "system_id": "LANDING_GEAR_SKI",
+      "display_title": "Landing Gear / Ski",
+      "primary_3d_asset": "models/systems_lab/dhc6_twin_otter_ski_enhanced.glb",
+      "secondary_png_or_poster_refs": "systems/posters/main_and_nose_gear.png",
+      "primary_source_area": "POH/AFM Supplement 10; Maintenance Training Manual Aircraft General",
+      "srs_flashcard_deck_alignment": "hydraulic_system_core; performance_limits_core",
+      "training_focus": "Ski configuration and hydraulic/ski operation context",
+      "manual_test_expectation": "Real ski GLB loads first."
+    },
+    {
+      "system_id": "AVIONICS",
+      "display_title": "Avionics",
+      "primary_3d_asset": "models/systems_lab/placeholders/avionics_placeholder.glb",
+      "secondary_png_or_poster_refs": "none",
+      "primary_source_area": "POH/AFM Section 9 supplements/operator avionics supplements",
+      "srs_flashcard_deck_alignment": "electrical_basics",
+      "training_focus": "G950/legacy avionics as installed, power supply and cockpit-state links",
+      "manual_test_expectation": "3D avionics placeholder loads first."
+    },
+    {
+      "system_id": "INDICATIONS_ALERTING",
+      "display_title": "Indications & Alerting",
+      "primary_3d_asset": "models/systems_lab/placeholders/indications_alerting_placeholder.glb",
+      "secondary_png_or_poster_refs": "none",
+      "primary_source_area": "POH/AFM procedures, CAS libraries, QRH bindings",
+      "srs_flashcard_deck_alignment": "electrical_limits_and_failures; powerplant_limits_and_failures; hydraulic_system_core",
+      "training_focus": "CAS/caution light logic, system-to-QRH routing and failure recognition",
+      "manual_test_expectation": "3D indication/alerting placeholder loads first."
+    },
+    {
+      "system_id": "FIRE_PROTECTION",
+      "display_title": "26 Fire Protection",
+      "primary_3d_asset": "models/systems_lab/placeholders/fire_protection_placeholder.glb",
+      "secondary_png_or_poster_refs": "systems/posters/fire_detection_probes.png",
+      "primary_source_area": "Maintenance Training Manual ATA 26; POH/AFM emergency procedures",
+      "srs_flashcard_deck_alignment": "fire_protection_core; powerplant_limits_and_failures",
+      "training_focus": "Fire detector probes, extinguisher bottle, shutdown/isolation sequence",
+      "manual_test_expectation": "3D fire-protection placeholder loads first; detector poster secondary."
+    },
+    {
+      "system_id": "ICE_RAIN_PROTECTION",
+      "display_title": "Ice & Rain Protection",
+      "primary_3d_asset": "models/systems_lab/placeholders/ice_rain_protection_placeholder.glb",
+      "secondary_png_or_poster_refs": "systems/posters/compressor_bleed_valve_overview.png; systems/posters/air_conditioning_system_components.png",
+      "primary_source_area": "POH/AFM icing procedures; Maintenance Training Manual air systems",
+      "srs_flashcard_deck_alignment": "ice_rain_protection_core",
+      "training_focus": "Boots, intake deflectors, windshield/side window heat and icing restrictions",
+      "manual_test_expectation": "3D ice/rain placeholder loads first; posters secondary."
+    },
+    {
+      "system_id": "AIR_SYSTEMS",
+      "display_title": "75 Air Systems",
+      "primary_3d_asset": "models/systems_lab/placeholders/air_systems_placeholder.glb",
+      "secondary_png_or_poster_refs": "systems/posters/air_conditioning_system_components.png; systems/posters/compressor_bleed_valve_overview.png",
+      "primary_source_area": "Maintenance Training Manual ATA 75",
+      "srs_flashcard_deck_alignment": "ice_rain_protection_core; powerplant_pt6_core",
+      "training_focus": "Bleed air, pneumatic services and compressor bleed context",
+      "manual_test_expectation": "3D air-systems placeholder loads first."
+    },
+    {
+      "system_id": "ENGINE_INDICATION",
+      "display_title": "77 Engine Indication",
+      "primary_3d_asset": "models/systems_lab/placeholders/engine_indication_placeholder.glb",
+      "secondary_png_or_poster_refs": "none",
+      "primary_source_area": "Maintenance Training Manual ATA 77; POH/AFM limitations",
+      "srs_flashcard_deck_alignment": "powerplant_limits_and_failures",
+      "training_focus": "Torque, T5/ITT, NG, NP, oil pressure and failure cues",
+      "manual_test_expectation": "3D engine-indication placeholder loads first."
+    },
+    {
+      "system_id": "EXHAUST",
+      "display_title": "78 Exhaust",
+      "primary_3d_asset": "models/systems_lab/placeholders/exhaust_placeholder.glb",
+      "secondary_png_or_poster_refs": "none",
+      "primary_source_area": "Maintenance Training Manual ATA 78",
+      "srs_flashcard_deck_alignment": "powerplant_pt6_core",
+      "training_focus": "Exhaust path, hot section awareness and fire/heat context",
+      "manual_test_expectation": "3D exhaust placeholder loads first."
+    },
+    {
+      "system_id": "OIL",
+      "display_title": "79 Oil",
+      "primary_3d_asset": "models/systems_lab/placeholders/oil_placeholder.glb",
+      "secondary_png_or_poster_refs": "systems/posters/engine_oil_torque_prop_oil_supply_interactive.png; systems/posters/oil_cooler.png",
+      "primary_source_area": "Maintenance Training Manual ATA 79; POH/AFM engine limitations",
+      "srs_flashcard_deck_alignment": "powerplant_limits_and_failures; propeller_system_core",
+      "training_focus": "Oil tank, pump, cooler, filter, chip detector, prop oil and torque sensing",
+      "manual_test_expectation": "3D oil placeholder loads first; oil posters secondary."
+    },
+    {
+      "system_id": "ENGINE_CONTROLS",
+      "display_title": "Engine Controls",
+      "primary_3d_asset": "models/systems_lab/placeholders/engine_controls_placeholder.glb",
+      "secondary_png_or_poster_refs": "none",
+      "primary_source_area": "Maintenance Training Manual ATA 76; POH/AFM normal procedures",
+      "srs_flashcard_deck_alignment": "powerplant_pt6_core; propeller_system_core",
+      "training_focus": "Power, prop and fuel lever control paths and operating effects",
+      "manual_test_expectation": "3D engine-controls placeholder loads first."
+    },
+    {
+      "system_id": "ENGINE_FUEL_CONTROL",
+      "display_title": "73 Engine Fuel and Control",
+      "primary_3d_asset": "models/systems_lab/placeholders/engine_fuel_control_placeholder.glb",
+      "secondary_png_or_poster_refs": "systems/posters/engine_fuel_flow_schematic.png; systems/posters/fuel_heater.png",
+      "primary_source_area": "Maintenance Training Manual ATA 73; PT6 training manual",
+      "srs_flashcard_deck_alignment": "fuel_system_core; powerplant_pt6_core",
+      "training_focus": "Engine-driven pump, FCU, governor pressures, fuel heater and metering",
+      "manual_test_expectation": "3D engine-fuel-control placeholder loads first; engine fuel posters secondary."
+    },
+    {
+      "system_id": "AIR_CONDITIONING",
+      "display_title": "Air Conditioning",
+      "primary_3d_asset": "models/systems_lab/placeholders/air_conditioning_placeholder.glb",
+      "secondary_png_or_poster_refs": "systems/posters/air_conditioning_system_components.png",
+      "primary_source_area": "Maintenance Training Manual air conditioning/air systems; POH/AFM Section 7",
+      "srs_flashcard_deck_alignment": "ice_rain_protection_core",
+      "training_focus": "Cabin heat/ventilation, bleed-air heat exchanger and duct overheat awareness",
+      "manual_test_expectation": "3D air-conditioning placeholder loads first."
+    },
+    {
+      "system_id": "ENVIRONMENTAL",
+      "display_title": "Environmental",
+      "primary_3d_asset": "models/systems_lab/placeholders/environmental_placeholder.glb",
+      "secondary_png_or_poster_refs": "systems/posters/air_conditioning_system_components.png",
+      "primary_source_area": "POH/AFM Section 7; Maintenance Training Manual air systems",
+      "srs_flashcard_deck_alignment": "ice_rain_protection_core",
+      "training_focus": "Environmental/bleed/cabin airflow and unpressurised aircraft context",
+      "manual_test_expectation": "3D environmental placeholder loads first."
+    },
+    {
+      "system_id": "PERFORMANCE",
+      "display_title": "Performance",
+      "primary_3d_asset": "models/systems_lab/placeholders/performance_placeholder.glb",
+      "secondary_png_or_poster_refs": "none",
+      "primary_source_area": "POH/AFM Section 5; performance calculator assets",
+      "srs_flashcard_deck_alignment": "performance_limits_core",
+      "training_focus": "Power-setting, V-speeds, density altitude, configuration and performance mental model",
+      "manual_test_expectation": "3D performance board placeholder loads first."
+    },
+    {
+      "system_id": "OPERATIONS_TECHNIQUES",
+      "display_title": "Operating Techniques",
+      "primary_3d_asset": "models/systems_lab/placeholders/operations_techniques_placeholder.glb",
+      "secondary_png_or_poster_refs": "none",
+      "primary_source_area": "POH/AFM Section 4/10; QRH procedures",
+      "srs_flashcard_deck_alignment": "performance_limits_core; powerplant_limits_and_failures",
+      "training_focus": "Takeoff/climb/cruise/descent/landing technique and QRH decision windows",
+      "manual_test_expectation": "3D operations-technique placeholder loads first."
+    },
+    {
+      "system_id": "EMERGENCY_EQUIPMENT",
+      "display_title": "Emergency Equipment",
+      "primary_3d_asset": "models/systems_lab/placeholders/emergency_equipment_placeholder.glb",
+      "secondary_png_or_poster_refs": "systems/posters/oxygen_system_schematic.png",
+      "primary_source_area": "POH/AFM emergency procedures; Maintenance Training Manual equipment/furnishings",
+      "srs_flashcard_deck_alignment": "fire_protection_core; general",
+      "training_focus": "Extinguishers, oxygen, exits, ELT/survival-equipment awareness as installed",
+      "manual_test_expectation": "3D emergency-equipment placeholder loads first; oxygen poster secondary."
+    }
+  ]
+}

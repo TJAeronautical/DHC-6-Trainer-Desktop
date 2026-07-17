@@ -1,0 +1,149 @@
+{
+  "rawName": "Propeller and Autofeather Test — Post Mod 6/1470 Autofeather System Improved Reliability and Mod 6/1329",
+  "drillName": "Propeller and Autofeather Test — Post Mod 6/1470 Autofeather System Improved Reliability and Mod 6/1329 [Ground]",
+  "category": "NORMAL",
+  "context": "Ground",
+  "sourceNote": "Procedure restored from the current audit allow-list item that was present in the previous Normal split index but missing from the uploaded zip. Training callout scaffold mirrors the adjacent Post Mod 6/1329 autofeather test entry and must be reviewed against the aircraft-specific AFM/POH before operational use.",
+  "variants": {
+    "LEGACY": {
+      "memory": [
+        {
+          "stepNumber": 1,
+          "action": "POST MOD 6/1470 + 6/1329 AUTOFEATHER TEST - INITIATED",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "reference": "POH / AFM Section 4.8.1.3 Propeller and Autofeather Test - Post Mod 6/1470 improved reliability and Mod 6/1329"
+        },
+        {
+          "stepNumber": 2,
+          "action": "NEW AUTOFEATHER PRESSURE SWITCHES - CONFIGURATION CONFIRMED",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "reference": "POH / AFM Section 4.8.1.3 Propeller and Autofeather Test - Post Mod 6/1470 improved reliability and Mod 6/1329"
+        },
+        {
+          "stepNumber": 3,
+          "action": "AUTOFEATHER SYSTEM - ARMED / CHECKED",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "reference": "POH / AFM Section 4.8.1.3 Propeller and Autofeather Test - Post Mod 6/1470 improved reliability and Mod 6/1329"
+        },
+        {
+          "stepNumber": 4,
+          "action": "TEST INDICATIONS - CHECKED",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "reference": "POH / AFM Section 4.8.1.3 Propeller and Autofeather Test - Post Mod 6/1470 improved reliability and Mod 6/1329"
+        },
+        {
+          "stepNumber": 5,
+          "action": "POST MOD 6/1470 + 6/1329 AUTOFEATHER TEST - COMPLETE",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "reference": "POH / AFM Section 4.8.1.3 Propeller and Autofeather Test - Post Mod 6/1470 improved reliability and Mod 6/1329"
+        }
+      ],
+      "flow": [
+        {
+          "stepNumber": 1,
+          "action": "Autofeather test, post-mod 6/1329.",
+          "crewRole": "PF",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Normal MCC PF/PM callout pack; Section 4.8.1.3; PF_CALL"
+        },
+        {
+          "stepNumber": 2,
+          "action": "Post-mod 6/1329 autofeather test.",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Normal MCC PF/PM callout pack; Section 4.8.1.3; PM_RESPONSE"
+        },
+        {
+          "stepNumber": 3,
+          "action": "Post-mod 6/1329 autofeather test complete.",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Normal MCC PF/PM callout pack; Section 4.8.1.3; PM_COMPLETION"
+        }
+      ]
+    },
+    "G950": {
+      "memory": [
+        {
+          "stepNumber": 1,
+          "action": "POST MOD 6/1470 + 6/1329 AUTOFEATHER TEST - INITIATED",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "reference": "POH / AFM Section 4.8.1.3 Propeller and Autofeather Test - Post Mod 6/1470 improved reliability and Mod 6/1329"
+        },
+        {
+          "stepNumber": 2,
+          "action": "NEW AUTOFEATHER PRESSURE SWITCHES - CONFIGURATION CONFIRMED",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "reference": "POH / AFM Section 4.8.1.3 Propeller and Autofeather Test - Post Mod 6/1470 improved reliability and Mod 6/1329"
+        },
+        {
+          "stepNumber": 3,
+          "action": "AUTOFEATHER SYSTEM - ARMED / CHECKED",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "reference": "POH / AFM Section 4.8.1.3 Propeller and Autofeather Test - Post Mod 6/1470 improved reliability and Mod 6/1329"
+        },
+        {
+          "stepNumber": 4,
+          "action": "TEST INDICATIONS - CHECKED",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "reference": "POH / AFM Section 4.8.1.3 Propeller and Autofeather Test - Post Mod 6/1470 improved reliability and Mod 6/1329"
+        },
+        {
+          "stepNumber": 5,
+          "action": "POST MOD 6/1470 + 6/1329 AUTOFEATHER TEST - COMPLETE",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "reference": "POH / AFM Section 4.8.1.3 Propeller and Autofeather Test - Post Mod 6/1470 improved reliability and Mod 6/1329"
+        }
+      ],
+      "flow": [
+        {
+          "stepNumber": 1,
+          "action": "Autofeather test, post-mod 6/1329.",
+          "crewRole": "PF",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Normal MCC PF/PM callout pack; Section 4.8.1.3; PF_CALL"
+        },
+        {
+          "stepNumber": 2,
+          "action": "Post-mod 6/1329 autofeather test.",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Normal MCC PF/PM callout pack; Section 4.8.1.3; PM_RESPONSE"
+        },
+        {
+          "stepNumber": 3,
+          "action": "Post-mod 6/1329 autofeather test complete.",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Normal MCC PF/PM callout pack; Section 4.8.1.3; PM_COMPLETION"
+        }
+      ]
+    },
+    "manualSection": "Section 4",
+    "sourceSection": "4.8.1.3"
+  },
+  "phaseTag": "Ground",
+  "displayLabel": "Propeller and Autofeather Test — Post Mod 6/1470 Autofeather System Improved Reliability and Mod 6/1329 [Ground]",
+  "sortOrder": 24,
+  "sourceSection": "4.8.1.3",
+  "procedureGroup": "System Functional Checks",
+  "manualSection": "Section 4",
+  "sequenceBasis": "Normal-procedure flow order",
+  "normalSplit": "System Tests"
+}

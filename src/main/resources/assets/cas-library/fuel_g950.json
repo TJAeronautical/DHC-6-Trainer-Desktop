@@ -1,0 +1,55 @@
+{
+  "schemaVersion": "1.0.0",
+  "profileId": "dhc6-g950-fuel",
+  "variant": "G950",
+  "messages": [
+    {
+      "display": "AFT BOOST1 PR",
+      "canonicalId": "AFT_BOOST1_PR",
+      "level": "CAUTION",
+      "meaning": "No.1 boost pump pressure low in AFT tank. Auto-changeover to No.2 should have occurred.",
+      "immediate": "Verify BOOST2 PR not also illuminated. If auto-changeover confirmed: pull No.1 CB. If BOOST2 PR also on: STBY BOOST PUMP EMER (AFT) ON.",
+      "qrhRef": "QRH Section 6.1 / 6.2"
+    },
+    {
+      "display": "AFT BOOST2 PR",
+      "canonicalId": "AFT_BOOST2_PR",
+      "level": "CAUTION",
+      "meaning": "No.2 standby boost pump pressure low in AFT tank. If both AFT BOOST1 PR and AFT BOOST2 PR are on simultaneously, both boost pumps on the AFT (left engine) side have failed.",
+      "immediate": "If with AFT BOOST1 PR: STBY BOOST PUMP EMER (AFT) ON → pull No.1 CB. If not restored: FUEL SELECTOR → CROSSFEED FROM OTHER TANK. Above 8,000 ft: flameout risk.",
+      "qrhRef": "QRH Section 6.2"
+    },
+    {
+      "display": "FWD BOOST1 PR",
+      "canonicalId": "FWD_BOOST1_PR",
+      "level": "CAUTION",
+      "meaning": "No.1 boost pump pressure low in FWD tank. Auto-changeover to No.2 should have occurred.",
+      "immediate": "Verify BOOST2 PR not also illuminated. If auto-changeover confirmed: pull No.1 CB. If FWD BOOST2 PR also on: STBY BOOST PUMP EMER (FWD) ON.",
+      "qrhRef": "QRH Section 6.1 / 6.2"
+    },
+    {
+      "display": "FWD BOOST2 PR",
+      "canonicalId": "FWD_BOOST2_PR",
+      "level": "CAUTION",
+      "meaning": "No.2 standby boost pump pressure low in FWD tank. If both FWD BOOST1 PR and FWD BOOST2 PR are on simultaneously, both boost pumps on the FWD (right engine) side have failed.",
+      "immediate": "If with FWD BOOST1 PR: STBY BOOST PUMP EMER (FWD) ON → pull No.1 CB. If not restored: FUEL SELECTOR → CROSSFEED FROM OTHER TANK. Above 8,000 ft: flameout risk.",
+      "qrhRef": "QRH Section 6.2"
+    },
+    {
+      "display": "AFT FUEL LOW",
+      "canonicalId": "FUEL_LOW_LEVEL_AFT",
+      "level": "CAUTION",
+      "meaning": "Approximately 200 lb fuel remaining in AFT tank collector cell. Brief flicker on rotation is normal. Steady in flight requires action.",
+      "immediate": "Check AFT fuel quantity. If brief flicker on T/O: monitor. If steady in flight: QRH fuel low level procedure.",
+      "qrhRef": "QRH Section 6 fuel low level"
+    },
+    {
+      "display": "FWD FUEL LOW",
+      "canonicalId": "FUEL_LOW_LEVEL_FWD",
+      "level": "CAUTION",
+      "meaning": "Approximately 200 lb fuel remaining in FWD tank collector cell.",
+      "immediate": "Check FWD fuel quantity. Initiate diversion or fuel management as required.",
+      "qrhRef": "QRH Section 6 fuel low level"
+    }
+  ]
+}

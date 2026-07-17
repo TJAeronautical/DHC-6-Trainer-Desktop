@@ -1,0 +1,85 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://dhc6trainer.app/ai_out/schema/ai_published_manifest.schema.json",
+  "title": "AI Published Manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaId",
+    "schemaVersion",
+    "jobId",
+    "publishedAt",
+    "publishedBy",
+    "writes",
+    "notes"
+  ],
+  "properties": {
+    "schemaId": {
+      "type": "string",
+      "enum": [
+        "ai_published_manifest"
+      ]
+    },
+    "schemaVersion": {
+      "type": "string",
+      "enum": [
+        "1.0.0"
+      ]
+    },
+    "jobId": {
+      "type": "string",
+      "minLength": 6
+    },
+    "publishedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "publishedBy": {
+      "type": "string",
+      "minLength": 1
+    },
+    "writes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "type",
+          "from",
+          "to",
+          "sha256"
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "PROCEDURE_JSON",
+              "BINDING_JSON",
+              "COCKPIT_ASSET",
+              "SCENARIO_SNAPSHOT",
+              "CANONICAL_REGISTRY",
+              "AI_ARTIFACT"
+            ]
+          },
+          "from": {
+            "type": "string",
+            "minLength": 1
+          },
+          "to": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sha256": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

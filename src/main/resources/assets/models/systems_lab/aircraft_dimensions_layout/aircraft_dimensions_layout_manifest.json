@@ -1,0 +1,31 @@
+{
+  "title": "1. Aircraft Dimensions & Layout",
+  "defaultModelVariant": "wheels",
+  "availableModelVariants": [
+    "wheels",
+    "floats",
+    "skis"
+  ],
+  "references": [
+    {
+      "label": "Figure 6-1 Aircraft Dimensions",
+      "assetPath": "models/systems_lab/aircraft_dimensions_layout/Refs/Figure_6-1_Aircraft_Dimensions.png",
+      "originalZipEntry": "Refs/Figure_6-1_Aircraft_Dimensions.png"
+    },
+    {
+      "label": "Figure 6-2 Jig Point",
+      "assetPath": "models/systems_lab/aircraft_dimensions_layout/Refs/Figure_6-2_Jig_Point.png",
+      "originalZipEntry": "Refs/Figure_6-2_Jig_Point.png"
+    },
+    {
+      "label": "Figure 6-3 Aircraft Stations",
+      "assetPath": "models/systems_lab/aircraft_dimensions_layout/Refs/Figure_6-3_Aircraft_Stations.png",
+      "originalZipEntry": "Refs/Figure_6-3_Aircraft_Stations.png"
+    },
+    {
+      "label": "Figure 6-4 Area Diagram",
+      "assetPath": "models/systems_lab/aircraft_dimensions_layout/Refs/Figure_6-4_Area_Diagram.png",
+      "originalZipEntry": "Refs/Figure_6-4_Area_Diagram.png"
+    }
+  ]
+}

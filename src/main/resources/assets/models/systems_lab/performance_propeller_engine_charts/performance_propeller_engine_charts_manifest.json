@@ -1,0 +1,31 @@
+{
+  "title": "4. Performance & Propeller / Engine Charts",
+  "defaultModelVariant": "wheels",
+  "availableModelVariants": [
+    "wheels",
+    "floats",
+    "skis"
+  ],
+  "references": [
+    {
+      "label": "Figure 5.9",
+      "assetPath": "models/systems_lab/performance_propeller_engine_charts/Refs/Figure_5.9.png",
+      "originalZipEntry": "Figure 5.9.png"
+    },
+    {
+      "label": "Figure 5.10",
+      "assetPath": "models/systems_lab/performance_propeller_engine_charts/Refs/Figure_5.10.png",
+      "originalZipEntry": "Figure 5.10.png"
+    },
+    {
+      "label": "Figure 5.17",
+      "assetPath": "models/systems_lab/performance_propeller_engine_charts/Refs/Figure_5.17.png",
+      "originalZipEntry": "Figure 5.17.png"
+    },
+    {
+      "label": "Figure 9.5.4",
+      "assetPath": "models/systems_lab/performance_propeller_engine_charts/Refs/Figure_9.5.4.png",
+      "originalZipEntry": "Figure 9.5.4.png"
+    }
+  ]
+}

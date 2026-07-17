@@ -1,0 +1,169 @@
+{
+  "schemaId": "flashcard_deck",
+  "schemaVersion": "1.0.0",
+  "deckId": "powerplant_pt6_core",
+  "deckName": "Powerplant — PT6A-27 Core",
+  "description": "Bundled PT6A-27 cards for free-turbine architecture, NG/NP, flat rating, takeoff power and engine limits terminology.",
+  "systemId": "powerplant",
+  "variant": "BOTH",
+  "difficulty": "INTERMEDIATE",
+  "cards": [
+    {
+      "id": "pt6a27_meaning",
+      "front": "What does PT6A-27 mean in the Twin Otter context?",
+      "back": "PT stands for propeller turbine, 6 is the engine family, A denotes the two-stage gearbox configuration, and -27 is the engine series.",
+      "tags": [
+        "powerplant",
+        "pt6"
+      ],
+      "references": [
+        {
+          "source": "DHC6_FLASHCARDS_FILE",
+          "locator": "Q185"
+        }
+      ]
+    },
+    {
+      "id": "free_turbine_meaning",
+      "front": "What does “free turbine” mean?",
+      "back": "There is no mechanical coupling between the gas generator section and the power section.",
+      "tags": [
+        "powerplant",
+        "free-turbine"
+      ],
+      "references": [
+        {
+          "source": "DHC6_FLASHCARDS_FILE",
+          "locator": "Q186"
+        },
+        {
+          "source": "POH_AFM",
+          "locator": "Section 0.12, Engine Power Terminology"
+        }
+      ]
+    },
+    {
+      "id": "ng_definition",
+      "front": "What is NG?",
+      "back": "Gas generator speed, expressed as a percentage of 37,500 RPM. It is directly controlled by the power lever through the fuel control unit.",
+      "tags": [
+        "powerplant",
+        "ng"
+      ],
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 0.12, NG"
+        }
+      ]
+    },
+    {
+      "id": "np_definition",
+      "front": "What is NP?",
+      "back": "Propeller speed, expressed as a percentage of 33,000 RPM. It is controlled with the propeller lever via the propeller governor.",
+      "tags": [
+        "powerplant",
+        "np"
+      ],
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 0.12, NP"
+        }
+      ]
+    },
+    {
+      "id": "flat_rating",
+      "front": "What is the DHC-6 PT6A-27 flat rating?",
+      "back": "The PT6A-27 was designed for 680 SHP, but on the DHC-6 it is flat rated to 620 HP, equivalent to 50 PSI torque.",
+      "tags": [
+        "powerplant",
+        "flat-rating",
+        "torque"
+      ],
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 0.12, Flat Rating"
+        }
+      ]
+    },
+    {
+      "id": "max_takeoff_power",
+      "front": "What is maximum takeoff power?",
+      "back": "The approved takeoff power setting calculated from the chart/torque computer and set without reduction for every takeoff.",
+      "tags": [
+        "powerplant",
+        "takeoff-power"
+      ],
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 0.12, Maximum Take-off Power"
+        }
+      ]
+    },
+    {
+      "id": "max_takeoff_np",
+      "front": "What propeller RPM is required to achieve maximum takeoff power?",
+      "back": "The propellers must be set to maximum RPM, 96% NP.",
+      "tags": [
+        "powerplant",
+        "takeoff-power",
+        "np"
+      ],
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 0.12, Maximum Take-off Power"
+        }
+      ]
+    },
+    {
+      "id": "mcp_equals_mtop",
+      "front": "For the PT6A-27 on the DHC-6, how does maximum continuous power compare to maximum takeoff power?",
+      "back": "Maximum continuous power is the same as maximum takeoff power, with no time restriction, but it is for abnormal/emergency conditions requiring absolute maximum engine performance.",
+      "tags": [
+        "powerplant",
+        "mcp"
+      ],
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 0.12, Maximum Continuous Power"
+        }
+      ]
+    },
+    {
+      "id": "hot_start_definition",
+      "front": "What defines a hot start?",
+      "back": "A start with T5 greater than 1090°C at any time, greater than 980°C for more than 2 seconds, or greater than 925°C for more than 10 seconds.",
+      "tags": [
+        "powerplant",
+        "start",
+        "limits"
+      ],
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 0.12, Hot Start"
+        }
+      ]
+    },
+    {
+      "id": "idle_stop",
+      "front": "What is the idle stop?",
+      "back": "The aft-most power lever position without twisting the grips to overcome the mechanical barrier; moving aft of the barrier in flight is prohibited.",
+      "tags": [
+        "powerplant",
+        "idle-stop"
+      ],
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 0.12, Idle Stop"
+        }
+      ]
+    }
+  ]
+}

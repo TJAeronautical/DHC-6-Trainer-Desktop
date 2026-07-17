@@ -1,0 +1,153 @@
+{
+    "rawName":  "Cabin Preparation",
+    "drillName":  "Cabin Preparation [Ground]",
+    "category":  "NORMAL",
+    "context":  "Ground",
+    "sourceNote":  "Procedure identity/category/order normalized from \u0027DHC-6 Full Drill Procedure Index Normal Split.xlsx\u0027. Excel is the governing app display allow-list. Existing procedure steps preserved for later content review. Previous note: Generic training callout structure based on user-provided Section 4 normal-procedure titles and generated PF/PM MCC callouts. Not an approved AFM/POH/checklist replacement.",
+    "variants":  {
+                     "LEGACY":  {
+                                    "memory":  [
+                                                   {
+                                                       "stepNumber":  1,
+                                                       "action":  "CABIN - SECURE",
+                                                       "crewRole":  "PM",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.4.6 Cabin Preparation"
+                                                   },
+                                                   {
+                                                       "stepNumber":  2,
+                                                       "action":  "DOORS - SECURE",
+                                                       "crewRole":  "PM",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.4.6 Cabin Preparation"
+                                                   },
+                                                   {
+                                                       "stepNumber":  3,
+                                                       "action":  "CABIN PREPARATION - COMPLETE",
+                                                       "crewRole":  "PM",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.4.6 Cabin Preparation"
+                                                   }
+                                               ],
+                                    "flow":  [
+                                                 {
+                                                     "stepNumber":  1,
+                                                     "action":  "Cabin preparation.",
+                                                     "crewRole":  "PF",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.4.6; PF_CALL"
+                                                 },
+                                                 {
+                                                     "stepNumber":  2,
+                                                     "action":  "Cabin secure?",
+                                                     "crewRole":  "PF",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.4.6; PF_CHALLENGE"
+                                                 },
+                                                 {
+                                                     "stepNumber":  3,
+                                                     "action":  "Doors?",
+                                                     "crewRole":  "PF",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.4.6; PF_CHALLENGE"
+                                                 },
+                                                 {
+                                                     "stepNumber":  4,
+                                                     "action":  "Doors secure.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.4.6; PM_RESPONSE"
+                                                 },
+                                                 {
+                                                     "stepNumber":  5,
+                                                     "action":  "Cabin preparation complete.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.4.6; PM_COMPLETION"
+                                                 }
+                                             ]
+                                },
+                     "G950":  {
+                                  "memory":  [
+                                                 {
+                                                     "stepNumber":  1,
+                                                     "action":  "CABIN - SECURE",
+                                                     "crewRole":  "PM",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.4.6 Cabin Preparation"
+                                                 },
+                                                 {
+                                                     "stepNumber":  2,
+                                                     "action":  "DOORS - SECURE",
+                                                     "crewRole":  "PM",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.4.6 Cabin Preparation"
+                                                 },
+                                                 {
+                                                     "stepNumber":  3,
+                                                     "action":  "CABIN PREPARATION - COMPLETE",
+                                                     "crewRole":  "PM",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.4.6 Cabin Preparation"
+                                                 }
+                                             ],
+                                  "flow":  [
+                                               {
+                                                   "stepNumber":  1,
+                                                   "action":  "Cabin preparation.",
+                                                   "crewRole":  "PF",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.4.6; PF_CALL"
+                                               },
+                                               {
+                                                   "stepNumber":  2,
+                                                   "action":  "Cabin secure?",
+                                                   "crewRole":  "PF",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.4.6; PF_CHALLENGE"
+                                               },
+                                               {
+                                                   "stepNumber":  3,
+                                                   "action":  "Doors?",
+                                                   "crewRole":  "PF",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.4.6; PF_CHALLENGE"
+                                               },
+                                               {
+                                                   "stepNumber":  4,
+                                                   "action":  "Doors secure.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.4.6; PM_RESPONSE"
+                                               },
+                                               {
+                                                   "stepNumber":  5,
+                                                   "action":  "Cabin preparation complete.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.4.6; PM_COMPLETION"
+                                               }
+                                           ]
+                              },
+                     "manualSection":  "Section 4",
+                     "sourceSection":  "4.4.6"
+                 },
+    "phaseTag":  "Ground",
+    "displayLabel":  "Cabin Preparation [Ground]",
+    "sortOrder":  6,
+    "sourceSection":  "4.4.6",
+    "procedureGroup":  "Preparation and Inspection",
+    "manualSection":  "Section 4",
+    "sequenceBasis":  "Normal-procedure flow order",
+    "normalSplit":  "Everyday Actions"
+}

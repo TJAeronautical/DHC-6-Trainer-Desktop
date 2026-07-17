@@ -1,0 +1,251 @@
+{
+  "version": "1.0",
+  "source": "DHC-6 Series 300 MMEL Rev 11 (Transport Canada); POH PSM 1-63-1A; HBFO-002 QRH. Operator must maintain an approved MEL derived from the MMEL.",
+  "disclaimer": "This reference is for TRAINING and STUDY purposes only. Always consult your operator-approved MEL before dispatch. This app does not replace an approved MEL.",
+  "categories": [
+    {
+      "id": "flight_instruments",
+      "title": "Flight Instruments",
+      "items": [
+        {
+          "id": "asi",
+          "item": "Airspeed Indicator",
+          "qty_installed": 2,
+          "qty_required": 1,
+          "category": "B",
+          "rect_interval_days": 3,
+          "go_status": "GO_WITH_RESTRICTION",
+          "placard": "One ASI inoperative",
+          "crew_procedure": "PF uses serviceable ASI. Check FCTM for single-ASI procedures.",
+          "maintenance_action": "Placard inoperative ASI. Log defect.",
+          "reference": "MMEL DHC-6"
+        },
+        {
+          "id": "altimeter",
+          "item": "Altimeter",
+          "qty_installed": 2,
+          "qty_required": 1,
+          "category": "B",
+          "rect_interval_days": 3,
+          "go_status": "GO_WITH_RESTRICTION",
+          "placard": "One altimeter inoperative",
+          "crew_procedure": "PF uses serviceable altimeter. Reduce to VFR only if required.",
+          "maintenance_action": "Placard inoperative unit.",
+          "reference": "MMEL DHC-6"
+        },
+        {
+          "id": "attitude_indicator",
+          "item": "Attitude Indicator (AI)",
+          "qty_installed": 2,
+          "qty_required": 1,
+          "category": "B",
+          "rect_interval_days": 3,
+          "go_status": "GO_WITH_RESTRICTION",
+          "placard": "One AI inoperative — IFR not authorised",
+          "crew_procedure": "VFR only. PF uses serviceable AI.",
+          "maintenance_action": "Placard. Log defect.",
+          "reference": "MMEL DHC-6"
+        },
+        {
+          "id": "vsi",
+          "item": "Vertical Speed Indicator (VSI)",
+          "qty_installed": 1,
+          "qty_required": 0,
+          "category": "C",
+          "rect_interval_days": 10,
+          "go_status": "GO",
+          "placard": "VSI inoperative",
+          "crew_procedure": "Monitor altitude and rate of climb/descent using altimeter only.",
+          "maintenance_action": "Placard and log defect. Rectify within 10 days.",
+          "reference": "MMEL DHC-6"
+        },
+        {
+          "id": "dme",
+          "item": "DME",
+          "qty_installed": 1,
+          "qty_required": 0,
+          "category": "C",
+          "rect_interval_days": 10,
+          "go_status": "GO_WITH_RESTRICTION",
+          "placard": "DME inoperative",
+          "crew_procedure": "Do not conduct approaches requiring DME. VOR/NDB or GPS approaches only.",
+          "maintenance_action": "Placard and log. Rectify within 10 days.",
+          "reference": "MMEL DHC-6"
+        }
+      ]
+    },
+    {
+      "id": "powerplant",
+      "title": "Powerplant",
+      "items": [
+        {
+          "id": "autofeather",
+          "item": "Autofeather System",
+          "qty_installed": 1,
+          "qty_required": 1,
+          "category": "C",
+          "rect_interval_days": 10,
+          "go_status": "GO_WITH_RESTRICTION",
+          "placard": "Autofeather inoperative — see supplement 19",
+          "crew_procedure": "Apply AFM Supplement 19. VMC rises to 70 KCAS / 68 KIAS. Manual feather required. Supplement 37 performance data NOT applicable.",
+          "maintenance_action": "Invoke Supplement 19. Placard cockpit and log. MMEL Category C: 10 consecutive calendar days.",
+          "reference": "POH Supplement 19; MMEL DHC-6 Cat C"
+        },
+        {
+          "id": "eng_fire_detect",
+          "item": "Engine Fire Detection System",
+          "qty_installed": 2,
+          "qty_required": 2,
+          "category": "A",
+          "rect_interval_days": 0,
+          "go_status": "NO_GO",
+          "placard": null,
+          "crew_procedure": "Aircraft is NOT DISPATCHABLE with fire detection inoperative. Rectify before flight.",
+          "maintenance_action": "Immediate rectification required. Category A item.",
+          "reference": "MMEL DHC-6 Cat A"
+        },
+        {
+          "id": "fire_extinguisher",
+          "item": "Engine Fire Extinguisher",
+          "qty_installed": 1,
+          "qty_required": 1,
+          "category": "A",
+          "rect_interval_days": 0,
+          "go_status": "NO_GO",
+          "placard": null,
+          "crew_procedure": "Aircraft is NOT DISPATCHABLE. Rectify before flight.",
+          "maintenance_action": "Immediate rectification. Category A.",
+          "reference": "MMEL DHC-6 Cat A"
+        }
+      ]
+    },
+    {
+      "id": "electrical",
+      "title": "Electrical System",
+      "items": [
+        {
+          "id": "gen_single",
+          "item": "One Generator",
+          "qty_installed": 2,
+          "qty_required": 1,
+          "category": "B",
+          "rect_interval_days": 3,
+          "go_status": "GO_WITH_RESTRICTION",
+          "placard": "One generator inoperative",
+          "crew_procedure": "Single generator operations. Review electrical load shedding. Night operations limited. Check operator SOP for specific restrictions.",
+          "maintenance_action": "Placard and log. Rectify within 3 days.",
+          "reference": "MMEL DHC-6 Cat B"
+        },
+        {
+          "id": "battery",
+          "item": "Main Battery",
+          "qty_installed": 1,
+          "qty_required": 1,
+          "category": "A",
+          "rect_interval_days": 0,
+          "go_status": "NO_GO",
+          "placard": null,
+          "crew_procedure": "NOT DISPATCHABLE without operable main battery.",
+          "maintenance_action": "Immediate rectification required.",
+          "reference": "MMEL DHC-6 Cat A"
+        },
+        {
+          "id": "aileron_trim_indicator",
+          "item": "Aileron Trim Tab Position Indicator",
+          "qty_installed": 1,
+          "qty_required": 0,
+          "category": "C",
+          "rect_interval_days": 10,
+          "go_status": "GO_WITH_RESTRICTION",
+          "placard": "Aileron trim indicator inoperative",
+          "crew_procedure": "Visually confirm aileron trim tab is in neutral position before each take-off.",
+          "maintenance_action": "Placard. Visual check before flight per crew procedure. Rectify within 10 days.",
+          "reference": "POH Section 0.9.1.9 example; MMEL DHC-6"
+        }
+      ]
+    },
+    {
+      "id": "fuel",
+      "title": "Fuel System",
+      "items": [
+        {
+          "id": "boost_pump_one",
+          "item": "Boost Pump No.1 (one side)",
+          "qty_installed": 4,
+          "qty_required": 3,
+          "category": "B",
+          "rect_interval_days": 3,
+          "go_status": "GO_WITH_RESTRICTION",
+          "placard": "Boost pump No.1 inoperative — affected side",
+          "crew_procedure": "Select STDBY BOOST PUMP EMER ON for affected side. Monitor fuel pressure. Refer to QRH Boost Pump CAS procedure.",
+          "maintenance_action": "Placard and log. Activate standby pump. Rectify within 3 days.",
+          "reference": "QRH Boost Pump #1 CAS; MMEL DHC-6"
+        },
+        {
+          "id": "fuel_quantity_gauge",
+          "item": "Fuel Quantity Gauge (one tank)",
+          "qty_installed": 2,
+          "qty_required": 1,
+          "category": "B",
+          "rect_interval_days": 3,
+          "go_status": "GO_WITH_RESTRICTION",
+          "placard": "Fuel quantity gauge inoperative — dip check required",
+          "crew_procedure": "Physically dip-check inoperative tank fuel quantity before each flight. Use dipstick procedure.",
+          "maintenance_action": "Placard. Dipstick check mandatory per crew procedure.",
+          "reference": "POH Section 4; MMEL DHC-6"
+        }
+      ]
+    },
+    {
+      "id": "hydraulic",
+      "title": "Hydraulic System",
+      "items": [
+        {
+          "id": "hyd_pump",
+          "item": "Hydraulic Pump (Electric)",
+          "qty_installed": 1,
+          "qty_required": 1,
+          "category": "C",
+          "rect_interval_days": 10,
+          "go_status": "GO_WITH_RESTRICTION",
+          "placard": "Hydraulic pump inoperative — hand pump only",
+          "crew_procedure": "Flap extension via hand pump only. Allow extra time. Gear free-fall if required. Refer to QRH Low Hydraulic Pressure.",
+          "maintenance_action": "Placard. Verify hand pump operative. Log defect. Rectify within 10 days.",
+          "reference": "QRH Low System Hydraulic Pressure; MMEL DHC-6"
+        }
+      ]
+    },
+    {
+      "id": "ice_protection",
+      "title": "Ice and Rain Protection",
+      "items": [
+        {
+          "id": "wing_deice",
+          "item": "Wing/Tail De-ice Boots",
+          "qty_installed": 1,
+          "qty_required": 1,
+          "category": "A",
+          "rect_interval_days": 0,
+          "go_status": "NO_GO",
+          "placard": null,
+          "crew_procedure": "Flight into known icing NOT AUTHORISED. Do not dispatch if icing conditions exist or forecast along route.",
+          "maintenance_action": "Immediate rectification. Category A for flight into known icing.",
+          "reference": "POH Section 2; MMEL DHC-6"
+        },
+        {
+          "id": "pitot_heat",
+          "item": "Pitot Heat",
+          "qty_installed": 2,
+          "qty_required": 1,
+          "category": "B",
+          "rect_interval_days": 3,
+          "go_status": "GO_WITH_RESTRICTION",
+          "placard": "One pitot heat inoperative",
+          "crew_procedure": "PF uses serviceable pitot/ASI. Avoid icing conditions if possible.",
+          "maintenance_action": "Placard. Log defect. Rectify within 3 days.",
+          "reference": "MMEL DHC-6"
+        }
+      ]
+    }
+  ]
+}

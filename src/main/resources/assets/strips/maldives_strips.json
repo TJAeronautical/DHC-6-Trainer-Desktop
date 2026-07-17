@@ -1,0 +1,3789 @@
+{
+  "version": "2.0",
+  "source": "Training database assembled from the previous Maldives strips data plus a broader worldwide aerodrome/waterway reference. Verify current AIP, NOTAMs, charts, operator route manual, water aerodrome directory, and local procedures before flight.",
+  "disclaimer": "FOR TRAINING AND STUDY USE ONLY. This is not an operational airport database and must not be used as the sole source for dispatch, flight planning, declared distances, water-area suitability, customs, fuel, or performance decisions.",
+  "note_on_seaplanes": "Waterways and water aerodromes are listed as training references only. Usable length, direction, surface state, current, tide, swell, obstructions, traffic and dock/pontoon locations vary. No declared distances apply unless published by the relevant authority/operator.",
+  "entries": [
+    {
+      "id": "MLE",
+      "icao": "VRMM",
+      "iata": "MLE",
+      "name": "Velana International Airport",
+      "region": "North Male Atoll",
+      "country": "Maldives",
+      "type": "aerodrome",
+      "elevation_ft": 6,
+      "rwy": [
+        {
+          "designator": "18/36",
+          "length_m": 3200,
+          "width_m": 60,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Main Maldives hub. DHC-6 seaplane operations use the adjacent seaplane terminal/water aerodrome, not the main runway.",
+      "fuel": "Jet A-1 available",
+      "customs": true,
+      "ils": true
+    },
+    {
+      "id": "MLE_SPB",
+      "icao": "VRMM",
+      "iata": "MLE",
+      "name": "Male Seaplane Base / MAST Terminal",
+      "region": "North Male Atoll",
+      "country": "Maldives",
+      "type": "water_aerodrome",
+      "elevation_ft": 0,
+      "rwy": [
+        {
+          "designator": "Water operating area",
+          "length_m": 2000,
+          "width_m": null,
+          "surface": "water",
+          "pcn": null
+        }
+      ],
+      "notes": "Primary Maldives seaplane terminal. High traffic density; use current ATC/AFIS/operator procedures.",
+      "fuel": "Jet A-1 via local supply",
+      "customs": true,
+      "ils": false
+    },
+    {
+      "id": "GAN",
+      "icao": "VRMG",
+      "iata": "GAN",
+      "name": "Gan International Airport",
+      "region": "Addu Atoll",
+      "country": "Maldives",
+      "type": "aerodrome",
+      "elevation_ft": 6,
+      "rwy": [
+        {
+          "designator": "08/26",
+          "length_m": 2743,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Southern Maldives aerodrome used for regional operations.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "HAQ",
+      "icao": "VRMH",
+      "iata": "HAQ",
+      "name": "Hanimaadhoo International Airport",
+      "region": "Haa Dhaalu Atoll",
+      "country": "Maldives",
+      "type": "aerodrome",
+      "elevation_ft": 4,
+      "rwy": [
+        {
+          "designator": "18/36",
+          "length_m": 2100,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Northern Maldives aerodrome; verify current procedures and fuel availability.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "KDO",
+      "icao": "VRMK",
+      "iata": "KDO",
+      "name": "Kadhdhoo Airport",
+      "region": "Laamu Atoll",
+      "country": "Maldives",
+      "type": "aerodrome",
+      "elevation_ft": 4,
+      "rwy": [
+        {
+          "designator": "12/30",
+          "length_m": 1500,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Short runway environment; performance planning required.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "DRV",
+      "icao": "VRMD",
+      "iata": "DRV",
+      "name": "Dharavandhoo Airport",
+      "region": "Baa Atoll",
+      "country": "Maldives",
+      "type": "aerodrome",
+      "elevation_ft": 6,
+      "rwy": [
+        {
+          "designator": "11/29",
+          "length_m": 1200,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Baa Atoll domestic runway; coordinate with nearby resort/water operations.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "IFU",
+      "icao": "VREI",
+      "iata": "IFU",
+      "name": "Ifuru Airport",
+      "region": "Raa Atoll",
+      "country": "Maldives",
+      "type": "aerodrome",
+      "elevation_ft": 6,
+      "rwy": [
+        {
+          "designator": "09/27",
+          "length_m": 1200,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Short strip with atoll/reef environment; verify current AIP.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "VAM",
+      "icao": "VRMV",
+      "iata": "VAM",
+      "name": "Villa Airport Maamigili",
+      "region": "Alif Dhaal Atoll",
+      "country": "Maldives",
+      "type": "aerodrome",
+      "elevation_ft": 6,
+      "rwy": [
+        {
+          "designator": "10/28",
+          "length_m": 1200,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Short domestic runway; confirm aircraft weight and performance margins.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "TMF",
+      "icao": "VRNT",
+      "iata": "TMF",
+      "name": "Thimarafushi Airport",
+      "region": "Thaa Atoll",
+      "country": "Maldives",
+      "type": "aerodrome",
+      "elevation_ft": 6,
+      "rwy": [
+        {
+          "designator": "04/22",
+          "length_m": 1200,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Domestic island runway; verify current status before dispatch.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "DDD",
+      "icao": "VRMU",
+      "iata": "DDD",
+      "name": "Dhaalu Airport",
+      "region": "Dhaalu Atoll",
+      "country": "Maldives",
+      "type": "aerodrome",
+      "elevation_ft": 6,
+      "rwy": [
+        {
+          "designator": "17/35",
+          "length_m": 1800,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Domestic runway serving Dhaalu Atoll resorts.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "FVM",
+      "icao": "VRMR",
+      "iata": "FVM",
+      "name": "Fuvahmulah Airport",
+      "region": "Gnaviyani Atoll",
+      "country": "Maldives",
+      "type": "aerodrome",
+      "elevation_ft": 6,
+      "rwy": [
+        {
+          "designator": "07/25",
+          "length_m": 1200,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Island runway with maritime wind exposure.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "GKK",
+      "icao": "VRMO",
+      "iata": "GKK",
+      "name": "Kooddoo Airport",
+      "region": "Gaafu Alif Atoll",
+      "country": "Maldives",
+      "type": "aerodrome",
+      "elevation_ft": 4,
+      "rwy": [
+        {
+          "designator": "03/21",
+          "length_m": 1220,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Southern domestic runway; verify current operator notes.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "KDM",
+      "icao": "VRMT",
+      "iata": "KDM",
+      "name": "Kaadedhdhoo Airport",
+      "region": "Gaafu Dhaalu Atoll",
+      "country": "Maldives",
+      "type": "aerodrome",
+      "elevation_ft": 2,
+      "rwy": [
+        {
+          "designator": "10/28",
+          "length_m": 1220,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Southern domestic runway.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "LMV",
+      "icao": "VRSM",
+      "iata": "LMV",
+      "name": "Madivaru Airport",
+      "region": "Lhaviyani Atoll",
+      "country": "Maldives",
+      "type": "aerodrome",
+      "elevation_ft": 6,
+      "rwy": [
+        {
+          "designator": "08/26",
+          "length_m": 1200,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Resort-region short runway.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "NMF",
+      "icao": "VRDA",
+      "iata": "NMF",
+      "name": "Maafaru International Airport",
+      "region": "Noonu Atoll",
+      "country": "Maldives",
+      "type": "aerodrome",
+      "elevation_ft": 7,
+      "rwy": [
+        {
+          "designator": "13/31",
+          "length_m": 2200,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Northern international-capable runway; verify customs/handling availability.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "HRF",
+      "icao": "VRMHX",
+      "iata": "HRF",
+      "name": "Hoarafushi Airport",
+      "region": "Haa Alif Atoll",
+      "country": "Maldives",
+      "type": "aerodrome",
+      "elevation_ft": 6,
+      "rwy": [
+        {
+          "designator": "07/25",
+          "length_m": 1200,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Northern domestic runway; verify current identifiers and NOTAMs.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "HDK",
+      "icao": "VRBK",
+      "iata": "HDK",
+      "name": "Kulhudhuffushi Airport",
+      "region": "Haa Dhaalu Atoll",
+      "country": "Maldives",
+      "type": "aerodrome",
+      "elevation_ft": 6,
+      "rwy": [
+        {
+          "designator": "03/21",
+          "length_m": 1200,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Northern domestic runway.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "RUL",
+      "icao": "VRQM",
+      "iata": "RUL",
+      "name": "Maavarulu Airport",
+      "region": "Gaafu Dhaalu Atoll",
+      "country": "Maldives",
+      "type": "aerodrome",
+      "elevation_ft": 6,
+      "rwy": [
+        {
+          "designator": "04/22",
+          "length_m": 1200,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Southern domestic runway; verify current status.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "BAA_WTR",
+      "icao": null,
+      "iata": null,
+      "name": "Baa Atoll Resort Water Aerodromes",
+      "region": "Baa Atoll",
+      "country": "Maldives",
+      "type": "waterway",
+      "elevation_ft": 0,
+      "rwy": [
+        {
+          "designator": "Water operating area",
+          "length_m": null,
+          "width_m": null,
+          "surface": "water",
+          "pcn": null
+        }
+      ],
+      "notes": "Multiple resort water operating areas; verify pontoon position, reef entry, swell and traffic.",
+      "fuel": "Not normally available",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "LHV_WTR",
+      "icao": null,
+      "iata": null,
+      "name": "Lhaviyani Atoll Resort Water Aerodromes",
+      "region": "Lhaviyani Atoll",
+      "country": "Maldives",
+      "type": "waterway",
+      "elevation_ft": 0,
+      "rwy": [
+        {
+          "designator": "Water operating area",
+          "length_m": null,
+          "width_m": null,
+          "surface": "water",
+          "pcn": null
+        }
+      ],
+      "notes": "Multiple resort lagoons including narrow-channel operations; verify wind/swell restrictions.",
+      "fuel": "Not normally available",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "ARI_WTR",
+      "icao": null,
+      "iata": null,
+      "name": "North/South Ari Atoll Water Aerodromes",
+      "region": "Alif Alif / Alif Dhaal Atolls",
+      "country": "Maldives",
+      "type": "waterway",
+      "elevation_ft": 0,
+      "rwy": [
+        {
+          "designator": "Water operating area",
+          "length_m": null,
+          "width_m": null,
+          "surface": "water",
+          "pcn": null
+        }
+      ],
+      "notes": "High-density resort seaplane network; performance and taxi routes vary by resort.",
+      "fuel": "Not normally available",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "KAA_WTR",
+      "icao": null,
+      "iata": null,
+      "name": "Kaafu Atoll Resort Water Aerodromes",
+      "region": "Kaafu Atoll",
+      "country": "Maldives",
+      "type": "waterway",
+      "elevation_ft": 0,
+      "rwy": [
+        {
+          "designator": "Water operating area",
+          "length_m": null,
+          "width_m": null,
+          "surface": "water",
+          "pcn": null
+        }
+      ],
+      "notes": "Multiple resort water operating areas around Male; coordinate with local traffic procedures.",
+      "fuel": "Not normally available",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "DHA_WTR",
+      "icao": null,
+      "iata": null,
+      "name": "Dhaalu Atoll Water Aerodromes",
+      "region": "Dhaalu Atoll",
+      "country": "Maldives",
+      "type": "waterway",
+      "elevation_ft": 0,
+      "rwy": [
+        {
+          "designator": "Water operating area",
+          "length_m": null,
+          "width_m": null,
+          "surface": "water",
+          "pcn": null
+        }
+      ],
+      "notes": "Resort lagoon water operating areas; check route manual and sea state.",
+      "fuel": "Not normally available",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "NOO_WTR",
+      "icao": null,
+      "iata": null,
+      "name": "Noonu Atoll Water Aerodromes",
+      "region": "Noonu Atoll",
+      "country": "Maldives",
+      "type": "waterway",
+      "elevation_ft": 0,
+      "rwy": [
+        {
+          "designator": "Water operating area",
+          "length_m": null,
+          "width_m": null,
+          "surface": "water",
+          "pcn": null
+        }
+      ],
+      "notes": "Northern resort water operating areas; verify current pontoon and channel notes.",
+      "fuel": "Not normally available",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "RAA_WTR",
+      "icao": null,
+      "iata": null,
+      "name": "Raa Atoll Water Aerodromes",
+      "region": "Raa Atoll",
+      "country": "Maldives",
+      "type": "waterway",
+      "elevation_ft": 0,
+      "rwy": [
+        {
+          "designator": "Water operating area",
+          "length_m": null,
+          "width_m": null,
+          "surface": "water",
+          "pcn": null
+        }
+      ],
+      "notes": "Northern resort water operating areas; verify swell and wind restrictions.",
+      "fuel": "Not normally available",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "ADU_WTR",
+      "icao": null,
+      "iata": null,
+      "name": "Addu Atoll Water Operating Areas",
+      "region": "Addu Atoll",
+      "country": "Maldives",
+      "type": "waterway",
+      "elevation_ft": 0,
+      "rwy": [
+        {
+          "designator": "Water operating area",
+          "length_m": null,
+          "width_m": null,
+          "surface": "water",
+          "pcn": null
+        }
+      ],
+      "notes": "Southern lagoon water operating areas; verify local procedures and traffic.",
+      "fuel": "Not normally available",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "LHD",
+      "icao": "PALH",
+      "iata": "LHD",
+      "name": "Lake Hood Seaplane Base",
+      "region": "Anchorage, Alaska",
+      "country": "United States",
+      "type": "water_aerodrome",
+      "elevation_ft": 71,
+      "rwy": [
+        {
+          "designator": "Water lanes",
+          "length_m": null,
+          "width_m": null,
+          "surface": "water",
+          "pcn": null
+        }
+      ],
+      "notes": "Major floatplane seaplane base; dense local traffic.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "W55",
+      "icao": "W55",
+      "iata": null,
+      "name": "Kenmore Air Harbor Seaplane Base",
+      "region": "Kenmore, Washington",
+      "country": "United States",
+      "type": "water_aerodrome",
+      "elevation_ft": 14,
+      "rwy": [
+        {
+          "designator": "Water lane",
+          "length_m": null,
+          "width_m": null,
+          "surface": "water",
+          "pcn": null
+        }
+      ],
+      "notes": "Puget Sound floatplane base; training reference only.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "YWH",
+      "icao": "CYWH",
+      "iata": "YWH",
+      "name": "Victoria Inner Harbour Water Aerodrome",
+      "region": "British Columbia",
+      "country": "Canada",
+      "type": "water_aerodrome",
+      "elevation_ft": 0,
+      "rwy": [
+        {
+          "designator": "Water lane",
+          "length_m": null,
+          "width_m": null,
+          "surface": "water",
+          "pcn": null
+        }
+      ],
+      "notes": "Harbour floatplane operations; controlled/local procedures apply.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "CXH",
+      "icao": "CYHC",
+      "iata": "CXH",
+      "name": "Vancouver Harbour Flight Centre",
+      "region": "British Columbia",
+      "country": "Canada",
+      "type": "water_aerodrome",
+      "elevation_ft": 0,
+      "rwy": [
+        {
+          "designator": "Water lane",
+          "length_m": null,
+          "width_m": null,
+          "surface": "water",
+          "pcn": null
+        }
+      ],
+      "notes": "Urban harbour floatplane terminal; verify current water runway/procedures.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "YWS",
+      "icao": "CAE5",
+      "iata": "YWS",
+      "name": "Whistler/Green Lake Water Aerodrome",
+      "region": "British Columbia",
+      "country": "Canada",
+      "type": "water_aerodrome",
+      "elevation_ft": 2100,
+      "rwy": [
+        {
+          "designator": "Water lane",
+          "length_m": null,
+          "width_m": null,
+          "surface": "water",
+          "pcn": null
+        }
+      ],
+      "notes": "Mountain lake floatplane operation; density altitude and terrain considerations.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "YTP",
+      "icao": "CAB4",
+      "iata": "YTP",
+      "name": "Tofino Harbour Water Aerodrome",
+      "region": "British Columbia",
+      "country": "Canada",
+      "type": "water_aerodrome",
+      "elevation_ft": 0,
+      "rwy": [
+        {
+          "designator": "Water lane",
+          "length_m": null,
+          "width_m": null,
+          "surface": "water",
+          "pcn": null
+        }
+      ],
+      "notes": "Coastal water aerodrome; swell/fog considerations.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "YHH",
+      "icao": "CAE3",
+      "iata": "YHH",
+      "name": "Campbell River Water Aerodrome",
+      "region": "British Columbia",
+      "country": "Canada",
+      "type": "water_aerodrome",
+      "elevation_ft": 0,
+      "rwy": [
+        {
+          "designator": "Water lane",
+          "length_m": null,
+          "width_m": null,
+          "surface": "water",
+          "pcn": null
+        }
+      ],
+      "notes": "Coastal floatplane hub.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "ZNA",
+      "icao": "CAC8",
+      "iata": "ZNA",
+      "name": "Nanaimo Harbour Water Aerodrome",
+      "region": "British Columbia",
+      "country": "Canada",
+      "type": "water_aerodrome",
+      "elevation_ft": 0,
+      "rwy": [
+        {
+          "designator": "Water lane",
+          "length_m": null,
+          "width_m": null,
+          "surface": "water",
+          "pcn": null
+        }
+      ],
+      "notes": "Harbour floatplane operation.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "YPR_WTR",
+      "icao": "CZSW",
+      "iata": "ZSW",
+      "name": "Prince Rupert Seal Cove Water Aerodrome",
+      "region": "British Columbia",
+      "country": "Canada",
+      "type": "water_aerodrome",
+      "elevation_ft": 0,
+      "rwy": [
+        {
+          "designator": "Water lane",
+          "length_m": null,
+          "width_m": null,
+          "surface": "water",
+          "pcn": null
+        }
+      ],
+      "notes": "Coastal water aerodrome; weather and visibility critical.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "YKQ_WTR",
+      "icao": null,
+      "iata": null,
+      "name": "Waskaganish Water Aerodrome",
+      "region": "Quebec",
+      "country": "Canada",
+      "type": "water_aerodrome",
+      "elevation_ft": 0,
+      "rwy": [
+        {
+          "designator": "Water lane",
+          "length_m": null,
+          "width_m": null,
+          "surface": "water",
+          "pcn": null
+        }
+      ],
+      "notes": "Northern Canada water operations training reference.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "YEV",
+      "icao": "CYEV",
+      "iata": "YEV",
+      "name": "Inuvik Mike Zubko Airport",
+      "region": "Northwest Territories",
+      "country": "Canada",
+      "type": "aerodrome",
+      "elevation_ft": 224,
+      "rwy": [
+        {
+          "designator": "06/24",
+          "length_m": 1830,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Northern utility/tundra operations reference.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "YRB",
+      "icao": "CYRB",
+      "iata": "YRB",
+      "name": "Resolute Bay Airport",
+      "region": "Nunavut",
+      "country": "Canada",
+      "type": "aerodrome",
+      "elevation_ft": 215,
+      "rwy": [
+        {
+          "designator": "17/35",
+          "length_m": 1981,
+          "width_m": null,
+          "surface": "gravel/asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "High-Arctic runway; verify surface and seasonal procedures.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "YFB",
+      "icao": "CYFB",
+      "iata": "YFB",
+      "name": "Iqaluit Airport",
+      "region": "Nunavut",
+      "country": "Canada",
+      "type": "aerodrome",
+      "elevation_ft": 110,
+      "rwy": [
+        {
+          "designator": "16/34",
+          "length_m": 2623,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Northern operations support aerodrome.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "YCO",
+      "icao": "CYCO",
+      "iata": "YCO",
+      "name": "Kugluktuk Airport",
+      "region": "Nunavut",
+      "country": "Canada",
+      "type": "aerodrome",
+      "elevation_ft": 74,
+      "rwy": [
+        {
+          "designator": "13/31",
+          "length_m": 1675,
+          "width_m": null,
+          "surface": "gravel",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Remote runway; verify surface status.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "YZF",
+      "icao": "CYZF",
+      "iata": "YZF",
+      "name": "Yellowknife Airport",
+      "region": "Northwest Territories",
+      "country": "Canada",
+      "type": "aerodrome",
+      "elevation_ft": 675,
+      "rwy": [
+        {
+          "designator": "16/34",
+          "length_m": 2286,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Northern base for utility operations.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "KTN_WTR",
+      "icao": "5KE",
+      "iata": "WFB",
+      "name": "Ketchikan Harbor Seaplane Base",
+      "region": "Alaska",
+      "country": "United States",
+      "type": "water_aerodrome",
+      "elevation_ft": 0,
+      "rwy": [
+        {
+          "designator": "Water lane",
+          "length_m": null,
+          "width_m": null,
+          "surface": "water",
+          "pcn": null
+        }
+      ],
+      "notes": "Southeast Alaska harbour water operations; weather/terrain critical.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "JNU_WTR",
+      "icao": "5Z1",
+      "iata": null,
+      "name": "Juneau Harbor Seaplane Base",
+      "region": "Alaska",
+      "country": "United States",
+      "type": "water_aerodrome",
+      "elevation_ft": 0,
+      "rwy": [
+        {
+          "designator": "Water lane",
+          "length_m": null,
+          "width_m": null,
+          "surface": "water",
+          "pcn": null
+        }
+      ],
+      "notes": "Southeast Alaska water operations; verify local procedures.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "SIT",
+      "icao": "PASI",
+      "iata": "SIT",
+      "name": "Sitka Rocky Gutierrez Airport",
+      "region": "Alaska",
+      "country": "United States",
+      "type": "aerodrome",
+      "elevation_ft": 21,
+      "rwy": [
+        {
+          "designator": "11/29",
+          "length_m": 2195,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Coastal Alaska runway; weather and terrain considerations.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "PSG",
+      "icao": "PAPG",
+      "iata": "PSG",
+      "name": "Petersburg James A. Johnson Airport",
+      "region": "Alaska",
+      "country": "United States",
+      "type": "aerodrome",
+      "elevation_ft": 111,
+      "rwy": [
+        {
+          "designator": "05/23",
+          "length_m": 1829,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Southeast Alaska runway; verify current procedures.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "ADQ",
+      "icao": "PADQ",
+      "iata": "ADQ",
+      "name": "Kodiak Airport",
+      "region": "Alaska",
+      "country": "United States",
+      "type": "aerodrome",
+      "elevation_ft": 78,
+      "rwy": [
+        {
+          "designator": "07/25",
+          "length_m": 2294,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Coastal Alaska operations reference.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "BHB",
+      "icao": "KBHB",
+      "iata": "BHB",
+      "name": "Bar Harbor Airport",
+      "region": "Maine",
+      "country": "United States",
+      "type": "aerodrome",
+      "elevation_ft": 83,
+      "rwy": [
+        {
+          "designator": "04/22",
+          "length_m": 1585,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Coastal aerodrome; DHC-6 utility training reference.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "SBH",
+      "icao": "TFFJ",
+      "iata": "SBH",
+      "name": "Gustaf III Airport",
+      "region": "Saint Barthelemy",
+      "country": "Saint Barthelemy",
+      "type": "aerodrome",
+      "elevation_ft": 49,
+      "rwy": [
+        {
+          "designator": "10/28",
+          "length_m": 646,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Very short runway with special procedures; not for generic operations.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "SAB",
+      "icao": "TNCS",
+      "iata": "SAB",
+      "name": "Juancho E. Yrausquin Airport",
+      "region": "Saba",
+      "country": "Caribbean Netherlands",
+      "type": "aerodrome",
+      "elevation_ft": 60,
+      "rwy": [
+        {
+          "designator": "12/30",
+          "length_m": 400,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Extremely short runway; specialized operator procedures only.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "AXA",
+      "icao": "TQPF",
+      "iata": "AXA",
+      "name": "Clayton J. Lloyd International Airport",
+      "region": "Anguilla",
+      "country": "Anguilla",
+      "type": "aerodrome",
+      "elevation_ft": 127,
+      "rwy": [
+        {
+          "designator": "10/28",
+          "length_m": 1665,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Caribbean island runway reference.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "EIS",
+      "icao": "TUPJ",
+      "iata": "EIS",
+      "name": "Terrance B. Lettsome International Airport",
+      "region": "British Virgin Islands",
+      "country": "BVI",
+      "type": "aerodrome",
+      "elevation_ft": 15,
+      "rwy": [
+        {
+          "designator": "07/25",
+          "length_m": 1410,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Island runway reference.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "STT_SPB",
+      "icao": "VI22",
+      "iata": "SPB",
+      "name": "Charlotte Amalie Harbor Seaplane Base",
+      "region": "US Virgin Islands",
+      "country": "United States",
+      "type": "water_aerodrome",
+      "elevation_ft": 0,
+      "rwy": [
+        {
+          "designator": "Water lane",
+          "length_m": null,
+          "width_m": null,
+          "surface": "water",
+          "pcn": null
+        }
+      ],
+      "notes": "Harbour seaplane operation; verify current status.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "STX_SPB",
+      "icao": "VI32",
+      "iata": "SSB",
+      "name": "Christiansted Harbor Seaplane Base",
+      "region": "US Virgin Islands",
+      "country": "United States",
+      "type": "water_aerodrome",
+      "elevation_ft": 0,
+      "rwy": [
+        {
+          "designator": "Water lane",
+          "length_m": null,
+          "width_m": null,
+          "surface": "water",
+          "pcn": null
+        }
+      ],
+      "notes": "Harbour seaplane operation; verify current status.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "NSB",
+      "icao": null,
+      "iata": "NSB",
+      "name": "Bimini North Seaplane Base",
+      "region": "Bahamas",
+      "country": "Bahamas",
+      "type": "water_aerodrome",
+      "elevation_ft": 0,
+      "rwy": [
+        {
+          "designator": "Water lane",
+          "length_m": null,
+          "width_m": null,
+          "surface": "water",
+          "pcn": null
+        }
+      ],
+      "notes": "Bahamas seaplane operations reference; verify current status.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "TYM",
+      "icao": "MYES",
+      "iata": "TYM",
+      "name": "Staniel Cay Airport",
+      "region": "Exuma, Bahamas",
+      "country": "Bahamas",
+      "type": "aerodrome",
+      "elevation_ft": 5,
+      "rwy": [
+        {
+          "designator": "17/35",
+          "length_m": 914,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Short island runway; verify current performance data.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "GGT",
+      "icao": "MYEF",
+      "iata": "GGT",
+      "name": "Exuma International Airport",
+      "region": "Bahamas",
+      "country": "Bahamas",
+      "type": "aerodrome",
+      "elevation_ft": 9,
+      "rwy": [
+        {
+          "designator": "12/30",
+          "length_m": 2134,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Island runway reference.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "LUA",
+      "icao": "VNLK",
+      "iata": "LUA",
+      "name": "Lukla / Tenzing-Hillary Airport",
+      "region": "Solukhumbu",
+      "country": "Nepal",
+      "type": "aerodrome",
+      "elevation_ft": 9383,
+      "rwy": [
+        {
+          "designator": "06/24",
+          "length_m": 527,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Extreme mountain runway; special procedures and operator approval required.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "JMO",
+      "icao": "VNJS",
+      "iata": "JMO",
+      "name": "Jomsom Airport",
+      "region": "Mustang",
+      "country": "Nepal",
+      "type": "aerodrome",
+      "elevation_ft": 8976,
+      "rwy": [
+        {
+          "designator": "06/24",
+          "length_m": 739,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "High-elevation valley runway; wind and density altitude critical.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "IMK",
+      "icao": "VNST",
+      "iata": "IMK",
+      "name": "Simikot Airport",
+      "region": "Humla",
+      "country": "Nepal",
+      "type": "aerodrome",
+      "elevation_ft": 9246,
+      "rwy": [
+        {
+          "designator": "10/28",
+          "length_m": 650,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "High-elevation remote mountain runway.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "DOP",
+      "icao": "VNDP",
+      "iata": "DOP",
+      "name": "Dolpa / Juphal Airport",
+      "region": "Dolpa",
+      "country": "Nepal",
+      "type": "aerodrome",
+      "elevation_ft": 8200,
+      "rwy": [
+        {
+          "designator": "15/33",
+          "length_m": 560,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Remote mountain runway; verify current status.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "RUK",
+      "icao": "VNSL",
+      "iata": "RUK",
+      "name": "Rukum Salle Airport",
+      "region": "Rukum",
+      "country": "Nepal",
+      "type": "aerodrome",
+      "elevation_ft": 5100,
+      "rwy": [
+        {
+          "designator": "04/22",
+          "length_m": 580,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Remote mountain runway reference.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "BJU",
+      "icao": "VNBR",
+      "iata": "BJU",
+      "name": "Bajura Airport",
+      "region": "Bajura",
+      "country": "Nepal",
+      "type": "aerodrome",
+      "elevation_ft": 4300,
+      "rwy": [
+        {
+          "designator": "16/34",
+          "length_m": 520,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Remote mountain runway reference.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "TMI",
+      "icao": "VNTR",
+      "iata": "TMI",
+      "name": "Tumlingtar Airport",
+      "region": "Province 1",
+      "country": "Nepal",
+      "type": "aerodrome",
+      "elevation_ft": 1700,
+      "rwy": [
+        {
+          "designator": "04/22",
+          "length_m": 1220,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Mountain-region domestic runway.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "POM",
+      "icao": "AYPY",
+      "iata": "POM",
+      "name": "Port Moresby Jacksons International",
+      "region": "National Capital District",
+      "country": "Papua New Guinea",
+      "type": "aerodrome",
+      "elevation_ft": 146,
+      "rwy": [
+        {
+          "designator": "14L/32R",
+          "length_m": 2750,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "PNG operations hub.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "HGU",
+      "icao": "AYMH",
+      "iata": "HGU",
+      "name": "Mount Hagen Airport",
+      "region": "Western Highlands",
+      "country": "Papua New Guinea",
+      "type": "aerodrome",
+      "elevation_ft": 5388,
+      "rwy": [
+        {
+          "designator": "08/26",
+          "length_m": 2190,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Highland aerodrome; weather/terrain critical.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "GKA",
+      "icao": "AYGA",
+      "iata": "GKA",
+      "name": "Goroka Airport",
+      "region": "Eastern Highlands",
+      "country": "Papua New Guinea",
+      "type": "aerodrome",
+      "elevation_ft": 5282,
+      "rwy": [
+        {
+          "designator": "17/35",
+          "length_m": 1600,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Highland aerodrome; verify density-altitude margins.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "TIZ",
+      "icao": "AYTA",
+      "iata": "TIZ",
+      "name": "Tari Airport",
+      "region": "Hela Province",
+      "country": "Papua New Guinea",
+      "type": "aerodrome",
+      "elevation_ft": 5500,
+      "rwy": [
+        {
+          "designator": "08/26",
+          "length_m": 1600,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Highland/remote operations reference.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "KRI",
+      "icao": "AYKK",
+      "iata": "KRI",
+      "name": "Kikori Airport",
+      "region": "Gulf Province",
+      "country": "Papua New Guinea",
+      "type": "aerodrome",
+      "elevation_ft": 50,
+      "rwy": [
+        {
+          "designator": "12/30",
+          "length_m": 1200,
+          "width_m": null,
+          "surface": "gravel/asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Remote coastal/river-region runway.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "LSA",
+      "icao": "AYKA",
+      "iata": "LSA",
+      "name": "Losuia Airport",
+      "region": "Milne Bay",
+      "country": "Papua New Guinea",
+      "type": "aerodrome",
+      "elevation_ft": 20,
+      "rwy": [
+        {
+          "designator": "09/27",
+          "length_m": 914,
+          "width_m": null,
+          "surface": "grass/gravel",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Island runway reference; verify surface.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "HIR",
+      "icao": "AGGH",
+      "iata": "HIR",
+      "name": "Honiara International Airport",
+      "region": "Guadalcanal",
+      "country": "Solomon Islands",
+      "type": "aerodrome",
+      "elevation_ft": 28,
+      "rwy": [
+        {
+          "designator": "06/24",
+          "length_m": 2200,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Solomon Islands hub.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "GZO",
+      "icao": "AGGN",
+      "iata": "GZO",
+      "name": "Nusatupe Airport",
+      "region": "Western Province",
+      "country": "Solomon Islands",
+      "type": "aerodrome",
+      "elevation_ft": 13,
+      "rwy": [
+        {
+          "designator": "08/26",
+          "length_m": 1000,
+          "width_m": null,
+          "surface": "coral/asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Island runway; verify surface and current status.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "MUA",
+      "icao": "AGGM",
+      "iata": "MUA",
+      "name": "Munda Airport",
+      "region": "Western Province",
+      "country": "Solomon Islands",
+      "type": "aerodrome",
+      "elevation_ft": 10,
+      "rwy": [
+        {
+          "designator": "07/25",
+          "length_m": 1400,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Island runway reference.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "SON",
+      "icao": "NVSS",
+      "iata": "SON",
+      "name": "Santo-Pekoa International Airport",
+      "region": "Espiritu Santo",
+      "country": "Vanuatu",
+      "type": "aerodrome",
+      "elevation_ft": 184,
+      "rwy": [
+        {
+          "designator": "11/29",
+          "length_m": 1980,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Vanuatu island runway reference.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "VLI",
+      "icao": "NVVV",
+      "iata": "VLI",
+      "name": "Bauerfield International Airport",
+      "region": "Efate",
+      "country": "Vanuatu",
+      "type": "aerodrome",
+      "elevation_ft": 70,
+      "rwy": [
+        {
+          "designator": "11/29",
+          "length_m": 2600,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Vanuatu hub.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "TVU",
+      "icao": "NFNM",
+      "iata": "TVU",
+      "name": "Matei Airport",
+      "region": "Taveuni",
+      "country": "Fiji",
+      "type": "aerodrome",
+      "elevation_ft": 60,
+      "rwy": [
+        {
+          "designator": "02/20",
+          "length_m": 910,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Short island runway; verify performance.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "ICI",
+      "icao": "NFCI",
+      "iata": "ICI",
+      "name": "Cicia Airport",
+      "region": "Lau Group",
+      "country": "Fiji",
+      "type": "aerodrome",
+      "elevation_ft": 13,
+      "rwy": [
+        {
+          "designator": "09/27",
+          "length_m": 914,
+          "width_m": null,
+          "surface": "grass/coral",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Remote island runway; verify current surface.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "SUV",
+      "icao": "NFNA",
+      "iata": "SUV",
+      "name": "Nausori International Airport",
+      "region": "Viti Levu",
+      "country": "Fiji",
+      "type": "aerodrome",
+      "elevation_ft": 17,
+      "rwy": [
+        {
+          "designator": "10/28",
+          "length_m": 1868,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Fiji domestic/international runway reference.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "PRI",
+      "icao": "FSPP",
+      "iata": "PRI",
+      "name": "Praslin Island Airport",
+      "region": "Praslin",
+      "country": "Seychelles",
+      "type": "aerodrome",
+      "elevation_ft": 10,
+      "rwy": [
+        {
+          "designator": "15/33",
+          "length_m": 1400,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Island runway reference.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "SEZ",
+      "icao": "FSIA",
+      "iata": "SEZ",
+      "name": "Seychelles International Airport",
+      "region": "Mahe",
+      "country": "Seychelles",
+      "type": "aerodrome",
+      "elevation_ft": 10,
+      "rwy": [
+        {
+          "designator": "13/31",
+          "length_m": 2987,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Seychelles hub.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "TNR",
+      "icao": "FMMI",
+      "iata": "TNR",
+      "name": "Ivato International Airport",
+      "region": "Antananarivo",
+      "country": "Madagascar",
+      "type": "aerodrome",
+      "elevation_ft": 4198,
+      "rwy": [
+        {
+          "designator": "11/29",
+          "length_m": 3100,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Regional hub reference.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "MOQ",
+      "icao": "FMMV",
+      "iata": "MOQ",
+      "name": "Morondava Airport",
+      "region": "Menabe",
+      "country": "Madagascar",
+      "type": "aerodrome",
+      "elevation_ft": 30,
+      "rwy": [
+        {
+          "designator": "04/22",
+          "length_m": 1500,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Coastal runway reference.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "FTU",
+      "icao": "FMSD",
+      "iata": "FTU",
+      "name": "Tolagnaro Airport",
+      "region": "Anosy",
+      "country": "Madagascar",
+      "type": "aerodrome",
+      "elevation_ft": 29,
+      "rwy": [
+        {
+          "designator": "08/26",
+          "length_m": 1500,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Coastal runway reference.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    }
+  ],
+  "strips": [
+    {
+      "id": "MLE",
+      "icao": "VRMM",
+      "iata": "MLE",
+      "name": "Velana International Airport",
+      "region": "North Male Atoll",
+      "country": "Maldives",
+      "type": "aerodrome",
+      "elevation_ft": 6,
+      "rwy": [
+        {
+          "designator": "18/36",
+          "length_m": 3200,
+          "width_m": 60,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Main Maldives hub. DHC-6 seaplane operations use the adjacent seaplane terminal/water aerodrome, not the main runway.",
+      "fuel": "Jet A-1 available",
+      "customs": true,
+      "ils": true
+    },
+    {
+      "id": "MLE_SPB",
+      "icao": "VRMM",
+      "iata": "MLE",
+      "name": "Male Seaplane Base / MAST Terminal",
+      "region": "North Male Atoll",
+      "country": "Maldives",
+      "type": "water_aerodrome",
+      "elevation_ft": 0,
+      "rwy": [
+        {
+          "designator": "Water operating area",
+          "length_m": 2000,
+          "width_m": null,
+          "surface": "water",
+          "pcn": null
+        }
+      ],
+      "notes": "Primary Maldives seaplane terminal. High traffic density; use current ATC/AFIS/operator procedures.",
+      "fuel": "Jet A-1 via local supply",
+      "customs": true,
+      "ils": false
+    },
+    {
+      "id": "GAN",
+      "icao": "VRMG",
+      "iata": "GAN",
+      "name": "Gan International Airport",
+      "region": "Addu Atoll",
+      "country": "Maldives",
+      "type": "aerodrome",
+      "elevation_ft": 6,
+      "rwy": [
+        {
+          "designator": "08/26",
+          "length_m": 2743,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Southern Maldives aerodrome used for regional operations.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "HAQ",
+      "icao": "VRMH",
+      "iata": "HAQ",
+      "name": "Hanimaadhoo International Airport",
+      "region": "Haa Dhaalu Atoll",
+      "country": "Maldives",
+      "type": "aerodrome",
+      "elevation_ft": 4,
+      "rwy": [
+        {
+          "designator": "18/36",
+          "length_m": 2100,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Northern Maldives aerodrome; verify current procedures and fuel availability.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "KDO",
+      "icao": "VRMK",
+      "iata": "KDO",
+      "name": "Kadhdhoo Airport",
+      "region": "Laamu Atoll",
+      "country": "Maldives",
+      "type": "aerodrome",
+      "elevation_ft": 4,
+      "rwy": [
+        {
+          "designator": "12/30",
+          "length_m": 1500,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Short runway environment; performance planning required.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "DRV",
+      "icao": "VRMD",
+      "iata": "DRV",
+      "name": "Dharavandhoo Airport",
+      "region": "Baa Atoll",
+      "country": "Maldives",
+      "type": "aerodrome",
+      "elevation_ft": 6,
+      "rwy": [
+        {
+          "designator": "11/29",
+          "length_m": 1200,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Baa Atoll domestic runway; coordinate with nearby resort/water operations.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "IFU",
+      "icao": "VREI",
+      "iata": "IFU",
+      "name": "Ifuru Airport",
+      "region": "Raa Atoll",
+      "country": "Maldives",
+      "type": "aerodrome",
+      "elevation_ft": 6,
+      "rwy": [
+        {
+          "designator": "09/27",
+          "length_m": 1200,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Short strip with atoll/reef environment; verify current AIP.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "VAM",
+      "icao": "VRMV",
+      "iata": "VAM",
+      "name": "Villa Airport Maamigili",
+      "region": "Alif Dhaal Atoll",
+      "country": "Maldives",
+      "type": "aerodrome",
+      "elevation_ft": 6,
+      "rwy": [
+        {
+          "designator": "10/28",
+          "length_m": 1200,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Short domestic runway; confirm aircraft weight and performance margins.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "TMF",
+      "icao": "VRNT",
+      "iata": "TMF",
+      "name": "Thimarafushi Airport",
+      "region": "Thaa Atoll",
+      "country": "Maldives",
+      "type": "aerodrome",
+      "elevation_ft": 6,
+      "rwy": [
+        {
+          "designator": "04/22",
+          "length_m": 1200,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Domestic island runway; verify current status before dispatch.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "DDD",
+      "icao": "VRMU",
+      "iata": "DDD",
+      "name": "Dhaalu Airport",
+      "region": "Dhaalu Atoll",
+      "country": "Maldives",
+      "type": "aerodrome",
+      "elevation_ft": 6,
+      "rwy": [
+        {
+          "designator": "17/35",
+          "length_m": 1800,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Domestic runway serving Dhaalu Atoll resorts.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "FVM",
+      "icao": "VRMR",
+      "iata": "FVM",
+      "name": "Fuvahmulah Airport",
+      "region": "Gnaviyani Atoll",
+      "country": "Maldives",
+      "type": "aerodrome",
+      "elevation_ft": 6,
+      "rwy": [
+        {
+          "designator": "07/25",
+          "length_m": 1200,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Island runway with maritime wind exposure.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "GKK",
+      "icao": "VRMO",
+      "iata": "GKK",
+      "name": "Kooddoo Airport",
+      "region": "Gaafu Alif Atoll",
+      "country": "Maldives",
+      "type": "aerodrome",
+      "elevation_ft": 4,
+      "rwy": [
+        {
+          "designator": "03/21",
+          "length_m": 1220,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Southern domestic runway; verify current operator notes.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "KDM",
+      "icao": "VRMT",
+      "iata": "KDM",
+      "name": "Kaadedhdhoo Airport",
+      "region": "Gaafu Dhaalu Atoll",
+      "country": "Maldives",
+      "type": "aerodrome",
+      "elevation_ft": 2,
+      "rwy": [
+        {
+          "designator": "10/28",
+          "length_m": 1220,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Southern domestic runway.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "LMV",
+      "icao": "VRSM",
+      "iata": "LMV",
+      "name": "Madivaru Airport",
+      "region": "Lhaviyani Atoll",
+      "country": "Maldives",
+      "type": "aerodrome",
+      "elevation_ft": 6,
+      "rwy": [
+        {
+          "designator": "08/26",
+          "length_m": 1200,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Resort-region short runway.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "NMF",
+      "icao": "VRDA",
+      "iata": "NMF",
+      "name": "Maafaru International Airport",
+      "region": "Noonu Atoll",
+      "country": "Maldives",
+      "type": "aerodrome",
+      "elevation_ft": 7,
+      "rwy": [
+        {
+          "designator": "13/31",
+          "length_m": 2200,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Northern international-capable runway; verify customs/handling availability.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "HRF",
+      "icao": "VRMHX",
+      "iata": "HRF",
+      "name": "Hoarafushi Airport",
+      "region": "Haa Alif Atoll",
+      "country": "Maldives",
+      "type": "aerodrome",
+      "elevation_ft": 6,
+      "rwy": [
+        {
+          "designator": "07/25",
+          "length_m": 1200,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Northern domestic runway; verify current identifiers and NOTAMs.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "HDK",
+      "icao": "VRBK",
+      "iata": "HDK",
+      "name": "Kulhudhuffushi Airport",
+      "region": "Haa Dhaalu Atoll",
+      "country": "Maldives",
+      "type": "aerodrome",
+      "elevation_ft": 6,
+      "rwy": [
+        {
+          "designator": "03/21",
+          "length_m": 1200,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Northern domestic runway.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "RUL",
+      "icao": "VRQM",
+      "iata": "RUL",
+      "name": "Maavarulu Airport",
+      "region": "Gaafu Dhaalu Atoll",
+      "country": "Maldives",
+      "type": "aerodrome",
+      "elevation_ft": 6,
+      "rwy": [
+        {
+          "designator": "04/22",
+          "length_m": 1200,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Southern domestic runway; verify current status.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "BAA_WTR",
+      "icao": null,
+      "iata": null,
+      "name": "Baa Atoll Resort Water Aerodromes",
+      "region": "Baa Atoll",
+      "country": "Maldives",
+      "type": "waterway",
+      "elevation_ft": 0,
+      "rwy": [
+        {
+          "designator": "Water operating area",
+          "length_m": null,
+          "width_m": null,
+          "surface": "water",
+          "pcn": null
+        }
+      ],
+      "notes": "Multiple resort water operating areas; verify pontoon position, reef entry, swell and traffic.",
+      "fuel": "Not normally available",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "LHV_WTR",
+      "icao": null,
+      "iata": null,
+      "name": "Lhaviyani Atoll Resort Water Aerodromes",
+      "region": "Lhaviyani Atoll",
+      "country": "Maldives",
+      "type": "waterway",
+      "elevation_ft": 0,
+      "rwy": [
+        {
+          "designator": "Water operating area",
+          "length_m": null,
+          "width_m": null,
+          "surface": "water",
+          "pcn": null
+        }
+      ],
+      "notes": "Multiple resort lagoons including narrow-channel operations; verify wind/swell restrictions.",
+      "fuel": "Not normally available",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "ARI_WTR",
+      "icao": null,
+      "iata": null,
+      "name": "North/South Ari Atoll Water Aerodromes",
+      "region": "Alif Alif / Alif Dhaal Atolls",
+      "country": "Maldives",
+      "type": "waterway",
+      "elevation_ft": 0,
+      "rwy": [
+        {
+          "designator": "Water operating area",
+          "length_m": null,
+          "width_m": null,
+          "surface": "water",
+          "pcn": null
+        }
+      ],
+      "notes": "High-density resort seaplane network; performance and taxi routes vary by resort.",
+      "fuel": "Not normally available",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "KAA_WTR",
+      "icao": null,
+      "iata": null,
+      "name": "Kaafu Atoll Resort Water Aerodromes",
+      "region": "Kaafu Atoll",
+      "country": "Maldives",
+      "type": "waterway",
+      "elevation_ft": 0,
+      "rwy": [
+        {
+          "designator": "Water operating area",
+          "length_m": null,
+          "width_m": null,
+          "surface": "water",
+          "pcn": null
+        }
+      ],
+      "notes": "Multiple resort water operating areas around Male; coordinate with local traffic procedures.",
+      "fuel": "Not normally available",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "DHA_WTR",
+      "icao": null,
+      "iata": null,
+      "name": "Dhaalu Atoll Water Aerodromes",
+      "region": "Dhaalu Atoll",
+      "country": "Maldives",
+      "type": "waterway",
+      "elevation_ft": 0,
+      "rwy": [
+        {
+          "designator": "Water operating area",
+          "length_m": null,
+          "width_m": null,
+          "surface": "water",
+          "pcn": null
+        }
+      ],
+      "notes": "Resort lagoon water operating areas; check route manual and sea state.",
+      "fuel": "Not normally available",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "NOO_WTR",
+      "icao": null,
+      "iata": null,
+      "name": "Noonu Atoll Water Aerodromes",
+      "region": "Noonu Atoll",
+      "country": "Maldives",
+      "type": "waterway",
+      "elevation_ft": 0,
+      "rwy": [
+        {
+          "designator": "Water operating area",
+          "length_m": null,
+          "width_m": null,
+          "surface": "water",
+          "pcn": null
+        }
+      ],
+      "notes": "Northern resort water operating areas; verify current pontoon and channel notes.",
+      "fuel": "Not normally available",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "RAA_WTR",
+      "icao": null,
+      "iata": null,
+      "name": "Raa Atoll Water Aerodromes",
+      "region": "Raa Atoll",
+      "country": "Maldives",
+      "type": "waterway",
+      "elevation_ft": 0,
+      "rwy": [
+        {
+          "designator": "Water operating area",
+          "length_m": null,
+          "width_m": null,
+          "surface": "water",
+          "pcn": null
+        }
+      ],
+      "notes": "Northern resort water operating areas; verify swell and wind restrictions.",
+      "fuel": "Not normally available",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "ADU_WTR",
+      "icao": null,
+      "iata": null,
+      "name": "Addu Atoll Water Operating Areas",
+      "region": "Addu Atoll",
+      "country": "Maldives",
+      "type": "waterway",
+      "elevation_ft": 0,
+      "rwy": [
+        {
+          "designator": "Water operating area",
+          "length_m": null,
+          "width_m": null,
+          "surface": "water",
+          "pcn": null
+        }
+      ],
+      "notes": "Southern lagoon water operating areas; verify local procedures and traffic.",
+      "fuel": "Not normally available",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "LHD",
+      "icao": "PALH",
+      "iata": "LHD",
+      "name": "Lake Hood Seaplane Base",
+      "region": "Anchorage, Alaska",
+      "country": "United States",
+      "type": "water_aerodrome",
+      "elevation_ft": 71,
+      "rwy": [
+        {
+          "designator": "Water lanes",
+          "length_m": null,
+          "width_m": null,
+          "surface": "water",
+          "pcn": null
+        }
+      ],
+      "notes": "Major floatplane seaplane base; dense local traffic.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "W55",
+      "icao": "W55",
+      "iata": null,
+      "name": "Kenmore Air Harbor Seaplane Base",
+      "region": "Kenmore, Washington",
+      "country": "United States",
+      "type": "water_aerodrome",
+      "elevation_ft": 14,
+      "rwy": [
+        {
+          "designator": "Water lane",
+          "length_m": null,
+          "width_m": null,
+          "surface": "water",
+          "pcn": null
+        }
+      ],
+      "notes": "Puget Sound floatplane base; training reference only.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "YWH",
+      "icao": "CYWH",
+      "iata": "YWH",
+      "name": "Victoria Inner Harbour Water Aerodrome",
+      "region": "British Columbia",
+      "country": "Canada",
+      "type": "water_aerodrome",
+      "elevation_ft": 0,
+      "rwy": [
+        {
+          "designator": "Water lane",
+          "length_m": null,
+          "width_m": null,
+          "surface": "water",
+          "pcn": null
+        }
+      ],
+      "notes": "Harbour floatplane operations; controlled/local procedures apply.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "CXH",
+      "icao": "CYHC",
+      "iata": "CXH",
+      "name": "Vancouver Harbour Flight Centre",
+      "region": "British Columbia",
+      "country": "Canada",
+      "type": "water_aerodrome",
+      "elevation_ft": 0,
+      "rwy": [
+        {
+          "designator": "Water lane",
+          "length_m": null,
+          "width_m": null,
+          "surface": "water",
+          "pcn": null
+        }
+      ],
+      "notes": "Urban harbour floatplane terminal; verify current water runway/procedures.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "YWS",
+      "icao": "CAE5",
+      "iata": "YWS",
+      "name": "Whistler/Green Lake Water Aerodrome",
+      "region": "British Columbia",
+      "country": "Canada",
+      "type": "water_aerodrome",
+      "elevation_ft": 2100,
+      "rwy": [
+        {
+          "designator": "Water lane",
+          "length_m": null,
+          "width_m": null,
+          "surface": "water",
+          "pcn": null
+        }
+      ],
+      "notes": "Mountain lake floatplane operation; density altitude and terrain considerations.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "YTP",
+      "icao": "CAB4",
+      "iata": "YTP",
+      "name": "Tofino Harbour Water Aerodrome",
+      "region": "British Columbia",
+      "country": "Canada",
+      "type": "water_aerodrome",
+      "elevation_ft": 0,
+      "rwy": [
+        {
+          "designator": "Water lane",
+          "length_m": null,
+          "width_m": null,
+          "surface": "water",
+          "pcn": null
+        }
+      ],
+      "notes": "Coastal water aerodrome; swell/fog considerations.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "YHH",
+      "icao": "CAE3",
+      "iata": "YHH",
+      "name": "Campbell River Water Aerodrome",
+      "region": "British Columbia",
+      "country": "Canada",
+      "type": "water_aerodrome",
+      "elevation_ft": 0,
+      "rwy": [
+        {
+          "designator": "Water lane",
+          "length_m": null,
+          "width_m": null,
+          "surface": "water",
+          "pcn": null
+        }
+      ],
+      "notes": "Coastal floatplane hub.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "ZNA",
+      "icao": "CAC8",
+      "iata": "ZNA",
+      "name": "Nanaimo Harbour Water Aerodrome",
+      "region": "British Columbia",
+      "country": "Canada",
+      "type": "water_aerodrome",
+      "elevation_ft": 0,
+      "rwy": [
+        {
+          "designator": "Water lane",
+          "length_m": null,
+          "width_m": null,
+          "surface": "water",
+          "pcn": null
+        }
+      ],
+      "notes": "Harbour floatplane operation.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "YPR_WTR",
+      "icao": "CZSW",
+      "iata": "ZSW",
+      "name": "Prince Rupert Seal Cove Water Aerodrome",
+      "region": "British Columbia",
+      "country": "Canada",
+      "type": "water_aerodrome",
+      "elevation_ft": 0,
+      "rwy": [
+        {
+          "designator": "Water lane",
+          "length_m": null,
+          "width_m": null,
+          "surface": "water",
+          "pcn": null
+        }
+      ],
+      "notes": "Coastal water aerodrome; weather and visibility critical.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "YKQ_WTR",
+      "icao": null,
+      "iata": null,
+      "name": "Waskaganish Water Aerodrome",
+      "region": "Quebec",
+      "country": "Canada",
+      "type": "water_aerodrome",
+      "elevation_ft": 0,
+      "rwy": [
+        {
+          "designator": "Water lane",
+          "length_m": null,
+          "width_m": null,
+          "surface": "water",
+          "pcn": null
+        }
+      ],
+      "notes": "Northern Canada water operations training reference.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "YEV",
+      "icao": "CYEV",
+      "iata": "YEV",
+      "name": "Inuvik Mike Zubko Airport",
+      "region": "Northwest Territories",
+      "country": "Canada",
+      "type": "aerodrome",
+      "elevation_ft": 224,
+      "rwy": [
+        {
+          "designator": "06/24",
+          "length_m": 1830,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Northern utility/tundra operations reference.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "YRB",
+      "icao": "CYRB",
+      "iata": "YRB",
+      "name": "Resolute Bay Airport",
+      "region": "Nunavut",
+      "country": "Canada",
+      "type": "aerodrome",
+      "elevation_ft": 215,
+      "rwy": [
+        {
+          "designator": "17/35",
+          "length_m": 1981,
+          "width_m": null,
+          "surface": "gravel/asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "High-Arctic runway; verify surface and seasonal procedures.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "YFB",
+      "icao": "CYFB",
+      "iata": "YFB",
+      "name": "Iqaluit Airport",
+      "region": "Nunavut",
+      "country": "Canada",
+      "type": "aerodrome",
+      "elevation_ft": 110,
+      "rwy": [
+        {
+          "designator": "16/34",
+          "length_m": 2623,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Northern operations support aerodrome.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "YCO",
+      "icao": "CYCO",
+      "iata": "YCO",
+      "name": "Kugluktuk Airport",
+      "region": "Nunavut",
+      "country": "Canada",
+      "type": "aerodrome",
+      "elevation_ft": 74,
+      "rwy": [
+        {
+          "designator": "13/31",
+          "length_m": 1675,
+          "width_m": null,
+          "surface": "gravel",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Remote runway; verify surface status.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "YZF",
+      "icao": "CYZF",
+      "iata": "YZF",
+      "name": "Yellowknife Airport",
+      "region": "Northwest Territories",
+      "country": "Canada",
+      "type": "aerodrome",
+      "elevation_ft": 675,
+      "rwy": [
+        {
+          "designator": "16/34",
+          "length_m": 2286,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Northern base for utility operations.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "KTN_WTR",
+      "icao": "5KE",
+      "iata": "WFB",
+      "name": "Ketchikan Harbor Seaplane Base",
+      "region": "Alaska",
+      "country": "United States",
+      "type": "water_aerodrome",
+      "elevation_ft": 0,
+      "rwy": [
+        {
+          "designator": "Water lane",
+          "length_m": null,
+          "width_m": null,
+          "surface": "water",
+          "pcn": null
+        }
+      ],
+      "notes": "Southeast Alaska harbour water operations; weather/terrain critical.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "JNU_WTR",
+      "icao": "5Z1",
+      "iata": null,
+      "name": "Juneau Harbor Seaplane Base",
+      "region": "Alaska",
+      "country": "United States",
+      "type": "water_aerodrome",
+      "elevation_ft": 0,
+      "rwy": [
+        {
+          "designator": "Water lane",
+          "length_m": null,
+          "width_m": null,
+          "surface": "water",
+          "pcn": null
+        }
+      ],
+      "notes": "Southeast Alaska water operations; verify local procedures.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "SIT",
+      "icao": "PASI",
+      "iata": "SIT",
+      "name": "Sitka Rocky Gutierrez Airport",
+      "region": "Alaska",
+      "country": "United States",
+      "type": "aerodrome",
+      "elevation_ft": 21,
+      "rwy": [
+        {
+          "designator": "11/29",
+          "length_m": 2195,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Coastal Alaska runway; weather and terrain considerations.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "PSG",
+      "icao": "PAPG",
+      "iata": "PSG",
+      "name": "Petersburg James A. Johnson Airport",
+      "region": "Alaska",
+      "country": "United States",
+      "type": "aerodrome",
+      "elevation_ft": 111,
+      "rwy": [
+        {
+          "designator": "05/23",
+          "length_m": 1829,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Southeast Alaska runway; verify current procedures.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "ADQ",
+      "icao": "PADQ",
+      "iata": "ADQ",
+      "name": "Kodiak Airport",
+      "region": "Alaska",
+      "country": "United States",
+      "type": "aerodrome",
+      "elevation_ft": 78,
+      "rwy": [
+        {
+          "designator": "07/25",
+          "length_m": 2294,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Coastal Alaska operations reference.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "BHB",
+      "icao": "KBHB",
+      "iata": "BHB",
+      "name": "Bar Harbor Airport",
+      "region": "Maine",
+      "country": "United States",
+      "type": "aerodrome",
+      "elevation_ft": 83,
+      "rwy": [
+        {
+          "designator": "04/22",
+          "length_m": 1585,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Coastal aerodrome; DHC-6 utility training reference.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "SBH",
+      "icao": "TFFJ",
+      "iata": "SBH",
+      "name": "Gustaf III Airport",
+      "region": "Saint Barthelemy",
+      "country": "Saint Barthelemy",
+      "type": "aerodrome",
+      "elevation_ft": 49,
+      "rwy": [
+        {
+          "designator": "10/28",
+          "length_m": 646,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Very short runway with special procedures; not for generic operations.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "SAB",
+      "icao": "TNCS",
+      "iata": "SAB",
+      "name": "Juancho E. Yrausquin Airport",
+      "region": "Saba",
+      "country": "Caribbean Netherlands",
+      "type": "aerodrome",
+      "elevation_ft": 60,
+      "rwy": [
+        {
+          "designator": "12/30",
+          "length_m": 400,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Extremely short runway; specialized operator procedures only.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "AXA",
+      "icao": "TQPF",
+      "iata": "AXA",
+      "name": "Clayton J. Lloyd International Airport",
+      "region": "Anguilla",
+      "country": "Anguilla",
+      "type": "aerodrome",
+      "elevation_ft": 127,
+      "rwy": [
+        {
+          "designator": "10/28",
+          "length_m": 1665,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Caribbean island runway reference.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "EIS",
+      "icao": "TUPJ",
+      "iata": "EIS",
+      "name": "Terrance B. Lettsome International Airport",
+      "region": "British Virgin Islands",
+      "country": "BVI",
+      "type": "aerodrome",
+      "elevation_ft": 15,
+      "rwy": [
+        {
+          "designator": "07/25",
+          "length_m": 1410,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Island runway reference.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "STT_SPB",
+      "icao": "VI22",
+      "iata": "SPB",
+      "name": "Charlotte Amalie Harbor Seaplane Base",
+      "region": "US Virgin Islands",
+      "country": "United States",
+      "type": "water_aerodrome",
+      "elevation_ft": 0,
+      "rwy": [
+        {
+          "designator": "Water lane",
+          "length_m": null,
+          "width_m": null,
+          "surface": "water",
+          "pcn": null
+        }
+      ],
+      "notes": "Harbour seaplane operation; verify current status.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "STX_SPB",
+      "icao": "VI32",
+      "iata": "SSB",
+      "name": "Christiansted Harbor Seaplane Base",
+      "region": "US Virgin Islands",
+      "country": "United States",
+      "type": "water_aerodrome",
+      "elevation_ft": 0,
+      "rwy": [
+        {
+          "designator": "Water lane",
+          "length_m": null,
+          "width_m": null,
+          "surface": "water",
+          "pcn": null
+        }
+      ],
+      "notes": "Harbour seaplane operation; verify current status.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "NSB",
+      "icao": null,
+      "iata": "NSB",
+      "name": "Bimini North Seaplane Base",
+      "region": "Bahamas",
+      "country": "Bahamas",
+      "type": "water_aerodrome",
+      "elevation_ft": 0,
+      "rwy": [
+        {
+          "designator": "Water lane",
+          "length_m": null,
+          "width_m": null,
+          "surface": "water",
+          "pcn": null
+        }
+      ],
+      "notes": "Bahamas seaplane operations reference; verify current status.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "TYM",
+      "icao": "MYES",
+      "iata": "TYM",
+      "name": "Staniel Cay Airport",
+      "region": "Exuma, Bahamas",
+      "country": "Bahamas",
+      "type": "aerodrome",
+      "elevation_ft": 5,
+      "rwy": [
+        {
+          "designator": "17/35",
+          "length_m": 914,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Short island runway; verify current performance data.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "GGT",
+      "icao": "MYEF",
+      "iata": "GGT",
+      "name": "Exuma International Airport",
+      "region": "Bahamas",
+      "country": "Bahamas",
+      "type": "aerodrome",
+      "elevation_ft": 9,
+      "rwy": [
+        {
+          "designator": "12/30",
+          "length_m": 2134,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Island runway reference.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "LUA",
+      "icao": "VNLK",
+      "iata": "LUA",
+      "name": "Lukla / Tenzing-Hillary Airport",
+      "region": "Solukhumbu",
+      "country": "Nepal",
+      "type": "aerodrome",
+      "elevation_ft": 9383,
+      "rwy": [
+        {
+          "designator": "06/24",
+          "length_m": 527,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Extreme mountain runway; special procedures and operator approval required.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "JMO",
+      "icao": "VNJS",
+      "iata": "JMO",
+      "name": "Jomsom Airport",
+      "region": "Mustang",
+      "country": "Nepal",
+      "type": "aerodrome",
+      "elevation_ft": 8976,
+      "rwy": [
+        {
+          "designator": "06/24",
+          "length_m": 739,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "High-elevation valley runway; wind and density altitude critical.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "IMK",
+      "icao": "VNST",
+      "iata": "IMK",
+      "name": "Simikot Airport",
+      "region": "Humla",
+      "country": "Nepal",
+      "type": "aerodrome",
+      "elevation_ft": 9246,
+      "rwy": [
+        {
+          "designator": "10/28",
+          "length_m": 650,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "High-elevation remote mountain runway.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "DOP",
+      "icao": "VNDP",
+      "iata": "DOP",
+      "name": "Dolpa / Juphal Airport",
+      "region": "Dolpa",
+      "country": "Nepal",
+      "type": "aerodrome",
+      "elevation_ft": 8200,
+      "rwy": [
+        {
+          "designator": "15/33",
+          "length_m": 560,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Remote mountain runway; verify current status.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "RUK",
+      "icao": "VNSL",
+      "iata": "RUK",
+      "name": "Rukum Salle Airport",
+      "region": "Rukum",
+      "country": "Nepal",
+      "type": "aerodrome",
+      "elevation_ft": 5100,
+      "rwy": [
+        {
+          "designator": "04/22",
+          "length_m": 580,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Remote mountain runway reference.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "BJU",
+      "icao": "VNBR",
+      "iata": "BJU",
+      "name": "Bajura Airport",
+      "region": "Bajura",
+      "country": "Nepal",
+      "type": "aerodrome",
+      "elevation_ft": 4300,
+      "rwy": [
+        {
+          "designator": "16/34",
+          "length_m": 520,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Remote mountain runway reference.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "TMI",
+      "icao": "VNTR",
+      "iata": "TMI",
+      "name": "Tumlingtar Airport",
+      "region": "Province 1",
+      "country": "Nepal",
+      "type": "aerodrome",
+      "elevation_ft": 1700,
+      "rwy": [
+        {
+          "designator": "04/22",
+          "length_m": 1220,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Mountain-region domestic runway.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "POM",
+      "icao": "AYPY",
+      "iata": "POM",
+      "name": "Port Moresby Jacksons International",
+      "region": "National Capital District",
+      "country": "Papua New Guinea",
+      "type": "aerodrome",
+      "elevation_ft": 146,
+      "rwy": [
+        {
+          "designator": "14L/32R",
+          "length_m": 2750,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "PNG operations hub.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "HGU",
+      "icao": "AYMH",
+      "iata": "HGU",
+      "name": "Mount Hagen Airport",
+      "region": "Western Highlands",
+      "country": "Papua New Guinea",
+      "type": "aerodrome",
+      "elevation_ft": 5388,
+      "rwy": [
+        {
+          "designator": "08/26",
+          "length_m": 2190,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Highland aerodrome; weather/terrain critical.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "GKA",
+      "icao": "AYGA",
+      "iata": "GKA",
+      "name": "Goroka Airport",
+      "region": "Eastern Highlands",
+      "country": "Papua New Guinea",
+      "type": "aerodrome",
+      "elevation_ft": 5282,
+      "rwy": [
+        {
+          "designator": "17/35",
+          "length_m": 1600,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Highland aerodrome; verify density-altitude margins.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "TIZ",
+      "icao": "AYTA",
+      "iata": "TIZ",
+      "name": "Tari Airport",
+      "region": "Hela Province",
+      "country": "Papua New Guinea",
+      "type": "aerodrome",
+      "elevation_ft": 5500,
+      "rwy": [
+        {
+          "designator": "08/26",
+          "length_m": 1600,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Highland/remote operations reference.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "KRI",
+      "icao": "AYKK",
+      "iata": "KRI",
+      "name": "Kikori Airport",
+      "region": "Gulf Province",
+      "country": "Papua New Guinea",
+      "type": "aerodrome",
+      "elevation_ft": 50,
+      "rwy": [
+        {
+          "designator": "12/30",
+          "length_m": 1200,
+          "width_m": null,
+          "surface": "gravel/asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Remote coastal/river-region runway.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "LSA",
+      "icao": "AYKA",
+      "iata": "LSA",
+      "name": "Losuia Airport",
+      "region": "Milne Bay",
+      "country": "Papua New Guinea",
+      "type": "aerodrome",
+      "elevation_ft": 20,
+      "rwy": [
+        {
+          "designator": "09/27",
+          "length_m": 914,
+          "width_m": null,
+          "surface": "grass/gravel",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Island runway reference; verify surface.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "HIR",
+      "icao": "AGGH",
+      "iata": "HIR",
+      "name": "Honiara International Airport",
+      "region": "Guadalcanal",
+      "country": "Solomon Islands",
+      "type": "aerodrome",
+      "elevation_ft": 28,
+      "rwy": [
+        {
+          "designator": "06/24",
+          "length_m": 2200,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Solomon Islands hub.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "GZO",
+      "icao": "AGGN",
+      "iata": "GZO",
+      "name": "Nusatupe Airport",
+      "region": "Western Province",
+      "country": "Solomon Islands",
+      "type": "aerodrome",
+      "elevation_ft": 13,
+      "rwy": [
+        {
+          "designator": "08/26",
+          "length_m": 1000,
+          "width_m": null,
+          "surface": "coral/asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Island runway; verify surface and current status.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "MUA",
+      "icao": "AGGM",
+      "iata": "MUA",
+      "name": "Munda Airport",
+      "region": "Western Province",
+      "country": "Solomon Islands",
+      "type": "aerodrome",
+      "elevation_ft": 10,
+      "rwy": [
+        {
+          "designator": "07/25",
+          "length_m": 1400,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Island runway reference.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "SON",
+      "icao": "NVSS",
+      "iata": "SON",
+      "name": "Santo-Pekoa International Airport",
+      "region": "Espiritu Santo",
+      "country": "Vanuatu",
+      "type": "aerodrome",
+      "elevation_ft": 184,
+      "rwy": [
+        {
+          "designator": "11/29",
+          "length_m": 1980,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Vanuatu island runway reference.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "VLI",
+      "icao": "NVVV",
+      "iata": "VLI",
+      "name": "Bauerfield International Airport",
+      "region": "Efate",
+      "country": "Vanuatu",
+      "type": "aerodrome",
+      "elevation_ft": 70,
+      "rwy": [
+        {
+          "designator": "11/29",
+          "length_m": 2600,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Vanuatu hub.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "TVU",
+      "icao": "NFNM",
+      "iata": "TVU",
+      "name": "Matei Airport",
+      "region": "Taveuni",
+      "country": "Fiji",
+      "type": "aerodrome",
+      "elevation_ft": 60,
+      "rwy": [
+        {
+          "designator": "02/20",
+          "length_m": 910,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Short island runway; verify performance.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "ICI",
+      "icao": "NFCI",
+      "iata": "ICI",
+      "name": "Cicia Airport",
+      "region": "Lau Group",
+      "country": "Fiji",
+      "type": "aerodrome",
+      "elevation_ft": 13,
+      "rwy": [
+        {
+          "designator": "09/27",
+          "length_m": 914,
+          "width_m": null,
+          "surface": "grass/coral",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Remote island runway; verify current surface.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "SUV",
+      "icao": "NFNA",
+      "iata": "SUV",
+      "name": "Nausori International Airport",
+      "region": "Viti Levu",
+      "country": "Fiji",
+      "type": "aerodrome",
+      "elevation_ft": 17,
+      "rwy": [
+        {
+          "designator": "10/28",
+          "length_m": 1868,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Fiji domestic/international runway reference.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "PRI",
+      "icao": "FSPP",
+      "iata": "PRI",
+      "name": "Praslin Island Airport",
+      "region": "Praslin",
+      "country": "Seychelles",
+      "type": "aerodrome",
+      "elevation_ft": 10,
+      "rwy": [
+        {
+          "designator": "15/33",
+          "length_m": 1400,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Island runway reference.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "SEZ",
+      "icao": "FSIA",
+      "iata": "SEZ",
+      "name": "Seychelles International Airport",
+      "region": "Mahe",
+      "country": "Seychelles",
+      "type": "aerodrome",
+      "elevation_ft": 10,
+      "rwy": [
+        {
+          "designator": "13/31",
+          "length_m": 2987,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Seychelles hub.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "TNR",
+      "icao": "FMMI",
+      "iata": "TNR",
+      "name": "Ivato International Airport",
+      "region": "Antananarivo",
+      "country": "Madagascar",
+      "type": "aerodrome",
+      "elevation_ft": 4198,
+      "rwy": [
+        {
+          "designator": "11/29",
+          "length_m": 3100,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Regional hub reference.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "MOQ",
+      "icao": "FMMV",
+      "iata": "MOQ",
+      "name": "Morondava Airport",
+      "region": "Menabe",
+      "country": "Madagascar",
+      "type": "aerodrome",
+      "elevation_ft": 30,
+      "rwy": [
+        {
+          "designator": "04/22",
+          "length_m": 1500,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Coastal runway reference.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    },
+    {
+      "id": "FTU",
+      "icao": "FMSD",
+      "iata": "FTU",
+      "name": "Tolagnaro Airport",
+      "region": "Anosy",
+      "country": "Madagascar",
+      "type": "aerodrome",
+      "elevation_ft": 29,
+      "rwy": [
+        {
+          "designator": "08/26",
+          "length_m": 1500,
+          "width_m": null,
+          "surface": "asphalt",
+          "pcn": "Verify AIP"
+        }
+      ],
+      "notes": "Coastal runway reference.",
+      "fuel": "Verify locally",
+      "customs": false,
+      "ils": false
+    }
+  ],
+  "operating_notes": [
+    "Aerodromes and waterways are grouped for LPC/OPC study and route-familiarisation only.",
+    "Always verify runway/waterway status, surface, available length, fuel, customs, lighting, rescue/fire category, and local procedures against current official sources.",
+    "For water operations, add appropriate margins for wind, swell, tide/current, glassy water, confined areas, traffic and obstacles.",
+    "Short strips and confined waterways require aircraft-specific performance calculation using the approved AFM/POH, applicable supplements, current mass, configuration and conditions.",
+    "The DHC-6 can be operated in landplane, floatplane and ski configurations, but only when the aircraft, crew and operation are approved for that configuration."
+  ]
+}

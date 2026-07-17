@@ -1,0 +1,168 @@
+{
+  "rawName": "Cockpit or Cabin Smoke",
+  "drillName": "Cockpit or Cabin Smoke [Ground/Airborne]",
+  "category": "EMERGENCY",
+  "context": "Ground/Airborne",
+  "variants": {
+    "LEGACY": {
+      "memory": [
+        {
+          "stepNumber": 1,
+          "action": "Cockpit or Cabin Smoke.",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "reference": "POH / AFM Section 3.4.3 Cockpit or Cabin Smoke Page 3-19"
+        },
+        {
+          "stepNumber": 2,
+          "action": "IF SOURCE IS KNOWN: EXTINGUISH WITH PORTABLE FIRE EXTINGUISHER",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "reference": "POH / AFM Section 3.4.3 Cockpit or Cabin Smoke Page 3-19"
+        },
+        {
+          "stepNumber": 3,
+          "action": "IF SOURCE IS UNKNOWN: LEFT BLEED SWITCH — OFF",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "reference": "POH / AFM Section 3.4.3 Cockpit or Cabin Smoke Page 3-19"
+        }
+      ],
+      "flow": [
+        {
+          "stepNumber": 1,
+          "action": "Cockpit or Cabin Smoke.",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.4.3; PM_CALLOUT"
+        },
+        {
+          "stepNumber": 2,
+          "action": "I have control, maintain safe flight path.",
+          "crewRole": "PF",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.4.3; PF_COMMAND"
+        },
+        {
+          "stepNumber": 3,
+          "action": "Oxygen / smoke protection as required.",
+          "crewRole": "PF",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.4.3; PF_COMMAND"
+        },
+        {
+          "stepNumber": 4,
+          "action": "Identify source if possible and monitor passengers/cabin.",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.4.3; PM_ACTION"
+        },
+        {
+          "stepNumber": 5,
+          "action": "Cockpit or Cabin Smoke checklist.",
+          "crewRole": "PF",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.4.3; PF_COMMAND"
+        },
+        {
+          "stepNumber": 6,
+          "action": "Cockpit or Cabin Smoke checklist complete.",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.4.3; PM_COMPLETION"
+        }
+      ]
+    },
+    "G950": {
+      "memory": [
+        {
+          "stepNumber": 1,
+          "action": "Cockpit or Cabin Smoke.",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "reference": "POH / AFM Section 3.4.3 Cockpit or Cabin Smoke Page 3-19"
+        },
+        {
+          "stepNumber": 2,
+          "action": "IF SOURCE IS KNOWN: EXTINGUISH WITH PORTABLE FIRE EXTINGUISHER",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "reference": "POH / AFM Section 3.4.3 Cockpit or Cabin Smoke Page 3-19"
+        },
+        {
+          "stepNumber": 3,
+          "action": "IF SOURCE IS UNKNOWN: LEFT BLEED SWITCH — OFF",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "reference": "POH / AFM Section 3.4.3 Cockpit or Cabin Smoke Page 3-19"
+        }
+      ],
+      "flow": [
+        {
+          "stepNumber": 1,
+          "action": "Cockpit or Cabin Smoke.",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.4.3; PM_CALLOUT"
+        },
+        {
+          "stepNumber": 2,
+          "action": "I have control, maintain safe flight path.",
+          "crewRole": "PF",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.4.3; PF_COMMAND"
+        },
+        {
+          "stepNumber": 3,
+          "action": "Oxygen / smoke protection as required.",
+          "crewRole": "PF",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.4.3; PF_COMMAND"
+        },
+        {
+          "stepNumber": 4,
+          "action": "Identify source if possible and monitor passengers/cabin.",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.4.3; PM_ACTION"
+        },
+        {
+          "stepNumber": 5,
+          "action": "Cockpit or Cabin Smoke checklist.",
+          "crewRole": "PF",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.4.3; PF_COMMAND"
+        },
+        {
+          "stepNumber": 6,
+          "action": "Cockpit or Cabin Smoke checklist complete.",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.4.3; PM_COMPLETION"
+        }
+      ]
+    }
+  },
+  "sourceNote": "Procedure identity/category/order normalized from 'DHC-6 Full Drill Procedure Index Normal Split.xlsx'. Excel is the governing app display allow-list. Existing procedure steps preserved for later content review. Previous note: Generic MCC callout shell generated from procedure titles only. This is not an approved AFM/POH/QRH/checklist replacement. Curated to the DHC-6 Trainer Abnormal/Emergency procedure allow-list.",
+  "phaseTag": "Ground/Airborne",
+  "displayLabel": "Cockpit or Cabin Smoke [Ground/Airborne]",
+  "sortOrder": 51,
+  "sourceSection": "3.4.3",
+  "procedureGroup": "Smoke and Fire",
+  "manualSection": "Section 3",
+  "sequenceBasis": "User-approved working order",
+  "normalSplit": null
+}
+

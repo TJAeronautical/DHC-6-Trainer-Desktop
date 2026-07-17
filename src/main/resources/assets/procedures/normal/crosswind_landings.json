@@ -1,0 +1,145 @@
+{
+    "rawName":  "Crosswind Landings",
+    "drillName":  "Crosswind Landings [Airborne]",
+    "category":  "NORMAL",
+    "context":  "Airborne",
+    "sourceNote":  "Procedure identity/category/order normalized from \u0027DHC-6 Full Drill Procedure Index Normal Split.xlsx\u0027. Excel is the governing app display allow-list. Existing procedure steps preserved for later content review. Previous note: Generic training callout structure based on user-provided Section 4 normal-procedure titles and generated PF/PM MCC callouts. Not an approved AFM/POH/checklist replacement.",
+    "variants":  {
+                     "LEGACY":  {
+                                    "memory":  [
+
+                                               ],
+                                    "flow":  [
+                                                 {
+                                                     "stepNumber":  1,
+                                                     "action":  "Crosswind landing.",
+                                                     "crewRole":  "PF",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.16.1; PF_CALL"
+                                                 },
+                                                 {
+                                                     "stepNumber":  2,
+                                                     "action":  "Wind from ___.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.16.1; PM_MONITOR"
+                                                 },
+                                                 {
+                                                     "stepNumber":  3,
+                                                     "action":  "Checked.",
+                                                     "crewRole":  "PF",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.16.1; PF_RESPONSE"
+                                                 },
+                                                 {
+                                                     "stepNumber":  4,
+                                                     "action":  "Stable.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.16.1; PM_MONITOR"
+                                                 },
+                                                 {
+                                                     "stepNumber":  5,
+                                                     "action":  "Centreline.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.16.1; PM_MONITOR"
+                                                 },
+                                                 {
+                                                     "stepNumber":  6,
+                                                     "action":  "Speed.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.16.1; PM_MONITOR"
+                                                 },
+                                                 {
+                                                     "stepNumber":  7,
+                                                     "action":  "Go around if required.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.16.1; PM_CALLOUT"
+                                                 }
+                                             ]
+                                },
+                     "G950":  {
+                                  "memory":  [
+
+                                             ],
+                                  "flow":  [
+                                               {
+                                                   "stepNumber":  1,
+                                                   "action":  "Crosswind landing.",
+                                                   "crewRole":  "PF",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.16.1; PF_CALL"
+                                               },
+                                               {
+                                                   "stepNumber":  2,
+                                                   "action":  "Wind from ___.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.16.1; PM_MONITOR"
+                                               },
+                                               {
+                                                   "stepNumber":  3,
+                                                   "action":  "Checked.",
+                                                   "crewRole":  "PF",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.16.1; PF_RESPONSE"
+                                               },
+                                               {
+                                                   "stepNumber":  4,
+                                                   "action":  "Stable.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.16.1; PM_MONITOR"
+                                               },
+                                               {
+                                                   "stepNumber":  5,
+                                                   "action":  "Centreline.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.16.1; PM_MONITOR"
+                                               },
+                                               {
+                                                   "stepNumber":  6,
+                                                   "action":  "Speed.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.16.1; PM_MONITOR"
+                                               },
+                                               {
+                                                   "stepNumber":  7,
+                                                   "action":  "Go around if required.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.16.1; PM_CALLOUT"
+                                               }
+                                           ]
+                              },
+                     "manualSection":  "Section 4",
+                     "sourceSection":  "4.16.1"
+                 },
+    "phaseTag":  "Airborne",
+    "displayLabel":  "Crosswind Landings [Airborne]",
+    "sortOrder":  41,
+    "sourceSection":  "4.16.1",
+    "procedureGroup":  "Landing",
+    "manualSection":  "Section 4",
+    "sequenceBasis":  "Normal-procedure flow order",
+    "normalSplit":  "Weather / Special Conditions"
+}

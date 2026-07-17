@@ -1,0 +1,38 @@
+{
+  "model": "hydraulic_pack_training.glb",
+  "space": "bbox_fraction",
+  "matchOrder": "first",
+  "note": "Systems Lab V2 binding map. The uploaded hydraulic pack GLB contains the pump/reservoir/accumulator assembly; downstream users are teaching zones so the app can still highlight flaps, brakes and steering from the same hydraulic system card.",
+  "regions": [
+    {
+      "id": "pump",
+      "min": [0.10, 0.18, 0.40],
+      "max": [0.52, 0.95, 0.95],
+      "anchor": [0.28, 0.55, 0.68]
+    },
+    {
+      "id": "accumulator",
+      "min": [0.52, 0.15, 0.28],
+      "max": [1.00, 0.88, 1.00],
+      "anchor": [0.80, 0.52, 0.62]
+    },
+    {
+      "id": "flaps",
+      "min": [0.10, 0.00, 0.00],
+      "max": [0.60, 0.45, 0.42],
+      "anchor": [0.35, 0.24, 0.20]
+    },
+    {
+      "id": "brakes",
+      "min": [0.60, 0.00, 0.00],
+      "max": [1.00, 0.42, 0.45],
+      "anchor": [0.82, 0.22, 0.22]
+    },
+    {
+      "id": "steering",
+      "min": [0.00, 0.42, 0.00],
+      "max": [0.32, 1.00, 0.40],
+      "anchor": [0.15, 0.70, 0.20]
+    }
+  ]
+}

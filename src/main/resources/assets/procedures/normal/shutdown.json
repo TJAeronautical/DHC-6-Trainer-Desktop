@@ -1,0 +1,457 @@
+{
+    "rawName":  "Shutdown",
+    "drillName":  "Shutdown [Ground]",
+    "category":  "NORMAL",
+    "context":  "Ground",
+    "variants":  {
+                     "LEGACY":  {
+                                    "memory":  [
+                                                   {
+                                                       "stepNumber":  1,
+                                                       "action":  "SHUTDOWN CHECKLIST",
+                                                       "crewRole":  "PF",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "TJ Aeronautical Generic Checklist DHC-6 300 (LEGACY/G950)"
+                                                   },
+                                                   {
+                                                       "stepNumber":  2,
+                                                       "action":  "PARKING BRAKE - APPLY",
+                                                       "crewRole":  "PF",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "TJ Aeronautical Generic Checklist DHC-6 300 (LEGACY/G950)"
+                                                   },
+                                                   {
+                                                       "stepNumber":  3,
+                                                       "action":  "POWER LEVERS - IDLE",
+                                                       "crewRole":  "PF",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "TJ Aeronautical Generic Checklist DHC-6 300 (LEGACY/G950)"
+                                                   },
+                                                   {
+                                                       "stepNumber":  4,
+                                                       "action":  "PROP LEVERS - FEATHER (IF LATCHES NOT ENGAGED)",
+                                                       "crewRole":  "PF",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "TJ Aeronautical Generic Checklist DHC-6 300 (LEGACY/G950)"
+                                                   },
+                                                   {
+                                                       "stepNumber":  5,
+                                                       "action":  "BLEED AIR SW - OFF",
+                                                       "crewRole":  "PF",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "TJ Aeronautical Generic Checklist DHC-6 300 (LEGACY/G950)"
+                                                   },
+                                                   {
+                                                       "stepNumber":  6,
+                                                       "action":  "RADIO/ELECTRICAL EQUIPMENT - OFF",
+                                                       "crewRole":  "PF",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "TJ Aeronautical Generic Checklist DHC-6 300 (LEGACY/G950)"
+                                                   },
+                                                   {
+                                                       "stepNumber":  7,
+                                                       "action":  "T5 TEMP - STABLE BELOW 660°",
+                                                       "crewRole":  "PF",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "TJ Aeronautical Generic Checklist DHC-6 300 (LEGACY/G950)"
+                                                   },
+                                                   {
+                                                       "stepNumber":  8,
+                                                       "action":  "GENERATORS - OFF",
+                                                       "crewRole":  "PF",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "TJ Aeronautical Generic Checklist DHC-6 300 (LEGACY/G950)"
+                                                   },
+                                                   {
+                                                       "stepNumber":  9,
+                                                       "action":  "FUEL LEVERS - OFF",
+                                                       "crewRole":  "PF",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "TJ Aeronautical Generic Checklist DHC-6 300 (LEGACY/G950)"
+                                                   },
+                                                   {
+                                                       "stepNumber":  10,
+                                                       "action":  "BEACON/ANTI-COLL - OFF",
+                                                       "crewRole":  "PF",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "TJ Aeronautical Generic Checklist DHC-6 300 (LEGACY/G950)"
+                                                   },
+                                                   {
+                                                       "stepNumber":  11,
+                                                       "action":  "NO SMOKING/FASTEN SEAT BELT - OFF",
+                                                       "crewRole":  "PF",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "TJ Aeronautical Generic Checklist DHC-6 300 (LEGACY/G950)"
+                                                   },
+                                                   {
+                                                       "stepNumber":  12,
+                                                       "action":  "BOOST PUMPS - OFF",
+                                                       "crewRole":  "PF",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "TJ Aeronautical Generic Checklist DHC-6 300 (LEGACY/G950)"
+                                                   },
+                                                   {
+                                                       "stepNumber":  13,
+                                                       "action":  "EMERGENCY LIGHTS - DISARM/TEST",
+                                                       "crewRole":  "PF",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "TJ Aeronautical Generic Checklist DHC-6 300 (LEGACY/G950)"
+                                                   },
+                                                   {
+                                                       "stepNumber":  14,
+                                                       "action":  "DC MASTER - OFF",
+                                                       "crewRole":  "PF",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "TJ Aeronautical Generic Checklist DHC-6 300 (LEGACY/G950)"
+                                                   },
+                                                   {
+                                                       "stepNumber":  15,
+                                                       "action":  "EXTERNAL/BATTERY SW - OFF",
+                                                       "crewRole":  "PF",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "TJ Aeronautical Generic Checklist DHC-6 300 (LEGACY/G950)"
+                                                   },
+                                                   {
+                                                       "stepNumber":  16,
+                                                       "action":  "CONTROL LOCKS - INSTALLED",
+                                                       "crewRole":  "PF",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "TJ Aeronautical Generic Checklist DHC-6 300 (LEGACY/G950)"
+                                                   },
+                                                   {
+                                                       "stepNumber":  17,
+                                                       "action":  "PROP RESTRAINING STRAPS - INSTALLED",
+                                                       "crewRole":  "PF",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "TJ Aeronautical Generic Checklist DHC-6 300 (LEGACY/G950)"
+                                                   },
+                                                   {
+                                                       "stepNumber":  18,
+                                                       "action":  "CHOCKS/COVERS/TIE-DOWN - AS REQUIRED",
+                                                       "crewRole":  "PF",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "TJ Aeronautical Generic Checklist DHC-6 300 (LEGACY/G950)"
+                                                   },
+                                                   {
+                                                       "stepNumber":  19,
+                                                       "action":  "CHECKLIST COMPLETE",
+                                                       "crewRole":  "PF",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "TJ Aeronautical Generic Checklist DHC-6 300 (LEGACY/G950)"
+                                                   }
+                                               ],
+                                    "flow":  [
+                                                 {
+                                                     "stepNumber":  1,
+                                                     "action":  "Shutdown checklist.",
+                                                     "crewRole":  "PF",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.19; PF_CALL"
+                                                 },
+                                                 {
+                                                     "stepNumber":  2,
+                                                     "action":  "Parking brake set.",
+                                                     "crewRole":  "PF",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.19; PF_CALL"
+                                                 },
+                                                 {
+                                                     "stepNumber":  3,
+                                                     "action":  "Chocks confirmed / not confirmed.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.19; PM_RESPONSE"
+                                                 },
+                                                 {
+                                                     "stepNumber":  4,
+                                                     "action":  "Condition levers fuel off.",
+                                                     "crewRole":  "PF",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.19; PF_CALL"
+                                                 },
+                                                 {
+                                                     "stepNumber":  5,
+                                                     "action":  "Engines shutting down.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.19; PM_MONITOR"
+                                                 },
+                                                 {
+                                                     "stepNumber":  6,
+                                                     "action":  "Generators off.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.19; PM_MONITOR"
+                                                 },
+                                                 {
+                                                     "stepNumber":  7,
+                                                     "action":  "Fuel off.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.19; PM_MONITOR"
+                                                 },
+                                                 {
+                                                     "stepNumber":  8,
+                                                     "action":  "Beacon off after propellers stopped.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.19; PM_MONITOR"
+                                                 },
+                                                 {
+                                                     "stepNumber":  9,
+                                                     "action":  "Battery off.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.19; PM_MONITOR"
+                                                 },
+                                                 {
+                                                     "stepNumber":  10,
+                                                     "action":  "Shutdown checklist complete.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.19; PM_COMPLETION"
+                                                 }
+                                             ]
+                                },
+                     "G950":  {
+                                  "memory":  [
+                                                 {
+                                                     "stepNumber":  1,
+                                                     "action":  "SHUTDOWN CHECKLIST",
+                                                     "crewRole":  "PF",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "TJ Aeronautical Generic Checklist DHC-6 300 (LEGACY/G950)"
+                                                 },
+                                                 {
+                                                     "stepNumber":  2,
+                                                     "action":  "PARKING BRAKE - APPLY",
+                                                     "crewRole":  "PF",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "TJ Aeronautical Generic Checklist DHC-6 300 (LEGACY/G950)"
+                                                 },
+                                                 {
+                                                     "stepNumber":  3,
+                                                     "action":  "POWER LEVERS - IDLE",
+                                                     "crewRole":  "PF",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "TJ Aeronautical Generic Checklist DHC-6 300 (LEGACY/G950)"
+                                                 },
+                                                 {
+                                                     "stepNumber":  4,
+                                                     "action":  "PROP LEVERS - FEATHER (IF LATCHES NOT ENGAGED)",
+                                                     "crewRole":  "PF",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "TJ Aeronautical Generic Checklist DHC-6 300 (LEGACY/G950)"
+                                                 },
+                                                 {
+                                                     "stepNumber":  5,
+                                                     "action":  "BLEED AIR SW - OFF",
+                                                     "crewRole":  "PF",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "TJ Aeronautical Generic Checklist DHC-6 300 (LEGACY/G950)"
+                                                 },
+                                                 {
+                                                     "stepNumber":  6,
+                                                     "action":  "RADIO/ELECTRICAL EQUIPMENT - OFF",
+                                                     "crewRole":  "PF",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "TJ Aeronautical Generic Checklist DHC-6 300 (LEGACY/G950)"
+                                                 },
+                                                 {
+                                                     "stepNumber":  7,
+                                                     "action":  "T5 TEMP - STABLE BELOW 660°",
+                                                     "crewRole":  "PF",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "TJ Aeronautical Generic Checklist DHC-6 300 (LEGACY/G950)"
+                                                 },
+                                                 {
+                                                     "stepNumber":  8,
+                                                     "action":  "GENERATORS - OFF",
+                                                     "crewRole":  "PF",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "TJ Aeronautical Generic Checklist DHC-6 300 (LEGACY/G950)"
+                                                 },
+                                                 {
+                                                     "stepNumber":  9,
+                                                     "action":  "FUEL LEVERS - OFF",
+                                                     "crewRole":  "PF",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "TJ Aeronautical Generic Checklist DHC-6 300 (LEGACY/G950)"
+                                                 },
+                                                 {
+                                                     "stepNumber":  10,
+                                                     "action":  "BEACON/ANTI-COLL - OFF",
+                                                     "crewRole":  "PF",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "TJ Aeronautical Generic Checklist DHC-6 300 (LEGACY/G950)"
+                                                 },
+                                                 {
+                                                     "stepNumber":  11,
+                                                     "action":  "NO SMOKING/FASTEN SEAT BELT - OFF",
+                                                     "crewRole":  "PF",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "TJ Aeronautical Generic Checklist DHC-6 300 (LEGACY/G950)"
+                                                 },
+                                                 {
+                                                     "stepNumber":  12,
+                                                     "action":  "BOOST PUMPS - OFF",
+                                                     "crewRole":  "PF",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "TJ Aeronautical Generic Checklist DHC-6 300 (LEGACY/G950)"
+                                                 },
+                                                 {
+                                                     "stepNumber":  13,
+                                                     "action":  "EMERGENCY LIGHTS - DISARM/TEST",
+                                                     "crewRole":  "PF",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "TJ Aeronautical Generic Checklist DHC-6 300 (LEGACY/G950)"
+                                                 },
+                                                 {
+                                                     "stepNumber":  14,
+                                                     "action":  "DC MASTER - OFF",
+                                                     "crewRole":  "PF",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "TJ Aeronautical Generic Checklist DHC-6 300 (LEGACY/G950)"
+                                                 },
+                                                 {
+                                                     "stepNumber":  15,
+                                                     "action":  "EXTERNAL/BATTERY SW - OFF",
+                                                     "crewRole":  "PF",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "TJ Aeronautical Generic Checklist DHC-6 300 (LEGACY/G950)"
+                                                 },
+                                                 {
+                                                     "stepNumber":  16,
+                                                     "action":  "CONTROL LOCKS - INSTALLED",
+                                                     "crewRole":  "PF",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "TJ Aeronautical Generic Checklist DHC-6 300 (LEGACY/G950)"
+                                                 },
+                                                 {
+                                                     "stepNumber":  17,
+                                                     "action":  "PROP RESTRAINING STRAPS - INSTALLED",
+                                                     "crewRole":  "PF",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "TJ Aeronautical Generic Checklist DHC-6 300 (LEGACY/G950)"
+                                                 },
+                                                 {
+                                                     "stepNumber":  18,
+                                                     "action":  "CHOCKS/COVERS/TIE-DOWN - AS REQUIRED",
+                                                     "crewRole":  "PF",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "TJ Aeronautical Generic Checklist DHC-6 300 (LEGACY/G950)"
+                                                 },
+                                                 {
+                                                     "stepNumber":  19,
+                                                     "action":  "CHECKLIST COMPLETE",
+                                                     "crewRole":  "PF",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "TJ Aeronautical Generic Checklist DHC-6 300 (LEGACY/G950)"
+                                                 }
+                                             ],
+                                  "flow":  [
+                                               {
+                                                   "stepNumber":  1,
+                                                   "action":  "Shutdown checklist.",
+                                                   "crewRole":  "PF",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.19; PF_CALL"
+                                               },
+                                               {
+                                                   "stepNumber":  2,
+                                                   "action":  "Parking brake set.",
+                                                   "crewRole":  "PF",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.19; PF_CALL"
+                                               },
+                                               {
+                                                   "stepNumber":  3,
+                                                   "action":  "Chocks confirmed / not confirmed.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.19; PM_RESPONSE"
+                                               },
+                                               {
+                                                   "stepNumber":  4,
+                                                   "action":  "Condition levers fuel off.",
+                                                   "crewRole":  "PF",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.19; PF_CALL"
+                                               },
+                                               {
+                                                   "stepNumber":  5,
+                                                   "action":  "Engines shutting down.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.19; PM_MONITOR"
+                                               },
+                                               {
+                                                   "stepNumber":  6,
+                                                   "action":  "Generators off.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.19; PM_MONITOR"
+                                               },
+                                               {
+                                                   "stepNumber":  7,
+                                                   "action":  "Fuel off.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.19; PM_MONITOR"
+                                               },
+                                               {
+                                                   "stepNumber":  8,
+                                                   "action":  "Beacon off after propellers stopped.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.19; PM_MONITOR"
+                                               },
+                                               {
+                                                   "stepNumber":  9,
+                                                   "action":  "Battery off.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.19; PM_MONITOR"
+                                               },
+                                               {
+                                                   "stepNumber":  10,
+                                                   "action":  "Shutdown checklist complete.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.19; PM_COMPLETION"
+                                               }
+                                           ]
+                              },
+                     "manualSection":  "Section 4",
+                     "sourceSection":  "4.19"
+                 },
+    "sourceNote":  "Procedure identity/category/order normalized from \u0027DHC-6 Full Drill Procedure Index Normal Split.xlsx\u0027. Excel is the governing app display allow-list. Existing procedure steps preserved for later content review. Previous note: Generic training callout structure based on user-provided Section 4 normal-procedure titles and generated PF/PM MCC callouts. Not an approved AFM/POH/checklist replacement.",
+    "phaseTag":  "Ground",
+    "displayLabel":  "Shutdown [Ground]",
+    "sortOrder":  20,
+    "sourceSection":  "4.19",
+    "procedureGroup":  "Shutdown",
+    "manualSection":  "Section 4",
+    "sequenceBasis":  "Normal-procedure flow order",
+    "normalSplit":  "Everyday Actions"
+}

@@ -1,0 +1,181 @@
+{
+  "schemaId": "flashcard_deck",
+  "schemaVersion": "1.0.0",
+  "deckId": "fuel_system_core",
+  "deckName": "Fuel System — Core",
+  "description": "Bundled fuel system cards covering tank cells, boost pumps, vents, low fuel indications, wing tanks, and crossfeed cues.",
+  "systemId": "fuel",
+  "variant": "BOTH",
+  "difficulty": "INTERMEDIATE",
+  "cards": [
+    {
+      "id": "tank_group_cells",
+      "front": "How many cells are in the DHC-6 main fuel tank group?",
+      "back": "There are eight fuel cells in the main tank group, arranged as four cells in each tank group.",
+      "tags": [
+        "fuel",
+        "cells"
+      ],
+      "references": [
+        {
+          "source": "DHC6_FLASHCARDS_FILE",
+          "locator": "Q121, Q134"
+        }
+      ]
+    },
+    {
+      "id": "collector_cells",
+      "front": "Which fuel cells are the collector cells?",
+      "back": "Cells 4 and 5 are the collector cells.",
+      "tags": [
+        "fuel",
+        "collector-cells"
+      ],
+      "references": [
+        {
+          "source": "DHC6_FLASHCARDS_FILE",
+          "locator": "Q135"
+        }
+      ]
+    },
+    {
+      "id": "boost_pumps_per_tank",
+      "front": "How many boost pumps are installed in each fuel tank group?",
+      "back": "Two boost pumps are located in each fuel tank group.",
+      "tags": [
+        "fuel",
+        "boost-pumps"
+      ],
+      "references": [
+        {
+          "source": "DHC6_FLASHCARDS_FILE",
+          "locator": "Q122"
+        }
+      ]
+    },
+    {
+      "id": "main_boost_pressure",
+      "front": "What is normal pressure from the main tank boost pumps?",
+      "back": "Approximately 22 PSI.",
+      "tags": [
+        "fuel",
+        "boost-pumps",
+        "pressure"
+      ],
+      "references": [
+        {
+          "source": "DHC6_FLASHCARDS_FILE",
+          "locator": "Q123"
+        }
+      ]
+    },
+    {
+      "id": "boost_fail_light_pressure",
+      "front": "At what pressure may a boost pump fail light illuminate?",
+      "back": "At pressures below approximately 2 to 3 PSI.",
+      "tags": [
+        "fuel",
+        "cas",
+        "pressure"
+      ],
+      "references": [
+        {
+          "source": "DHC6_FLASHCARDS_FILE",
+          "locator": "Q124"
+        }
+      ]
+    },
+    {
+      "id": "boost_pump_cooling",
+      "front": "How are fuel boost pumps cooled and lubricated?",
+      "back": "They are cooled and lubricated by fuel only.",
+      "tags": [
+        "fuel",
+        "boost-pumps"
+      ],
+      "references": [
+        {
+          "source": "DHC6_FLASHCARDS_FILE",
+          "locator": "Q126"
+        }
+      ]
+    },
+    {
+      "id": "failed_boost_pump_cb",
+      "front": "Why does the failed boost pump checklist require pulling the circuit breaker?",
+      "back": "A seized pump may overheat if left powered, creating a theoretical fuel tank fire risk.",
+      "tags": [
+        "fuel",
+        "failure",
+        "circuit-breaker"
+      ],
+      "references": [
+        {
+          "source": "DHC6_FLASHCARDS_FILE",
+          "locator": "Q127"
+        }
+      ]
+    },
+    {
+      "id": "wing_tank_pressure",
+      "front": "What is the normal pressure for optional wing tank boost pumps and why is it higher?",
+      "back": "Wing tank pumps normally provide about 23 to 24 PSI so fuel is preferentially used from the wing tanks when selected.",
+      "tags": [
+        "fuel",
+        "wing-tanks"
+      ],
+      "references": [
+        {
+          "source": "DHC6_FLASHCARDS_FILE",
+          "locator": "Q128-Q129"
+        }
+      ]
+    },
+    {
+      "id": "low_fuel_quantities",
+      "front": "What fuel quantity does a normal low fuel light indicate?",
+      "back": "Approximately 75 lb remaining in the forward tank and/or 110 lb remaining in the aft tank.",
+      "tags": [
+        "fuel",
+        "low-fuel"
+      ],
+      "references": [
+        {
+          "source": "DHC6_FLASHCARDS_FILE",
+          "locator": "Q147"
+        }
+      ]
+    },
+    {
+      "id": "fuel_vent_blockage",
+      "front": "What can happen if a fuel vent becomes plugged or iced over?",
+      "back": "A blocked vent can lead to a collapsed fuel cell.",
+      "tags": [
+        "fuel",
+        "vents",
+        "failure"
+      ],
+      "references": [
+        {
+          "source": "DHC6_FLASHCARDS_FILE",
+          "locator": "Q144-Q146"
+        }
+      ]
+    },
+    {
+      "id": "crossfeed_failed_open",
+      "front": "What may be indicated if one tank level drops much faster than the other after refuelling?",
+      "back": "The crossfeed valve may have failed in the open position; fuel balance should be managed using crossfeed selections as appropriate.",
+      "tags": [
+        "fuel",
+        "crossfeed"
+      ],
+      "references": [
+        {
+          "source": "DHC6_FLASHCARDS_FILE",
+          "locator": "Q150-Q151"
+        }
+      ]
+    }
+  ]
+}

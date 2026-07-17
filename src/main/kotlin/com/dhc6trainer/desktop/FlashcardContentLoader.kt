@@ -56,7 +56,7 @@ internal object DesktopFlashcardContentLoader {
         }.sortedWith(compareBy<FlashcardDeckSummary> { it.systemId.lowercase() }.thenBy { it.deckName.lowercase() })
 
         if (loaded.isEmpty()) {
-            notes += "No flashcards loaded. Confirm core-res/src/main/assets/flashcards exists before running processResources."
+            notes += "No flashcards loaded. Confirm src/main/resources/assets/flashcards exists before running processResources."
         }
 
         return FlashcardLibrarySnapshot(loaded, notes)
@@ -81,6 +81,7 @@ internal object DesktopFlashcardContentLoader {
     private fun loadFromFileSystem(notes: MutableList<String>): List<FlashcardDeckSummary> {
         val userDir = File(System.getProperty("user.dir")).canonicalFile
         val candidates = listOf(
+            File(userDir, "src/main/resources/assets/flashcards"),
             File(userDir, "core-res/src/main/assets/flashcards"),
             File(userDir.parentFile ?: userDir, "core-res/src/main/assets/flashcards"),
             File(userDir, "../core-res/src/main/assets/flashcards"),

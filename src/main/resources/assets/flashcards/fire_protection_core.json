@@ -1,0 +1,149 @@
+{
+  "schemaId": "flashcard_deck",
+  "schemaVersion": "1.0.0",
+  "deckId": "fire_protection_core",
+  "deckName": "Fire Protection System",
+  "description": "DHC-6 engine fire detection and extinguishing system: detector circuits, bottle discharge, indicating discs, and the full fire-in-flight shutdown sequence.",
+  "systemId": "fire_protection",
+  "variant": "BOTH",
+  "difficulty": "INTERMEDIATE",
+  "cards": [
+    {
+      "id": "detection_system_overview",
+      "front": "How many thermal detectors does each engine have and from which bus are they powered?",
+      "back": "Four thermal fire sensors on each engine. Both the left AND right detection systems are powered from the LEFT DC BUS. The detection system operates automatically whenever the left DC bus is energised. The system will not work if the DC MASTER is OFF or if left DC bus power is unavailable.",
+      "tags": ["detection", "electrical"],
+      "references": [
+        {"source": "FCTM", "locator": "6.4.8.2, p.6-46"}
+      ]
+    },
+    {
+      "id": "detector_dual_loop",
+      "front": "Why does each engine fire detection circuit have two electrical loops?",
+      "back": "One loop is normally powered; the other is not. If a ground fault occurs on the powered loop, the magnetic circuit breaker disconnects power from that loop while simultaneously establishing an alternative power supply to the ground loop, which then becomes the operative circuit. This design provides continued fire detection capability after an electrical ground fault — the fire warning will still function.",
+      "tags": ["detection", "design", "electrical"],
+      "references": [
+        {"source": "FCTM", "locator": "6.4.8.3, p.6-47"}
+      ]
+    },
+    {
+      "id": "fire_detection_circuit_breakers",
+      "front": "Name the four circuit breakers that protect the fire detection system.",
+      "back": "FIRE DET L and FIRE DET R (normal circuit breakers — one each engine). FIRE DET FAULT IND L and FIRE DET FAULT IND R (magnetic switch type circuit breakers). Power flows through BOTH CBs for each engine's detection circuit. The FIRE EXT L and FIRE EXT R CBs protect the extinguishing discharge circuit (separate from detection).",
+      "tags": ["detection", "circuit_breakers"],
+      "references": [
+        {"source": "FCTM", "locator": "6.4.8.3, p.6-47"}
+      ]
+    },
+    {
+      "id": "fire_bottle_agent",
+      "front": "What extinguishing agent is used, where is the fire bottle located, and where is the agent discharged?",
+      "back": "Freon 13B1 or Halon 1211 stored under pressure in a pressurised steel bottle in EACH ENGINE ACCESSORY COMPARTMENT. The agent is liquid under pressure; turns to gas on discharge, extinguishing by displacing oxygen and cooling. The agent is discharged ONLY into the accessory gearbox area — NOT into the entire nacelle. There is no cross-feed between left and right bottles.",
+      "tags": ["extinguishing", "agent", "bottle"],
+      "references": [
+        {"source": "FCTM", "locator": "6.4.8.4, p.6-47"}
+      ]
+    },
+    {
+      "id": "squib_operation",
+      "front": "How is the fire extinguisher bottle discharged and is there cockpit indication that discharge has occurred?",
+      "back": "The bottle uses an explosive cartridge (SQUIB) to puncture a metal seal and release the entire contents in one blast. The squib is electrically activated by pulling the FIRE PULL handle (or pressing FIRE PUSH TO DISCHARGE on G950). There is NO cockpit indication that the bottle has been discharged. The red light in the FIRE PULL handle remains illuminated as long as the overheat condition persists — not because the bottle has discharged.",
+      "tags": ["extinguishing", "squib", "indication"],
+      "references": [
+        {"source": "FCTM", "locator": "6.4.8.4, p.6-47"}
+      ]
+    },
+    {
+      "id": "fire_pull_does_not_shutoff_fuel",
+      "front": "Does pulling the FIRE PULL handle shut off the fuel supply to the engine? Why is this critical to procedure order?",
+      "back": "NO — pulling the FIRE PULL handle does NOT shut off fuel. This is why the fire procedure must be completed in the order listed: fuel lever to CUTOFF, then fuel emergency switch OFF BEFORE discharging the bottle. If fuel is not shut off first, the fire agent is discharged into a still-fuelled nacelle, which may not extinguish the fire.",
+      "tags": ["procedure", "fire_pull", "fuel"],
+      "references": [
+        {"source": "FCTM", "locator": "6.4.8.4, p.6-48"}
+      ]
+    },
+    {
+      "id": "engine_fire_memory_sequence",
+      "front": "State the memory sequence for Engine Fire In-Flight (FCTM/QRH order).",
+      "back": "1. MAX POWER — unaffected engine. 2. POWER LEVER (affected) — retard to 10 psi torque. 3. PROP LEVER (affected) — FEATHER. 4. FUEL LEVER (affected) — CUTOFF. 5. FUEL EMERGENCY (affected) — OFF. 6. FIRE PULL (affected) — PULL. 7. FIRE EXTINGUISHER (affected) — DISCHARGE. 8. BOOST PUMP (affected) — OFF. Order is critical: fuel must be shut off before discharge.",
+      "tags": ["procedure", "emergency", "memory"],
+      "references": [
+        {"source": "QRH", "locator": "Emergency Engine Fire In-Flight"},
+        {"source": "FCTM", "locator": "6.4.8.4, p.6-48"}
+      ]
+    },
+    {
+      "id": "indicating_discs_colours",
+      "front": "What do the yellow and red indicating discs on each engine nacelle signify?",
+      "back": "YELLOW disc (AFT of pair): blown out = DELIBERATE DISCHARGE by normal system operation (FIRE PULL handle pulled by crew). RED disc (FORWARD of pair): blown out = bottle contents discharged due to EXCESSIVE THERMAL EXPANSION PRESSURE (thermal relief valve opened when bottle temperature reached 98–104°C). A blown red disc means the bottle is empty and the system is unserviceable — must be corrected before flight.",
+      "tags": ["indication", "disc", "preflight"],
+      "references": [
+        {"source": "FCTM", "locator": "6.4.8.5, p.6-47 to 6-48"},
+        {"source": "POH_AFM", "locator": "Section 7.15.3, p.7-100"}
+      ]
+    },
+    {
+      "id": "preflight_disc_check",
+      "front": "What is the preflight check requirement for the fire extinguisher indicating discs?",
+      "back": "During every pre-flight inspection: NEITHER the yellow NOR the red disc on each nacelle side should be blown out. A blown disc means the bottle has been discharged (either by crew action or thermal expansion) and is empty. The aircraft must not be dispatched until the extinguisher has been recharged and the disc replaced. The bottle pressure gauge requires opening the lower engine cowling — this check is NOT normally done during standard preflight.",
+      "tags": ["preflight", "disc", "airworthiness"],
+      "references": [
+        {"source": "FCTM", "locator": "6.4.8.5, p.6-47"}
+      ]
+    },
+    {
+      "id": "fire_detection_test",
+      "front": "How is the fire detection system tested and what does a successful test confirm?",
+      "back": "The FIRE DETECTION test switch (between the two FIRE PULL handles on the emergency panel) is held in the TEST position. All fire warning lights in both operating handles should illuminate and the fire bell should ring. This confirms: the detection wiring loops are intact, the warning lights function, and the bell is operative. It does NOT test the extinguishing circuit or the squib.",
+      "tags": ["test", "preflight", "detection"],
+      "references": [
+        {"source": "POH_AFM", "locator": "Section 7.15.4, p.7-100"}
+      ]
+    },
+    {
+      "id": "g950_push_to_discharge",
+      "front": "How does the G950-equipped DHC-6 fire indication and discharge differ from the legacy aircraft?",
+      "back": "G950: Overheat is indicated by illumination of the FIRE PUSH TO DISCHARGE switch above the Secondary Display on the GEA panel. Pushing the switch discharges the extinguishing agent into the respective engine accessory gearbox. The FIRE PUSH TO DISCHARGE switch replaces the FIRE PULL handle as the primary indication AND discharge mechanism in the G950 variant.",
+      "tags": ["g950", "discharge", "indication"],
+      "references": [
+        {"source": "FCTM", "locator": "6.4.8.1, p.6-46"}
+      ]
+    },
+    {
+      "id": "fire_bell_mute",
+      "front": "Where is the fire warning bell mute switch and what are its positions?",
+      "back": "The FIRE BELL switch is located: on the AC fuse panel structure to the rear of the overhead console below the main CB panel (pre-SN 311), or at the extreme left end of the instrument panel (SN 311 and later). Guarded two-position switch: ON and MUTE. After acknowledging the warning during fire drills or after initial alarm, MUTE silences the bell while the visual warning remains.",
+      "tags": ["fire_bell", "indication"],
+      "references": [
+        {"source": "POH_AFM", "locator": "Section 7.15.5, p.7-100"}
+      ]
+    },
+    {
+      "id": "portable_extinguishers",
+      "front": "How many portable fire extinguishers are installed in the DHC-6 and where?",
+      "back": "MINIMUM TWO portable extinguishers: one in the flight compartment (mandatory, within crew reach), and one usually installed in the rear of the passenger cabin. These supplement the fixed engine extinguishing system and are used for cockpit/cabin fires. They cannot be used to discharge into engine nacelles.",
+      "tags": ["portable", "cabin", "extinguisher"],
+      "references": [
+        {"source": "FCTM", "locator": "6.4.8, p.6-46"}
+      ]
+    },
+    {
+      "id": "fire_red_light_persistence",
+      "front": "After discharging the fire extinguisher, the red FIRE PULL light remains illuminated. What does this indicate?",
+      "back": "The red light in the FIRE PULL handle remains illuminated as long as an OVERHEAT CONDITION EXISTS in the nacelle — it is NOT an indication of bottle discharge status. A continuing red light after bottle discharge means: (1) the fire/overheat has not been extinguished, or (2) the agent has not reached the fire. The correct action is to continue the fire procedures (ensure fuel is OFF, check all isolation steps) and land as soon as possible.",
+      "tags": ["indication", "post_discharge"],
+      "references": [
+        {"source": "FCTM", "locator": "6.4.8.4, p.6-47"}
+      ]
+    },
+    {
+      "id": "fire_no_crossfeed",
+      "front": "Can you discharge the left fire bottle into the right engine nacelle if the right bottle has already been used?",
+      "back": "NO. The fire extinguishing systems for left and right engines are physically and electrically independent. You CANNOT cross-feed bottles from one side to the other. Each nacelle has its own dedicated bottle and squib circuit. If the right bottle is empty (from a previous discharge or thermal expansion), the right engine fire protection is unserviceable — only one agent discharge per engine is available.",
+      "tags": ["design", "cross_feed", "limitation"],
+      "references": [
+        {"source": "FCTM", "locator": "6.4.8.4, p.6-47"}
+      ]
+    }
+  ]
+}

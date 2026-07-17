@@ -1,0 +1,60 @@
+{
+  "schemaId": "system_description",
+  "schemaVersion": "1.0.0",
+  "systemId": "ata_100",
+  "systemName": "Aircraft Manual Structure",
+  "variant": "BOTH",
+  "summary": "Aircraft maintenance and operating material is organized by chapter, section and subject. The ATA-style structure helps pilots and maintenance personnel locate system information, revisions, effective pages, supplements and source authority quickly.",
+  "references": [
+    {
+      "source": "FCTM",
+      "locator": "ATA 100 chapter \u2014 documentation, numbering and revisions",
+      "revision": "Training reference"
+    }
+  ],
+  "components": [
+    {
+      "id": "chapter_section_subject",
+      "name": "Chapter / section / subject numbering",
+      "description": "A three-element numbering format separates system, subsystem and unit-level information so related material can be found consistently.",
+      "specifications": {},
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "ATA 100 \u2014 chapter/section numbering",
+          "revision": "Training reference"
+        }
+      ]
+    },
+    {
+      "id": "effective_pages",
+      "name": "List of effective pages",
+      "description": "Used to confirm that a manual chapter is complete and current before relying on it for study or operation.",
+      "specifications": {},
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "ATA 100 \u2014 list of effective pages",
+          "revision": "Training reference"
+        }
+      ]
+    },
+    {
+      "id": "supplements",
+      "name": "Supplements and amendments",
+      "description": "Supplements and amendments are only applicable when the aircraft equipment or modification status requires them.",
+      "specifications": {},
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 0 \u2014 supplements and amendments",
+          "revision": "Rev 53"
+        }
+      ]
+    }
+  ],
+  "controls": [],
+  "limits": [],
+  "modificationVariants": [],
+  "casMessageRefs": []
+}

@@ -1,0 +1,243 @@
+{
+    "rawName":  "Final Approach, or When Joining the Traffic Pattern",
+    "drillName":  "Final Approach, or When Joining the Traffic Pattern [Airborne]",
+    "category":  "NORMAL",
+    "context":  "Airborne",
+    "sourceNote":  "Procedure identity/category/order normalized from \u0027DHC-6 Full Drill Procedure Index Normal Split.xlsx\u0027. Excel is the governing app display allow-list. Existing procedure steps preserved for later content review. Previous note: Generic training callout structure based on user-provided Section 4 normal-procedure titles and generated PF/PM MCC callouts. Not an approved AFM/POH/checklist replacement.",
+    "variants":  {
+                     "LEGACY":  {
+                                    "memory":  [
+                                                   {
+                                                       "stepNumber":  1,
+                                                       "action":  "LANDING CHECKLIST - CALLED",
+                                                       "crewRole":  "PF",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.15 Final Approach, or When Joining the Traffic Pattern"
+                                                   },
+                                                   {
+                                                       "stepNumber":  2,
+                                                       "action":  "FLAPS - SELECTED AS REQUIRED",
+                                                       "crewRole":  "PF",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.15 Final Approach, or When Joining the Traffic Pattern"
+                                                   },
+                                                   {
+                                                       "stepNumber":  3,
+                                                       "action":  "FLAPS - INDICATING",
+                                                       "crewRole":  "PM",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.15 Final Approach, or When Joining the Traffic Pattern"
+                                                   },
+                                                   {
+                                                       "stepNumber":  4,
+                                                       "action":  "SPEED - CHECKED",
+                                                       "crewRole":  "PM",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.15 Final Approach, or When Joining the Traffic Pattern"
+                                                   },
+                                                   {
+                                                       "stepNumber":  5,
+                                                       "action":  "PROP LEVERS - FULL FORWARD",
+                                                       "crewRole":  "PM",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.15 Final Approach, or When Joining the Traffic Pattern"
+                                                   },
+                                                   {
+                                                       "stepNumber":  6,
+                                                       "action":  "LANDING CHECKLIST - COMPLETE",
+                                                       "crewRole":  "PM",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.15 Final Approach, or When Joining the Traffic Pattern"
+                                                   }
+                                               ],
+                                    "flow":  [
+                                                 {
+                                                     "stepNumber":  1,
+                                                     "action":  "Landing checklist.",
+                                                     "crewRole":  "PF",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.15; PF_CALL"
+                                                 },
+                                                 {
+                                                     "stepNumber":  2,
+                                                     "action":  "Flaps ___.",
+                                                     "crewRole":  "PF",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.15; PF_CALL"
+                                                 },
+                                                 {
+                                                     "stepNumber":  3,
+                                                     "action":  "Flaps selected ___, indicating ___.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.15; PM_RESPONSE"
+                                                 },
+                                                 {
+                                                     "stepNumber":  4,
+                                                     "action":  "Speed checked.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.15; PM_MONITOR"
+                                                 },
+                                                 {
+                                                     "stepNumber":  5,
+                                                     "action":  "Checked.",
+                                                     "crewRole":  "PF",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.15; PF_RESPONSE"
+                                                 },
+                                                 {
+                                                     "stepNumber":  6,
+                                                     "action":  "Prop levers full forward.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.15; PM_CHALLENGE"
+                                                 },
+                                                 {
+                                                     "stepNumber":  7,
+                                                     "action":  "Checked.",
+                                                     "crewRole":  "PF",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.15; PF_RESPONSE"
+                                                 },
+                                                 {
+                                                     "stepNumber":  8,
+                                                     "action":  "Landing checklist complete.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.15; PM_COMPLETION"
+                                                 }
+                                             ]
+                                },
+                     "G950":  {
+                                  "memory":  [
+                                                 {
+                                                     "stepNumber":  1,
+                                                     "action":  "LANDING CHECKLIST - CALLED",
+                                                     "crewRole":  "PF",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.15 Final Approach, or When Joining the Traffic Pattern"
+                                                 },
+                                                 {
+                                                     "stepNumber":  2,
+                                                     "action":  "FLAPS - SELECTED AS REQUIRED",
+                                                     "crewRole":  "PF",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.15 Final Approach, or When Joining the Traffic Pattern"
+                                                 },
+                                                 {
+                                                     "stepNumber":  3,
+                                                     "action":  "FLAPS - INDICATING",
+                                                     "crewRole":  "PM",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.15 Final Approach, or When Joining the Traffic Pattern"
+                                                 },
+                                                 {
+                                                     "stepNumber":  4,
+                                                     "action":  "SPEED - CHECKED",
+                                                     "crewRole":  "PM",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.15 Final Approach, or When Joining the Traffic Pattern"
+                                                 },
+                                                 {
+                                                     "stepNumber":  5,
+                                                     "action":  "PROP LEVERS - FULL FORWARD",
+                                                     "crewRole":  "PM",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.15 Final Approach, or When Joining the Traffic Pattern"
+                                                 },
+                                                 {
+                                                     "stepNumber":  6,
+                                                     "action":  "LANDING CHECKLIST - COMPLETE",
+                                                     "crewRole":  "PM",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.15 Final Approach, or When Joining the Traffic Pattern"
+                                                 }
+                                             ],
+                                  "flow":  [
+                                               {
+                                                   "stepNumber":  1,
+                                                   "action":  "Landing checklist.",
+                                                   "crewRole":  "PF",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.15; PF_CALL"
+                                               },
+                                               {
+                                                   "stepNumber":  2,
+                                                   "action":  "Flaps ___.",
+                                                   "crewRole":  "PF",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.15; PF_CALL"
+                                               },
+                                               {
+                                                   "stepNumber":  3,
+                                                   "action":  "Flaps selected ___, indicating ___.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.15; PM_RESPONSE"
+                                               },
+                                               {
+                                                   "stepNumber":  4,
+                                                   "action":  "Speed checked.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.15; PM_MONITOR"
+                                               },
+                                               {
+                                                   "stepNumber":  5,
+                                                   "action":  "Checked.",
+                                                   "crewRole":  "PF",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.15; PF_RESPONSE"
+                                               },
+                                               {
+                                                   "stepNumber":  6,
+                                                   "action":  "Prop levers full forward.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.15; PM_CHALLENGE"
+                                               },
+                                               {
+                                                   "stepNumber":  7,
+                                                   "action":  "Checked.",
+                                                   "crewRole":  "PF",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.15; PF_RESPONSE"
+                                               },
+                                               {
+                                                   "stepNumber":  8,
+                                                   "action":  "Landing checklist complete.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.15; PM_COMPLETION"
+                                               }
+                                           ]
+                              },
+                     "manualSection":  "Section 4",
+                     "sourceSection":  "4.15"
+                 },
+    "phaseTag":  "Airborne",
+    "displayLabel":  "Final Approach, or When Joining the Traffic Pattern [Airborne]",
+    "sortOrder":  17,
+    "sourceSection":  "4.15",
+    "procedureGroup":  "Approach",
+    "manualSection":  "Section 4",
+    "sequenceBasis":  "Normal-procedure flow order",
+    "normalSplit":  "Everyday Actions"
+}

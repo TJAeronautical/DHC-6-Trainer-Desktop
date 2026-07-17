@@ -1,0 +1,538 @@
+{
+  "schemaVersion": "1.0.0",
+  "variant": "LEGACY",
+  "bindings": [
+    {
+      "procedureId": "emergency_engine_fire_inflight_legacy",
+      "stepBindings": [
+        {
+          "stepId": "step_01_power_lever_idle",
+          "hitboxIds": [
+            "POWER_LEVER_L",
+            "POWER_LEVER_R"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_02_fuel_lever_cutoff",
+          "hitboxIds": [
+            "FUEL_LEVER_L",
+            "FUEL_LEVER_R"
+          ],
+          "mode": "REQUIRED"
+        }
+      ]
+    },
+    {
+      "procedureId": "abnormal_failure_to_accelerate_hung_start_legacy",
+      "stepBindings": [
+        {
+          "stepId": "step_01_start_selector_left",
+          "hitboxIds": [
+            "STARTER_SWITCH"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_02_start_selector_right",
+          "hitboxIds": [
+            "STARTER_SWITCH"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_03_fuel_lever_cutoff",
+          "hitboxIds": [
+            "FUEL_LEVER_L",
+            "FUEL_LEVER_R"
+          ],
+          "mode": "FOCUS"
+        }
+      ]
+    },
+    {
+      "procedureId": "BEFORE STARTING ENGINES",
+      "title": "Before Starting Engines",
+      "stepBindings": [
+        {
+          "stepText": "HYD OIL PUMP CB - IN",
+          "hitboxIds": [
+            "HYD_OIL_PUMP_CB"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepText": "HYD PRESS - ABOVE 1225 PSI",
+          "hitboxIds": [
+            "HYDRAULIC_PRESS_GAUGE"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepText": "FUEL QTY - SUFFICIENT",
+          "hitboxIds": [
+            "FUEL_QUANTITY_GAUGE_L",
+            "FUEL_QUANTITY_GAUGE_R"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepText": "BOOST SWITCHES - NO CAUTION",
+          "hitboxIds": [
+            "AFT_BOOST_PUMP",
+            "FWD_BOOST_PUMP"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepText": "ANTI-COLLISION/BEACON - ON",
+          "hitboxIds": [
+            "ANTI-COL_LIGHTS",
+            "BEACON"
+          ],
+          "mode": "FOCUS"
+        }
+      ]
+    },
+    {
+      "procedureId": "AFTER START (PRE-TAXI)",
+      "title": "After Start (Pre-Taxi)",
+      "stepBindings": [
+        {
+          "stepText": "DOORS - SECURE",
+          "hitboxIds": [
+            "DOORS_UNLOCKED"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepText": "EXTERNAL/BATTERY SW - BATTERY",
+          "hitboxIds": [
+            "BATTERY_MASTER"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepText": "HYD PRESS - 1225-1625 PSI",
+          "hitboxIds": [
+            "HYDRAULIC_PRESS_GAUGE"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepText": "BLEED AIR SW - ON/OFF",
+          "hitboxIds": [
+            "BLEED_AIR_L",
+            "BLEED_AIR_R"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepText": "PROP LEVERS - FULL FWD",
+          "hitboxIds": [
+            "POWER_LEVER_L",
+            "POWER_LEVER_R"
+          ],
+          "mode": "FOCUS"
+        }
+      ]
+    },
+    {
+      "procedureId": "BEFORE TAKE-OFF",
+      "title": "Before Take-Off Checks",
+      "stepBindings": [
+        {
+          "stepText": "TRIMS - SET",
+          "hitboxIds": [
+            "AILERON_TRIM"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepText": "PROP LEVERS - FULL FWD",
+          "hitboxIds": [
+            "POWER_LEVER_L",
+            "POWER_LEVER_R"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepText": "AUTOFEATHER SWITCH - SELECTED",
+          "hitboxIds": [
+            "AUTOFEATHER_SELECT"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepText": "FUEL QTY - SUFFICIENT",
+          "hitboxIds": [
+            "FUEL_QUANTITY_GAUGE_L",
+            "FUEL_QUANTITY_GAUGE_R"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepText": "FUEL SELECTOR - NORM",
+          "hitboxIds": [
+            "FUEL_SELECTOR"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepText": "CROSSFEED - CL",
+          "hitboxIds": [
+            "FUEL_SELECTOR"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepText": "FLAPS SELECTOR - 10°",
+          "hitboxIds": [
+            "FLAP_SELECTOR"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepText": "BLEED AIR SW - ON/OFF",
+          "hitboxIds": [
+            "BLEED_AIR_L",
+            "BLEED_AIR_R"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepText": "PITOT HEAT - ON",
+          "hitboxIds": [
+            "PITOT_HEAT_SWITCH"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepText": "ALTIMETERS - SET",
+          "hitboxIds": [
+            "ALT"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepText": "INSTRUMENTS - CHECK",
+          "hitboxIds": [
+            "STBY_INSTR"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepText": "CAUTION LIGHTS - CONSIDERED",
+          "hitboxIds": [
+            "MASTER_CAUTION",
+            "CAUT_LT_TEST"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepText": "ANTI-COLL - ON",
+          "hitboxIds": [
+            "ANTI-COL_LIGHTS"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepText": "BATTERY TEMPERATURE - CHECK",
+          "hitboxIds": [
+            "STBY_BATTERY"
+          ],
+          "mode": "FOCUS"
+        }
+      ]
+    },
+    {
+      "procedureId": "AFTER TAKE-OFF",
+      "title": "After Take-Off Checks",
+      "stepBindings": [
+        {
+          "stepText": "FLAPS - UP",
+          "hitboxIds": [
+            "FLAP_SELECTOR"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepText": "POWER - SET CLIMB POWER",
+          "hitboxIds": [
+            "POWER_LEVER_L",
+            "POWER_LEVER_R"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepText": "NO SMOKING/FASTEN BELT - AS REQUIRED",
+          "hitboxIds": [
+            "NO_SMOKING_LIGHTS",
+            "FASTEN_SEATBELTS"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepText": "AUTOFEATHER - OFF",
+          "hitboxIds": [
+            "AUTOFEATHER_SELECT"
+          ],
+          "mode": "FOCUS"
+        }
+      ]
+    },
+    {
+      "procedureId": "CRUISE",
+      "title": "Cruise Checks",
+      "stepBindings": [
+        {
+          "stepText": "POWER - CRUISE",
+          "hitboxIds": [
+            "POWER_LEVER_L",
+            "POWER_LEVER_R"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepText": "FUEL - QUANTITY/TIME",
+          "hitboxIds": [
+            "FUEL_QUANTITY_GAUGE_L",
+            "FUEL_QUANTITY_GAUGE_R"
+          ],
+          "mode": "FOCUS"
+        }
+      ]
+    },
+    {
+      "procedureId": "DESCENT",
+      "title": "Descent Checks",
+      "stepBindings": [
+        {
+          "stepText": "POWER - AS DESIRED",
+          "hitboxIds": [
+            "POWER_LEVER_L",
+            "POWER_LEVER_R"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepText": "NO SMOKING/FASTEN BELT - ON",
+          "hitboxIds": [
+            "NO_SMOKING_LIGHTS",
+            "FASTEN_SEATBELTS"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepText": "ALTIMETERS - SET",
+          "hitboxIds": [
+            "ALT"
+          ],
+          "mode": "FOCUS"
+        }
+      ]
+    },
+    {
+      "procedureId": "APPROACH",
+      "title": "Approach Checks",
+      "stepBindings": [
+        {
+          "stepText": "FUEL SELECTOR - NORM",
+          "hitboxIds": [
+            "FUEL_SELECTOR"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepText": "CROSSFEED - CL",
+          "hitboxIds": [
+            "FUEL_SELECTOR"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepText": "WING TANK FUEL SWITCHES - OFF",
+          "hitboxIds": [
+            "FUEL_SELECTOR"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepText": "HYDRAULICS - ___ PSI",
+          "hitboxIds": [
+            "HYDRAULIC_PRESS_GAUGE"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepText": "APPROACH AIRSPEEDS - ABOVE 67 / FLAPS FULL",
+          "hitboxIds": [
+            "ASI",
+            "FLAP_SELECTOR"
+          ],
+          "mode": "FOCUS"
+        }
+      ]
+    },
+    {
+      "procedureId": "LANDING",
+      "title": "Landing Checks",
+      "stepBindings": [
+        {
+          "stepText": "FLAPS - 20°/37.5°",
+          "hitboxIds": [
+            "FLAP_SELECTOR"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepText": "PROP LEVERS - FULL FWD",
+          "hitboxIds": [
+            "POWER_LEVER_L",
+            "POWER_LEVER_R"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepText": "ZERO THRUST/REVERSE POWER - AS REQUIRED",
+          "hitboxIds": [
+            "POWER_LEVER_L",
+            "POWER_LEVER_R"
+          ],
+          "mode": "FOCUS"
+        }
+      ]
+    },
+    {
+      "procedureId": "AFTER LANDING",
+      "title": "After Landing Checks",
+      "stepBindings": [
+        {
+          "stepText": "FLAPS - UP",
+          "hitboxIds": [
+            "FLAP_SELECTOR"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepText": "UNNECESSARY ELECTRICAL EQUIPMENT - OFF",
+          "hitboxIds": [
+            "AVIONICS_MASTER",
+            "LANDING_LIGHT_L",
+            "LANDING_LIGHT_R"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepText": "DE-ICE EQUIPMENT - OFF IF NOT REQUIRED",
+          "hitboxIds": [
+            "PITOT_HEAT_SWITCH",
+            "PROP_DEICE"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepText": "ANTI-COLL/STROBE - OFF",
+          "hitboxIds": [
+            "ANTI-COL_LIGHTS"
+          ],
+          "mode": "FOCUS"
+        }
+      ]
+    },
+    {
+      "procedureId": "SHUTDOWN",
+      "title": "Shutdown Checks",
+      "stepBindings": [
+        {
+          "stepText": "POWER LEVERS - IDLE",
+          "hitboxIds": [
+            "POWER_LEVER_L",
+            "POWER_LEVER_R"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepText": "PROP LEVERS - FEATHER (IF LATCHES NOT ENGAGED)",
+          "hitboxIds": [
+            "POWER_LEVER_L",
+            "POWER_LEVER_R"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepText": "BLEED AIR SW - OFF",
+          "hitboxIds": [
+            "BLEED_AIR_L",
+            "BLEED_AIR_R"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepText": "T5 TEMP - STABLE BELOW 660°",
+          "hitboxIds": [
+            "T5_GAUGE_L",
+            "T5_GAUGE_R"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepText": "GENERATORS - OFF",
+          "hitboxIds": [
+            "L_DC_GEN",
+            "R_DC_GEN"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepText": "FUEL LEVERS - OFF",
+          "hitboxIds": [
+            "FUEL_LEVER_L",
+            "FUEL_LEVER_R"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepText": "BEACON/ANTI-COLL - OFF",
+          "hitboxIds": [
+            "BEACON",
+            "ANTI-COL_LIGHTS"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepText": "NO SMOKING/FASTEN SEAT BELT - OFF",
+          "hitboxIds": [
+            "NO_SMOKING_LIGHTS",
+            "FASTEN_SEATBELTS"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepText": "BOOST PUMPS - OFF",
+          "hitboxIds": [
+            "AFT_BOOST_PUMP",
+            "FWD_BOOST_PUMP"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepText": "DC MASTER - OFF",
+          "hitboxIds": [
+            "BATTERY_MASTER"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepText": "EXTERNAL/BATTERY SW - OFF",
+          "hitboxIds": [
+            "BATTERY_MASTER"
+          ],
+          "mode": "FOCUS"
+        }
+      ]
+    }
+  ]
+}
+
+

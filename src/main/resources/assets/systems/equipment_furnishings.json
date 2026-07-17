@@ -1,0 +1,34 @@
+{
+  "schemaId": "system_description",
+  "schemaVersion": "1.0.0",
+  "systemId": "equipment_furnishings",
+  "systemName": "Equipment and Furnishings",
+  "variant": "BOTH",
+  "summary": "Crew/cabin equipment, seats, restraints, emergency equipment storage and related cabin furnishings are tracked as a 2D systems category for reference cards and source-page material.",
+  "references": [
+    {
+      "source": "FCTM",
+      "locator": "Equipment and Furnishings chapter 25",
+      "revision": "Training reference"
+    }
+  ],
+  "components": [
+    {
+      "id": "crew_cabin_equipment",
+      "name": "Crew and cabin equipment",
+      "description": "Reference category for crew/cabin equipment layout, seating, restraints and emergency-stowage study cards.",
+      "specifications": {},
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "ATA 25 \u2014 equipment and furnishings",
+          "revision": "Training reference"
+        }
+      ]
+    }
+  ],
+  "controls": [],
+  "limits": [],
+  "modificationVariants": [],
+  "casMessageRefs": []
+}

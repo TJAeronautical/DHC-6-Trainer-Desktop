@@ -1,0 +1,237 @@
+{
+  "schemaId": "system_description",
+  "schemaVersion": "1.0.0",
+  "systemId": "propeller",
+  "systemName": "Propeller System",
+  "variant": "BOTH",
+  "summary": "Each DHC-6 engine drives a three-bladed (optionally four-bladed), all-metal, full-feathering, reversible-pitch, constant-speed propeller. Blade pitch is controlled by engine oil pressure supplied through the Constant Speed Unit (CSU/primary governor). Increasing oil pressure drives blades toward fine pitch (low pitch, high RPM). Loss of oil pressure allows feathering springs and centrifugal counterweights to drive blades toward feather (~87°). In the beta range (below +17° on the ground), the power lever controls blade angle directly through the beta reverse valve. Three governing systems protect the propeller: the primary CSU governor (75–96% NP), the overspeed governor (preset at 101.5% NP), and the NF fuel-topping governor (NP +6% in forward, 91% in reverse).",
+  "references": [
+    {
+      "source": "FCTM",
+      "locator": "Chapter 6.7 Propeller, pages 6-65 to 6-82",
+      "revision": "ISS 03 / REV 02 (Dec 2022)"
+    },
+    {
+      "source": "POH_AFM",
+      "locator": "Section 7.14 Propeller System, pages 7-105 to 7-117",
+      "revision": "Rev 53 (10 Sep 2010)"
+    },
+    {
+      "source": "QRH",
+      "locator": "Section 3 Propeller, pages PR-1 to PR-2",
+      "revision": "HBFO-002 ISS 01 REV 02"
+    }
+  ],
+  "modificationVariants": [
+    {
+      "id": "mod_6_1470_autofeather_reliability",
+      "name": "Mod 6/1470 — Autofeather System Improved Reliability",
+      "serialRange": "Post Mod 6/1470 (many Series 300 aircraft)",
+      "description": "Adds a 2-second delay requiring sustained torque loss below 11 psi before autofeather activates. Also prevents any single fault from feathering a propeller inadvertently. Combined with Mod 6/1329 torque switch changes, this is the final and reliable autofeather configuration.",
+      "references": [
+        { "source": "FCTM", "locator": "6.7.8, p.6-74" },
+        { "source": "POH_AFM", "locator": "Section 7.14.8, p.7-113" }
+      ]
+    },
+    {
+      "id": "mod_6_1329_torque_switches",
+      "name": "Mod 6/1329 — New Autofeather Pressure Switches",
+      "serialRange": "Post Mod 6/1329",
+      "description": "Updated torque pressure switch thresholds for autofeather arming and activation. Specific values differ by modification level; check aircraft documentation.",
+      "references": [
+        { "source": "POH_AFM", "locator": "Section 7.14.8, p.7-113" }
+      ]
+    },
+    {
+      "id": "float_blade_latches",
+      "name": "Propeller Blade Latches (Float-Equipped Aircraft)",
+      "serialRange": "Float-equipped Series 300 aircraft",
+      "description": "Spring-loaded latches arrest the propeller at approximately +1° blade angle (near zero thrust) during shutdown when power levers are at the zero-thrust position. Retracted by centrifugal force when NP reaches approximately 30% on start. Prevents damage during water operations.",
+      "references": [
+        { "source": "FCTM", "locator": "6.7.1, p.6-65" }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "id": "propeller_assembly",
+      "name": "Propeller Assembly",
+      "description": "Three-bladed (optional four-bladed), all-metal, full-feathering, reversible-pitch, constant-speed propeller. Diameter: 8 ft 6 in (2.59 m). Pitch range: -15° (full reverse) to +87° (full feather). The propeller cannot be transferred to feather mechanically — it relies entirely on oil pressure removal (springs + counterweights + aerodynamic twisting moment) or CSU action.",
+      "specifications": {
+        "blades": "3 (4 optional)",
+        "diameter_in": "102",
+        "diameter_ft": "8 ft 6 in",
+        "pitch_range_deg": "-15° (reverse) to +87° (feather)",
+        "governing_range_np_pct": "75% to 96%"
+      },
+      "references": [
+        { "source": "FCTM", "locator": "6.7.1, p.6-65" },
+        { "source": "POH_AFM", "locator": "Section 7.14.1, p.7-105" }
+      ]
+    },
+    {
+      "id": "csu_primary_governor",
+      "name": "Constant Speed Unit (CSU) / Primary Governor",
+      "description": "Mounted on the propeller reduction gearbox front case. The CSU modulates oil pressure to the propeller dome to maintain the blade angle that holds NP at the selected propeller lever setting. An internal governor pump driven by the NP shaft raises engine oil pressure to approximately 385 psi for propeller governing. A relief valve limits governor pump output. The CSU also controls the feathering oil supply — moving the prop lever to FEATHER releases all governor oil pressure, allowing feathering forces to act.",
+      "specifications": {
+        "np_governing_range_pct": "75% to 96%",
+        "governor_pump_output_psi": "385",
+        "governor_pump_relief_psi": "385"
+      },
+      "references": [
+        { "source": "FCTM", "locator": "6.7.4.1, p.6-69" },
+        { "source": "POH_AFM", "locator": "Section 7.14.4, p.7-108" }
+      ]
+    },
+    {
+      "id": "overspeed_governor",
+      "name": "Propeller Overspeed Governor",
+      "description": "Hydraulic overspeed governor preset to limit NP to 101.5%. Located on the reduction gearbox. Operates independently of the primary CSU governor. If NP reaches 101.5%, the overspeed governor dumps oil pressure, limiting blade angle to restrict NP. Does not require crew action — automatic protection.",
+      "specifications": {
+        "preset_np_pct": "101.5%"
+      },
+      "references": [
+        { "source": "FCTM", "locator": "6.7.5, p.6-71" },
+        { "source": "POH_AFM", "locator": "Section 7.14.5, p.7-109" }
+      ]
+    },
+    {
+      "id": "nf_governor",
+      "name": "NF Fuel-Topping Governor",
+      "description": "Fuel governing section of the propeller governor. Serves two distinct purposes: (1) In forward thrust: limits fuel flow if NP exceeds the prop lever selection by 6% (e.g., MAX RPM 96% + 6% = 102% NP). Provides final overspeed protection after CSU and overspeed governor. (2) In reverse (power levers aft of idle): resets to limit NP to 91%, ensuring propellers never reach the CSU governing range and remain under beta reverse valve control.",
+      "specifications": {
+        "forward_trip_np_pct": "Selected NP + 6%",
+        "reverse_limit_np_pct": "91%"
+      },
+      "references": [
+        { "source": "FCTM", "locator": "6.7.7, p.6-73" },
+        { "source": "POH_AFM", "locator": "Section 7.14.7, p.7-112" }
+      ]
+    },
+    {
+      "id": "beta_reverse_valve",
+      "name": "Beta Reverse Valve",
+      "description": "Controls propeller blade angle in the beta range (approximately +17° to -15°) when power levers are at or below idle. In the beta range, the power lever moves the blade angle directly through the beta reverse valve rather than through the CSU. In flight, the primary governor controls blade angle and the beta valve is bypassed. Loss of normal beta pressure activates the beta backup system.",
+      "references": [
+        { "source": "FCTM", "locator": "6.7.6, p.6-71" },
+        { "source": "POH_AFM", "locator": "Section 7.14.6, p.7-111" }
+      ]
+    },
+    {
+      "id": "beta_backup_system",
+      "name": "Beta Backup System",
+      "description": "An electrically-operated solenoid valve provides a backup oil supply for beta control if normal CSU oil pressure is lost. If normal beta oil pressure is lost, the beta backup valve automatically shifts to route oil from the engine oil supply directly to the propeller hub beta piston. The BETA light illuminates and an aural warning sounds. The backup system provides limited beta control but does NOT provide feathering capability.",
+      "references": [
+        { "source": "FCTM", "locator": "6.7.9, p.6-76" },
+        { "source": "POH_AFM", "locator": "Section 7.14.9, p.7-115" }
+      ]
+    },
+    {
+      "id": "autofeather_system",
+      "name": "Autofeather System",
+      "description": "Automatically feathers the propeller of an engine with torque loss below the threshold. Armed conditions: (1) PROP AUTO FEATHER switch ON, (2) power levers advanced beyond 86–88% NG (microswitches), (3) torque on both engines above the arming pressure switch threshold (18–30 psi depending on modification). Activation: torque drops to 11 psi for 2 seconds on one engine. After first feather, a blocking relay prevents autofeather on the other engine. APPROVED FOR TAKE-OFF ONLY — prohibited during approach and landing.",
+      "specifications": {
+        "arm_ng_pct": "86-88%",
+        "arm_torque_psi": "18-30 (mod-dependent)",
+        "activation_torque_psi": "11",
+        "activation_delay_sec": "2",
+        "approved_phase": "Take-off only"
+      },
+      "references": [
+        { "source": "FCTM", "locator": "6.7.8, p.6-74" },
+        { "source": "POH_AFM", "locator": "Section 7.14.8, p.7-113" }
+      ]
+    },
+    {
+      "id": "feathering_forces",
+      "name": "Feathering Forces (Springs and Counterweights)",
+      "description": "Three forces drive propeller blades toward feather when oil pressure is removed: (1) internal feathering springs, (2) centrifugal counterweights, (3) aerodynamic twisting moment. All three act together. This is the fail-safe design — power loss, oil pressure loss, or engine shutdown all drive the prop toward feather automatically. Feather blade angle is approximately +87°.",
+      "references": [
+        { "source": "FCTM", "locator": "6.7.4.1, p.6-69" },
+        { "source": "POH_AFM", "locator": "Section 7.14.2, p.7-106" }
+      ]
+    }
+  ],
+  "controls": [
+    {
+      "id": "prop_lever",
+      "name": "Propeller Lever (L/R)",
+      "positions": ["MAX RPM (96% NP)", "COARSE (reduced NP)", "FEATHER"],
+      "description": "Sets the primary governor NP target. MAX RPM = 96% NP (mandatory for every take-off). In the governing range (75–96% NP), the CSU maintains selected NP. Moving to FEATHER releases all governor oil pressure, allowing feathering forces to act. Moving to FEATHER below ~30% NP on floatplane aircraft engages blade latches.",
+      "references": [
+        { "source": "FCTM", "locator": "6.7.4, p.6-68" },
+        { "source": "POH_AFM", "locator": "Section 7.14.4, p.7-108" }
+      ]
+    },
+    {
+      "id": "power_lever_beta",
+      "name": "Power Lever — Beta / Reverse Range",
+      "positions": ["FORWARD FLIGHT (above idle)", "IDLE", "BETA (ground only)", "REVERSE"],
+      "description": "In the beta range (below idle stop), the power lever moves blade angle directly through the beta reverse valve. Twisting and moving the power lever AFT of idle gives access to the reverse range. The NF governor limits NP to 91% in reverse. Maximum continuous reverse: restricted by recirculation and exhaust heating limitations.",
+      "references": [
+        { "source": "FCTM", "locator": "6.7.6, p.6-71" },
+        { "source": "POH_AFM", "locator": "Section 7.14.6, p.7-111" }
+      ]
+    },
+    {
+      "id": "autofeather_switch",
+      "name": "PROP AUTO FEATHER Switch",
+      "positions": ["ON", "OFF"],
+      "description": "Activates the autofeather system. SELECT light illuminates when switch is ON. ARM light illuminates when all three arming conditions are met. Should be selected ON after engine start. Must be disarmed before approach and landing — prohibited during those phases.",
+      "references": [
+        { "source": "FCTM", "locator": "6.7.2, p.6-66" },
+        { "source": "POH_AFM", "locator": "Section 7.14.8, p.7-113" }
+      ]
+    }
+  ],
+  "limits": [
+    {
+      "id": "max_np",
+      "parameter": "Maximum NP (Propeller Speed)",
+      "value": "96% (2,120 RPM)",
+      "note": "Overspeed governor preset at 101.5%. NF governor provides backup at 96% + 6% = 102% in forward.",
+      "references": [
+        { "source": "POH_AFM", "locator": "Section 2.4.1, p.2-14" }
+      ]
+    },
+    {
+      "id": "overspeed_governor_preset",
+      "parameter": "Overspeed Governor Preset",
+      "value": "101.5% NP",
+      "references": [
+        { "source": "FCTM", "locator": "6.7.5, p.6-71" }
+      ]
+    },
+    {
+      "id": "max_np_reverse",
+      "parameter": "Maximum NP in Reverse (NF Governor)",
+      "value": "91% NP",
+      "references": [
+        { "source": "FCTM", "locator": "6.7.7, p.6-73" },
+        { "source": "POH_AFM", "locator": "Section 7.14.7, p.7-112" }
+      ]
+    },
+    {
+      "id": "pitch_range",
+      "parameter": "Blade Pitch Range",
+      "value": "-15° (reverse) to +87° (feather)",
+      "references": [
+        { "source": "FCTM", "locator": "6.7.1, p.6-65" }
+      ]
+    },
+    {
+      "id": "autofeather_approved_phases",
+      "parameter": "Autofeather Approved Phases",
+      "value": "Take-off only",
+      "note": "AFM prohibits use of autofeather system during approach and landing.",
+      "references": [
+        { "source": "POH_AFM", "locator": "Section 7.14.8, p.7-114" }
+      ]
+    }
+  ],
+  "casMessageRefs": [
+    "BETA_LIGHT",
+    "RESET_PROPS",
+    "PROP_AUTO_FEATHER_ARM"
+  ]
+}

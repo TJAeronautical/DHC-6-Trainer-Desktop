@@ -1,0 +1,204 @@
+{
+  "schemaId": "system_description",
+  "schemaVersion": "1.0.0",
+  "systemId": "operations_techniques",
+  "systemName": "Operating Techniques",
+  "variant": "BOTH",
+  "summary": "This section covers type-specific operating techniques for the DHC-6 Twin Otter that are not system descriptions but essential for safe operations. Key topics: beta range / reverse thrust handling, crosswind limitations, density altitude awareness for float operations, VMC considerations, OEI performance, and standard callout culture.",
+  "references": [
+    {
+      "source": "FCTM",
+      "locator": "Chapter 3 Operating Techniques, p.3-1 to 3-30",
+      "revision": "ISS 03 / REV 02 (Dec 2022)"
+    },
+    {
+      "source": "FCTM",
+      "locator": "Chapter 5 Simulated Emergencies, p.5-1 to 5-10",
+      "revision": "ISS 03 / REV 02 (Dec 2022)"
+    },
+    {
+      "source": "POH_AFM",
+      "locator": "Section 4 Normal Procedures, p.4-1 to 4-60",
+      "revision": "Rev 53 (10 Sep 2010)"
+    },
+    {
+      "source": "QRH",
+      "locator": "All sections",
+      "revision": "HBFO-002 ISS 01 REV 02"
+    }
+  ],
+  "components": [
+    {
+      "id": "beta_range_ops",
+      "name": "Beta Range Operations",
+      "description": "The beta range is the propeller blade angle region between full fine pitch (~+17\u00b0) and full reverse (-15\u00b0). In the beta range, the power lever directly controls blade angle through the beta reverse valve \u2014 the propeller governor is bypassed. Beta range is ONLY available on the ground (below the idle stop). In flight, moving the power lever aft of idle is PROHIBITED. The NF governor limits NP to 91% in reverse to prevent the propeller from entering the CSU governing range.",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.7.6, p.6-71"
+        },
+        {
+          "source": "POH_AFM",
+          "locator": "Section 4, p.4-30"
+        }
+      ]
+    },
+    {
+      "id": "max_reverse",
+      "name": "Maximum Reverse Thrust Operations",
+      "description": "Maximum reverse thrust: 1 minute continuous limit. At ambient temperatures at or above 32\u00b0C: aircraft must be headed into wind during reverse operations. Reason: exhaust recirculation at high ambient temperatures can cause T5 to rise rapidly and potentially exceed limits. When using reverse: check T5 during operation.",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.4.4.1 CAUTION, p.6-40"
+        },
+        {
+          "source": "POH_AFM",
+          "locator": "Section 4"
+        }
+      ]
+    },
+    {
+      "id": "oei_technique",
+      "name": "Engine Failure \u2014 Initial Technique",
+      "description": "After engine failure above VMC: max power on live engine, identify dead engine (dead leg = dead engine), confirm prop FEATHER, maintain VYSE (82 KIAS landplane / 89 KCAS float). Turn TOWARD the live engine. Turning toward the dead engine at low airspeed significantly increases VMC roll risk. Autofeather arms during take-off when all three conditions are met \u2014 it is approved for take-off only.",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "5.1 to 5.6, p.5-1\u20138"
+        }
+      ]
+    },
+    {
+      "id": "vmc_factors",
+      "name": "VMC Factors",
+      "description": "VMC (66 KCAS landplane) is the minimum speed at which directional control can be maintained with critical engine failed, max power on live engine, and max 5\u00b0 bank. VMC decreases with: increasing weight (in level flight), forward CG (longer rudder arm), extended flaps (drag opposes yaw), increasing altitude (less thrust moment). VMC increases with: decreasing weight in banked flight, aft CG (shorter rudder arm). On floats: VMC 67 KCAS due to typical aft CG loading.",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "5.2 VMC discussion, p.5-5\u20137"
+        }
+      ]
+    },
+    {
+      "id": "crosswind_ops",
+      "name": "Crosswind Operations",
+      "description": "Maximum demonstrated crosswind for landplane: consult current AFM/OM limitations. Crosswind technique: aileron into wind, rudder to maintain centreline. On floats: crosswind approach and water landing technique differs \u2014 consult AFM Section 9-20. Intermediate flotation gear: anticipate lateral movement in crosswind due to large tire flexibility.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 4.10.1 and 4.16.1"
+        },
+        {
+          "source": "POH_AFM",
+          "locator": "Section 9-5.4"
+        }
+      ]
+    },
+    {
+      "id": "density_altitude",
+      "name": "Density Altitude \u2014 Float Operations",
+      "description": "Float operations in the Maldives: at sea level, density altitude effects are primarily temperature-driven. At OAT +35\u00b0C, density altitude can be ~1,100 ft above field elevation. Take-off performance charts must be entered with pressure altitude and temperature. Water surface conditions (calm glassy water vs choppy) affect take-off run length significantly \u2014 consult FCTM for technique.",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "Chapter 5, p.5-8"
+        }
+      ]
+    },
+    {
+      "id": "standard_callouts",
+      "name": "Standard Callouts and Crew Coordination",
+      "description": "Callout culture is fundamental to DHC-6 safety. Key mandatory callouts: V1/VR/V2 on take-off; 'POSITIVE RATE' on climb; 'GEAR/FLAP CHECKS'; '500 ft TO GO'; '100 ft TO GO'; 'LANDING ASSURED \u2014 FULL FLAPS PROPS MAX RPM NO GO-AROUND' (approach at decision point). On OEI approach: all callouts must be completed before selecting beyond Flaps 20.",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "Chapter 3, p.3-1 to 3-5"
+        }
+      ]
+    },
+    {
+      "id": "take_off_decision",
+      "name": "Take-Off Decision \u2014 V1 and Abort Criteria",
+      "description": "V1 is the decision speed for the take-off. Before V1: RTO is always correct if an abnormality is detected. After V1: continue the take-off. For float operations: V1 may not always apply due to water conditions and variable performance \u2014 the first action after a recognised engine failure at or after V1 is max power on live engine and continue (avoid late directional deviation attempts).",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "5.1, p.5-1\u20134"
+        }
+      ]
+    }
+  ],
+  "controls": [],
+  "limits": [
+    {
+      "id": "beta_inflight",
+      "parameter": "Beta Range in Flight",
+      "value": "PROHIBITED \u2014 power levers must not be moved aft of IDLE in flight",
+      "note": "In-flight reverse would cause severe pitch down and drag.",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.7.6, p.6-71"
+        }
+      ]
+    },
+    {
+      "id": "reverse_time",
+      "parameter": "Reverse Thrust Time Limit",
+      "value": "1 minute maximum",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.4.4.1 CAUTION, p.6-40"
+        }
+      ]
+    },
+    {
+      "id": "max_reverse_temp",
+      "parameter": "Reverse \u2014 Hot Weather Requirement",
+      "value": "Headed into wind at ambient \u226532\u00b0C",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.4.4.1 CAUTION, p.6-40"
+        }
+      ]
+    },
+    {
+      "id": "vyse",
+      "parameter": "VYSE \u2014 Minimum OEI Climb Speed",
+      "value": "82 KIAS (landplane) / 89 KCAS flaps 0\u00b0 (float)",
+      "note": "Maintain at or above VYSE on any OEI climb. Blue radial on ASI.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 2.3"
+        }
+      ]
+    },
+    {
+      "id": "autofeather_phase",
+      "parameter": "Autofeather \u2014 Approved Phases",
+      "value": "Take-off only (arm before T/O, disarm before approach)",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.14.8, p.7-114"
+        }
+      ]
+    },
+    {
+      "id": "altitude_oxygen",
+      "parameter": "Maximum Operating Altitude Without Supplemental Oxygen",
+      "value": "10,000 ft (Manta Air ops)",
+      "references": [
+        {
+          "source": "QRH",
+          "locator": "Section 14.1"
+        }
+      ]
+    }
+  ],
+  "casMessageRefs": []
+}

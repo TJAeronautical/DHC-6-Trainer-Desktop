@@ -1,0 +1,273 @@
+{
+    "rawName":  "Landing",
+    "drillName":  "Landing [Airborne]",
+    "category":  "NORMAL",
+    "context":  "Airborne",
+    "variants":  {
+                     "LEGACY":  {
+                                    "memory":  [
+                                                   {
+                                                       "stepNumber":  1,
+                                                       "action":  "LANDING CHECKLIST",
+                                                       "crewRole":  "PF",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "TJ Aeronautical Generic Checklist DHC-6 300 (LEGACY/G950)"
+                                                   },
+                                                   {
+                                                       "stepNumber":  2,
+                                                       "action":  "FLAPS - 20°/37.5°",
+                                                       "crewRole":  "PF",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "TJ Aeronautical Generic Checklist DHC-6 300 (LEGACY/G950)"
+                                                   },
+                                                   {
+                                                       "stepNumber":  3,
+                                                       "action":  "PROP LEVERS - FULL FWD",
+                                                       "crewRole":  "PF",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "TJ Aeronautical Generic Checklist DHC-6 300 (LEGACY/G950)"
+                                                   },
+                                                   {
+                                                       "stepNumber":  4,
+                                                       "action":  "BRAKES - AS REQUIRED",
+                                                       "crewRole":  "PF",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "TJ Aeronautical Generic Checklist DHC-6 300 (LEGACY/G950)"
+                                                   },
+                                                   {
+                                                       "stepNumber":  5,
+                                                       "action":  "ZERO THRUST/REVERSE POWER - AS REQUIRED",
+                                                       "crewRole":  "PF",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "TJ Aeronautical Generic Checklist DHC-6 300 (LEGACY/G950)"
+                                                   },
+                                                   {
+                                                       "stepNumber":  6,
+                                                       "action":  "NOSE WHEEL STEERING - AS REQUIRED",
+                                                       "crewRole":  "PF",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "TJ Aeronautical Generic Checklist DHC-6 300 (LEGACY/G950)"
+                                                   },
+                                                   {
+                                                       "stepNumber":  7,
+                                                       "action":  "CHECKLIST COMPLETE",
+                                                       "crewRole":  "PF",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "TJ Aeronautical Generic Checklist DHC-6 300 (LEGACY/G950)"
+                                                   }
+                                               ],
+                                    "flow":  [
+                                                 {
+                                                     "stepNumber":  1,
+                                                     "action":  "Landing clearance received.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.16; PM_CALLOUT"
+                                                 },
+                                                 {
+                                                     "stepNumber":  2,
+                                                     "action":  "Checked.",
+                                                     "crewRole":  "PF",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.16; PF_RESPONSE"
+                                                 },
+                                                 {
+                                                     "stepNumber":  3,
+                                                     "action":  "Stable.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.16; PM_MONITOR"
+                                                 },
+                                                 {
+                                                     "stepNumber":  4,
+                                                     "action":  "Speed.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.16; PM_MONITOR"
+                                                 },
+                                                 {
+                                                     "stepNumber":  5,
+                                                     "action":  "Sink rate.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.16; PM_MONITOR"
+                                                 },
+                                                 {
+                                                     "stepNumber":  6,
+                                                     "action":  "Centreline.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.16; PM_MONITOR"
+                                                 },
+                                                 {
+                                                     "stepNumber":  7,
+                                                     "action":  "Runway clear.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.16; PM_MONITOR"
+                                                 },
+                                                 {
+                                                     "stepNumber":  8,
+                                                     "action":  "Go around.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.16; PM_CALLOUT"
+                                                 },
+                                                 {
+                                                     "stepNumber":  9,
+                                                     "action":  "Continuing / Go around.",
+                                                     "crewRole":  "PF",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.16; PF_RESPONSE"
+                                                 }
+                                             ]
+                                },
+                     "G950":  {
+                                  "memory":  [
+                                                 {
+                                                     "stepNumber":  1,
+                                                     "action":  "LANDING CHECKLIST",
+                                                     "crewRole":  "PF",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "TJ Aeronautical Generic Checklist DHC-6 300 (LEGACY/G950)"
+                                                 },
+                                                 {
+                                                     "stepNumber":  2,
+                                                     "action":  "FLAPS - 20°/37.5°",
+                                                     "crewRole":  "PF",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "TJ Aeronautical Generic Checklist DHC-6 300 (LEGACY/G950)"
+                                                 },
+                                                 {
+                                                     "stepNumber":  3,
+                                                     "action":  "PROP LEVERS - FULL FWD",
+                                                     "crewRole":  "PF",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "TJ Aeronautical Generic Checklist DHC-6 300 (LEGACY/G950)"
+                                                 },
+                                                 {
+                                                     "stepNumber":  4,
+                                                     "action":  "BRAKES - AS REQUIRED",
+                                                     "crewRole":  "PF",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "TJ Aeronautical Generic Checklist DHC-6 300 (LEGACY/G950)"
+                                                 },
+                                                 {
+                                                     "stepNumber":  5,
+                                                     "action":  "ZERO THRUST/REVERSE POWER - AS REQUIRED",
+                                                     "crewRole":  "PF",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "TJ Aeronautical Generic Checklist DHC-6 300 (LEGACY/G950)"
+                                                 },
+                                                 {
+                                                     "stepNumber":  6,
+                                                     "action":  "NOSE WHEEL STEERING - AS REQUIRED",
+                                                     "crewRole":  "PF",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "TJ Aeronautical Generic Checklist DHC-6 300 (LEGACY/G950)"
+                                                 },
+                                                 {
+                                                     "stepNumber":  7,
+                                                     "action":  "CHECKLIST COMPLETE",
+                                                     "crewRole":  "PF",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "TJ Aeronautical Generic Checklist DHC-6 300 (LEGACY/G950)"
+                                                 }
+                                             ],
+                                  "flow":  [
+                                               {
+                                                   "stepNumber":  1,
+                                                   "action":  "Landing clearance received.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.16; PM_CALLOUT"
+                                               },
+                                               {
+                                                   "stepNumber":  2,
+                                                   "action":  "Checked.",
+                                                   "crewRole":  "PF",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.16; PF_RESPONSE"
+                                               },
+                                               {
+                                                   "stepNumber":  3,
+                                                   "action":  "Stable.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.16; PM_MONITOR"
+                                               },
+                                               {
+                                                   "stepNumber":  4,
+                                                   "action":  "Speed.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.16; PM_MONITOR"
+                                               },
+                                               {
+                                                   "stepNumber":  5,
+                                                   "action":  "Sink rate.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.16; PM_MONITOR"
+                                               },
+                                               {
+                                                   "stepNumber":  6,
+                                                   "action":  "Centreline.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.16; PM_MONITOR"
+                                               },
+                                               {
+                                                   "stepNumber":  7,
+                                                   "action":  "Runway clear.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.16; PM_MONITOR"
+                                               },
+                                               {
+                                                   "stepNumber":  8,
+                                                   "action":  "Go around.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.16; PM_CALLOUT"
+                                               },
+                                               {
+                                                   "stepNumber":  9,
+                                                   "action":  "Continuing / Go around.",
+                                                   "crewRole":  "PF",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.16; PF_RESPONSE"
+                                               }
+                                           ]
+                              },
+                     "manualSection":  "Section 4",
+                     "sourceSection":  "4.16"
+                 },
+    "sourceNote":  "Procedure identity/category/order normalized from \u0027DHC-6 Full Drill Procedure Index Normal Split.xlsx\u0027. Excel is the governing app display allow-list. Existing procedure steps preserved for later content review. Previous note: Generic training callout structure based on user-provided Section 4 normal-procedure titles and generated PF/PM MCC callouts. Not an approved AFM/POH/checklist replacement.",
+    "phaseTag":  "Airborne",
+    "displayLabel":  "Landing [Airborne]",
+    "sortOrder":  18,
+    "sourceSection":  "4.16",
+    "procedureGroup":  "Landing",
+    "manualSection":  "Section 4",
+    "sequenceBasis":  "Normal-procedure flow order",
+    "normalSplit":  "Everyday Actions"
+}

@@ -1,0 +1,135 @@
+{
+    "rawName":  "Overspeed Governor Test — Post Mod 6/1323",
+    "drillName":  "Overspeed Governor Test — Post Mod 6/1323 [Ground]",
+    "category":  "NORMAL",
+    "context":  "Ground",
+    "sourceNote":  "Procedure identity/category/order normalized from \u0027DHC-6 Full Drill Procedure Index Normal Split.xlsx\u0027. Excel is the governing app display allow-list. Existing procedure steps preserved for later content review. Previous note: Generic training callout structure based on user-provided Section 4 normal-procedure titles and generated PF/PM MCC callouts. Not an approved AFM/POH/checklist replacement.",
+    "variants":  {
+                     "LEGACY":  {
+                                    "memory":  [
+                                                   {
+                                                       "stepNumber":  1,
+                                                       "action":  "OVERSPEED GOVERNOR TEST - INITIATED",
+                                                       "crewRole":  "PF",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.8.2 Overspeed Governor Test - Post Mod 6/1323"
+                                                   },
+                                                   {
+                                                       "stepNumber":  2,
+                                                       "action":  "POST MOD 6/1323 CONFIGURATION - CONFIRMED",
+                                                       "crewRole":  "PM",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.8.2 Overspeed Governor Test - Post Mod 6/1323"
+                                                   },
+                                                   {
+                                                       "stepNumber":  3,
+                                                       "action":  "RPM - CHECKED",
+                                                       "crewRole":  "PM",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.8.2 Overspeed Governor Test - Post Mod 6/1323"
+                                                   },
+                                                   {
+                                                       "stepNumber":  4,
+                                                       "action":  "OVERSPEED GOVERNOR TEST - COMPLETE",
+                                                       "crewRole":  "PM",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.8.2 Overspeed Governor Test - Post Mod 6/1323"
+                                                   }
+                                               ],
+                                    "flow":  [
+                                                 {
+                                                     "stepNumber":  1,
+                                                     "action":  "Overspeed governor test, post-mod.",
+                                                     "crewRole":  "PF",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.8.2; PF_CALL"
+                                                 },
+                                                 {
+                                                     "stepNumber":  2,
+                                                     "action":  "RPM checked.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.8.2; PM_MONITOR"
+                                                 },
+                                                 {
+                                                     "stepNumber":  3,
+                                                     "action":  "Overspeed governor test complete.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.8.2; PM_COMPLETION"
+                                                 }
+                                             ]
+                                },
+                     "G950":  {
+                                  "memory":  [
+                                                 {
+                                                     "stepNumber":  1,
+                                                     "action":  "OVERSPEED GOVERNOR TEST - INITIATED",
+                                                     "crewRole":  "PF",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.8.2 Overspeed Governor Test - Post Mod 6/1323"
+                                                 },
+                                                 {
+                                                     "stepNumber":  2,
+                                                     "action":  "POST MOD 6/1323 CONFIGURATION - CONFIRMED",
+                                                     "crewRole":  "PM",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.8.2 Overspeed Governor Test - Post Mod 6/1323"
+                                                 },
+                                                 {
+                                                     "stepNumber":  3,
+                                                     "action":  "RPM - CHECKED",
+                                                     "crewRole":  "PM",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.8.2 Overspeed Governor Test - Post Mod 6/1323"
+                                                 },
+                                                 {
+                                                     "stepNumber":  4,
+                                                     "action":  "OVERSPEED GOVERNOR TEST - COMPLETE",
+                                                     "crewRole":  "PM",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.8.2 Overspeed Governor Test - Post Mod 6/1323"
+                                                 }
+                                             ],
+                                  "flow":  [
+                                               {
+                                                   "stepNumber":  1,
+                                                   "action":  "Overspeed governor test, post-mod.",
+                                                   "crewRole":  "PF",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.8.2; PF_CALL"
+                                               },
+                                               {
+                                                   "stepNumber":  2,
+                                                   "action":  "RPM checked.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.8.2; PM_MONITOR"
+                                               },
+                                               {
+                                                   "stepNumber":  3,
+                                                   "action":  "Overspeed governor test complete.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.8.2; PM_COMPLETION"
+                                               }
+                                           ]
+                              },
+                     "manualSection":  "Section 4",
+                     "sourceSection":  "4.8.2"
+                 },
+    "phaseTag":  "Ground",
+    "displayLabel":  "Overspeed Governor Test — Post Mod 6/1323 [Ground]",
+    "sortOrder":  25,
+    "sourceSection":  "4.8.2",
+    "procedureGroup":  "System Functional Checks",
+    "manualSection":  "Section 4",
+    "sequenceBasis":  "Normal-procedure flow order",
+    "normalSplit":  "System Tests"
+}

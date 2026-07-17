@@ -1,0 +1,674 @@
+{
+  "schemaId": "system_description",
+  "schemaVersion": "1.0.0",
+  "systemId": "electrical",
+  "systemName": "DC Electrical System",
+  "variant": "BOTH",
+  "summary": "The DHC-6 electrical system is a 28-volt DC, single-wire installation with the airframe used as ground return. Primary DC power is supplied by two engine-driven starter-generators. A main battery provides power for back-up and engine starting when ground power is not available. Power is distributed through left and right main DC buses connectable through a bus tie relay, plus a hot battery bus that remains live whenever battery power is present.",
+  "references": [
+    {
+      "source": "POH_AFM",
+      "locator": "Section 7.8 Electrical System, pages 7-46 to 7-55",
+      "revision": "Rev 53 (10 Sep 2010)"
+    },
+    {
+      "source": "FCTM",
+      "locator": "Chapter 6.2 Electrical System, pages 6-8 to 6-17",
+      "revision": "ISS 03 / REV 02 (Dec 2022)"
+    },
+    {
+      "source": "POH_AFM",
+      "locator": "Section 2.5 Electrical Limitations, pages 2-22 to 2-23",
+      "revision": "Rev 53 (10 Sep 2010)"
+    },
+    {
+      "source": "POH_AFM",
+      "locator": "Section 3.12 Electrical Abnormalities, pages 3-40 to 3-43",
+      "revision": "Rev 53 (10 Sep 2010)"
+    }
+  ],
+  "modificationVariants": [
+    {
+      "id": "pre_sn_631_rccb",
+      "name": "Reverse Current Circuit Breaker (RCCB)",
+      "serialRange": "Up to S/N 630",
+      "description": "A single RCCB protects the main battery from sustained charging currents above 450 amps by tripping open and disconnecting the battery from the left DC bus.",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.2.2.12, p.6-14"
+        },
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.8.1, p.7-46"
+        }
+      ]
+    },
+    {
+      "id": "sn_631_current_limiters",
+      "name": "Current Limiters (Mod 6/1651)",
+      "serialRange": "S/N 631 and later, plus retrofitted earlier aircraft",
+      "description": "Six 150-amp slow-blow current limiters replaced the RCCB: three in the power distribution box and three in the main battery enclosure. Three in parallel give 450 amps equivalent to the original RCCB.",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.2.2.13, p.6-15"
+        },
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.8.1, p.7-46"
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "id": "main_battery_nicad",
+      "name": "Main Battery (Original NiCad)",
+      "description": "A 24-volt, 40-amp-hour nickel-cadmium battery located beneath the floor of the rear baggage compartment. Supplies power to the electrical system when the DC MASTER switch is at MASTER and the EXTERNAL/BATTERY switch is at BATTERY, with the starter-generators inoperative. Also supplies the hot battery bus independently for entrance and baggage compartment lights.",
+      "specifications": {
+        "voltage": "24 VDC",
+        "capacity": "40 ampere-hours",
+        "chemistry": "Nickel-cadmium",
+        "location": "Beneath floor of rear baggage compartment"
+      },
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.8.1, p.7-46"
+        }
+      ]
+    },
+    {
+      "id": "main_battery_leadacid_manta",
+      "name": "Main Battery (Lead-Acid Replacement, Manta Air fleet)",
+      "description": "A 24-volt, 48-amp-hour lead-acid battery installed on Manta Air aircraft in place of the original NiCad. Provides back-up power and engine starts when a ground power unit is not available.",
+      "specifications": {
+        "voltage": "24 VDC",
+        "capacity": "48 ampere-hours",
+        "chemistry": "Lead-acid"
+      },
+      "appliesToVariant": "G950",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.2 General, p.6-8"
+        },
+        {
+          "source": "FCTM",
+          "locator": "6.2.2.1, p.6-11"
+        },
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.8.1, p.7-46 (notes operators commonly replace NiCad with lead-acid)"
+        }
+      ]
+    },
+    {
+      "id": "auxiliary_battery",
+      "name": "Auxiliary Battery",
+      "description": "A 24-volt, 3.6-ampere-hour nickel-cadmium auxiliary battery. Provides an independent source of power for engine start control relays and the ignition (glow plug or spark igniter) system for dependable cold-weather starting. It does not supply the starter-generators or any other aircraft systems.",
+      "specifications": {
+        "voltage": "24 VDC",
+        "capacity": "3.6 ampere-hours",
+        "chemistry": "Nickel-cadmium",
+        "location": "Rear baggage compartment, beneath floor or on forward bulkhead"
+      },
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.8.2, p.7-50"
+        }
+      ]
+    },
+    {
+      "id": "starter_generator_left",
+      "name": "Left Starter-Generator",
+      "description": "A starter-generator mounted on the accessory gearbox of the left engine. Functions as a direct-drive starter during engine start and as a DC generator once the engine is running. Supplies the left DC bus.",
+      "specifications": {
+        "regulatedOutput": "28.5 VDC",
+        "ratedCurrent": "200 A",
+        "fieldCircuitProtection": "GEN CONTROL circuit breaker (overhead CB panel)",
+        "resetCircuitProtection": "GEN RESET circuit breaker (inside left engine nacelle top cowling)"
+      },
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.8.7, p.7-53"
+        },
+        {
+          "source": "FCTM",
+          "locator": "6.2.2.2, p.6-11"
+        }
+      ]
+    },
+    {
+      "id": "starter_generator_right",
+      "name": "Right Starter-Generator",
+      "description": "A starter-generator mounted on the accessory gearbox of the right engine. Functions as a direct-drive starter during engine start and as a DC generator once the engine is running. Supplies the right DC bus.",
+      "specifications": {
+        "regulatedOutput": "28.5 VDC",
+        "ratedCurrent": "200 A",
+        "fieldCircuitProtection": "GEN CONTROL circuit breaker (overhead CB panel)",
+        "resetCircuitProtection": "GEN RESET circuit breaker (inside right engine nacelle top cowling)"
+      },
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.8.7, p.7-53"
+        },
+        {
+          "source": "FCTM",
+          "locator": "6.2.2.2, p.6-11"
+        }
+      ]
+    },
+    {
+      "id": "left_dc_bus",
+      "name": "Left DC Bus",
+      "description": "One of the two main DC buses. Powered by the left starter-generator. The main battery and external power source are connected to the left DC bus. When the BUS TIE switch is in NORMAL the left bus is tied to the right DC bus and they function as one bus.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.8 (overview), p.7-46"
+        },
+        {
+          "source": "FCTM",
+          "locator": "6.2.2.5, p.6-12"
+        }
+      ]
+    },
+    {
+      "id": "right_dc_bus",
+      "name": "Right DC Bus",
+      "description": "One of the two main DC buses. Powered by the right starter-generator. When the BUS TIE switch is in NORMAL the right bus is tied to the left DC bus and they function as one bus.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.8 (overview), p.7-46"
+        },
+        {
+          "source": "FCTM",
+          "locator": "6.2.2.5, p.6-12"
+        }
+      ]
+    },
+    {
+      "id": "dual_fed_bus",
+      "name": "Dual Fed DC Bus (G950)",
+      "description": "Powered from both the left and right main buses through two 5-amp circuit breakers on the overhead circuit breaker panel behind the pilot's seat. Remains powered whenever at least one main DC bus is powered. Provides electrical power to the required engine instruments, the avionics power switch, and standby instruments.",
+      "specifications": {
+        "feedProtection": "Two 5-amp circuit breakers (overhead CB panel, behind pilot seat)",
+        "poweredItems": "GEA1, GEA2, torque pressure transducers (L/R), oil pressure transducers (L/R), signal conditioners 1 and 2, ESIS, avionics power switch"
+      },
+      "appliesToVariant": "G950",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.2.2.6, p.6-12"
+        }
+      ]
+    },
+    {
+      "id": "hot_battery_bus",
+      "name": "Hot Battery Bus",
+      "description": "A circuit-breaker panel at the rear of the passenger cabin, on the passenger side of the bulkhead. Battery power is available at all times on this bus. Powers the passenger door entrance lights and the baggage compartment lights.",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.2.2.7, p.6-12"
+        },
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.8.1, p.7-46 (entrance and forward/rear baggage lights)"
+        }
+      ]
+    },
+    {
+      "id": "external_power_receptacle",
+      "name": "External Power Receptacle",
+      "description": "Receptacle for connection of a 28 VDC ground supply for engine starting and maintenance. When the EXTERNAL/BATTERY switch is at EXTERNAL, the battery is isolated from the electrical system; it is not possible to charge the main battery from external power.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.8.3, p.7-50"
+        },
+        {
+          "source": "FCTM",
+          "locator": "6.2.2.4, p.6-12"
+        }
+      ]
+    },
+    {
+      "id": "reverse_current_relays",
+      "name": "Reverse Current Relays (RCR)",
+      "description": "Each starter-generator is connected to its respective bus through a reverse current relay located in the power distribution box. The RCR closes during start when current flows from the bus to the starter-generator, and during generator operation when current flows from the starter-generator to the bus. The RCR opens if reverse current flow is sensed, e.g. when battery voltage is higher than generator output voltage.",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.2.2.9, p.6-13"
+        }
+      ]
+    },
+    {
+      "id": "voltage_regulators",
+      "name": "Voltage Regulators",
+      "description": "Two voltage regulators automatically adjust generator output current to produce a constant voltage output under varying speeds and loads. They include built-in over-voltage sensing. An equalising circuit ensures equal generator loading (within 20 amps) when the BUS TIE switch is at NORMAL. Function is automatic \u2014 no crew control or adjustment.",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.2.2.11, p.6-13"
+        }
+      ]
+    },
+    {
+      "id": "rccb",
+      "name": "Reverse Current Circuit Breaker (RCCB)",
+      "description": "Located in the power distribution box schematically between the main battery and the left DC bus. Trips open and disconnects the main battery from the left DC bus if sustained charging current exceeds 450 amps, protecting the battery from damage caused by high sustained charging currents. May be reset from the cabin by removing the power distribution box cover and pushing the RCCB through the access hole.",
+      "appliesToModification": "pre_sn_631_rccb",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.2.2.12, p.6-14"
+        }
+      ]
+    },
+    {
+      "id": "current_limiters",
+      "name": "Current Limiters",
+      "description": "Six 150-amp time-delay slow-blow fuses replacing the RCCB. Three in the power distribution box where the RCCB used to be, and three in the main battery enclosure. The time-delay design permits high current flows of 800 to 1,000 amps to the starter-generators during the short time needed to start the engines. A sustained battery charge current above 450 amps will melt the limiters and isolate the main battery from the generators. If one limiter melts, battery service remains available but is limited to 300 amps sustained.",
+      "appliesToModification": "sn_631_current_limiters",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.2.2.13, p.6-15"
+        }
+      ]
+    },
+    {
+      "id": "dc_voltmeter_legacy",
+      "name": "DC Voltmeter (Legacy)",
+      "description": "Mounted to the right of the fire emergency panel. Scale graduated in 1-volt increments from 0 to 30 with numerals at 10-volt intervals. Connected to the left DC bus; indicates the voltage at the bus supplied from any of the power sources. Protected by the VM circuit breaker on the main circuit breaker panel.",
+      "appliesToVariant": "LEGACY",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.8.11, p.7-54"
+        }
+      ]
+    },
+    {
+      "id": "dc_voltmeter_g950",
+      "name": "DC Voltmeter (G950)",
+      "description": "Located at the bottom of the G950 Engine Indication System Display.",
+      "appliesToVariant": "G950",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.2.1.6, p.6-10"
+        }
+      ]
+    },
+    {
+      "id": "dc_loadmeter",
+      "name": "DC Loadmeter",
+      "description": "Scale graduated in 0.1 units from -1.0 to +1.0. Registers battery charge or discharge or loading on either generator according to the IND SELECT switch (legacy) or per the G950 EIS layout. A loadmeter reading of 0.1 represents 10 amperes for battery readings and 20 amperes for generator readings.",
+      "specifications": {
+        "scale": "-1.0 to +1.0 in 0.1 increments",
+        "batteryScale": "0.1 = 10 amps",
+        "generatorScale": "0.1 = 20 amps"
+      },
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.8.12, p.7-54"
+        },
+        {
+          "source": "FCTM",
+          "locator": "6.2.1.6, p.6-10"
+        }
+      ]
+    },
+    {
+      "id": "circuit_breaker_panels",
+      "name": "Flight Compartment Circuit Breaker Panels",
+      "description": "Three circuit breaker panels: main (left of captain), overhead (above co-pilot's head), and avionics (lower pedestal beside the ram air lever). On the main panel each vertical row of CBs is fed from the same DC bus: rows 1 and 3 from the left DC bus, rows 2 and 4 from the right DC bus. The FIRE EXT R, FIRE DET R, and FIRE DET FAULT IND R breakers are exceptions \u2014 supplied from the left DC bus but located in the fourth row.",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.2.1.7 and 6.2.2.15, pages 6-11 and 6-16"
+        }
+      ]
+    }
+  ],
+  "controls": [
+    {
+      "id": "dc_master_switch",
+      "label": "DC MASTER",
+      "location": "Overhead console, DC Master Panel",
+      "description": "Two-position switch energising all the relays. Must be in MASTER position for electrical power to be available to the buses. When OFF, all power to the aircraft is lost except for the hot battery bus. Controls the main battery relay, the auxiliary battery relay, the generator relays, and the external power relay.",
+      "positions": [
+        {
+          "label": "MASTER",
+          "behaviour": "Energises all relays; power available to the buses as determined by the BATTERY/EXTERNAL and BUS TIE switches"
+        },
+        {
+          "label": "OFF",
+          "behaviour": "All power removed from the aircraft except the hot battery bus"
+        }
+      ],
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.2.1.1 and 6.2.2.3, pages 6-9 and 6-11"
+        },
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.8.4, p.7-51"
+        }
+      ]
+    },
+    {
+      "id": "battery_external_switch",
+      "label": "BATTERY / EXTERNAL",
+      "location": "Overhead console, DC Master Panel",
+      "description": "Three-position switch selecting the power source. At BATTERY the external power relay is open and the battery relay is energised. At EXTERNAL the battery is isolated and external power is connected. The centre OFF position closes neither relay. After start the switch should be selected to BATTERY to allow the battery to charge and to provide a means of back-up DC power in flight.",
+      "positions": [
+        {
+          "label": "EXTERNAL",
+          "behaviour": "External power connected to the system; battery isolated. Battery cannot be charged from external power."
+        },
+        {
+          "label": "OFF",
+          "behaviour": "Neither battery relay nor external power relay is closed"
+        },
+        {
+          "label": "BATTERY",
+          "behaviour": "Battery powers the electrical system if generators are inoperative or their voltage output is less than the battery. Generators may also be connected when their voltage exceeds the battery's."
+        }
+      ],
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.2.1.2 and 6.2.2.4, pages 6-9 and 6-12"
+        },
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.8.5, p.7-51"
+        }
+      ]
+    },
+    {
+      "id": "start_switch",
+      "label": "START",
+      "location": "Overhead console, DC Master Panel",
+      "description": "Three-position, spring-loaded switch labelled LEFT, START, and RIGHT, spring-loaded to the centre START position. Energises the start relays and allows power to flow from the buses to the starters. Selecting LEFT or RIGHT closes the reverse current relay for that engine as long as the switch is held.",
+      "positions": [
+        {
+          "label": "LEFT",
+          "behaviour": "Energises left starter relay and closes left RCR while held",
+          "springLoaded": true
+        },
+        {
+          "label": "START (centre)",
+          "behaviour": "Neutral; spring-loaded position",
+          "springLoaded": true
+        },
+        {
+          "label": "RIGHT",
+          "behaviour": "Energises right starter relay and closes right RCR while held",
+          "springLoaded": true
+        }
+      ],
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.2.1.3, p.6-9"
+        }
+      ]
+    },
+    {
+      "id": "left_generator_switch",
+      "label": "L GENERATOR",
+      "location": "Overhead console",
+      "description": "Three-position switch with positions OFF, ON, and RESET. RESET is spring-loaded back to ON. Selecting RESET excites the generator field and closes the reverse current relay; the switch then springs back to ON. The L GENERATOR caution light goes out when reset is successful. If the switch is selected OFF, control voltage is removed from the RCR and it opens.",
+      "positions": [
+        {
+          "label": "OFF",
+          "behaviour": "Generator disconnected from the bus"
+        },
+        {
+          "label": "ON",
+          "behaviour": "Generator output connected to the left DC bus through reverse current relay and voltage regulator"
+        },
+        {
+          "label": "RESET",
+          "behaviour": "Spring-loaded position that excites the generator field and resets the generator field relay before returning to ON",
+          "springLoaded": true
+        }
+      ],
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.2.1.4, p.6-10"
+        },
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.8.8, p.7-53"
+        }
+      ]
+    },
+    {
+      "id": "right_generator_switch",
+      "label": "R GENERATOR",
+      "location": "Overhead console",
+      "description": "Three-position switch with positions OFF, ON, and RESET. RESET is spring-loaded back to ON. Behaviour mirrors the L GENERATOR switch, but for the right starter-generator and right DC bus.",
+      "positions": [
+        {
+          "label": "OFF",
+          "behaviour": "Generator disconnected from the bus"
+        },
+        {
+          "label": "ON",
+          "behaviour": "Generator output connected to the right DC bus through reverse current relay and voltage regulator"
+        },
+        {
+          "label": "RESET",
+          "behaviour": "Spring-loaded position that excites the generator field and resets the generator field relay before returning to ON",
+          "springLoaded": true
+        }
+      ],
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.2.1.4, p.6-10"
+        },
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.8.8, p.7-53"
+        }
+      ]
+    },
+    {
+      "id": "bus_tie_switch",
+      "label": "BUS TIE",
+      "location": "Overhead console",
+      "description": "Two-position switch labelled NORMAL and OPEN. At NORMAL both main DC buses are connected and function as one bus; loads are shared equally between both generators when both are operating. At OPEN the left and right buses operate independently \u2014 left generator and battery supply the left DC bus, right generator supplies the right DC bus. The OPEN position is only used in the case of an abnormality.",
+      "positions": [
+        {
+          "label": "NORMAL",
+          "behaviour": "Buses tied. Both generators share load equally; or, with one generator operating, that generator supplies both buses"
+        },
+        {
+          "label": "OPEN",
+          "behaviour": "Buses isolated. Used only for abnormal procedures."
+        }
+      ],
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.2.1.5 and 6.2.2.5, pages 6-10 and 6-12"
+        },
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.8.6, p.7-52"
+        }
+      ]
+    }
+  ],
+  "limits": [
+    {
+      "id": "max_continuous_single_gen_load_ground_low",
+      "name": "Single generator load, ground, idle NG",
+      "value": "0 to 0.5 (0\u2013100 A)",
+      "condition": "On ground, idle NG, any OAT",
+      "rationale": "No limitation in this range.",
+      "regulatoryStatus": "AFM_APPROVED",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 2.5.1, p.2-23"
+        },
+        {
+          "source": "FCTM",
+          "locator": "6.2.1.6, p.6-10"
+        }
+      ]
+    },
+    {
+      "id": "max_continuous_single_gen_load_ground_mid",
+      "name": "Single generator load, ground, elevated",
+      "value": "0.5 to 1.0 (100\u2013200 A)",
+      "condition": "On ground, NG at idle plus 15%, any OAT",
+      "rationale": "Required to keep T5 below the idle limit of 660\u00b0C.",
+      "regulatoryStatus": "AFM_APPROVED",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 2.5.1, p.2-23"
+        },
+        {
+          "source": "FCTM",
+          "locator": "6.2.1.6, p.6-10"
+        }
+      ]
+    },
+    {
+      "id": "max_continuous_single_gen_load_ground_hot",
+      "name": "Single generator load, ground, OAT > 7\u00b0C",
+      "value": "0.8 maximum (160 A max)",
+      "condition": "On ground, OAT greater than 7\u00b0C",
+      "rationale": "Generator cooling.",
+      "regulatoryStatus": "AFM_APPROVED",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 2.5.1, p.2-23"
+        },
+        {
+          "source": "FCTM",
+          "locator": "6.2.1.6, p.6-10"
+        }
+      ]
+    },
+    {
+      "id": "max_continuous_single_gen_load_ground_cold",
+      "name": "Single generator load, ground, OAT \u2264 7\u00b0C",
+      "value": "1.0 maximum (200 A max)",
+      "condition": "On ground, OAT 7\u00b0C or less",
+      "rationale": "Generator capacity.",
+      "regulatoryStatus": "AFM_APPROVED",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 2.5.1, p.2-23"
+        },
+        {
+          "source": "FCTM",
+          "locator": "6.2.1.6, p.6-10"
+        }
+      ]
+    },
+    {
+      "id": "max_continuous_single_gen_load_inflight",
+      "name": "Single generator load, in flight",
+      "value": "1.0 maximum (200 A max)",
+      "condition": "In flight, any OAT",
+      "rationale": "Generator capacity.",
+      "regulatoryStatus": "AFM_APPROVED",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 2.5.1, p.2-23"
+        },
+        {
+          "source": "FCTM",
+          "locator": "6.2.1.6, p.6-10"
+        }
+      ]
+    },
+    {
+      "id": "starter_duty_cycle",
+      "name": "Starter duty cycle",
+      "value": "25 sec ON / 1 min OFF / 25 sec ON / 1 min OFF / 25 sec ON / 30 min cooling",
+      "condition": "Each starter use; cooling required after the third attempt",
+      "rationale": "Limits starter heating.",
+      "regulatoryStatus": "AFM_APPROVED",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 2.5.2, p.2-23"
+        }
+      ]
+    },
+    {
+      "id": "cross_generator_starting_prohibited",
+      "name": "Cross-generator starting prohibited",
+      "value": "Prohibited except in emergency (e.g. airstart)",
+      "condition": "Cross-generator start means starting one engine while the operating engine's generator is on-line.",
+      "rationale": "Manufacturer limitation.",
+      "regulatoryStatus": "AFM_APPROVED",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 2.5.2, p.2-23"
+        }
+      ]
+    },
+    {
+      "id": "rccb_trip_threshold",
+      "name": "RCCB sustained-current trip threshold",
+      "value": "Trips open above 450 A sustained charging current",
+      "condition": "Pre S/N 631 aircraft without current-limiter modification",
+      "rationale": "Protects the main battery from damaging sustained charging currents and possible overheat.",
+      "regulatoryStatus": "MANUFACTURER_RECOMMENDED",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.2.2.12, p.6-14"
+        }
+      ]
+    },
+    {
+      "id": "max_load_difference_bus_tie_normal",
+      "name": "Maximum recommended load difference between buses",
+      "value": "0.1 loadmeter units (20 A)",
+      "condition": "BUS TIE at NORMAL, both generators on line. Maintenance calibration, not a crew limitation.",
+      "rationale": "Equalising circuit in voltage regulators is designed to share loads within this range.",
+      "regulatoryStatus": "MANUFACTURER_RECOMMENDED",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.2.2.2 and 6.2.2.11, pages 6-11 and 6-13"
+        }
+      ]
+    }
+  ],
+  "casMessageRefs": [
+    "L_GEN_FAIL",
+    "R_GEN_FAIL",
+    "L_GEN_OVHT",
+    "R_GEN_OVHT",
+    "AC_400_CYCLE"
+  ]
+}

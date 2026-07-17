@@ -1,0 +1,249 @@
+{
+  "model": "hartzell_propeller.glb",
+  "space": "bbox_fraction",
+  "matchOrder": "mesh_first",
+  "note": "Validated Systems Lab V2 standalone propeller/CSU model. Canonical pin ids map to exact GLB mesh names; bbox zones remain fallback teaching zones where present.",
+  "regions": [
+    {
+      "id": "hub_and_blades",
+      "meshNames": [
+        "prop_hub",
+        "front_hub_shell",
+        "rear_collar_and_mount",
+        "blade_root_clamps",
+        "spinner_body_front_taper",
+        "spinner_cap_tip",
+        "prop_blade_1",
+        "blade_1_root_socket",
+        "blade_1_tip",
+        "prop_blade_2",
+        "blade_2_root_socket",
+        "blade_2_tip",
+        "prop_blade_3",
+        "blade_3_root_socket",
+        "blade_3_tip"
+      ],
+      "anchor": [
+        0.22,
+        0.5,
+        0.52
+      ]
+    },
+    {
+      "id": "engine_oil",
+      "min": [
+        0.6,
+        0.04,
+        0.18
+      ],
+      "max": [
+        0.88,
+        0.25,
+        0.36
+      ],
+      "anchor": [
+        0.74,
+        0.15,
+        0.26
+      ]
+    },
+    {
+      "id": "gov_pump",
+      "min": [
+        0.4,
+        0.08,
+        0.55
+      ],
+      "max": [
+        0.56,
+        0.3,
+        0.72
+      ],
+      "anchor": [
+        0.48,
+        0.19,
+        0.63
+      ]
+    },
+    {
+      "id": "speeder_spring",
+      "min": [
+        0.42,
+        0.0,
+        0.75
+      ],
+      "max": [
+        0.62,
+        0.2,
+        0.96
+      ],
+      "anchor": [
+        0.52,
+        0.1,
+        0.85
+      ]
+    },
+    {
+      "id": "pilot_valve",
+      "min": [
+        0.5,
+        0.28,
+        0.6
+      ],
+      "max": [
+        0.66,
+        0.46,
+        0.8
+      ],
+      "anchor": [
+        0.58,
+        0.37,
+        0.7
+      ]
+    },
+    {
+      "id": "relief_valve",
+      "min": [
+        0.58,
+        0.26,
+        0.76
+      ],
+      "max": [
+        0.76,
+        0.46,
+        0.98
+      ],
+      "anchor": [
+        0.67,
+        0.36,
+        0.87
+      ]
+    },
+    {
+      "id": "beta_valve",
+      "min": [
+        0.5,
+        0.32,
+        0.02
+      ],
+      "max": [
+        0.7,
+        0.54,
+        0.22
+      ],
+      "anchor": [
+        0.6,
+        0.43,
+        0.12
+      ]
+    },
+    {
+      "id": "reset_arm",
+      "min": [
+        0.38,
+        0.62,
+        0.0
+      ],
+      "max": [
+        0.56,
+        0.92,
+        0.22
+      ],
+      "anchor": [
+        0.47,
+        0.77,
+        0.11
+      ]
+    },
+    {
+      "id": "prop_servo",
+      "min": [
+        0.2,
+        0.7,
+        0.52
+      ],
+      "max": [
+        0.38,
+        0.94,
+        0.72
+      ],
+      "anchor": [
+        0.29,
+        0.82,
+        0.62
+      ]
+    },
+    {
+      "id": "prop_hub",
+      "min": [
+        0.22,
+        0.36,
+        0.32
+      ],
+      "max": [
+        0.48,
+        0.64,
+        0.6
+      ],
+      "anchor": [
+        0.35,
+        0.5,
+        0.46
+      ]
+    },
+    {
+      "id": "prop_blade_1",
+      "min": [
+        0.26,
+        0.76,
+        0.42
+      ],
+      "max": [
+        0.44,
+        1.0,
+        0.58
+      ],
+      "anchor": [
+        0.35,
+        0.88,
+        0.5
+      ]
+    },
+    {
+      "id": "prop_blade_2",
+      "min": [
+        0.06,
+        0.28,
+        0.1
+      ],
+      "max": [
+        0.36,
+        0.54,
+        0.38
+      ],
+      "anchor": [
+        0.22,
+        0.42,
+        0.24
+      ]
+    },
+    {
+      "id": "prop_blade_3",
+      "min": [
+        0.08,
+        0.28,
+        0.62
+      ],
+      "max": [
+        0.38,
+        0.54,
+        0.92
+      ],
+      "anchor": [
+        0.23,
+        0.42,
+        0.77
+      ]
+    }
+  ]
+}

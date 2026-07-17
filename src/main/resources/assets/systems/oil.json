@@ -1,0 +1,235 @@
+{
+  "schemaId": "system_description",
+  "schemaVersion": "1.0.0",
+  "systemId": "oil",
+  "systemName": "Engine Oil System",
+  "variant": "BOTH",
+  "summary": "Each PT6A-27 engine has its own independent pressure/scavenge/breather oil system. The oil tank (2.3 USG total, 1.5 USG usable) is integral with the compressor inlet case. Engine oil lubricates all bearings and gearboxes, acts as a heat-exchange medium in the fuel heater, provides oil pressure for the torquemeter and propeller governor (CSU), and drives the propeller feathering pump. Maximum normal consumption is 0.2 lb/hr. Oil level must be checked within 10 minutes of shutdown; if more than 10 minutes have elapsed the engine must be dry-motored first to drain oil from upper galleries before a valid reading can be taken.",
+  "references": [
+    {
+      "source": "FCTM",
+      "locator": "6.4.5 Engine Oil System, p.6-41\u201342",
+      "revision": "ISS 03 / REV 02 (Dec 2022)"
+    },
+    {
+      "source": "POH_AFM",
+      "locator": "Section 2.4.5 Oil Limitations, p.2-20",
+      "revision": "Rev 53 (10 Sep 2010)"
+    },
+    {
+      "source": "POH_AFM",
+      "locator": "Section 7.13 Engine Oil System, p.7-97",
+      "revision": "Rev 53 (10 Sep 2010)"
+    },
+    {
+      "source": "QRH",
+      "locator": "Section 4 Engine / Section 13 Power Plant Limitations",
+      "revision": "HBFO-002 ISS 01 REV 02"
+    }
+  ],
+  "components": [
+    {
+      "id": "oil_tank",
+      "name": "Oil Tank",
+      "description": "Integral with the compressor inlet case at the rear of the engine. Total capacity 2.3 USG (1.9 Imp gal); usable 1.5 USG. Filler cap accessed through the nacelle top door, approximately 9.5 ft above the ground. Oil specification: synthetic, conforming to CPWA 202. For a current list of approved oils see P&WC Service Bulletin 1001.",
+      "specifications": {
+        "total_capacity_usg": "2.3",
+        "usable_capacity_usg": "1.5",
+        "filler_height_ft": "~9.5",
+        "oil_spec": "Synthetic CPWA 202 / P&WC SB 1001"
+      },
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Ground Support Manual PSM 1-6-2T, p.15"
+        },
+        {
+          "source": "FCTM",
+          "locator": "6.4.5, p.6-41"
+        }
+      ]
+    },
+    {
+      "id": "pressure_pump",
+      "name": "Oil Pressure Pump",
+      "description": "Gear-type pump driven by the accessory gearbox (NG shaft). Pressurises oil from the tank and distributes it to all engine bearings, reduction and accessory gearboxes, and through the fuel heater. Also provides oil pressure to the torquemeter and the CSU governor pump.",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.4.5, p.6-41"
+        }
+      ]
+    },
+    {
+      "id": "scavenge_system",
+      "name": "Oil Scavenge System",
+      "description": "Multiple scavenge pumps (also on the accessory gearbox) return oil from the bearing sumps and gearbox sumps to the oil tank. Scavenged oil passes through the fuel heater (oil-to-fuel heat exchanger) to cool before returning to the tank. When the engine is shut down, oil drains from the upper galleries; if the engine sits for more than 10 minutes, excess oil must be motored clear before checking the dipstick.",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.4.5, p.6-42"
+        }
+      ]
+    },
+    {
+      "id": "fuel_heater",
+      "name": "Fuel Heater (Fuel-Oil Heat Exchanger)",
+      "description": "In-line heat exchanger in the engine low-pressure fuel supply line. Hot engine oil warms the fuel before it reaches the HP pump, preventing ice crystal formation at altitude. Also pre-conditions (warms) oil on cold starts, contributing to faster oil temperature rise. The fuel heater is why a minimum oil temperature of 55\u00b0C is recommended before take-off at maximum power.",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.4.6.2, p.6-43"
+        },
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.13, p.7-97"
+        }
+      ]
+    },
+    {
+      "id": "oil_pressure_gauge",
+      "name": "Oil Pressure Gauge",
+      "description": "Indicates engine oil supply pressure in psi. Normally 80\u2013100 psi (PT6A-27) or 85\u2013105 psi (PT6A-34) at gas generator speeds above 72% NG with oil temperature between 60\u201370\u00b0C. A single gauge per engine is located on the instrument panel. The gauge is critical for detecting oil system failures \u2014 below 40 psi is considered unsafe.",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.4.5, p.6-42"
+        },
+        {
+          "source": "QRH",
+          "locator": "Section 13.1 Note 3"
+        }
+      ]
+    },
+    {
+      "id": "oil_temperature_gauge",
+      "name": "Oil Temperature Gauge",
+      "description": "Indicates oil inlet temperature in \u00b0C. Normal range 0\u201399\u00b0C for take-off; recommended operating range 74\u201380\u00b0C for service life. A minimum of 10\u00b0C is required for take-off. The minimum oil temperature for fuel heater operation at take-off power is 55\u00b0C.",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.4.4.1 Note 4, p.6-40"
+        }
+      ]
+    },
+    {
+      "id": "chip_detector",
+      "name": "Chip Detector",
+      "description": "Magnetic plug in the reduction gearbox oil drain path. If metallic particles (chips) from gear or bearing failure accumulate on the magnet, the CHIP DET caution light illuminates on the instrument panel. Illumination requires engineering inspection before further flight \u2014 it can indicate imminent gearbox failure.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.13, p.7-97"
+        }
+      ]
+    }
+  ],
+  "controls": [
+    {
+      "id": "oil_filler",
+      "name": "Oil Filler Cap",
+      "positions": [
+        "CLOSED",
+        "OPEN (servicing)"
+      ],
+      "description": "Accessed through nacelle top door. Always ensure the cap is secured before flight. Gravity fill from container; no pressurised fill connection.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Ground Support Manual, p.15"
+        }
+      ]
+    }
+  ],
+  "limits": [
+    {
+      "id": "oil_pressure_normal",
+      "parameter": "Oil Pressure \u2014 Normal (NG >72%, oil 60\u201370\u00b0C)",
+      "value": "80\u2013100 psi (PT6A-27) / 85\u2013105 psi (PT6A-34)",
+      "note": "40\u201380 psi: undesirable \u2014 land with caution at reduced power. Below 40 psi: UNSAFE \u2014 engine shutdown or land immediately. 40\u201380 psi acceptable for ground ops only.",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.4.4.1 Note 3, p.6-40"
+        },
+        {
+          "source": "QRH",
+          "locator": "Section 13 Note 3"
+        }
+      ]
+    },
+    {
+      "id": "oil_temp_min",
+      "parameter": "Oil Temperature \u2014 Minimum for Take-Off",
+      "value": "10\u00b0C",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 2.4.5, p.2-20"
+        }
+      ]
+    },
+    {
+      "id": "oil_temp_max",
+      "parameter": "Oil Temperature \u2014 Maximum",
+      "value": "99\u00b0C",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 2.4.5, p.2-20"
+        }
+      ]
+    },
+    {
+      "id": "oil_temp_fuel_heater",
+      "parameter": "Oil Temperature \u2014 Minimum for Fuel Heater at Take-Off Power",
+      "value": "55\u00b0C recommended",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.4.4.1 Note 4, p.6-40"
+        }
+      ]
+    },
+    {
+      "id": "oil_consumption",
+      "parameter": "Maximum Oil Consumption",
+      "value": "0.2 lb/hr (~1 qt per 10 hr)",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.4.5, p.6-41"
+        }
+      ]
+    },
+    {
+      "id": "oil_check_time",
+      "parameter": "Oil Level Check Time Limit After Shutdown",
+      "value": "Within 10 minutes \u2014 motor engine first if >10 min elapsed",
+      "note": "After more than 10 minutes, oil drains from upper galleries and a false low reading results. Dry-motor (without fuel) for 30 seconds before checking.",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.4.5, p.6-42"
+        }
+      ]
+    },
+    {
+      "id": "oil_capacity",
+      "parameter": "Oil Tank Capacity",
+      "value": "2.3 USG total, 1.5 USG usable",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Ground Support Manual PSM 1-6-2T, p.15"
+        }
+      ]
+    }
+  ],
+  "casMessageRefs": [
+    "CHIP_DET_L",
+    "CHIP_DET_R",
+    "OIL_PRESS_L",
+    "OIL_PRESS_R"
+  ]
+}

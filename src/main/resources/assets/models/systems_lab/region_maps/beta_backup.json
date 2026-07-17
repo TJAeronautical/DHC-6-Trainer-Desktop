@@ -1,0 +1,97 @@
+{
+  "model": "beta_backup.glb",
+  "space": "bbox_fraction",
+  "matchOrder": "first",
+  "regions": [
+    {
+      "id": "engine_prop_flange",
+      "min": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max": [
+        0.14,
+        1.0,
+        1.0
+      ],
+      "anchor": [
+        0.07,
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "id": "low_pitch_stop_collar",
+      "min": [
+        0.14,
+        0.0,
+        0.0
+      ],
+      "max": [
+        0.28,
+        1.0,
+        1.0
+      ],
+      "anchor": [
+        0.21,
+        0.6,
+        0.5
+      ]
+    },
+    {
+      "id": "beta_low_pitch_stop_rod",
+      "min": [
+        0.28,
+        0.0,
+        0.0
+      ],
+      "max": [
+        0.62,
+        1.0,
+        1.0
+      ],
+      "anchor": [
+        0.45,
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "id": "pitch_setting_nuts",
+      "min": [
+        0.62,
+        0.0,
+        0.0
+      ],
+      "max": [
+        0.82,
+        1.0,
+        1.0
+      ],
+      "anchor": [
+        0.72,
+        0.4,
+        0.5
+      ]
+    },
+    {
+      "id": "rod_end_ring_rear_locknuts",
+      "min": [
+        0.82,
+        0.0,
+        0.0
+      ],
+      "max": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "anchor": [
+        0.91,
+        0.5,
+        0.5
+      ]
+    }
+  ]
+}

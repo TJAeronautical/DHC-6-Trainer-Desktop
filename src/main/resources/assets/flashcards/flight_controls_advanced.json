@@ -1,0 +1,113 @@
+{
+  "schemaId": "flashcard_deck",
+  "schemaVersion": "1.0.0",
+  "deckId": "flight_controls_advanced",
+  "deckName": "Flight Controls — Tabs, Stall & Abnormals",
+  "description": "Advanced flight controls: geared/servo tabs vs trim tabs, flap-elevator interconnect, stall warning, flap speeds, and abnormal procedures.",
+  "systemId": "flight_controls",
+  "variant": "BOTH",
+  "difficulty": "ADVANCED",
+  "cards": [
+    {
+      "id": "trim_vs_geared_tab",
+      "front": "Distinguish between a TRIM TAB and a GEARED (SERVO) TAB on the DHC-6.",
+      "back": "TRIM TAB: crew-operated (electric or manual), displaces a fixed amount in the opposite direction to the primary surface to remove sustained control force. Stays where set. Left elevator: manual trim wheel. Left aileron: electric switch. Rudder: manual trim wheel. GEARED (SERVO) TAB: passive/mechanical, moves proportionately in the OPPOSITE direction as the primary surface moves, reducing the force required to move the surface (aerodynamic assistance). Not settable by crew. Aileron geared tabs (one per aileron, inboard end). Rudder geared tab (lower trailing edge).",
+      "tags": ["trim_tab", "geared_tab", "design"],
+      "references": [
+        {"source": "FCTM", "locator": "6.6.3, p.6-60"},
+        {"source": "POH_AFM", "locator": "Section 7.21.7 to 7.21.8, p.7-136"}
+      ]
+    },
+    {
+      "id": "flap_elevator_interconnect",
+      "front": "The flap/elevator interconnect trim tab is on which elevator and who controls it?",
+      "back": "RIGHT elevator only. The crew has NO DIRECT CONTROL over this tab — it is mechanically linked to the flap actuator and moves AUTOMATICALLY whenever the flaps move. When flaps extend, the tab moves to oppose the nose-down pitch tendency. When flaps retract, the tab returns. Purpose: reduce the pronounced pitch changes associated with flap operation. If elevator control malfunctions and only trim is available, be aware that flap movement will cause uncontrolled pitch changes via this tab — cautiously extend/retract flaps in small increments (5° or less).",
+      "tags": ["interconnect", "flap_elevator", "design"],
+      "references": [
+        {"source": "FCTM", "locator": "6.6.5.3, p.6-62"},
+        {"source": "POH_AFM", "locator": "Section 7.21.4, p.7-135"}
+      ]
+    },
+    {
+      "id": "stall_bar_mandatory",
+      "front": "What is the stall bar, how does it work, and what is its dispatch status if missing?",
+      "back": "A METAL BAR on the left wing leading edge. At high angles of attack, it disrupts airflow over a small area of the wing, causing a noticeable BUFFET on the elevator that the pilot feels through the control column — a physical pre-stall warning. On float aircraft: additional stall bar on the RIGHT wing too. On de-ice boot aircraft: a NEOPRENE stall bar is fitted over the left boot. The stall bar is MANDATORY for departure — it CANNOT BE DEFERRED if missing (go/no-go item).",
+      "tags": ["stall_bar", "airworthiness", "mandatory"],
+      "references": [
+        {"source": "FCTM", "locator": "6.6.6.5, p.6-64"}
+      ]
+    },
+    {
+      "id": "aileron_trim_runaway",
+      "front": "Aileron trim tab runaway is occurring. State the three-step QRH procedure.",
+      "back": "1. If necessary, REDUCE SPEED to relieve control forces. 2. If trim tab can be operated — press AILERON TRIM SWITCH in the APPROPRIATE DIRECTION until control force is relieved. 3. When force is relieved — pull the AIL TRIM ACT CIRCUIT BREAKER on the main panel. The AIL TRIM IND CB is separate; the indicator circuit can remain active after the actuator CB is pulled.",
+      "tags": ["aileron_trim", "runaway", "qrh"],
+      "references": [
+        {"source": "QRH", "locator": "Section 8.1, p.MS-1"}
+      ]
+    },
+    {
+      "id": "elevator_control_malfunction",
+      "front": "Elevator control malfunction — control column movement does not produce pitch change. What two resources are available?",
+      "back": "1. ELEVATOR TRIM — longitudinal control maintained with the elevator trim wheel. 2. ENGINE POWER — use power changes to assist control of airspeed and vertical speed. Both must be used carefully: AVOID LARGE AND RAPID CHANGES in trim, power, or flaps. Flaps should be extended/retracted cautiously in increments of 5° or less because the flap-elevator interconnect tab will cause uncontrolled pitch with each flap movement. The elevator trim provides reduced control authority — aircraft response will be sluggish.",
+      "tags": ["elevator_malfunction", "qrh", "abnormal"],
+      "references": [
+        {"source": "QRH", "locator": "Section 8.2, p.MS-1"}
+      ]
+    },
+    {
+      "id": "vfe_limits",
+      "front": "State the flap extension speed limits for the DHC-6 (post-Mod 6/1395).",
+      "back": "Flaps 0–10°: maximum 105 KCAS (103 KIAS). Flaps beyond 10° to 37.5°: maximum 95 KCAS (93 KIAS). The white arc on the ASI represents the flap operating range: lower end ≈ stall speed with flaps extended; upper end = 95 KCAS. Do not select flaps beyond 10° if airspeed exceeds 95 KCAS.",
+      "tags": ["vfe", "flap_speeds", "limits"],
+      "references": [
+        {"source": "POH_AFM", "locator": "Table 2-1, p.2-4"}
+      ]
+    },
+    {
+      "id": "elevator_trim_takeoff_range",
+      "front": "What is the take-off elevator trim range and what prevents the crew from selecting an incorrect setting?",
+      "back": "Take-off range: 3° NOSE-UP to 3° NOSE-DOWN, shown as a WHITE BAND on the elevator trim indicator. The indicator is beside the trim wheel on the left console. There is no mechanical stop or detent — the crew must visually confirm the pointer is within the white band during the Before Take-Off check. An out-of-range trim could cause uncommanded pitch at rotation.",
+      "tags": ["elevator_trim", "takeoff"],
+      "references": [
+        {"source": "POH_AFM", "locator": "Section 7.21.3, p.7-134"}
+      ]
+    },
+    {
+      "id": "rudder_trim_takeoff_setting",
+      "front": "What is the rudder trim take-off setting and why is it NOT exactly centred?",
+      "back": "Take-off: slightly to the RIGHT of centre (marked T.O. on the indicator, approximately 20% off-centre right). This compensates for ENGINE TORQUE and PROPELLER SLIPSTREAM effect during take-off power application — both engines rotate in the same direction (when viewed from the front), creating a tendency to yaw. The slight right rudder trim pre-loads the rudder to maintain directional control during the take-off roll.",
+      "tags": ["rudder_trim", "takeoff"],
+      "references": [
+        {"source": "POH_AFM", "locator": "Section 7.21.5, p.7-135"}
+      ]
+    },
+    {
+      "id": "flap_no_detents",
+      "front": "The DHC-6 flap selector has no detents. What are the practical implications?",
+      "back": "The crew must LOOK at the flap position indicator on the windshield centre post to confirm flap position — you cannot rely on feel or lever stops. The lever can be stopped at any position between 0° and 37.5° (labelled 40° on some aircraft). A locking device must be pushed up before moving the lever. This means partial flap settings are possible (e.g. for a specific climb/approach profile), but inadvertent overshoot is also possible. Confirm position visually after every flap selection.",
+      "tags": ["flaps", "technique"],
+      "references": [
+        {"source": "FCTM", "locator": "6.6.4, p.6-61"}
+      ]
+    },
+    {
+      "id": "control_locks_airworthiness",
+      "front": "Flight control locks are installed. What surfaces do they secure and why is their removal critical?",
+      "back": "Flight control locks secure the RUDDER, AILERONS, and ELEVATOR against wind damage when parked. They must be REMOVED AND STOWED before flight — part of the exterior pre-flight check. Flying with control locks installed has caused fatal accidents. On the DHC-6, the locks are external surface locks; their removal must be confirmed visually. Some operators use a remove-before-flight streamer on the locks.",
+      "tags": ["control_locks", "preflight", "safety"],
+      "references": [
+        {"source": "POH_AFM", "locator": "Section 7.21.9, p.7-137"}
+      ]
+    },
+    {
+      "id": "aileron_drooping",
+      "front": "When the flaps are extended, what happens to the ailerons and why?",
+      "back": "Ailerons DROOP (lower) proportionately as flaps extend. The aileron-flap mechanical interconnect moves the ailerons together (both down) while maintaining differential movement capability for roll control. The degree of droop and differential range increase proportionately with flap angle. Purpose: improve low-speed lift characteristics by increasing the effective wing camber across the full span. This is why the aileron geared tabs also move with flap selection.",
+      "tags": ["aileron", "flap", "design"],
+      "references": [
+        {"source": "POH_AFM", "locator": "Section 7.21, p.7-134"}
+      ]
+    }
+  ]
+}

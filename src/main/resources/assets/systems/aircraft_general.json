@@ -1,0 +1,60 @@
+{
+  "schemaId": "system_description",
+  "schemaVersion": "1.0.0",
+  "systemId": "aircraft_general",
+  "systemName": "Aircraft General",
+  "variant": "BOTH",
+  "summary": "General DHC-6 Series 300 reference material covering aircraft configuration, dimensions, stations, ground clearances, servicing references and major operating roles. This pack links the 2D dimension and station figures extracted into the app.",
+  "references": [
+    {
+      "source": "FCTM",
+      "locator": "Aircraft General chapter 5-12 and dimensions chapter 6",
+      "revision": "Training reference"
+    }
+  ],
+  "components": [
+    {
+      "id": "configuration",
+      "name": "Aircraft configuration",
+      "description": "Unpressurized all-metal high-wing twin turboprop with fixed tricycle gear, steerable nosewheel and PT6A-series engines driving reversible, full-feathering propellers.",
+      "specifications": {},
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "Aircraft General \u2014 introduction",
+          "revision": "Training reference"
+        }
+      ]
+    },
+    {
+      "id": "dimensions",
+      "name": "Dimensions and ground clearances",
+      "description": "Reference figures include wingspan, fuselage length, height, propeller clearance, track, tail span and related ground-clearance notes.",
+      "specifications": {},
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "Figure 6-1 Aircraft Dimensions",
+          "revision": "Training reference"
+        }
+      ]
+    },
+    {
+      "id": "stations",
+      "name": "Aircraft stations",
+      "description": "Station diagrams locate structural references from fuselage, wing, stabilizer/elevator and vertical stabilizer datums.",
+      "specifications": {},
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "Figure 6-3 Aircraft Stations",
+          "revision": "Training reference"
+        }
+      ]
+    }
+  ],
+  "controls": [],
+  "limits": [],
+  "modificationVariants": [],
+  "casMessageRefs": []
+}

@@ -1,0 +1,252 @@
+{
+  "schemaId": "system_description",
+  "schemaVersion": "1.0.0",
+  "systemId": "air_systems",
+  "systemName": "Air Systems (Bleed Air / Pneumatic / De-Ice)",
+  "variant": "BOTH",
+  "summary": "P3 (high-pressure compressor exit) bleed air from each engine is the primary pneumatic source on the DHC-6. Bleed air is used for: cabin heating, pneumatic de-icing boots (wing leading edges, horizontal stabilizer), windshield heating, engine intake anti-ice (when de-ice boots are fitted), and pneumatic autopilot (where installed). Each engine has an independent BLEED AIR shutoff valve controlled by the overhead BLEED AIR L/R switches. Intake deflectors (inertial separators) provide protection against rain, ice, and particulate ingestion without using bleed air. Pitot heat is independently electrically powered.",
+  "references": [
+    {
+      "source": "POH_AFM",
+      "locator": "Section 7.16 Pneumatic System, p.7-102\u2013103",
+      "revision": "Rev 53 (10 Sep 2010)"
+    },
+    {
+      "source": "POH_AFM",
+      "locator": "Section 7.17 Ice and Rain Protection, p.7-104\u2013113",
+      "revision": "Rev 53 (10 Sep 2010)"
+    },
+    {
+      "source": "FCTM",
+      "locator": "6.4.3.3.3 Intake Deflectors, p.6-37",
+      "revision": "ISS 03 / REV 02 (Dec 2022)"
+    },
+    {
+      "source": "FCTM",
+      "locator": "6.4.3.3.1 Air Inlet, p.6-36",
+      "revision": "ISS 03 / REV 02 (Dec 2022)"
+    }
+  ],
+  "modificationVariants": [
+    {
+      "id": "mod_6_1266_bleed_temp",
+      "name": "Mod 6/1266 \u2014 Bleed Air Temperature Control Valves",
+      "serialRange": "SN 311 to SN 410 only",
+      "description": "Temperature control valves limit bleed air temperature to protect wing structure. At <270\u00b0F: hot air only. Above 270\u00b0F: hot air off, cold air only. Above 350\u00b0F: all bleed shut off. Includes temperature indicator in cockpit.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.16.3, p.7-103"
+        }
+      ]
+    },
+    {
+      "id": "mod_6_1779_deice_timer",
+      "name": "Mod 6/1779 \u2014 De-Ice Timer (Strobe Immunity)",
+      "serialRange": "Standard from SN 830; easily retrofitted",
+      "description": "Replaces the original de-ice AUTO mode timer which was susceptible to interference from strobe lights. Pre-Mod aircraft: strobe lights must be turned OFF before operating de-ice in AUTOMATIC mode.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.17.7, p.7-108"
+        }
+      ]
+    },
+    {
+      "id": "mod_6_1393_stab_lights",
+      "name": "Mod 6/1393 \u2014 Stabiliser De-Ice Press Indicator Lights",
+      "serialRange": "Post Mod 6/1393",
+      "description": "Two blue press-to-test indicator lights (LEFT / RIGHT STAB DEICE PRESS) confirm air pressure is being delivered to each tailplane de-ice boot during inflation cycle.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.17.7.2, p.7-110"
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "id": "bleed_air_valves",
+      "name": "Bleed Air Shutoff Valves (L/R)",
+      "description": "One valve per engine in the engine nacelle. Electrically controlled by the BLEED AIR L/R lever-lock toggle switches on the overhead console (powered from respective L/R DC buses). When ON, P3 bleed air flows to the distribution manifold serving heating and de-icing. A PNEUMATIC LOW PRESSURE caution light (where de-ice or autopilot is fitted) illuminates if pressure falls below 13\u201315 psi in the distribution manifold.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.16.1, p.7-102"
+        }
+      ]
+    },
+    {
+      "id": "cabin_heating",
+      "name": "Cabin Heating System",
+      "description": "Bleed air is mixed with ram air and distributed to the cabin and flight compartment. Controlled by HEATING CONTROL switch (AUTO or MANUAL), MANUAL CONTROL switch, and TEMPERATURE CONTROL rotary knob (45\u201380\u00b0F range in auto mode). A DUCT OVERHEAT caution light illuminates if the heating duct overheats \u2014 usually caused by insufficient RAM AIR vent opening before enabling the heater.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.18.5\u20137.18.8, p.7-115\u2013118"
+        }
+      ]
+    },
+    {
+      "id": "surface_deice_boots",
+      "name": "Wing and Tail De-Ice Boots",
+      "description": "Pneumatically-inflated rubber boots on wing leading edges and horizontal stabilizer leading edges. Inflation breaks off accreted ice. AUTOMATIC mode: timer cycles inflation automatically (FAST or SLOW cycles). MANUAL mode: crew manually selects WING INNER/OUTER and LEFT/RIGHT STAB for discrete inflations. Boots are deflated by ejector venturi suction when BLEED AIR switches are ON.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.17.7, p.7-108"
+        }
+      ]
+    },
+    {
+      "id": "intake_deflectors",
+      "name": "Engine Intake Deflectors (Inertial Separators)",
+      "description": "Each engine air inlet incorporates an inertial separator. When extended, incoming air is forced through a sharp turn; particles (water, ice crystals, snow, sand) are inertially separated and ejected overboard. Performance penalty when extended: torque drops ~1\u20132 psi, T5 rises if power re-adjusted to original value. Does NOT use bleed air \u2014 purely mechanical inertial separation.",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.4.3.3.3, p.6-37"
+        },
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.17.4, p.7-107"
+        }
+      ]
+    },
+    {
+      "id": "pitot_heat",
+      "name": "Pitot Heat",
+      "description": "Electrically heated pitot tubes (one per pilot side). Powered from the respective DC bus. PITOT HEAT switch must be ON whenever icing conditions are present or anticipated. A PITOT HEAT caution light (where fitted) illuminates when the heater element fails or its circuit breaker trips.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.17, p.7-104"
+        }
+      ]
+    },
+    {
+      "id": "windshield_heat",
+      "name": "Windshield Heating",
+      "description": "Electrically heated windshields provide anti-icing. Controlled by WINDSHIELD HEAT switches on the overhead panel. Each windshield is independently controlled.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.17.10, p.7-112"
+        }
+      ]
+    },
+    {
+      "id": "prop_deice",
+      "name": "Propeller De-Icing",
+      "description": "Electrothermal heating elements in each propeller blade root area. Powered from the DC bus. PROP DEICE switch on the overhead panel. Cycled automatically or manually depending on modification status.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.17.8, p.7-112"
+        }
+      ]
+    },
+    {
+      "id": "engine_intake_antiice",
+      "name": "Engine Intake Anti-Ice",
+      "description": "Where de-ice boots are installed, hot bleed air can be directed to prevent icing at the engine air inlet. Controlled by INTAKE ANTI-ICE switches on the overhead console.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.17.9, p.7-112"
+        }
+      ]
+    }
+  ],
+  "controls": [
+    {
+      "id": "bleed_air_switches",
+      "name": "BLEED AIR Switches (L/R)",
+      "positions": [
+        "ON",
+        "OFF"
+      ],
+      "description": "Lever-lock toggle switches on the overhead console. Must be ON to supply bleed air to heating and de-icing systems.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.16.1, p.7-102"
+        }
+      ]
+    },
+    {
+      "id": "deice_auto_manual",
+      "name": "DEICER BOOTS Mode Switch",
+      "positions": [
+        "AUTO",
+        "MANUAL"
+      ],
+      "description": "AUTO: timer automatically cycles inflation at FAST or SLOW rate. MANUAL: crew manually inflates specific surfaces using WING INNER/OUTER and LEFT/RIGHT STAB switches.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.17.7.1, p.7-110"
+        }
+      ]
+    },
+    {
+      "id": "intake_deflector_switches",
+      "name": "Intake Deflector Switches (L/R)",
+      "positions": [
+        "RETRACTED",
+        "EXTENDED"
+      ],
+      "description": "Extend inertial separators to protect engines from water/ice/particulate ingestion. Performance penalty when extended.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.17.4, p.7-107"
+        }
+      ]
+    }
+  ],
+  "limits": [
+    {
+      "id": "pneumatic_low_pressure",
+      "parameter": "Pneumatic Low Pressure Caution \u2014 Trigger",
+      "value": "13\u201315 psi in de-ice/autopilot manifold",
+      "note": "Below this pressure, de-ice boots and pneumatic autopilot cannot operate satisfactorily.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.16.2, p.7-103"
+        }
+      ]
+    },
+    {
+      "id": "bleed_shutdown_temp",
+      "parameter": "Bleed Air Shutdown (Mod 6/1266 \u2014 SN 311\u2013410 only)",
+      "value": "Above 350\u00b0F \u2014 all bleed shut off automatically",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.16.3, p.7-103"
+        }
+      ]
+    },
+    {
+      "id": "deice_strobe_premod",
+      "name": "De-Ice AUTO / Strobe Lights (Pre-Mod 6/1779)",
+      "parameter": "De-Ice AUTO Mode with Strobe Lights",
+      "value": "Strobe lights MUST be OFF before selecting de-ice AUTOMATIC mode",
+      "note": "Pre-Mod 6/1779 aircraft only. Strobe interference can corrupt the AUTO de-ice timer.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.17.7, p.7-108"
+        }
+      ]
+    }
+  ],
+  "casMessageRefs": [
+    "PNEUMATIC_LOW_PRESS",
+    "PITOT_HEAT_FAIL",
+    "DUCT_OVERHEAT"
+  ]
+}

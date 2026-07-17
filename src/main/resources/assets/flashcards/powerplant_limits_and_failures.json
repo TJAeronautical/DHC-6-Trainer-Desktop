@@ -1,0 +1,149 @@
+{
+  "schemaId": "flashcard_deck",
+  "schemaVersion": "1.0.0",
+  "deckId": "powerplant_limits_and_failures",
+  "deckName": "Powerplant — Limits, Oil & Abnormals",
+  "description": "Detailed PT6A-27 operating limits, oil system, start temperature interpretation, and abnormal recognition. Companion to powerplant_pt6_core.json.",
+  "systemId": "powerplant",
+  "variant": "BOTH",
+  "difficulty": "INTERMEDIATE",
+  "cards": [
+    {
+      "id": "t5_limits_all_phases",
+      "front": "State the T5 (ITT) limits for: Take-Off, Max Climb, Max Cruise, and Idle.",
+      "back": "Take-Off / Max Cont: 725°C. Max Climb: 695°C (recommended). Max Cruise: 695°C (recommended). Idle: 660°C (not marked on gauge). Starting: 925°C unlimited, 925–980°C within 10 sec, 980–1090°C within 2 sec.",
+      "tags": ["limits", "t5", "itt"],
+      "references": [
+        {"source": "FCTM", "locator": "6.4.4, p.6-39"},
+        {"source": "QRH", "locator": "Section 13.1, p.PL-1"}
+      ]
+    },
+    {
+      "id": "oil_pressure_bands",
+      "front": "What are the three oil pressure bands for the PT6A-27 and what action does each require?",
+      "back": "Normal: 80–100 psi (above 72% NG, oil temp 60–70°C). Caution range 40–80 psi: tolerable to complete flight at reduced power — report discrepancy before next flight. Below 40 psi: UNSAFE — engine shutdown or land immediately at minimum power. 40–80 psi acceptable for GROUND OPERATIONS only.",
+      "tags": ["limits", "oil", "abnormal"],
+      "references": [
+        {"source": "FCTM", "locator": "6.4.4.1 Note 3, p.6-40"},
+        {"source": "QRH", "locator": "Section 2.6 and 2.7, p.EN-4"}
+      ]
+    },
+    {
+      "id": "oil_temp_recommendations",
+      "front": "What oil temperature is recommended before take-off and why is the 55°C minimum significant?",
+      "back": "74–80°C recommended for service life (time between oil changes). Minimum 55°C recommended before fuel heater operation at take-off — the fuel-oil heat exchanger needs sufficient oil temperature to prevent fuel icing. Cold oil also means the fuel heater is less effective, increasing fuel icing risk in cold/humid conditions.",
+      "tags": ["oil", "fuel_heater", "limits"],
+      "references": [
+        {"source": "FCTM", "locator": "6.4.4.1 Note 4, p.6-40"}
+      ]
+    },
+    {
+      "id": "acceleration_limits",
+      "front": "What are the 2-second acceleration limits and when do they apply?",
+      "back": "Torque: 68.7 psi. T5: 825°C. NG: 102.6%. NP: 110%. These apply to rapid power application for abnormalities (balked landing, go-around). The assumption is the deviation is momentary and non-stabilised. Stabilised exceedance of normal limits is not permitted.",
+      "tags": ["limits", "acceleration"],
+      "references": [
+        {"source": "FCTM", "locator": "6.4.4.1 Note 6, p.6-40"}
+      ]
+    },
+    {
+      "id": "ng_cold_derating",
+      "front": "How does cold ambient temperature affect the maximum NG limit?",
+      "back": "For every 10°C below -30°C ambient, reduce maximum allowable NG by 2.2%. Example: at -40°C ambient, max NG = 101.5% - 2.2% = 99.3%. This accounts for increased air density causing compressor/turbine stress at high speeds in very cold conditions.",
+      "tags": ["limits", "cold_weather", "ng"],
+      "references": [
+        {"source": "FCTM", "locator": "6.4.4.1 Note 2, p.6-40"}
+      ]
+    },
+    {
+      "id": "compressor_bleed_valve_stuck_open",
+      "front": "What are the indications of a compressor bleed valve stuck open during take-off?",
+      "back": "Cannot achieve calculated take-off torque despite advancing the power lever. T5 rises above normal values as more fuel is added in an attempt to reach the torque target. Bleed valve stuck open continuously dumps compressor air before it reaches combustion. CBV FAIL CAS may annunciate. Action: QRH Bleed Air Abnormal.",
+      "tags": ["abnormal", "cbv", "powerplant"],
+      "references": [
+        {"source": "FCTM", "locator": "6.4.8.6.1, p.6-48"}
+      ]
+    },
+    {
+      "id": "reverse_operation_limit",
+      "front": "What is the time limit for ground reverse operation and what condition requires heading into wind?",
+      "back": "Reverse thrust is limited to ONE MINUTE regardless of temperature. At 32°C and above ambient: aircraft MUST be headed into wind during ground running (except manoeuvring/taxiing); non-forward-thrust operation limited to 1 minute. Below 32°C: reverse with aircraft headed into wind also limited to 1 minute.",
+      "tags": ["limits", "reverse", "ground_ops"],
+      "references": [
+        {"source": "FCTM", "locator": "6.4.4.1 Note 7 and CAUTION, p.6-40"}
+      ]
+    },
+    {
+      "id": "free_turbine_concept",
+      "front": "Explain the 'free turbine' concept and its operational significance for the DHC-6.",
+      "back": "The compressor turbine (CT) is mechanically connected to the compressor shaft (NG spool). The power turbine (PT) is NOT mechanically connected to NG — it is a separate free-rotor driven by exhaust gases. This means: (1) NG can be changed independently of NP. (2) An engine can run at idle NG while the propeller is feathered. (3) NP and torque changes do not directly affect NG — a NP anomaly without a matching NG change points to a CSU/governing fault, not a compressor problem.",
+      "tags": ["design", "ng_np", "free_turbine"],
+      "references": [
+        {"source": "FCTM", "locator": "6.4.3.1, p.6-34"}
+      ]
+    },
+    {
+      "id": "engine_stations",
+      "front": "Name the five crew-relevant PT6A engine stations and what is measured at each.",
+      "back": "Station 1: Air inlet. Station 2: Entry to compressor. Station 2.5: Between axial and centrifugal compressor stages. Station 3: Compressor exit (P3 bleed air). Station 5: Between compressor turbine and power turbine — T5 (inter-turbine temperature) measured here. Note: there is no Station 4 used operationally.",
+      "tags": ["stations", "t5", "p3"],
+      "references": [
+        {"source": "FCTM", "locator": "6.4.3.2, p.6-35"}
+      ]
+    },
+    {
+      "id": "glow_plugs_vs_igniters",
+      "front": "The switch is labelled ENG IGNITER. Does the DHC-6 use igniters or glow plugs? Why does it matter?",
+      "back": "GLOW PLUGS — not spark igniters — despite the switch label. The ENG IGNITER L/R switch is always in BOTH; NO.1/NO.2 positions are for maintenance testing only. The IGNITION switch is AUTO for normal starts. MANUAL (continuous) requires lifting the red guard. This matters because if the ignition fails during starting, you troubleshoot glow plug circuits, not spark plug circuits.",
+      "tags": ["ignition", "glow_plugs"],
+      "references": [
+        {"source": "FCTM", "locator": "6.4.7, p.6-45"}
+      ]
+    },
+    {
+      "id": "idle_t5_abnormal",
+      "front": "T5 at idle is approaching 660°C. What are your two corrective options?",
+      "back": "1. INCREASE NG (advance power lever slightly above idle) — raises NG, increasing compressor efficiency and reducing combustion temperature imbalance. 2. REDUCE ELECTRICAL LOAD — turn off a generator to reduce engine load, which typically lowers T5. The 660°C idle limit is not marked on the gauge. Sustained high idle T5 may indicate fuel system contamination or combustion inefficiency.",
+      "tags": ["t5", "idle", "abnormal"],
+      "references": [
+        {"source": "FCTM", "locator": "6.4.4.1 Note 5, p.6-40"}
+      ]
+    },
+    {
+      "id": "torquemeter_function",
+      "front": "How does the torquemeter work and where is it located?",
+      "back": "The torquemeter is in the reduction gear assembly at the front of the engine. It consists of a cylinder, piston, valve plunger, and spring. Engine oil is supplied to the cylinder at relatively constant pressure. A ring gear with straight-cut (inside) and helical-cut (outside) teeth moves the piston. The piston reaction with oil pressure allows the transmitter to determine the torque being transmitted to the propeller shaft. The cockpit torque gauge shows power required to turn the propeller — NOT a direct engine power reading.",
+      "tags": ["torquemeter", "instrumentation"],
+      "references": [
+        {"source": "FCTM", "locator": "6.4.3.3.10, p.6-38"}
+      ]
+    },
+    {
+      "id": "oil_system_multiple_roles",
+      "front": "Name the four non-lubrication functions of the PT6A-27 engine oil system.",
+      "back": "1. FUEL HEATING — fuel-oil heat exchanger warms fuel to prevent ice crystals (requires min 55°C oil temp). 2. PROPELLER CONTROL — oil pressure supplied to propeller dome via CSU governs blade angle. 3. TORQUEMETER — oil pressure in the torquemeter cylinder determines torque reading. 4. BEARING COOLING — in addition to lubrication, oil removes heat from main bearings.",
+      "tags": ["oil", "multi_role"],
+      "references": [
+        {"source": "FCTM", "locator": "6.4.5, p.6-41"}
+      ]
+    },
+    {
+      "id": "start_temp_850_report",
+      "front": "During engine start, T5 peaks at 865°C then decreases normally below 925°C. What action is required?",
+      "back": "This temperature (865°C) is above the 850°C reporting threshold. While it is technically within the starting limits (under 925°C = no time limit), starting temperatures above 850°C SHOULD BE REPORTED AND INVESTIGATED for cause. The start itself was legal, but the elevated temperature suggests possible fuel system, ignition, or compressor issues warranting investigation before the next flight.",
+      "tags": ["start", "t5", "limits"],
+      "references": [
+        {"source": "FCTM", "locator": "6.4.4.1 Note 8, p.6-40"}
+      ]
+    },
+    {
+      "id": "overspeed_governor_primary_failure",
+      "front": "The primary propeller governor fails to govern at 96% NP. NP is being held at 101.5% by the overspeed governor. Can you continue the flight?",
+      "back": "YES — per the AFM note, it is ACCEPTABLE to continue using the engine as long as the overspeed governor maintains NP at 101.5% or less. However, a landing should be made as soon as PRACTICAL and the fault corrected before further flight. This is not the same as NP exceeding 101.5% — that requires an engine shutdown.",
+      "tags": ["propeller", "overspeed", "abnormal"],
+      "references": [
+        {"source": "FCTM", "locator": "6.4.4.1 Note 9, p.6-40"}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,456 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://dhc6trainer.app/schema/scenario_snapshots_v2.schema.json",
+  "title": "DHC-6 Trainer Scenario Snapshots",
+  "type": "object",
+  "required": [
+    "baselines",
+    "procedures"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "baselines": {
+      "type": "object",
+      "additionalProperties": false,
+      "anyOf": [
+        {
+          "required": [
+            "legacy",
+            "g950"
+          ]
+        },
+        {
+          "required": [
+            "LEGACY",
+            "G950"
+          ]
+        }
+      ],
+      "patternProperties": {
+        "^(legacy|LEGACY|g950|G950)$": {
+          "$ref": "#/definitions/snapshotDelta"
+        }
+      }
+    },
+    "procedures": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/definitions/procedureSnapshots"
+      }
+    }
+  },
+  "definitions": {
+    "variant": {
+      "type": "string",
+      "enum": [
+        "LEGACY",
+        "G950",
+        "BOTH"
+      ]
+    },
+    "procedureSnapshots": {
+      "type": "object",
+      "required": [
+        "variant",
+        "title",
+        "phases"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "variant": {
+          "$ref": "#/definitions/variant"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "phases": {
+          "type": "object",
+          "additionalProperties": false,
+          "anyOf": [
+            {
+              "required": [
+                "before",
+                "during",
+                "after"
+              ]
+            },
+            {
+              "required": [
+                "BEFORE",
+                "DURING",
+                "AFTER"
+              ]
+            }
+          ],
+          "patternProperties": {
+            "^(before|BEFORE|during|DURING|after|AFTER)$": {
+              "$ref": "#/definitions/snapshotDelta"
+            }
+          }
+        }
+      }
+    },
+    "snapshotDelta": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "annunciators": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "$ref": "#/definitions/annunciator"
+              }
+            ]
+          }
+        },
+        "instruments": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/stateMap"
+            },
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/instrumentState"
+              }
+            }
+          ]
+        },
+        "controls": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/stateMap"
+            },
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/controlState"
+              }
+            }
+          ]
+        },
+        "notes": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "stateMap": {
+      "type": "object",
+      "additionalProperties": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "integer"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      }
+    },
+    "annunciator": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "level": {
+          "type": "string",
+          "enum": [
+            "WARNING",
+            "CAUTION",
+            "ADVISORY",
+            "STATUS",
+            "ON",
+            "OFF",
+            "FLASH"
+          ]
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "instrumentState": {
+      "type": "object",
+      "required": [
+        "id",
+        "value"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "unit": {
+          "$ref": "#/definitions/instrumentUnit"
+        },
+        "value": {
+          "$ref": "#/definitions/instrumentValue"
+        }
+      }
+    },
+    "instrumentUnit": {
+      "type": "string",
+      "enum": [
+        "TEXT",
+        "BOOL",
+        "INT",
+        "FLOAT",
+        "PERCENT",
+        "TEMP_C",
+        "PRESSURE_PSI",
+        "VOLT",
+        "AMP",
+        "FREQ_HZ",
+        "SPEED_KT",
+        "ALT_FT",
+        "ANGLE_DEG"
+      ]
+    },
+    "instrumentValue": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": [
+            "text"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "text": {
+              "type": "string"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "bool"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "bool": {
+              "type": "boolean"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "int"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "int": {
+              "type": "integer"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "float"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "float": {
+              "type": "number"
+            }
+          }
+        }
+      ]
+    },
+    "controlState": {
+      "type": "object",
+      "required": [
+        "id",
+        "kind"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "LEVER",
+            "SWITCH"
+          ]
+        },
+        "lever": {
+          "$ref": "#/definitions/leverValue"
+        },
+        "switch": {
+          "$ref": "#/definitions/switchValue"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "enum": [
+                  "LEVER"
+                ]
+              }
+            },
+            "required": [
+              "kind"
+            ]
+          },
+          "then": {
+            "required": [
+              "lever"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "enum": [
+                  "SWITCH"
+                ]
+              }
+            },
+            "required": [
+              "kind"
+            ]
+          },
+          "then": {
+            "required": [
+              "switch"
+            ]
+          }
+        }
+      ]
+    },
+    "leverValue": {
+      "type": "object",
+      "required": [
+        "unit"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "unit": {
+          "type": "string",
+          "enum": [
+            "RATIO",
+            "PERCENT"
+          ]
+        },
+        "ratio": {
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 1.0
+        },
+        "percent": {
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 100.0
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "unit": {
+                "enum": [
+                  "RATIO"
+                ]
+              }
+            },
+            "required": [
+              "unit"
+            ]
+          },
+          "then": {
+            "required": [
+              "ratio"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "unit": {
+                "enum": [
+                  "PERCENT"
+                ]
+              }
+            },
+            "required": [
+              "unit"
+            ]
+          },
+          "then": {
+            "required": [
+              "percent"
+            ]
+          }
+        }
+      ]
+    },
+    "switchValue": {
+      "type": "object",
+      "required": [
+        "position"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "position": {
+          "type": "string",
+          "enum": [
+            "LEFT",
+            "RIGHT",
+            "CENTER",
+            "MOMENTARY",
+            "ON",
+            "OFF",
+            "NORMAL"
+          ]
+        },
+        "token": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

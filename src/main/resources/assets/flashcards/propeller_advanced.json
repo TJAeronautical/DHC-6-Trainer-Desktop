@@ -1,0 +1,127 @@
+{
+  "schemaId": "flashcard_deck",
+  "schemaVersion": "1.0.0",
+  "deckId": "propeller_advanced",
+  "deckName": "Propeller System — Governors & Abnormals",
+  "description": "Advanced propeller knowledge: three governing systems, autofeather arming/firing conditions, beta range, beta backup, and abnormal recognition. Companion to propeller_system_core.json.",
+  "systemId": "propeller",
+  "variant": "BOTH",
+  "difficulty": "ADVANCED",
+  "cards": [
+    {
+      "id": "three_governors",
+      "front": "Name the three propeller governing systems on the DHC-6 and when each activates.",
+      "back": "1. PRIMARY CSU/GOVERNOR: modulates oil pressure to hold NP at the prop lever setting (75–96% NP governing range). Active whenever NP matches the lever setting. 2. OVERSPEED GOVERNOR: hydraulic, preset at 101.5% NP — dumps oil pressure if NP exceeds preset, limiting overspeed. Backup to primary. 3. NF FUEL-TOPPING GOVERNOR: limits fuel flow when NP reaches selected NP +6% in forward flight (backup for both CSU and overspeed failure); resets to limit NP to 91% in reverse to keep propellers underspeeding and under beta valve control.",
+      "tags": ["governors", "np", "design"],
+      "references": [
+        {"source": "FCTM", "locator": "6.7.4 to 6.7.7, p.6-68 to 6-73"},
+        {"source": "POH_AFM", "locator": "Section 7.14.4 to 7.14.7, p.7-108 to 7-112"}
+      ]
+    },
+    {
+      "id": "autofeather_arming_conditions",
+      "front": "State the three conditions required to ARM the autofeather system.",
+      "back": "1. PROP AUTO FEATHER switch selected ON (SELECT light illuminates). 2. BOTH power levers advanced beyond 86–88% NG (microswitches contact). 3. Torque on BOTH engines above the arming pressure switch threshold (18–30 psi depending on modification). When all three are met, the ARM light illuminates. If any condition is removed (e.g. power lever retarded for RTO), the system disarms.",
+      "tags": ["autofeather", "arming"],
+      "references": [
+        {"source": "FCTM", "locator": "6.7.8, p.6-74"},
+        {"source": "POH_AFM", "locator": "Section 7.14.8, p.7-113"}
+      ]
+    },
+    {
+      "id": "autofeather_activation",
+      "front": "What is the single activation condition for autofeather, and what prevents the other engine from also autofeathering?",
+      "back": "ACTIVATION: Torque drops to 11 psi for 2 SECONDS on one engine (with system armed). The 2-second delay prevents spurious activation from momentary fluctuations. BLOCKING: After the first propeller feathers, a blocking relay (isolation relay) DISARMS the autofeather system of the opposite engine, preventing inadvertent feathering of the remaining live engine.",
+      "tags": ["autofeather", "activation", "blocking"],
+      "references": [
+        {"source": "FCTM", "locator": "6.7.8, p.6-74 to 6-75"},
+        {"source": "POH_AFM", "locator": "Section 7.14.8, p.7-113"}
+      ]
+    },
+    {
+      "id": "autofeather_approved_phases",
+      "front": "In which phases of flight is the autofeather system approved and prohibited?",
+      "back": "APPROVED: Take-off only. ARM light must illuminate at take-off power as a confirmation check. PROHIBITED: The AFM specifically prohibits use of the autofeather system during APPROACH and LANDING. Reason: an inadvertent feather on approach/landing would be catastrophic at low altitude with insufficient time to recover.",
+      "tags": ["autofeather", "limitations"],
+      "references": [
+        {"source": "POH_AFM", "locator": "Section 7.14.8, p.7-114"},
+        {"source": "FCTM", "locator": "6.7.8, p.6-74"}
+      ]
+    },
+    {
+      "id": "feathering_forces",
+      "front": "What three forces drive propeller blades toward feather when oil pressure is removed?",
+      "back": "1. INTERNAL FEATHERING SPRINGS — installed in the propeller hub. 2. CENTRIFUGAL COUNTERWEIGHTS — attached to the blade roots; as blades rotate, centrifugal force acts on the counterweights in a direction that increases blade angle toward feather. 3. AERODYNAMIC TWISTING MOMENT — the blade's aerodynamic shape creates a twisting moment toward fine pitch at low AoA/high torque; toward feather at low torque. All three act simultaneously when CSU oil supply is interrupted.",
+      "tags": ["feathering", "forces", "design"],
+      "references": [
+        {"source": "FCTM", "locator": "6.7.4.1, p.6-69"},
+        {"source": "POH_AFM", "locator": "Section 7.14.2, p.7-106"}
+      ]
+    },
+    {
+      "id": "beta_range_definition",
+      "front": "Define the beta range and explain what changes when the power lever is moved within it.",
+      "back": "Beta range: blade angle +17° to -15°. The power lever controls blade angle directly through the beta reverse valve — the CSU is bypassed. Within the 'null range' (+17° to approximately +2°): power lever movement changes blade angle only; NG stays relatively constant. Below +2°: both blade angle AND NG change together. At IDLE on ground: blade angle approximately +11°, NP approximately 44% (not in governing range). Beta range is a GROUND-ONLY operation (power levers aft of idle is prohibited in flight).",
+      "tags": ["beta", "ground_ops", "blade_angle"],
+      "references": [
+        {"source": "FCTM", "locator": "6.7.6, p.6-71"}
+      ]
+    },
+    {
+      "id": "beta_backup_system",
+      "front": "The BETA light illuminates. What has happened and what does the backup system provide?",
+      "back": "Normal beta oil pressure has been LOST. The beta backup solenoid valve has automatically shifted to route engine oil supply directly to the propeller hub beta piston. BETA light plus aural warning. What the backup PROVIDES: limited beta blade angle control. What it does NOT provide: FEATHERING capability. If the BETA light is intermittent: land as soon as practical. If steady: land as soon as possible. The backup is not a normal operating system — it is an emergency measure.",
+      "tags": ["beta_backup", "abnormal", "indication"],
+      "references": [
+        {"source": "FCTM", "locator": "6.7.9, p.6-76"},
+        {"source": "QRH", "locator": "Section 3 Propeller"}
+      ]
+    },
+    {
+      "id": "nf_governor_reverse",
+      "front": "Why does the NF governor reset to limit NP to 91% when power levers are in reverse?",
+      "back": "In reverse, the power lever controls blade angle through the beta reverse valve — the CSU must be UNDERSPEEDEING (NP below its set speed) for the beta valve to control blade angle. If NP reaches the CSU governing range (96%), the CSU would take over oil supply and the beta valve would lose control. By resetting the NF governor to limit NP to 91% (5% below the 96% CSU onset), reverse blade angle remains under beta valve control at all times, ensuring the crew always has direct control of blade angle via the power lever.",
+      "tags": ["nf_governor", "reverse", "beta"],
+      "references": [
+        {"source": "FCTM", "locator": "6.7.7, p.6-73"},
+        {"source": "POH_AFM", "locator": "Section 7.14.7, p.7-112"}
+      ]
+    },
+    {
+      "id": "float_blade_latches",
+      "front": "What are propeller blade latches and on which aircraft variant are they installed?",
+      "back": "FLOAT-EQUIPPED aircraft only. Spring-loaded latches arrest the propeller at approximately +1° blade angle (near zero thrust) during engine shutdown, when power levers are at the zero-thrust position. During start, the latches retract by centrifugal force when NP reaches approximately 30%. Purpose: prevents blade angle from going fully to feather during water operations (feathered blades in water cause excessive drag/damage). Propeller ties are ALWAYS used when parked to prevent windmilling.",
+      "tags": ["floatplane", "blade_latches"],
+      "references": [
+        {"source": "FCTM", "locator": "6.7.1, p.6-65"}
+      ]
+    },
+    {
+      "id": "uncommanded_feathering_recognition",
+      "front": "How do you recognise uncommanded feathering and differentiate it from engine failure?",
+      "back": "Uncommanded feather: NP and TORQUE drop toward zero; NG may remain running (fuel flow visible). In engine FAILURE: NG also drops and T5 decreases. In uncommanded feather: NG may still be showing cruise NG with low or zero torque and NP. Check: (1) Is the prop lever at FEATHER? (2) Is the autofeather switch ON with one engine torque low? Action: QRH Uncommanded Feathering — power and prop MAX on unaffected engine; turn autofeather OFF if ON; if prop doesn't unfeather, complete engine shutdown in flight.",
+      "tags": ["uncommanded_feather", "abnormal", "recognition"],
+      "references": [
+        {"source": "QRH", "locator": "Section 3.1, p.PR-1"}
+      ]
+    },
+    {
+      "id": "overspeed_np_exceeds_101_5",
+      "front": "NP has exceeded 101.5%. What is the QRH action?",
+      "back": "QRH Propeller Overspeed NP Exceeds 101.5%: 1. POWER and PROP LEVERS (unaffected engine) — MAX POWER. 2. Shutdown the affected engine as per ENGINE IN-FLIGHT SHUTDOWN. This is a mandatory shutdown — 101.5% NP has exceeded all three governors' limits. Operating above 101.5% NP risks structural damage to propeller, reduction gearbox, and power turbine shaft.",
+      "tags": ["overspeed", "qrh", "abnormal"],
+      "references": [
+        {"source": "QRH", "locator": "Section 3.3, p.PR-1"}
+      ]
+    },
+    {
+      "id": "reset_props_light",
+      "front": "When does the RESET PROPS caution illuminate and what is the corrective action?",
+      "back": "RESET PROPS illuminates when one or both propeller levers are NOT at MAX RPM (96% NP) while the aircraft is in a configuration where MAX RPM is required (typically during take-off or when prop levers are not advanced). Action: advance both PROP LEVERS to MAX RPM. The caution is a positional warning — it does not indicate a system fault.",
+      "tags": ["reset_props", "caution"],
+      "references": [
+        {"source": "FCTM", "locator": "6.7 propeller lever notes"}
+      ]
+    }
+  ]
+}

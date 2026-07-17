@@ -1,0 +1,207 @@
+{
+  "schemaVersion": "1.0.0",
+  "profileId": "scenario-snapshot-aliases",
+  "variant": "BOTH",
+  "messages": [
+    {
+      "display": "AHRS_ADC_FAIL",
+      "canonicalId": "AHRS_ADC_FAIL",
+      "level": "STATUS",
+      "meaning": "Scenario snapshot compatibility alias for legacy/generated annunciator ID 'AHRS_ADC_FAIL'.",
+      "immediate": "Used by scenario integrity tests and cockpit snapshot matching only.",
+      "qrhRef": "Scenario Snapshot Alias"
+    },
+    {
+      "display": "AHRS_DISAGREE",
+      "canonicalId": "AHRS_DISAGREE",
+      "level": "STATUS",
+      "meaning": "Scenario snapshot compatibility alias for legacy/generated annunciator ID 'AHRS_DISAGREE'.",
+      "immediate": "Used by scenario integrity tests and cockpit snapshot matching only.",
+      "qrhRef": "Scenario Snapshot Alias"
+    },
+    {
+      "display": "AILERON_TRIM_RUNAWAY",
+      "canonicalId": "AILERON_TRIM_RUNAWAY",
+      "level": "STATUS",
+      "meaning": "Scenario snapshot compatibility alias for legacy/generated annunciator ID 'AILERON_TRIM_RUNAWAY'.",
+      "immediate": "Used by scenario integrity tests and cockpit snapshot matching only.",
+      "qrhRef": "Scenario Snapshot Alias"
+    },
+    {
+      "display": "AUDIO_FAIL",
+      "canonicalId": "AUDIO_FAIL",
+      "level": "STATUS",
+      "meaning": "Scenario snapshot compatibility alias for legacy/generated annunciator ID 'AUDIO_FAIL'.",
+      "immediate": "Used by scenario integrity tests and cockpit snapshot matching only.",
+      "qrhRef": "Scenario Snapshot Alias"
+    },
+    {
+      "display": "AUTOFEATHER_UNCOMMANDED",
+      "canonicalId": "AUTOFEATHER_UNCOMMANDED",
+      "level": "STATUS",
+      "meaning": "Scenario snapshot compatibility alias for legacy/generated annunciator ID 'AUTOFEATHER_UNCOMMANDED'.",
+      "immediate": "Used by scenario integrity tests and cockpit snapshot matching only.",
+      "qrhRef": "Scenario Snapshot Alias"
+    },
+    {
+      "display": "CABIN_SMOKE",
+      "canonicalId": "CABIN_SMOKE",
+      "level": "STATUS",
+      "meaning": "Scenario snapshot compatibility alias for legacy/generated annunciator ID 'CABIN_SMOKE'.",
+      "immediate": "Used by scenario integrity tests and cockpit snapshot matching only.",
+      "qrhRef": "Scenario Snapshot Alias"
+    },
+    {
+      "display": "CB_TRIPPED",
+      "canonicalId": "CB_TRIPPED",
+      "level": "STATUS",
+      "meaning": "Scenario snapshot compatibility alias for legacy/generated annunciator ID 'CB_TRIPPED'.",
+      "immediate": "Used by scenario integrity tests and cockpit snapshot matching only.",
+      "qrhRef": "Scenario Snapshot Alias"
+    },
+    {
+      "display": "CHIP_DET_L",
+      "canonicalId": "CHIP_DET_L",
+      "level": "STATUS",
+      "meaning": "Scenario snapshot compatibility alias for legacy/generated annunciator ID 'CHIP_DET_L'.",
+      "immediate": "Used by scenario integrity tests and cockpit snapshot matching only.",
+      "qrhRef": "Scenario Snapshot Alias"
+    },
+    {
+      "display": "COM_FAIL",
+      "canonicalId": "COM_FAIL",
+      "level": "STATUS",
+      "meaning": "Scenario snapshot compatibility alias for legacy/generated annunciator ID 'COM_FAIL'.",
+      "immediate": "Used by scenario integrity tests and cockpit snapshot matching only.",
+      "qrhRef": "Scenario Snapshot Alias"
+    },
+    {
+      "display": "EFD_FAIL",
+      "canonicalId": "EFD_FAIL",
+      "level": "STATUS",
+      "meaning": "Scenario snapshot compatibility alias for legacy/generated annunciator ID 'EFD_FAIL'.",
+      "immediate": "Used by scenario integrity tests and cockpit snapshot matching only.",
+      "qrhRef": "Scenario Snapshot Alias"
+    },
+    {
+      "display": "ELEC_FIRE",
+      "canonicalId": "ELEC_FIRE",
+      "level": "STATUS",
+      "meaning": "Scenario snapshot compatibility alias for legacy/generated annunciator ID 'ELEC_FIRE'.",
+      "immediate": "Used by scenario integrity tests and cockpit snapshot matching only.",
+      "qrhRef": "Scenario Snapshot Alias"
+    },
+    {
+      "display": "G600_MONITOR",
+      "canonicalId": "G600_MONITOR",
+      "level": "STATUS",
+      "meaning": "Scenario snapshot compatibility alias for legacy/generated annunciator ID 'G600_MONITOR'.",
+      "immediate": "Used by scenario integrity tests and cockpit snapshot matching only.",
+      "qrhRef": "Scenario Snapshot Alias"
+    },
+    {
+      "display": "GPS_FAIL",
+      "canonicalId": "GPS_FAIL",
+      "level": "STATUS",
+      "meaning": "Scenario snapshot compatibility alias for legacy/generated annunciator ID 'GPS_FAIL'.",
+      "immediate": "Used by scenario integrity tests and cockpit snapshot matching only.",
+      "qrhRef": "Scenario Snapshot Alias"
+    },
+    {
+      "display": "GPS_REVERSION",
+      "canonicalId": "GPS_REVERSION",
+      "level": "STATUS",
+      "meaning": "Scenario snapshot compatibility alias for legacy/generated annunciator ID 'GPS_REVERSION'.",
+      "immediate": "Used by scenario integrity tests and cockpit snapshot matching only.",
+      "qrhRef": "Scenario Snapshot Alias"
+    },
+    {
+      "display": "GPS_SBAS_FAIL",
+      "canonicalId": "GPS_SBAS_FAIL",
+      "level": "STATUS",
+      "meaning": "Scenario snapshot compatibility alias for legacy/generated annunciator ID 'GPS_SBAS_FAIL'.",
+      "immediate": "Used by scenario integrity tests and cockpit snapshot matching only.",
+      "qrhRef": "Scenario Snapshot Alias"
+    },
+    {
+      "display": "HDG_MISCOMPARE",
+      "canonicalId": "HDG_MISCOMPARE",
+      "level": "STATUS",
+      "meaning": "Scenario snapshot compatibility alias for legacy/generated annunciator ID 'HDG_MISCOMPARE'.",
+      "immediate": "Used by scenario integrity tests and cockpit snapshot matching only.",
+      "qrhRef": "Scenario Snapshot Alias"
+    },
+    {
+      "display": "INSTR_FAIL",
+      "canonicalId": "INSTR_FAIL",
+      "level": "STATUS",
+      "meaning": "Scenario snapshot compatibility alias for legacy/generated annunciator ID 'INSTR_FAIL'.",
+      "immediate": "Used by scenario integrity tests and cockpit snapshot matching only.",
+      "qrhRef": "Scenario Snapshot Alias"
+    },
+    {
+      "display": "MFD_FAIL",
+      "canonicalId": "MFD_FAIL",
+      "level": "STATUS",
+      "meaning": "Scenario snapshot compatibility alias for legacy/generated annunciator ID 'MFD_FAIL'.",
+      "immediate": "Used by scenario integrity tests and cockpit snapshot matching only.",
+      "qrhRef": "Scenario Snapshot Alias"
+    },
+    {
+      "display": "NAV_FAIL",
+      "canonicalId": "NAV_FAIL",
+      "level": "STATUS",
+      "meaning": "Scenario snapshot compatibility alias for legacy/generated annunciator ID 'NAV_FAIL'.",
+      "immediate": "Used by scenario integrity tests and cockpit snapshot matching only.",
+      "qrhRef": "Scenario Snapshot Alias"
+    },
+    {
+      "display": "NP_EXCEED_SET",
+      "canonicalId": "NP_EXCEED_SET",
+      "level": "STATUS",
+      "meaning": "Scenario snapshot compatibility alias for legacy/generated annunciator ID 'NP_EXCEED_SET'.",
+      "immediate": "Used by scenario integrity tests and cockpit snapshot matching only.",
+      "qrhRef": "Scenario Snapshot Alias"
+    },
+    {
+      "display": "NP_OVERSPEED_L",
+      "canonicalId": "NP_OVERSPEED_L",
+      "level": "STATUS",
+      "meaning": "Scenario snapshot compatibility alias for legacy/generated annunciator ID 'NP_OVERSPEED_L'.",
+      "immediate": "Used by scenario integrity tests and cockpit snapshot matching only.",
+      "qrhRef": "Scenario Snapshot Alias"
+    },
+    {
+      "display": "PITOT_HEAT_FAIL",
+      "canonicalId": "PITOT_HEAT_FAIL",
+      "level": "STATUS",
+      "meaning": "Scenario snapshot compatibility alias for legacy/generated annunciator ID 'PITOT_HEAT_FAIL'.",
+      "immediate": "Used by scenario integrity tests and cockpit snapshot matching only.",
+      "qrhRef": "Scenario Snapshot Alias"
+    },
+    {
+      "display": "PITOT_STATIC_BLOCKAGE",
+      "canonicalId": "PITOT_STATIC_BLOCKAGE",
+      "level": "STATUS",
+      "meaning": "Scenario snapshot compatibility alias for legacy/generated annunciator ID 'PITOT_STATIC_BLOCKAGE'.",
+      "immediate": "Used by scenario integrity tests and cockpit snapshot matching only.",
+      "qrhRef": "Scenario Snapshot Alias"
+    },
+    {
+      "display": "PROP_REVERSAL",
+      "canonicalId": "PROP_REVERSAL",
+      "level": "STATUS",
+      "meaning": "Scenario snapshot compatibility alias for legacy/generated annunciator ID 'PROP_REVERSAL'.",
+      "immediate": "Used by scenario integrity tests and cockpit snapshot matching only.",
+      "qrhRef": "Scenario Snapshot Alias"
+    },
+    {
+      "display": "T5_START_HIGH",
+      "canonicalId": "T5_START_HIGH",
+      "level": "STATUS",
+      "meaning": "Scenario snapshot compatibility alias for legacy/generated annunciator ID 'T5_START_HIGH'.",
+      "immediate": "Used by scenario integrity tests and cockpit snapshot matching only.",
+      "qrhRef": "Scenario Snapshot Alias"
+    }
+  ]
+}

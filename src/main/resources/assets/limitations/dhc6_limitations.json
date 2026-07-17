@@ -1,0 +1,473 @@
+{
+  "version": "1.0",
+  "source": "DHC-6 Series 300 POH PSM 1-63-1A Revision 53 Section 2; HBFO-002 QRH G950 ISS01REV02",
+  "sections": [
+    {
+      "id": "airspeeds",
+      "title": "Airspeed Limitations",
+      "reference": "POH Section 2.3, Table 2-1",
+      "items": [
+        {
+          "id": "vmc",
+          "label": "VMC \u2014 Minimum Control Speed",
+          "value": "66 KCAS",
+          "valueSub": "64 KIAS",
+          "condition": "Flaps 10 deg, one engine feathered, max power live engine",
+          "band": "red",
+          "note": "Below VMC controllability cannot be guaranteed on one engine. Red radial on ASI.",
+          "reference": "POH Table 2-1"
+        },
+        {
+          "id": "vx",
+          "label": "VX \u2014 Best Angle of Climb",
+          "value": "89 KCAS",
+          "valueSub": "87 KIAS",
+          "condition": "Flaps 0 deg, both engines",
+          "band": "normal",
+          "note": "Greatest altitude gain over horizontal distance. Use to clear obstacles after take-off with flaps 0.",
+          "reference": "POH Table 2-1"
+        },
+        {
+          "id": "vy",
+          "label": "VY \u2014 Best Rate of Climb",
+          "value": "103 KCAS",
+          "valueSub": "100 KIAS",
+          "condition": "Flaps 0 deg, both engines",
+          "band": "normal",
+          "note": "Standard climb speed both engines operating.",
+          "reference": "POH Table 2-1"
+        },
+        {
+          "id": "vyse",
+          "label": "VYSE \u2014 Single Engine Best Rate",
+          "value": "82 KCAS",
+          "valueSub": "80 KIAS",
+          "condition": "Flaps 10 deg, dead engine feathered",
+          "band": "blue",
+          "note": "Blue radial on ASI. Maintain at VYSE after engine failure until obstacles are clear.",
+          "reference": "POH Table 2-1"
+        },
+        {
+          "id": "vfe_10",
+          "label": "VFE \u2014 Max Flap Speed (Flaps up to 10 deg)",
+          "value": "105 KCAS",
+          "valueSub": "103 KIAS",
+          "condition": "Mod 6/1395 aircraft, flaps 10 deg or less",
+          "band": "caution",
+          "note": "Do not exceed when selecting flaps to 10 degrees or less.",
+          "reference": "POH Table 2-1"
+        },
+        {
+          "id": "vfe_full",
+          "label": "VFE \u2014 Max Flap Speed (Flaps 10 to 37.5 deg)",
+          "value": "95 KCAS",
+          "valueSub": "93 KIAS",
+          "condition": "All flap settings beyond 10 deg",
+          "band": "caution",
+          "note": "White arc upper limit. Must be at or below 95 KCAS before extending flaps beyond 10 degrees.",
+          "reference": "POH Table 2-1"
+        },
+        {
+          "id": "vmo_low",
+          "label": "VMO \u2014 Max Operating Speed (S/L to 6,700 ft)",
+          "value": "170 KCAS",
+          "valueSub": "166 KIAS",
+          "condition": "Post Mod 6/1291",
+          "band": "red",
+          "note": "Never deliberately exceed in any phase of flight. Red radial on ASI.",
+          "reference": "POH Table 2-1"
+        },
+        {
+          "id": "vmo_10k",
+          "label": "VMO \u2014 Max Operating Speed (10,000 ft)",
+          "value": "160 KCAS",
+          "valueSub": "156 KIAS",
+          "condition": "Post Mod 6/1291",
+          "band": "red",
+          "note": "VMO decreases with altitude above 6,700 ft.",
+          "reference": "POH Table 2-1"
+        },
+        {
+          "id": "vmo_15k",
+          "label": "VMO \u2014 Max Operating Speed (15,000 ft)",
+          "value": "145 KCAS",
+          "valueSub": "141 KIAS",
+          "condition": "Post Mod 6/1291",
+          "band": "red",
+          "note": "",
+          "reference": "POH Table 2-1"
+        },
+        {
+          "id": "vmo_20k",
+          "label": "VMO \u2014 Max Operating Speed (20,000 ft)",
+          "value": "130 KCAS",
+          "valueSub": "126 KIAS",
+          "condition": "Post Mod 6/1291",
+          "band": "red",
+          "note": "",
+          "reference": "POH Table 2-1"
+        },
+        {
+          "id": "vp_vb",
+          "label": "VP / VB \u2014 Maneuvering / Gust Penetration",
+          "value": "136 KCAS",
+          "valueSub": "132 KIAS",
+          "condition": "S/L to 18,000 ft. Above 18,000 ft limited by VMO.",
+          "band": "normal",
+          "note": "Maximum speed for full control inputs or turbulent air penetration.",
+          "reference": "POH Table 2-1"
+        }
+      ]
+    },
+    {
+      "id": "vref",
+      "title": "VREF Landing Speeds (KIAS)",
+      "reference": "OM-B 1.7.1 QRH",
+      "note": "VREF is the target speed at 50 ft AGL. Add 5 kt in gusty conditions. Higher speeds are recommended above 50 ft AGL.",
+      "table": {
+        "weights_lb": [
+          12300,
+          11500,
+          10500,
+          9500,
+          8500
+        ],
+        "rows": [
+          {
+            "flaps": "0",
+            "values": [
+              94,
+              90,
+              86,
+              82,
+              77
+            ]
+          },
+          {
+            "flaps": "10",
+            "values": [
+              86,
+              83,
+              79,
+              75,
+              71
+            ]
+          },
+          {
+            "flaps": "20",
+            "values": [
+              80,
+              77,
+              73,
+              70,
+              66
+            ]
+          },
+          {
+            "flaps": "30",
+            "values": [
+              76,
+              73,
+              70,
+              66,
+              62
+            ]
+          },
+          {
+            "flaps": "37.5",
+            "values": [
+              74,
+              70,
+              67,
+              64,
+              60
+            ]
+          }
+        ]
+      },
+      "items": [
+        {
+          "id": "vref_flaps_0",
+          "label": "VREF \u2014 Flaps 0\u00b0",
+          "value": "94 kt @ 12300 lb  (see table)",
+          "condition": "Weights 8500\u201312300 lb: 94 / 90 / 86 / 82 / 77 KIAS respectively",
+          "note": "At 12300/11500/10500/9500/8500 lb: 94 / 90 / 86 / 82 / 77 KIAS",
+          "reference": "OM-B 1.7.1 QRH"
+        },
+        {
+          "id": "vref_flaps_10",
+          "label": "VREF \u2014 Flaps 10\u00b0",
+          "value": "86 kt @ 12300 lb  (see table)",
+          "condition": "Weights 8500\u201312300 lb: 86 / 83 / 79 / 75 / 71 KIAS respectively",
+          "note": "At 12300/11500/10500/9500/8500 lb: 86 / 83 / 79 / 75 / 71 KIAS",
+          "reference": "OM-B 1.7.1 QRH"
+        },
+        {
+          "id": "vref_flaps_20",
+          "label": "VREF \u2014 Flaps 20\u00b0",
+          "value": "80 kt @ 12300 lb  (see table)",
+          "condition": "Weights 8500\u201312300 lb: 80 / 77 / 73 / 70 / 66 KIAS respectively",
+          "note": "At 12300/11500/10500/9500/8500 lb: 80 / 77 / 73 / 70 / 66 KIAS",
+          "reference": "OM-B 1.7.1 QRH"
+        },
+        {
+          "id": "vref_flaps_30",
+          "label": "VREF \u2014 Flaps 30\u00b0",
+          "value": "76 kt @ 12300 lb  (see table)",
+          "condition": "Weights 8500\u201312300 lb: 76 / 73 / 70 / 66 / 62 KIAS respectively",
+          "note": "At 12300/11500/10500/9500/8500 lb: 76 / 73 / 70 / 66 / 62 KIAS",
+          "reference": "OM-B 1.7.1 QRH"
+        },
+        {
+          "id": "vref_flaps_37_5",
+          "label": "VREF \u2014 Flaps 37.5\u00b0",
+          "value": "74 kt @ 12300 lb  (see table)",
+          "condition": "Weights 8500\u201312300 lb: 74 / 70 / 67 / 64 / 60 KIAS respectively",
+          "note": "At 12300/11500/10500/9500/8500 lb: 74 / 70 / 67 / 64 / 60 KIAS",
+          "reference": "OM-B 1.7.1 QRH"
+        }
+      ]
+    },
+    {
+      "id": "engine",
+      "title": "Engine Limits \u2014 PT6A-27",
+      "reference": "POH Section 2.4; QRH Section 13",
+      "items": [
+        {
+          "id": "t_o_max",
+          "label": "Take-Off / Max Continuous",
+          "band": "normal",
+          "params": [
+            {
+              "name": "Torque",
+              "value": "50 PSI max",
+              "sub": "620 SHP"
+            },
+            {
+              "name": "T5",
+              "value": "725 deg C max",
+              "sub": ""
+            },
+            {
+              "name": "Ng",
+              "value": "101.5% max",
+              "sub": "ISA +18 deg C"
+            },
+            {
+              "name": "Np",
+              "value": "96% max",
+              "sub": ""
+            },
+            {
+              "name": "Oil press",
+              "value": "80-100 PSI",
+              "sub": "normal"
+            },
+            {
+              "name": "Oil temp",
+              "value": "10 to 99 deg C",
+              "sub": "normal"
+            }
+          ],
+          "note": "Max sustained torque 50 PSI at 96% Np. Momentary 50-53.3 PSI during two-engine ops is not harmful and need not be reported."
+        },
+        {
+          "id": "climb_cruise",
+          "label": "Max Climb / Cruise",
+          "band": "normal",
+          "params": [
+            {
+              "name": "Torque",
+              "value": "50 PSI max",
+              "sub": ""
+            },
+            {
+              "name": "T5",
+              "value": "695 deg C max",
+              "sub": "ISA +6 deg C"
+            },
+            {
+              "name": "Np",
+              "value": "96% max",
+              "sub": ""
+            },
+            {
+              "name": "Oil press",
+              "value": "80-100 PSI",
+              "sub": "normal"
+            },
+            {
+              "name": "Oil temp",
+              "value": "0 to 99 deg C",
+              "sub": "normal"
+            }
+          ],
+          "note": ""
+        },
+        {
+          "id": "idle",
+          "label": "Idle",
+          "band": "caution",
+          "params": [
+            {
+              "name": "T5",
+              "value": "660 deg C max",
+              "sub": ""
+            },
+            {
+              "name": "Oil press",
+              "value": "40 PSI min",
+              "sub": "at idle"
+            },
+            {
+              "name": "Oil temp",
+              "value": "-40 to 99 deg C",
+              "sub": "range"
+            }
+          ],
+          "note": "If T5 approaches 660 deg C at idle, increase Ng or reduce electrical load. Oil pressure below 40 PSI is unsafe."
+        },
+        {
+          "id": "starting",
+          "label": "Starting",
+          "band": "red",
+          "params": [
+            {
+              "name": "T5",
+              "value": "1090 deg C max",
+              "sub": "2-second limit"
+            },
+            {
+              "name": "Oil temp",
+              "value": "-40 deg C min",
+              "sub": "for start"
+            }
+          ],
+          "note": "1090 deg C is time-limited to 2 seconds. Abort start if T5 exceeds limit. Monitor T5 closely during light-up."
+        },
+        {
+          "id": "acceleration",
+          "label": "Acceleration (Transient)",
+          "band": "red",
+          "params": [
+            {
+              "name": "Torque",
+              "value": "68.7 PSI max",
+              "sub": "2-second limit"
+            },
+            {
+              "name": "T5",
+              "value": "825 deg C max",
+              "sub": "2-second limit"
+            },
+            {
+              "name": "Ng",
+              "value": "102.6% max",
+              "sub": "2-second limit"
+            },
+            {
+              "name": "Np",
+              "value": "110% max",
+              "sub": "2-second limit"
+            }
+          ],
+          "note": "Non-stabilised transient values for rapid power application only (e.g. go-around). All limits 2 seconds maximum."
+        },
+        {
+          "id": "reverse",
+          "label": "Max Reverse Power",
+          "band": "caution",
+          "params": [
+            {
+              "name": "Torque",
+              "value": "50 PSI max",
+              "sub": ""
+            },
+            {
+              "name": "T5",
+              "value": "725 deg C max",
+              "sub": ""
+            },
+            {
+              "name": "Ng",
+              "value": "101.5% max",
+              "sub": ""
+            },
+            {
+              "name": "Np",
+              "value": "91 +/- 1%",
+              "sub": ""
+            },
+            {
+              "name": "Duration",
+              "value": "1 minute max",
+              "sub": "continuous"
+            }
+          ],
+          "note": "Reverse power limited to 1 minute continuous. Ground deceleration use only."
+        }
+      ],
+      "footer_notes": [
+        "For every 10 deg C below -30 deg C ambient, reduce maximum Ng by 2.2%.",
+        "Normal oil pressure 80-100 PSI in flight at Ng above 72% when oil temp above 60 deg C. Below 80 PSI: undesirable, tolerate only to complete the flight.",
+        "Oil pressure below 40 PSI: unsafe. Shut down or land as soon as possible using minimum power.",
+        "Minimum oil temperature 55 deg C recommended before fuel heater operation at take-off.",
+        "Oil temperature 74-80 deg C recommended for maximum service life."
+      ]
+    },
+    {
+      "id": "weights",
+      "title": "Weight Limitations",
+      "reference": "POH Section 2.5; OM-B",
+      "items": [
+        {
+          "id": "mtow",
+          "label": "Maximum Take-Off Weight",
+          "value": "12,500 lb",
+          "valueSub": "5,670 kg",
+          "condition": "Standard landplane configuration",
+          "band": "red",
+          "note": "",
+          "reference": "POH Section 2.5"
+        },
+        {
+          "id": "mlw",
+          "label": "Maximum Landing Weight",
+          "value": "12,300 lb",
+          "valueSub": "5,579 kg",
+          "condition": "Per OM-B VREF table. Confirm with operator OM.",
+          "band": "caution",
+          "note": "Structural landing weight limit. Confirm with your organisation's OM for aircraft registration.",
+          "reference": "OM-B 1.7.1"
+        }
+      ]
+    },
+    {
+      "id": "operations",
+      "title": "Operating Limitations",
+      "reference": "POH Section 2.7",
+      "items": [
+        {
+          "id": "max_bank",
+          "label": "Maximum Bank Angle",
+          "value": "60 degrees",
+          "valueSub": "",
+          "condition": "Normal operations",
+          "band": "caution",
+          "note": "Operations are limited to manoeuvres incidental to normal flying, including stalls but not whip stalls.",
+          "reference": "POH Section 2.7"
+        },
+        {
+          "id": "aerobatics",
+          "label": "Aerobatics",
+          "value": "NOT APPROVED",
+          "valueSub": "",
+          "condition": "All configurations",
+          "band": "red",
+          "note": "Aerobatics including steep turns, spins, lazy eights, and chandelles are NOT approved.",
+          "reference": "POH Section 2.7"
+        }
+      ]
+    }
+  ]
+}

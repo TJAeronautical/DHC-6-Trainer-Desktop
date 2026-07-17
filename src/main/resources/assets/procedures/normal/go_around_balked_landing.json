@@ -1,0 +1,273 @@
+{
+    "rawName":  "Go Around (Balked Landing)",
+    "drillName":  "Go Around (Balked Landing) [Airborne]",
+    "category":  "NORMAL",
+    "context":  "Airborne",
+    "sourceNote":  "Procedure identity/category/order normalized from \u0027DHC-6 Full Drill Procedure Index Normal Split.xlsx\u0027. Excel is the governing app display allow-list. Existing procedure steps preserved for later content review. Previous note: Generic training callout structure based on user-provided Section 4 normal-procedure titles and generated PF/PM MCC callouts. Not an approved AFM/POH/checklist replacement.",
+    "variants":  {
+                     "LEGACY":  {
+                                    "memory":  [
+                                                   {
+                                                       "stepNumber":  1,
+                                                       "action":  "GO AROUND - ANNOUNCED",
+                                                       "crewRole":  "PF",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.17 Go Around / Balked Landing"
+                                                   },
+                                                   {
+                                                       "stepNumber":  2,
+                                                       "action":  "POWER - SET",
+                                                       "crewRole":  "PF",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.17 Go Around / Balked Landing"
+                                                   },
+                                                   {
+                                                       "stepNumber":  3,
+                                                       "action":  "POSITIVE CLIMB - CONFIRMED",
+                                                       "crewRole":  "PM",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.17 Go Around / Balked Landing"
+                                                   },
+                                                   {
+                                                       "stepNumber":  4,
+                                                       "action":  "FLAPS - SELECTED AS REQUIRED",
+                                                       "crewRole":  "PF",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.17 Go Around / Balked Landing"
+                                                   },
+                                                   {
+                                                       "stepNumber":  5,
+                                                       "action":  "FLAPS - INDICATING",
+                                                       "crewRole":  "PM",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.17 Go Around / Balked Landing"
+                                                   },
+                                                   {
+                                                       "stepNumber":  6,
+                                                       "action":  "MISSED APPROACH - SET / TRACKING",
+                                                       "crewRole":  "PF",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.17 Go Around / Balked Landing"
+                                                   },
+                                                   {
+                                                       "stepNumber":  7,
+                                                       "action":  "AFTER TAKE-OFF CHECKLIST - COMPLETE",
+                                                       "crewRole":  "PM",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.17 Go Around / Balked Landing"
+                                                   }
+                                               ],
+                                    "flow":  [
+                                                 {
+                                                     "stepNumber":  1,
+                                                     "action":  "Go around, set power.",
+                                                     "crewRole":  "PF",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.17; PF_CALL"
+                                                 },
+                                                 {
+                                                     "stepNumber":  2,
+                                                     "action":  "Power set.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.17; PM_RESPONSE"
+                                                 },
+                                                 {
+                                                     "stepNumber":  3,
+                                                     "action":  "Positive climb.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.17; PM_CALLOUT"
+                                                 },
+                                                 {
+                                                     "stepNumber":  4,
+                                                     "action":  "Flaps ___.",
+                                                     "crewRole":  "PF",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.17; PF_CALL"
+                                                 },
+                                                 {
+                                                     "stepNumber":  5,
+                                                     "action":  "Flaps selected ___, indicating ___.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.17; PM_RESPONSE"
+                                                 },
+                                                 {
+                                                     "stepNumber":  6,
+                                                     "action":  "Missed approach.",
+                                                     "crewRole":  "PF",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.17; PF_CALL"
+                                                 },
+                                                 {
+                                                     "stepNumber":  7,
+                                                     "action":  "Missed approach, tracking ___, altitude ___.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.17; PM_RESPONSE"
+                                                 },
+                                                 {
+                                                     "stepNumber":  8,
+                                                     "action":  "After take-off checklist.",
+                                                     "crewRole":  "PF",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.17; PF_CALL"
+                                                 },
+                                                 {
+                                                     "stepNumber":  9,
+                                                     "action":  "After take-off checklist complete.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.17; PM_COMPLETION"
+                                                 }
+                                             ]
+                                },
+                     "G950":  {
+                                  "memory":  [
+                                                 {
+                                                     "stepNumber":  1,
+                                                     "action":  "GO AROUND - ANNOUNCED",
+                                                     "crewRole":  "PF",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.17 Go Around / Balked Landing"
+                                                 },
+                                                 {
+                                                     "stepNumber":  2,
+                                                     "action":  "POWER - SET",
+                                                     "crewRole":  "PF",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.17 Go Around / Balked Landing"
+                                                 },
+                                                 {
+                                                     "stepNumber":  3,
+                                                     "action":  "POSITIVE CLIMB - CONFIRMED",
+                                                     "crewRole":  "PM",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.17 Go Around / Balked Landing"
+                                                 },
+                                                 {
+                                                     "stepNumber":  4,
+                                                     "action":  "FLAPS - SELECTED AS REQUIRED",
+                                                     "crewRole":  "PF",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.17 Go Around / Balked Landing"
+                                                 },
+                                                 {
+                                                     "stepNumber":  5,
+                                                     "action":  "FLAPS - INDICATING",
+                                                     "crewRole":  "PM",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.17 Go Around / Balked Landing"
+                                                 },
+                                                 {
+                                                     "stepNumber":  6,
+                                                     "action":  "MISSED APPROACH - SET / TRACKING",
+                                                     "crewRole":  "PF",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.17 Go Around / Balked Landing"
+                                                 },
+                                                 {
+                                                     "stepNumber":  7,
+                                                     "action":  "AFTER TAKE-OFF CHECKLIST - COMPLETE",
+                                                     "crewRole":  "PM",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.17 Go Around / Balked Landing"
+                                                 }
+                                             ],
+                                  "flow":  [
+                                               {
+                                                   "stepNumber":  1,
+                                                   "action":  "Go around, set power.",
+                                                   "crewRole":  "PF",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.17; PF_CALL"
+                                               },
+                                               {
+                                                   "stepNumber":  2,
+                                                   "action":  "Power set.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.17; PM_RESPONSE"
+                                               },
+                                               {
+                                                   "stepNumber":  3,
+                                                   "action":  "Positive climb.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.17; PM_CALLOUT"
+                                               },
+                                               {
+                                                   "stepNumber":  4,
+                                                   "action":  "Flaps ___.",
+                                                   "crewRole":  "PF",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.17; PF_CALL"
+                                               },
+                                               {
+                                                   "stepNumber":  5,
+                                                   "action":  "Flaps selected ___, indicating ___.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.17; PM_RESPONSE"
+                                               },
+                                               {
+                                                   "stepNumber":  6,
+                                                   "action":  "Missed approach.",
+                                                   "crewRole":  "PF",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.17; PF_CALL"
+                                               },
+                                               {
+                                                   "stepNumber":  7,
+                                                   "action":  "Missed approach, tracking ___, altitude ___.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.17; PM_RESPONSE"
+                                               },
+                                               {
+                                                   "stepNumber":  8,
+                                                   "action":  "After take-off checklist.",
+                                                   "crewRole":  "PF",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.17; PF_CALL"
+                                               },
+                                               {
+                                                   "stepNumber":  9,
+                                                   "action":  "After take-off checklist complete.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.17; PM_COMPLETION"
+                                               }
+                                           ]
+                              },
+                     "manualSection":  "Section 4",
+                     "sourceSection":  "4.17"
+                 },
+    "phaseTag":  "Airborne",
+    "displayLabel":  "Go Around (Balked Landing) [Airborne]",
+    "sortOrder":  42,
+    "sourceSection":  "4.17",
+    "procedureGroup":  "Go-Around",
+    "manualSection":  "Section 4",
+    "sequenceBasis":  "Normal-procedure flow order",
+    "normalSplit":  "Weather / Special Conditions"
+}

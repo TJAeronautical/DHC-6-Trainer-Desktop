@@ -1,0 +1,163 @@
+{
+    "rawName":  "Battery Start of Cold Soaked Engines",
+    "drillName":  "Battery Start of Cold Soaked Engines [Ground]",
+    "category":  "NORMAL",
+    "context":  "Ground",
+    "sourceNote":  "Procedure identity/category/order normalized from \u0027DHC-6 Full Drill Procedure Index Normal Split.xlsx\u0027. Excel is the governing app display allow-list. Existing procedure steps preserved for later content review. Previous note: Generic training callout structure based on user-provided Section 4 normal-procedure titles and generated PF/PM MCC callouts. Not an approved AFM/POH/checklist replacement.",
+    "variants":  {
+                     "LEGACY":  {
+                                    "memory":  [
+                                                   {
+                                                       "stepNumber":  1,
+                                                       "action":  "COLD-SOAKED BATTERY START - INITIATED",
+                                                       "crewRole":  "PF",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.6.3 Battery Start of Cold Soaked Engines"
+                                                   },
+                                                   {
+                                                       "stepNumber":  2,
+                                                       "action":  "BATTERY CONDITION - MONITORED",
+                                                       "crewRole":  "PM",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.6.3 Battery Start of Cold Soaked Engines"
+                                                   },
+                                                   {
+                                                       "stepNumber":  3,
+                                                       "action":  "START LIMITATIONS - MONITORED",
+                                                       "crewRole":  "PM",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.6.3 Battery Start of Cold Soaked Engines"
+                                                   },
+                                                   {
+                                                       "stepNumber":  4,
+                                                       "action":  "OIL PRESSURE - MONITORED",
+                                                       "crewRole":  "PM",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.6.3 Battery Start of Cold Soaked Engines"
+                                                   },
+                                                   {
+                                                       "stepNumber":  5,
+                                                       "action":  "TEMPERATURE RISE - MONITORED",
+                                                       "crewRole":  "PM",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.6.3 Battery Start of Cold Soaked Engines"
+                                                   },
+                                                   {
+                                                       "stepNumber":  6,
+                                                       "action":  "COLD-SOAKED START - COMPLETE",
+                                                       "crewRole":  "PM",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.6.3 Battery Start of Cold Soaked Engines"
+                                                   }
+                                               ],
+                                    "flow":  [
+                                                 {
+                                                     "stepNumber":  1,
+                                                     "action":  "Cold soaked battery start.",
+                                                     "crewRole":  "PF",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.6.3; PF_CALL"
+                                                 },
+                                                 {
+                                                     "stepNumber":  2,
+                                                     "action":  "Monitor battery condition, start limitations, oil pressure, and temperature rise.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.6.3"
+                                                 },
+                                                 {
+                                                     "stepNumber":  3,
+                                                     "action":  "Cold soaked start complete.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.6.3; PM_COMPLETION"
+                                                 }
+                                             ]
+                                },
+                     "G950":  {
+                                  "memory":  [
+                                                 {
+                                                     "stepNumber":  1,
+                                                     "action":  "COLD-SOAKED BATTERY START - INITIATED",
+                                                     "crewRole":  "PF",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.6.3 Battery Start of Cold Soaked Engines"
+                                                 },
+                                                 {
+                                                     "stepNumber":  2,
+                                                     "action":  "BATTERY CONDITION - MONITORED",
+                                                     "crewRole":  "PM",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.6.3 Battery Start of Cold Soaked Engines"
+                                                 },
+                                                 {
+                                                     "stepNumber":  3,
+                                                     "action":  "START LIMITATIONS - MONITORED",
+                                                     "crewRole":  "PM",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.6.3 Battery Start of Cold Soaked Engines"
+                                                 },
+                                                 {
+                                                     "stepNumber":  4,
+                                                     "action":  "OIL PRESSURE - MONITORED",
+                                                     "crewRole":  "PM",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.6.3 Battery Start of Cold Soaked Engines"
+                                                 },
+                                                 {
+                                                     "stepNumber":  5,
+                                                     "action":  "TEMPERATURE RISE - MONITORED",
+                                                     "crewRole":  "PM",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.6.3 Battery Start of Cold Soaked Engines"
+                                                 },
+                                                 {
+                                                     "stepNumber":  6,
+                                                     "action":  "COLD-SOAKED START - COMPLETE",
+                                                     "crewRole":  "PM",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.6.3 Battery Start of Cold Soaked Engines"
+                                                 }
+                                             ],
+                                  "flow":  [
+                                               {
+                                                   "stepNumber":  1,
+                                                   "action":  "Cold soaked battery start.",
+                                                   "crewRole":  "PF",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.6.3; PF_CALL"
+                                               },
+                                               {
+                                                   "stepNumber":  2,
+                                                   "action":  "Monitor battery condition, start limitations, oil pressure, and temperature rise.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.6.3"
+                                               },
+                                               {
+                                                   "stepNumber":  3,
+                                                   "action":  "Cold soaked start complete.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.6.3; PM_COMPLETION"
+                                               }
+                                           ]
+                              },
+                     "manualSection":  "Section 4",
+                     "sourceSection":  "4.6.3"
+                 },
+    "phaseTag":  "Ground",
+    "displayLabel":  "Battery Start of Cold Soaked Engines [Ground]",
+    "sortOrder":  38,
+    "sourceSection":  "4.6.3",
+    "procedureGroup":  "Engine Start",
+    "manualSection":  "Section 4",
+    "sequenceBasis":  "Normal-procedure flow order",
+    "normalSplit":  "Weather / Special Conditions"
+}

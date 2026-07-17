@@ -1,0 +1,210 @@
+{
+  "schemaId": "system_description",
+  "schemaVersion": "1.0.0",
+  "systemId": "landing_gear_wheels",
+  "systemName": "Landing Gear \u2014 Wheels",
+  "variant": "BOTH",
+  "summary": "The DHC-6 Series 300 landplane has a non-retractable fixed tricycle undercarriage: two main gear units and one nose gear. Main gear: Y-strut assembly hinged to the fuselage sides with compression urethane shock absorbers and hydraulic disc brakes. Nose gear: pneumatic/hydraulic shock strut with a hydraulically-operated steering mechanism. Nose wheel is steerable \u00b160\u00b0 from a lever on the left control wheel hub. Brakes are operated by upper pedal movement on the rudder pedals. Parking brake retains brake torsion springs.",
+  "references": [
+    {
+      "source": "POH_AFM",
+      "locator": "Section 7.20 Landing Gear, p.7-126\u2013128",
+      "revision": "Rev 53 (10 Sep 2010)"
+    },
+    {
+      "source": "POH_AFM",
+      "locator": "Ground Support Manual PSM 1-6-2T, p.17",
+      "revision": "Rev 53 (10 Sep 2010)"
+    }
+  ],
+  "modificationVariants": [
+    {
+      "id": "intermediate_flotation",
+      "name": "Intermediate Flotation Gear (SOO 6048)",
+      "serialRange": "Factory option \u2014 specific aircraft",
+      "description": "15.00\u00d712 tires on all three gear positions (vs standard 11.00\u00d712). Larger tires reduce ground pressure for soft-field operations. Performance penalty: reduced cruise speed and range. Max take-off weight: standard 12,500 lb limits apply.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.20.6 / AFM Section 9-5, p.7-128"
+        }
+      ]
+    },
+    {
+      "id": "shimmy_damper",
+      "name": "Mod 6/1321 \u2014 Nose Gear Shimmy Damper",
+      "serialRange": "Intermediate flotation gear aircraft",
+      "description": "Modified nose wheel shimmy damper for large nose wheel installation. Does not affect procedures or performance.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 9-5.1, p.9-5-7"
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "id": "main_gear",
+      "name": "Main Landing Gear Units",
+      "description": "Two Y-strut assemblies, one each side, hinged to the fuselage. Compression urethane shock absorbers are connected between the Y-strut and the fuselage \u2014 no hydraulic oleo fluid. Each wheel unit has an 8-ply 11.00\u201312 nylon tubeless tire (38 psi normal inflation). Each gear leg has a two-piece fairing. The Y-strut geometry means there are no gear doors \u2014 the gear is fully fixed.",
+      "specifications": {
+        "tire_rating": "8-ply, 11.00\u201312 Type III tubeless",
+        "tire_pressure_psi": "38",
+        "shock_type": "Compression urethane"
+      },
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.20.1 and 7.20.3, p.7-126\u2013127"
+        }
+      ]
+    },
+    {
+      "id": "nose_gear",
+      "name": "Nose Landing Gear",
+      "description": "Pneumatic/hydraulic shock strut with a steering collar and torque links. The strut fork carries a 6-ply 8.90\u201312.50 tubeless tire (32 psi normal inflation). A spring-loaded latch centres the nosewheel in flight. Torque links can be disconnected (pip pin) to allow free castering for towing. A tail bumper is installed on the underside of the rear fuselage.",
+      "specifications": {
+        "tire_rating": "6-ply, 8.90\u201312.50 Type III tubeless",
+        "tire_pressure_psi": "32",
+        "steering_range_deg": "60\u00b0 L and R of centre"
+      },
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.20.1 and 7.20.3, p.7-126\u2013127"
+        }
+      ]
+    },
+    {
+      "id": "wheel_brakes",
+      "name": "Wheel Brake System",
+      "description": "Hydraulic disc brakes on each main wheel. Applied independently by upper pedal movement on the rudder pedals. Brake pressure is supplied from the brake accumulator (supplemented by the main hydraulic system). A brake hydraulic pressure gauge (BRAKE HYD PRESSURE) is on the pilot instrument console. Less than full braking is applied with the park brake engaged.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.20.4, p.7-127"
+        }
+      ]
+    },
+    {
+      "id": "parking_brake",
+      "name": "Parking Brake",
+      "description": "Handle located between the left side rudder pedals. To apply: depress left pedals, then pull handle \u2014 this locks the torsion springs so pedals cannot return to off. To release: apply additional pressure on left pedals and push handle in. NOTE: less than full braking pressure is applied by the park brake \u2014 chocks must be used if not on level ground.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.20.5, p.7-127"
+        }
+      ]
+    },
+    {
+      "id": "nosewheel_steering",
+      "name": "Nosewheel Steering",
+      "description": "Hydraulically-operated actuator on the nose gear strut. Controlled by N.W. STEER lever on the left control wheel hub. Cable and pulley system connects lever to a drum on the actuator steering valve. Range: \u00b160\u00b0 from centre. Spring-loaded latch centres nosewheel in flight. Avoid applying steering lever pressure while airborne to prevent unnecessary loads on the steering lock mechanism.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.20.2, p.7-126"
+        }
+      ]
+    }
+  ],
+  "controls": [
+    {
+      "id": "nw_steer_lever",
+      "name": "N.W. STEER Lever",
+      "positions": [
+        "CENTRE",
+        "LEFT (R arrow up)",
+        "RIGHT (L arrow up)"
+      ],
+      "description": "On left control wheel hub. Moving the lever controls nosewheel deflection up to \u00b160\u00b0. Release lever to allow nosewheel to self-centre.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.20.2, p.7-126"
+        }
+      ]
+    },
+    {
+      "id": "brake_pedals",
+      "name": "Brake Pedals",
+      "positions": [
+        "TOE BRAKES (upper pedal pressure)",
+        "FULL BRAKE",
+        "DIFFERENTIAL"
+      ],
+      "description": "Upper portion of rudder pedals applies differential or simultaneous braking. Braking force is proportional to pedal pressure.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.20.4, p.7-127"
+        }
+      ]
+    },
+    {
+      "id": "parking_brake_handle",
+      "name": "Parking Brake Handle",
+      "positions": [
+        "RELEASED",
+        "APPLIED (pull handle)"
+      ],
+      "description": "Between left rudder pedals. Pull to apply (while left brakes depressed). Push in with additional pedal pressure to release.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.20.5, p.7-127"
+        }
+      ]
+    }
+  ],
+  "limits": [
+    {
+      "id": "tire_pressure_main",
+      "parameter": "Main Gear Tire Pressure",
+      "value": "38 psi (normal); 35 psi (intermediate flotation gear)",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Ground Support Manual PSM 1-6-2T, p.17"
+        }
+      ]
+    },
+    {
+      "id": "tire_pressure_nose",
+      "parameter": "Nose Gear Tire Pressure",
+      "value": "32 psi (normal and intermediate flotation gear)",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Ground Support Manual PSM 1-6-2T, p.17"
+        }
+      ]
+    },
+    {
+      "id": "tire_speed_limit",
+      "parameter": "Maximum Tire Speed",
+      "value": "160 mph",
+      "note": "Low-speed rated tires.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.20.3, p.7-127"
+        }
+      ]
+    },
+    {
+      "id": "park_brake_note",
+      "parameter": "Parking Brake \u2014 Chock Requirement",
+      "value": "Use chocks if not on level ground \u2014 park brake applies less than full braking pressure",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.20.5, p.7-127"
+        }
+      ]
+    }
+  ],
+  "casMessageRefs": []
+}

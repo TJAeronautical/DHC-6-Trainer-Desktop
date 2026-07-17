@@ -1,0 +1,2619 @@
+{
+  "schemaVersion": "1.0.0",
+  "source": "DHC-6 Trainer abnormal/emergency procedure JSON assets; generated explicit cockpit hitbox bindings for QRH/scenario drill focus.",
+  "coverage": {
+    "categories": [
+      "ABNORMAL",
+      "EMERGENCY"
+    ],
+    "procedureCount": 36,
+    "stepBindingCount": 226
+  },
+  "bindings": [
+    {
+      "procedureId": "ABNORMAL/400 CYCLE LIGHT ILLUMINATED",
+      "title": "400 Cycle Light Illuminated",
+      "category": "ABNORMAL",
+      "assetPath": "procedures/abnormal/400_cycle_light_illuminated.json",
+      "stepBindings": [
+        {
+          "stepId": "step_01_400_cycle_light_illuminated",
+          "stepText": "400 Cycle Light Illuminated.",
+          "hitboxIds": [
+            "AC_400_CYCLE",
+            "INVERTER_SWITCH",
+            "INVERTER_1_CB",
+            "INVERTER_2_CB"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_02_400_cycle_light_illuminated_aircraft_with_one_in",
+          "stepText": "400 Cycle Light Illuminated (aircraft with one inverter switch) checklist.",
+          "hitboxIds": [
+            "AC_400_CYCLE",
+            "INVERTER_SWITCH",
+            "INVERTER_1_CB",
+            "INVERTER_2_CB"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_03_400_cycle_light_illuminated_aircraft_with_one_in",
+          "stepText": "400 Cycle Light Illuminated (aircraft with one inverter switch) checklist complete.",
+          "hitboxIds": [
+            "AC_400_CYCLE",
+            "INVERTER_SWITCH",
+            "INVERTER_1_CB",
+            "INVERTER_2_CB"
+          ],
+          "mode": "FOCUS"
+        }
+      ]
+    },
+    {
+      "procedureId": "ABNORMAL/AILERON TRIM TAB RUNAWAY",
+      "title": "Aileron Trim Tab Runaway",
+      "category": "ABNORMAL",
+      "assetPath": "procedures/abnormal/aileron_trim_tab_runaway.json",
+      "stepBindings": [
+        {
+          "stepId": "step_01_aileron_trim_tab_runaway",
+          "stepText": "Aileron Trim Tab Runaway.",
+          "hitboxIds": [
+            "AILERON_TRIM",
+            "AIL_TRIM_ACT_CB"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_02_aileron_trim_tab_runaway_checklist",
+          "stepText": "Aileron Trim Tab Runaway checklist.",
+          "hitboxIds": [
+            "AILERON_TRIM",
+            "AIL_TRIM_ACT_CB"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_03_aileron_trim_tab_runaway_checklist_complete",
+          "stepText": "Aileron Trim Tab Runaway checklist complete.",
+          "hitboxIds": [
+            "AILERON_TRIM",
+            "AIL_TRIM_ACT_CB"
+          ],
+          "mode": "FOCUS"
+        }
+      ]
+    },
+    {
+      "procedureId": "ABNORMAL/BLEED AIR TEMPERATURE INDICATES ABOVE 350 deg",
+      "title": "Bleed Air Temperature Indicates Above 350 deg",
+      "category": "ABNORMAL",
+      "assetPath": "procedures/abnormal/bleed_air_temperature_indicates_above_350.json",
+      "stepBindings": [
+        {
+          "stepId": "step_01_bleed_air_temperature_indicates_above_350",
+          "stepText": "Bleed Air Temperature Indicates Above 350 deg.",
+          "hitboxIds": [
+            "BLEED_AIR_L",
+            "BLEED_AIR_R",
+            "DUCT_OVERHEAT"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_02_bleed_air_temperature_indicates_above_350_checkl",
+          "stepText": "Bleed Air Temperature Indicates Above 350 deg checklist.",
+          "hitboxIds": [
+            "BLEED_AIR_L",
+            "BLEED_AIR_R",
+            "DUCT_OVERHEAT"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_03_bleed_air_temperature_indicates_above_350_checkl",
+          "stepText": "Bleed Air Temperature Indicates Above 350 deg checklist complete.",
+          "hitboxIds": [
+            "BLEED_AIR_L",
+            "BLEED_AIR_R",
+            "DUCT_OVERHEAT"
+          ],
+          "mode": "FOCUS"
+        }
+      ]
+    },
+    {
+      "procedureId": "ABNORMAL/BOOST PUMP 1 CAUTION LIGHT ILLUMINATES",
+      "title": "Boost Pump 1 Caution Light Illuminates",
+      "category": "ABNORMAL",
+      "assetPath": "procedures/abnormal/boost_pump_1_caution_light_illuminates.json",
+      "stepBindings": [
+        {
+          "stepId": "step_01_boost_pump_1_caution_light_illuminates",
+          "stepText": "Boost Pump 1 Caution Light Illuminates.",
+          "hitboxIds": [
+            "MASTER_CAUTION",
+            "MASTER_CAUTION_LEFT",
+            "MASTER_CAUTION_RIGHT",
+            "AFT_BOOST_PUMP",
+            "FWD_BOOST_PUMP",
+            "STBY_BOOST_PUMP_AFT",
+            "STBY_BOOST_PUMP_FWD",
+            "BOOST_PUMP_1_AFT_PRESS",
+            "BOOST_PUMP_1_FWD_PRESS",
+            "BOOST_PUMP_2_AFT_PRESS",
+            "BOOST_PUMP_2_FWD_PRESS"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_02_boost_pump_1_caution_light_illuminates_checklist",
+          "stepText": "Boost Pump 1 Caution Light Illuminates checklist.",
+          "hitboxIds": [
+            "MASTER_CAUTION",
+            "MASTER_CAUTION_LEFT",
+            "MASTER_CAUTION_RIGHT",
+            "AFT_BOOST_PUMP",
+            "FWD_BOOST_PUMP",
+            "STBY_BOOST_PUMP_AFT",
+            "STBY_BOOST_PUMP_FWD",
+            "BOOST_PUMP_1_AFT_PRESS",
+            "BOOST_PUMP_1_FWD_PRESS",
+            "BOOST_PUMP_2_AFT_PRESS",
+            "BOOST_PUMP_2_FWD_PRESS"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_03_boost_pump_1_caution_light_illuminates_checklist",
+          "stepText": "Boost Pump 1 Caution Light Illuminates checklist complete.",
+          "hitboxIds": [
+            "MASTER_CAUTION",
+            "MASTER_CAUTION_LEFT",
+            "MASTER_CAUTION_RIGHT",
+            "AFT_BOOST_PUMP",
+            "FWD_BOOST_PUMP",
+            "STBY_BOOST_PUMP_AFT",
+            "STBY_BOOST_PUMP_FWD",
+            "BOOST_PUMP_1_AFT_PRESS",
+            "BOOST_PUMP_1_FWD_PRESS",
+            "BOOST_PUMP_2_AFT_PRESS",
+            "BOOST_PUMP_2_FWD_PRESS"
+          ],
+          "mode": "FOCUS"
+        }
+      ]
+    },
+    {
+      "procedureId": "ABNORMAL/BOTH GENERATOR LIGHTS ILLUMINATED",
+      "title": "Both Generator Lights Illuminated",
+      "category": "ABNORMAL",
+      "assetPath": "procedures/abnormal/both_generator_lights_illuminated.json",
+      "stepBindings": [
+        {
+          "stepId": "step_01_both_generator_lights_illuminated",
+          "stepText": "Both Generator Lights Illuminated.",
+          "hitboxIds": [
+            "L_DC_GEN",
+            "R_DC_GEN",
+            "L_GENERATOR",
+            "R_GENERATOR"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_02_both_generator_lights_illuminated_checklist",
+          "stepText": "Both Generator Lights Illuminated checklist.",
+          "hitboxIds": [
+            "L_DC_GEN",
+            "R_DC_GEN",
+            "L_GENERATOR",
+            "R_GENERATOR"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_03_both_generator_lights_illuminated_checklist_comp",
+          "stepText": "Both Generator Lights Illuminated checklist complete.",
+          "hitboxIds": [
+            "L_DC_GEN",
+            "R_DC_GEN",
+            "L_GENERATOR",
+            "R_GENERATOR"
+          ],
+          "mode": "FOCUS"
+        }
+      ]
+    },
+    {
+      "procedureId": "ABNORMAL/DOORS UNLOCKED LIGHT ILLUMINATES",
+      "title": "Doors Unlocked Light Illuminates",
+      "category": "ABNORMAL",
+      "assetPath": "procedures/abnormal/doors_unlocked_light_illuminates.json",
+      "stepBindings": [
+        {
+          "stepId": "step_01_doors_unlocked_light_illuminates",
+          "stepText": "Doors Unlocked Light Illuminates.",
+          "hitboxIds": [
+            "DOORS_UNLOCKED"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_02_doors_unlocked_light_illuminates_checklist",
+          "stepText": "Doors Unlocked Light Illuminates checklist.",
+          "hitboxIds": [
+            "DOORS_UNLOCKED"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_03_doors_unlocked_light_illuminates_checklist_compl",
+          "stepText": "Doors Unlocked Light Illuminates checklist complete.",
+          "hitboxIds": [
+            "DOORS_UNLOCKED"
+          ],
+          "mode": "FOCUS"
+        }
+      ]
+    },
+    {
+      "procedureId": "ABNORMAL/DUCT OVERHEAT LIGHT ILLUMINATES",
+      "title": "Duct Overheat Light Illuminates",
+      "category": "ABNORMAL",
+      "assetPath": "procedures/abnormal/duct_overheat_light_illuminates.json",
+      "stepBindings": [
+        {
+          "stepId": "step_01_duct_overheat_light_illuminates",
+          "stepText": "Duct Overheat Light Illuminates.",
+          "hitboxIds": [
+            "DUCT_OVERHEAT",
+            "BLEED_AIR_L",
+            "BLEED_AIR_R"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_02_duct_overheat_light_illuminates_checklist",
+          "stepText": "Duct Overheat Light Illuminates checklist.",
+          "hitboxIds": [
+            "DUCT_OVERHEAT",
+            "BLEED_AIR_L",
+            "BLEED_AIR_R"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_03_duct_overheat_light_illuminates_checklist_comple",
+          "stepText": "Duct Overheat Light Illuminates checklist complete.",
+          "hitboxIds": [
+            "DUCT_OVERHEAT",
+            "BLEED_AIR_L",
+            "BLEED_AIR_R"
+          ],
+          "mode": "FOCUS"
+        }
+      ]
+    },
+    {
+      "procedureId": "EMERGENCY/ENGINE OIL PRESSURE LIGHT ILLUMINATES",
+      "title": "Engine Oil Pressure Light Illuminates",
+      "category": "EMERGENCY",
+      "assetPath": "procedures/abnormal/engine_oil_pressure_light_illuminates.json",
+      "stepBindings": [
+        {
+          "stepId": "step_01_oil_pressure_cas_message_annunciated_below_40_ps",
+          "stepText": "OIL PRESSURE CAS MESSAGE ANNUNCIATED  -  BELOW 40 PSI",
+          "hitboxIds": [
+            "OIL_PRESS_GAUGE_L",
+            "OIL_PRESS_GAUGE_R",
+            "OIL_TEMP_GAUGE_L",
+            "OIL_TEMP_GAUGE_R",
+            "L_ENGINE_OIL_PRESS",
+            "R_ENGINE_OIL_PRESS"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_02_oil_pressure_gauge_check_to_confirm_below_40_psi",
+          "stepText": "OIL PRESSURE GAUGE  -  CHECK to confirm below 40 PSI",
+          "hitboxIds": [
+            "OIL_PRESS_GAUGE_L",
+            "OIL_PRESS_GAUGE_R",
+            "OIL_TEMP_GAUGE_L",
+            "OIL_TEMP_GAUGE_R",
+            "L_ENGINE_OIL_PRESS",
+            "R_ENGINE_OIL_PRESS"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_03_power_and_prop_levers_unaffected_engine_max_powe",
+          "stepText": "POWER AND PROP LEVERS (UNAFFECTED ENGINE)  -  MAX POWER",
+          "hitboxIds": [
+            "PROP_LEVER_L",
+            "PROP_LEVER_R"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_04_confirm_l_r_engine_power_lever_retard_to_10_psi",
+          "stepText": "CONFIRM L/R ENGINE POWER LEVER RETARD TO 10 PSI",
+          "hitboxIds": [
+            "POWER_LEVER_L",
+            "POWER_LEVER_R"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_05_confirm_l_r_prop_lever_feather",
+          "stepText": "CONFIRM L/R PROP LEVER FEATHER",
+          "hitboxIds": [
+            "PROP_LEVER_L",
+            "PROP_LEVER_R"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_06_confirm_l_r_engine_fuel_lever_off",
+          "stepText": "CONFIRM L/R ENGINE FUEL LEVER OFF",
+          "hitboxIds": [
+            "FUEL_LEVER_L",
+            "FUEL_LEVER_R"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_07_confirm_l_r_fuel_emergency_switch_off",
+          "stepText": "CONFIRM L/R FUEL EMERGENCY SWITCH OFF",
+          "hitboxIds": [
+            "EMERG_FUEL_SHUTOFF_L",
+            "EMERG_FUEL_SHUTOFF_R",
+            "FUEL_SOV_L",
+            "FUEL_SOV_R"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_08_confirm_l_r_fuel_boost_pump_off",
+          "stepText": "CONFIRM L/R FUEL BOOST PUMP OFF",
+          "hitboxIds": [
+            "AFT_BOOST_PUMP",
+            "FWD_BOOST_PUMP",
+            "STBY_BOOST_PUMP_AFT",
+            "STBY_BOOST_PUMP_FWD",
+            "BOOST_PUMP_1_AFT_PRESS",
+            "BOOST_PUMP_1_FWD_PRESS",
+            "BOOST_PUMP_2_AFT_PRESS",
+            "BOOST_PUMP_2_FWD_PRESS"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_09_confirm_l_r_oil_pressure_below_40_psi_acknowledg",
+          "stepText": "CONFIRM L/R OIL PRESSURE BELOW 40 PSI  -  acknowledging malfunction, maintaining directional control",
+          "hitboxIds": [
+            "OIL_PRESS_GAUGE_L",
+            "OIL_PRESS_GAUGE_R",
+            "OIL_TEMP_GAUGE_L",
+            "OIL_TEMP_GAUGE_R",
+            "L_ENGINE_OIL_PRESS",
+            "R_ENGINE_OIL_PRESS"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_10_confirmed_l_r_engine_oil_pressure_is_at_psi_oil_",
+          "stepText": "CONFIRMED L/R ENGINE OIL PRESSURE IS AT ___ PSI  -  oil pressure gauge checked",
+          "hitboxIds": [
+            "OIL_PRESS_GAUGE_L",
+            "OIL_PRESS_GAUGE_R",
+            "OIL_TEMP_GAUGE_L",
+            "OIL_TEMP_GAUGE_R",
+            "L_ENGINE_OIL_PRESS",
+            "R_ENGINE_OIL_PRESS"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_11_max_power_set_prop_levers_96_np_power_levers_max",
+          "stepText": "MAX POWER SET  -  PROP LEVERS 96% NP, POWER LEVERS MAX unaffected engine confirmed",
+          "hitboxIds": [
+            "POWER_LEVER_L",
+            "POWER_LEVER_R",
+            "PROP_LEVER_L",
+            "PROP_LEVER_R"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_12_memory_items_for_oil_pressure_cas_msg_on",
+          "stepText": "MEMORY ITEMS FOR OIL PRESSURE CAS MSG ON",
+          "hitboxIds": [
+            "OIL_PRESS_GAUGE_L",
+            "OIL_PRESS_GAUGE_R",
+            "OIL_TEMP_GAUGE_L",
+            "OIL_TEMP_GAUGE_R",
+            "L_ENGINE_OIL_PRESS",
+            "R_ENGINE_OIL_PRESS"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_13_initiating_memory_items_if_airspeed_decays_below",
+          "stepText": "INITIATING MEMORY ITEMS  -  if airspeed decays below 100 KIAS after power reduction, select FLAPS 10 deg",
+          "hitboxIds": [
+            "FLAP_SELECTOR"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_14_retard_power_lever_at_10_psi",
+          "stepText": "RETARD  -  POWER LEVER AT 10 PSI",
+          "hitboxIds": [
+            "POWER_LEVER_L",
+            "POWER_LEVER_R"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_15_feathered_prop_lever_at_feather",
+          "stepText": "FEATHERED  -  PROP LEVER AT FEATHER",
+          "hitboxIds": [
+            "PROP_LEVER_L",
+            "PROP_LEVER_R"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_16_off_fuel_lever_off",
+          "stepText": "OFF  -  FUEL LEVER OFF",
+          "hitboxIds": [
+            "FUEL_LEVER_L",
+            "FUEL_LEVER_R"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_17_off_fuel_emergency_switch_off",
+          "stepText": "OFF  -  FUEL EMERGENCY SWITCH OFF",
+          "hitboxIds": [
+            "EMERG_FUEL_SHUTOFF_L",
+            "EMERG_FUEL_SHUTOFF_R",
+            "FUEL_SOV_L",
+            "FUEL_SOV_R"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_18_off_fuel_boost_pump_off",
+          "stepText": "OFF  -  FUEL BOOST PUMP OFF",
+          "hitboxIds": [
+            "AFT_BOOST_PUMP",
+            "FWD_BOOST_PUMP",
+            "STBY_BOOST_PUMP_AFT",
+            "STBY_BOOST_PUMP_FWD",
+            "BOOST_PUMP_1_AFT_PRESS",
+            "BOOST_PUMP_1_FWD_PRESS",
+            "BOOST_PUMP_2_AFT_PRESS",
+            "BOOST_PUMP_2_FWD_PRESS"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_19_checked_qrh_for_oil_pressure_cas_msg",
+          "stepText": "CHECKED  -  QRH FOR OIL PRESSURE CAS MSG",
+          "hitboxIds": [
+            "OIL_PRESS_GAUGE_L",
+            "OIL_PRESS_GAUGE_R",
+            "OIL_TEMP_GAUGE_L",
+            "OIL_TEMP_GAUGE_R",
+            "L_ENGINE_OIL_PRESS",
+            "R_ENGINE_OIL_PRESS"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_20_qrh_for_oil_pressure_cas_msg_complete",
+          "stepText": "QRH FOR OIL PRESSURE CAS MSG COMPLETE",
+          "hitboxIds": [
+            "OIL_PRESS_GAUGE_L",
+            "OIL_PRESS_GAUGE_R",
+            "OIL_TEMP_GAUGE_L",
+            "OIL_TEMP_GAUGE_R",
+            "L_ENGINE_OIL_PRESS",
+            "R_ENGINE_OIL_PRESS"
+          ],
+          "mode": "FOCUS"
+        }
+      ]
+    },
+    {
+      "procedureId": "ABNORMAL/FLAPLESS LANDING",
+      "title": "Flapless Landing",
+      "category": "ABNORMAL",
+      "assetPath": "procedures/abnormal/flapless_landing.json",
+      "stepBindings": [
+        {
+          "stepId": "step_01_flapless_landing",
+          "stepText": "Flapless Landing.",
+          "hitboxIds": [
+            "FLAP_SELECTOR"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_02_flapless_landing_checklist",
+          "stepText": "Flapless Landing checklist.",
+          "hitboxIds": [
+            "FLAP_SELECTOR"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_03_flapless_landing_checklist_complete",
+          "stepText": "Flapless Landing checklist complete.",
+          "hitboxIds": [
+            "FLAP_SELECTOR"
+          ],
+          "mode": "FOCUS"
+        }
+      ]
+    },
+    {
+      "procedureId": "ABNORMAL/GENERATOR LIGHT FAILS TO ILLUMINATE FOLLOWING START",
+      "title": "Generator Light Fails to Illuminate Following Start",
+      "category": "ABNORMAL",
+      "assetPath": "procedures/abnormal/generator_light_fails_to_illuminate_following_start.json",
+      "stepBindings": [
+        {
+          "stepId": "step_01_generator_light_fails_to_illuminate_following_st",
+          "stepText": "Generator Light Fails to Illuminate Following Start.",
+          "hitboxIds": [
+            "L_DC_GEN",
+            "R_DC_GEN",
+            "L_GENERATOR",
+            "R_GENERATOR"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_02_generator_light_fails_to_illuminate_following_st",
+          "stepText": "Generator Light Fails to Illuminate Following Start checklist.",
+          "hitboxIds": [
+            "L_DC_GEN",
+            "R_DC_GEN",
+            "L_GENERATOR",
+            "R_GENERATOR"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_03_generator_light_fails_to_illuminate_following_st",
+          "stepText": "Generator Light Fails to Illuminate Following Start checklist complete.",
+          "hitboxIds": [
+            "L_DC_GEN",
+            "R_DC_GEN",
+            "L_GENERATOR",
+            "R_GENERATOR"
+          ],
+          "mode": "FOCUS"
+        }
+      ]
+    },
+    {
+      "procedureId": "ABNORMAL/GENERATOR OVERHEAT LIGHT ILLUMINATED",
+      "title": "Generator Overheat Light Illuminated",
+      "category": "ABNORMAL",
+      "assetPath": "procedures/abnormal/generator_overheat_light_illuminated.json",
+      "stepBindings": [
+        {
+          "stepId": "step_01_generator_overheat_light_illuminated",
+          "stepText": "Generator Overheat Light Illuminated.",
+          "hitboxIds": [
+            "L_DC_GEN",
+            "R_DC_GEN",
+            "L_GENERATOR",
+            "R_GENERATOR",
+            "L_GENERATOR_OVERHEAT",
+            "R_GENERATOR_OVERHEAT"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_02_generator_overheat_light_illuminated_checklist",
+          "stepText": "Generator Overheat Light Illuminated checklist.",
+          "hitboxIds": [
+            "L_DC_GEN",
+            "R_DC_GEN",
+            "L_GENERATOR",
+            "R_GENERATOR",
+            "L_GENERATOR_OVERHEAT",
+            "R_GENERATOR_OVERHEAT"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_03_generator_overheat_light_illuminated_checklist_c",
+          "stepText": "Generator Overheat Light Illuminated checklist complete.",
+          "hitboxIds": [
+            "L_DC_GEN",
+            "R_DC_GEN",
+            "L_GENERATOR",
+            "R_GENERATOR",
+            "L_GENERATOR_OVERHEAT",
+            "R_GENERATOR_OVERHEAT"
+          ],
+          "mode": "FOCUS"
+        }
+      ]
+    },
+    {
+      "procedureId": "ABNORMAL/LEFT OR RIGHT 400 CYCLE LIGHT ILLUMINATED",
+      "title": "Left or Right 400 Cycle Light Illuminated",
+      "category": "ABNORMAL",
+      "assetPath": "procedures/abnormal/left_or_right_400_cycle_light_illuminated.json",
+      "stepBindings": [
+        {
+          "stepId": "step_01_left_or_right_400_cycle_light_illuminated",
+          "stepText": "Left or Right 400 Cycle Light Illuminated.",
+          "hitboxIds": [
+            "AC_400_CYCLE",
+            "INVERTER_SWITCH",
+            "INVERTER_1_CB",
+            "INVERTER_2_CB"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_02_left_or_right_400_cycle_light_illuminated_aircra",
+          "stepText": "Left or Right 400 Cycle Light Illuminated (aircraft with two inverter switches) checklist.",
+          "hitboxIds": [
+            "AC_400_CYCLE",
+            "INVERTER_SWITCH",
+            "INVERTER_1_CB",
+            "INVERTER_2_CB"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_03_left_or_right_400_cycle_light_illuminated_aircra",
+          "stepText": "Left or Right 400 Cycle Light Illuminated (aircraft with two inverter switches) checklist complete.",
+          "hitboxIds": [
+            "AC_400_CYCLE",
+            "INVERTER_SWITCH",
+            "INVERTER_1_CB",
+            "INVERTER_2_CB"
+          ],
+          "mode": "FOCUS"
+        }
+      ]
+    },
+    {
+      "procedureId": "ABNORMAL/LOW OIL PRESSURE",
+      "title": "Low Oil Pressure",
+      "category": "ABNORMAL",
+      "assetPath": "procedures/abnormal/low_oil_pressure.json",
+      "stepBindings": [
+        {
+          "stepId": "step_01_low_oil_pressure",
+          "stepText": "Low Oil Pressure.",
+          "hitboxIds": [
+            "OIL_PRESS_GAUGE_L",
+            "OIL_PRESS_GAUGE_R",
+            "OIL_TEMP_GAUGE_L",
+            "OIL_TEMP_GAUGE_R",
+            "L_ENGINE_OIL_PRESS",
+            "R_ENGINE_OIL_PRESS"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_02_low_oil_pressure_checklist",
+          "stepText": "Low Oil Pressure checklist.",
+          "hitboxIds": [
+            "OIL_PRESS_GAUGE_L",
+            "OIL_PRESS_GAUGE_R",
+            "OIL_TEMP_GAUGE_L",
+            "OIL_TEMP_GAUGE_R",
+            "L_ENGINE_OIL_PRESS",
+            "R_ENGINE_OIL_PRESS"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_03_low_oil_pressure_checklist_complete",
+          "stepText": "Low Oil Pressure checklist complete.",
+          "hitboxIds": [
+            "OIL_PRESS_GAUGE_L",
+            "OIL_PRESS_GAUGE_R",
+            "OIL_TEMP_GAUGE_L",
+            "OIL_TEMP_GAUGE_R",
+            "L_ENGINE_OIL_PRESS",
+            "R_ENGINE_OIL_PRESS"
+          ],
+          "mode": "FOCUS"
+        }
+      ]
+    },
+    {
+      "procedureId": "ABNORMAL/LOW SYSTEM HYDRAULIC PRESSURE",
+      "title": "Low System Hydraulic Pressure",
+      "category": "ABNORMAL",
+      "assetPath": "procedures/abnormal/low_system_hydraulic_pressure.json",
+      "stepBindings": [
+        {
+          "stepId": "step_01_low_system_hydraulic_pressure",
+          "stepText": "Low System Hydraulic Pressure.",
+          "hitboxIds": [
+            "HYDRAULIC_PRESS_GAUGE",
+            "HYD_OIL_PUMP_CB"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_02_low_system_hydraulic_pressure_checklist",
+          "stepText": "Low System Hydraulic Pressure checklist.",
+          "hitboxIds": [
+            "HYDRAULIC_PRESS_GAUGE",
+            "HYD_OIL_PUMP_CB"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_03_low_system_hydraulic_pressure_checklist_complete",
+          "stepText": "Low System Hydraulic Pressure checklist complete.",
+          "hitboxIds": [
+            "HYDRAULIC_PRESS_GAUGE",
+            "HYD_OIL_PUMP_CB"
+          ],
+          "mode": "FOCUS"
+        }
+      ]
+    },
+    {
+      "procedureId": "ABNORMAL/OIL PRESSURE IN CAUTION RANGE",
+      "title": "Oil Pressure in Caution Range",
+      "category": "ABNORMAL",
+      "assetPath": "procedures/abnormal/oil_pressure_in_caution_range.json",
+      "stepBindings": [
+        {
+          "stepId": "step_01_oil_pressure_in_caution_range",
+          "stepText": "Oil Pressure in Caution Range.",
+          "hitboxIds": [
+            "OIL_PRESS_GAUGE_L",
+            "OIL_PRESS_GAUGE_R",
+            "OIL_TEMP_GAUGE_L",
+            "OIL_TEMP_GAUGE_R",
+            "L_ENGINE_OIL_PRESS",
+            "R_ENGINE_OIL_PRESS"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_02_oil_pressure_in_caution_range_checklist",
+          "stepText": "Oil Pressure in Caution Range checklist.",
+          "hitboxIds": [
+            "OIL_PRESS_GAUGE_L",
+            "OIL_PRESS_GAUGE_R",
+            "OIL_TEMP_GAUGE_L",
+            "OIL_TEMP_GAUGE_R",
+            "L_ENGINE_OIL_PRESS",
+            "R_ENGINE_OIL_PRESS"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_03_oil_pressure_in_caution_range_checklist_complete",
+          "stepText": "Oil Pressure in Caution Range checklist complete.",
+          "hitboxIds": [
+            "OIL_PRESS_GAUGE_L",
+            "OIL_PRESS_GAUGE_R",
+            "OIL_TEMP_GAUGE_L",
+            "OIL_TEMP_GAUGE_R",
+            "L_ENGINE_OIL_PRESS",
+            "R_ENGINE_OIL_PRESS"
+          ],
+          "mode": "FOCUS"
+        }
+      ]
+    },
+    {
+      "procedureId": "ABNORMAL/ONE GENERATOR LIGHT ILLUMINATED",
+      "title": "One Generator Light Illuminated",
+      "category": "ABNORMAL",
+      "assetPath": "procedures/abnormal/one_generator_light_illuminated.json",
+      "stepBindings": [
+        {
+          "stepId": "step_01_one_generator_light_illuminated",
+          "stepText": "One Generator Light Illuminated.",
+          "hitboxIds": [
+            "L_DC_GEN",
+            "R_DC_GEN",
+            "L_GENERATOR",
+            "R_GENERATOR"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_02_abnormal_procedure_one_generator_light_illuminat",
+          "stepText": "Abnormal procedure: One Generator Light Illuminated.",
+          "hitboxIds": [
+            "L_DC_GEN",
+            "R_DC_GEN",
+            "L_GENERATOR",
+            "R_GENERATOR"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_03_one_generator_light_illuminated_checklist",
+          "stepText": "One Generator Light Illuminated checklist.",
+          "hitboxIds": [
+            "L_DC_GEN",
+            "R_DC_GEN",
+            "L_GENERATOR",
+            "R_GENERATOR"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_04_one_generator_light_illuminated_checklist_comple",
+          "stepText": "One Generator Light Illuminated checklist complete.",
+          "hitboxIds": [
+            "L_DC_GEN",
+            "R_DC_GEN",
+            "L_GENERATOR",
+            "R_GENERATOR"
+          ],
+          "mode": "FOCUS"
+        }
+      ]
+    },
+    {
+      "procedureId": "ABNORMAL/PNEUMATIC LOW PRESSURE LIGHT ILLUMINATES",
+      "title": "Pneumatic Low Pressure Light Illuminates",
+      "category": "ABNORMAL",
+      "assetPath": "procedures/abnormal/pneumatic_low_pressure_light_illuminates.json",
+      "stepBindings": [
+        {
+          "stepId": "step_01_pneumatic_low_pressure_light_illuminates",
+          "stepText": "Pneumatic Low Pressure Light Illuminates.",
+          "hitboxIds": [
+            "PNEUMATIC_LOW_PRESSURE"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_02_pneumatic_low_pressure_light_illuminates_checkli",
+          "stepText": "Pneumatic Low Pressure Light Illuminates checklist.",
+          "hitboxIds": [
+            "PNEUMATIC_LOW_PRESSURE"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_03_pneumatic_low_pressure_light_illuminates_checkli",
+          "stepText": "Pneumatic Low Pressure Light Illuminates checklist complete.",
+          "hitboxIds": [
+            "PNEUMATIC_LOW_PRESSURE"
+          ],
+          "mode": "FOCUS"
+        }
+      ]
+    },
+    {
+      "procedureId": "EMERGENCY/PROPELLER OVERSPEED NP EXCEEDS LIMIT",
+      "title": "Propeller Overspeed NP Exceeds Limit",
+      "category": "EMERGENCY",
+      "assetPath": "procedures/abnormal/propeller_overspeed_np_exceeds_limit.json",
+      "stepBindings": [
+        {
+          "stepId": "step_01_propeller_overspeed_np_exceeds_101_5",
+          "stepText": "PROPELLER OVERSPEED  -  NP EXCEEDS 101.5%",
+          "hitboxIds": [
+            "PROP_LEVER_L",
+            "PROP_LEVER_R"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_02_power_and_prop_levers_unaffected_engine_max_powe",
+          "stepText": "POWER AND PROP LEVERS (UNAFFECTED ENGINE)  -  MAX POWER",
+          "hitboxIds": [
+            "PROP_LEVER_L",
+            "PROP_LEVER_R"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_03_confirm_l_r_engine_power_lever_retard_to_10_psi",
+          "stepText": "CONFIRM L/R ENGINE POWER LEVER RETARD TO 10 PSI",
+          "hitboxIds": [
+            "POWER_LEVER_L",
+            "POWER_LEVER_R"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_04_confirm_l_r_prop_lever_feather",
+          "stepText": "CONFIRM L/R PROP LEVER FEATHER",
+          "hitboxIds": [
+            "PROP_LEVER_L",
+            "PROP_LEVER_R"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_05_confirm_l_r_engine_fuel_lever_off",
+          "stepText": "CONFIRM L/R ENGINE FUEL LEVER OFF",
+          "hitboxIds": [
+            "FUEL_LEVER_L",
+            "FUEL_LEVER_R"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_06_confirm_l_r_fuel_emergency_switch_off",
+          "stepText": "CONFIRM L/R FUEL EMERGENCY SWITCH OFF",
+          "hitboxIds": [
+            "EMERG_FUEL_SHUTOFF_L",
+            "EMERG_FUEL_SHUTOFF_R",
+            "FUEL_SOV_L",
+            "FUEL_SOV_R"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_07_confirm_l_r_generator_switch_off",
+          "stepText": "CONFIRM L/R GENERATOR SWITCH OFF",
+          "hitboxIds": [
+            "L_DC_GEN",
+            "R_DC_GEN",
+            "L_GENERATOR",
+            "R_GENERATOR"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_08_confirm_l_r_propeller_overspeed_above_101_5_ackn",
+          "stepText": "CONFIRM L/R PROPELLER OVERSPEED ABOVE 101.5%  -  acknowledging malfunction, maintaining directional control",
+          "hitboxIds": [
+            "PROP_LEVER_L",
+            "PROP_LEVER_R"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_09_confirmed_l_r_propeller_overspeeding_above_101_5",
+          "stepText": "CONFIRMED L/R PROPELLER OVERSPEEDING, ABOVE 101.5%  -  NP [check], T5 [check], Torque [check], WF [check], NG [check]",
+          "hitboxIds": [
+            "PROP_LEVER_L",
+            "PROP_LEVER_R"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_10_max_power_set_prop_levers_96_np_power_levers_max",
+          "stepText": "MAX POWER SET  -  PROP LEVERS 96% NP, POWER LEVERS MAX unaffected engine confirmed",
+          "hitboxIds": [
+            "POWER_LEVER_L",
+            "POWER_LEVER_R",
+            "PROP_LEVER_L",
+            "PROP_LEVER_R"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_11_memory_items_for_propeller_overspeed_above_101_5",
+          "stepText": "MEMORY ITEMS FOR PROPELLER OVERSPEED ABOVE 101.5%",
+          "hitboxIds": [
+            "PROP_LEVER_L",
+            "PROP_LEVER_R"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_12_retard_power_lever_at_10_psi",
+          "stepText": "RETARD  -  POWER LEVER AT 10 PSI",
+          "hitboxIds": [
+            "POWER_LEVER_L",
+            "POWER_LEVER_R"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_13_feathered_prop_lever_at_feather",
+          "stepText": "FEATHERED  -  PROP LEVER AT FEATHER",
+          "hitboxIds": [
+            "PROP_LEVER_L",
+            "PROP_LEVER_R"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_14_off_fuel_lever_off",
+          "stepText": "OFF  -  FUEL LEVER OFF",
+          "hitboxIds": [
+            "FUEL_LEVER_L",
+            "FUEL_LEVER_R"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_15_off_fuel_emergency_switch_off",
+          "stepText": "OFF  -  FUEL EMERGENCY SWITCH OFF",
+          "hitboxIds": [
+            "EMERG_FUEL_SHUTOFF_L",
+            "EMERG_FUEL_SHUTOFF_R",
+            "FUEL_SOV_L",
+            "FUEL_SOV_R"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_16_off_generator_switch_off",
+          "stepText": "OFF  -  GENERATOR SWITCH OFF",
+          "hitboxIds": [
+            "L_DC_GEN",
+            "R_DC_GEN",
+            "L_GENERATOR",
+            "R_GENERATOR"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_17_checked_qrh_for_propeller_overspeed_above_101_5",
+          "stepText": "CHECKED  -  QRH FOR PROPELLER OVERSPEED ABOVE 101.5%",
+          "hitboxIds": [
+            "PROP_LEVER_L",
+            "PROP_LEVER_R"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_18_qrh_for_propeller_overspeed_above_101_5_complete",
+          "stepText": "QRH FOR PROPELLER OVERSPEED ABOVE 101.5% COMPLETE",
+          "hitboxIds": [
+            "PROP_LEVER_L",
+            "PROP_LEVER_R"
+          ],
+          "mode": "FOCUS"
+        }
+      ]
+    },
+    {
+      "procedureId": "ABNORMAL/PROPELLER OVERSPEED  -  NP EXCEEDS SET RPM BUT AT OR BELOW 101.5%",
+      "title": "Propeller Overspeed  -  NP Exceeds Set RPM but at or below 101.5%",
+      "category": "ABNORMAL",
+      "assetPath": "procedures/abnormal/propeller_overspeed_np_exceeds_set_rpm.json",
+      "stepBindings": [
+        {
+          "stepId": "step_01_confirm_l_r_propeller_is_overspeeding_acknowledg",
+          "stepText": "CONFIRM L/R PROPELLER IS OVERSPEEDING  -  acknowledge malfunction and maintain directional control.",
+          "hitboxIds": [
+            "PROP_LEVER_L",
+            "PROP_LEVER_R"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_02_confirmed_l_r_propeller_overspeeding_below_101_5",
+          "stepText": "CONFIRMED L/R PROPELLER OVERSPEEDING, BELOW 101.5%  -  check NP, T5, Torque, WF and NG to confirm",
+          "hitboxIds": [
+            "PROP_LEVER_L",
+            "PROP_LEVER_R"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_03_initiate_qrh_for_propeller_overspeed_np_exceeds_",
+          "stepText": "Initiate QRH for Propeller Overspeed  -  NP exceeds set RPM but is at or below 101.5%.",
+          "hitboxIds": [
+            "PROP_LEVER_L",
+            "PROP_LEVER_R"
+          ],
+          "mode": "FOCUS"
+        }
+      ]
+    },
+    {
+      "procedureId": "ABNORMAL/RESET PROPS LIGHT ILLUMINATES",
+      "title": "Reset Props Light Illuminates",
+      "category": "ABNORMAL",
+      "assetPath": "procedures/abnormal/reset_props_light_illuminates.json",
+      "stepBindings": [
+        {
+          "stepId": "step_01_reset_props_light_illuminates",
+          "stepText": "Reset Props Light Illuminates.",
+          "hitboxIds": [
+            "RESET_PROPS"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_02_reset_props_light_illuminates_checklist",
+          "stepText": "Reset Props Light Illuminates checklist.",
+          "hitboxIds": [
+            "RESET_PROPS"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_03_reset_props_light_illuminates_checklist_complete",
+          "stepText": "Reset Props Light Illuminates checklist complete.",
+          "hitboxIds": [
+            "RESET_PROPS"
+          ],
+          "mode": "REQUIRED"
+        }
+      ]
+    },
+    {
+      "procedureId": "EMERGENCY/BATTERY OVERHEAT",
+      "title": "Battery Overheat",
+      "category": "EMERGENCY",
+      "assetPath": "procedures/emergency/battery_overheat.json",
+      "stepBindings": [
+        {
+          "stepId": "step_01_battery_overheat",
+          "stepText": "Battery Overheat.",
+          "hitboxIds": [
+            "BATTERY_MASTER",
+            "STBY_BATTERY"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_02_battery_overheat_checklist",
+          "stepText": "Battery Overheat checklist.",
+          "hitboxIds": [
+            "BATTERY_MASTER",
+            "STBY_BATTERY"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_03_battery_overheat_checklist_complete",
+          "stepText": "Battery Overheat checklist complete.",
+          "hitboxIds": [
+            "BATTERY_MASTER",
+            "STBY_BATTERY"
+          ],
+          "mode": "FOCUS"
+        }
+      ]
+    },
+    {
+      "procedureId": "EMERGENCY/COCKPIT OR CABIN SMOKE",
+      "title": "Cockpit or Cabin Smoke",
+      "category": "EMERGENCY",
+      "assetPath": "procedures/emergency/cockpit_or_cabin_smoke.json",
+      "stepBindings": [
+        {
+          "stepId": "step_01_if_source_is_known_extinguish_with_portable_fire",
+          "stepText": "IF SOURCE IS KNOWN: EXTINGUISH WITH PORTABLE FIRE EXTINGUISHER",
+          "hitboxIds": [
+            "FIRE_PUSH_SWITCH_L",
+            "FIRE_PUSH_SWITCH_R",
+            "FIRE_HANDLE_L",
+            "FIRE_HANDLE_R"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_02_if_source_is_unknown_left_bleed_switch_off",
+          "stepText": "IF SOURCE IS UNKNOWN: LEFT BLEED SWITCH  -  OFF",
+          "hitboxIds": [
+            "BLEED_AIR_L",
+            "BLEED_AIR_R"
+          ],
+          "mode": "REQUIRED"
+        }
+      ]
+    },
+    {
+      "procedureId": "EMERGENCY/DE-ICING SYSTEM FAILURE",
+      "title": "De-Icing System Failure",
+      "category": "EMERGENCY",
+      "assetPath": "procedures/emergency/de_icing_system_failure.json",
+      "stepBindings": [
+        {
+          "stepId": "step_01_de_icing_system_failure",
+          "stepText": "De-Icing System Failure.",
+          "hitboxIds": [
+            "DEICE_BOOTS_AREA",
+            "DEICE_BOOTS_INT",
+            "DEICE_BOOTS_PWR",
+            "DEICE_BOOTS_STAB",
+            "DEICE_BOOTS_VALVE",
+            "PROP_DEICE",
+            "STAB_DEICE_R",
+            "STAB_DEICE_L"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_02_de_icing_system_failure_checklist",
+          "stepText": "De-Icing System Failure checklist.",
+          "hitboxIds": [
+            "DEICE_BOOTS_AREA",
+            "DEICE_BOOTS_INT",
+            "DEICE_BOOTS_PWR",
+            "DEICE_BOOTS_STAB",
+            "DEICE_BOOTS_VALVE",
+            "PROP_DEICE",
+            "STAB_DEICE_R",
+            "STAB_DEICE_L"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_03_de_icing_system_failure_checklist_complete",
+          "stepText": "De-Icing System Failure checklist complete.",
+          "hitboxIds": [
+            "DEICE_BOOTS_AREA",
+            "DEICE_BOOTS_INT",
+            "DEICE_BOOTS_PWR",
+            "DEICE_BOOTS_STAB",
+            "DEICE_BOOTS_VALVE",
+            "PROP_DEICE",
+            "STAB_DEICE_R",
+            "STAB_DEICE_L"
+          ],
+          "mode": "FOCUS"
+        }
+      ]
+    },
+    {
+      "procedureId": "EMERGENCY/ENGINE FAILURE AIRBORNE, AFTER VMC",
+      "title": "Engine Failure Airborne, After VMC",
+      "category": "EMERGENCY",
+      "assetPath": "procedures/emergency/engine_failure_airborne_after_vmc.json",
+      "stepBindings": [
+        {
+          "stepId": "step_01_fire_bell_if_applicable_and_installed_mute",
+          "stepText": "FIRE BELL (if applicable and installed)  -  MUTE",
+          "hitboxIds": [
+            "MASTER_WARNING_LEFT",
+            "MASTER_WARNING_RIGHT"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_02_power_and_prop_levers_both_engines_max_power",
+          "stepText": "POWER AND PROP LEVERS (both engines)  -  MAX POWER",
+          "hitboxIds": [
+            "PROP_LEVER_L",
+            "PROP_LEVER_R"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_03_flaps_confirm_flaps_10",
+          "stepText": "FLAPS  -  CONFIRM FLAPS 10 deg",
+          "hitboxIds": [
+            "FLAP_SELECTOR"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_04_climb_vyse_86_kias_with_flaps_10",
+          "stepText": "CLIMB  -  Vyse 86 KIAS WITH FLAPS 10 deg",
+          "hitboxIds": [
+            "FLAP_SELECTOR"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_05_autofeather_check_prop_feathered",
+          "stepText": "AUTOFEATHER  -  CHECK PROP FEATHERED",
+          "hitboxIds": [
+            "AUTOFEATHER_SELECT"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_06_if_propeller_has_not_automatically_feathered",
+          "stepText": "IF PROPELLER HAS NOT AUTOMATICALLY FEATHERED:",
+          "hitboxIds": [
+            "PROP_LEVER_L",
+            "PROP_LEVER_R"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_07_confirm_l_r_prop_lever_feather_if_negative_autof",
+          "stepText": "CONFIRM L/R PROP LEVER FEATHER (if negative autofeather)",
+          "hitboxIds": [
+            "PROP_LEVER_L",
+            "PROP_LEVER_R",
+            "AUTOFEATHER_SELECT"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_08_confirm_l_r_engine_power_lever_retard_to_10_psi",
+          "stepText": "CONFIRM L/R ENGINE POWER LEVER RETARD TO 10 PSI",
+          "hitboxIds": [
+            "POWER_LEVER_L",
+            "POWER_LEVER_R"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_09_confirm_l_r_prop_lever_feather",
+          "stepText": "CONFIRM L/R PROP LEVER FEATHER",
+          "hitboxIds": [
+            "PROP_LEVER_L",
+            "PROP_LEVER_R"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_10_confirm_l_r_engine_fuel_lever_off",
+          "stepText": "CONFIRM L/R ENGINE FUEL LEVER OFF",
+          "hitboxIds": [
+            "FUEL_LEVER_L",
+            "FUEL_LEVER_R"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_11_confirm_l_r_fuel_emergency_switch_off",
+          "stepText": "CONFIRM L/R FUEL EMERGENCY SWITCH OFF",
+          "hitboxIds": [
+            "EMERG_FUEL_SHUTOFF_L",
+            "EMERG_FUEL_SHUTOFF_R",
+            "FUEL_SOV_L",
+            "FUEL_SOV_R"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_12_confirm_l_r_fuel_boost_pump_off",
+          "stepText": "CONFIRM L/R FUEL BOOST PUMP OFF",
+          "hitboxIds": [
+            "AFT_BOOST_PUMP",
+            "FWD_BOOST_PUMP",
+            "STBY_BOOST_PUMP_AFT",
+            "STBY_BOOST_PUMP_FWD",
+            "BOOST_PUMP_1_AFT_PRESS",
+            "BOOST_PUMP_1_FWD_PRESS",
+            "BOOST_PUMP_2_AFT_PRESS",
+            "BOOST_PUMP_2_FWD_PRESS"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_13_engine_failure_max_power_flap_10_adjust_pitch_fo",
+          "stepText": "ENGINE FAILURE MAX POWER, FLAP 10  -  adjust pitch for Vyse, maintain directional control with rudder, 5 deg bank to good engine if required",
+          "hitboxIds": [
+            "FLAP_SELECTOR"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_14_max_power_flap_10_set_prop_levers_96_np_both_eng",
+          "stepText": "MAX POWER, FLAP 10 SET  -  PROP LEVERS 96% NP both engines, FLAPS 10 deg, both propeller and power levers confirmed at max power setting",
+          "hitboxIds": [
+            "POWER_LEVER_L",
+            "POWER_LEVER_R",
+            "PROP_LEVER_L",
+            "PROP_LEVER_R",
+            "FLAP_SELECTOR"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_15_autofeather_confirmed_propeller_feathered_negati",
+          "stepText": "AUTOFEATHER CONFIRMED  -  propeller feathered / NEGATIVE FEATHER  -  propeller has NOT automatically feathered",
+          "hitboxIds": [
+            "PROP_LEVER_L",
+            "PROP_LEVER_R",
+            "AUTOFEATHER_SELECT"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_16_manual_feather_if_autofeather_negative",
+          "stepText": "MANUAL FEATHER  -  if autofeather negative",
+          "hitboxIds": [
+            "AUTOFEATHER_SELECT"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_17_confirm_l_r_prop_lever_feather_positioning_hand_",
+          "stepText": "CONFIRM L/R PROP LEVER FEATHER  -  positioning hand on affected propeller lever",
+          "hitboxIds": [
+            "PROP_LEVER_L",
+            "PROP_LEVER_R"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_18_feathered_propeller_lever_at_feather_position",
+          "stepText": "FEATHERED  -  propeller lever at FEATHER position",
+          "hitboxIds": [
+            "PROP_LEVER_L",
+            "PROP_LEVER_R"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_19_retard_power_lever_at_10_psi",
+          "stepText": "RETARD  -  POWER LEVER AT 10 PSI",
+          "hitboxIds": [
+            "POWER_LEVER_L",
+            "POWER_LEVER_R"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_20_feathered_prop_lever_at_feather",
+          "stepText": "FEATHERED  -  PROP LEVER AT FEATHER",
+          "hitboxIds": [
+            "PROP_LEVER_L",
+            "PROP_LEVER_R"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_21_off_fuel_lever_off",
+          "stepText": "OFF  -  FUEL LEVER OFF",
+          "hitboxIds": [
+            "FUEL_LEVER_L",
+            "FUEL_LEVER_R"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_22_off_fuel_emergency_switch_off",
+          "stepText": "OFF  -  FUEL EMERGENCY SWITCH OFF",
+          "hitboxIds": [
+            "EMERG_FUEL_SHUTOFF_L",
+            "EMERG_FUEL_SHUTOFF_R",
+            "FUEL_SOV_L",
+            "FUEL_SOV_R"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_23_off_fuel_boost_pump_off",
+          "stepText": "OFF  -  FUEL BOOST PUMP OFF",
+          "hitboxIds": [
+            "AFT_BOOST_PUMP",
+            "FWD_BOOST_PUMP",
+            "STBY_BOOST_PUMP_AFT",
+            "STBY_BOOST_PUMP_FWD",
+            "BOOST_PUMP_1_AFT_PRESS",
+            "BOOST_PUMP_1_FWD_PRESS",
+            "BOOST_PUMP_2_AFT_PRESS",
+            "BOOST_PUMP_2_FWD_PRESS"
+          ],
+          "mode": "FOCUS"
+        }
+      ]
+    },
+    {
+      "procedureId": "EMERGENCY/ENGINE FIRE/FAILURE AIRBORNE, AFTER V1",
+      "title": "Engine Fire/Failure Airborne, After V1",
+      "category": "EMERGENCY",
+      "assetPath": "procedures/emergency/engine_failure_airborne_prior_to_vmc.json",
+      "stepBindings": [
+        {
+          "stepId": "step_01_fire_bell_if_applicable_and_installed_mute",
+          "stepText": "FIRE BELL (if applicable and installed)  -  MUTE",
+          "hitboxIds": [
+            "MASTER_WARNING_LEFT",
+            "MASTER_WARNING_RIGHT"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_02_power_and_prop_levers_both_engines_max_power_fla",
+          "stepText": "POWER AND PROP LEVERS (both engines)  -  MAX POWER, FLAPS 10 deg",
+          "hitboxIds": [
+            "PROP_LEVER_L",
+            "PROP_LEVER_R",
+            "FLAP_SELECTOR"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_03_climb_vyse_86_kias_with_flaps_10",
+          "stepText": "CLIMB  -  Vyse 86 KIAS WITH FLAPS 10 deg",
+          "hitboxIds": [
+            "FLAP_SELECTOR"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_04_autofeather_check_prop_feathered",
+          "stepText": "AUTOFEATHER  -  CHECK PROP FEATHERED",
+          "hitboxIds": [
+            "AUTOFEATHER_SELECT"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_05_confirm_l_r_engine_power_lever_retard_to_10_psi",
+          "stepText": "CONFIRM L/R ENGINE POWER LEVER RETARD TO 10 PSI",
+          "hitboxIds": [
+            "POWER_LEVER_L",
+            "POWER_LEVER_R"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_06_confirm_l_r_prop_lever_feather",
+          "stepText": "CONFIRM L/R PROP LEVER FEATHER",
+          "hitboxIds": [
+            "PROP_LEVER_L",
+            "PROP_LEVER_R"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_07_confirm_l_r_engine_fuel_lever_off",
+          "stepText": "CONFIRM L/R ENGINE FUEL LEVER OFF",
+          "hitboxIds": [
+            "FUEL_LEVER_L",
+            "FUEL_LEVER_R"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_08_confirm_l_r_fuel_emergency_switch_off",
+          "stepText": "CONFIRM L/R FUEL EMERGENCY SWITCH OFF",
+          "hitboxIds": [
+            "EMERG_FUEL_SHUTOFF_L",
+            "EMERG_FUEL_SHUTOFF_R",
+            "FUEL_SOV_L",
+            "FUEL_SOV_R"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_09_confirm_l_r_fire_pull_handle_pull",
+          "stepText": "CONFIRM L/R FIRE PULL HANDLE PULL",
+          "hitboxIds": [
+            "FIRE_HANDLE_L",
+            "FIRE_HANDLE_R"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_10_confirm_l_r_engine_fire_extinguisher_push",
+          "stepText": "CONFIRM L/R ENGINE FIRE EXTINGUISHER PUSH",
+          "hitboxIds": [
+            "FIRE_PUSH_SWITCH_L",
+            "FIRE_PUSH_SWITCH_R",
+            "FIRE_HANDLE_L",
+            "FIRE_HANDLE_R"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_11_confirm_l_r_fuel_boost_pump_off",
+          "stepText": "CONFIRM L/R FUEL BOOST PUMP OFF",
+          "hitboxIds": [
+            "AFT_BOOST_PUMP",
+            "FWD_BOOST_PUMP",
+            "STBY_BOOST_PUMP_AFT",
+            "STBY_BOOST_PUMP_FWD",
+            "BOOST_PUMP_1_AFT_PRESS",
+            "BOOST_PUMP_1_FWD_PRESS",
+            "BOOST_PUMP_2_AFT_PRESS",
+            "BOOST_PUMP_2_FWD_PRESS"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_12_engine_fire_max_power_flap_10_adjust_pitch_for_v",
+          "stepText": "ENGINE FIRE MAX POWER, FLAP 10  -  adjust pitch for Vyse minimum, acknowledge CAS message, maintain directional control",
+          "hitboxIds": [
+            "FLAP_SELECTOR"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_13_max_power_flap_10_set_prop_levers_96_np_both_eng",
+          "stepText": "MAX POWER, FLAP 10 SET  -  PROP LEVERS 96% NP both engines, FLAPS 10 deg, both propeller and power levers confirmed at max power setting",
+          "hitboxIds": [
+            "POWER_LEVER_L",
+            "POWER_LEVER_R",
+            "PROP_LEVER_L",
+            "PROP_LEVER_R",
+            "FLAP_SELECTOR"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_14_retard_power_lever_at_10_psi",
+          "stepText": "RETARD  -  POWER LEVER AT 10 PSI",
+          "hitboxIds": [
+            "POWER_LEVER_L",
+            "POWER_LEVER_R"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_15_feathered_prop_lever_at_feather",
+          "stepText": "FEATHERED  -  PROP LEVER AT FEATHER",
+          "hitboxIds": [
+            "PROP_LEVER_L",
+            "PROP_LEVER_R"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_16_off_fuel_lever_off",
+          "stepText": "OFF  -  FUEL LEVER OFF",
+          "hitboxIds": [
+            "FUEL_LEVER_L",
+            "FUEL_LEVER_R"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_17_off_fuel_emergency_switch_off",
+          "stepText": "OFF  -  FUEL EMERGENCY SWITCH OFF",
+          "hitboxIds": [
+            "EMERG_FUEL_SHUTOFF_L",
+            "EMERG_FUEL_SHUTOFF_R",
+            "FUEL_SOV_L",
+            "FUEL_SOV_R"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_18_pulled_fire_pull_handle_pulled",
+          "stepText": "PULLED  -  FIRE PULL HANDLE PULLED",
+          "hitboxIds": [
+            "FIRE_HANDLE_L",
+            "FIRE_HANDLE_R"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_19_discharged_fire_extinguisher_discharged",
+          "stepText": "DISCHARGED  -  FIRE EXTINGUISHER DISCHARGED",
+          "hitboxIds": [
+            "FIRE_PUSH_SWITCH_L",
+            "FIRE_PUSH_SWITCH_R",
+            "FIRE_HANDLE_L",
+            "FIRE_HANDLE_R"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_20_off_fuel_boost_pump_off",
+          "stepText": "OFF  -  FUEL BOOST PUMP OFF",
+          "hitboxIds": [
+            "AFT_BOOST_PUMP",
+            "FWD_BOOST_PUMP",
+            "STBY_BOOST_PUMP_AFT",
+            "STBY_BOOST_PUMP_FWD",
+            "BOOST_PUMP_1_AFT_PRESS",
+            "BOOST_PUMP_1_FWD_PRESS",
+            "BOOST_PUMP_2_AFT_PRESS",
+            "BOOST_PUMP_2_FWD_PRESS"
+          ],
+          "mode": "FOCUS"
+        }
+      ]
+    },
+    {
+      "procedureId": "EMERGENCY/ENGINE FAILURE DURING FLIGHT",
+      "title": "Engine Failure During Flight",
+      "category": "EMERGENCY",
+      "assetPath": "procedures/emergency/engine_failure_during_flight.json",
+      "stepBindings": [
+        {
+          "stepId": "step_01_confirm_l_r_engine_power_lever_retard_to_10_psi",
+          "stepText": "CONFIRM L/R ENGINE POWER LEVER RETARD TO 10 PSI",
+          "hitboxIds": [
+            "POWER_LEVER_L",
+            "POWER_LEVER_R"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_02_confirm_l_r_prop_lever_feather",
+          "stepText": "CONFIRM L/R PROP LEVER FEATHER",
+          "hitboxIds": [
+            "PROP_LEVER_L",
+            "PROP_LEVER_R"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_03_confirm_l_r_engine_fuel_lever_off",
+          "stepText": "CONFIRM L/R ENGINE FUEL LEVER OFF",
+          "hitboxIds": [
+            "FUEL_LEVER_L",
+            "FUEL_LEVER_R"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_04_confirm_l_r_fuel_emergency_switch_off",
+          "stepText": "CONFIRM L/R FUEL EMERGENCY SWITCH OFF",
+          "hitboxIds": [
+            "EMERG_FUEL_SHUTOFF_L",
+            "EMERG_FUEL_SHUTOFF_R",
+            "FUEL_SOV_L",
+            "FUEL_SOV_R"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_05_confirm_l_r_fuel_boost_pump_off",
+          "stepText": "CONFIRM L/R FUEL BOOST PUMP OFF",
+          "hitboxIds": [
+            "AFT_BOOST_PUMP",
+            "FWD_BOOST_PUMP",
+            "STBY_BOOST_PUMP_AFT",
+            "STBY_BOOST_PUMP_FWD",
+            "BOOST_PUMP_1_AFT_PRESS",
+            "BOOST_PUMP_1_FWD_PRESS",
+            "BOOST_PUMP_2_AFT_PRESS",
+            "BOOST_PUMP_2_FWD_PRESS"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_06_max_power_set_prop_levers_96_np_power_levers_max",
+          "stepText": "MAX POWER SET  -  PROP LEVERS 96% NP, POWER LEVERS MAX, unaffected engine confirmed",
+          "hitboxIds": [
+            "POWER_LEVER_L",
+            "POWER_LEVER_R",
+            "PROP_LEVER_L",
+            "PROP_LEVER_R"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_07_retard_power_lever_at_10_psi",
+          "stepText": "RETARD  -  POWER LEVER AT 10 PSI",
+          "hitboxIds": [
+            "POWER_LEVER_L",
+            "POWER_LEVER_R"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_08_feathered_prop_lever_at_feather",
+          "stepText": "FEATHERED  -  PROP LEVER AT FEATHER",
+          "hitboxIds": [
+            "PROP_LEVER_L",
+            "PROP_LEVER_R"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_09_off_fuel_lever_off",
+          "stepText": "OFF  -  FUEL LEVER OFF",
+          "hitboxIds": [
+            "FUEL_LEVER_L",
+            "FUEL_LEVER_R"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_10_off_fuel_emergency_switch_off",
+          "stepText": "OFF  -  FUEL EMERGENCY SWITCH OFF",
+          "hitboxIds": [
+            "EMERG_FUEL_SHUTOFF_L",
+            "EMERG_FUEL_SHUTOFF_R",
+            "FUEL_SOV_L",
+            "FUEL_SOV_R"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_11_off_fuel_boost_pump_off",
+          "stepText": "OFF  -  FUEL BOOST PUMP OFF",
+          "hitboxIds": [
+            "AFT_BOOST_PUMP",
+            "FWD_BOOST_PUMP",
+            "STBY_BOOST_PUMP_AFT",
+            "STBY_BOOST_PUMP_FWD",
+            "BOOST_PUMP_1_AFT_PRESS",
+            "BOOST_PUMP_1_FWD_PRESS",
+            "BOOST_PUMP_2_AFT_PRESS",
+            "BOOST_PUMP_2_FWD_PRESS"
+          ],
+          "mode": "FOCUS"
+        }
+      ]
+    },
+    {
+      "procedureId": "EMERGENCY/ENGINE FAILURE PRIOR TO ROTATION",
+      "title": "Engine Failure Prior to Rotation",
+      "category": "EMERGENCY",
+      "assetPath": "procedures/emergency/engine_failure_prior_to_rotation.json",
+      "stepBindings": [
+        {
+          "stepId": "step_01_power_levers_idle",
+          "stepText": "POWER LEVERS  -  IDLE",
+          "hitboxIds": [
+            "POWER_LEVER_L",
+            "POWER_LEVER_R"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_02_prop_levers_both_feather",
+          "stepText": "PROP LEVERS  -  BOTH FEATHER",
+          "hitboxIds": [
+            "PROP_LEVER_L",
+            "PROP_LEVER_R"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_03_fuel_levers_both_off",
+          "stepText": "FUEL LEVERS  -  BOTH OFF",
+          "hitboxIds": [
+            "FUEL_LEVER_L",
+            "FUEL_LEVER_R"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_04_fuel_sov_switch_both_off",
+          "stepText": "FUEL SOV SWITCH  -  BOTH OFF",
+          "hitboxIds": [
+            "EMERG_FUEL_SHUTOFF_L",
+            "EMERG_FUEL_SHUTOFF_R",
+            "FUEL_SOV_L",
+            "FUEL_SOV_R"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_05_dc_master_switch_off",
+          "stepText": "DC MASTER SWITCH  -  OFF",
+          "hitboxIds": [
+            "BATTERY_MASTER"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_06_power_levers_idle_reverse_as_required_land_strai",
+          "stepText": "POWER LEVERS  -  IDLE, REVERSE AS REQUIRED, LAND STRAIGHT AHEAD",
+          "hitboxIds": [
+            "POWER_LEVER_L",
+            "POWER_LEVER_R"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_07_if_insufficient_room_to_stop_prop_levers_both_fe",
+          "stepText": "IF INSUFFICIENT ROOM TO STOP: PROP LEVERS BOTH FEATHER, FUEL LEVERS BOTH OFF, FUEL SOV SWITCH BOTH OFF, DC MASTER SWITCH OFF",
+          "hitboxIds": [
+            "PROP_LEVER_L",
+            "PROP_LEVER_R",
+            "FUEL_LEVER_L",
+            "FUEL_LEVER_R",
+            "EMERG_FUEL_SHUTOFF_L",
+            "EMERG_FUEL_SHUTOFF_R",
+            "FUEL_SOV_L",
+            "FUEL_SOV_R",
+            "BATTERY_MASTER"
+          ],
+          "mode": "FOCUS"
+        }
+      ]
+    },
+    {
+      "procedureId": "EMERGENCY/ENGINE FIRE IN FLIGHT",
+      "title": "Engine Fire in Flight",
+      "category": "EMERGENCY",
+      "assetPath": "procedures/emergency/engine_fire_in_flight.json",
+      "stepBindings": [
+        {
+          "stepId": "step_01_maximum_power_unaffected_engine_set",
+          "stepText": "MAXIMUM POWER (UNAFFECTED ENGINE)  -  SET",
+          "hitboxIds": [
+            "POWER_LEVER_L",
+            "POWER_LEVER_R"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_02_confirm_l_r_engine_power_lever_retard_to_10_psi",
+          "stepText": "CONFIRM L/R ENGINE POWER LEVER RETARD TO 10 PSI",
+          "hitboxIds": [
+            "POWER_LEVER_L",
+            "POWER_LEVER_R"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_03_confirm_l_r_prop_lever_feather",
+          "stepText": "CONFIRM L/R PROP LEVER FEATHER",
+          "hitboxIds": [
+            "PROP_LEVER_L",
+            "PROP_LEVER_R"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_04_confirm_l_r_engine_fuel_lever_off",
+          "stepText": "CONFIRM L/R ENGINE FUEL LEVER OFF",
+          "hitboxIds": [
+            "FUEL_LEVER_L",
+            "FUEL_LEVER_R"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_05_confirm_l_r_fuel_emergency_switch_off",
+          "stepText": "CONFIRM L/R FUEL EMERGENCY SWITCH OFF",
+          "hitboxIds": [
+            "EMERG_FUEL_SHUTOFF_L",
+            "EMERG_FUEL_SHUTOFF_R",
+            "FUEL_SOV_L",
+            "FUEL_SOV_R"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_06_confirm_l_r_fire_pull_handle_pull",
+          "stepText": "CONFIRM L/R FIRE PULL HANDLE PULL",
+          "hitboxIds": [
+            "FIRE_HANDLE_L",
+            "FIRE_HANDLE_R"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_07_confirm_l_r_engine_fire_extinguisher_push",
+          "stepText": "CONFIRM L/R ENGINE FIRE EXTINGUISHER PUSH",
+          "hitboxIds": [
+            "FIRE_PUSH_SWITCH_L",
+            "FIRE_PUSH_SWITCH_R",
+            "FIRE_HANDLE_L",
+            "FIRE_HANDLE_R"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_08_confirm_l_r_fuel_boost_pump_off",
+          "stepText": "CONFIRM L/R FUEL BOOST PUMP OFF",
+          "hitboxIds": [
+            "AFT_BOOST_PUMP",
+            "FWD_BOOST_PUMP",
+            "STBY_BOOST_PUMP_AFT",
+            "STBY_BOOST_PUMP_FWD",
+            "BOOST_PUMP_1_AFT_PRESS",
+            "BOOST_PUMP_1_FWD_PRESS",
+            "BOOST_PUMP_2_AFT_PRESS",
+            "BOOST_PUMP_2_FWD_PRESS"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_09_max_power_set_prop_levers_96_np_power_levers_max",
+          "stepText": "MAX POWER SET  -  PROP LEVERS 96% NP, POWER LEVERS MAX, unaffected engine confirmed",
+          "hitboxIds": [
+            "POWER_LEVER_L",
+            "POWER_LEVER_R",
+            "PROP_LEVER_L",
+            "PROP_LEVER_R"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_10_retard_power_lever_at_10_psi",
+          "stepText": "RETARD  -  POWER LEVER AT 10 PSI",
+          "hitboxIds": [
+            "POWER_LEVER_L",
+            "POWER_LEVER_R"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_11_feathered_prop_lever_at_feather",
+          "stepText": "FEATHERED  -  PROP LEVER AT FEATHER",
+          "hitboxIds": [
+            "PROP_LEVER_L",
+            "PROP_LEVER_R"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_12_off_fuel_lever_off",
+          "stepText": "OFF  -  FUEL LEVER OFF",
+          "hitboxIds": [
+            "FUEL_LEVER_L",
+            "FUEL_LEVER_R"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_13_off_fuel_emergency_switch_off",
+          "stepText": "OFF  -  FUEL EMERGENCY SWITCH OFF",
+          "hitboxIds": [
+            "EMERG_FUEL_SHUTOFF_L",
+            "EMERG_FUEL_SHUTOFF_R",
+            "FUEL_SOV_L",
+            "FUEL_SOV_R"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_14_pulled_fire_pull_handle_pulled",
+          "stepText": "PULLED  -  FIRE PULL HANDLE PULLED",
+          "hitboxIds": [
+            "FIRE_HANDLE_L",
+            "FIRE_HANDLE_R"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_15_discharged_fire_extinguisher_discharged",
+          "stepText": "DISCHARGED  -  FIRE EXTINGUISHER DISCHARGED",
+          "hitboxIds": [
+            "FIRE_PUSH_SWITCH_L",
+            "FIRE_PUSH_SWITCH_R",
+            "FIRE_HANDLE_L",
+            "FIRE_HANDLE_R"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_16_off_fuel_boost_pump_off",
+          "stepText": "OFF  -  FUEL BOOST PUMP OFF",
+          "hitboxIds": [
+            "AFT_BOOST_PUMP",
+            "FWD_BOOST_PUMP",
+            "STBY_BOOST_PUMP_AFT",
+            "STBY_BOOST_PUMP_FWD",
+            "BOOST_PUMP_1_AFT_PRESS",
+            "BOOST_PUMP_1_FWD_PRESS",
+            "BOOST_PUMP_2_AFT_PRESS",
+            "BOOST_PUMP_2_FWD_PRESS"
+          ],
+          "mode": "FOCUS"
+        }
+      ]
+    },
+    {
+      "procedureId": "EMERGENCY/ENGINE FIRE ON GROUND",
+      "title": "Engine Fire on Ground",
+      "category": "EMERGENCY",
+      "assetPath": "procedures/emergency/engine_fire_on_ground.json",
+      "stepBindings": [
+        {
+          "stepId": "step_01_both_power_levers_idle",
+          "stepText": "BOTH POWER LEVERS  -  IDLE",
+          "hitboxIds": [
+            "POWER_LEVER_L",
+            "POWER_LEVER_R"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_02_both_prop_levers_feather",
+          "stepText": "BOTH PROP LEVERS  -  FEATHER",
+          "hitboxIds": [
+            "PROP_LEVER_L",
+            "PROP_LEVER_R"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_03_fuel_lever_affected_engine_off",
+          "stepText": "FUEL LEVER (AFFECTED ENGINE)  -  OFF",
+          "hitboxIds": [
+            "FUEL_LEVER_L",
+            "FUEL_LEVER_R"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_04_fuel_sov_switch_affected_engine_off",
+          "stepText": "FUEL SOV SWITCH (AFFECTED ENGINE)  -  OFF",
+          "hitboxIds": [
+            "EMERG_FUEL_SHUTOFF_L",
+            "EMERG_FUEL_SHUTOFF_R",
+            "FUEL_SOV_L",
+            "FUEL_SOV_R"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_05_engine_fire_extinguisher_affected_engine_push",
+          "stepText": "ENGINE FIRE EXTINGUISHER (AFFECTED ENGINE)  -  PUSH",
+          "hitboxIds": [
+            "FIRE_PUSH_SWITCH_L",
+            "FIRE_PUSH_SWITCH_R",
+            "FIRE_HANDLE_L",
+            "FIRE_HANDLE_R"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_06_fuel_boost_pump_1_affected_engine_off",
+          "stepText": "FUEL BOOST PUMP #1 (AFFECTED ENGINE)  -  OFF",
+          "hitboxIds": [
+            "AFT_BOOST_PUMP",
+            "FWD_BOOST_PUMP",
+            "STBY_BOOST_PUMP_AFT",
+            "STBY_BOOST_PUMP_FWD",
+            "BOOST_PUMP_1_AFT_PRESS",
+            "BOOST_PUMP_1_FWD_PRESS",
+            "BOOST_PUMP_2_AFT_PRESS",
+            "BOOST_PUMP_2_FWD_PRESS"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_07_fuel_lever_unaffected_engine_off",
+          "stepText": "FUEL LEVER (UNAFFECTED ENGINE)  -  OFF",
+          "hitboxIds": [
+            "FUEL_LEVER_L",
+            "FUEL_LEVER_R"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_08_dc_master_switch_off",
+          "stepText": "DC MASTER SWITCH  -  OFF",
+          "hitboxIds": [
+            "BATTERY_MASTER"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_09_both_power_levers_idle_positions_hands_on_both_p",
+          "stepText": "BOTH POWER LEVERS IDLE  -  positions hands on both power levers  -  IDLE",
+          "hitboxIds": [
+            "POWER_LEVER_L",
+            "POWER_LEVER_R"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_10_both_prop_levers_feather_positions_hands_on_both",
+          "stepText": "BOTH PROP LEVERS FEATHER  -  positions hands on both prop levers  -  FEATHER",
+          "hitboxIds": [
+            "PROP_LEVER_L",
+            "PROP_LEVER_R"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_11_confirm_affected_engine_fuel_lever_off_moves_aff",
+          "stepText": "CONFIRM AFFECTED ENGINE FUEL LEVER OFF  -  moves affected fuel lever to OFF  -  OFF",
+          "hitboxIds": [
+            "FUEL_LEVER_L",
+            "FUEL_LEVER_R"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_12_confirm_affected_engine_fuel_sov_switch_off_push",
+          "stepText": "CONFIRM AFFECTED ENGINE FUEL SOV SWITCH OFF  -  pushes FUEL SOV SWITCH to OFF  -  OFF",
+          "hitboxIds": [
+            "EMERG_FUEL_SHUTOFF_L",
+            "EMERG_FUEL_SHUTOFF_R",
+            "FUEL_SOV_L",
+            "FUEL_SOV_R"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_13_confirm_affected_engine_fire_extinguisher_push_p",
+          "stepText": "CONFIRM AFFECTED ENGINE FIRE EXTINGUISHER PUSH  -  pushes fire extinguisher switch to discharge  -  DISCHARGED",
+          "hitboxIds": [
+            "FIRE_PUSH_SWITCH_L",
+            "FIRE_PUSH_SWITCH_R",
+            "FIRE_HANDLE_L",
+            "FIRE_HANDLE_R"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_14_confirm_affected_fuel_boost_pump_off_moves_boost",
+          "stepText": "CONFIRM AFFECTED FUEL BOOST PUMP OFF  -  moves boost pump #1 to OFF  -  OFF",
+          "hitboxIds": [
+            "AFT_BOOST_PUMP",
+            "FWD_BOOST_PUMP",
+            "STBY_BOOST_PUMP_AFT",
+            "STBY_BOOST_PUMP_FWD",
+            "BOOST_PUMP_1_AFT_PRESS",
+            "BOOST_PUMP_1_FWD_PRESS",
+            "BOOST_PUMP_2_AFT_PRESS",
+            "BOOST_PUMP_2_FWD_PRESS"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_15_confirm_unaffected_engine_fuel_lever_off_moves_u",
+          "stepText": "CONFIRM UNAFFECTED ENGINE FUEL LEVER OFF  -  moves unaffected fuel lever to OFF  -  OFF",
+          "hitboxIds": [
+            "FUEL_LEVER_L",
+            "FUEL_LEVER_R"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_16_dc_master_switch_off",
+          "stepText": "DC MASTER SWITCH OFF",
+          "hitboxIds": [
+            "BATTERY_MASTER"
+          ],
+          "mode": "FOCUS"
+        }
+      ]
+    },
+    {
+      "procedureId": "EMERGENCY/FORCED LANDING",
+      "title": "Forced Landing",
+      "category": "EMERGENCY",
+      "assetPath": "procedures/emergency/forced_landing.json",
+      "stepBindings": [
+        {
+          "stepId": "step_01_fuel_off_emergency_shut_off_switches_both_off",
+          "stepText": "FUEL OFF EMERGENCY SHUT-OFF SWITCHES  -  BOTH OFF",
+          "hitboxIds": [
+            "EMERG_FUEL_SHUTOFF_L",
+            "EMERG_FUEL_SHUTOFF_R",
+            "FUEL_SOV_L",
+            "FUEL_SOV_R"
+          ],
+          "mode": "FOCUS"
+        }
+      ]
+    },
+    {
+      "procedureId": "EMERGENCY/HIGH SPEED EMERGENCY DESCENT",
+      "title": "High Speed Emergency Descent",
+      "category": "EMERGENCY",
+      "assetPath": "procedures/emergency/high_speed_emergency_descent.json",
+      "stepBindings": [
+        {
+          "stepId": "step_01_prop_levers_max_rpm_96_np",
+          "stepText": "PROP LEVERS  -  MAX RPM (96% NP)",
+          "hitboxIds": [
+            "PROP_LEVER_L",
+            "PROP_LEVER_R"
+          ],
+          "mode": "REQUIRED"
+        }
+      ]
+    },
+    {
+      "procedureId": "EMERGENCY/LOW SPEED EMERGENCY DESCENT",
+      "title": "Low Speed Emergency Descent",
+      "category": "EMERGENCY",
+      "assetPath": "procedures/emergency/low_speed_emergency_descent.json",
+      "stepBindings": [
+        {
+          "stepId": "step_01_prop_levers_max_rpm_96_np",
+          "stepText": "PROP LEVERS  -  MAX RPM (96% NP)",
+          "hitboxIds": [
+            "PROP_LEVER_L",
+            "PROP_LEVER_R"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_02_flaps_select_full_flap_37_5_once_vfe_is_reached",
+          "stepText": "FLAPS  -  SELECT FULL FLAP (37.5 deg) ONCE VFE IS REACHED",
+          "hitboxIds": [
+            "FLAP_SELECTOR"
+          ],
+          "mode": "FOCUS"
+        }
+      ]
+    },
+    {
+      "procedureId": "EMERGENCY/ONE ENGINE INOPERATIVE LANDING",
+      "title": "One Engine Inoperative Landing",
+      "category": "EMERGENCY",
+      "assetPath": "procedures/emergency/one_engine_inoperative_landing.json",
+      "stepBindings": [
+        {
+          "stepId": "step_01_brief_acknowledged_vref_single_engine_speed_conf",
+          "stepText": "BRIEF ACKNOWLEDGED  -  Vref single engine [speed] confirmed, FLAP setting [check], approach minima [check]",
+          "hitboxIds": [
+            "FLAP_SELECTOR"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_02_configuration_confirmed_power_setting_airspeed_v",
+          "stepText": "CONFIGURATION CONFIRMED  -  power [setting], airspeed [Vref], configuration [clean/flap setting], QRH SINGLE ENGINE LANDING checklist running",
+          "hitboxIds": [
+            "FLAP_SELECTOR"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_03_final_checklist_complete_gear_check_flaps_check_",
+          "stepText": "FINAL CHECKLIST COMPLETE  -  gear [check], flaps [check], autofeather [check if applicable]",
+          "hitboxIds": [
+            "AUTOFEATHER_SELECT",
+            "FLAP_SELECTOR"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_04_go_around_single_engine_advance_power_lever_l_r_",
+          "stepText": "GO-AROUND  -  single engine: advance power lever L/R engine, maintain Vyse, call for SINGLE ENGINE GO-AROUND checklist if required",
+          "hitboxIds": [
+            "POWER_LEVER_L",
+            "POWER_LEVER_R"
+          ],
+          "mode": "FOCUS"
+        }
+      ]
+    },
+    {
+      "procedureId": "EMERGENCY/ONE ENGINE INOPERATIVE MISSED APPROACH",
+      "title": "One Engine Inoperative Missed Approach",
+      "category": "EMERGENCY",
+      "assetPath": "procedures/emergency/one_engine_inoperative_missed_approach.json",
+      "stepBindings": [
+        {
+          "stepId": "step_01_one_engine_inoperative_missed_approach_flaps_10_",
+          "stepText": "One Engine Inoperative Missed Approach (Flaps 10 deg) checklist.",
+          "hitboxIds": [
+            "FLAP_SELECTOR"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_02_one_engine_inoperative_missed_approach_flaps_10_",
+          "stepText": "One Engine Inoperative Missed Approach (Flaps 10 deg) checklist complete.",
+          "hitboxIds": [
+            "FLAP_SELECTOR"
+          ],
+          "mode": "FOCUS"
+        }
+      ]
+    },
+    {
+      "procedureId": "EMERGENCY/TOTAL ELECTRICAL FAILURE",
+      "title": "Total Electrical Failure",
+      "category": "EMERGENCY",
+      "assetPath": "procedures/emergency/total_electrical_failure.json",
+      "stepBindings": [
+        {
+          "stepId": "step_01_generator_switches_both_off",
+          "stepText": "GENERATOR SWITCHES  -  BOTH OFF",
+          "hitboxIds": [
+            "L_DC_GEN",
+            "R_DC_GEN",
+            "L_GENERATOR",
+            "R_GENERATOR"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_02_generator_switches_reset_individually",
+          "stepText": "GENERATOR SWITCHES  -  RESET INDIVIDUALLY",
+          "hitboxIds": [
+            "L_DC_GEN",
+            "R_DC_GEN",
+            "L_GENERATOR",
+            "R_GENERATOR"
+          ],
+          "mode": "REQUIRED"
+        }
+      ]
+    },
+    {
+      "procedureId": "EMERGENCY/UNCOMMANDED FEATHERING",
+      "title": "Uncommanded Feathering",
+      "category": "EMERGENCY",
+      "assetPath": "procedures/emergency/uncommanded_feathering.json",
+      "stepBindings": [
+        {
+          "stepId": "step_01_power_and_prop_levers_unaffected_engine_max_powe",
+          "stepText": "POWER AND PROP LEVERS (UNAFFECTED ENGINE)  -  MAX POWER",
+          "hitboxIds": [
+            "PROP_LEVER_L",
+            "PROP_LEVER_R"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_02_confirm_l_r_engine_power_lever_idle",
+          "stepText": "CONFIRM L/R ENGINE POWER LEVER IDLE",
+          "hitboxIds": [
+            "POWER_LEVER_L",
+            "POWER_LEVER_R"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_03_if_autofeather_switch_is_on_autofeather_switch_o",
+          "stepText": "IF AUTOFEATHER SWITCH IS ON: AUTOFEATHER SWITCH  -  OFF (no confirmation required)",
+          "hitboxIds": [
+            "AUTOFEATHER_SELECT"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_04_if_propeller_unfeathers_end_of_procedure_complet",
+          "stepText": "IF PROPELLER UNFEATHERS  -  END OF PROCEDURE / COMPLETE QRH",
+          "hitboxIds": [
+            "PROP_LEVER_L",
+            "PROP_LEVER_R"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_05_if_propeller_does_not_unfeather_in_flight_shutdo",
+          "stepText": "IF PROPELLER DOES NOT UNFEATHER  -  IN-FLIGHT SHUTDOWN:",
+          "hitboxIds": [
+            "PROP_LEVER_L",
+            "PROP_LEVER_R"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_06_confirm_l_r_prop_lever_feather",
+          "stepText": "CONFIRM L/R PROP LEVER FEATHER",
+          "hitboxIds": [
+            "PROP_LEVER_L",
+            "PROP_LEVER_R"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_07_confirm_l_r_engine_fuel_lever_off",
+          "stepText": "CONFIRM L/R ENGINE FUEL LEVER OFF",
+          "hitboxIds": [
+            "FUEL_LEVER_L",
+            "FUEL_LEVER_R"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_08_confirm_l_r_fuel_emergency_switch_off",
+          "stepText": "CONFIRM L/R FUEL EMERGENCY SWITCH OFF",
+          "hitboxIds": [
+            "EMERG_FUEL_SHUTOFF_L",
+            "EMERG_FUEL_SHUTOFF_R",
+            "FUEL_SOV_L",
+            "FUEL_SOV_R"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_09_confirm_l_r_fuel_boost_pump_off",
+          "stepText": "CONFIRM L/R FUEL BOOST PUMP OFF",
+          "hitboxIds": [
+            "AFT_BOOST_PUMP",
+            "FWD_BOOST_PUMP",
+            "STBY_BOOST_PUMP_AFT",
+            "STBY_BOOST_PUMP_FWD",
+            "BOOST_PUMP_1_AFT_PRESS",
+            "BOOST_PUMP_1_FWD_PRESS",
+            "BOOST_PUMP_2_AFT_PRESS",
+            "BOOST_PUMP_2_FWD_PRESS"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_10_confirmed_l_r_propeller_has_feathered_uncommande",
+          "stepText": "CONFIRMED L/R PROPELLER HAS FEATHERED UNCOMMANDED  -  NP [check], T5 [check], Torque [check], WF [check], NG [check]",
+          "hitboxIds": [
+            "PROP_LEVER_L",
+            "PROP_LEVER_R"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_11_max_power_set_prop_levers_96_np_power_levers_max",
+          "stepText": "MAX POWER SET  -  PROP LEVERS 96% NP, POWER LEVERS MAX unaffected engine confirmed",
+          "hitboxIds": [
+            "POWER_LEVER_L",
+            "POWER_LEVER_R",
+            "PROP_LEVER_L",
+            "PROP_LEVER_R"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_12_idle_power_lever_at_idle",
+          "stepText": "IDLE  -  POWER LEVER AT IDLE",
+          "hitboxIds": [
+            "POWER_LEVER_L",
+            "POWER_LEVER_R"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_13_autofeather_switch_off_if_autofeather_system_is_",
+          "stepText": "AUTOFEATHER SWITCH OFF  -  if autofeather system is selected ON (no confirmation required)",
+          "hitboxIds": [
+            "AUTOFEATHER_SELECT"
+          ],
+          "mode": "REQUIRED"
+        },
+        {
+          "stepId": "step_14_off_autofeather_switch_off",
+          "stepText": "OFF  -  AUTOFEATHER SWITCH OFF",
+          "hitboxIds": [
+            "AUTOFEATHER_SELECT"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_15_if_propeller_unfeathers_end_of_procedure_complet",
+          "stepText": "IF PROPELLER UNFEATHERS  -  END OF PROCEDURE, COMPLETE QRH CHECKLIST ONLY",
+          "hitboxIds": [
+            "PROP_LEVER_L",
+            "PROP_LEVER_R"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_16_if_propeller_does_not_unfeather_continuing_with_",
+          "stepText": "IF PROPELLER DOES NOT UNFEATHER  -  CONTINUING WITH IN-FLIGHT SHUTDOWN",
+          "hitboxIds": [
+            "PROP_LEVER_L",
+            "PROP_LEVER_R"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_17_feathered_prop_lever_at_feather",
+          "stepText": "FEATHERED  -  PROP LEVER AT FEATHER",
+          "hitboxIds": [
+            "PROP_LEVER_L",
+            "PROP_LEVER_R"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_18_off_fuel_lever_off",
+          "stepText": "OFF  -  FUEL LEVER OFF",
+          "hitboxIds": [
+            "FUEL_LEVER_L",
+            "FUEL_LEVER_R"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_19_off_fuel_emergency_switch_off",
+          "stepText": "OFF  -  FUEL EMERGENCY SWITCH OFF",
+          "hitboxIds": [
+            "EMERG_FUEL_SHUTOFF_L",
+            "EMERG_FUEL_SHUTOFF_R",
+            "FUEL_SOV_L",
+            "FUEL_SOV_R"
+          ],
+          "mode": "FOCUS"
+        },
+        {
+          "stepId": "step_20_off_fuel_boost_pump_off",
+          "stepText": "OFF  -  FUEL BOOST PUMP OFF",
+          "hitboxIds": [
+            "AFT_BOOST_PUMP",
+            "FWD_BOOST_PUMP",
+            "STBY_BOOST_PUMP_AFT",
+            "STBY_BOOST_PUMP_FWD",
+            "BOOST_PUMP_1_AFT_PRESS",
+            "BOOST_PUMP_1_FWD_PRESS",
+            "BOOST_PUMP_2_AFT_PRESS",
+            "BOOST_PUMP_2_FWD_PRESS"
+          ],
+          "mode": "FOCUS"
+        }
+      ]
+    }
+  ]
+}

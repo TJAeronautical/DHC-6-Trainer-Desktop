@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "1.0.0",
+  "profileId": "dhc6-legacy-propeller",
+  "variant": "LEGACY",
+  "messages": [
+    {
+      "display": "BETA",
+      "canonicalId": "BETA_LIGHT",
+      "level": "CAUTION",
+      "meaning": "Normal beta oil pressure lost. Beta backup system active. No feathering capability.",
+      "immediate": "If intermittent: land as soon as practical. If steady: land as soon as possible.",
+      "qrhRef": "QRH Section 3 / FCTM 6.7.9"
+    },
+    {
+      "display": "RESET PROPS",
+      "canonicalId": "RESET_PROPS",
+      "level": "CAUTION",
+      "meaning": "Prop lever(s) not at MAX RPM for take-off.",
+      "immediate": "Advance prop lever(s) to MAX RPM.",
+      "qrhRef": "Normal Procedures Before Take-Off"
+    },
+    {
+      "display": "AUTOFEATHER ARM",
+      "canonicalId": "PROP_AUTO_FEATHER_ARM",
+      "level": "ADVISORY",
+      "meaning": "Autofeather system armed. All three arming conditions met.",
+      "immediate": "Advisory \u2014 normal at take-off power. Confirm ARM light.",
+      "qrhRef": "FCTM 6.7.8"
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "version": "1.0",
+  "source": "POH PSM 1-63-1A Section 1.5.3 and Section 6; HBFO-002 QRH ISS01REV02 Section 11",
+  "fuel": {
+    "tanks": [
+      {
+        "id": "forward",
+        "label": "Forward Tank (FWD)",
+        "feeds_engine": "Right (No.1)",
+        "usable_lb": 1235,
+        "usable_usg": 181,
+        "usable_ltrs": 686,
+        "cells": 4,
+        "note": "99% usable. Unusable fuel = 23 lb total across both tanks combined."
+      },
+      {
+        "id": "rear",
+        "label": "Rear Tank (AFT)",
+        "feeds_engine": "Left (No.2)",
+        "usable_lb": 1341,
+        "usable_usg": 197,
+        "usable_ltrs": 756,
+        "cells": 4,
+        "note": "Slightly larger than forward tank. Feeds left engine in NORM position."
+      }
+    ],
+    "total_usable_lb": 2576,
+    "total_usable_usg": 378,
+    "total_usable_ltrs": 1442,
+    "unusable_lb": 23,
+    "trapped_lb": 12,
+    "jet_a1_density_lbs_per_usg": 6.74,
+    "jet_a1_density_kg_per_ltr": 0.804,
+    "crossfeed_note": "Cannot transfer fuel between tanks. Crossfeed only — both engines from one tank.",
+    "fuel_low_level_trigger_lb": 300,
+    "fuel_reserve_rule_min": 45,
+    "fuel_reserve_note": "45-minute reserve at holding speed/altitude is the minimum legal reserve.",
+    "burn_rates": [
+      { "phase": "Take-off (max power)", "lb_per_eng_per_hr": 480, "note": "Approximate. 2 engines." },
+      { "phase": "Climb (max climb power)", "lb_per_eng_per_hr": 420, "note": "Both engines. Approximate." },
+      { "phase": "Cruise (typical)", "lb_per_eng_per_hr": 300, "note": "Typical cruise at 8,000-10,000 ft ISA." },
+      { "phase": "Emergency range best", "lb_per_eng_per_hr": 240, "note": "From POH Section 10: 240 lb/eng/hr at 10,000 ft, no wind, starting calculation point." }
+    ]
+  },
+  "weight_and_balance": {
+    "datum_description": "109.32 inches forward of the fuselage jig points",
+    "qrh_datum_description": "60 inches forward of front fuselage bulkhead (QRH OM-B 11.1)",
+    "mac_length_in": 78.0,
+    "lemac_in": 188.24,
+    "temac_in": 266.24,
+    "mtow_lb": 12500,
+    "mtow_kg": 5675,
+    "mlw_lb": 12300,
+    "mlw_kg": 5584,
+    "max_ramp_lb": 12585,
+    "cg_limits": {
+      "note": "QRH OM-B 11.1 simplified limits (seaplane operation). Verify full POH Figure 6-15 for all configurations.",
+      "forward_arm_in": 207.74,
+      "forward_mac_pct": 25.0,
+      "aft_arm_in": 213.20,
+      "aft_mac_pct": 32.0,
+      "applies_to": "Take-off and landing, all weights — simplified QRH limits"
+    },
+    "standard_weights_lb": {
+      "pilot": 190,
+      "copilot": 190,
+      "passenger": 190,
+      "checked_baggage_per_pax": 20,
+      "note": "Standard crew and passenger weights. Use operator-specific values if available."
+    },
+    "compartment_limits": {
+      "forward_baggage_lb": 300,
+      "aft_baggage_lb": 500,
+      "aft_baggage_shelf_lb": 150,
+      "cabin_floor_lb_per_sqft": 200
+    },
+    "standard_arm_in": {
+      "flight_crew_station": 100.0,
+      "pax_row_1": 168.0,
+      "pax_row_2": 195.0,
+      "pax_row_3": 222.0,
+      "pax_row_4": 249.0,
+      "pax_row_5": 276.0,
+      "forward_baggage": 38.0,
+      "aft_baggage": 344.0,
+      "fuel_fwd": 210.0,
+      "fuel_aft": 210.0,
+      "note": "Approximate arms based on POH Figure 6-5 balance diagram. Use actual aircraft-specific W&B forms for dispatch."
+    }
+  }
+}

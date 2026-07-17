@@ -1,0 +1,161 @@
+{
+    "rawName":  "Take-Off with Type III Anti-Ice Fluid Applied",
+    "drillName":  "Take-Off with Type III Anti-Ice Fluid Applied [Ground/Airborne]",
+    "category":  "NORMAL",
+    "context":  "Ground/Airborne",
+    "sourceNote":  "Procedure identity/category/order normalized from \u0027DHC-6 Full Drill Procedure Index Normal Split.xlsx\u0027. Excel is the governing app display allow-list. Existing procedure steps preserved for later content review. Previous note: Generic training callout structure based on user-provided Section 4 normal-procedure titles and generated PF/PM MCC callouts. Not an approved AFM/POH/checklist replacement.",
+    "variants":  {
+                     "LEGACY":  {
+                                    "memory":  [
+
+                                               ],
+                                    "flow":  [
+                                                 {
+                                                     "stepNumber":  1,
+                                                     "action":  "Take-off with Type III anti-ice fluid.",
+                                                     "crewRole":  "PF",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.10.2; PF_CALL"
+                                                 },
+                                                 {
+                                                     "stepNumber":  2,
+                                                     "action":  "Type III anti-ice fluid take-off.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.10.2; PM_RESPONSE"
+                                                 },
+                                                 {
+                                                     "stepNumber":  3,
+                                                     "action":  "Holdover time checked.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.10.2; PM_MONITOR"
+                                                 },
+                                                 {
+                                                     "stepNumber":  4,
+                                                     "action":  "Checked.",
+                                                     "crewRole":  "PF",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.10.2; PF_RESPONSE"
+                                                 },
+                                                 {
+                                                     "stepNumber":  5,
+                                                     "action":  "Aircraft condition checked.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.10.2; PM_MONITOR"
+                                                 },
+                                                 {
+                                                     "stepNumber":  6,
+                                                     "action":  "Checked.",
+                                                     "crewRole":  "PF",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.10.2; PF_RESPONSE"
+                                                 },
+                                                 {
+                                                     "stepNumber":  7,
+                                                     "action":  "Power set.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.10.2; PM_RESPONSE"
+                                                 },
+                                                 {
+                                                     "stepNumber":  8,
+                                                     "action":  "Airspeed alive.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.10.2; PM_MONITOR"
+                                                 }
+                                             ]
+                                },
+                     "G950":  {
+                                  "memory":  [
+
+                                             ],
+                                  "flow":  [
+                                               {
+                                                   "stepNumber":  1,
+                                                   "action":  "Take-off with Type III anti-ice fluid.",
+                                                   "crewRole":  "PF",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.10.2; PF_CALL"
+                                               },
+                                               {
+                                                   "stepNumber":  2,
+                                                   "action":  "Type III anti-ice fluid take-off.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.10.2; PM_RESPONSE"
+                                               },
+                                               {
+                                                   "stepNumber":  3,
+                                                   "action":  "Holdover time checked.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.10.2; PM_MONITOR"
+                                               },
+                                               {
+                                                   "stepNumber":  4,
+                                                   "action":  "Checked.",
+                                                   "crewRole":  "PF",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.10.2; PF_RESPONSE"
+                                               },
+                                               {
+                                                   "stepNumber":  5,
+                                                   "action":  "Aircraft condition checked.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.10.2; PM_MONITOR"
+                                               },
+                                               {
+                                                   "stepNumber":  6,
+                                                   "action":  "Checked.",
+                                                   "crewRole":  "PF",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.10.2; PF_RESPONSE"
+                                               },
+                                               {
+                                                   "stepNumber":  7,
+                                                   "action":  "Power set.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.10.2; PM_RESPONSE"
+                                               },
+                                               {
+                                                   "stepNumber":  8,
+                                                   "action":  "Airspeed alive.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.10.2; PM_MONITOR"
+                                               }
+                                           ]
+                              },
+                     "manualSection":  "Section 4",
+                     "sourceSection":  "4.10.2"
+                 },
+    "phaseTag":  "Ground/Airborne",
+    "displayLabel":  "Take-Off with Type III Anti-Ice Fluid Applied [Ground/Airborne]",
+    "sortOrder":  40,
+    "sourceSection":  "4.10.2",
+    "procedureGroup":  "Take-Off",
+    "manualSection":  "Section 4",
+    "sequenceBasis":  "Normal-procedure flow order",
+    "normalSplit":  "Weather / Special Conditions"
+}

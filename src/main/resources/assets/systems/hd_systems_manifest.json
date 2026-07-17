@@ -1,0 +1,54 @@
+﻿{
+  "version": "1.0",
+  "purpose": "Desktop Systems Lab HD asset manifest",
+  "systems": [
+    {
+      "id": "pt6a",
+      "title": "PT6A Engine",
+      "description": "Engine architecture, airflow, fuel control, oil system, ignition, starting, and power section study.",
+      "hdImagePath": "systems/hd/pt6a/pt6a_overview.png",
+      "modelPath": "models/systems_lab/hd/pt6a_engine.glb",
+      "status": "placeholder"
+    },
+    {
+      "id": "fuel",
+      "title": "Fuel System",
+      "description": "Main tanks, wing tanks, boost pumps, crossfeed, transfer, fuel pressure, and failure logic.",
+      "hdImagePath": "systems/hd/fuel/fuel_system_overview.png",
+      "modelPath": "",
+      "status": "placeholder"
+    },
+    {
+      "id": "hydraulic",
+      "title": "Hydraulic System",
+      "description": "Electric pump, accumulator, brakes, steering, flaps, hand pump, leakage scenarios, and pressure indications.",
+      "hdImagePath": "systems/hd/hydraulic/hydraulic_system_overview.png",
+      "modelPath": "",
+      "status": "placeholder"
+    },
+    {
+      "id": "electrical",
+      "title": "Electrical System",
+      "description": "Generators, buses, inverters, bus tie, caution logic, and abnormal electrical configurations.",
+      "hdImagePath": "systems/hd/electrical/electrical_system_overview.png",
+      "modelPath": "",
+      "status": "placeholder"
+    },
+    {
+      "id": "propeller",
+      "title": "Propeller System",
+      "description": "Constant speed unit, beta/reverse, overspeed governor, fuel topping governor, feathering, and reset logic.",
+      "hdImagePath": "systems/hd/propeller/propeller_system_overview.png",
+      "modelPath": "models/systems_lab/hd/propeller_assembly.glb",
+      "status": "placeholder"
+    },
+    {
+      "id": "autofeather",
+      "title": "Autofeather",
+      "description": "Arming logic, torque switches, feather command, failure cases, and QRH bridge.",
+      "hdImagePath": "systems/hd/autofeather/autofeather_overview.png",
+      "modelPath": "",
+      "status": "placeholder"
+    }
+  ]
+}

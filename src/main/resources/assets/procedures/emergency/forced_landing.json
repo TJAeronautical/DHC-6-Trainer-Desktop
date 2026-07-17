@@ -1,0 +1,154 @@
+{
+  "rawName": "Forced Landing",
+  "drillName": "Forced Landing [Airborne]",
+  "category": "EMERGENCY",
+  "context": "Airborne",
+  "variants": {
+    "LEGACY": {
+      "memory": [
+        {
+          "stepNumber": 1,
+          "action": "Forced Landing.",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "reference": "POH / AFM Section 3.7.4 Forced Landing Pages 3-24 to 3-25"
+        },
+        {
+          "stepNumber": 2,
+          "action": "FUEL OFF EMERGENCY SHUT-OFF SWITCHES — BOTH OFF",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "reference": "POH / AFM Section 3.7.4 Forced Landing Pages 3-24 to 3-25"
+        }
+      ],
+      "flow": [
+        {
+          "stepNumber": 1,
+          "action": "Forced Landing.",
+          "crewRole": "PF",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.7.4; PF_COMMAND"
+        },
+        {
+          "stepNumber": 2,
+          "action": "Forced Landing.",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.7.4; PM_RESPONSE"
+        },
+        {
+          "stepNumber": 3,
+          "action": "Mayday call and transponder as required.",
+          "crewRole": "PF",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.7.4; PF_COMMAND"
+        },
+        {
+          "stepNumber": 4,
+          "action": "Transmit distress call, prepare cabin, monitor landing area and configuration.",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.7.4; PM_ACTION"
+        },
+        {
+          "stepNumber": 5,
+          "action": "Forced Landing checklist.",
+          "crewRole": "PF",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.7.4; PF_COMMAND"
+        },
+        {
+          "stepNumber": 6,
+          "action": "Forced Landing checklist complete.",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.7.4; PM_COMPLETION"
+        }
+      ]
+    },
+    "G950": {
+      "memory": [
+        {
+          "stepNumber": 1,
+          "action": "Forced Landing.",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "reference": "POH / AFM Section 3.7.4 Forced Landing Pages 3-24 to 3-25"
+        },
+        {
+          "stepNumber": 2,
+          "action": "FUEL OFF EMERGENCY SHUT-OFF SWITCHES — BOTH OFF",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "reference": "POH / AFM Section 3.7.4 Forced Landing Pages 3-24 to 3-25"
+        }
+      ],
+      "flow": [
+        {
+          "stepNumber": 1,
+          "action": "Forced Landing.",
+          "crewRole": "PF",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.7.4; PF_COMMAND"
+        },
+        {
+          "stepNumber": 2,
+          "action": "Forced Landing.",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.7.4; PM_RESPONSE"
+        },
+        {
+          "stepNumber": 3,
+          "action": "Mayday call and transponder as required.",
+          "crewRole": "PF",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.7.4; PF_COMMAND"
+        },
+        {
+          "stepNumber": 4,
+          "action": "Transmit distress call, prepare cabin, monitor landing area and configuration.",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.7.4; PM_ACTION"
+        },
+        {
+          "stepNumber": 5,
+          "action": "Forced Landing checklist.",
+          "crewRole": "PF",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.7.4; PF_COMMAND"
+        },
+        {
+          "stepNumber": 6,
+          "action": "Forced Landing checklist complete.",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.7.4; PM_COMPLETION"
+        }
+      ]
+    }
+  },
+  "sourceNote": "Procedure identity/category/order normalized from 'DHC-6 Full Drill Procedure Index Normal Split.xlsx'. Excel is the governing app display allow-list. Existing procedure steps preserved for later content review. Previous note: Generic MCC callout shell generated from procedure titles only. This is not an approved AFM/POH/QRH/checklist replacement. Curated to the DHC-6 Trainer Abnormal/Emergency procedure allow-list.",
+  "phaseTag": "Airborne",
+  "displayLabel": "Forced Landing [Airborne]",
+  "sortOrder": 63,
+  "sourceSection": "3.7.4",
+  "procedureGroup": "Abnormal Landings",
+  "manualSection": "Section 3",
+  "sequenceBasis": "User-approved working order",
+  "normalSplit": null
+}
+

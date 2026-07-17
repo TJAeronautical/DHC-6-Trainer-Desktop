@@ -1,0 +1,151 @@
+{
+    "rawName":  "Bleed/Pneumatic System Test",
+    "drillName":  "Bleed/Pneumatic System Test [Ground]",
+    "category":  "NORMAL",
+    "context":  "Ground",
+    "sourceNote":  "Procedure identity/category/order normalized from \u0027DHC-6 Full Drill Procedure Index Normal Split.xlsx\u0027. Excel is the governing app display allow-list. Existing procedure steps preserved for later content review. Previous note: Generic training callout structure based on user-provided Section 4 normal-procedure titles and generated PF/PM MCC callouts. Not an approved AFM/POH/checklist replacement.",
+    "variants":  {
+                     "LEGACY":  {
+                                    "memory":  [
+                                                   {
+                                                       "stepNumber":  1,
+                                                       "action":  "BLEED / PNEUMATIC SYSTEM TEST - INITIATED",
+                                                       "crewRole":  "PF",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.8.8 Bleed/Pneumatic System Test"
+                                                   },
+                                                   {
+                                                       "stepNumber":  2,
+                                                       "action":  "BLEED PRESSURE - CHECKED",
+                                                       "crewRole":  "PM",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.8.8 Bleed/Pneumatic System Test"
+                                                   },
+                                                   {
+                                                       "stepNumber":  3,
+                                                       "action":  "PNEUMATIC SYSTEM - CHECKED",
+                                                       "crewRole":  "PM",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.8.8 Bleed/Pneumatic System Test"
+                                                   },
+                                                   {
+                                                       "stepNumber":  4,
+                                                       "action":  "BLEED / PNEUMATIC SYSTEM TEST - COMPLETE",
+                                                       "crewRole":  "PM",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.8.8 Bleed/Pneumatic System Test"
+                                                   }
+                                               ],
+                                    "flow":  [
+                                                 {
+                                                     "stepNumber":  1,
+                                                     "action":  "Bleed pneumatic test.",
+                                                     "crewRole":  "PF",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.8.8; PF_CALL"
+                                                 },
+                                                 {
+                                                     "stepNumber":  2,
+                                                     "action":  "Bleed pressure checked.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.8.8; PM_MONITOR"
+                                                 },
+                                                 {
+                                                     "stepNumber":  3,
+                                                     "action":  "Pneumatic system checked.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.8.8; PM_MONITOR"
+                                                 },
+                                                 {
+                                                     "stepNumber":  4,
+                                                     "action":  "Bleed pneumatic test complete.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.8.8; PM_COMPLETION"
+                                                 }
+                                             ]
+                                },
+                     "G950":  {
+                                  "memory":  [
+                                                 {
+                                                     "stepNumber":  1,
+                                                     "action":  "BLEED / PNEUMATIC SYSTEM TEST - INITIATED",
+                                                     "crewRole":  "PF",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.8.8 Bleed/Pneumatic System Test"
+                                                 },
+                                                 {
+                                                     "stepNumber":  2,
+                                                     "action":  "BLEED PRESSURE - CHECKED",
+                                                     "crewRole":  "PM",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.8.8 Bleed/Pneumatic System Test"
+                                                 },
+                                                 {
+                                                     "stepNumber":  3,
+                                                     "action":  "PNEUMATIC SYSTEM - CHECKED",
+                                                     "crewRole":  "PM",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.8.8 Bleed/Pneumatic System Test"
+                                                 },
+                                                 {
+                                                     "stepNumber":  4,
+                                                     "action":  "BLEED / PNEUMATIC SYSTEM TEST - COMPLETE",
+                                                     "crewRole":  "PM",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.8.8 Bleed/Pneumatic System Test"
+                                                 }
+                                             ],
+                                  "flow":  [
+                                               {
+                                                   "stepNumber":  1,
+                                                   "action":  "Bleed pneumatic test.",
+                                                   "crewRole":  "PF",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.8.8; PF_CALL"
+                                               },
+                                               {
+                                                   "stepNumber":  2,
+                                                   "action":  "Bleed pressure checked.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.8.8; PM_MONITOR"
+                                               },
+                                               {
+                                                   "stepNumber":  3,
+                                                   "action":  "Pneumatic system checked.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.8.8; PM_MONITOR"
+                                               },
+                                               {
+                                                   "stepNumber":  4,
+                                                   "action":  "Bleed pneumatic test complete.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.8.8; PM_COMPLETION"
+                                               }
+                                           ]
+                              },
+                     "manualSection":  "Section 4",
+                     "sourceSection":  "4.8.8"
+                 },
+    "phaseTag":  "Ground",
+    "displayLabel":  "Bleed/Pneumatic System Test [Ground]",
+    "sortOrder":  31,
+    "sourceSection":  "4.8.8",
+    "procedureGroup":  "System Functional Checks",
+    "manualSection":  "Section 4",
+    "sequenceBasis":  "Normal-procedure flow order",
+    "normalSplit":  "System Tests"
+}

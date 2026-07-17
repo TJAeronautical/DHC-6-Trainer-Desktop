@@ -1,0 +1,180 @@
+{
+  "schemaId": "flashcard_deck",
+  "schemaVersion": "1.0.0",
+  "deckId": "flight_controls_core",
+  "deckName": "Flight Controls — Core",
+  "description": "Bundled cards for flaps, servo tabs, trim tabs, cable runs, flap-elevator interconnect and control surface linkages.",
+  "systemId": "flight_controls",
+  "variant": "BOTH",
+  "difficulty": "BASICS",
+  "cards": [
+    {
+      "id": "flap_type",
+      "front": "What type of flaps are installed on the DHC-6?",
+      "back": "Full-span double-slotted Fowler flaps.",
+      "tags": [
+        "flight-controls",
+        "flaps"
+      ],
+      "references": [
+        {
+          "source": "DHC6_FLASHCARDS_FILE",
+          "locator": "Q83"
+        }
+      ]
+    },
+    {
+      "id": "individual_flaps",
+      "front": "Name the individual flaps on the Twin Otter.",
+      "back": "Inner fore flap, outer fore flap, and inner trailing flap.",
+      "tags": [
+        "flight-controls",
+        "flaps"
+      ],
+      "references": [
+        {
+          "source": "DHC6_FLASHCARDS_FILE",
+          "locator": "Q84"
+        }
+      ]
+    },
+    {
+      "id": "servo_tab_function",
+      "front": "What does a servo tab do?",
+      "back": "It deflects opposite to control-surface movement to reduce the force required from the pilot.",
+      "tags": [
+        "flight-controls",
+        "tabs"
+      ],
+      "references": [
+        {
+          "source": "DHC6_FLASHCARDS_FILE",
+          "locator": "Q85"
+        }
+      ]
+    },
+    {
+      "id": "trim_tab_function",
+      "front": "What does a trim tab do?",
+      "back": "It is set to a required deflection to remove control pressure.",
+      "tags": [
+        "flight-controls",
+        "trim"
+      ],
+      "references": [
+        {
+          "source": "DHC6_FLASHCARDS_FILE",
+          "locator": "Q86"
+        }
+      ]
+    },
+    {
+      "id": "flap_elevator_interconnect",
+      "front": "What is the purpose of the flap-elevator interconnect tab?",
+      "back": "It reduces the pitch-up moment when flaps are extended.",
+      "tags": [
+        "flight-controls",
+        "flap-elevator-interconnect"
+      ],
+      "references": [
+        {
+          "source": "DHC6_FLASHCARDS_FILE",
+          "locator": "Q87"
+        }
+      ]
+    },
+    {
+      "id": "elevator_trim_tab",
+      "front": "Which elevator has the trim tab attached?",
+      "back": "The left-hand elevator.",
+      "tags": [
+        "flight-controls",
+        "trim",
+        "elevator"
+      ],
+      "references": [
+        {
+          "source": "DHC6_FLASHCARDS_FILE",
+          "locator": "Q88"
+        }
+      ]
+    },
+    {
+      "id": "rudder_trim_tab",
+      "front": "Which tab is on the upper portion of the rudder?",
+      "back": "The rudder trim tab.",
+      "tags": [
+        "flight-controls",
+        "rudder",
+        "trim"
+      ],
+      "references": [
+        {
+          "source": "DHC6_FLASHCARDS_FILE",
+          "locator": "Q89"
+        }
+      ]
+    },
+    {
+      "id": "servo_tab_locations",
+      "front": "Where are the three servo tabs located?",
+      "back": "At the inboard end of each aileron and on the bottom of the rudder.",
+      "tags": [
+        "flight-controls",
+        "servo-tabs"
+      ],
+      "references": [
+        {
+          "source": "DHC6_FLASHCARDS_FILE",
+          "locator": "Q91-Q92"
+        }
+      ]
+    },
+    {
+      "id": "control_transmission",
+      "front": "What mechanism transmits control inputs to the flight control surfaces?",
+      "back": "Cable and pulleys.",
+      "tags": [
+        "flight-controls",
+        "cables"
+      ],
+      "references": [
+        {
+          "source": "DHC6_FLASHCARDS_FILE",
+          "locator": "Q94"
+        }
+      ]
+    },
+    {
+      "id": "trim_transmission",
+      "front": "What method transmits trim inputs to elevator and rudder?",
+      "back": "Cable, drum, and screw-jacks.",
+      "tags": [
+        "flight-controls",
+        "trim",
+        "screw-jacks"
+      ],
+      "references": [
+        {
+          "source": "DHC6_FLASHCARDS_FILE",
+          "locator": "Q95"
+        }
+      ]
+    },
+    {
+      "id": "aileron_trim",
+      "front": "How is aileron trim actuated?",
+      "back": "By an electric motor installed inside the left aileron.",
+      "tags": [
+        "flight-controls",
+        "aileron-trim"
+      ],
+      "references": [
+        {
+          "source": "DHC6_FLASHCARDS_FILE",
+          "locator": "Q96"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,658 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://dhc6trainer.app/schema/ai_extracted_procedure.schema.json",
+  "title": "AI Extracted Procedure (with provenance)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "extraction",
+    "source",
+    "procedure"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "type": "string",
+      "enum": [
+        "2.0"
+      ]
+    },
+    "extraction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "extractionId",
+        "createdAtUtc",
+        "model",
+        "pipeline"
+      ],
+      "properties": {
+        "extractionId": {
+          "type": "string",
+          "description": "Stable unique id for this extraction run (UUID recommended)."
+        },
+        "createdAtUtc": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "model": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "provider",
+            "name"
+          ],
+          "properties": {
+            "provider": {
+              "type": "string",
+              "minLength": 1
+            },
+            "name": {
+              "type": "string",
+              "minLength": 1
+            },
+            "version": {
+              "type": "string"
+            },
+            "temperature": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 2
+            },
+            "seed": {
+              "type": "integer"
+            }
+          }
+        },
+        "pipeline": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "steps"
+          ],
+          "properties": {
+            "steps": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "name"
+                ],
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "notes": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "documentId",
+        "title",
+        "type"
+      ],
+      "properties": {
+        "documentId": {
+          "type": "string",
+          "description": "Internal id you assign (e.g., HBFO-002_QRH_G950_ISS01REV02)."
+        },
+        "title": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "PDF",
+            "IMAGE",
+            "TEXT"
+          ]
+        },
+        "revision": {
+          "type": "string"
+        },
+        "effectiveDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[A-Fa-f0-9]{64}$"
+        },
+        "pageCount": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "uriHint": {
+          "type": "string",
+          "description": "Optional local file hint (do not treat as authoritative)."
+        }
+      }
+    },
+    "procedure": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "procedureId",
+        "title",
+        "category",
+        "variant",
+        "phase",
+        "steps"
+      ],
+      "properties": {
+        "procedureId": {
+          "type": "string",
+          "pattern": "^[a-z0-9_\\-.]{3,128}$",
+          "description": "Slug used by the app/runtime JSON. Example: emergency_engine_fire_inflight."
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "category": {
+          "type": "string",
+          "enum": [
+            "NORMAL",
+            "ABNORMAL",
+            "EMERGENCY",
+            "BASELINE"
+          ]
+        },
+        "variant": {
+          "type": "string",
+          "enum": [
+            "LEGACY",
+            "G950",
+            "BOTH"
+          ]
+        },
+        "phase": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "phaseId"
+          ],
+          "properties": {
+            "phaseId": {
+              "type": "string",
+              "pattern": "^[a-z0-9_\\-.]{2,64}$",
+              "description": "References canonical_phases.json (e.g., normal_before_takeoff)."
+            },
+            "displayName": {
+              "type": "string"
+            }
+          }
+        },
+        "flags": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "memoryItems": {
+              "type": "boolean"
+            },
+            "challengeResponse": {
+              "type": "boolean"
+            },
+            "strictWording": {
+              "type": "boolean",
+              "description": "If true, wording is considered SOP/QRH exact and should not be paraphrased."
+            }
+          }
+        },
+        "prerequisites": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "text"
+            ],
+            "properties": {
+              "text": {
+                "type": "string"
+              },
+              "provenance": {
+                "$ref": "#/definitions/provenance"
+              }
+            }
+          }
+        },
+        "steps": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/definitions/step"
+          }
+        },
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "text"
+            ],
+            "properties": {
+              "text": {
+                "type": "string"
+              },
+              "level": {
+                "type": "string",
+                "enum": [
+                  "NOTE",
+                  "CAUTION",
+                  "WARNING"
+                ]
+              },
+              "provenance": {
+                "$ref": "#/definitions/provenance"
+              }
+            }
+          }
+        },
+        "postconditions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "text"
+            ],
+            "properties": {
+              "text": {
+                "type": "string"
+              },
+              "provenance": {
+                "$ref": "#/definitions/provenance"
+              }
+            }
+          }
+        },
+        "canonicalization": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "mappedCanonicalItems": {
+              "type": "array",
+              "description": "Optional mapping to canonical_items.json (for dedupe + patching).",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "canonicalItemId",
+                  "targetStepId"
+                ],
+                "properties": {
+                  "canonicalItemId": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z0-9_\\-.]{2,128}$"
+                  },
+                  "targetStepId": {
+                    "type": "string",
+                    "pattern": "^[a-z0-9_\\-.]{2,128}$"
+                  },
+                  "confidence": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1
+                  }
+                }
+              }
+            }
+          }
+        },
+        "quality": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "overallConfidence": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "issues": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "code",
+                  "message"
+                ],
+                "properties": {
+                  "code": {
+                    "type": "string",
+                    "enum": [
+                      "MISSING_STEP_NUMBER",
+                      "AMBIGUOUS_BRANCH",
+                      "UNCLEAR_ACTOR",
+                      "UNCLEAR_CONTROL",
+                      "OCR_NOISE",
+                      "CONFLICTING_VARIANT_TEXT",
+                      "DUPLICATE_STEP"
+                    ]
+                  },
+                  "message": {
+                    "type": "string"
+                  },
+                  "severity": {
+                    "type": "string",
+                    "enum": [
+                      "INFO",
+                      "WARN",
+                      "ERROR"
+                    ]
+                  },
+                  "provenance": {
+                    "$ref": "#/definitions/provenance"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "step": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "stepId",
+        "order",
+        "rawText",
+        "kind",
+        "actor"
+      ],
+      "properties": {
+        "stepId": {
+          "type": "string",
+          "pattern": "^[a-z0-9_\\-.]{2,128}$",
+          "description": "Stable id used for bindings/callouts. Example: step_03_fuel_lever_on."
+        },
+        "order": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "ACTION",
+            "VERIFY",
+            "CALL",
+            "NOTE",
+            "CAUTION",
+            "WARNING",
+            "CONDITION",
+            "BRANCH"
+          ]
+        },
+        "actor": {
+          "type": "string",
+          "enum": [
+            "PF",
+            "PM",
+            "BOTH",
+            "PIC",
+            "SOP_UNSPECIFIED"
+          ]
+        },
+        "rawText": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Exact extracted text (preserve punctuation/case unless normalization notes say otherwise)."
+        },
+        "normalized": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "challenge": {
+              "type": "string"
+            },
+            "response": {
+              "type": "string"
+            },
+            "actionVerb": {
+              "type": "string"
+            },
+            "targetLabel": {
+              "type": "string"
+            },
+            "expectedValue": {
+              "type": "string"
+            },
+            "units": {
+              "type": "string"
+            }
+          }
+        },
+        "controls": {
+          "type": "array",
+          "description": "Optional cockpit control references (used later to generate cockpit callouts + hitbox focus).",
+          "items": {
+            "$ref": "#/definitions/controlRef"
+          }
+        },
+        "callouts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/callout"
+          }
+        },
+        "branch": {
+          "type": "object",
+          "additionalProperties": false,
+          "description": "Used when kind=BRANCH or CONDITION.",
+          "properties": {
+            "conditionText": {
+              "type": "string"
+            },
+            "ifTrueGotoStepId": {
+              "type": "string"
+            },
+            "ifFalseGotoStepId": {
+              "type": "string"
+            }
+          }
+        },
+        "provenance": {
+          "$ref": "#/definitions/provenance"
+        },
+        "ai": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "confidence": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "rationale": {
+              "type": "string",
+              "description": "Short internal explanation of how mapping/normalization happened."
+            },
+            "normalizationEdits": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "type",
+                  "from",
+                  "to"
+                ],
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "enum": [
+                      "WHITESPACE",
+                      "HYPHENATION",
+                      "OCR_FIX",
+                      "CASE",
+                      "PUNCTUATION",
+                      "TOKEN_SPLIT",
+                      "TOKEN_JOIN"
+                    ]
+                  },
+                  "from": {
+                    "type": "string"
+                  },
+                  "to": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "controlRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "refType",
+        "refId"
+      ],
+      "properties": {
+        "refType": {
+          "type": "string",
+          "enum": [
+            "HITBOX",
+            "PANEL_CONTROL",
+            "ANNUNCIATOR",
+            "CAS_MESSAGE",
+            "INSTRUMENT"
+          ]
+        },
+        "refId": {
+          "type": "string",
+          "minLength": 1,
+          "description": "For HITBOX: id from hitboxes_legacy.json / hitboxes_g950.json; otherwise your internal ids."
+        },
+        "label": {
+          "type": "string"
+        },
+        "variant": {
+          "type": "string",
+          "enum": [
+            "LEGACY",
+            "G950",
+            "BOTH"
+          ]
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    },
+    "callout": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "text"
+      ],
+      "properties": {
+        "text": {
+          "type": "string",
+          "minLength": 1
+        },
+        "timing": {
+          "type": "string",
+          "enum": [
+            "IMMEDIATE",
+            "ON_STEP_FOCUS",
+            "ON_STEP_COMPLETE",
+            "DELAYED"
+          ]
+        },
+        "audioKey": {
+          "type": "string",
+          "description": "Optional: key for TTS cache or pre-recorded audio."
+        },
+        "targets": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/controlRef"
+          }
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "page"
+      ],
+      "properties": {
+        "page": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "region": {
+          "$ref": "#/definitions/region"
+        },
+        "textQuote": {
+          "type": "string",
+          "description": "Short quote (keep small) used for audit/debug."
+        },
+        "sectionHint": {
+          "type": "string"
+        },
+        "tableHint": {
+          "type": "string"
+        },
+        "figureHint": {
+          "type": "string"
+        }
+      }
+    },
+    "region": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Coordinates are normalized 0..1 relative to the page image (left/top/width/height).",
+      "required": [
+        "x",
+        "y",
+        "w",
+        "h"
+      ],
+      "properties": {
+        "x": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "y": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "w": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "h": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    }
+  }
+}

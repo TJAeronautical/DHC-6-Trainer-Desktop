@@ -1,0 +1,188 @@
+{
+  "schemaId": "system_description",
+  "schemaVersion": "1.0.0",
+  "systemId": "air_conditioning",
+  "systemName": "Air Conditioning System",
+  "variant": "BOTH",
+  "summary": "A J.B. Systems 1000 Series (or Parker Hannifin from SN 637 with Mod 6/1684) vapor-cycle air conditioning unit is installed as a special order beneath the cabin rear floor, aft of fuselage fuel cell 8. The unit cools cabin air by passing it through an evaporator; cooled air is distributed via two ceiling ducts the length of the cabin. The system is powered from the left DC bus and controlled by two three-position switches on the overhead console. With Mod 6/1305 (standard from SN 311), the system automatically shuts down on engine or generator failure when POWER switch is at FLIGHT.",
+  "references": [
+    {
+      "source": "POH_AFM",
+      "locator": "Section 7.18.10 Air Conditioning System, p.7-119\u2013121",
+      "revision": "Rev 53 (10 Sep 2010)"
+    },
+    {
+      "source": "FCTM",
+      "locator": "6.5 (Manta Air FCTM includes A/C notes)",
+      "revision": "ISS 03 / REV 02 (Dec 2022)"
+    }
+  ],
+  "modificationVariants": [
+    {
+      "id": "mod_6_1305_auto_shutdown",
+      "name": "Mod 6/1305 \u2014 Automatic Shutdown on Engine/Generator Failure",
+      "serialRange": "Cut in as standard at SN 311",
+      "description": "When the POWER switch is at FLIGHT, the air conditioning system automatically shuts down if an engine failure or generator failure occurs. Aircraft without this mod will continue to run the A/C system on a single generator, risking generator overload.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.18.10.2, p.7-120"
+        }
+      ]
+    },
+    {
+      "id": "mod_6_1684_parker",
+      "name": "Mod 6/1684 \u2014 Parker Hannifin System",
+      "serialRange": "SN 637 and later",
+      "description": "Parker Hannifin Corporation A/C system replaces the original J.B. Systems unit. Same control interface and performance; different internal components.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.18.10, p.7-119"
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "id": "compressor_motor",
+      "name": "Compressor and Electric Motor",
+      "description": "An electric motor drives the refrigerant compressor. The compressor is the largest electrical load in the system and should not be run from battery power except in FAN ONLY mode. At QUICK COOL the fans run in parallel at maximum speed \u2014 this is the highest load setting and must not be selected on single-engine/generator operations.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.18.10, p.7-119"
+        }
+      ]
+    },
+    {
+      "id": "condenser",
+      "name": "Condenser and Condenser Fan",
+      "description": "The condenser is located at the rear underside of the fuselage near the rear cabin doors. An air intake and exhaust outlet on the fuselage underside allow ambient air flow through the condenser to dissipate heat from the refrigerant. The condenser fan can run in series (reduced speed, NORMAL) or parallel (maximum speed, QUICK COOL).",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.18.10, p.7-119"
+        }
+      ]
+    },
+    {
+      "id": "evaporator",
+      "name": "Evaporator and Evaporator Fan",
+      "description": "Cabin return air is admitted through a grille in the cabin floor, cooled by passing over the evaporator, then delivered to two perforated distribution ducts along the cabin ceiling. The evaporator fan also has series (NORMAL) or parallel (QUICK COOL) operating modes.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.18.10, p.7-119"
+        }
+      ]
+    },
+    {
+      "id": "receiver_dryer",
+      "name": "Receiver/Dryer",
+      "description": "Stores liquid refrigerant and removes moisture from the refrigerant circuit.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.18.10, p.7-119"
+        }
+      ]
+    },
+    {
+      "id": "circuit_breakers",
+      "name": "Circuit Breakers",
+      "description": "Four circuit breakers located beneath the right floor panel at fuselage station 336. Protected on the left DC bus.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.18.10, p.7-119"
+        }
+      ]
+    }
+  ],
+  "controls": [
+    {
+      "id": "power_switch",
+      "name": "POWER Switch (A/C)",
+      "positions": [
+        "FLIGHT",
+        "OFF",
+        "GROUND"
+      ],
+      "description": "FLIGHT: draws from DC bus only when both generators are on-line (Mod 6/1305 auto-shutdown on failure). GROUND: allows operation from any available DC source including single engine, battery (fan only), or external power. During engine start with GROUND selected, system auto-reverts to fan-only mode while START switch is held.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.18.10.1, p.7-120"
+        }
+      ]
+    },
+    {
+      "id": "operation_switch",
+      "name": "OPERATION Switch",
+      "positions": [
+        "NORMAL",
+        "FAN ONLY",
+        "QUICK COOL"
+      ],
+      "description": "NORMAL: compressor + fans in series (reduced speed). FAN ONLY: compressor de-energised, fans in series \u2014 air circulation only. No cooling. QUICK COOL: compressor + fans in parallel at maximum speed \u2014 highest electrical load. Must NOT use QUICK COOL on single generator/engine. FAN ONLY is the only mode approved for battery operation.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.18.10.1\u20132, p.7-120"
+        }
+      ]
+    }
+  ],
+  "limits": [
+    {
+      "id": "flight_both_gen",
+      "parameter": "FLIGHT position \u2014 Requires",
+      "value": "Both generators on-line",
+      "note": "If either generator fails with POWER at FLIGHT: system shuts down automatically (Mod 6/1305/SN 311+). Pre-Mod aircraft: system continues \u2014 risk of generator overload.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.18.10.2, p.7-120"
+        }
+      ]
+    },
+    {
+      "id": "quick_cool_limit",
+      "parameter": "QUICK COOL \u2014 Single Generator/Engine",
+      "value": "PROHIBITED",
+      "note": "Highest load setting. Must not be selected when operating on a single generator.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.18.10.2, p.7-120"
+        }
+      ]
+    },
+    {
+      "id": "battery_ops",
+      "parameter": "Battery Power \u2014 Permitted Modes",
+      "value": "FAN ONLY only",
+      "note": "Compressor must not be run from battery power to conserve battery for essential services. Switch off during engine start if running from battery.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.18.10.2, p.7-121"
+        }
+      ]
+    },
+    {
+      "id": "start_inhibit",
+      "parameter": "Compressor During Engine Start",
+      "value": "Auto inhibited (fan-only) while START switch held",
+      "note": "Regardless of POWER/OPERATION switch position, the compressor automatically de-energises while the engine START switch is selected LEFT or RIGHT.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.18.10.2, p.7-121"
+        }
+      ]
+    }
+  ],
+  "casMessageRefs": []
+}

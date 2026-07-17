@@ -1,0 +1,47 @@
+{
+  "schemaId": "system_description",
+  "schemaVersion": "1.0.0",
+  "systemId": "standard_airframe_practices",
+  "systemName": "Standard Airframe Practices",
+  "variant": "BOTH",
+  "summary": "Reference pack for lifting, shoring, hoisting and jacking diagrams. These assets support ground handling and maintenance-familiarization study; 3D model content remains separate in Technical Lab.",
+  "references": [
+    {
+      "source": "FCTM",
+      "locator": "Aircraft General chapter 7 \u2014 lifting and shoring",
+      "revision": "Training reference"
+    }
+  ],
+  "components": [
+    {
+      "id": "hoisting",
+      "name": "Hoisting points and slings",
+      "description": "Figures identify sling arrangements and hoisting references for aircraft, fuselage, wing, stabilizer, engine and propeller handling.",
+      "specifications": {},
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "Figures 7-1 to 7-3",
+          "revision": "Training reference"
+        }
+      ]
+    },
+    {
+      "id": "jacking",
+      "name": "Jacking points",
+      "description": "Jacking references cover nose fuselage, undercarriage/strut, rear fuselage and rear lifting point locations used for ground support operations.",
+      "specifications": {},
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "Figure 7-4 Aircraft Jacking",
+          "revision": "Training reference"
+        }
+      ]
+    }
+  ],
+  "controls": [],
+  "limits": [],
+  "modificationVariants": [],
+  "casMessageRefs": []
+}

@@ -1,0 +1,41 @@
+{
+  "title": "2. Lifting and Shoring / Hoisting",
+  "defaultModelVariant": "wheels",
+  "availableModelVariants": [
+    "wheels",
+    "floats",
+    "skis"
+  ],
+  "references": [
+    {
+      "label": "Figure 7-1 \u2014 Hoisting aircraft / fuselage sheet 1",
+      "assetPath": "models/systems_lab/lifting_shoring_hoisting/Refs/Figure_7-1.png",
+      "originalZipEntry": "Refs/Figure 7-1.png"
+    },
+    {
+      "label": "Figure 7-2 \u2014 Hoisting aircraft / fuselage sheet 2",
+      "assetPath": "models/systems_lab/lifting_shoring_hoisting/Refs/Figure_7-2.png",
+      "originalZipEntry": "Refs/Figure 7-2.png"
+    },
+    {
+      "label": "Figure 7-3 \u2014 Engine and propeller hoisting",
+      "assetPath": "models/systems_lab/lifting_shoring_hoisting/Refs/Figure_7-3.png",
+      "originalZipEntry": "Refs/Figure 7-3.png"
+    },
+    {
+      "label": "Figure 7-4 \u2014 Aircraft jacking",
+      "assetPath": "models/systems_lab/lifting_shoring_hoisting/Refs/Figure_7-4.png",
+      "originalZipEntry": "Refs/Figure 7-4.png"
+    },
+    {
+      "label": "Figure 7-5 \u2014 Balance diagram",
+      "assetPath": "models/systems_lab/lifting_shoring_hoisting/Refs/Figure_7-5.png",
+      "originalZipEntry": "Refs/Figure 7-5.png"
+    },
+    {
+      "label": "Figure 7-6 \u2014 Lifting/shoring GSE",
+      "assetPath": "models/systems_lab/lifting_shoring_hoisting/Refs/Figure_7-6.png",
+      "originalZipEntry": "Refs/Figure 7-6.png"
+    }
+  ]
+}

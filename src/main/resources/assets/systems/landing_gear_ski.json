@@ -1,0 +1,134 @@
+{
+  "schemaId": "system_description",
+  "schemaVersion": "1.0.0",
+  "systemId": "landing_gear_ski",
+  "systemName": "Landing Gear \u2014 Wheel-Skis",
+  "variant": "BOTH",
+  "summary": "The DHC-6 Series 300 can be fitted with wheel-ski gear for combined wheeled-surface and snow/ice operations. Wheel-skis allow take-off and landing on both prepared runways and snow/ice surfaces without changing between configurations. The ski selector lever controls ski position relative to the wheel. Blade latches on the ski/propeller system prevent inadvertent propeller ground contact during shutdown on snow when power levers are placed at zero thrust.",
+  "references": [
+    {
+      "source": "POH_AFM",
+      "locator": "Section 7.20.9 Wheel Skiplane, p.7-131\u2013133",
+      "revision": "Rev 53 (10 Sep 2010)"
+    }
+  ],
+  "modificationVariants": [
+    {
+      "id": "spring_ski",
+      "name": "Spring Skiplane (Section 7.20.8)",
+      "serialRange": "Factory option \u2014 spring skis only (no wheels)",
+      "description": "Replaces the entire landing gear with spring skis. No wheel option \u2014 snow/ice surfaces only. Aircraft procedures in AFM supplement. Not applicable to Manta Air fleet.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.20.8, p.7-130"
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "id": "main_ski_units",
+      "name": "Main Wheel-Ski Units",
+      "description": "Each main ski unit consists of a ski blade mounted on a pivot attached to the main gear axle. The ski can rotate about the pivot so that the wheel contacts the ground (UP position) or the ski contacts the ground (DOWN position). When DOWN, the ski blade extends both forward and aft of the wheel, providing snow/ice bearing area.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.20.9.1, p.7-131"
+        }
+      ]
+    },
+    {
+      "id": "nose_ski_unit",
+      "name": "Nose Ski Unit",
+      "description": "The nose ski is attached to a pivot in the nose gear fork. Unlike main skis, it is spring-loaded to ensure alignment with the aircraft centreline. The nose ski can be retracted (wheel position) or extended (ski position) by the ski selector.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.20.9.2, p.7-132"
+        }
+      ]
+    },
+    {
+      "id": "ski_selector_lever",
+      "name": "Ski Position Selector Lever",
+      "description": "Located in the cockpit. Controls hydraulic actuators that position the ski blades relative to the wheels. Positions available include UP (wheel rides on ground, ski above surface), DOWN (ski blade contacts ground, wheel above surface), and zero-thrust intermediate positions.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.20.9.3, p.7-132"
+        }
+      ]
+    },
+    {
+      "id": "ski_position_lights",
+      "name": "Ski Position Indicator Lights",
+      "description": "Cockpit indicator lights show the current ski position for all three gear units. Correct ski position must be confirmed before landing on either a hard surface (wheel position) or snow/ice (ski position).",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.20.9.4, p.7-132"
+        }
+      ]
+    },
+    {
+      "id": "blade_latches",
+      "name": "Propeller Blade Latches",
+      "description": "Spring-loaded latches arrest the propeller blades at approximately +1\u00b0 blade angle (near zero thrust) during shutdown when power levers are at the zero-thrust position. This prevents propeller blade contact with snow during shutdown. The latches retract by centrifugal force when NP reaches approximately 30% during the next start.",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.7.1, p.6-65"
+        },
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.14.1, p.7-105"
+        }
+      ]
+    }
+  ],
+  "controls": [
+    {
+      "id": "ski_selector",
+      "name": "Ski Selector Lever",
+      "positions": [
+        "UP (wheel on ground)",
+        "DOWN (ski blade on ground)",
+        "ZERO-THRUST (intermediate)"
+      ],
+      "description": "Hydraulically positions skis. Must select UP before landing on hard surface (runway). Must select DOWN before landing on snow/ice. Zero-thrust position is used during shut-down with blade latches fitted.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.20.9.3, p.7-132"
+        }
+      ]
+    }
+  ],
+  "limits": [
+    {
+      "id": "confirm_position",
+      "parameter": "Ski Position Before Landing",
+      "value": "MANDATORY \u2014 confirm via ski position indicator lights before every landing",
+      "note": "Landing with skis in wrong position can result in structural damage or loss of ground control.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.20.9.4, p.7-132"
+        }
+      ]
+    },
+    {
+      "id": "blade_latch_activation",
+      "parameter": "Blade Latch Engagement NP",
+      "value": "Engage: below ~30% NP on shutdown at zero-thrust | Disengage: ~30% NP centrifugal force on start",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.7.1, p.6-65"
+        }
+      ]
+    }
+  ],
+  "casMessageRefs": []
+}

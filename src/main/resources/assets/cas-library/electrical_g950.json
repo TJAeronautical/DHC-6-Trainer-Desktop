@@ -1,0 +1,287 @@
+{
+    "schemaVersion":  "1.0.0",
+    "profileId":  "manta_air_g950_cas_library_v3",
+    "variant":  "G950",
+    "messages":  [
+                     {
+                         "display":  "BAGGAGE SMOKE",
+                         "level":  "WARNING",
+                         "canonicalId":  "BAGGAGE_SMOKE"
+                     },
+                     {
+                         "display":  "MSTR WARN TEST",
+                         "level":  "WARNING",
+                         "canonicalId":  "MSTR_WARN_TEST"
+                     },
+                     {
+                         "display":  "L FIRE DETECT CB",
+                         "level":  "WARNING",
+                         "canonicalId":  "L_FIRE_DETECT_CB"
+                     },
+                     {
+                         "display":  "R FIRE DETECT CB",
+                         "level":  "WARNING",
+                         "canonicalId":  "R_FIRE_DETECT_CB"
+                     },
+                     {
+                         "display":  "L ENG FIRE",
+                         "level":  "WARNING",
+                         "canonicalId":  "L_ENG_FIRE"
+                     },
+                     {
+                         "display":  "R ENG FIRE",
+                         "level":  "WARNING",
+                         "canonicalId":  "R_ENG_FIRE"
+                     },
+                     {
+                         "display":  "MSTR CAUT TEST",
+                         "level":  "CAUTION",
+                         "canonicalId":  "MSTR_CAUT_TEST"
+                     },
+                     {
+                         "display":  "AFT BOOST1 PR",
+                         "level":  "CAUTION",
+                         "canonicalId":  "AFT_BOOST1_PR"
+                     },
+                     {
+                         "display":  "AFT BOOST2 PR",
+                         "level":  "CAUTION",
+                         "canonicalId":  "AFT_BOOST2_PR"
+                     },
+                     {
+                         "display":  "AFT FUEL LOW",
+                         "level":  "CAUTION",
+                         "canonicalId":  "AFT_FUEL_LOW"
+                     },
+                     {
+                         "display":  "DOORS UNLOCKED",
+                         "level":  "CAUTION",
+                         "canonicalId":  "DOORS_UNLOCKED"
+                     },
+                     {
+                         "display":  "DUCT OVERHEAT",
+                         "level":  "CAUTION",
+                         "canonicalId":  "DUCT_OVERHEAT"
+                     },
+                     {
+                         "display":  "FWD BOOST1 PR",
+                         "level":  "CAUTION",
+                         "canonicalId":  "FWD_BOOST1_PR"
+                     },
+                     {
+                         "display":  "FWD BOOST2 PR",
+                         "level":  "CAUTION",
+                         "canonicalId":  "FWD_BOOST2_PR"
+                     },
+                     {
+                         "display":  "FWD FUEL LOW",
+                         "level":  "CAUTION",
+                         "canonicalId":  "FWD_FUEL_LOW"
+                     },
+                     {
+                         "display":  "HYD PUMP CB",
+                         "level":  "CAUTION",
+                         "canonicalId":  "HYD_PUMP_CB"
+                     },
+                     {
+                         "display":  "L CHIP DETECT",
+                         "level":  "CAUTION",
+                         "canonicalId":  "L_CHIP_DETECT"
+                     },
+                     {
+                         "display":  "L GEN FAIL",
+                         "level":  "CAUTION",
+                         "canonicalId":  "L_GEN_FAIL"
+                     },
+                     {
+                         "display":  "L GEN OVHT",
+                         "level":  "CAUTION",
+                         "canonicalId":  "L_GEN_OVHT"
+                     },
+                     {
+                         "display":  "L OIL PRESS",
+                         "level":  "CAUTION",
+                         "canonicalId":  "L_OIL_PRESS"
+                     },
+                     {
+                         "display":  "L PITOT HT FAIL",
+                         "level":  "CAUTION",
+                         "canonicalId":  "L_PITOT_HT_FAIL"
+                     },
+                     {
+                         "display":  "L PITOT HT OFF",
+                         "level":  "CAUTION",
+                         "canonicalId":  "L_PITOT_HT_OFF"
+                     },
+                     {
+                         "display":  "L RFUEL VLV OPN",
+                         "level":  "CAUTION",
+                         "canonicalId":  "L_RFUEL_VLV_OPN"
+                     },
+                     {
+                         "display":  "L TNK PMP FAIL",
+                         "level":  "CAUTION",
+                         "canonicalId":  "L_TNK_PMP_FAIL"
+                     },
+                     {
+                         "display":  "LRG MAG VAR",
+                         "level":  "CAUTION",
+                         "canonicalId":  "LRG_MAG_VAR"
+                     },
+                     {
+                         "display":  "PNU LOW PRESS",
+                         "level":  "CAUTION",
+                         "canonicalId":  "PNU_LOW_PRESS"
+                     },
+                     {
+                         "display":  "PNU LOW PRESS",
+                         "level":  "CAUTION",
+                         "canonicalId":  "PNU_LOW_PRESS_AIR"
+                     },
+                     {
+                         "display":  "BETA BCKP DSRM",
+                         "level":  "CAUTION",
+                         "canonicalId":  "BETA_BCKP_DSRM"
+                     },
+                     {
+                         "display":  "R GEN FAIL",
+                         "level":  "CAUTION",
+                         "canonicalId":  "R_GEN_FAIL"
+                     },
+                     {
+                         "display":  "R GEN OVHT",
+                         "level":  "CAUTION",
+                         "canonicalId":  "R_GEN_OVHT"
+                     },
+                     {
+                         "display":  "R CHIP DETECT",
+                         "level":  "CAUTION",
+                         "canonicalId":  "R_CHIP_DETECT"
+                     },
+                     {
+                         "display":  "R OIL PRESS",
+                         "level":  "CAUTION",
+                         "canonicalId":  "R_OIL_PRESS"
+                     },
+                     {
+                         "display":  "R PITOT HT FAIL",
+                         "level":  "CAUTION",
+                         "canonicalId":  "R_PITOT_HT_FAIL"
+                     },
+                     {
+                         "display":  "R PITOT HT OFF",
+                         "level":  "CAUTION",
+                         "canonicalId":  "R_PITOT_HT_OFF"
+                     },
+                     {
+                         "display":  "R RFUEL VLV OPN",
+                         "level":  "CAUTION",
+                         "canonicalId":  "R_RFUEL_VLV_OPN"
+                     },
+                     {
+                         "display":  "R TNK PMP FAIL",
+                         "level":  "CAUTION",
+                         "canonicalId":  "R_TNK_PMP_FAIL"
+                     },
+                     {
+                         "display":  "RESET PROPS",
+                         "level":  "CAUTION",
+                         "canonicalId":  "RESET_PROPS"
+                     },
+                     {
+                         "display":  "SLCT MAG",
+                         "level":  "CAUTION",
+                         "canonicalId":  "SLCT_MAG"
+                     },
+                     {
+                         "display":  "SLCT NON-MAG",
+                         "level":  "CAUTION",
+                         "canonicalId":  "SLCT_NON_MAG"
+                     },
+                     {
+                         "display":  "CHECK STANDBY",
+                         "level":  "ADVISORY",
+                         "canonicalId":  "CHECK_STANDBY"
+                     },
+                     {
+                         "display":  "L FIRE DETECT FAIL",
+                         "level":  "ADVISORY",
+                         "canonicalId":  "L_FIRE_DETECT_FAIL"
+                     },
+                     {
+                         "display":  "MFD FAN FAIL",
+                         "level":  "ADVISORY",
+                         "canonicalId":  "MFD_FAN_FAIL"
+                     },
+                     {
+                         "display":  "PFD 1 FAN FAIL",
+                         "level":  "ADVISORY",
+                         "canonicalId":  "PFD_1_FAN_FAIL"
+                     },
+                     {
+                         "display":  "PFD 2 FAN FAIL",
+                         "level":  "ADVISORY",
+                         "canonicalId":  "PFD_2_FAN_FAIL"
+                     },
+                     {
+                         "display":  "PNU LOW PRESS",
+                         "level":  "ADVISORY",
+                         "canonicalId":  "PNU_LOW_PRESS_GND"
+                     },
+                     {
+                         "display":  "R FIRE DETECT FAIL",
+                         "level":  "ADVISORY",
+                         "canonicalId":  "R_FIRE_DETECT_FAIL"
+                     },
+                     {
+                         "display":  "L INTAKE DFLCTR",
+                         "level":  "STATUS",
+                         "canonicalId":  "L_INTAKE_DFLCTR"
+                     },
+                     {
+                         "display":  "L PROP BETA",
+                         "level":  "STATUS",
+                         "canonicalId":  "L_PROP_BETA"
+                     },
+                     {
+                         "display":  "L STAB DEICE PR",
+                         "level":  "STATUS",
+                         "canonicalId":  "L_STAB_DEICE_PR"
+                     },
+                     {
+                         "display":  "L WING TANK PUMP",
+                         "level":  "STATUS",
+                         "canonicalId":  "L_WING_TANK_PUMP"
+                     },
+                     {
+                         "display":  "R INTAKE DFLCTR",
+                         "level":  "STATUS",
+                         "canonicalId":  "R_INTAKE_DFLCTR"
+                     },
+                     {
+                         "display":  "R PROP BETA",
+                         "level":  "STATUS",
+                         "canonicalId":  "R_PROP_BETA"
+                     },
+                     {
+                         "display":  "R STAB DEICE PR",
+                         "level":  "STATUS",
+                         "canonicalId":  "R_STAB_DEICE_PR"
+                     },
+                     {
+                         "display":  "R WING TANK PUMP",
+                         "level":  "STATUS",
+                         "canonicalId":  "R_WING_TANK_PUMP"
+                     },
+                     {
+                         "display":  "L AVIONICS FAN FAIL",
+                         "level":  "ADVISORY",
+                         "canonicalId":  "L_AVIONICS_FAN_FAIL"
+                     },
+                     {
+                         "display":  "R AVIONICS FAN FAIL",
+                         "level":  "ADVISORY",
+                         "canonicalId":  "R_AVIONICS_FAN_FAIL"
+                     }
+                 ]
+}

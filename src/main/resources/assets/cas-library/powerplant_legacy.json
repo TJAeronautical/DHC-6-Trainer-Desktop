@@ -1,0 +1,71 @@
+{
+  "schemaVersion": "1.0.0",
+  "profileId": "dhc6-legacy-powerplant",
+  "variant": "LEGACY",
+  "messages": [
+    {
+      "display": "L OIL PRESS",
+      "canonicalId": "OIL_PRESS_L",
+      "level": "CAUTION",
+      "meaning": "Left engine oil pressure low. Normal: 80\u2013100 psi. Below 40 psi: UNSAFE.",
+      "immediate": "Check oil pressure. If 40\u201385 psi: reduce power, plan to land. If below 40 psi: engine shutdown in flight.",
+      "qrhRef": "FCTM 6.4.4 / QRH Engine"
+    },
+    {
+      "display": "R OIL PRESS",
+      "canonicalId": "OIL_PRESS_R",
+      "level": "CAUTION",
+      "meaning": "Right engine oil pressure low.",
+      "immediate": "As for L OIL PRESS.",
+      "qrhRef": "FCTM 6.4.4"
+    },
+    {
+      "display": "L HIGH T5",
+      "canonicalId": "T5_HIGH_L",
+      "level": "WARNING",
+      "meaning": "Left engine T5 above limits (725\u00b0C T/O max for PT6A-27).",
+      "immediate": "Reduce power lever. If T5 cannot be maintained within limits: engine shutdown.",
+      "qrhRef": "QRH 2.9"
+    },
+    {
+      "display": "R HIGH T5",
+      "canonicalId": "T5_HIGH_R",
+      "level": "WARNING",
+      "meaning": "Right engine T5 above limits.",
+      "immediate": "As for L HIGH T5.",
+      "qrhRef": "QRH 2.9"
+    },
+    {
+      "display": "L HIGH NG",
+      "canonicalId": "NG_HIGH_L",
+      "level": "WARNING",
+      "meaning": "Left engine NG above 101.5%.",
+      "immediate": "Reduce power lever. If NG cannot be controlled: engine shutdown.",
+      "qrhRef": "QRH 2.10"
+    },
+    {
+      "display": "R HIGH NG",
+      "canonicalId": "NG_HIGH_R",
+      "level": "WARNING",
+      "meaning": "Right engine NG above 101.5%.",
+      "immediate": "As for L HIGH NG.",
+      "qrhRef": "QRH 2.10"
+    },
+    {
+      "display": "L FIRE",
+      "canonicalId": "FIRE_L",
+      "level": "WARNING",
+      "meaning": "Left engine fire/overheat detected.",
+      "immediate": "Engine Fire In Flight procedure \u2014 QRH memory items.",
+      "qrhRef": "QRH Emergency Engine Fire"
+    },
+    {
+      "display": "R FIRE",
+      "canonicalId": "FIRE_R",
+      "level": "WARNING",
+      "meaning": "Right engine fire/overheat detected.",
+      "immediate": "As for L FIRE.",
+      "qrhRef": "QRH Emergency Engine Fire"
+    }
+  ]
+}

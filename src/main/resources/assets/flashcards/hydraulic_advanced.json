@@ -1,0 +1,136 @@
+{
+  "schemaId": "flashcard_deck",
+  "schemaVersion": "1.0.0",
+  "deckId": "hydraulic_advanced",
+  "title": "Hydraulic System \u2014 Advanced",
+  "system": "HYDRAULICS",
+  "tier": "ADVANCED",
+  "cards": [
+    {
+      "id": "ha_001",
+      "question": "What is the normal hydraulic pressure range for a post-Mod 6/1570 aircraft (SN 511+)?",
+      "answer": "1225\u20131625 psi. Pre-Mod 6/1570 (before SN 511): 1300\u20131600 psi. The difference is not operationally significant but pilots must know which range applies to the aircraft they are flying.",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.5.6, p.6-56"
+        },
+        {
+          "source": "POH_AFM",
+          "locator": "Section 10.8.19, p.10-76"
+        }
+      ]
+    },
+    {
+      "id": "ha_002",
+      "question": "What is the nitrogen precharge pressure for both hydraulic accumulators?",
+      "answer": "750 psi in both the system (damping) accumulator and the brake accumulator. The system provides normal working pressure until 750 psi is reached, at which point pressure drops sharply to zero \u2014 there is no gradual decay below 750 psi.",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.5.9, p.6-57"
+        }
+      ]
+    },
+    {
+      "id": "ha_003",
+      "question": "What is the purpose of the brake accumulator separate from the system accumulator?",
+      "answer": "The brake accumulator supplementsthe system accumulator for brake supply and maintains a reserve pressure for brake operation even if the system accumulator or pump fail. After complete pump and system accumulator failure, the brake accumulator provides 2\u20133 brake applications.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.19, p.7-119"
+        },
+        {
+          "source": "FCTM",
+          "locator": "6.5.9, p.6-57"
+        }
+      ]
+    },
+    {
+      "id": "ha_004",
+      "question": "How do you distinguish between electric pump failure and hydraulic fluid loss?",
+      "answer": "Use the hand pump: 30\u201340 strokes. If pressure rises to ~1500 psi: pump has failed (fluid is present). If pressure does NOT rise after 30\u201340 strokes: fluid loss is presumed. With fluid loss the pump may also run continuously without restoring pressure.",
+      "references": [
+        {
+          "source": "QRH",
+          "locator": "Section 7.1, p.HD-1"
+        },
+        {
+          "source": "POH_AFM",
+          "locator": "Section 10.8.19, p.10-76"
+        }
+      ]
+    },
+    {
+      "id": "ha_005",
+      "question": "Is it acceptable to have zero hydraulic pressure in cruise flight?",
+      "answer": "Yes. Hydraulic pressure may be zero in cruise with flaps retracted because air loads maintain the flap position. However, pressure must be restored to approximately 1500 psi BEFORE reducing speed in preparation for flap extension. With flaps extended, 1500 psi must be maintained at all times.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 10.8.19, p.10-76"
+        },
+        {
+          "source": "QRH",
+          "locator": "Section 7.1 Note 2"
+        }
+      ]
+    },
+    {
+      "id": "ha_006",
+      "question": "Why should the HYD OIL PUMP circuit breaker NOT be pulled before engine start?",
+      "answer": "It is neither necessary nor desirable to pull it to minimise electrical load before start. If left pulled, any operation of nose wheel steering, brakes, or flaps will rapidly deplete the accumulators and hydraulic services will become inoperable.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.19.1, p.7-123"
+        }
+      ]
+    },
+    {
+      "id": "ha_007",
+      "question": "What is the system relief valve setting and when does it operate?",
+      "answer": "1750 psi. The relief valve opens if the electric pump runs continuously due to pressure switch failure, allowing fluid to circulate between the pump and reservoir to prevent system over-pressure damage.",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.5.10, p.6-58"
+        }
+      ]
+    },
+    {
+      "id": "ha_008",
+      "question": "Can flaps be retracted immediately after a flapless hand-pump-only landing?",
+      "answer": "No. After landing with a failed electric pump, do not retract flaps until the aircraft has come to a full stop and the parking brake has been set. Otherwise, retracting flaps while moving may deplete the remaining accumulator pressure needed for braking.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 10.8.19, p.10-76"
+        }
+      ]
+    },
+    {
+      "id": "ha_009",
+      "question": "What bus powers the hydraulic electric pump, and what is the consequence if that bus loses power?",
+      "answer": "The LEFT DC BUS. If the left DC bus loses power, the hydraulic electric pump stops. The system will rely entirely on accumulator pressure until depleted. This may coincide with other left-bus electrical failures.",
+      "references": [
+        {
+          "source": "FCTM",
+          "locator": "6.5.5, p.6-56"
+        }
+      ]
+    },
+    {
+      "id": "ha_010",
+      "question": "Where is the hand pump handle stowed and how is it accessed?",
+      "answer": "Pre-Mod 6/1728: on the forward face of the flight compartment bulkhead, right of the entrance door. From SN 731 (Mod 6/1728): on sub-floor structure below the fire extinguisher. The pump socket is accessed through a hinged door in the cockpit floor to the right of the left pilot seat.",
+      "references": [
+        {
+          "source": "POH_AFM",
+          "locator": "Section 7.19.2, p.7-123"
+        }
+      ]
+    }
+  ]
+}

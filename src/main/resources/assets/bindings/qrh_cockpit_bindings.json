@@ -1,0 +1,79 @@
+{
+  "schemaVersion": "1.0.0",
+  "bindings": [
+    {
+      "qrhId": "emergency_engine_fire_inflight",
+      "variant": "LEGACY",
+      "targets": [
+        {
+          "type": "HITBOX",
+          "id": "POWER_LEVER_L"
+        },
+        {
+          "type": "HITBOX",
+          "id": "POWER_LEVER_R"
+        },
+        {
+          "type": "HITBOX",
+          "id": "FUEL_LEVER_L"
+        },
+        {
+          "type": "HITBOX",
+          "id": "FUEL_LEVER_R"
+        },
+        {
+          "type": "HITBOX",
+          "id": "MASTER_WARNING"
+        },
+        {
+          "type": "HITBOX",
+          "id": "MASTER_CAUTION"
+        }
+      ]
+    },
+    {
+      "qrhId": "engine_failure_after_takeoff_v1",
+      "variant": "LEGACY",
+      "targets": [
+        {
+          "type": "HITBOX",
+          "id": "POWER_LEVER_L"
+        },
+        {
+          "type": "HITBOX",
+          "id": "POWER_LEVER_R"
+        },
+        {
+          "type": "HITBOX",
+          "id": "AUTOFEATHER_ARM"
+        },
+        {
+          "type": "HITBOX",
+          "id": "MASTER_WARNING"
+        },
+        {
+          "type": "HITBOX",
+          "id": "MASTER_CAUTION"
+        }
+      ]
+    },
+    {
+      "qrhId": "no_light_up",
+      "variant": "BOTH",
+      "targets": [
+        {
+          "type": "HITBOX",
+          "id": "START_SELECTOR_L"
+        },
+        {
+          "type": "HITBOX",
+          "id": "START_SELECTOR_R"
+        },
+        {
+          "type": "HITBOX",
+          "id": "IGNITION_ARM"
+        }
+      ]
+    }
+  ]
+}

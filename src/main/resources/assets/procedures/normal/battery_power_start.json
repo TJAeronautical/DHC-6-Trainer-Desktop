@@ -1,0 +1,177 @@
+{
+    "rawName":  "Battery Power Start",
+    "drillName":  "Battery Power Start [Ground]",
+    "category":  "NORMAL",
+    "context":  "Ground",
+    "sourceNote":  "Procedure identity/category/order normalized from \u0027DHC-6 Full Drill Procedure Index Normal Split.xlsx\u0027. Excel is the governing app display allow-list. Existing procedure steps preserved for later content review. Previous note: Generic training callout structure based on user-provided Section 4 normal-procedure titles and generated PF/PM MCC callouts. Not an approved AFM/POH/checklist replacement.",
+    "variants":  {
+                     "LEGACY":  {
+                                    "memory":  [
+                                                   {
+                                                       "stepNumber":  1,
+                                                       "action":  "BATTERY START - INITIATED",
+                                                       "crewRole":  "PF",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.6.2 Battery Power Start"
+                                                   },
+                                                   {
+                                                       "stepNumber":  2,
+                                                       "action":  "BATTERY VOLTAGE - MONITORED",
+                                                       "crewRole":  "PM",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.6.2 Battery Power Start"
+                                                   },
+                                                   {
+                                                       "stepNumber":  3,
+                                                       "action":  "STARTER LIMITS - MONITORED",
+                                                       "crewRole":  "PM",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.6.2 Battery Power Start"
+                                                   },
+                                                   {
+                                                       "stepNumber":  4,
+                                                       "action":  "LIGHT-OFF - CONFIRMED",
+                                                       "crewRole":  "PM",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.6.2 Battery Power Start"
+                                                   },
+                                                   {
+                                                       "stepNumber":  5,
+                                                       "action":  "ITT / T5 - MONITORED",
+                                                       "crewRole":  "PM",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.6.2 Battery Power Start"
+                                                   },
+                                                   {
+                                                       "stepNumber":  6,
+                                                       "action":  "OIL PRESSURE - MONITORED",
+                                                       "crewRole":  "PM",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.6.2 Battery Power Start"
+                                                   },
+                                                   {
+                                                       "stepNumber":  7,
+                                                       "action":  "BATTERY START - COMPLETE",
+                                                       "crewRole":  "PM",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.6.2 Battery Power Start"
+                                                   }
+                                               ],
+                                    "flow":  [
+                                                 {
+                                                     "stepNumber":  1,
+                                                     "action":  "Battery start.",
+                                                     "crewRole":  "PF",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.6.2; PF_CALL"
+                                                 },
+                                                 {
+                                                     "stepNumber":  2,
+                                                     "action":  "Monitor battery voltage, starter limits, light-off, ITT/T5, and oil pressure.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.6.2"
+                                                 },
+                                                 {
+                                                     "stepNumber":  3,
+                                                     "action":  "Battery start complete.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.6.2; PM_COMPLETION"
+                                                 }
+                                             ]
+                                },
+                     "G950":  {
+                                  "memory":  [
+                                                 {
+                                                     "stepNumber":  1,
+                                                     "action":  "BATTERY START - INITIATED",
+                                                     "crewRole":  "PF",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.6.2 Battery Power Start"
+                                                 },
+                                                 {
+                                                     "stepNumber":  2,
+                                                     "action":  "BATTERY VOLTAGE - MONITORED",
+                                                     "crewRole":  "PM",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.6.2 Battery Power Start"
+                                                 },
+                                                 {
+                                                     "stepNumber":  3,
+                                                     "action":  "STARTER LIMITS - MONITORED",
+                                                     "crewRole":  "PM",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.6.2 Battery Power Start"
+                                                 },
+                                                 {
+                                                     "stepNumber":  4,
+                                                     "action":  "LIGHT-OFF - CONFIRMED",
+                                                     "crewRole":  "PM",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.6.2 Battery Power Start"
+                                                 },
+                                                 {
+                                                     "stepNumber":  5,
+                                                     "action":  "ITT / T5 - MONITORED",
+                                                     "crewRole":  "PM",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.6.2 Battery Power Start"
+                                                 },
+                                                 {
+                                                     "stepNumber":  6,
+                                                     "action":  "OIL PRESSURE - MONITORED",
+                                                     "crewRole":  "PM",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.6.2 Battery Power Start"
+                                                 },
+                                                 {
+                                                     "stepNumber":  7,
+                                                     "action":  "BATTERY START - COMPLETE",
+                                                     "crewRole":  "PM",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.6.2 Battery Power Start"
+                                                 }
+                                             ],
+                                  "flow":  [
+                                               {
+                                                   "stepNumber":  1,
+                                                   "action":  "Battery start.",
+                                                   "crewRole":  "PF",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.6.2; PF_CALL"
+                                               },
+                                               {
+                                                   "stepNumber":  2,
+                                                   "action":  "Monitor battery voltage, starter limits, light-off, ITT/T5, and oil pressure.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.6.2"
+                                               },
+                                               {
+                                                   "stepNumber":  3,
+                                                   "action":  "Battery start complete.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.6.2; PM_COMPLETION"
+                                               }
+                                           ]
+                              },
+                     "manualSection":  "Section 4",
+                     "sourceSection":  "4.6.2"
+                 },
+    "phaseTag":  "Ground",
+    "displayLabel":  "Battery Power Start [Ground]",
+    "sortOrder":  9,
+    "sourceSection":  "4.6.2",
+    "procedureGroup":  "Engine Start",
+    "manualSection":  "Section 4",
+    "sequenceBasis":  "Normal-procedure flow order",
+    "normalSplit":  "Everyday Actions"
+}

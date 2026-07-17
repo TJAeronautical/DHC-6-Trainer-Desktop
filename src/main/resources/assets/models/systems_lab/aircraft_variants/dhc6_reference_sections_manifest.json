@@ -1,0 +1,166 @@
+{
+  "packId": "dhc6_systems_lab_reference_sections_1_to_5",
+  "note": "Runtime reference assets extracted from the user's exact source zip packages. Source zips are retained under tools/source_reference_packs.",
+  "variantModels": {
+    "wheels": "models/systems_lab/aircraft_variants/dhc6_wheels_painted_training.glb",
+    "floats": "models/systems_lab/aircraft_variants/dhc6_floats_painted_training.glb",
+    "skis": "models/systems_lab/aircraft_variants/dhc6_skis_painted_training.glb"
+  },
+  "sections": {
+    "aircraft_dimensions_layout": {
+      "title": "1. Aircraft Dimensions & Layout",
+      "defaultModelVariant": "wheels",
+      "availableModelVariants": [
+        "wheels",
+        "floats",
+        "skis"
+      ],
+      "references": [
+        {
+          "label": "Figure 6-1 Aircraft Dimensions",
+          "assetPath": "models/systems_lab/aircraft_dimensions_layout/Refs/Figure_6-1_Aircraft_Dimensions.png",
+          "originalZipEntry": "Refs/Figure_6-1_Aircraft_Dimensions.png"
+        },
+        {
+          "label": "Figure 6-2 Jig Point",
+          "assetPath": "models/systems_lab/aircraft_dimensions_layout/Refs/Figure_6-2_Jig_Point.png",
+          "originalZipEntry": "Refs/Figure_6-2_Jig_Point.png"
+        },
+        {
+          "label": "Figure 6-3 Aircraft Stations",
+          "assetPath": "models/systems_lab/aircraft_dimensions_layout/Refs/Figure_6-3_Aircraft_Stations.png",
+          "originalZipEntry": "Refs/Figure_6-3_Aircraft_Stations.png"
+        },
+        {
+          "label": "Figure 6-4 Area Diagram",
+          "assetPath": "models/systems_lab/aircraft_dimensions_layout/Refs/Figure_6-4_Area_Diagram.png",
+          "originalZipEntry": "Refs/Figure_6-4_Area_Diagram.png"
+        }
+      ]
+    },
+    "lifting_shoring_hoisting": {
+      "title": "2. Lifting and Shoring / Hoisting",
+      "defaultModelVariant": "wheels",
+      "availableModelVariants": [
+        "wheels",
+        "floats",
+        "skis"
+      ],
+      "references": [
+        {
+          "label": "Figure 7-1 \u2014 Hoisting aircraft / fuselage sheet 1",
+          "assetPath": "models/systems_lab/lifting_shoring_hoisting/Refs/Figure_7-1.png",
+          "originalZipEntry": "Refs/Figure 7-1.png"
+        },
+        {
+          "label": "Figure 7-2 \u2014 Hoisting aircraft / fuselage sheet 2",
+          "assetPath": "models/systems_lab/lifting_shoring_hoisting/Refs/Figure_7-2.png",
+          "originalZipEntry": "Refs/Figure 7-2.png"
+        },
+        {
+          "label": "Figure 7-3 \u2014 Engine and propeller hoisting",
+          "assetPath": "models/systems_lab/lifting_shoring_hoisting/Refs/Figure_7-3.png",
+          "originalZipEntry": "Refs/Figure 7-3.png"
+        },
+        {
+          "label": "Figure 7-4 \u2014 Aircraft jacking",
+          "assetPath": "models/systems_lab/lifting_shoring_hoisting/Refs/Figure_7-4.png",
+          "originalZipEntry": "Refs/Figure 7-4.png"
+        },
+        {
+          "label": "Figure 7-5 \u2014 Balance diagram",
+          "assetPath": "models/systems_lab/lifting_shoring_hoisting/Refs/Figure_7-5.png",
+          "originalZipEntry": "Refs/Figure 7-5.png"
+        },
+        {
+          "label": "Figure 7-6 \u2014 Lifting/shoring GSE",
+          "assetPath": "models/systems_lab/lifting_shoring_hoisting/Refs/Figure_7-6.png",
+          "originalZipEntry": "Refs/Figure 7-6.png"
+        }
+      ]
+    },
+    "weight_balance_loading": {
+      "title": "3. Weight & Balance / Loading",
+      "defaultModelVariant": "wheels",
+      "availableModelVariants": [
+        "wheels",
+        "floats",
+        "skis"
+      ],
+      "references": [
+        {
+          "label": "Figure 6-11 Baggage Compartment Table",
+          "assetPath": "models/systems_lab/weight_balance_loading/Refs/Figure_6-11_Baggage_Compartment_Table.png",
+          "originalZipEntry": "Figure_6-11.png"
+        },
+        {
+          "label": "Figure 6-12 Cargo Compartment Freight Table",
+          "assetPath": "models/systems_lab/weight_balance_loading/Refs/Figure_6-12_Cargo_Compartment_Freight_Table.png",
+          "originalZipEntry": "Figure_6-12.png"
+        }
+      ]
+    },
+    "performance_propeller_engine_charts": {
+      "title": "4. Performance & Propeller / Engine Charts",
+      "defaultModelVariant": "wheels",
+      "availableModelVariants": [
+        "wheels",
+        "floats",
+        "skis"
+      ],
+      "references": [
+        {
+          "label": "Figure 5.9",
+          "assetPath": "models/systems_lab/performance_propeller_engine_charts/Refs/Figure_5.9.png",
+          "originalZipEntry": "Figure 5.9.png"
+        },
+        {
+          "label": "Figure 5.10",
+          "assetPath": "models/systems_lab/performance_propeller_engine_charts/Refs/Figure_5.10.png",
+          "originalZipEntry": "Figure 5.10.png"
+        },
+        {
+          "label": "Figure 5.17",
+          "assetPath": "models/systems_lab/performance_propeller_engine_charts/Refs/Figure_5.17.png",
+          "originalZipEntry": "Figure 5.17.png"
+        },
+        {
+          "label": "Figure 9.5.4",
+          "assetPath": "models/systems_lab/performance_propeller_engine_charts/Refs/Figure_9.5.4.png",
+          "originalZipEntry": "Figure 9.5.4.png"
+        }
+      ]
+    },
+    "systems_cockpit_instruments": {
+      "title": "5. Systems / Cockpit Instruments",
+      "defaultModelVariant": "wheels",
+      "availableModelVariants": [
+        "wheels",
+        "floats",
+        "skis"
+      ],
+      "references": [
+        {
+          "label": "Figure 7.23",
+          "assetPath": "models/systems_lab/systems_cockpit_instruments/Refs/Figure_7.23.png",
+          "originalZipEntry": "Figure 7,23.png"
+        },
+        {
+          "label": "Figure 7.24",
+          "assetPath": "models/systems_lab/systems_cockpit_instruments/Refs/Figure_7.24.png",
+          "originalZipEntry": "Figure 7.24.png"
+        },
+        {
+          "label": "Figure 10.5",
+          "assetPath": "models/systems_lab/systems_cockpit_instruments/Refs/Figure_10.5.png",
+          "originalZipEntry": "Figure 10.5.png"
+        },
+        {
+          "label": "Figure 10.7",
+          "assetPath": "models/systems_lab/systems_cockpit_instruments/Refs/Figure_10.7.png",
+          "originalZipEntry": "Figure 10.7.png"
+        }
+      ]
+    }
+  }
+}

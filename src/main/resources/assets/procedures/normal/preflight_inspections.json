@@ -1,0 +1,151 @@
+{
+    "rawName":  "Preflight Inspections",
+    "drillName":  "Preflight Inspections [Ground]",
+    "category":  "NORMAL",
+    "context":  "Ground",
+    "sourceNote":  "Procedure identity/category/order normalized from \u0027DHC-6 Full Drill Procedure Index Normal Split.xlsx\u0027. Excel is the governing app display allow-list. Existing procedure steps preserved for later content review. Previous note: Generic training callout structure based on user-provided Section 4 normal-procedure titles and generated PF/PM MCC callouts. Not an approved AFM/POH/checklist replacement.",
+    "variants":  {
+                     "LEGACY":  {
+                                    "memory":  [
+                                                   {
+                                                       "stepNumber":  1,
+                                                       "action":  "PREFLIGHT INSPECTION DUTIES - ASSIGNED",
+                                                       "crewRole":  "PF",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.4.2 Preflight Inspections"
+                                                   },
+                                                   {
+                                                       "stepNumber":  2,
+                                                       "action":  "INSPECTION AREAS - CONFIRMED",
+                                                       "crewRole":  "PF",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.4.2 Preflight Inspections"
+                                                   },
+                                                   {
+                                                       "stepNumber":  3,
+                                                       "action":  "AIRCRAFT CONDITION - CHECKED",
+                                                       "crewRole":  "PM",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.4.2 Preflight Inspections"
+                                                   },
+                                                   {
+                                                       "stepNumber":  4,
+                                                       "action":  "DISCREPANCIES - REPORTED / RECORDED",
+                                                       "crewRole":  "PM",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.4.2 Preflight Inspections"
+                                                   }
+                                               ],
+                                    "flow":  [
+                                                 {
+                                                     "stepNumber":  1,
+                                                     "action":  "Preflight inspection.",
+                                                     "crewRole":  "PF",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.4.2; PF_CALL"
+                                                 },
+                                                 {
+                                                     "stepNumber":  2,
+                                                     "action":  "Confirm assigned inspection duties.",
+                                                     "crewRole":  "PF",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.4.2"
+                                                 },
+                                                 {
+                                                     "stepNumber":  3,
+                                                     "action":  "Confirm inspection areas, aircraft condition, and discrepancies.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.4.2"
+                                                 },
+                                                 {
+                                                     "stepNumber":  4,
+                                                     "action":  "Preflight inspection complete.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.4.2; PM_COMPLETION"
+                                                 }
+                                             ]
+                                },
+                     "G950":  {
+                                  "memory":  [
+                                                 {
+                                                     "stepNumber":  1,
+                                                     "action":  "PREFLIGHT INSPECTION DUTIES - ASSIGNED",
+                                                     "crewRole":  "PF",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.4.2 Preflight Inspections"
+                                                 },
+                                                 {
+                                                     "stepNumber":  2,
+                                                     "action":  "INSPECTION AREAS - CONFIRMED",
+                                                     "crewRole":  "PF",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.4.2 Preflight Inspections"
+                                                 },
+                                                 {
+                                                     "stepNumber":  3,
+                                                     "action":  "AIRCRAFT CONDITION - CHECKED",
+                                                     "crewRole":  "PM",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.4.2 Preflight Inspections"
+                                                 },
+                                                 {
+                                                     "stepNumber":  4,
+                                                     "action":  "DISCREPANCIES - REPORTED / RECORDED",
+                                                     "crewRole":  "PM",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.4.2 Preflight Inspections"
+                                                 }
+                                             ],
+                                  "flow":  [
+                                               {
+                                                   "stepNumber":  1,
+                                                   "action":  "Preflight inspection.",
+                                                   "crewRole":  "PF",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.4.2; PF_CALL"
+                                               },
+                                               {
+                                                   "stepNumber":  2,
+                                                   "action":  "Confirm assigned inspection duties.",
+                                                   "crewRole":  "PF",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.4.2"
+                                               },
+                                               {
+                                                   "stepNumber":  3,
+                                                   "action":  "Confirm inspection areas, aircraft condition, and discrepancies.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.4.2"
+                                               },
+                                               {
+                                                   "stepNumber":  4,
+                                                   "action":  "Preflight inspection complete.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.4.2; PM_COMPLETION"
+                                               }
+                                           ]
+                              },
+                     "manualSection":  "Section 4",
+                     "sourceSection":  "4.4.2"
+                 },
+    "phaseTag":  "Ground",
+    "displayLabel":  "Preflight Inspections [Ground]",
+    "sortOrder":  2,
+    "sourceSection":  "4.4.2",
+    "procedureGroup":  "Preparation and Inspection",
+    "manualSection":  "Section 4",
+    "sequenceBasis":  "Normal-procedure flow order",
+    "normalSplit":  "Everyday Actions"
+}

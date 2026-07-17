@@ -1,0 +1,227 @@
+{
+    "rawName":  "Cabin Emergency Lights Operation",
+    "drillName":  "Cabin Emergency Lights Operation [Ground/Airborne]",
+    "category":  "NORMAL",
+    "context":  "Ground/Airborne",
+    "sourceNote":  "Procedure identity/category/order normalized from \u0027DHC-6 Full Drill Procedure Index Normal Split.xlsx\u0027. Excel is the governing app display allow-list. Existing procedure steps preserved for later content review. Previous note: Generic MCC callout shell generated from procedure titles only. This is not an approved AFM/POH/QRH/checklist replacement. Curated to the DHC-6 Trainer Abnormal/Emergency procedure allow-list.",
+    "variants":  {
+                     "LEGACY":  {
+                                    "memory":  [
+                                                   {
+                                                       "stepNumber":  1,
+                                                       "action":  "CABIN EMERGENCY LIGHTS OPERATION - IDENTIFIED",
+                                                       "crewRole":  "PM",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 3.12.8 Cabin Emergency Lights Operation"
+                                                   },
+                                                   {
+                                                       "stepNumber":  2,
+                                                       "action":  "FLIGHT PATH - MAINTAINED",
+                                                       "crewRole":  "PF",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 3.12.8 Cabin Emergency Lights Operation"
+                                                   },
+                                                   {
+                                                       "stepNumber":  3,
+                                                       "action":  "CONDITION / AFFECTED SYSTEM - CONFIRMED",
+                                                       "crewRole":  "PF",
+                                                       "requiresConfirmation":  true,
+                                                       "reference":  "POH / AFM Section 3.12.8 Cabin Emergency Lights Operation"
+                                                   },
+                                                   {
+                                                       "stepNumber":  4,
+                                                       "action":  "AIRCRAFT STATE / SYSTEM INDICATIONS - MONITORED",
+                                                       "crewRole":  "PM",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 3.12.8 Cabin Emergency Lights Operation"
+                                                   },
+                                                   {
+                                                       "stepNumber":  5,
+                                                       "action":  "TERRAIN / TRAFFIC / CONFIGURATION - MONITORED",
+                                                       "crewRole":  "PM",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 3.12.8 Cabin Emergency Lights Operation"
+                                                   },
+                                                   {
+                                                       "stepNumber":  6,
+                                                       "action":  "CABIN EMERGENCY LIGHTS OPERATION CHECKLIST - COMPLETE",
+                                                       "crewRole":  "PM",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 3.12.8 Cabin Emergency Lights Operation"
+                                                   }
+                                               ],
+                                    "flow":  [
+                                                 {
+                                                     "stepNumber":  1,
+                                                     "action":  "Cabin Emergency Lights Operation.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.12.8; PM_CALLOUT"
+                                                 },
+                                                 {
+                                                     "stepNumber":  2,
+                                                     "action":  "I have control, maintain flight path.",
+                                                     "crewRole":  "PF",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.12.8; PF_COMMAND"
+                                                 },
+                                                 {
+                                                     "stepNumber":  3,
+                                                     "action":  "Confirm condition and affected system.",
+                                                     "crewRole":  "PF",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  true,
+                                                     "reference":  "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.12.8; PF_COMMAND"
+                                                 },
+                                                 {
+                                                     "stepNumber":  4,
+                                                     "action":  "Condition confirmed, affected system identified.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  true,
+                                                     "reference":  "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.12.8; PM_RESPONSE"
+                                                 },
+                                                 {
+                                                     "stepNumber":  5,
+                                                     "action":  "Monitor aircraft state, engine/system indications, terrain, traffic, and configuration.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.12.8; PM_ACTION"
+                                                 },
+                                                 {
+                                                     "stepNumber":  6,
+                                                     "action":  "Cabin Emergency Lights Operation checklist.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.12.8; PM_RESPONSE"
+                                                 },
+                                                 {
+                                                     "stepNumber":  7,
+                                                     "action":  "Cabin Emergency Lights Operation checklist complete.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.12.8; PM_COMPLETION"
+                                                 }
+                                             ]
+                                },
+                     "G950":  {
+                                  "memory":  [
+                                                 {
+                                                     "stepNumber":  1,
+                                                     "action":  "CABIN EMERGENCY LIGHTS OPERATION - IDENTIFIED",
+                                                     "crewRole":  "PM",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 3.12.8 Cabin Emergency Lights Operation"
+                                                 },
+                                                 {
+                                                     "stepNumber":  2,
+                                                     "action":  "FLIGHT PATH - MAINTAINED",
+                                                     "crewRole":  "PF",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 3.12.8 Cabin Emergency Lights Operation"
+                                                 },
+                                                 {
+                                                     "stepNumber":  3,
+                                                     "action":  "CONDITION / AFFECTED SYSTEM - CONFIRMED",
+                                                     "crewRole":  "PF",
+                                                     "requiresConfirmation":  true,
+                                                     "reference":  "POH / AFM Section 3.12.8 Cabin Emergency Lights Operation"
+                                                 },
+                                                 {
+                                                     "stepNumber":  4,
+                                                     "action":  "AIRCRAFT STATE / SYSTEM INDICATIONS - MONITORED",
+                                                     "crewRole":  "PM",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 3.12.8 Cabin Emergency Lights Operation"
+                                                 },
+                                                 {
+                                                     "stepNumber":  5,
+                                                     "action":  "TERRAIN / TRAFFIC / CONFIGURATION - MONITORED",
+                                                     "crewRole":  "PM",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 3.12.8 Cabin Emergency Lights Operation"
+                                                 },
+                                                 {
+                                                     "stepNumber":  6,
+                                                     "action":  "CABIN EMERGENCY LIGHTS OPERATION CHECKLIST - COMPLETE",
+                                                     "crewRole":  "PM",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 3.12.8 Cabin Emergency Lights Operation"
+                                                 }
+                                             ],
+                                  "flow":  [
+                                               {
+                                                   "stepNumber":  1,
+                                                   "action":  "Cabin Emergency Lights Operation.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.12.8; PM_CALLOUT"
+                                               },
+                                               {
+                                                   "stepNumber":  2,
+                                                   "action":  "I have control, maintain flight path.",
+                                                   "crewRole":  "PF",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.12.8; PF_COMMAND"
+                                               },
+                                               {
+                                                   "stepNumber":  3,
+                                                   "action":  "Confirm condition and affected system.",
+                                                   "crewRole":  "PF",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  true,
+                                                   "reference":  "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.12.8; PF_COMMAND"
+                                               },
+                                               {
+                                                   "stepNumber":  4,
+                                                   "action":  "Condition confirmed, affected system identified.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  true,
+                                                   "reference":  "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.12.8; PM_RESPONSE"
+                                               },
+                                               {
+                                                   "stepNumber":  5,
+                                                   "action":  "Monitor aircraft state, engine/system indications, terrain, traffic, and configuration.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.12.8; PM_ACTION"
+                                               },
+                                               {
+                                                   "stepNumber":  6,
+                                                   "action":  "Cabin Emergency Lights Operation checklist.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.12.8; PM_RESPONSE"
+                                               },
+                                               {
+                                                   "stepNumber":  7,
+                                                   "action":  "Cabin Emergency Lights Operation checklist complete.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.12.8; PM_COMPLETION"
+                                               }
+                                           ]
+                              },
+                     "manualSection":  "Section 3",
+                     "sourceSection":  "3.12.8"
+                 },
+    "phaseTag":  "Ground/Airborne",
+    "displayLabel":  "Cabin Emergency Lights Operation [Ground/Airborne]",
+    "sortOrder":  35,
+    "sourceSection":  "3.12.8",
+    "procedureGroup":  "Electrical",
+    "manualSection":  "Section 3",
+    "sequenceBasis":  "User-approved working order",
+    "normalSplit":  "Weather / Special Conditions"
+}

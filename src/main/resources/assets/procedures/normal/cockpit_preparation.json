@@ -1,0 +1,271 @@
+{
+    "rawName":  "Cockpit Preparation",
+    "drillName":  "Cockpit Preparation [Ground]",
+    "category":  "NORMAL",
+    "context":  "Ground",
+    "sourceNote":  "Procedure identity/category/order normalized from \u0027DHC-6 Full Drill Procedure Index Normal Split.xlsx\u0027. Excel is the governing app display allow-list. Existing procedure steps preserved for later content review. Previous note: Generic training callout structure based on user-provided Section 4 normal-procedure titles and generated PF/PM MCC callouts. Not an approved AFM/POH/checklist replacement.",
+    "variants":  {
+                     "LEGACY":  {
+                                    "memory":  [
+                                                   {
+                                                       "stepNumber":  1,
+                                                       "action":  "FLIGHT INSTRUMENTS - SET",
+                                                       "crewRole":  "PF",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.4.5 Cockpit Preparation"
+                                                   },
+                                                   {
+                                                       "stepNumber":  2,
+                                                       "action":  "NAVIGATION / RADIOS - SET",
+                                                       "crewRole":  "PF",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.4.5 Cockpit Preparation"
+                                                   },
+                                                   {
+                                                       "stepNumber":  3,
+                                                       "action":  "TRIMS / DEPARTURE DATA - SET",
+                                                       "crewRole":  "PF",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.4.5 Cockpit Preparation"
+                                                   },
+                                                   {
+                                                       "stepNumber":  4,
+                                                       "action":  "SWITCHES / CIRCUIT BREAKERS - CHECKED",
+                                                       "crewRole":  "PM",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.4.5 Cockpit Preparation"
+                                                   },
+                                                   {
+                                                       "stepNumber":  5,
+                                                       "action":  "FUEL SELECTORS / ELECTRICAL STATUS - CHECKED",
+                                                       "crewRole":  "PM",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.4.5 Cockpit Preparation"
+                                                   },
+                                                   {
+                                                       "stepNumber":  6,
+                                                       "action":  "REQUIRED INDICATIONS - CHECKED",
+                                                       "crewRole":  "PM",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.4.5 Cockpit Preparation"
+                                                   },
+                                                   {
+                                                       "stepNumber":  7,
+                                                       "action":  "FLIGHT CONTROLS - FREE AND CORRECT",
+                                                       "crewRole":  "PF",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.4.5 Cockpit Preparation"
+                                                   },
+                                                   {
+                                                       "stepNumber":  8,
+                                                       "action":  "DEPARTURE BRIEFING - COMPLETE",
+                                                       "crewRole":  "PF",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.4.5 Cockpit Preparation"
+                                                   }
+                                               ],
+                                    "flow":  [
+                                                 {
+                                                     "stepNumber":  1,
+                                                     "action":  "Cockpit preparation.",
+                                                     "crewRole":  "PF",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.4.5; PF_CALL"
+                                                 },
+                                                 {
+                                                     "stepNumber":  2,
+                                                     "action":  "Set flight instruments, navigation, radios, trims, and departure data.",
+                                                     "crewRole":  "PF",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.4.5"
+                                                 },
+                                                 {
+                                                     "stepNumber":  3,
+                                                     "action":  "Cross-check switches, circuit breakers, fuel selectors, electrical status, and required indications.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.4.5"
+                                                 },
+                                                 {
+                                                     "stepNumber":  4,
+                                                     "action":  "Flight controls.",
+                                                     "crewRole":  "PF",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.4.5; PF_CHALLENGE"
+                                                 },
+                                                 {
+                                                     "stepNumber":  5,
+                                                     "action":  "Free and correct.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.4.5; PM_RESPONSE"
+                                                 },
+                                                 {
+                                                     "stepNumber":  6,
+                                                     "action":  "Departure briefing.",
+                                                     "crewRole":  "PF",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.4.5; PF_CALL"
+                                                 },
+                                                 {
+                                                     "stepNumber":  7,
+                                                     "action":  "Ready.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.4.5; PM_RESPONSE"
+                                                 },
+                                                 {
+                                                     "stepNumber":  8,
+                                                     "action":  "Cockpit preparation complete.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.4.5; PM_COMPLETION"
+                                                 }
+                                             ]
+                                },
+                     "G950":  {
+                                  "memory":  [
+                                                 {
+                                                     "stepNumber":  1,
+                                                     "action":  "FLIGHT INSTRUMENTS - SET",
+                                                     "crewRole":  "PF",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.4.5 Cockpit Preparation"
+                                                 },
+                                                 {
+                                                     "stepNumber":  2,
+                                                     "action":  "NAVIGATION / RADIOS - SET",
+                                                     "crewRole":  "PF",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.4.5 Cockpit Preparation"
+                                                 },
+                                                 {
+                                                     "stepNumber":  3,
+                                                     "action":  "TRIMS / DEPARTURE DATA - SET",
+                                                     "crewRole":  "PF",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.4.5 Cockpit Preparation"
+                                                 },
+                                                 {
+                                                     "stepNumber":  4,
+                                                     "action":  "SWITCHES / CIRCUIT BREAKERS - CHECKED",
+                                                     "crewRole":  "PM",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.4.5 Cockpit Preparation"
+                                                 },
+                                                 {
+                                                     "stepNumber":  5,
+                                                     "action":  "FUEL SELECTORS / ELECTRICAL STATUS - CHECKED",
+                                                     "crewRole":  "PM",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.4.5 Cockpit Preparation"
+                                                 },
+                                                 {
+                                                     "stepNumber":  6,
+                                                     "action":  "REQUIRED INDICATIONS - CHECKED",
+                                                     "crewRole":  "PM",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.4.5 Cockpit Preparation"
+                                                 },
+                                                 {
+                                                     "stepNumber":  7,
+                                                     "action":  "FLIGHT CONTROLS - FREE AND CORRECT",
+                                                     "crewRole":  "PF",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.4.5 Cockpit Preparation"
+                                                 },
+                                                 {
+                                                     "stepNumber":  8,
+                                                     "action":  "DEPARTURE BRIEFING - COMPLETE",
+                                                     "crewRole":  "PF",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.4.5 Cockpit Preparation"
+                                                 }
+                                             ],
+                                  "flow":  [
+                                               {
+                                                   "stepNumber":  1,
+                                                   "action":  "Cockpit preparation.",
+                                                   "crewRole":  "PF",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.4.5; PF_CALL"
+                                               },
+                                               {
+                                                   "stepNumber":  2,
+                                                   "action":  "Set flight instruments, navigation, radios, trims, and departure data.",
+                                                   "crewRole":  "PF",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.4.5"
+                                               },
+                                               {
+                                                   "stepNumber":  3,
+                                                   "action":  "Cross-check switches, circuit breakers, fuel selectors, electrical status, and required indications.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.4.5"
+                                               },
+                                               {
+                                                   "stepNumber":  4,
+                                                   "action":  "Flight controls.",
+                                                   "crewRole":  "PF",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.4.5; PF_CHALLENGE"
+                                               },
+                                               {
+                                                   "stepNumber":  5,
+                                                   "action":  "Free and correct.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.4.5; PM_RESPONSE"
+                                               },
+                                               {
+                                                   "stepNumber":  6,
+                                                   "action":  "Departure briefing.",
+                                                   "crewRole":  "PF",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.4.5; PF_CALL"
+                                               },
+                                               {
+                                                   "stepNumber":  7,
+                                                   "action":  "Ready.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.4.5; PM_RESPONSE"
+                                               },
+                                               {
+                                                   "stepNumber":  8,
+                                                   "action":  "Cockpit preparation complete.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Normal MCC PF/PM callout pack; Section 4.4.5; PM_COMPLETION"
+                                               }
+                                           ]
+                              },
+                     "manualSection":  "Section 4",
+                     "sourceSection":  "4.4.5"
+                 },
+    "phaseTag":  "Ground",
+    "displayLabel":  "Cockpit Preparation [Ground]",
+    "sortOrder":  5,
+    "sourceSection":  "4.4.5",
+    "procedureGroup":  "Preparation and Inspection",
+    "manualSection":  "Section 4",
+    "sequenceBasis":  "Normal-procedure flow order",
+    "normalSplit":  "Everyday Actions"
+}

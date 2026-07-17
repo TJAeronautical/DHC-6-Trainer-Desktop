@@ -1,0 +1,359 @@
+{
+    "rawName":  "After Landing",
+    "drillName":  "After Landing [Ground]",
+    "category":  "NORMAL",
+    "context":  "Ground",
+    "variants":  {
+                     "LEGACY":  {
+                                    "memory":  [
+                                                   {
+                                                       "stepNumber":  1,
+                                                       "action":  "FLAPS - UP",
+                                                       "crewRole":  "PF",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.18 After Landing"
+                                                   },
+                                                   {
+                                                       "stepNumber":  2,
+                                                       "action":  "UNNECESSARY ELECTRICAL EQUIPMENT - OFF",
+                                                       "crewRole":  "PF",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.18 After Landing"
+                                                   },
+                                                   {
+                                                       "stepNumber":  3,
+                                                       "action":  "DE-ICE EQUIPMENT - OFF IF NOT REQUIRED FOR TAXI",
+                                                       "crewRole":  "PF",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.18 After Landing"
+                                                   },
+                                                   {
+                                                       "stepNumber":  4,
+                                                       "action":  "ANTI-COLL (STROBE) - OFF IF APPLICABLE",
+                                                       "crewRole":  "PF",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 4.18 After Landing"
+                                                   }
+                                               ],
+                                    "flow":  [
+                                                 {
+                                                     "stepNumber":  1,
+                                                     "action":  "(Clear of runway) After landing checklist.",
+                                                     "crewRole":  "PF",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  true,
+                                                     "reference":  "POH / AFM Section 4.18 After Landing; PF_CALL"
+                                                 },
+                                                 {
+                                                     "stepNumber":  2,
+                                                     "action":  "After landing checklist.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.18 After Landing; PM_RESPONSE"
+                                                 },
+                                                 {
+                                                     "stepNumber":  3,
+                                                     "action":  "Flaps - Up.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE_AND_DO",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.18 After Landing"
+                                                 },
+                                                 {
+                                                     "stepNumber":  4,
+                                                     "action":  "Unnecessary electrical equipment - Off.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE_AND_DO",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.18 After Landing"
+                                                 },
+                                                 {
+                                                     "stepNumber":  5,
+                                                     "action":  "De-ice equipment - Off if not required for taxi.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE_AND_DO",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.18 After Landing"
+                                                 },
+                                                 {
+                                                     "stepNumber":  6,
+                                                     "action":  "Anti-coll strobe - Off if applicable.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE_AND_DO",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.18 After Landing"
+                                                 },
+                                                 {
+                                                     "stepNumber":  7,
+                                                     "action":  "After landing checklist complete.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  true,
+                                                     "reference":  "POH / AFM Section 4.18 After Landing; PM_CALL"
+                                                 },
+                                                 {
+                                                     "stepNumber":  8,
+                                                     "action":  "Checked.",
+                                                     "crewRole":  "PF",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.18 After Landing; PF_RESPONSE"
+                                                 }
+                                             ],
+                                    "G950":  {
+                                                 "flow":  [
+                                                              {
+                                                                  "stepNumber":  1,
+                                                                  "action":  "(Clear of runway) After landing checklist.",
+                                                                  "crewRole":  "PF",
+                                                                  "intent":  "ANNOUNCE",
+                                                                  "requiresConfirmation":  true,
+                                                                  "reference":  "POH / AFM Section 4.18 After Landing; PF_CALL"
+                                                              },
+                                                              {
+                                                                  "stepNumber":  2,
+                                                                  "action":  "After landing checklist.",
+                                                                  "crewRole":  "PM",
+                                                                  "intent":  "ANNOUNCE",
+                                                                  "requiresConfirmation":  false,
+                                                                  "reference":  "POH / AFM Section 4.18 After Landing; PM_RESPONSE"
+                                                              },
+                                                              {
+                                                                  "stepNumber":  3,
+                                                                  "action":  "Flaps - Up.",
+                                                                  "crewRole":  "PM",
+                                                                  "intent":  "ANNOUNCE_AND_DO",
+                                                                  "requiresConfirmation":  false,
+                                                                  "reference":  "POH / AFM Section 4.18 After Landing"
+                                                              },
+                                                              {
+                                                                  "stepNumber":  4,
+                                                                  "action":  "Unnecessary electrical equipment - Off.",
+                                                                  "crewRole":  "PM",
+                                                                  "intent":  "ANNOUNCE_AND_DO",
+                                                                  "requiresConfirmation":  false,
+                                                                  "reference":  "POH / AFM Section 4.18 After Landing"
+                                                              },
+                                                              {
+                                                                  "stepNumber":  5,
+                                                                  "action":  "De-ice equipment - Off if not required for taxi.",
+                                                                  "crewRole":  "PM",
+                                                                  "intent":  "ANNOUNCE_AND_DO",
+                                                                  "requiresConfirmation":  false,
+                                                                  "reference":  "POH / AFM Section 4.18 After Landing"
+                                                              },
+                                                              {
+                                                                  "stepNumber":  6,
+                                                                  "action":  "Anti-coll strobe - Off if applicable.",
+                                                                  "crewRole":  "PM",
+                                                                  "intent":  "ANNOUNCE_AND_DO",
+                                                                  "requiresConfirmation":  false,
+                                                                  "reference":  "POH / AFM Section 4.18 After Landing"
+                                                              },
+                                                              {
+                                                                  "stepNumber":  7,
+                                                                  "action":  "After landing checklist complete.",
+                                                                  "crewRole":  "PM",
+                                                                  "intent":  "ANNOUNCE",
+                                                                  "requiresConfirmation":  true,
+                                                                  "reference":  "POH / AFM Section 4.18 After Landing; PM_CALL"
+                                                              },
+                                                              {
+                                                                  "stepNumber":  8,
+                                                                  "action":  "Checked.",
+                                                                  "crewRole":  "PF",
+                                                                  "intent":  "ANNOUNCE",
+                                                                  "requiresConfirmation":  false,
+                                                                  "reference":  "POH / AFM Section 4.18 After Landing; PF_RESPONSE"
+                                                              }
+                                                          ]
+                                             },
+                                    "sourceNote":  "Procedure identity/category/order normalized from \u0027DHC-6 Full Drill Procedure Index Normal Split.xlsx\u0027. Excel is the governing app display allow-list. Existing procedure steps preserved for later content review. Previous note: Generic training callout structure based on user-provided Section 4 normal-procedure titles and generated PF/PM MCC callouts. Not an approved AFM/POH/checklist replacement.",
+                                    "phaseTag":  "Ground",
+                                    "displayLabel":  "After Landing [Ground]",
+                                    "sortOrder":  103,
+                                    "sourceSection":  "4.18",
+                                    "procedureGroup":  "After Landing",
+                                    "manualSection":  "Section 4",
+                                    "sequenceBasis":  "Normal-procedure flow order"
+                                },
+                     "G950":  {
+                                  "memory":  [
+                                                 {
+                                                     "stepNumber":  1,
+                                                     "action":  "FLAPS - UP",
+                                                     "crewRole":  "PF",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.18 After Landing"
+                                                 },
+                                                 {
+                                                     "stepNumber":  2,
+                                                     "action":  "UNNECESSARY ELECTRICAL EQUIPMENT - OFF",
+                                                     "crewRole":  "PF",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.18 After Landing"
+                                                 },
+                                                 {
+                                                     "stepNumber":  3,
+                                                     "action":  "DE-ICE EQUIPMENT - OFF IF NOT REQUIRED FOR TAXI",
+                                                     "crewRole":  "PF",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.18 After Landing"
+                                                 },
+                                                 {
+                                                     "stepNumber":  4,
+                                                     "action":  "ANTI-COLL (STROBE) - OFF IF APPLICABLE",
+                                                     "crewRole":  "PF",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 4.18 After Landing"
+                                                 }
+                                             ],
+                                  "flow":  [
+                                               {
+                                                   "stepNumber":  1,
+                                                   "action":  "(Clear of runway) After landing checklist.",
+                                                   "crewRole":  "PF",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  true,
+                                                   "reference":  "POH / AFM Section 4.18 After Landing; PF_CALL"
+                                               },
+                                               {
+                                                   "stepNumber":  2,
+                                                   "action":  "After landing checklist.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "POH / AFM Section 4.18 After Landing; PM_RESPONSE"
+                                               },
+                                               {
+                                                   "stepNumber":  3,
+                                                   "action":  "Flaps - Up.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE_AND_DO",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "POH / AFM Section 4.18 After Landing"
+                                               },
+                                               {
+                                                   "stepNumber":  4,
+                                                   "action":  "Unnecessary electrical equipment - Off.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE_AND_DO",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "POH / AFM Section 4.18 After Landing"
+                                               },
+                                               {
+                                                   "stepNumber":  5,
+                                                   "action":  "De-ice equipment - Off if not required for taxi.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE_AND_DO",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "POH / AFM Section 4.18 After Landing"
+                                               },
+                                               {
+                                                   "stepNumber":  6,
+                                                   "action":  "Anti-coll strobe - Off if applicable.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE_AND_DO",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "POH / AFM Section 4.18 After Landing"
+                                               },
+                                               {
+                                                   "stepNumber":  7,
+                                                   "action":  "After landing checklist complete.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  true,
+                                                   "reference":  "POH / AFM Section 4.18 After Landing; PM_CALL"
+                                               },
+                                               {
+                                                   "stepNumber":  8,
+                                                   "action":  "Checked.",
+                                                   "crewRole":  "PF",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "POH / AFM Section 4.18 After Landing; PF_RESPONSE"
+                                               }
+                                           ],
+                                  "G950":  {
+                                               "flow":  [
+                                                            {
+                                                                "stepNumber":  1,
+                                                                "action":  "(Clear of runway) After landing checklist.",
+                                                                "crewRole":  "PF",
+                                                                "intent":  "ANNOUNCE",
+                                                                "requiresConfirmation":  true,
+                                                                "reference":  "POH / AFM Section 4.18 After Landing; PF_CALL"
+                                                            },
+                                                            {
+                                                                "stepNumber":  2,
+                                                                "action":  "After landing checklist.",
+                                                                "crewRole":  "PM",
+                                                                "intent":  "ANNOUNCE",
+                                                                "requiresConfirmation":  false,
+                                                                "reference":  "POH / AFM Section 4.18 After Landing; PM_RESPONSE"
+                                                            },
+                                                            {
+                                                                "stepNumber":  3,
+                                                                "action":  "Flaps - Up.",
+                                                                "crewRole":  "PM",
+                                                                "intent":  "ANNOUNCE_AND_DO",
+                                                                "requiresConfirmation":  false,
+                                                                "reference":  "POH / AFM Section 4.18 After Landing"
+                                                            },
+                                                            {
+                                                                "stepNumber":  4,
+                                                                "action":  "Unnecessary electrical equipment - Off.",
+                                                                "crewRole":  "PM",
+                                                                "intent":  "ANNOUNCE_AND_DO",
+                                                                "requiresConfirmation":  false,
+                                                                "reference":  "POH / AFM Section 4.18 After Landing"
+                                                            },
+                                                            {
+                                                                "stepNumber":  5,
+                                                                "action":  "De-ice equipment - Off if not required for taxi.",
+                                                                "crewRole":  "PM",
+                                                                "intent":  "ANNOUNCE_AND_DO",
+                                                                "requiresConfirmation":  false,
+                                                                "reference":  "POH / AFM Section 4.18 After Landing"
+                                                            },
+                                                            {
+                                                                "stepNumber":  6,
+                                                                "action":  "Anti-coll strobe - Off if applicable.",
+                                                                "crewRole":  "PM",
+                                                                "intent":  "ANNOUNCE_AND_DO",
+                                                                "requiresConfirmation":  false,
+                                                                "reference":  "POH / AFM Section 4.18 After Landing"
+                                                            },
+                                                            {
+                                                                "stepNumber":  7,
+                                                                "action":  "After landing checklist complete.",
+                                                                "crewRole":  "PM",
+                                                                "intent":  "ANNOUNCE",
+                                                                "requiresConfirmation":  true,
+                                                                "reference":  "POH / AFM Section 4.18 After Landing; PM_CALL"
+                                                            },
+                                                            {
+                                                                "stepNumber":  8,
+                                                                "action":  "Checked.",
+                                                                "crewRole":  "PF",
+                                                                "intent":  "ANNOUNCE",
+                                                                "requiresConfirmation":  false,
+                                                                "reference":  "POH / AFM Section 4.18 After Landing; PF_RESPONSE"
+                                                            }
+                                                        ]
+                                           }
+                              },
+                     "sourceNote":  "Procedure identity/category/order normalized from DHC-6 normal procedure index. Content review against POH / AFM Section 4.18 required before operational use.",
+                     "phaseTag":  "Ground",
+                     "displayLabel":  "After Landing [Ground]",
+                     "sortOrder":  103,
+                     "procedureGroup":  "After Landing",
+                     "manualSection":  "Section 4",
+                     "sequenceBasis":  "Normal-procedure flow order",
+                     "sourceSection":  "4.18"
+                 },
+    "sourceSection":  "4.18",
+    "sortOrder":  19,
+    "normalSplit":  "Everyday Actions"
+}

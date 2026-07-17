@@ -1,0 +1,291 @@
+{
+    "rawName":  "Normal Air Start",
+    "drillName":  "Normal Air Start [Airborne]",
+    "category":  "NORMAL",
+    "context":  "Airborne",
+    "variants":  {
+                     "LEGACY":  {
+                                    "memory":  [
+                                                   {
+                                                       "stepNumber":  1,
+                                                       "action":  "NORMAL AIR START - IDENTIFIED",
+                                                       "crewRole":  "PM",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 3.3.5 Normal Air Start"
+                                                   },
+                                                   {
+                                                       "stepNumber":  2,
+                                                       "action":  "FLIGHT PATH - MAINTAINED",
+                                                       "crewRole":  "PF",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 3.3.5 Normal Air Start"
+                                                   },
+                                                   {
+                                                       "stepNumber":  3,
+                                                       "action":  "CONDITION / AFFECTED SYSTEM - CONFIRMED",
+                                                       "crewRole":  "PF",
+                                                       "requiresConfirmation":  true,
+                                                       "reference":  "POH / AFM Section 3.3.5 Normal Air Start"
+                                                   },
+                                                   {
+                                                       "stepNumber":  4,
+                                                       "action":  "ENGINE / SYSTEM INDICATIONS - MONITORED",
+                                                       "crewRole":  "PM",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 3.3.5 Normal Air Start"
+                                                   },
+                                                   {
+                                                       "stepNumber":  5,
+                                                       "action":  "TERRAIN / TRAFFIC / CONFIGURATION - MONITORED",
+                                                       "crewRole":  "PM",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 3.3.5 Normal Air Start"
+                                                   },
+                                                   {
+                                                       "stepNumber":  6,
+                                                       "action":  "NORMAL AIR START CHECKLIST - COMPLETE",
+                                                       "crewRole":  "PM",
+                                                       "requiresConfirmation":  false,
+                                                       "reference":  "POH / AFM Section 3.3.5 Normal Air Start"
+                                                   }
+                                               ],
+                                    "flow":  [
+                                                 {
+                                                     "stepNumber":  1,
+                                                     "action":  "Normal Air Start.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.3.5; PM_CALLOUT"
+                                                 },
+                                                 {
+                                                     "stepNumber":  2,
+                                                     "action":  "I have control, maintain flight path.",
+                                                     "crewRole":  "PF",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.3.5; PF_COMMAND"
+                                                 },
+                                                 {
+                                                     "stepNumber":  3,
+                                                     "action":  "Abnormal procedure: Normal Air Start.",
+                                                     "crewRole":  "PF",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.3.5; PF_COMMAND"
+                                                 },
+                                                 {
+                                                     "stepNumber":  4,
+                                                     "action":  "Abnormal procedure: Normal Air Start.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.3.5; PM_RESPONSE"
+                                                 },
+                                                 {
+                                                     "stepNumber":  5,
+                                                     "action":  "Confirm condition and affected system.",
+                                                     "crewRole":  "PF",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  true,
+                                                     "reference":  "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.3.5; PF_COMMAND"
+                                                 },
+                                                 {
+                                                     "stepNumber":  6,
+                                                     "action":  "Condition confirmed, affected system identified.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  true,
+                                                     "reference":  "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.3.5; PM_RESPONSE"
+                                                 },
+                                                 {
+                                                     "stepNumber":  7,
+                                                     "action":  "Memory items if applicable.",
+                                                     "crewRole":  "PF",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.3.5; PF_COMMAND"
+                                                 },
+                                                 {
+                                                     "stepNumber":  8,
+                                                     "action":  "Monitor aircraft state, engine/system indications, terrain, traffic, and configuration.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.3.5; PM_ACTION"
+                                                 },
+                                                 {
+                                                     "stepNumber":  9,
+                                                     "action":  "Checklist.",
+                                                     "crewRole":  "PF",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.3.5; PF_COMMAND"
+                                                 },
+                                                 {
+                                                     "stepNumber":  10,
+                                                     "action":  "Normal Air Start checklist.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.3.5; PM_RESPONSE"
+                                                 },
+                                                 {
+                                                     "stepNumber":  11,
+                                                     "action":  "Normal Air Start checklist complete.",
+                                                     "crewRole":  "PM",
+                                                     "intent":  "ANNOUNCE",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.3.5; PM_COMPLETION"
+                                                 }
+                                             ]
+                                },
+                     "G950":  {
+                                  "memory":  [
+                                                 {
+                                                     "stepNumber":  1,
+                                                     "action":  "NORMAL AIR START - IDENTIFIED",
+                                                     "crewRole":  "PM",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 3.3.5 Normal Air Start"
+                                                 },
+                                                 {
+                                                     "stepNumber":  2,
+                                                     "action":  "FLIGHT PATH - MAINTAINED",
+                                                     "crewRole":  "PF",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 3.3.5 Normal Air Start"
+                                                 },
+                                                 {
+                                                     "stepNumber":  3,
+                                                     "action":  "CONDITION / AFFECTED SYSTEM - CONFIRMED",
+                                                     "crewRole":  "PF",
+                                                     "requiresConfirmation":  true,
+                                                     "reference":  "POH / AFM Section 3.3.5 Normal Air Start"
+                                                 },
+                                                 {
+                                                     "stepNumber":  4,
+                                                     "action":  "ENGINE / SYSTEM INDICATIONS - MONITORED",
+                                                     "crewRole":  "PM",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 3.3.5 Normal Air Start"
+                                                 },
+                                                 {
+                                                     "stepNumber":  5,
+                                                     "action":  "TERRAIN / TRAFFIC / CONFIGURATION - MONITORED",
+                                                     "crewRole":  "PM",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 3.3.5 Normal Air Start"
+                                                 },
+                                                 {
+                                                     "stepNumber":  6,
+                                                     "action":  "NORMAL AIR START CHECKLIST - COMPLETE",
+                                                     "crewRole":  "PM",
+                                                     "requiresConfirmation":  false,
+                                                     "reference":  "POH / AFM Section 3.3.5 Normal Air Start"
+                                                 }
+                                             ],
+                                  "flow":  [
+                                               {
+                                                   "stepNumber":  1,
+                                                   "action":  "Normal Air Start.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.3.5; PM_CALLOUT"
+                                               },
+                                               {
+                                                   "stepNumber":  2,
+                                                   "action":  "I have control, maintain flight path.",
+                                                   "crewRole":  "PF",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.3.5; PF_COMMAND"
+                                               },
+                                               {
+                                                   "stepNumber":  3,
+                                                   "action":  "Abnormal procedure: Normal Air Start.",
+                                                   "crewRole":  "PF",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.3.5; PF_COMMAND"
+                                               },
+                                               {
+                                                   "stepNumber":  4,
+                                                   "action":  "Abnormal procedure: Normal Air Start.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.3.5; PM_RESPONSE"
+                                               },
+                                               {
+                                                   "stepNumber":  5,
+                                                   "action":  "Confirm condition and affected system.",
+                                                   "crewRole":  "PF",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  true,
+                                                   "reference":  "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.3.5; PF_COMMAND"
+                                               },
+                                               {
+                                                   "stepNumber":  6,
+                                                   "action":  "Condition confirmed, affected system identified.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  true,
+                                                   "reference":  "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.3.5; PM_RESPONSE"
+                                               },
+                                               {
+                                                   "stepNumber":  7,
+                                                   "action":  "Memory items if applicable.",
+                                                   "crewRole":  "PF",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.3.5; PF_COMMAND"
+                                               },
+                                               {
+                                                   "stepNumber":  8,
+                                                   "action":  "Monitor aircraft state, engine/system indications, terrain, traffic, and configuration.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.3.5; PM_ACTION"
+                                               },
+                                               {
+                                                   "stepNumber":  9,
+                                                   "action":  "Checklist.",
+                                                   "crewRole":  "PF",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.3.5; PF_COMMAND"
+                                               },
+                                               {
+                                                   "stepNumber":  10,
+                                                   "action":  "Normal Air Start checklist.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.3.5; PM_RESPONSE"
+                                               },
+                                               {
+                                                   "stepNumber":  11,
+                                                   "action":  "Normal Air Start checklist complete.",
+                                                   "crewRole":  "PM",
+                                                   "intent":  "ANNOUNCE",
+                                                   "requiresConfirmation":  false,
+                                                   "reference":  "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.3.5; PM_COMPLETION"
+                                               }
+                                           ]
+                              },
+                     "manualSection":  "Section 3",
+                     "sourceSection":  "3.3.5"
+                 },
+    "sourceNote":  "Procedure identity/category/order normalized from \u0027DHC-6 Full Drill Procedure Index Normal Split.xlsx\u0027. Excel is the governing app display allow-list. Existing procedure steps preserved for later content review. Previous note: Generic MCC callout shell generated from procedure titles only. This is not an approved AFM/POH/QRH/checklist replacement. Curated to the DHC-6 Trainer Abnormal/Emergency procedure allow-list.",
+    "phaseTag":  "Airborne",
+    "displayLabel":  "Normal Air Start [Airborne]",
+    "sortOrder":  34,
+    "sourceSection":  "3.3.5",
+    "procedureGroup":  "Engine Failure / Restart",
+    "manualSection":  "Section 3",
+    "sequenceBasis":  "User-approved working order",
+    "normalSplit":  "Weather / Special Conditions"
+}

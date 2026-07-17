@@ -1,0 +1,39 @@
+{
+  "model": "nosewheel_steering_training.glb",
+  "mode": "mesh",
+  "matchOrder": "mesh_first",
+  "note": "Validated semantic mesh map. Uses actual GLB node/mesh names; no Circle/Plane placeholder names remain.",
+  "regions": [
+    {
+      "id": "nosewheel_and_hub",
+      "meshes": [
+        "nosewheel_tire",
+        "nosewheel_axle",
+        "steering_reference_plate"
+      ]
+    },
+    {
+      "id": "steering_actuator_linkage",
+      "meshes": [
+        "steering_arm_left",
+        "steering_arm_right",
+        "steering_collar"
+      ]
+    },
+    {
+      "id": "strut_leg",
+      "meshes": [
+        "nose_strut_cylinder",
+        "nose_strut_piston"
+      ]
+    },
+    {
+      "id": "upper_torque_arm_collar",
+      "meshes": [
+        "torque_link_upper",
+        "torque_link_lower",
+        "steering_collar"
+      ]
+    }
+  ]
+}

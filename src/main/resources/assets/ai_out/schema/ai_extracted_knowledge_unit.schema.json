@@ -1,0 +1,320 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://dhc6trainer.app/schema/ai_extracted_knowledge_unit.schema.json",
+  "title": "AI Extracted Knowledge Unit (with provenance)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "extraction",
+    "source",
+    "unit"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "type": "string",
+      "enum": [
+        "2.0"
+      ]
+    },
+    "extraction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "extractionId",
+        "createdAtUtc",
+        "model"
+      ],
+      "properties": {
+        "extractionId": {
+          "type": "string"
+        },
+        "createdAtUtc": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "model": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "provider",
+            "name"
+          ],
+          "properties": {
+            "provider": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "version": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "documentId",
+        "title",
+        "type"
+      ],
+      "properties": {
+        "documentId": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "PDF",
+            "IMAGE",
+            "TEXT"
+          ]
+        },
+        "revision": {
+          "type": "string"
+        },
+        "effectiveDate": {
+          "type": "string",
+          "format": "date"
+        }
+      }
+    },
+    "unit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "unitId",
+        "title",
+        "kind",
+        "variant",
+        "tags",
+        "content"
+      ],
+      "properties": {
+        "unitId": {
+          "type": "string",
+          "pattern": "^[a-z0-9_\\-.]{3,128}$"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "DEFINITION",
+            "LIMITATION",
+            "SYSTEM_DESCRIPTION",
+            "NOTE",
+            "CAUTION",
+            "WARNING",
+            "TECHNIQUE"
+          ]
+        },
+        "variant": {
+          "type": "string",
+          "enum": [
+            "LEGACY",
+            "G950",
+            "BOTH"
+          ]
+        },
+        "tags": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9_\\-.]{2,64}$"
+          }
+        },
+        "system": {
+          "type": "string",
+          "description": "Optional high-level system name (e.g., ENGINE, FUEL, ELECTRICAL)."
+        },
+        "content": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "text"
+          ],
+          "properties": {
+            "text": {
+              "type": "string",
+              "minLength": 1
+            },
+            "bullets": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "values": {
+              "type": "array",
+              "description": "Optional structured values (limits, speeds, temps).",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "label",
+                  "value"
+                ],
+                "properties": {
+                  "label": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  },
+                  "units": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "links": {
+          "type": "array",
+          "description": "Optional links to runtime procedure ids or cockpit references.",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "refType",
+              "refId"
+            ],
+            "properties": {
+              "refType": {
+                "type": "string",
+                "enum": [
+                  "PROCEDURE_ID",
+                  "HITBOX_ID",
+                  "CAS_MESSAGE",
+                  "ANNUNCIATOR"
+                ]
+              },
+              "refId": {
+                "type": "string"
+              },
+              "confidence": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              }
+            }
+          }
+        },
+        "provenance": {
+          "$ref": "#/definitions/provenance"
+        },
+        "quality": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "confidence": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "issues": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "code",
+                  "message"
+                ],
+                "properties": {
+                  "code": {
+                    "type": "string",
+                    "enum": [
+                      "OCR_NOISE",
+                      "AMBIGUOUS_LIMIT",
+                      "MISSING_UNITS",
+                      "CONFLICTING_TEXT"
+                    ]
+                  },
+                  "message": {
+                    "type": "string"
+                  },
+                  "severity": {
+                    "type": "string",
+                    "enum": [
+                      "INFO",
+                      "WARN",
+                      "ERROR"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "page"
+      ],
+      "properties": {
+        "page": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "region": {
+          "$ref": "#/definitions/region"
+        },
+        "textQuote": {
+          "type": "string"
+        },
+        "sectionHint": {
+          "type": "string"
+        }
+      }
+    },
+    "region": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "x",
+        "y",
+        "w",
+        "h"
+      ],
+      "properties": {
+        "x": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "y": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "w": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "h": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    }
+  }
+}

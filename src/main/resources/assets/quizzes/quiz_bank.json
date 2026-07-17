@@ -1,0 +1,835 @@
+{
+  "schemaVersion": "1.0.0",
+  "source": "DHC-6 Twin Otter Series 300 POH/AFM Rev 53 and FCTM ISS 03 REV 02",
+  "note": "Bundled offline fallback question bank. Questions are used to seed the Knowledge database on first run when connectivity is unavailable.",
+  "questions": [
+    {
+      "id": "qb_pp01",
+      "title": "What are the T5 limits for take-off on the PT6A-34 (derated)?",
+      "content": "790\u00b0C take-off and max continuous; 765\u00b0C recommended max climb; 740\u00b0C recommended max cruise; 685\u00b0C idle limit.",
+      "system": "POWERPLANT",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "CRITICAL"
+    },
+    {
+      "id": "qb_pp02",
+      "title": "What is the maximum sustained torque for both the PT6A-27 and PT6A-34?",
+      "content": "50 psi maximum. Acceleration limit only: 68.7 psi for 2 seconds.",
+      "system": "POWERPLANT",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "CRITICAL"
+    },
+    {
+      "id": "qb_pp03",
+      "title": "What is the maximum NG (gas generator speed)?",
+      "content": "101.5%. Acceleration transient: 102.6% for 2 seconds. Reduce NG at 2.2% per 10\u00b0C below \u221230\u00b0C ambient.",
+      "system": "POWERPLANT",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "CRITICAL"
+    },
+    {
+      "id": "qb_pp04",
+      "title": "What is the normal oil pressure range on the PT6A-27?",
+      "content": "80\u2013100 psi above 72% NG with oil temp 60\u201370\u00b0C. Below 40 psi is UNSAFE \u2014 engine shutdown or land immediately.",
+      "system": "POWERPLANT",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "CRITICAL"
+    },
+    {
+      "id": "qb_pp05",
+      "title": "Why must the oil level be checked within 10 minutes of shutdown?",
+      "content": "After more than 10 minutes, oil drains from the upper galleries and gives a false low reading. Dry-motor for 30 seconds first if more than 10 minutes have elapsed.",
+      "system": "POWERPLANT",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "HIGH"
+    },
+    {
+      "id": "qb_pp06",
+      "title": "What is the PT6A-27 oil tank capacity?",
+      "content": "2.3 USG total, 1.5 USG usable. Maximum consumption: 0.2 lb/hr (approximately 1 quart per 10 hours).",
+      "system": "POWERPLANT",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "HIGH"
+    },
+    {
+      "id": "qb_pp07",
+      "title": "Why is the PT6A called a reverse-airflow engine?",
+      "content": "Air enters the rear of the engine and exhaust exits at the front via two side stacks. The airflow makes four complete direction reversals between inlet and exhaust.",
+      "system": "POWERPLANT",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "HIGH"
+    },
+    {
+      "id": "qb_pp08",
+      "title": "What does Station 5 represent on the PT6A?",
+      "content": "The inter-turbine position between the compressor turbine and the power turbine. T5 (ITT) is measured here.",
+      "system": "POWERPLANT",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "HIGH"
+    },
+    {
+      "id": "qb_pp09",
+      "title": "What is the compressor turbine connected to?",
+      "content": "Only the compressor shaft (NG shaft) and the accessory gearbox. It is NOT connected to the propeller or the power turbine shaft.",
+      "system": "POWERPLANT",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "HIGH"
+    },
+    {
+      "id": "qb_pp10",
+      "title": "What does 100% NG equal in RPM on the PT6A-27?",
+      "content": "37,500 RPM. At idle, approximately 19,500 RPM.",
+      "system": "POWERPLANT",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "MEDIUM"
+    },
+    {
+      "id": "qb_pp11",
+      "title": "What is the effect of extending the intake deflectors?",
+      "content": "The inertial separator deflects air through a sharp turn, separating ice/water/particulate. Performance penalty: approximately 1\u20132 psi torque drop; T5 rises if torque is re-adjusted to original value.",
+      "system": "POWERPLANT",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "HIGH"
+    },
+    {
+      "id": "qb_pp12",
+      "title": "What is the T5 starting limit on the PT6A-27?",
+      "content": "1090\u00b0C for 2 seconds maximum. 925\u00b0C sustained. Above 850\u00b0C on start must be reported and investigated.",
+      "system": "POWERPLANT",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "CRITICAL"
+    },
+    {
+      "id": "qb_pp13",
+      "title": "What is the maximum reverse thrust time limit?",
+      "content": "1 minute. At ambient temperatures at or above 32\u00b0C the aircraft must be headed into wind during reverse operations.",
+      "system": "POWERPLANT",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "HIGH"
+    },
+    {
+      "id": "qb_pp14",
+      "title": "Where is P3 bleed air taken from?",
+      "content": "From the engine compressor case bleed ports immediately after the centrifugal compressor stage (Station 3). Used for cabin heating, de-ice, and airframe pneumatic services.",
+      "system": "POWERPLANT",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "HIGH"
+    },
+    {
+      "id": "qb_pp15",
+      "title": "What does the Compressor Bleed Valve (CBV) do?",
+      "content": "Bleeds compressor air overboard at low NG speeds to prevent compressor surge. Normally open at idle, closes at approximately 90% NG. If stuck open during take-off: calculated torque is not achievable and T5 rises excessively.",
+      "system": "POWERPLANT",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "HIGH"
+    },
+    {
+      "id": "qb_pr01",
+      "title": "What is the propeller blade pitch range?",
+      "content": "From -15\u00b0 (full reverse) to +87\u00b0 (feather).",
+      "system": "PROPELLER",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "HIGH"
+    },
+    {
+      "id": "qb_pr02",
+      "title": "What are the three forces that drive the propeller blades toward feather?",
+      "content": "1. Internal feathering springs. 2. Centrifugal counterweights. 3. Aerodynamic twisting moment (ATM). All three act simultaneously when oil pressure is removed.",
+      "system": "PROPELLER",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "CRITICAL"
+    },
+    {
+      "id": "qb_pr03",
+      "title": "What does the overspeed governor do and at what speed does it activate?",
+      "content": "It limits NP to 101.5%. Operates independently of the CSU primary governor. Automatic \u2014 dumps propeller oil pressure if NP reaches 101.5%.",
+      "system": "PROPELLER",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "CRITICAL"
+    },
+    {
+      "id": "qb_pr04",
+      "title": "What does the NF fuel-topping governor do in reverse?",
+      "content": "Limits NP to 91% in reverse, preventing the propeller from entering the CSU governing range and keeping blade angle under beta reverse valve control.",
+      "system": "PROPELLER",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "HIGH"
+    },
+    {
+      "id": "qb_pr05",
+      "title": "What are the three arming conditions for the autofeather system?",
+      "content": "1. PROP AUTO FEATHER switch ON. 2. Both power levers above 86\u201388% NG microswitch. 3. Torque on both engines above the arming threshold (18\u201330 psi). All three must be simultaneously met.",
+      "system": "PROPELLER",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "CRITICAL"
+    },
+    {
+      "id": "qb_pr06",
+      "title": "What triggers autofeather activation?",
+      "content": "Torque on one engine drops below 11 psi for 2 seconds. The 2-second delay prevents spurious activation.",
+      "system": "PROPELLER",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "CRITICAL"
+    },
+    {
+      "id": "qb_pr07",
+      "title": "During which flight phases is autofeather approved?",
+      "content": "Take-off only. Must be armed for take-off and disarmed before approach and landing.",
+      "system": "PROPELLER",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "CRITICAL"
+    },
+    {
+      "id": "qb_pr08",
+      "title": "What is the purpose of blade latches on float aircraft?",
+      "content": "Spring-loaded latches arrest the propeller blades at approximately +1\u00b0 during shutdown at zero-thrust to prevent blade contact with water during mooring. Centrifugal force disengages them at approximately 30% NP on the next start.",
+      "system": "PROPELLER",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "HIGH"
+    },
+    {
+      "id": "qb_pr09",
+      "title": "What does BETA light illumination indicate?",
+      "content": "Normal beta oil pressure has been lost. The beta backup system has activated and is routing engine oil to the propeller hub beta piston. The backup provides limited beta control but NO feathering capability.",
+      "system": "PROPELLER",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "CRITICAL"
+    },
+    {
+      "id": "qb_pr10",
+      "title": "What is the CSU governor output pressure?",
+      "content": "Approximately 385 psi. The CSU governor pump is driven by the NP shaft.",
+      "system": "PROPELLER",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "MEDIUM"
+    },
+    {
+      "id": "qb_fu01",
+      "title": "Which tank feeds which engine under NORM?",
+      "content": "FWD tank feeds the RIGHT engine. AFT tank feeds the LEFT engine.",
+      "system": "FUEL",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "CRITICAL"
+    },
+    {
+      "id": "qb_fu02",
+      "title": "What are the usable fuel capacities?",
+      "content": "FWD: 1,235 lb (686 L / 181 USG). AFT: 1,341 lb (756 L / 197 USG). Total: 2,576 lb without tip tanks.",
+      "system": "FUEL",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "CRITICAL"
+    },
+    {
+      "id": "qb_fu03",
+      "title": "At what altitude does dual boost pump failure risk engine flameout?",
+      "content": "Above 8,000 ft. Below 8,000 ft the engine-driven HP pump may sustain operation. Air start can be attempted below 20,000 ft once boost pump pressure is restored.",
+      "system": "FUEL",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "CRITICAL"
+    },
+    {
+      "id": "qb_fu04",
+      "title": "What is the boost pump nominal output?",
+      "content": "450 lb/hr at 22 psi. The auto-changeover from No.1 to No.2 occurs when pressure drops to approximately 2\u20133 psi.",
+      "system": "FUEL",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "HIGH"
+    },
+    {
+      "id": "qb_fu05",
+      "title": "What does the ejector (jet pump) do?",
+      "content": "Excess boost pump output is routed through a venturi ejector. The venturi effect draws fuel from the three feeder cells into the collector cell, keeping it full.",
+      "system": "FUEL",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "HIGH"
+    },
+    {
+      "id": "qb_fu06",
+      "title": "When BOOST1 PR CAS illuminates but BOOST2 PR does NOT \u2014 what action is required?",
+      "content": "Pull the No.1 boost pump circuit breaker. No STBY EMER switch action needed \u2014 auto-changeover has already worked. Operating the STBY switch when not needed can complicate crossfeed management.",
+      "system": "FUEL",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "CRITICAL"
+    },
+    {
+      "id": "qb_fu07",
+      "title": "What does the FUEL LOW LEVEL CAS indicate?",
+      "content": "Approximately 200 lb remaining in the affected collector cell. A brief flicker on take-off rotation is normal. A steady illumination in flight requires immediate action.",
+      "system": "FUEL",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "HIGH"
+    },
+    {
+      "id": "qb_fu08",
+      "title": "What does fuel transfer failure mean and when does the FUEL LOW LEVEL light illuminate?",
+      "content": "The ejector or level control valve is blocked, so fuel levels decline equally in all four cells. The FUEL LOW LEVEL light illuminates at approximately 330 lb remaining (vs ~200 lb for normal operation).",
+      "system": "FUEL",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "HIGH"
+    },
+    {
+      "id": "qb_hy01",
+      "title": "What is the normal hydraulic pressure range on a post-Mod 6/1570 aircraft?",
+      "content": "1,225\u20131,625 psi.",
+      "system": "HYDRAULICS",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "CRITICAL"
+    },
+    {
+      "id": "qb_hy02",
+      "title": "What is the nitrogen precharge pressure for both accumulators?",
+      "content": "750 psi for both the system (damping) accumulator and the brake accumulator.",
+      "system": "HYDRAULICS",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "HIGH"
+    },
+    {
+      "id": "qb_hy03",
+      "title": "How many hand pump strokes are required to reach 1,500 psi?",
+      "content": "30 to 40 strokes.",
+      "system": "HYDRAULICS",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "HIGH"
+    },
+    {
+      "id": "qb_hy04",
+      "title": "What is the system relief valve setting?",
+      "content": "1,750 psi. Opens if the electric pump runs continuously due to pressure switch failure.",
+      "system": "HYDRAULICS",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "HIGH"
+    },
+    {
+      "id": "qb_hy05",
+      "title": "Is it acceptable to have zero hydraulic pressure in cruise?",
+      "content": "Yes \u2014 with flaps retracted, air loads maintain flap position. But pressure must be restored to approximately 1,500 psi before any flap extension.",
+      "system": "HYDRAULICS",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "HIGH"
+    },
+    {
+      "id": "qb_hy06",
+      "title": "What must you do after landing with a failed hydraulic pump?",
+      "content": "Do not retract flaps until the aircraft has come to a full stop and the parking brake is set. Retracting flaps while moving could deplete the remaining accumulator pressure needed for braking.",
+      "system": "HYDRAULICS",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "HIGH"
+    },
+    {
+      "id": "qb_hy07",
+      "title": "What bus powers the hydraulic electric pump?",
+      "content": "Left DC bus. Loss of the left DC bus means the hydraulic pump stops.",
+      "system": "HYDRAULICS",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "HIGH"
+    },
+    {
+      "id": "qb_el01",
+      "title": "What is the normal DC bus voltage?",
+      "content": "28 VDC. Each starter-generator rated 200 amps DC.",
+      "system": "ELECTRICAL",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "CRITICAL"
+    },
+    {
+      "id": "qb_el02",
+      "title": "What does the bus tie relay do?",
+      "content": "When one generator fails, the bus tie relay (if at NORMAL) connects both DC buses together, allowing the remaining generator to supply both buses.",
+      "system": "ELECTRICAL",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "HIGH"
+    },
+    {
+      "id": "qb_el03",
+      "title": "What are the consequences of both generators failing?",
+      "content": "The aircraft operates on battery power only. Battery endurance is limited. Avionics life depends on battery state. Land immediately. Attempt generator reset \u2014 maximum one reset per generator.",
+      "system": "ELECTRICAL",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "CRITICAL"
+    },
+    {
+      "id": "qb_el04",
+      "title": "Which bus powers the fire detection and fire extinguishing systems?",
+      "content": "Left DC bus only. Both systems are inoperative if the DC MASTER switch is OFF or left DC bus power is unavailable.",
+      "system": "ELECTRICAL",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "CRITICAL"
+    },
+    {
+      "id": "qb_fp01",
+      "title": "Does pulling the FIRE PULL handle shut off the fuel supply?",
+      "content": "No. Pulling the handle only discharges the fire extinguisher. The fuel supply must be shut off separately using the fuel lever (CUTOFF) and fuel emergency switch (OFF) before discharging the bottle.",
+      "system": "FIRE_PROTECTION",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "CRITICAL"
+    },
+    {
+      "id": "qb_fp02",
+      "title": "What does the yellow discharge disc indicate?",
+      "content": "Deliberate discharge by normal system operation \u2014 the FIRE PULL handle was pulled and the bottle was discharged intentionally.",
+      "system": "FIRE_PROTECTION",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "HIGH"
+    },
+    {
+      "id": "qb_fp03",
+      "title": "What does the red discharge disc indicate?",
+      "content": "Thermal relief valve has opened \u2014 the bottle contents vented overboard due to excessive thermal expansion pressure (bottle temperature reached 98\u2013104\u00b0C).",
+      "system": "FIRE_PROTECTION",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "HIGH"
+    },
+    {
+      "id": "qb_fp04",
+      "title": "Can the fire extinguisher bottles be cross-fed between engines?",
+      "content": "No. Left and right engine systems are completely independent.",
+      "system": "FIRE_PROTECTION",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "CRITICAL"
+    },
+    {
+      "id": "qb_fp05",
+      "title": "What are the Engine Fire In Flight memory items (8 steps in order)?",
+      "content": "1. MAX POWER (good engine). 2. Confirm/retard power lever (affected). 3. Prop lever FEATHER. 4. Fuel lever CUTOFF. 5. Fuel Emergency OFF. 6. FIRE PULL/PUSH (discharge switch). 7. Fire extinguisher DISCHARGE. 8. Boost pump OFF.",
+      "system": "FIRE_PROTECTION",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "CRITICAL"
+    },
+    {
+      "id": "qb_fc01",
+      "title": "What is the stall bar and can it be deferred?",
+      "content": "A metal bar on the left wing leading edge that disrupts airflow at high angles of attack, causing a tactile buffet on the elevator as stall warning. It is MANDATORY and cannot be deferred if missing.",
+      "system": "FLIGHT_CONTROLS",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "CRITICAL"
+    },
+    {
+      "id": "qb_fc02",
+      "title": "What is the flap-elevator interconnect trim tab?",
+      "content": "An automatic mechanical linkage between the flap actuator and the trim tab on the right elevator. It compensates for pitch change during flap operation automatically \u2014 it cannot be overridden or controlled by the crew.",
+      "system": "FLIGHT_CONTROLS",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "HIGH"
+    },
+    {
+      "id": "qb_fc03",
+      "title": "What is VFE for flaps above 10\u00b0?",
+      "content": "95 KCAS / 93 KIAS.",
+      "system": "FLIGHT_CONTROLS",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "CRITICAL"
+    },
+    {
+      "id": "qb_fc04",
+      "title": "What is the procedure for aileron trim tab runaway?",
+      "content": "Reduce speed if necessary, operate the aileron trim switch in the appropriate direction until control force is relieved, then pull the AIL TRIM ACT circuit breaker.",
+      "system": "FLIGHT_CONTROLS",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "HIGH"
+    },
+    {
+      "id": "qb_lm01",
+      "title": "What is the MTOW of the DHC-6 Series 300?",
+      "content": "12,500 lb (5,670 kg). Maximum landing weight: 12,300 lb. Maximum ramp/dock weight: 12,585 lb.",
+      "system": "GENERAL",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "CRITICAL"
+    },
+    {
+      "id": "qb_lm02",
+      "title": "What is VMC for the DHC-6 landplane and what does it represent?",
+      "content": "66 KCAS. The minimum airspeed at which directional control can be maintained with the critical engine inoperative, maximum power on the live engine, and maximum 5\u00b0 bank toward the live engine.",
+      "system": "GENERAL",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "CRITICAL"
+    },
+    {
+      "id": "qb_lm03",
+      "title": "What is VYSE and where is it marked on the ASI?",
+      "content": "82 KIAS (landplane). Blue radial on the ASI. This is best single-engine rate-of-climb speed \u2014 the target speed for any OEI climb.",
+      "system": "GENERAL",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "CRITICAL"
+    },
+    {
+      "id": "qb_lm04",
+      "title": "What is the CG range for take-off and landing (simplified QRH limits)?",
+      "content": "Forward: 207.74 in arm (25% MAC) at all weights. Aft: 213.20 in arm (32% MAC) at all weights. Reference datum: 60 in forward of front fuselage bulkhead.",
+      "system": "GENERAL",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "CRITICAL"
+    },
+    {
+      "id": "qb_lm05",
+      "title": "What is the approved fuel type for the PT6A-27?",
+      "content": "JET A or JET A-1 (standard). JET B, JP-4, JP-8 approved. AVGAS is not approved.",
+      "system": "FUEL",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "CRITICAL"
+    },
+    {
+      "id": "qb_lm06",
+      "title": "What is the OEI service ceiling at ISA+15\u00b0C, 12,400 lb?",
+      "content": "4,000 ft at 100 fpm rate of climb. Absolute OEI ceiling: 6,500 ft at 0 fpm.",
+      "system": "GENERAL",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "HIGH"
+    },
+    {
+      "id": "qb_lm07",
+      "title": "What is the maximum operating altitude (Manta Air operation)?",
+      "content": "10,000 ft without supplemental oxygen for the flight crew. 8,000 ft with an inoperative fuel boost pump.",
+      "system": "GENERAL",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "CRITICAL"
+    },
+    {
+      "id": "qb_lm08",
+      "title": "What is the forward baggage compartment weight limit?",
+      "content": "300 lb \u2014 reduced by the weight of equipment installed forward of fuselage station 44.",
+      "system": "GENERAL",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "HIGH"
+    },
+    {
+      "id": "qb_fl01",
+      "title": "What is VMC on the DHC-6 floatplane configuration?",
+      "content": "67 KCAS (red radial on the float ASI). Higher than landplane due to aft CG effects from float loading.",
+      "system": "LANDING_GEAR_FLOATS",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "CRITICAL"
+    },
+    {
+      "id": "qb_fl02",
+      "title": "What is the minimum water depth for the Wipline 13000 floats at MTOW?",
+      "content": "29 inches water draft at 12,500 lb. At approximately 8,500 lb: 24.5 inches.",
+      "system": "LANDING_GEAR_FLOATS",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "CRITICAL"
+    },
+    {
+      "id": "qb_fl03",
+      "title": "How does hydraulic system failure affect float aircraft operations?",
+      "content": "Minimal impact on water \u2014 floats have no brakes and no nose wheel steering. Hydraulic pressure on floats is used for flaps only. Loss of pressure means flapless landing only.",
+      "system": "LANDING_GEAR_FLOATS",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "HIGH"
+    },
+    {
+      "id": "qb_in01",
+      "title": "What are the three levels of the G950 Crew Alerting System?",
+      "content": "WARNING (red \u2014 immediate crew action), CAUTION (amber \u2014 awareness and QRH action), ADVISORY (white \u2014 information only). New alerts since last scan are shown in reverse video.",
+      "system": "INDICATIONS_ALERTING",
+      "aircraftVariant": "G950",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "HIGH"
+    },
+    {
+      "id": "qb_in02",
+      "title": "What does the G950 MFD engine page display?",
+      "content": "NG (%), NP (%), T5 (\u00b0C), Torque (psi), Fuel Flow (lb/hr), Oil Pressure (psi), Oil Temperature (\u00b0C), and Fuel Quantity (lb) for both engines.",
+      "system": "INDICATIONS_ALERTING",
+      "aircraftVariant": "G950",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "HIGH"
+    },
+    {
+      "id": "qb_ot01",
+      "title": "Why must you turn toward the live engine after an engine failure?",
+      "content": "Turning toward the dead engine at low airspeed significantly increases the risk of VMC roll because the critical banking direction reduces effective sideslip toward the live engine and can cause asymmetric stall.",
+      "system": "OPERATIONS_TECHNIQUES",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "CRITICAL"
+    },
+    {
+      "id": "qb_ot02",
+      "title": "What factors increase VMC?",
+      "content": "Aft CG (shortens rudder arm), less flap (less drag opposing yaw), lighter weight in banked flight (higher stall speed), higher altitude (less trust moment). The most critical condition: aft CG + flaps retracted + lightly loaded.",
+      "system": "OPERATIONS_TECHNIQUES",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "HIGH"
+    },
+    {
+      "id": "qb_ot03",
+      "title": "What is the beta range?",
+      "content": "Propeller blade angles from approximately +17\u00b0 to -15\u00b0. In this range, the power lever controls blade angle directly through the beta reverse valve \u2014 the CSU governor is bypassed. Beta range is available ONLY on the ground.",
+      "system": "OPERATIONS_TECHNIQUES",
+      "aircraftVariant": "BOTH",
+      "tags": [
+        "STATUS:CANDIDATE",
+        "SOURCE:QUIZ_BANK"
+      ],
+      "importanceLevel": "CRITICAL"
+    }
+  ]
+}

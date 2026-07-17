@@ -1,0 +1,179 @@
+{
+  "schemaId": "flashcard_deck",
+  "schemaVersion": "1.0.0",
+  "deckId": "hydraulic_system_core",
+  "deckName": "Hydraulic System — Core",
+  "description": "Bundled hydraulic cards for pump control, pressure, hand pump use, leakage logic, brakes, flaps and steering.",
+  "systemId": "hydraulics",
+  "variant": "BOTH",
+  "difficulty": "INTERMEDIATE",
+  "cards": [
+    {
+      "id": "pressure_switch_controls_pump",
+      "front": "What controls normal hydraulic pump operation?",
+      "back": "The pressure switch controls electric pump operation.",
+      "tags": [
+        "hydraulics",
+        "pump"
+      ],
+      "references": [
+        {
+          "source": "DHC6_FLASHCARDS_FILE",
+          "locator": "Q35"
+        }
+      ]
+    },
+    {
+      "id": "hand_pump_pressure_switch",
+      "front": "Does the pressure switch affect the standby hand pump?",
+      "back": "No. The pressure switch has no effect on hand pump operation.",
+      "tags": [
+        "hydraulics",
+        "hand-pump"
+      ],
+      "references": [
+        {
+          "source": "DHC6_FLASHCARDS_FILE",
+          "locator": "Q36"
+        }
+      ]
+    },
+    {
+      "id": "leak_pump_off",
+      "front": "Why turn off the electric pump if hydraulic leakage is suspected?",
+      "back": "To preserve as much hydraulic fluid as possible for hand pump operation.",
+      "tags": [
+        "hydraulics",
+        "leak"
+      ],
+      "references": [
+        {
+          "source": "DHC6_FLASHCARDS_FILE",
+          "locator": "Q37"
+        }
+      ]
+    },
+    {
+      "id": "reservoir_capacity",
+      "front": "What is the approximate hydraulic reservoir capacity?",
+      "back": "Approximately two thirds of a U.S. gallon, just over 2 litres.",
+      "tags": [
+        "hydraulics",
+        "reservoir"
+      ],
+      "references": [
+        {
+          "source": "DHC6_FLASHCARDS_FILE",
+          "locator": "Q39"
+        }
+      ]
+    },
+    {
+      "id": "hydraulic_fluid_type",
+      "front": "What hydraulic fluid type is used?",
+      "back": "MIL-H-5606 hydraulic fluid, red in colour.",
+      "tags": [
+        "hydraulics",
+        "fluid"
+      ],
+      "references": [
+        {
+          "source": "DHC6_FLASHCARDS_FILE",
+          "locator": "Q40"
+        }
+      ]
+    },
+    {
+      "id": "normal_pressure_range",
+      "front": "What is the normal hydraulic pressure range?",
+      "back": "Approximately 1250 to 1600 PSI.",
+      "tags": [
+        "hydraulics",
+        "pressure"
+      ],
+      "references": [
+        {
+          "source": "DHC6_FLASHCARDS_FILE",
+          "locator": "Q48"
+        }
+      ]
+    },
+    {
+      "id": "frequent_cycling_action",
+      "front": "What is an appropriate action if the hydraulic system cycles frequently?",
+      "back": "Turn off the electric pump and preserve fluid for hand pump operation.",
+      "tags": [
+        "hydraulics",
+        "leak",
+        "pump"
+      ],
+      "references": [
+        {
+          "source": "DHC6_FLASHCARDS_FILE",
+          "locator": "Q49"
+        }
+      ]
+    },
+    {
+      "id": "hyd_pump_power_source",
+      "front": "Which bus powers the hydraulic pump and hydraulic pump fail light?",
+      "back": "The left hand DC bus powers both the hydraulic pump and the hydraulic pump fail light.",
+      "tags": [
+        "hydraulics",
+        "electrical"
+      ],
+      "references": [
+        {
+          "source": "DHC6_FLASHCARDS_FILE",
+          "locator": "Q50-Q51"
+        }
+      ]
+    },
+    {
+      "id": "hyd_cb_reset",
+      "front": "Should a popped hydraulic pump circuit breaker be reset in flight?",
+      "back": "No. The pump may have seized.",
+      "tags": [
+        "hydraulics",
+        "circuit-breaker"
+      ],
+      "references": [
+        {
+          "source": "DHC6_FLASHCARDS_FILE",
+          "locator": "Q52"
+        }
+      ]
+    },
+    {
+      "id": "flap_selector_pressure",
+      "front": "Why may no pressure build while hand-pumping flaps if selector and indication disagree?",
+      "back": "Pressure cannot build until the selector valve and actual flap setting agree; pressure builds when the flaps reach the selected position, provided fluid remains.",
+      "tags": [
+        "hydraulics",
+        "flaps",
+        "hand-pump"
+      ],
+      "references": [
+        {
+          "source": "DHC6_FLASHCARDS_FILE",
+          "locator": "Q53-Q54"
+        }
+      ]
+    },
+    {
+      "id": "systems_using_hydraulics",
+      "front": "Name four systems using aircraft hydraulic pressure.",
+      "back": "Brakes, flaps, steering, and skis if installed.",
+      "tags": [
+        "hydraulics",
+        "systems"
+      ],
+      "references": [
+        {
+          "source": "DHC6_FLASHCARDS_FILE",
+          "locator": "Q70"
+        }
+      ]
+    }
+  ]
+}

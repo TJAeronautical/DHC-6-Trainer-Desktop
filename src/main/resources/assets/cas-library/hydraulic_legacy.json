@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0.0",
+  "profileId": "dhc6-legacy-hydraulic",
+  "variant": "LEGACY",
+  "messages": [
+    {
+      "display": "HYD LOW PRESS",
+      "canonicalId": "HYD_PUMP_LOW_PRESSURE",
+      "level": "CAUTION",
+      "meaning": "Hydraulic system pressure below normal. Pump failure or fluid loss.",
+      "immediate": "HYD HAND PUMP OPERATE (30\u201340 strokes to 1500 psi). If pressure rises: pump failed \u2014 check CB. Maintain 1500 psi with flaps extended.",
+      "qrhRef": "QRH Section 7.1 HD-1"
+    },
+    {
+      "display": "HYD PUMP INOP",
+      "canonicalId": "HYD_PUMP_CBR_OPEN",
+      "level": "CAUTION",
+      "meaning": "HYD OIL PUMP circuit breaker open.",
+      "immediate": "Do not reset CB in flight. Use hand pump.",
+      "qrhRef": "FCTM 6.5.11"
+    }
+  ]
+}

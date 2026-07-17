@@ -1,0 +1,164 @@
+{
+  "schemaId": "system_description",
+  "schemaVersion": "1.0.0",
+  "systemId": "powerplant",
+  "systemName": "PT6A-27 Powerplant",
+  "variant": "BOTH",
+  "summary": "The DHC-6 Series 300 is powered by two Pratt & Whitney Canada PT6A-27 free-turbine turboprop engines, flat-rated at 620 SHP to ISA+18°C. The PT6A is a reverse-airflow design: air enters at the rear and exhausts at the front, making four complete flow reversals. Because the compressor turbine and the power turbine are not mechanically connected, NG and NP operate independently — the fundamental free-turbine characteristic that drives many abnormal procedures.",
+  "references": [
+    {"source":"FCTM","locator":"Chapter 6.4 Powerplant, pages 6-30 to 6-54","revision":"ISS 03 / REV 02 (Dec 2022)"},
+    {"source":"POH_AFM","locator":"Section 2.4 Engine Limitations, pages 2-14 to 2-23","revision":"Rev 53 (10 Sep 2010)"},
+    {"source":"POH_AFM","locator":"Section 7.13 Engine Description, pages 7-96 to 7-105","revision":"Rev 53 (10 Sep 2010)"},
+    {"source":"QRH","locator":"Section 13 Power Plant Limitations, pages PL-1 to PL-2","revision":"HBFO-002 ISS 01 REV 02"}
+  ],
+  "modificationVariants": [
+    {
+      "id":"pt6a34_derated",
+      "name":"PT6A-34 (Derated) — Some Fleet Aircraft",
+      "serialRange":"Some later Series 300 aircraft",
+      "description":"Derated to 620 SHP. Key differences: T5 limits higher (T/O 790°C vs 725°C; climb 765°C; cruise 740°C). Oil pressure normal range 85–105 psi vs 80–100 psi. Confirm engine data plate.",
+      "references":[{"source":"QRH","locator":"Section 13.2, p.PL-3"}]
+    },
+    {
+      "id":"g950_eis",
+      "name":"G950 Electronic Indication System",
+      "serialRange":"Manta Air G950-equipped fleet",
+      "description":"Engine parameters shown on G950 MFD engine page. CAS messages replace annunciator lights. FIRE PUSH TO DISCHARGE switch replaces FIRE PULL handle.",
+      "references":[{"source":"FCTM","locator":"6.4.8.1, p.6-46"}]
+    }
+  ],
+  "components": [
+    {
+      "id":"air_inlet","name":"Air Inlet Section (Station 1)",
+      "description":"Circular aluminium alloy annular inlet at rear of engine. Mesh screen excludes large FOD. Intake deflector (inertial separator) excludes water, ice, and particulate when extended. Extension penalty: ~1–2 psi torque drop, T5 rises if torque re-adjusted.",
+      "references":[{"source":"FCTM","locator":"6.4.3.3.1–3.3.3, p.6-36–37"}]
+    },
+    {
+      "id":"compressor","name":"Compressor Section (Stations 2–3)",
+      "description":"Three axial + one centrifugal stage on a common shaft. Stn 2 = entry. Stn 2.5 = between axial and centrifugal. Stn 3 = exit and P3 bleed source. 100% NG = 37,500 RPM; idle ≈ 19,500 RPM.",
+      "specifications":{"stages":"3 axial + 1 centrifugal","ng_100pct_rpm":"37,500","ng_idle_rpm":"~19,500"},
+      "references":[{"source":"FCTM","locator":"6.4.3.3.4, p.6-37"}]
+    },
+    {
+      "id":"compressor_bleed_valve","name":"Compressor Bleed Valve (CBV)",
+      "description":"Automatic pneumatic valve; open at low NG to prevent compressor surge; closes at ~90% NG. Stuck open during take-off: calculated torque unachievable, T5 rises excessively. Reject take-off if CBV fails to close.",
+      "references":[{"source":"FCTM","locator":"6.4.3.3.5, p.6-38"},{"source":"FCTM","locator":"6.4.8.6.1, p.6-48"}]
+    },
+    {
+      "id":"combustion_chamber","name":"Combustion Section (Station 3→4)",
+      "description":"Annular reverse-flow chamber. 14 fuel nozzles (10 primary + 4 secondary). Two glow plug igniters (low-energy, not spark). Self-sustaining flame after light-off.",
+      "references":[{"source":"FCTM","locator":"6.4.3.3.6, p.6-38"}]
+    },
+    {
+      "id":"turbine_section","name":"Turbine Section (Stations 4–5–7)",
+      "description":"(1) Compressor turbine (single stage): drives compressor shaft and accessory gearbox — NOT connected to propeller. (2) Power turbine (single stage, FREE turbine): drives propeller via reduction gearbox. Not mechanically connected to compressor turbine. Station 5 is between the two turbines — T5 is measured here.",
+      "references":[{"source":"FCTM","locator":"6.4.3.3.7–8, p.6-38"}]
+    },
+    {
+      "id":"exhaust_section","name":"Exhaust Section",
+      "description":"After the power turbine, gases travel forward and exit through two side-mounted exhaust stacks — one each side of the nacelle. Forward-facing exhaust is the visual signature of the reverse-airflow PT6.",
+      "references":[{"source":"FCTM","locator":"6.4.3.3.9, p.6-39"}]
+    },
+    {
+      "id":"reduction_gearbox","name":"Reduction Gearbox and Torquemeter",
+      "description":"At the front of the engine. ~15:1 reduction of NP shaft speed to propeller RPM. Contains the torquemeter: measures torque transmitted to propeller as oil pressure (0–50 psi, red radial). Torque is the primary power-setting reference.",
+      "specifications":{"reduction_ratio":"~15:1","torquemeter_range_psi":"0–50"},
+      "references":[{"source":"FCTM","locator":"6.4.3.3.10, p.6-39"},{"source":"POH_AFM","locator":"Section 2.4.6.1, p.2-21"}]
+    },
+    {
+      "id":"accessory_gearbox","name":"Accessory Gearbox",
+      "description":"At the rear of the engine, driven by NG shaft. Mounts the starter-generator, oil pumps, HP fuel pump, FCU, NG tachometer, and optional accessories.",
+      "references":[{"source":"FCTM","locator":"6.4.3.3.11, p.6-39"}]
+    },
+    {
+      "id":"fcu","name":"Fuel Control Unit (FCU)",
+      "description":"On the accessory gearbox. Meters fuel to combustion chamber in response to power lever position, P3 pressure, and NG speed. Contains NG governor, NF (fuel-topping) governor, and fuel cutoff valve (operated by fuel lever).",
+      "references":[{"source":"FCTM","locator":"6.4.6.1, p.6-43"}]
+    },
+    {
+      "id":"oil_system","name":"Engine Oil System",
+      "description":"Pressure/scavenge/breather. Synthetic oil. Tank: 2.3 USG total, 1.5 USG usable (integral with compressor inlet case). Lubricates bearings, gearboxes; supplies fuel heater, propeller governor, and torquemeter. Max consumption: 0.2 lb/hr (~1 qt per 10 hr). Check oil within 10 min of shutdown; dry-motor if >10 min elapsed.",
+      "specifications":{"oil_tank_total_usg":"2.3","oil_tank_usable_usg":"1.5","max_consumption_lb_hr":"0.2"},
+      "references":[{"source":"FCTM","locator":"6.4.5, p.6-41–42"}]
+    },
+    {
+      "id":"ignition","name":"Ignition System (Glow Plugs)",
+      "description":"Two glow plug igniters per engine (NOT spark igniters despite ENG IGNITER label). ENG IGNITER switch: always BOTH for normal operations; NO.1 / NO.2 for maintenance only. Manual continuous ignition via IGNITION switch → MANUAL position.",
+      "references":[{"source":"FCTM","locator":"6.4.7, p.6-45"}]
+    }
+  ],
+  "controls": [
+    {
+      "id":"power_lever","name":"Power Lever (L/R)",
+      "positions":["MAX","CRUISE (variable)","IDLE","BETA (twist+aft, ground only)","REVERSE"],
+      "description":"Primary fuel flow control in forward flight. Below idle: blade angle controlled via beta reverse valve. In-flight use aft of IDLE is PROHIBITED.",
+      "references":[{"source":"FCTM","locator":"6.4.6.1, p.6-43"}]
+    },
+    {
+      "id":"fuel_lever","name":"Fuel Lever (L/R)",
+      "positions":["RUN","CUTOFF"],
+      "description":"Controls fuel cutoff valve. CUTOFF stops fuel flow → engine shutdown. Prop feathers automatically as oil pressure decays.",
+      "references":[{"source":"FCTM","locator":"6.4.6.1, p.6-43"}]
+    },
+    {
+      "id":"intake_deflectors","name":"Intake Deflectors (L/R)",
+      "positions":["RETRACTED","EXTENDED"],
+      "description":"Inertial separator for water/ice/particulate exclusion. Performance penalty when extended: ~1–2 psi torque drop, T5 rise if power re-adjusted.",
+      "references":[{"source":"FCTM","locator":"6.4.3.3.3, p.6-37"}]
+    },
+    {
+      "id":"start_switch","name":"START Switch",
+      "positions":["OFF","LEFT","RIGHT"],
+      "description":"Engages starter-generator as motor, connects glow plugs, opens fuel valve. Release at approximately 50–55% NG once engine self-sustaining.",
+      "references":[{"source":"FCTM","locator":"6.4.7, p.6-45"}]
+    }
+  ],
+  "limits": [
+    {
+      "id":"t5_takeoff","parameter":"T5 — Take-Off and Max Continuous",
+      "value":"725°C (PT6A-27) / 790°C (PT6A-34 derated)",
+      "note":"Yellow caution arc 695–725°C. Red segment above 725°C. Idle limit 660°C (not marked on gauge).",
+      "references":[{"source":"POH_AFM","locator":"Section 2.4.1.1 and 2.4.6.2, p.2-16 and 2-21"}]
+    },
+    {
+      "id":"t5_start","parameter":"T5 — Starting",
+      "value":"1090°C maximum (2-second limit)",
+      "note":"925°C no time limit for start duration. 980°C: must drop below 980 within 2 sec. Above 850°C: report and investigate.",
+      "references":[{"source":"FCTM","locator":"6.4.4.1 Note 8, p.6-40"}]
+    },
+    {
+      "id":"ng_max","parameter":"Maximum NG",
+      "value":"101.5%",
+      "note":"Acceleration transient: 102.6% for 2 seconds maximum. Cold weather: reduce max by 2.2% per 10°C below -30°C.",
+      "references":[{"source":"POH_AFM","locator":"Section 2.4.1, p.2-15"}]
+    },
+    {
+      "id":"torque_max","parameter":"Maximum Torque (Sustained)",
+      "value":"50 psi",
+      "note":"Acceleration limit: 68.7 psi for 2 seconds. Red radial on torque gauge.",
+      "references":[{"source":"POH_AFM","locator":"Section 2.4.6.1, p.2-21"}]
+    },
+    {
+      "id":"oil_pressure","parameter":"Oil Pressure — Normal (NG > 72%, oil temp 60–70°C)",
+      "value":"80–100 psi (PT6A-27) / 85–105 psi (PT6A-34)",
+      "note":"Below normal: undesirable, land at reduced power. Below 40 psi: UNSAFE — shut down or land immediately. 40–80 psi: ground ops only.",
+      "references":[{"source":"FCTM","locator":"6.4.4.1 Note 3, p.6-40"}]
+    },
+    {
+      "id":"oil_temperature","parameter":"Oil Temperature",
+      "value":"10°C to 99°C (take-off); recommended 74–80°C for service life; min 55°C for fuel heater at T/O",
+      "references":[{"source":"FCTM","locator":"6.4.4.1 Note 4, p.6-40"}]
+    },
+    {
+      "id":"reverse_time","parameter":"Reverse Thrust — Time Limit",
+      "value":"1 minute maximum",
+      "note":"Aircraft must be headed into wind in ambient ≥32°C.",
+      "references":[{"source":"FCTM","locator":"6.4.4.1 CAUTION, p.6-40"}]
+    },
+    {
+      "id":"shp","parameter":"Rated Power","value":"620 SHP (flat-rated to ISA+18°C); 680 SHP nominal",
+      "references":[{"source":"POH_AFM","locator":"Section 2.4.1, p.2-15"}]
+    }
+  ],
+  "casMessageRefs":["T5_HIGH_L","T5_HIGH_R","NG_HIGH_L","NG_HIGH_R","OIL_PRESS_L","OIL_PRESS_R","FIRE_L","FIRE_R","CBV_FAIL"]
+}
