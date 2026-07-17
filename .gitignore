@@ -6,6 +6,7 @@ out/
 # IDE and local workspace state
 .idea/
 *.iml
+local.properties
 .agents/
 .codex/
 

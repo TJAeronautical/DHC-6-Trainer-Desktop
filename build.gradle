@@ -29,7 +29,12 @@ dependencies {
 }
 
 def desktopGeneratedResources = layout.buildDirectory.dir("generated/desktopResources")
-def coreAssetsDir = file("../core-res/src/main/assets")
+def coreAssetsCandidates = [
+        file("../core-res/src/main/assets"),
+        file("../DHC-6-Trainer/core-res/src/main/assets"),
+        file("src/main/resources/assets")
+]
+def coreAssetsDir = coreAssetsCandidates.find { it.exists() } ?: coreAssetsCandidates.first()
 
 tasks.register("generateDesktopProcedureIndex") {
     def outputFile = layout.buildDirectory.file("generated/desktopResources/desktop-procedure-index.txt")
