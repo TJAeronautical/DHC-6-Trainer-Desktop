@@ -171,6 +171,25 @@ fun main() {
                 "${aircraft.liveryTitles.size} liveries, ${aircraft.panelConfigCount} panel configs, visual=$visual"
             }
         }
+    val localXPlaneAircraft = XPlaneTwinOtterVariantLibrary.loadAuto()
+    check("Local X-Plane Twin Otter interiors") {
+        if (localXPlaneAircraft.isEmpty()) {
+            "not present (skipped)"
+        } else {
+            localXPlaneAircraft.joinToString {
+                "${it.id}: cockpit=${it.cockpitObjectEntry != null}, objects=${it.objectCount}"
+            }
+        }
+    }
+    localXPlaneAircraft.forEach { aircraft ->
+        check("${aircraft.label} OBJ8 geometry") {
+            val loaded = XPlaneObj8Loader.loadAircraft(assets, aircraft)
+                ?: throw IllegalStateException("OBJ8 load returned null")
+            val cockpitGeometries = countGeometries(loaded.cockpitNode)
+            val exteriorGeometries = countGeometries(loaded.root) - cockpitGeometries
+            "$exteriorGeometries exterior geometries, $cockpitGeometries cockpit geometries"
+        }
+    }
     check("X-Plane VRMM scenery package") {
         val scenery = XPlaneSceneryLibrary.loadAuto() ?: return@check "not present (skipped)"
         "${scenery.statusBadge}, ${scenery.pavements.size} pavements"

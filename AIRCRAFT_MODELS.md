@@ -1,5 +1,32 @@
 # Replacing the DHC-6-300 and DHC-6-400 Models
 
+## Trainer-colour Wheels model
+
+The **Wheels** selector uses this desktop-owned assembled model:
+
+`src/main/resources/assets/models/systems_lab/aircraft_variants/dhc6_wheels_painted_training.glb`
+
+It includes the detailed airframe, cabin and seating, plus the existing
+cockpit blockout. The runtime copy is painted with the app's white, cyan,
+strong-blue and deep-navy palette. Dense exterior meshes are reduced while
+the cockpit pieces remain intact. This trims the GLB from about 79.2 MB to
+30.7 MB and reduces it from about 1.09 million to 420,000 faces.
+
+The detailed cockpit layout and interactive instruments are still supplied by
+the app. Inside view hides the exterior model so it cannot obstruct the
+pilot's view, then displays the live cockpit instruments.
+
+Rebuild the painted runtime model with Blender 5.1 or newer:
+
+```powershell
+& "C:\Program Files\Blender Foundation\Blender 5.1\blender.exe" `
+  --background `
+  --python "tools\blender_repaint_dhc6_wheels.py" -- `
+  "path\to\unpainted_dhc6_wheels.glb" `
+  "src\main\resources\assets\models\systems_lab\aircraft_variants\dhc6_wheels_painted_training.glb" `
+  "build\wheels-repaint\dhc6_wheels_trainer_preview.png"
+```
+
 ## Supplied DHC-6-300 model
 
 The **DHC-6-300 local** selector uses the desktop-owned copy of:
@@ -100,3 +127,21 @@ The trainer automatically scales the model to the real DHC-6 wingspan of
 
 Keep a working `.blend` file outside the runtime model folder. Replace only the
 GLB and restart the app to test a revision.
+
+## Local X-Plane Twin Otter interiors
+
+The app can use these archives directly from `%USERPROFILE%\Downloads`:
+
+- `DHC61 Twin Otter T_1.zip`
+- `DHC63L Twin Otter LP_1.zip`
+- `DHC63S Twin Otter FP_1.zip`
+
+When present, they appear as DHC-6-100 tundra, DHC-6-300 long nose, and
+DHC-6-300 float choices. Each option uses the archive's OBJ8 exterior,
+variant-specific landing gear or floats, cabin, seats, glass, panel texture,
+and `Twin Otter_cockpit.obj`.
+
+These freeware archives prohibit redistribution and derivative uploads without
+written permission. They remain in Downloads and are not copied into the
+repository, installer, or GitHub history. The desktop app only reads them
+locally at runtime.

@@ -33,6 +33,8 @@ internal object LocalAircraftModelLibrary {
         "assets/models/systems_lab/aircraft_variants/dhc6_300_skp.glb"
     const val BundledFloatModelPath =
         "assets/models/systems_lab/aircraft_variants/dhc6_float_user.glb"
+    const val BundledWheelsModelPath =
+        "assets/models/systems_lab/aircraft_variants/dhc6_wheels_painted_training.glb"
 
     private const val BundledDhc6300AircraftId = "dhc6-300-fsx-pad"
     private const val SystemPropertyDirectory = "dhc6.aircraft.models.dir"
@@ -89,7 +91,11 @@ internal object LocalAircraftModelLibrary {
     fun loadBundledFloat(assetManager: AssetManager): Spatial? =
         runCatching { assetManager.loadModel(BundledFloatModelPath) }.getOrNull()
 
+    fun loadBundledWheels(assetManager: AssetManager): Spatial? =
+        runCatching { assetManager.loadModel(BundledWheelsModelPath) }.getOrNull()
+
     fun settingsSummary(): String = buildString {
+        append("Wheels: desktop-owned assembled model in trainer colours with live cockpit instruments. ")
         append("DHC-6-300: desktop-owned SketchUp exterior with live cockpit instruments. ")
         append("Floats: desktop-owned optimized model with live cockpit instruments. ")
         append("Optional replacement folder: ")

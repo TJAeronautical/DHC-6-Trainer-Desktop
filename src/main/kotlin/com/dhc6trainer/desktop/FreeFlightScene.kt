@@ -88,6 +88,7 @@ internal class FreeFlightSession {
     val controls = Dhc6FlightControls()
     val openSourceSim = OpenSourceSimLibrary.loadAuto()
     val fsxAircraftPackages = FsxAircraftPackageLibrary.loadAllAuto()
+    val xPlaneAircraftPackages = XPlaneTwinOtterVariantLibrary.loadAuto()
     val fsxAircraftPackage =
         fsxAircraftPackages.firstOrNull { it.nativeModelSupported }
             ?: fsxAircraftPackages.firstOrNull()
@@ -114,14 +115,35 @@ internal class FreeFlightSession {
         get() = fsxAircraftPackages.firstOrNull {
             it.id == selectedVariantId && it.nativeModelSupported && it.id != "air-alpes-fsx"
         }
+    val selectedXPlaneAircraftPackage: XPlaneTwinOtterVariantPackage?
+        get() = xPlaneAircraftPackages.firstOrNull { it.id == selectedVariantId }
     val availableAircraftOptions: List<FreeFlightAircraftOption>
         get() = buildList {
+            add(
+                FreeFlightAircraftOption(
+                    FreeFlightDhc6Variant.Wheels.aircraftId,
+                    FreeFlightDhc6Variant.Wheels.label,
+                ),
+            )
+            add(
+                FreeFlightAircraftOption(
+                    FreeFlightDhc6Variant.Floats.aircraftId,
+                    FreeFlightDhc6Variant.Floats.label,
+                ),
+            )
             if (openSourceSim.flightGearAircraft != null) {
-                FreeFlightDhc6Variant.entries.forEach { add(FreeFlightAircraftOption(it.aircraftId, it.label)) }
+                add(
+                    FreeFlightAircraftOption(
+                        FreeFlightDhc6Variant.Skis.aircraftId,
+                        FreeFlightDhc6Variant.Skis.label,
+                    ),
+                )
             }
             fsxAircraftPackages
                 .filter { it.nativeModelSupported && it.id != "air-alpes-fsx" }
                 .forEach { add(FreeFlightAircraftOption(it.id, "${it.label.removeSuffix(" FSX")} local")) }
+            xPlaneAircraftPackages
+                .forEach { add(FreeFlightAircraftOption(it.id, it.label)) }
         }
 }
 
@@ -145,6 +167,7 @@ private class FreeFlightWorld(private val session: FreeFlightSession) {
     private lateinit var aircraftNode: Node
     private var modelSpatial: Spatial? = null
     private var fgExteriorNodes = listOf<Spatial>()
+    private var cockpitOnlyNodes = listOf<Spatial>()
     private var propMeshGeometries = listOf<Geometry>()
     private var propDiscs = listOf<Geometry>()
     private var skyNode: Node? = null
@@ -242,6 +265,7 @@ private class FreeFlightWorld(private val session: FreeFlightSession) {
         aircraftNode.detachAllChildren()
         modelSpatial = null
         fgExteriorNodes = emptyList()
+        cockpitOnlyNodes = emptyList()
         propMeshGeometries = emptyList()
         propDiscs = emptyList()
         cockpitEyeLocal = Vector3f(0f, 1.75f, -3.1f)
@@ -250,6 +274,19 @@ private class FreeFlightWorld(private val session: FreeFlightSession) {
         hideWholeModelInCockpit = false
         preferredChaseDistance = 24f
         lastCameraMode = null
+
+        if (session.selectedVariantId == FreeFlightDhc6Variant.Wheels.aircraftId) {
+            val wheelsModel = LocalAircraftModelLibrary.loadBundledWheels(assets)
+            if (
+                wheelsModel != null &&
+                attachExternalGlbAircraftModel(
+                    model = wheelsModel,
+                    variantId = FreeFlightDhc6Variant.Wheels.aircraftId,
+                    statusBadge = "Trainer-colour assembled DHC-6 wheels + live flight instruments",
+                    yawCorrection = FastMath.PI,
+                )
+            ) return
+        }
 
         if (session.selectedVariantId == FreeFlightDhc6Variant.Floats.aircraftId) {
             val floatModel = LocalAircraftModelLibrary.loadBundledFloat(assets)
@@ -269,6 +306,13 @@ private class FreeFlightWorld(private val session: FreeFlightSession) {
             val model = FlightGearAc3dLoader.loadAircraft(assets, aircraftPackage, variant)
             if (model != null) {
                 attachFlightGearAircraftModel(assets, model, aircraftPackage, variant)
+                return
+            }
+        }
+
+        session.selectedXPlaneAircraftPackage?.let { aircraftPackage ->
+            val loadedAircraft = XPlaneObj8Loader.loadAircraft(assets, aircraftPackage)
+            if (loadedAircraft != null && attachXPlaneAircraftModel(assets, loadedAircraft, aircraftPackage)) {
                 return
             }
         }
@@ -313,6 +357,53 @@ private class FreeFlightWorld(private val session: FreeFlightSession) {
                 return
             }
         }
+    }
+
+    private fun attachXPlaneAircraftModel(
+        assets: AssetManager,
+        loadedAircraft: XPlaneLoadedAircraft,
+        aircraftPackage: XPlaneTwinOtterVariantPackage,
+    ): Boolean {
+        val model = loadedAircraft.root
+        model.setLocalScale(1f)
+        model.setLocalTranslation(0f, 0f, 0f)
+        model.updateModelBound()
+        model.updateGeometricState()
+
+        val bound = model.worldBound as? com.jme3.bounding.BoundingBox ?: return false
+        val wingspan = (bound.xExtent * 2f).coerceAtLeast(0.01f)
+        val scale = (19.812f / wingspan).coerceIn(0.5f, 2f)
+        val bottom = bound.center.y - bound.yExtent
+        preferredChaseDistance = 22f
+        model.setLocalScale(scale)
+        model.setLocalTranslation(
+            -bound.center.x * scale,
+            -bottom * scale,
+            -bound.center.z * scale,
+        )
+        model.shadowMode = RenderQueue.ShadowMode.CastAndReceive
+        model.updateModelBound()
+        model.updateGeometricState()
+
+        aircraftNode.attachChild(model)
+        modelSpatial = model
+        fgExteriorNodes = loadedAircraft.exteriorNodes
+        cockpitOnlyNodes = listOf(loadedAircraft.cockpitNode)
+        loadedVariantId = aircraftPackage.id
+        loadedAircraftLabel = "${aircraftPackage.label} local 3D cockpit"
+        hideWholeModelInCockpit = false
+
+        // Transform the X-Plane pilot-eye point through the same centering
+        // operation used for the aircraft.
+        cockpitEyeLocal = Vector3f(
+            (-0.78f - bound.center.x) * scale,
+            (1.45f - bottom) * scale,
+            (3.65f - bound.center.z) * scale,
+        )
+        loadedAircraft.cockpitNode.cullHint = Spatial.CullHint.Always
+        buildXPlanePropDiscs(assets, scale, bottom, bound.center.z)
+        session.sceneStatus = loadedAircraftLabel!!
+        return true
     }
 
     private fun attachFlightGearAircraftModel(
@@ -377,7 +468,7 @@ private class FreeFlightWorld(private val session: FreeFlightSession) {
         val wingspan = (bound.xExtent * 2f).coerceAtLeast(0.01f)
         val scale = (19.812f / wingspan).coerceIn(0.001f, 100f)
         val bottom = bound.center.y - bound.yExtent
-        preferredChaseDistance = 24f + bound.zExtent * scale
+        preferredChaseDistance = 22f
         model.setLocalScale(scale)
         model.setLocalTranslation(
             -bound.center.x * scale,
@@ -526,17 +617,29 @@ private class FreeFlightWorld(private val session: FreeFlightSession) {
         }
     }
 
-    private fun buildXPlanePropDiscs(assets: AssetManager, gearDrop: Float) {
+    private fun buildXPlanePropDiscs(
+        assets: AssetManager,
+        scale: Float,
+        bottom: Float,
+        centerZ: Float,
+    ) {
         val material = Material(assets, "Common/MatDefs/Misc/Unshaded.j3md").apply {
             setColor("Color", ColorRGBA(0.06f, 0.06f, 0.07f, 0.24f))
             additionalRenderState.blendMode = RenderState.BlendMode.Alpha
             additionalRenderState.isDepthWrite = false
         }
         propDiscs = listOf(-2.858f, 2.858f).mapIndexed { index, x ->
-            Geometry("XPlanePropDisc$index", com.jme3.scene.shape.Cylinder(2, 36, 1.25f, 0.012f, true)).apply {
+            Geometry(
+                "XPlanePropDisc$index",
+                com.jme3.scene.shape.Cylinder(2, 36, 1.25f * scale, 0.012f, true),
+            ).apply {
                 this.material = material
                 rotate(FastMath.HALF_PI, 0f, 0f)
-                setLocalTranslation(x, gearDrop + 1.97f, 3.71f)
+                setLocalTranslation(
+                    x * scale,
+                    (1.97f - bottom) * scale,
+                    (3.71f - centerZ) * scale,
+                )
                 queueBucket = RenderQueue.Bucket.Transparent
                 shadowMode = RenderQueue.ShadowMode.Off
                 cullHint = Spatial.CullHint.Always
@@ -577,6 +680,9 @@ private class FreeFlightWorld(private val session: FreeFlightSession) {
         // flight deck and instruments are unobstructed.
         fgExteriorNodes.forEach {
             it.cullHint = if (cockpitView) Spatial.CullHint.Always else Spatial.CullHint.Inherit
+        }
+        cockpitOnlyNodes.forEach {
+            it.cullHint = if (cockpitView) Spatial.CullHint.Inherit else Spatial.CullHint.Always
         }
         propDiscs.forEach {
             it.cullHint = if (running && !hideShellInCockpit) Spatial.CullHint.Dynamic else Spatial.CullHint.Always

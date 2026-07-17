@@ -58,6 +58,37 @@ fun main() {
         )
     }
 
+    if (System.getProperty("render.only") == "wheels") {
+        val wheelsSession = FreeFlightSession().apply {
+            selectedVariantId = FreeFlightDhc6Variant.Wheels.aircraftId
+            cameraMode = FreeFlightCameraMode.Chase
+        }
+        testScene("freeflight-dhc6-wheels-trainer", freeFlightSceneSpec(wheelsSession))
+        if (wheelsSession.sceneStatus.contains("Trainer-colour assembled", ignoreCase = true)) {
+            println("OK    trainer Wheels visual -> ${wheelsSession.sceneStatus}")
+        } else {
+            failures++
+            println("FAIL  trainer Wheels visual -> ${wheelsSession.sceneStatus}")
+        }
+        println(if (failures == 0) "RENDER CHECKS PASSED" else "$failures RENDER CHECK(S) FAILED")
+        exitProcess(if (failures == 0) 0 else 1)
+    }
+
+    if (System.getProperty("render.only") == "xplane-cockpit") {
+        val aircraft = XPlaneTwinOtterVariantLibrary.loadAuto().firstOrNull()
+        if (aircraft == null) {
+            println("FAIL  xplane-cockpit -> no local X-Plane aircraft archive found")
+            exitProcess(1)
+        }
+        val cockpitSession = FreeFlightSession().apply {
+            selectedVariantId = aircraft.id
+            cameraMode = FreeFlightCameraMode.Cockpit
+        }
+        testScene("freeflight-${aircraft.id}-cockpit", freeFlightSceneSpec(cockpitSession))
+        println(if (failures == 0) "RENDER CHECKS PASSED" else "$failures RENDER CHECK(S) FAILED")
+        exitProcess(if (failures == 0) 0 else 1)
+    }
+
     val freeFlightSession = FreeFlightSession()
     testScene("freeflight", freeFlightSceneSpec(freeFlightSession))
 
@@ -90,6 +121,33 @@ fun main() {
                 println("FAIL  ${aircraft.label} visual -> ${localVariantSession.sceneStatus}")
             }
         }
+
+    val localXPlaneAircraft = XPlaneTwinOtterVariantLibrary.loadAuto()
+    localXPlaneAircraft.forEach { aircraft ->
+        val outsideSession = FreeFlightSession().apply {
+            selectedVariantId = aircraft.id
+        }
+        testScene("freeflight-${aircraft.id}", freeFlightSceneSpec(outsideSession))
+        if (outsideSession.sceneStatus.contains("local 3D cockpit", ignoreCase = true)) {
+            println("OK    ${aircraft.label} exterior -> ${outsideSession.sceneStatus}")
+        } else {
+            failures++
+            println("FAIL  ${aircraft.label} exterior -> ${outsideSession.sceneStatus}")
+        }
+    }
+    localXPlaneAircraft.firstOrNull()?.let { aircraft ->
+        val cockpitSession = FreeFlightSession().apply {
+            selectedVariantId = aircraft.id
+            cameraMode = FreeFlightCameraMode.Cockpit
+        }
+        testScene("freeflight-${aircraft.id}-cockpit", freeFlightSceneSpec(cockpitSession))
+        if (cockpitSession.sceneStatus.contains("local 3D cockpit", ignoreCase = true)) {
+            println("OK    ${aircraft.label} cockpit -> ${cockpitSession.sceneStatus}")
+        } else {
+            failures++
+            println("FAIL  ${aircraft.label} cockpit -> ${cockpitSession.sceneStatus}")
+        }
+    }
 
     val dhc6300CockpitSession = FreeFlightSession().apply {
         selectedVariantId = "dhc6-300-fsx-pad"

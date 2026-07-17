@@ -189,6 +189,9 @@ tasks.register("runRenderSmokeTest", JavaExec) {
     description = "Starts the offscreen 3D engine and verifies frames are not black."
     classpath = sourceSets.main.runtimeClasspath
     mainClass = "com.dhc6trainer.desktop.RenderSmokeTestKt"
+    if (project.hasProperty("renderOnly")) {
+        systemProperty("render.only", project.property("renderOnly"))
+    }
 }
 
 tasks.register("runFlightGearSmokeTest", JavaExec) {

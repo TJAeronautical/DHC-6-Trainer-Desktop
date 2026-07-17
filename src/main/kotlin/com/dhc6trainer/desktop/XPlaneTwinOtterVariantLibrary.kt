@@ -38,56 +38,85 @@ internal data class XPlaneTwinOtterVariantPackage(
         "$label loaded from ${zipPath.fileName} - $objectCount objects, $textureCount textures"
 }
 
+internal data class XPlaneLoadedAircraft(
+    val root: Node,
+    val exteriorNodes: List<Spatial>,
+    val interiorNodes: List<Spatial>,
+    val cockpitNode: Spatial,
+)
+
 internal object XPlaneTwinOtterVariantLibrary {
     private data class KnownPackage(
         val id: String,
         val label: String,
-        val fileName: String,
+        val fileNames: List<String>,
         val preferredObjects: List<String>,
     )
 
     private val knownPackages = listOf(
         KnownPackage(
             id = "dhc63s-fp",
-            label = "DHC-6-300 FP",
-            fileName = "DHC63S Twin Otter FP v1141 (1).zip",
+            label = "DHC-6-300 float",
+            fileNames = listOf(
+                "DHC63S Twin Otter FP_1.zip",
+                "DHC63S Twin Otter FP v1141 (1).zip",
+            ),
             preferredObjects = listOf(
                 "objects/dhc6.obj",
-                "objects/engines.obj",
-                "objects/floats-Seaplane.obj",
-                "objects/GlassNew.obj",
+                "objects/bluntnose.obj",
                 "objects/cabin.obj",
+                "objects/seats.obj",
+                "objects/RearDoorsFloat.obj",
+                "objects/floats-Seaplane.obj",
+                "objects/EngStruts.obj",
+                "objects/Glass_INN.obj",
+                "objects/glass.obj",
             ),
         ),
         KnownPackage(
             id = "dhc63l-lp",
-            label = "DHC-6-300 LP",
-            fileName = "DHC63L Twin Otter LP v1141.zip",
+            label = "DHC-6-300 long nose",
+            fileNames = listOf(
+                "DHC63L Twin Otter LP_1.zip",
+                "DHC63L Twin Otter LP v1141.zip",
+            ),
             preferredObjects = listOf(
                 "objects/dhc6.obj",
-                "objects/engines.obj",
-                "objects/gear.obj",
-                "objects/GlassNew.obj",
+                "objects/longnose.obj",
                 "objects/cabin.obj",
+                "objects/seats.obj",
+                "objects/RearDoors.obj",
+                "objects/gear.obj",
+                "objects/EngStruts.obj",
+                "objects/Glass_INN.obj",
+                "objects/glass.obj",
             ),
         ),
         KnownPackage(
             id = "dhc61-t",
-            label = "DHC-6-100 T",
-            fileName = "DHC61 Twin Otter T v1141.zip",
+            label = "DHC-6-100 tundra",
+            fileNames = listOf(
+                "DHC61 Twin Otter T_1.zip",
+                "DHC61 Twin Otter T v1141.zip",
+            ),
             preferredObjects = listOf(
                 "objects/dhc6.obj",
-                "objects/engines.obj",
-                "objects/gear_tundra.obj",
-                "objects/GlassNew.obj",
+                "objects/bluntnose.obj",
                 "objects/cabin.obj",
+                "objects/seats.obj",
+                "objects/RearDoorsFloat.obj",
+                "objects/gear_tundra.obj",
+                "objects/EngStruts.obj",
+                "objects/Glass_INN.obj",
+                "objects/glass.obj",
             ),
         ),
     )
 
     fun loadAuto(): List<XPlaneTwinOtterVariantPackage> =
         knownPackages.mapNotNull { known ->
-            candidatePaths(known.fileName)
+            known.fileNames
+                .flatMap(::candidatePaths)
                 .firstOrNull { Files.isRegularFile(it) }
                 ?.let { loadPackage(known, it) }
         }
@@ -156,33 +185,57 @@ internal object XPlaneObj8Loader {
         val indices: List<Int>,
     )
 
-    fun loadAircraft(assetManager: AssetManager, variantPackage: XPlaneTwinOtterVariantPackage): Spatial? =
+    fun loadAircraft(
+        assetManager: AssetManager,
+        variantPackage: XPlaneTwinOtterVariantPackage,
+    ): XPlaneLoadedAircraft? =
         runCatching {
             ZipFile(variantPackage.zipPath.toFile()).use { zip ->
                 val root = Node("X-Plane ${variantPackage.label}")
+                val textureCache = HashMap<String, Texture2D?>()
+                val exteriorNodes = ArrayList<Spatial>()
+                val interiorNodes = ArrayList<Spatial>()
                 variantPackage.exteriorObjectEntries.forEach { entry ->
-                    loadObject(assetManager, zip, entry)?.let(root::attachChild)
+                    runCatching { loadObject(assetManager, zip, entry, textureCache) }
+                        .getOrNull()
+                        ?.let { spatial ->
+                            root.attachChild(spatial)
+                            if (entry.endsWith("/cabin.obj", ignoreCase = true)) {
+                                interiorNodes += spatial
+                            } else {
+                                exteriorNodes += spatial
+                            }
+                        }
                 }
-                if (root.children.isEmpty()) null else root
+                val cockpit = variantPackage.cockpitObjectEntry
+                    ?.let { entry ->
+                        runCatching { loadObject(assetManager, zip, entry, textureCache) }.getOrNull()
+                    }
+                    ?: return@use null
+                root.attachChild(cockpit)
+                XPlaneLoadedAircraft(root, exteriorNodes, interiorNodes, cockpit)
             }
         }.getOrNull()
 
-    private fun loadObject(assetManager: AssetManager, zip: ZipFile, entryName: String): Spatial? {
+    private fun loadObject(
+        assetManager: AssetManager,
+        zip: ZipFile,
+        entryName: String,
+        textureCache: MutableMap<String, Texture2D?>,
+    ): Spatial? {
         val entry = zip.getEntry(entryName) ?: return null
         val text = zip.getInputStream(entry).bufferedReader(Charsets.ISO_8859_1).use { it.readText() }
         val data = parseObj8(text) ?: return null
         if (data.vertices.isEmpty() || data.indices.isEmpty()) return null
 
         val mesh = buildMesh(data.vertices, data.indices)
-        val texture = data.textureName?.let { textureName ->
-            val parent = entryName.substringBeforeLast('/', "")
-            val textureEntry = if (textureName.contains('/')) {
-                "${variantRoot(entryName)}/$textureName"
-            } else {
-                "$parent/$textureName"
+        val texture = data.textureName
+            ?.let { resolveTextureEntry(entryName, it) }
+            ?.let { textureEntry ->
+                textureCache.getOrPut(textureEntry.lowercase()) {
+                    loadPngTexture(zip, textureEntry)
+                }
             }
-            loadPngTexture(zip, textureEntry)
-        }
         return Geometry(entryName.substringAfterLast('/'), mesh).apply {
             material = buildMaterial(assetManager, texture)
             if (texture != null) {
@@ -201,7 +254,7 @@ internal object XPlaneObj8Loader {
         text.lineSequence().forEach { raw ->
             val line = raw.trim()
             if (line.isEmpty() || line.startsWith("#")) return@forEach
-            val parts = line.split(' ').filter { it.isNotBlank() }
+            val parts = line.split(' ', '\t').filter { it.isNotBlank() }
             when (parts.firstOrNull()) {
                 "TEXTURE" -> textureName = parts.getOrNull(1)
                 "VT" -> {
@@ -277,6 +330,7 @@ internal object XPlaneObj8Loader {
                 setTexture("DiffuseMap", texture)
                 additionalRenderState.blendMode = RenderState.BlendMode.Alpha
             }
+            additionalRenderState.faceCullMode = RenderState.FaceCullMode.Off
         }
 
     private fun loadPngTexture(zip: ZipFile, entryName: String): Texture2D? {
@@ -306,6 +360,15 @@ internal object XPlaneObj8Loader {
         }
         buffer.flip()
         return Image(Image.Format.RGBA8, width, height, buffer, ColorSpace.sRGB)
+    }
+
+    private fun resolveTextureEntry(objectEntry: String, textureName: String): String {
+        val normalized = textureName.replace('\\', '/')
+        return if (normalized.contains('/')) {
+            "${variantRoot(objectEntry)}/$normalized"
+        } else {
+            "${objectEntry.substringBeforeLast('/', "")}/$normalized"
+        }
     }
 
     private fun variantRoot(entryName: String): String = entryName.substringBefore('/')
