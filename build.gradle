@@ -1,0 +1,207 @@
+plugins {
+    id "org.jetbrains.kotlin.jvm"
+    id "org.jetbrains.compose" version "1.11.1"
+    id "org.jetbrains.kotlin.plugin.compose"
+}
+
+kotlin {
+    jvmToolchain(17)
+}
+
+dependencies {
+    // Compose Desktop / Multiplatform dependencies.
+    // Do not use Android-only AAR artifacts in this JVM desktop module.
+    implementation(compose.desktop.currentOs)
+    implementation(compose.material3)
+
+    // jMonkeyEngine - real-time 3D GLB/GLTF model viewer (Systems Lab)
+    // Rendering runs OFFSCREEN (hidden GLFW window via jme3-lwjgl3) and frames
+    // are blitted into Compose. Do not switch to embedded AWT canvases:
+    //  - jme3-lwjgl3 cannot create AWT canvases at all ("ctx is null"), and
+    //  - jme3-lwjgl (LWJGL2) canvases need WGL Pbuffers, which fail on modern
+    //    Intel drivers ("Could not create context (WGL_ARB_create_context)").
+    def jme3 = "3.6.1-stable"
+    implementation "org.jmonkeyengine:jme3-core:${jme3}"
+    implementation "org.jmonkeyengine:jme3-desktop:${jme3}"
+    implementation "org.jmonkeyengine:jme3-lwjgl3:${jme3}"
+    implementation "org.jmonkeyengine:jme3-plugins:${jme3}"   // GLB/GLTF loader
+    implementation "org.jmonkeyengine:jme3-effects:${jme3}"   // Bloom and anti-aliasing post-processing
+}
+
+def desktopGeneratedResources = layout.buildDirectory.dir("generated/desktopResources")
+def coreAssetsDir = file("../core-res/src/main/assets")
+
+tasks.register("generateDesktopProcedureIndex") {
+    def outputFile = layout.buildDirectory.file("generated/desktopResources/desktop-procedure-index.txt")
+    outputs.file(outputFile)
+
+    doLast {
+        def outFile = outputFile.get().asFile
+        outFile.parentFile.mkdirs()
+
+        def proceduresDir = new File(coreAssetsDir, "procedures")
+        def lines = []
+        if (proceduresDir.exists()) {
+            proceduresDir.eachFileRecurse { f ->
+                if (f.isFile() && f.name.endsWith(".json")) {
+                    def relative = coreAssetsDir.toPath().relativize(f.toPath()).toString().replace(File.separatorChar, '/' as char)
+                    lines << "assets/${relative}"
+                }
+            }
+        }
+        outFile.text = lines.sort().join("\n")
+        if (!lines.isEmpty()) {
+            outFile.append("\n")
+        }
+    }
+}
+
+tasks.register("generateDesktopFlashcardIndex") {
+    def outputFile = layout.buildDirectory.file("generated/desktopResources/desktop-flashcard-index.txt")
+    outputs.file(outputFile)
+
+    doLast {
+        def outFile = outputFile.get().asFile
+        outFile.parentFile.mkdirs()
+
+        def flashcardsDir = new File(coreAssetsDir, "flashcards")
+        def lines = []
+        if (flashcardsDir.exists()) {
+            flashcardsDir.eachFileRecurse { f ->
+                if (f.isFile() && f.name.endsWith(".json")) {
+                    def relative = coreAssetsDir.toPath().relativize(f.toPath()).toString().replace(File.separatorChar, '/' as char)
+                    lines << "assets/${relative}"
+                }
+            }
+        }
+        outFile.text = lines.sort().join("\n")
+        if (!lines.isEmpty()) {
+            outFile.append("\n")
+        }
+    }
+}
+
+tasks.register("generateDesktopAssetIndex") {
+    def outputFile = layout.buildDirectory.file("generated/desktopResources/desktop-asset-index.txt")
+    outputs.file(outputFile)
+
+    doLast {
+        def outFile = outputFile.get().asFile
+        outFile.parentFile.mkdirs()
+
+        def lines = []
+        if (coreAssetsDir.exists()) {
+            coreAssetsDir.eachFileRecurse { f ->
+                if (f.isFile()) {
+                    def relative = coreAssetsDir.toPath().relativize(f.toPath()).toString().replace(File.separatorChar, '/' as char)
+                    lines << "assets/${relative}"
+                }
+            }
+        }
+        outFile.text = lines.sort().join("\n")
+        if (!lines.isEmpty()) {
+            outFile.append("\n")
+        }
+    }
+}
+
+tasks.register("generateDesktopCockpitIndex") {
+    def outputFile = layout.buildDirectory.file("generated/desktopResources/cockpit-source-exact-index.txt")
+    outputs.file(outputFile)
+
+    doLast {
+        def outFile = outputFile.get().asFile
+        outFile.parentFile.mkdirs()
+
+        def cockpitDir = new File(coreAssetsDir, "cockpit/source_exact")
+        def lines = []
+        if (cockpitDir.exists()) {
+            cockpitDir.eachFileRecurse { f ->
+                if (f.isFile()) {
+                    def lower = f.name.toLowerCase()
+                    if (lower.endsWith(".png") || lower.endsWith(".jpg") || lower.endsWith(".jpeg")) {
+                        def relative = coreAssetsDir.toPath().relativize(f.toPath()).toString().replace(File.separatorChar, '/' as char)
+                        lines << "assets/${relative}"
+                    }
+                }
+            }
+        }
+        // Also include full cockpit panel images from cockpit/images/.
+        def imagesDir = new File(coreAssetsDir, "cockpit/images")
+        if (imagesDir.exists()) {
+            imagesDir.eachFileRecurse { f ->
+                if (f.isFile()) {
+                    def lower = f.name.toLowerCase()
+                    if (lower.endsWith(".png") || lower.endsWith(".webp") || lower.endsWith(".jpg")) {
+                        def relative = coreAssetsDir.toPath().relativize(f.toPath()).toString().replace(File.separatorChar, '/' as char)
+                        lines << "assets/${relative}"
+                    }
+                }
+            }
+        }
+        outFile.text = lines.sort().join("\n")
+        if (!lines.isEmpty()) {
+            outFile.append("\n")
+        }
+    }
+}
+
+tasks.named("processResources") {
+    // Generated indexes take precedence over any copy checked into
+    // src/main/resources; Gradle 9 fails on duplicates without a strategy.
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+    dependsOn("generateDesktopProcedureIndex")
+    dependsOn("generateDesktopFlashcardIndex")
+    dependsOn("generateDesktopAssetIndex")
+    dependsOn("generateDesktopCockpitIndex")
+
+    if (coreAssetsDir.exists()) {
+        from(coreAssetsDir) {
+            into("assets")
+        }
+    }
+
+    from(desktopGeneratedResources)
+}
+
+tasks.register("runRenderSmokeTest", JavaExec) {
+    group = "verification"
+    description = "Starts the offscreen 3D engine and verifies frames are not black."
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = "com.dhc6trainer.desktop.RenderSmokeTestKt"
+}
+
+tasks.register("runAssetSmokeTest", JavaExec) {
+    group = "verification"
+    description = "Headless check that every 3D model/asset pipeline loads."
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = "com.dhc6trainer.desktop.AssetSmokeTestKt"
+    if (project.hasProperty("smokeOnly")) {
+        systemProperty("smoke.only", project.property("smokeOnly"))
+    }
+}
+
+compose.desktop {
+    application {
+        mainClass = "com.dhc6trainer.desktop.MainKt"
+
+        nativeDistributions {
+            targetFormats(
+                    org.jetbrains.compose.desktop.application.dsl.TargetFormat.Msi,
+                    org.jetbrains.compose.desktop.application.dsl.TargetFormat.Exe
+            )
+
+            packageName = "DHC6TrainerDesktop"
+            packageVersion = "1.7.0"
+            description = "DHC-6 Trainer Desktop - offline study, cockpit, systems, performance, and debrief trainer"
+            vendor = "TJ Aeronautical"
+
+            windows {
+                iconFile.set(project.file("src/main/resources/icons/dhc6_trainer.ico"))
+                menuGroup = "DHC-6 Trainer"
+                shortcut = true
+                dirChooser = true
+            }
+        }
+    }
+}

@@ -1,0 +1,207 @@
+package com.dhc6trainer.desktop
+
+import com.jme3.asset.DesktopAssetManager
+import com.jme3.asset.plugins.ClasspathLocator
+import com.jme3.scene.Geometry
+import com.jme3.scene.Spatial
+
+/**
+ * Headless verification of every model/asset pipeline the app uses, without
+ * opening a window or GL context. Run with:
+ *   gradlew :desktop-app:runAssetSmokeTest
+ */
+fun main() {
+    var failures = 0
+
+    fun check(label: String, block: () -> String?) {
+        val result = runCatching(block)
+        val detail = result.getOrNull()
+        when {
+            result.isFailure -> {
+                failures++
+                val error = result.exceptionOrNull()
+                val causes = generateSequence(error) { it.cause }.joinToString(" <- ") { "${it.javaClass.simpleName}: ${it.message}" }
+                println("FAIL  $label -> $causes")
+                if (System.getProperty("smoke.stacktrace") != null) error?.printStackTrace()
+            }
+            detail == null -> {
+                failures++
+                println("FAIL  $label -> returned null")
+            }
+            else -> println("OK    $label -> $detail")
+        }
+    }
+
+    com.jme3.util.BufferUtils.setTrackDirectMemoryEnabled(true)
+    val assets = DesktopAssetManager(true).apply {
+        registerLocator("/", ClasspathLocator::class.java)
+        registerLoader(CachingGltfLoader::class.java, "gltf")
+        registerLoader(CachingGlbLoader::class.java, "glb")
+        FsxMdlLoaderRegistry.register(this)
+    }
+
+    println("=== Systems Lab GLB models ===")
+    val allGlbPaths = object {}.javaClass.classLoader
+        .getResourceAsStream("desktop-asset-index.txt")
+        ?.bufferedReader()?.readLines().orEmpty()
+        .filter { it.startsWith("assets/models/") && it.endsWith(".glb") }
+    val onlyFilter = System.getProperty("smoke.only")
+    val glbPaths = if (onlyFilter.isNullOrBlank()) {
+        allGlbPaths
+    } else {
+        allGlbPaths.filter { it.contains(onlyFilter, ignoreCase = true) }
+    }
+    if (glbPaths.isEmpty()) println("FAIL  no GLB entries found in desktop-asset-index.txt").also { failures++ }
+    val directPool = java.lang.management.ManagementFactory
+        .getPlatformMXBeans(java.lang.management.BufferPoolMXBean::class.java)
+        .firstOrNull { it.name == "direct" }
+    glbPaths.forEach { path ->
+        check(path.substringAfterLast('/')) {
+            val before = directPool?.memoryUsed ?: 0
+            var model: Spatial? = assets.loadModel(path)
+            val after = directPool?.memoryUsed ?: 0
+            val geometryCount = countGeometries(model!!)
+            var meshBytes = 0L
+            var biggest = 0L
+            var biggestDesc = ""
+            model.depthFirstTraversal { spatial ->
+                val geom = spatial as? Geometry ?: return@depthFirstTraversal
+                for (vb in geom.mesh.bufferList) {
+                    val data = vb.data ?: continue
+                    val bytes = data.capacity().toLong() * vb.format.componentSize
+                    meshBytes += bytes
+                    if (bytes > biggest) {
+                        biggest = bytes
+                        biggestDesc = "${geom.name}/${vb.bufferType} cap=${data.capacity()} fmt=${vb.format} comps=${vb.numComponents}"
+                    }
+                }
+            }
+            if (meshBytes > 100_000_000) {
+                println("      mesh buffers total ${meshBytes / 1_048_576} MB; biggest: $biggestDesc")
+            }
+            if ((directPool?.memoryUsed ?: 0) > 1_000_000_000) {
+                val sb = StringBuilder()
+                com.jme3.util.BufferUtils.printCurrentDirectMemory(sb)
+                println("      jME tracked direct memory:\n$sb")
+                runCatching {
+                    val field = com.jme3.util.BufferUtils::class.java.getDeclaredField("trackedBuffers")
+                    field.isAccessible = true
+                    val map = field.get(null) as java.util.concurrent.ConcurrentHashMap<*, *>
+                    val histogram = HashMap<Pair<String, Int>, Int>()
+                    for (info in map.values) {
+                        val sizeField = info.javaClass.getDeclaredField("size").apply { isAccessible = true }
+                        val typeField = info.javaClass.getDeclaredField("type").apply { isAccessible = true }
+                        val size = sizeField.getInt(info)
+                        val type = (typeField.get(info) as Class<*>).simpleName
+                        histogram.merge(type to size, 1, Int::plus)
+                    }
+                    histogram.entries
+                        .sortedByDescending { it.key.second.toLong() * it.value }
+                        .take(12)
+                        .forEach { (key, n) ->
+                            println("      ${key.first} size=${key.second} x$n = ${key.second.toLong() * n / 1_048_576} MB")
+                        }
+                }.onFailure { println("      histogram failed: $it") }
+            }
+            System.gc()
+            Thread.sleep(150)
+            val retainedWithModel = directPool?.memoryUsed ?: 0
+            @Suppress("UNUSED_VALUE")
+            model = null
+            assets.clearCache()
+            System.gc()
+            Thread.sleep(150)
+            val retainedAfterFree = directPool?.memoryUsed ?: 0
+            "$geometryCount geometries, direct +${(after - before) / 1_048_576} MB, " +
+                "retained ${retainedWithModel / 1_048_576} MB, after free ${retainedAfterFree / 1_048_576} MB"
+        }
+    }
+
+    println()
+    println("=== FSX Kenn Borek MDL aircraft ===")
+    check("dhc6_tundra.mdl parse") {
+        val bytes = object {}.javaClass.classLoader
+            .getResourceAsStream(KennBorekTundraMdlPath)!!.readBytes()
+        val parsed = FsxMdlParser.parse(bytes)
+        "${parsed.vertices.size} verts, ${parsed.batches.sumOf { it.indices.size } / 3} tris, " +
+            "${parsed.textureNames.distinct().size} textures, ${parsed.materials.size} materials"
+    }
+    check("dhc6_tundra.mdl full jME load") {
+        val model = assets.loadModel(KennBorekTundraMdlPath)
+        model.depthFirstTraversal { spatial ->
+            val geom = spatial as? com.jme3.scene.Geometry ?: return@depthFirstTraversal
+            if (geom.name.contains("VCpan") || geom.name.contains("interior") ||
+                geom.name.contains("pilots") || geom.name.contains("prop")
+            ) {
+                val b = geom.mesh.bound as? com.jme3.bounding.BoundingBox ?: return@depthFirstTraversal
+                println(
+                    "      ${geom.name}: centre(%.2f %.2f %.2f) extents(%.2f %.2f %.2f)"
+                        .format(b.center.x, b.center.y, b.center.z, b.xExtent, b.yExtent, b.zExtent),
+                )
+            }
+        }
+        "${countGeometries(model)} geometries"
+    }
+
+    println()
+    println("=== Local simulator packages (Downloads detection) ===")
+    check("FSX environment package") {
+        val env = FsxEnvironmentLibrary.loadAuto()
+        "${env.id}: ${env.summary}"
+    }
+    check("Open-source sim snapshot") {
+        val snapshot = OpenSourceSimLibrary.loadAuto()
+        buildString {
+            append("jsbsim=${snapshot.jsbsim != null}")
+            append(", flightgear=${snapshot.flightGear != null}")
+            append(", fgAircraft=${snapshot.flightGearAircraft != null}")
+            snapshot.primaryDhc6Profile?.let {
+                append(" | profile: ${it.aircraftName}, ${it.totalMaxPowerHp} hp total, wing ${it.wingAreaFt2} ft2")
+            }
+        }
+    }
+    check("FlightGear DHC-6 AC3D geometry") {
+        val aircraft = OpenSourceSimLibrary.loadAuto().flightGearAircraft
+            ?: return@check "not present (skipped)"
+        val model = FlightGearAc3dLoader.loadAircraft(assets, aircraft)
+            ?: throw IllegalStateException("AC3D load returned null")
+        (model as? com.jme3.scene.Node)?.children?.forEach { child ->
+            val b = child.worldBound as? com.jme3.bounding.BoundingBox
+            if (b != null) {
+                println(
+                    "      ${child.name}: centre(%.2f %.2f %.2f) extents(%.2f %.2f %.2f)"
+                        .format(b.center.x, b.center.y, b.center.z, b.xExtent, b.yExtent, b.zExtent),
+                )
+            }
+        }
+        "${countGeometries(model)} geometries from ${aircraft.visualEntries.size} .ac files"
+    }
+    check("FSX Twin Otter aircraft package") {
+        val aircraft = FsxAircraftPackageLibrary.loadAuto() ?: return@check "not present (skipped)"
+        "${aircraft.statusBadge}, nativeModelSupported=${aircraft.nativeModelSupported}"
+    }
+    check("X-Plane variant packages") {
+        val variants = XPlaneTwinOtterVariantLibrary.loadAuto()
+        "${variants.size} variants: ${variants.joinToString { it.id }}"
+    }
+    check("X-Plane VRMM scenery package") {
+        val scenery = XPlaneSceneryLibrary.loadAuto() ?: return@check "not present (skipped)"
+        "${scenery.statusBadge}, ${scenery.pavements.size} pavements"
+    }
+    check("JSBSim-derived flight model params") {
+        val snapshot = OpenSourceSimLibrary.loadAuto()
+        val params = snapshot.primaryDhc6Profile?.let(Dhc6Params::fromJsbsimProfile)
+            ?: Dhc6Params.fromBundledAircraftCfg()
+        params.sourceLabel
+    }
+
+    println()
+    println(if (failures == 0) "ALL CHECKS PASSED" else "$failures CHECK(S) FAILED")
+    if (failures > 0) kotlin.system.exitProcess(1)
+}
+
+private fun countGeometries(model: Spatial): Int {
+    var count = 0
+    model.depthFirstTraversal { if (it is Geometry) count++ }
+    return count
+}

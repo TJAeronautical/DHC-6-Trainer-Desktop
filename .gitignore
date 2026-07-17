@@ -1,0 +1,19 @@
+﻿# Gradle / JVM build output
+.gradle/
+build/
+out/
+
+# IDE and local workspace state
+.idea/
+*.iml
+.agents/
+.codex/
+
+# Logs and crash dumps
+*.log
+hs_err_pid*.log
+replay_pid*.log
+
+# OS files
+.DS_Store
+Thumbs.db
