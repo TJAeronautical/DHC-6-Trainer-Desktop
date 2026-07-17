@@ -6,6 +6,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.gestures.detectDragGestures
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
@@ -23,6 +24,7 @@ import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -293,7 +295,7 @@ fun CockpitSpriteAndHitboxViewer(
     var panX by remember { mutableFloatStateOf(0f) }
     var panY by remember { mutableFloatStateOf(0f) }
     var simulatorFullScreen by remember { mutableStateOf(false) }
-    var detailExpanded by remember { mutableStateOf(false) }
+    var detailExpanded by remember { mutableStateOf(true) }
     var simulatorControlsExpanded by remember { mutableStateOf(false) }
     var targetsExpanded by remember { mutableStateOf(false) }
 
@@ -313,12 +315,17 @@ fun CockpitSpriteAndHitboxViewer(
     ) {
         Column(
             modifier = Modifier
-                .weight(if (simulatorFullScreen) 1f else 1.85f)
+                .weight(if (simulatorFullScreen) 1f else 1.78f)
                 .fillMaxHeight(),
             verticalArrangement = Arrangement.spacedBy(14.dp),
         ) {
             Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .horizontalScroll(rememberScrollState()),
+                    horizontalArrangement = Arrangement.spacedBy(10.dp),
+                ) {
                     CockpitChip("Legacy", selected = variant == CockpitSpriteVariant.Legacy) {
                         variant = CockpitSpriteVariant.Legacy
                         zoom = 1.0f
@@ -426,7 +433,7 @@ fun CockpitSpriteAndHitboxViewer(
         }
         if (!simulatorFullScreen) {
             LazyColumn(
-                modifier = Modifier.weight(0.58f).fillMaxHeight(),
+                modifier = Modifier.weight(0.72f).fillMaxHeight(),
                 verticalArrangement = Arrangement.spacedBy(12.dp),
                 contentPadding = PaddingValues(bottom = 28.dp),
             ) {

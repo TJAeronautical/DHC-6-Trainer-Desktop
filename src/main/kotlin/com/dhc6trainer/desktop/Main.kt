@@ -1261,36 +1261,63 @@ private fun SystemsLabScreen(assetSnapshot: DesktopAssetCatalogSnapshot) {
                 return@DetailCard
             }
             val group = selected!!
-            Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-                Badge(group.family, selected = true)
-                Badge("${group.matchedAssets.size} matched assets", selected = false)
+            var viewerTab by remember(group) { mutableStateOf(0) }
+            val paths = group.matchedAssets.ifEmpty {
+                listOf("No matching packaged asset path found yet.")
             }
-            Spacer(Modifier.height(16.dp))
-            Text(group.name, color = Color.White, fontSize = 30.sp, fontWeight = FontWeight.Black)
-            Text(group.description, color = Dhc6DesktopColors.TextSecondary, fontWeight = FontWeight.SemiBold, lineHeight = 22.sp)
-            Spacer(Modifier.height(18.dp))
-            // Engine group: tabbed 3D viewer + interactive cross-section diagram
-            // All other groups: 3D viewer only (real GLB or PT6A-27 procedural fallback)
-            if (group.family == "Engine") {
-                var viewerTab by remember(group) { mutableStateOf(0) }
-                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                    Box(Modifier.clickable { viewerTab = 0 }) { Badge("3D Model", selected = viewerTab == 0) }
-                    Box(Modifier.clickable { viewerTab = 1 }) { Badge("Cross-section", selected = viewerTab == 1) }
+            LazyColumn(
+                modifier = Modifier.fillMaxSize(),
+                verticalArrangement = Arrangement.spacedBy(12.dp),
+                contentPadding = PaddingValues(bottom = 28.dp),
+            ) {
+                item {
+                    Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                        Badge(group.family, selected = true)
+                        Badge("${group.matchedAssets.size} matched assets", selected = false)
+                    }
                 }
-                Spacer(Modifier.height(10.dp))
-                when (viewerTab) {
-                    0 -> SystemGlbViewer(group = group)
-                    1 -> Pt6aEngineViewer()
+                item {
+                    Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
+                        Text(group.name, color = Color.White, fontSize = 30.sp, fontWeight = FontWeight.Black)
+                        Text(
+                            group.description,
+                            color = Dhc6DesktopColors.TextSecondary,
+                            fontWeight = FontWeight.SemiBold,
+                            lineHeight = 22.sp,
+                        )
+                    }
                 }
-            } else {
-                SystemGlbViewer(group = group)
-            }
-            Spacer(Modifier.height(18.dp))
-            Text("Matched asset paths", color = Color.White, fontWeight = FontWeight.Black, fontSize = 19.sp)
-            Spacer(Modifier.height(8.dp))
-            LazyColumn(verticalArrangement = Arrangement.spacedBy(8.dp), modifier = Modifier.fillMaxSize()) {
-                val paths = group.matchedAssets.ifEmpty { listOf("No matching packaged asset path found yet. The viewer slot is ready for the next asset restoration/wiring pass.") }
-                items(paths) { path -> AssetPathRow(path) }
+                if (group.family == "Engine") {
+                    item {
+                        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                            Box(Modifier.clickable { viewerTab = 0 }) {
+                                Badge("3D Model", selected = viewerTab == 0)
+                            }
+                            Box(Modifier.clickable { viewerTab = 1 }) {
+                                Badge("Cross-section", selected = viewerTab == 1)
+                            }
+                        }
+                    }
+                    item {
+                        when (viewerTab) {
+                            0 -> SystemGlbViewer(group = group)
+                            else -> Pt6aEngineViewer()
+                        }
+                    }
+                } else {
+                    item { SystemGlbViewer(group = group) }
+                }
+                item {
+                    Text(
+                        "Matched asset paths",
+                        color = Color.White,
+                        fontWeight = FontWeight.Black,
+                        fontSize = 19.sp,
+                    )
+                }
+                items(paths, key = { it }) { path ->
+                    AssetPathRow(path)
+                }
             }
         }
     }

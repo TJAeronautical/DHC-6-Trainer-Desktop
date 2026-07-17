@@ -14,6 +14,8 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -65,7 +67,14 @@ internal fun SystemGlbViewer(
     modifier: Modifier = Modifier,
 ) {
     val modelPaths = remember(group) { group.glbCandidates() }
-    var selectedPath by remember(group) { mutableStateOf(modelPaths.firstOrNull()) }
+    var selectedPath by remember(group) {
+        mutableStateOf(
+            modelPaths.firstOrNull {
+                group.family == "Aircraft" &&
+                    it.endsWith("dhc6_wheels_painted_training.glb", ignoreCase = true)
+            } ?: modelPaths.firstOrNull(),
+        )
+    }
     val cameraMetadata = remember(group) { group.mappedCameraMetadata() }
 
     Card(
@@ -132,16 +141,16 @@ internal fun SystemGlbViewer(
             }
 
             if (modelPaths.isNotEmpty()) {
-                Row(
+                LazyRow(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.spacedBy(8.dp),
                 ) {
-                    modelPaths.take(4).forEach { path ->
+                    items(modelPaths, key = { it }) { path ->
                         ModelPathChip(
                             label = path.substringAfterLast('/'),
                             selected = path == selectedPath,
                             onClick = { selectedPath = path },
-                            modifier = Modifier.weight(1f),
+                            modifier = Modifier.width(190.dp),
                         )
                     }
                 }

@@ -49,6 +49,7 @@ internal object DesktopAssetCatalog {
         }
         val systemsAssetCount = resourcePaths.count { path ->
             path.contains("systems/", ignoreCase = true) ||
+                path.contains("assets/models/systems_lab/", ignoreCase = true) ||
                 path.contains("pt6", ignoreCase = true) ||
                 path.contains("propeller", ignoreCase = true)
         }
@@ -160,8 +161,9 @@ internal object DesktopAssetCatalog {
         ),
     )
 
-    private fun systemGroups(paths: List<String>): List<SystemAssetGroup> = listOf(
-        SystemAssetGroup(
+    private fun systemGroups(paths: List<String>): List<SystemAssetGroup> {
+        val groups = listOf(
+            SystemAssetGroup(
             name = "PT6A / Powerplant",
             family = "Engine",
             description = "PT6A sections, airflow, stations, FCU, starting, oil and torque-prop oil study assets.",
@@ -207,7 +209,15 @@ internal object DesktopAssetCatalog {
             name = "Landing gear / Tyres",
             family = "LandingGear",
             description = "Main gear, nosewheel, tyre handling and ground operations references for the Series 300.",
-            matchedAssets = matchAssets(paths, "landing_gear", "nosewheel", "undercarriage"),
+            matchedAssets = matchAssets(
+                paths,
+                "landing_gear",
+                "main_gear",
+                "nose_gear",
+                "nosewheel",
+                "undercarriage",
+                "wheel_rig",
+            ),
         ),
         SystemAssetGroup(
             name = "Bleed air / Pneumatics",
@@ -221,7 +231,24 @@ internal object DesktopAssetCatalog {
             description = "Full DHC-6 Series 300 model in wheels, floats and ski configurations for variant and systems overview.",
             matchedAssets = matchAssets(paths, "aircraft_variant", "dhc6_wheel", "dhc6_float", "dhc6_ski", "float_system"),
         ),
-    )
+        )
+
+        val assignedPaths = groups.flatMapTo(hashSetOf()) { it.matchedAssets }
+        val additionalModels = paths
+            .filter { it.isRealSystemsLabModelPath() && it !in assignedPaths }
+            .distinct()
+            .sorted()
+        return if (additionalModels.isEmpty()) {
+            groups
+        } else {
+            groups + SystemAssetGroup(
+                name = "Additional system models",
+                family = "Additional",
+                description = "Packaged Systems Lab models not covered by a primary system group.",
+                matchedAssets = additionalModels,
+            )
+        }
+    }
 
     private fun performanceModes(): List<PerformancePlanningMode> = listOf(
         PerformancePlanningMode(
@@ -250,5 +277,3 @@ internal object DesktopAssetCatalog {
         ),
     )
 }
-
-

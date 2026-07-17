@@ -116,6 +116,35 @@ fun main() {
                 "retained ${retainedWithModel / 1_048_576} MB, after free ${retainedAfterFree / 1_048_576} MB"
         }
     }
+    check("Technical Lab model coverage") {
+        val catalog = DesktopAssetCatalog.load()
+        val displayedPaths = catalog.systemGroups.flatMapTo(hashSetOf()) { it.matchedAssets }
+        val realSystemModels = allGlbPaths.filter {
+            it.startsWith("assets/models/systems_lab/") &&
+                !it.contains("/placeholders/") &&
+                !it.contains("placeholder", ignoreCase = true)
+        }
+        val missing = realSystemModels.filterNot(displayedPaths::contains)
+        require(missing.isEmpty()) {
+            "not displayed: ${missing.joinToString()}"
+        }
+        "${realSystemModels.size}/${realSystemModels.size} real GLB models assigned across " +
+            "${catalog.systemGroups.size} groups"
+    }
+    check("Desktop-owned simulator variants") {
+        val session = FreeFlightSession()
+        val options = session.availableAircraftOptions
+        require(options.any { it.id == FreeFlightDhc6Variant.Wheels.aircraftId }) {
+            "Wheels option missing"
+        }
+        require(options.any { it.id == FreeFlightDhc6Variant.Floats.aircraftId }) {
+            "Floats option missing"
+        }
+        require(session.selectedVariantId == FreeFlightDhc6Variant.Wheels.aircraftId) {
+            "Wheels is not the default"
+        }
+        "Wheels default; ${options.joinToString { it.label }}"
+    }
 
     println()
     println("=== Local simulator packages (Downloads detection) ===")

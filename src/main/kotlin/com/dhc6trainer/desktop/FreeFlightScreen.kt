@@ -5,10 +5,12 @@ import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.focusable
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -74,7 +76,7 @@ internal fun FreeFlightScreen(
     var telemetry by remember { mutableStateOf(Dhc6Telemetry()) }
     var cameraMode by remember { mutableStateOf(session.cameraMode) }
     var selectedVariantId by remember { mutableStateOf(session.selectedVariantId) }
-    var showHelp by remember { mutableStateOf(true) }
+    var showHelp by remember { mutableStateOf(false) }
     var hasFocus by remember { mutableStateOf(false) }
 
     // Control integration + telemetry polling, synced to the UI frame clock.
@@ -146,7 +148,11 @@ internal fun FreeFlightScreen(
 
         // Top status row.
         Row(
-            modifier = Modifier.align(Alignment.TopStart).padding(12.dp),
+            modifier = Modifier
+                .align(Alignment.TopStart)
+                .fillMaxWidth()
+                .horizontalScroll(rememberScrollState())
+                .padding(start = 12.dp, top = 12.dp, end = 58.dp),
             horizontalArrangement = Arrangement.spacedBy(8.dp),
         ) {
             FreeFlightBadge("FREE FLIGHT")
@@ -198,33 +204,49 @@ internal fun FreeFlightScreen(
                 modifier = Modifier.align(Alignment.BottomCenter).padding(12.dp),
             )
         } else {
-            // Compact telemetry strip for unobstructed exterior views.
-            Row(
-                modifier = Modifier.align(Alignment.BottomStart).padding(12.dp),
-                horizontalArrangement = Arrangement.spacedBy(7.dp),
+            BoxWithConstraints(
+                modifier = Modifier
+                    .align(Alignment.BottomStart)
+                    .fillMaxWidth()
+                    .padding(12.dp),
             ) {
-                FlightInstrument("IAS", "${telemetry.iasKnots.roundToInt()} kt")
-                FlightInstrument("ALT", "${telemetry.altitudeFt.roundToInt()} ft")
-                FlightInstrument("VS", "${(telemetry.verticalSpeedFpm / 10).roundToInt() * 10} fpm")
-                FlightInstrument("HDG", "${telemetry.headingDeg.roundToInt() % 360}")
-                FlightInstrument("PITCH", "${telemetry.pitchDeg.roundToInt()}")
-                FlightInstrument("BANK", "${telemetry.bankDeg.roundToInt()}")
-                FlightInstrument("TRQ", "${telemetry.torquePercent.roundToInt()}%")
-                FlightInstrument("FLAP", "${telemetry.flapsDeg.roundToInt()}")
-                FlightInstrument(if (telemetry.onGround) "GND" else "AIR", if (telemetry.onGround) "ON" else "${telemetry.groundSpeedKt.roundToInt()} GS")
-            }
-
-            Row(
-                modifier = Modifier.align(Alignment.BottomEnd).padding(12.dp),
-                horizontalArrangement = Arrangement.spacedBy(7.dp),
-            ) {
-                FlightInstrument("THR", "${(session.controls.throttle * 100).roundToInt()}%")
-                if (session.controls.brakes) FreeFlightBadge("BRAKES", warn = true)
+                val compact = maxWidth < 900.dp
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .horizontalScroll(rememberScrollState()),
+                    horizontalArrangement = Arrangement.spacedBy(if (compact) 4.dp else 7.dp),
+                ) {
+                    FlightInstrument("IAS", "${telemetry.iasKnots.roundToInt()} kt", compact)
+                    FlightInstrument("ALT", "${telemetry.altitudeFt.roundToInt()} ft", compact)
+                    FlightInstrument("VS", "${(telemetry.verticalSpeedFpm / 10).roundToInt() * 10} fpm", compact)
+                    FlightInstrument("HDG", "${telemetry.headingDeg.roundToInt() % 360}", compact)
+                    FlightInstrument("PITCH", "${telemetry.pitchDeg.roundToInt()}", compact)
+                    FlightInstrument("BANK", "${telemetry.bankDeg.roundToInt()}", compact)
+                    FlightInstrument("TRQ", "${telemetry.torquePercent.roundToInt()}%", compact)
+                    FlightInstrument("FLAP", "${telemetry.flapsDeg.roundToInt()}", compact)
+                    FlightInstrument(
+                        if (telemetry.onGround) "GND" else "AIR",
+                        if (telemetry.onGround) "ON" else "${telemetry.groundSpeedKt.roundToInt()} GS",
+                        compact,
+                    )
+                    FlightInstrument("THR", "${(session.controls.throttle * 100).roundToInt()}%", compact)
+                    if (session.controls.brakes) FreeFlightBadge("BRAKES", warn = true)
+                }
             }
         }
 
+        FreeFlightHelpToggle(
+            expanded = showHelp,
+            onClick = { showHelp = !showHelp },
+            modifier = Modifier.align(Alignment.TopEnd).padding(12.dp),
+        )
         if (showHelp) {
-            FreeFlightHelpOverlay(Modifier.align(Alignment.TopEnd).padding(12.dp))
+            FreeFlightHelpOverlay(
+                Modifier
+                    .align(Alignment.TopEnd)
+                    .padding(top = 104.dp, end = 12.dp),
+            )
         }
     }
 }
@@ -442,20 +464,23 @@ private fun FlightDial(
 }
 
 @Composable
-private fun FlightInstrument(label: String, value: String) {
+private fun FlightInstrument(label: String, value: String, compact: Boolean = false) {
     Box(
         modifier = Modifier
             .clip(RoundedCornerShape(10.dp))
             .background(Color(0xDD020B12))
             .border(BorderStroke(1.dp, Color(0xFF2D6D87)), RoundedCornerShape(10.dp))
-            .padding(horizontal = 10.dp, vertical = 7.dp)
-            .widthIn(min = 52.dp),
+            .padding(
+                horizontal = if (compact) 6.dp else 10.dp,
+                vertical = if (compact) 6.dp else 7.dp,
+            )
+            .widthIn(min = if (compact) 44.dp else 52.dp),
         contentAlignment = Alignment.Center,
     ) {
         Text(
             "$label $value",
             color = Color(0xFFD8E5F2),
-            fontSize = 11.sp,
+            fontSize = if (compact) 9.sp else 11.sp,
             fontWeight = FontWeight.Black,
             maxLines = 1,
         )
@@ -508,6 +533,30 @@ private fun FreeFlightVariantChip(label: String, selected: Boolean, onClick: () 
             selectedBorderColor = Color(0xFF55C7FF),
         ),
     )
+}
+
+@Composable
+private fun FreeFlightHelpToggle(
+    expanded: Boolean,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    Box(
+        modifier = modifier
+            .size(34.dp)
+            .clip(RoundedCornerShape(8.dp))
+            .background(if (expanded) Color(0xFF2D9FE0) else Color(0xDD020B12))
+            .border(BorderStroke(1.dp, Color(0xFF55C7FF)), RoundedCornerShape(8.dp))
+            .clickable(onClick = onClick),
+        contentAlignment = Alignment.Center,
+    ) {
+        Text(
+            text = "?",
+            color = Color.White,
+            fontSize = 16.sp,
+            fontWeight = FontWeight.Black,
+        )
+    }
 }
 
 @Composable
