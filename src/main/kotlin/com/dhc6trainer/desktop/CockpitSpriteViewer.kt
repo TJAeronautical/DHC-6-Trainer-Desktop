@@ -413,8 +413,13 @@ fun CockpitSpriteAndHitboxViewer(
                         panX = 0f
                         panY = 0f
                     }
-                    CockpitChip("-", selected = false) { zoom = (zoom - 0.15f).coerceAtLeast(0.70f) }
-                    CockpitChip("+", selected = false) { zoom = (zoom + 0.15f).coerceAtMost(2.0f) }
+                    CockpitChip("-", selected = false) {
+                        zoom = (if (zoom > 2f) zoom - 0.5f else zoom - 0.15f).coerceAtLeast(0.70f)
+                    }
+                    CockpitChip("+", selected = false) {
+                        zoom = (if (zoom >= 2f) zoom + 0.5f else zoom + 0.15f).coerceAtMost(8.0f)
+                    }
+                    CockpitChip("Max", selected = zoom == 8.0f) { zoom = 8.0f }
                 }
             }
 
@@ -667,7 +672,7 @@ private fun CockpitDetailPanel(
         CockpitPanelCard {
             Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
                 CockpitInfoChip(variant.label)
-            CockpitInfoChip("FSX aircraft")
+            CockpitInfoChip("Personalized DHC-6")
             }
         Spacer(Modifier.height(16.dp))
         Text(
@@ -691,8 +696,8 @@ private fun CockpitDetailPanel(
         )
         Spacer(Modifier.height(12.dp))
         CockpitMiniBlock(
-            title = "FSX aircraft asset",
-            body = "$KennBorekAircraftRootPath is bundled with aircraft.cfg, .air, tundra/ski .mdl files, panel gauges, sounds, textures, VC imagery and converted cockpit panel artwork. Outside 3D mode registers a native .mdl loader for the package aircraft model."
+            title = "FlightGear aircraft asset",
+            body = "$PersonalizedDhc6AircraftRootPath contains the independent desktop DHC-6 aircraft, including Wheels, Floats and Skis variants, cockpit models, systems, sounds and textures."
         )
     }
 }

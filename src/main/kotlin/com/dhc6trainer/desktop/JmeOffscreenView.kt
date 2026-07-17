@@ -9,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.snapshots.Snapshot
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
@@ -36,7 +37,13 @@ import com.jme3.texture.FrameBuffer
 import com.jme3.texture.Image as JmeImage
 import com.jme3.util.BufferUtils
 import java.awt.image.BufferedImage
+import java.io.File
+import java.io.PrintWriter
+import java.io.StringWriter
 import java.nio.ByteBuffer
+import java.time.Instant
+import java.util.logging.Level
+import java.util.logging.Logger
 import kotlin.math.cos
 import kotlin.math.sin
 
@@ -102,6 +109,54 @@ internal data class JmeFrameHealth(
         get() = frameCount >= 90 && consecutiveBlankFrames >= 90
 }
 
+private object JmeDiagnostics {
+    private val logger = Logger.getLogger("JmeHostApplication")
+    private val logFile: File by lazy {
+        val base = FlightGearInstallation.root
+            ?.let { File(it, "app-data") }
+            ?: File(System.getProperty("user.home"), "DHC-6 Trainer Desktop")
+        File(base, "logs/desktop-3d.log")
+    }
+
+    @Synchronized
+    fun record(context: String, failure: Throwable? = null, detail: String? = null) {
+        val message = buildString {
+            append(context)
+            detail?.takeIf { it.isNotBlank() }?.let { append(": ").append(it) }
+        }
+        if (failure == null) {
+            logger.warning(message)
+        } else {
+            logger.log(Level.SEVERE, message, failure)
+        }
+
+        runCatching {
+            logFile.parentFile?.mkdirs()
+            val trace = failure?.let {
+                StringWriter().also { writer ->
+                    it.printStackTrace(PrintWriter(writer))
+                }.toString()
+            }
+            logFile.appendText(
+                buildString {
+                    append(Instant.now()).append(" ").append(message).append('\n')
+                    trace?.let { append(it) }
+                    append('\n')
+                },
+            )
+        }
+    }
+
+    fun summary(failure: Throwable?, fallback: String?): String {
+        val root = generateSequence(failure) { it.cause }.lastOrNull()
+        if (root != null) {
+            val type = root.javaClass.simpleName.ifBlank { root.javaClass.name }
+            return root.message?.takeIf { it.isNotBlank() }?.let { "$type: $it" } ?: type
+        }
+        return fallback?.takeIf { it.isNotBlank() } ?: "3D renderer error"
+    }
+}
+
 /** Lazily starts and hands out the single shared engine. */
 internal object JmeEngineHub {
     private var host: JmeHostApplication? = null
@@ -112,6 +167,7 @@ internal object JmeEngineHub {
         failure?.let { return Result.failure(it) }
         val app = host ?: runCatching { startHost() }.getOrElse {
             failure = it
+            JmeDiagnostics.record("3D engine startup failed", it)
             return Result.failure(it)
         }
         host = app
@@ -179,14 +235,16 @@ internal class JmeHostApplication : SimpleApplication() {
     @Volatile private var captureFbo: FrameBuffer? = null
 
     private val grabber = FrameGrabProcessor({ captureFbo }) { bitmap, averageBrightness ->
-        frameBitmap.value = bitmap
-        val previous = frameHealth.value
-        val blank = averageBrightness < 0.002f
-        frameHealth.value = JmeFrameHealth(
-            frameCount = previous.frameCount + 1,
-            consecutiveBlankFrames = if (blank) previous.consecutiveBlankFrames + 1 else 0,
-            averageBrightness = averageBrightness,
-        )
+        Snapshot.withMutableSnapshot {
+            frameBitmap.value = bitmap
+            val previous = frameHealth.value
+            val blank = averageBrightness < 0.002f
+            frameHealth.value = JmeFrameHealth(
+                frameCount = previous.frameCount + 1,
+                consecutiveBlankFrames = if (blank) previous.consecutiveBlankFrames + 1 else 0,
+                averageBrightness = averageBrightness,
+            )
+        }
     }
 
     /** Drag input from Compose, in pixels. */
@@ -230,9 +288,8 @@ internal class JmeHostApplication : SimpleApplication() {
 
         runCatching { spec.build(this) }
             .onFailure {
-                errorMessage.value = it.message ?: "Scene build failed"
-                java.util.logging.Logger.getLogger("JmeHostApplication")
-                    .warning("Scene build failed: $it")
+                errorMessage.value = JmeDiagnostics.summary(it, "Scene build failed")
+                JmeDiagnostics.record("3D scene build failed", it)
             }
 
         runCatching { rootNode.updateGeometricState() }
@@ -270,11 +327,10 @@ internal class JmeHostApplication : SimpleApplication() {
             fbo.addColorTarget(FrameBuffer.FrameBufferTarget.newTarget(JmeImage.Format.RGBA8))
             viewPort.setOutputFrameBuffer(fbo)
             captureFbo = fbo
-            java.util.logging.Logger.getLogger("JmeHostApplication")
+            Logger.getLogger("JmeHostApplication")
                 .info("Offscreen FBO attached: ${cam.width}x${cam.height}")
         } catch (t: Throwable) {
-            java.util.logging.Logger.getLogger("JmeHostApplication")
-                .warning("Offscreen FBO creation failed, falling back to window framebuffer: $t")
+            JmeDiagnostics.record("Offscreen FBO creation failed; using window framebuffer", t)
         }
 
         viewPort.backgroundColor = ColorRGBA(0.01f, 0.04f, 0.08f, 1f)
@@ -317,9 +373,8 @@ internal class JmeHostApplication : SimpleApplication() {
             .onFailure { failure ->
                 updateFailureStreak++
                 if (updateFailureStreak >= 8 && errorMessage.value == null) {
-                    errorMessage.value = failure.message ?: failure.javaClass.simpleName
-                    java.util.logging.Logger.getLogger("JmeHostApplication")
-                        .warning("Scene update muted after repeated failures: $failure")
+                    errorMessage.value = JmeDiagnostics.summary(failure, "Scene update failed")
+                    JmeDiagnostics.record("3D scene update muted after repeated failures", failure)
                     activeSpec = JmeSceneSpec(
                         initialYaw = spec.initialYaw,
                         initialPitch = spec.initialPitch,
@@ -363,10 +418,11 @@ internal class JmeHostApplication : SimpleApplication() {
         } catch (t: Throwable) {
             renderFailureStreak++
             if (errorMessage.value == null) {
-                errorMessage.value = t.message ?: t.javaClass.simpleName
+                errorMessage.value = JmeDiagnostics.summary(t, "3D frame failed")
             }
-            java.util.logging.Logger.getLogger("JmeHostApplication")
-                .warning("Dropped 3D frame after error (streak $renderFailureStreak): $t")
+            if (renderFailureStreak == 1 || renderFailureStreak == 4 || renderFailureStreak == 12) {
+                JmeDiagnostics.record("Dropped 3D frame (streak $renderFailureStreak)", t)
+            }
             if (renderFailureStreak == 4) {
                 // Most common culprit: a post-processor the driver rejects.
                 runCatching {
@@ -394,9 +450,8 @@ internal class JmeHostApplication : SimpleApplication() {
         // every 3D view in the app down with it (and glfwDestroyWindow has
         // crashed the whole JVM natively on some drivers - see hs_err logs).
         // Record the error, keep the engine alive.
-        errorMessage.value = errMsg ?: t?.message ?: "3D renderer error"
-        java.util.logging.Logger.getLogger("JmeHostApplication")
-            .warning("Render thread error (engine kept alive): $errMsg / $t")
+        errorMessage.value = JmeDiagnostics.summary(t, errMsg)
+        JmeDiagnostics.record("Render thread error; engine kept alive", t, errMsg)
     }
 
     override fun simpleRender(rm: RenderManager?) = Unit

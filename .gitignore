@@ -18,3 +18,13 @@ replay_pid*.log
 # OS files
 .DS_Store
 Thumbs.db
+
+# FlightGear runtime (native sim engine + base data + app-local profile)
+install/
+deps/
+app-data/
+
+# Generated Windows installers stay local; publish them as release assets
+# rather than committing 500+ MB binaries to Git history.
+/desktop/windows/**/*.exe
+/desktop/windows/**/*.msi

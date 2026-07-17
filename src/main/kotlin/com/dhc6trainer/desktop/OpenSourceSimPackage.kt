@@ -92,10 +92,63 @@ internal data class FlightGearPackage(
     }
 }
 
+/**
+ * Read-only archive of a FlightGear aircraft: a zip file (legacy dhc6-master.zip
+ * downloads) or an on-disk folder (the corrected/personalized aircraft vendored
+ * at flight-sim/dhc6). Entry names use '/' separators and are rooted one level
+ * above the aircraft folder (e.g. "dhc6/Models/dhc-6.ac"), matching zip layout.
+ */
+internal interface FgAircraftArchive : AutoCloseable {
+    fun entryNames(): List<String>
+    fun readBytes(entryName: String): ByteArray?
+    fun readText(entryName: String): String? = readBytes(entryName)?.toString(Charsets.UTF_8)
+}
+
+internal class ZipFgAircraftArchive(path: Path) : FgAircraftArchive {
+    private val zip = ZipFile(path.toFile())
+    private val byName = zip.entries().asSequence()
+        .filterNot { it.isDirectory }
+        .associateBy { it.name.replace('\\', '/') }
+
+    override fun entryNames(): List<String> = byName.keys.toList()
+
+    override fun readBytes(entryName: String): ByteArray? {
+        val entry = byName[entryName]
+            ?: byName.entries.firstOrNull { it.key.equals(entryName, ignoreCase = true) }?.value
+            ?: return null
+        return zip.getInputStream(entry).use { it.readBytes() }
+    }
+
+    override fun close() = zip.close()
+}
+
+internal class DirFgAircraftArchive(private val root: Path) : FgAircraftArchive {
+    private val prefix = root.fileName.toString()
+    private val names: List<String> by lazy {
+        val rootFile = root.toFile()
+        rootFile.walkTopDown()
+            .filter { it.isFile }
+            .map { "$prefix/" + it.relativeTo(rootFile).path.replace('\\', '/') }
+            .toList()
+    }
+    private val byLower: Map<String, String> by lazy { names.associateBy { it.lowercase() } }
+
+    override fun entryNames(): List<String> = names
+
+    override fun readBytes(entryName: String): ByteArray? {
+        val actual = byLower[entryName.lowercase()] ?: return null
+        val file = root.resolve(actual.removePrefix("$prefix/"))
+        return runCatching { Files.readAllBytes(file) }.getOrNull()
+    }
+
+    override fun close() {}
+}
+
 internal data class FlightGearAircraftPackage(
     val id: String,
     val label: String,
     val zipPath: Path,
+    val sourceIsDirectory: Boolean,
     val setEntry: String,
     val yasimEntry: String,
     val jsbsimEntry: String,
@@ -113,7 +166,12 @@ internal data class FlightGearAircraftPackage(
     val jsbsimProfile: JsbsimDhc6Profile?,
 ) {
     val licenseLabel: String = "GPL-2.0 FlightGear aircraft"
-    val statusBadge: String = "FlightGear DHC-6 aircraft"
+    val statusBadge: String =
+        if (sourceIsDirectory) "Personalized DHC-6 aircraft" else "FlightGear DHC-6 aircraft"
+
+    fun openArchive(): FgAircraftArchive =
+        if (sourceIsDirectory) DirFgAircraftArchive(zipPath) else ZipFgAircraftArchive(zipPath)
+
     val summary: String = buildString {
         append("$statusBadge loaded from ${zipPath.fileName} - ")
         append("$acGeometryCount AC3D models, $cockpitAcGeometryCount cockpit models, ")
@@ -202,16 +260,32 @@ internal object OpenSourceSimLibrary {
     }
 
     private fun loadFlightGearAircraft(): FlightGearAircraftPackage? {
+        // The corrected/personalized aircraft vendored with this trainer
+        // (flight-sim/dhc6, also deployed into the FlightGear workspace) is the
+        // primary source; legacy dhc6-master.zip downloads remain a fallback.
+        val correctedDir = (Dhc6AircraftDeployment.sourceDir ?: Dhc6AircraftDeployment.deployedDir())
+            ?.takeIf { java.io.File(it, "dhc6-set.xml").isFile }
+        if (correctedDir != null) {
+            parseFlightGearAircraft(correctedDir.toPath(), sourceIsDirectory = true, label = "Personalized DHC-6")
+                ?.let { return it }
+        }
         val zipPath = explicitPath(FlightGearAircraftSystemPropertyPath, FlightGearAircraftEnvironmentPath)
             ?.takeIf(Files::isRegularFile)
             ?: candidatePaths("dhc6-master.zip").firstOrNull(Files::isRegularFile)
             ?: return null
-        return runCatching {
-            ZipFile(zipPath.toFile()).use { zip ->
-                val entries = zip.entries().asSequence()
-                    .filterNot { it.isDirectory }
-                    .map { it.name.replace('\\', '/') }
-                    .toList()
+        return parseFlightGearAircraft(zipPath, sourceIsDirectory = false, label = "FlightGear DHC-6")
+    }
+
+    private fun parseFlightGearAircraft(
+        sourcePath: Path,
+        sourceIsDirectory: Boolean,
+        label: String,
+    ): FlightGearAircraftPackage? =
+        runCatching {
+            val archive: FgAircraftArchive =
+                if (sourceIsDirectory) DirFgAircraftArchive(sourcePath) else ZipFgAircraftArchive(sourcePath)
+            archive.use { arc ->
+                val entries = arc.entryNames()
                 val setEntry = entries.firstOrNull { it.endsWith("/dhc6-set.xml", ignoreCase = true) }
                     ?: return null
                 val yasimEntry = entries.firstOrNull { it.endsWith("/dhc6.xml", ignoreCase = true) }
@@ -230,20 +304,22 @@ internal object OpenSourceSimLibrary {
                     "/Models/Cabin/cabin.ac",
                     "/Models/Flightdeck/flightdeck.ac",
                     "/Models/wheels.ac",
+                    "/Models/floats.ac",
                 ).mapNotNull { suffix -> entries.firstOrNull { it.endsWith(suffix, ignoreCase = true) } }
                 val aircraftDataEntry = entries.firstOrNull { it.endsWith("/dhc6-aircraft-data.xml", ignoreCase = true) }
-                val setText = zip.readText(setEntry)
-                val yasimText = zip.readText(yasimEntry)
-                val jsbsimText = zip.readText(jsbsimEntry)
-                val engineText = zip.readText(engineEntry)
-                val propellerText = zip.readText(propellerEntry)
-                val aircraftDataText = aircraftDataEntry?.let(zip::readText)
+                val setText = arc.readText(setEntry) ?: return null
+                val yasimText = arc.readText(yasimEntry) ?: return null
+                val jsbsimText = arc.readText(jsbsimEntry) ?: return null
+                val engineText = arc.readText(engineEntry) ?: return null
+                val propellerText = arc.readText(propellerEntry) ?: return null
+                val aircraftDataText = aircraftDataEntry?.let(arc::readText)
                 val description = parseXml(setText).firstText("description")?.trim()
                     ?: "de Havilland Canada DHC-6-300 Twin Otter"
                 FlightGearAircraftPackage(
                     id = "flightgear-dhc6",
-                    label = "FlightGear DHC-6",
-                    zipPath = zipPath,
+                    label = label,
+                    zipPath = sourcePath,
+                    sourceIsDirectory = sourceIsDirectory,
                     setEntry = setEntry,
                     yasimEntry = yasimEntry,
                     jsbsimEntry = jsbsimEntry,
@@ -267,7 +343,6 @@ internal object OpenSourceSimLibrary {
                 )
             }
         }.getOrNull()
-    }
 
     private fun parseJsbsimDhc6Profile(
         aircraftText: String,

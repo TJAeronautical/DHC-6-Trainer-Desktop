@@ -25,7 +25,10 @@ fun main() {
             return
         }
         // Wait for the scene swap (frameHealth resets), then let it render.
-        val deadline = System.currentTimeMillis() + 25_000
+        // A clean Windows build can spend 30+ seconds parsing the complete
+        // FlightGear cockpit before its first frame; leave enough startup
+        // headroom while still failing a genuinely stalled renderer.
+        val deadline = System.currentTimeMillis() + 60_000
         var health = JmeFrameHealth()
         val countAtAcquire = session.frameHealth.value.frameCount
         var sawReset = countAtAcquire < 30
@@ -57,6 +60,24 @@ fun main() {
 
     val freeFlightSession = FreeFlightSession()
     testScene("freeflight", freeFlightSceneSpec(freeFlightSession))
+
+    FsxAircraftPackageLibrary.loadAllAuto()
+        .filter { it.id == "dhc6-300-fsx-pad" || it.id == "dhc6-400-fsx-pad" }
+        .forEach { aircraft ->
+            val localVariantSession = FreeFlightSession().apply {
+                selectedVariantId = aircraft.id
+            }
+            testScene("freeflight-${aircraft.id}", freeFlightSceneSpec(localVariantSession))
+            val replacementActive =
+                localVariantSession.sceneStatus.contains("trainer 3D model", ignoreCase = true) ||
+                    localVariantSession.sceneStatus.contains("custom GLB", ignoreCase = true)
+            if (replacementActive) {
+                println("OK    ${aircraft.label} visual -> ${localVariantSession.sceneStatus}")
+            } else {
+                failures++
+                println("FAIL  ${aircraft.label} visual -> ${localVariantSession.sceneStatus}")
+            }
+        }
 
     // Same scene from the pilot's seat: switch camera, wait, dump a frame.
     run {

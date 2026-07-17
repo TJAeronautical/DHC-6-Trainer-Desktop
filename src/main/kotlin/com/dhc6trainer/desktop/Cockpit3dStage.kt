@@ -205,10 +205,10 @@ private fun Cockpit3dPilotView(
     modifier: Modifier = Modifier,
 ) {
     val insideCockpitImage = remember {
-        DesktopImages.image(KennBorekInsideCockpitPath)
+        DesktopImages.image(PersonalizedDhc6InsideCockpitPath)
     }
     val outsideAircraftImage = remember {
-        DesktopImages.image(KennBorekOutsideAircraftPath)
+        DesktopImages.image(PersonalizedDhc6OutsideAircraftPath)
     }
     Canvas(modifier) {
         drawPilotPanoramaWorld(
@@ -1177,29 +1177,6 @@ private fun Cockpit3dBadge(text: String, modifier: Modifier = Modifier) {
 }
 
 /* ---- Scene spec -------------------------------------------------------- */
-
-private fun kennBorekMdlSceneSpec(): JmeSceneSpec = JmeSceneSpec(
-    initialYaw = -0.70f,
-    initialPitch = 0.24f,
-    initialDist = 4.8f,
-    minDist = 1.4f,
-    maxDist = 12f,
-    autoRotate = true,
-    lookAt = Vector3f(0f, 0.18f, 0f),
-    eyeHeightBias = 0.15f,
-    build = { app ->
-        FsxMdlLoaderRegistry.register(app.assetManager)
-        val keyLight = JmeFlightSimScene.installLightRig(app.rootNode)
-        runCatching { app.rootNode.attachChild(JmeFlightSimScene.buildSkyDome(app.assetManager)) }
-        runCatching { app.rootNode.attachChild(buildApron(app)) }
-        runCatching { JmeFlightSimScene.installPostFx(app, keyLight) }
-
-        val model = app.assetManager.loadModel(KennBorekTundraMdlPath)
-        prepareCockpitModel(app, model)
-        model.shadowMode = RenderQueue.ShadowMode.CastAndReceive
-        app.rootNode.attachChild(model)
-    },
-)
 
 private fun cockpit3dSceneSpec(observationSeat: CockpitObservationSeat): JmeSceneSpec = JmeSceneSpec(
     initialYaw = 0.0f,

@@ -147,48 +147,19 @@ internal fun FreeFlightScreen(
             if (!telemetry.enginesRunning) FreeFlightBadge("ENGINES OFF", warn = true)
         }
 
-        if (
-            session.openSourceSim.flightGearAircraft != null ||
-            session.fsxAircraftPackage?.nativeModelSupported == true ||
-            session.variantPackages.isNotEmpty()
-        ) {
+        if (session.availableAircraftOptions.isNotEmpty()) {
             Row(
                 modifier = Modifier.align(Alignment.TopStart).padding(start = 12.dp, top = 54.dp),
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
             ) {
-                session.openSourceSim.flightGearAircraft?.let { aircraftPackage ->
+                session.availableAircraftOptions.forEach { option ->
                     FreeFlightVariantChip(
-                        label = aircraftPackage.label,
-                        selected = selectedVariantId == aircraftPackage.id,
+                        label = option.label,
+                        selected = selectedVariantId == option.id,
                     ) {
-                        selectedVariantId = aircraftPackage.id
-                        session.selectedVariantId = aircraftPackage.id
+                        selectedVariantId = option.id
+                        session.selectedVariantId = option.id
                     }
-                }
-                session.fsxAircraftPackage?.takeIf { it.nativeModelSupported }?.let { aircraftPackage ->
-                    FreeFlightVariantChip(
-                        label = aircraftPackage.label,
-                        selected = selectedVariantId == aircraftPackage.id,
-                    ) {
-                        selectedVariantId = aircraftPackage.id
-                        session.selectedVariantId = aircraftPackage.id
-                    }
-                }
-                session.variantPackages.forEach { variantPackage ->
-                    FreeFlightVariantChip(
-                        label = variantPackage.label,
-                        selected = selectedVariantId == variantPackage.id,
-                    ) {
-                        selectedVariantId = variantPackage.id
-                        session.selectedVariantId = variantPackage.id
-                    }
-                }
-                FreeFlightVariantChip(
-                    label = "Bundled MDL",
-                    selected = selectedVariantId == FreeFlightSession.KennBorekVariantId,
-                ) {
-                    selectedVariantId = FreeFlightSession.KennBorekVariantId
-                    session.selectedVariantId = FreeFlightSession.KennBorekVariantId
                 }
             }
         }

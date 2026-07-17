@@ -17,21 +17,30 @@ import com.jme3.texture.Texture2D
 import com.jme3.texture.image.ColorSpace
 import com.jme3.util.BufferUtils
 import java.awt.image.BufferedImage
-import java.util.zip.ZipFile
 import javax.imageio.ImageIO
 
 internal object FlightGearAc3dLoader {
-    fun loadAircraft(assetManager: AssetManager, aircraftPackage: FlightGearAircraftPackage): Spatial? =
+    fun loadAircraft(
+        assetManager: AssetManager,
+        aircraftPackage: FlightGearAircraftPackage,
+        variant: FreeFlightDhc6Variant = FreeFlightDhc6Variant.Wheels,
+    ): Spatial? =
         runCatching {
-            ZipFile(aircraftPackage.zipPath.toFile()).use { zip ->
-                val entriesByLower = zip.entries().asSequence()
-                    .filterNot { it.isDirectory }
-                    .associateBy { it.name.replace('\\', '/').lowercase() }
+            aircraftPackage.openArchive().use { archive ->
+                val entriesByLower = archive.entryNames().associateBy { it.lowercase() }
                 val textureCache = HashMap<String, Texture2D?>()
                 val root = Node(aircraftPackage.label)
-                aircraftPackage.visualEntries.forEach { entryName ->
-                    loadAcInto(root, assetManager, zip, entriesByLower, textureCache, entryName)
-                }
+                aircraftPackage.visualEntries
+                    .filter { entryName ->
+                        val fileName = entryName.substringAfterLast('/')
+                        fileName !in setOf("wheels.ac", "floats.ac") || fileName == variant.gearModelFile
+                    }
+                    .forEach { entryName ->
+                        val loaded = loadAcInto(root, assetManager, archive, entriesByLower, textureCache, entryName)
+                        if (loaded?.name == "wheels.ac") {
+                            applyWheelOrSkiVisibility(loaded, variant)
+                        }
+                    }
                 // Instruments and breaker panels are separate models placed by
                 // the flight deck's model XML; load that tree statically so the
                 // panel is populated with real 3D gauges.
@@ -45,7 +54,7 @@ internal object FlightGearAc3dLoader {
                         loadModelXmlTree(
                             parent = root,
                             assetManager = assetManager,
-                            zip = zip,
+                            archive = archive,
                             entriesByLower = entriesByLower,
                             textureCache = textureCache,
                             xmlEntry = deckXml,
@@ -62,19 +71,31 @@ internal object FlightGearAc3dLoader {
             }
         }.getOrNull()
 
+    private fun applyWheelOrSkiVisibility(root: Spatial, variant: FreeFlightDhc6Variant) {
+        val hiddenPrefixes = when (variant) {
+            FreeFlightDhc6Variant.Skis -> listOf("FrtWheel", "Lwheel", "Rwheel")
+            else -> listOf("FrtSki", "Lski", "Rski")
+        }
+        root.depthFirstTraversal { spatial ->
+            if (hiddenPrefixes.any { spatial.name.startsWith(it, ignoreCase = true) }) {
+                spatial.cullHint = Spatial.CullHint.Always
+            }
+        }
+    }
+
     private fun loadAcInto(
         parent: Node,
         assetManager: AssetManager,
-        zip: ZipFile,
-        entriesByLower: Map<String, java.util.zip.ZipEntry>,
+        archive: FgAircraftArchive,
+        entriesByLower: Map<String, String>,
         textureCache: HashMap<String, Texture2D?>,
         entryName: String,
     ): Node? {
-        val text = zip.readEntryText(entryName) ?: return null
+        val text = archive.readText(entryName) ?: return null
         val acFile = Ac3dParser(text).parse()
         val node = Ac3dSceneBuilder(
             assetManager = assetManager,
-            zip = zip,
+            archive = archive,
             entriesByLower = entriesByLower,
             textureCache = textureCache,
             sourceEntry = entryName,
@@ -96,8 +117,8 @@ internal object FlightGearAc3dLoader {
     private fun loadModelXmlTree(
         parent: Node,
         assetManager: AssetManager,
-        zip: ZipFile,
-        entriesByLower: Map<String, java.util.zip.ZipEntry>,
+        archive: FgAircraftArchive,
+        entriesByLower: Map<String, String>,
         textureCache: HashMap<String, Texture2D?>,
         xmlEntry: String,
         zipRootPrefix: String,
@@ -106,7 +127,7 @@ internal object FlightGearAc3dLoader {
         loadOwnGeometry: Boolean = true,
     ) {
         if (depth > 3 || budget[0] <= 0) return
-        val text = zip.readEntryText(xmlEntry) ?: return
+        val text = archive.readText(xmlEntry) ?: return
         val doc = runCatching { parseModelXml(text) }.getOrNull() ?: return
         val propertyList = doc.documentElement ?: return
         val xmlDir = xmlEntry.substringBeforeLast('/', "")
@@ -116,7 +137,7 @@ internal object FlightGearAc3dLoader {
                 resolveModelPath(ownPath, xmlDir, zipRootPrefix, entriesByLower)?.let { resolved ->
                     if (resolved.endsWith(".ac", ignoreCase = true)) {
                         budget[0]--
-                        runCatching { loadAcInto(parent, assetManager, zip, entriesByLower, textureCache, resolved) }
+                        runCatching { loadAcInto(parent, assetManager, archive, entriesByLower, textureCache, resolved) }
                     }
                 }
             }
@@ -129,6 +150,9 @@ internal object FlightGearAc3dLoader {
             if (firstChildElement(model, "condition") != null) continue
             val path = firstChildText(model, "path")?.trim() ?: continue
             val resolved = resolveModelPath(path, xmlDir, zipRootPrefix, entriesByLower) ?: continue
+            // These meshes are transparent lighting volumes in FlightGear.
+            // Loading them statically creates opaque wedges through the cockpit.
+            if (resolved.contains("/Models/Lights/", ignoreCase = true)) continue
             if (budget[0] <= 0) return
 
             val holder = Node(firstChildText(model, "name") ?: resolved.substringAfterLast('/'))
@@ -152,7 +176,7 @@ internal object FlightGearAc3dLoader {
                     loadModelXmlTree(
                         parent = holder,
                         assetManager = assetManager,
-                        zip = zip,
+                        archive = archive,
                         entriesByLower = entriesByLower,
                         textureCache = textureCache,
                         xmlEntry = resolved,
@@ -162,7 +186,7 @@ internal object FlightGearAc3dLoader {
                     )
                     holder.children.isNotEmpty()
                 } else {
-                    loadAcInto(holder, assetManager, zip, entriesByLower, textureCache, resolved) != null
+                    loadAcInto(holder, assetManager, archive, entriesByLower, textureCache, resolved) != null
                 }
             }.getOrDefault(false)
             if (loaded) parent.attachChild(holder)
@@ -173,7 +197,7 @@ internal object FlightGearAc3dLoader {
         path: String,
         xmlDir: String,
         zipRootPrefix: String,
-        entriesByLower: Map<String, java.util.zip.ZipEntry>,
+        entriesByLower: Map<String, String>,
     ): String? {
         val normalized = path.replace('\\', '/').trimStart('/')
         val candidates = buildList {
@@ -209,13 +233,6 @@ internal object FlightGearAc3dLoader {
 
     private fun firstChildText(parent: org.w3c.dom.Element, tag: String): String? =
         firstChildElement(parent, tag)?.textContent
-
-    private fun ZipFile.readEntryText(entryName: String): String? {
-        val entry = getEntry(entryName) ?: return null
-        return getInputStream(entry).use { input ->
-            input.readBytes().toString(Charsets.UTF_8)
-        }
-    }
 }
 
 private class Ac3dParser(text: String) {
@@ -361,8 +378,8 @@ private class Ac3dParser(text: String) {
 
 private class Ac3dSceneBuilder(
     private val assetManager: AssetManager,
-    private val zip: ZipFile,
-    private val entriesByLower: Map<String, java.util.zip.ZipEntry>,
+    private val archive: FgAircraftArchive,
+    private val entriesByLower: Map<String, String>,
     private val textureCache: MutableMap<String, Texture2D?>,
     private val sourceEntry: String,
     private val materials: List<AcMaterialDef>,
@@ -456,7 +473,8 @@ private class Ac3dSceneBuilder(
             val entry = direct.firstNotNullOfOrNull { entriesByLower[it.lowercase()] }
                 ?: entriesByLower.entries.firstOrNull { it.key.endsWith("/${normalized.lowercase()}") }?.value
                 ?: return@getOrPut null
-            val awt = zip.getInputStream(entry).use(ImageIO::read) ?: return@getOrPut null
+            val bytes = archive.readBytes(entry) ?: return@getOrPut null
+            val awt = java.io.ByteArrayInputStream(bytes).use(ImageIO::read) ?: return@getOrPut null
             Texture2D(awtToJmeImage(awt)).apply {
                 setWrap(Texture.WrapMode.Repeat)
                 minFilter = Texture.MinFilter.Trilinear

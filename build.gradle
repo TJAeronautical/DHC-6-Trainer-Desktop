@@ -155,6 +155,12 @@ tasks.named("processResources") {
     // Generated indexes take precedence over any copy checked into
     // src/main/resources; Gradle 9 fails on duplicates without a strategy.
     duplicatesStrategy = DuplicatesStrategy.INCLUDE
+    // Keep FlightGear's editable authoring sources in the repository, but do
+    // not ship them. FlightGear reads the exported AC/PNG/XML assets instead.
+    exclude("flight-sim/**/*.xcf")
+    exclude("flight-sim/**/*.blend")
+    exclude("flight-sim/**/*.blend1")
+    exclude("flight-sim/**/Paintkit/**")
     dependsOn("generateDesktopProcedureIndex")
     dependsOn("generateDesktopFlashcardIndex")
     dependsOn("generateDesktopAssetIndex")
@@ -176,6 +182,16 @@ tasks.register("runRenderSmokeTest", JavaExec) {
     mainClass = "com.dhc6trainer.desktop.RenderSmokeTestKt"
 }
 
+tasks.register("runFlightGearSmokeTest", JavaExec) {
+    group = "verification"
+    description = "Headless check of the Full Simulator integration (FGDesktop detection, DHC-6 deployment state)."
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = "com.dhc6trainer.desktop.FlightGearSmokeTestKt"
+    if (project.hasProperty("smokeDeploy")) {
+        systemProperty("smoke.deploy", project.property("smokeDeploy"))
+    }
+}
+
 tasks.register("runAssetSmokeTest", JavaExec) {
     group = "verification"
     description = "Headless check that every 3D model/asset pipeline loads."
@@ -191,6 +207,11 @@ compose.desktop {
         mainClass = "com.dhc6trainer.desktop.MainKt"
 
         nativeDistributions {
+            // LWJGL resolves sun.misc.Unsafe during native context startup.
+            // jdeps does not discover that reflective dependency, so jlink
+            // must be told to retain the small module that provides it.
+            modules("jdk.unsupported")
+
             targetFormats(
                     org.jetbrains.compose.desktop.application.dsl.TargetFormat.Msi,
                     org.jetbrains.compose.desktop.application.dsl.TargetFormat.Exe

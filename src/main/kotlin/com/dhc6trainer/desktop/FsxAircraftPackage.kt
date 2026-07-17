@@ -19,12 +19,23 @@ internal data class FsxAircraftPackage(
     val aircraftRoot: String,
     val aircraftCfgText: String?,
     val textureCount: Int,
+    val liveryTitles: List<String>,
+    val panelConfigCount: Int,
+    val panelBitmapCount: Int,
+    val gaugeArchiveCount: Int,
     val nativeModelSupported: Boolean,
 ) {
     val statusBadge: String =
         if (nativeModelSupported) "$label FSX MDL" else "$label legacy MDL"
     val summary: String =
         "$label loaded from ${zipPath.fileName} - ${modelEntries.size} models, $textureCount textures"
+    val referenceSummary: String = buildString {
+        append(if (nativeModelSupported) "Preview compatible" else "Legacy model not used")
+        append(" - ${liveryTitles.size} liveries, ${modelEntries.size} models, $textureCount textures")
+        if (panelConfigCount > 0 || panelBitmapCount > 0 || gaugeArchiveCount > 0) {
+            append(", $panelConfigCount panel configs, $panelBitmapCount panel images, $gaugeArchiveCount gauge archives")
+        }
+    }
 
     fun loadModel(assetManager: AssetManager): Spatial? =
         runCatching {
@@ -105,21 +116,29 @@ internal object FsxAircraftPackageLibrary {
     )
 
     fun loadAuto(): FsxAircraftPackage? {
-        val explicitPath = explicitPath()
-        if (explicitPath != null && Files.isRegularFile(explicitPath)) {
-            loadPackage(
-                known = knownPackages.firstOrNull { it.fileName.equals(explicitPath.fileName.toString(), ignoreCase = true) }
-                    ?: genericKnown(explicitPath.fileName.toString()),
-                zipPath = explicitPath,
-            )?.let { return it }
-        }
-
-        val packages = knownPackages.mapNotNull { known ->
-            candidatePaths(known.fileName)
-                .firstOrNull { Files.isRegularFile(it) }
-                ?.let { loadPackage(known, it) }
-        }
+        val packages = loadAllAuto()
         return packages.firstOrNull { it.nativeModelSupported } ?: packages.firstOrNull()
+    }
+
+    fun loadAllAuto(): List<FsxAircraftPackage> {
+        val explicitPath = explicitPath()
+        return buildList {
+            if (explicitPath != null && Files.isRegularFile(explicitPath)) {
+                loadPackage(
+                    known = knownPackages.firstOrNull {
+                        it.fileName.equals(explicitPath.fileName.toString(), ignoreCase = true)
+                    } ?: genericKnown(explicitPath.fileName.toString()),
+                    zipPath = explicitPath,
+                )?.let(::add)
+            }
+            knownPackages.forEach { known ->
+                candidatePaths(known.fileName)
+                    .firstOrNull { Files.isRegularFile(it) }
+                    ?.let { loadPackage(known, it) }
+                    ?.let(::add)
+            }
+        }
+            .distinctBy { it.zipPath.toAbsolutePath().normalize().toString().lowercase() }
     }
 
     private fun explicitPath(): Path? =
@@ -137,6 +156,8 @@ internal object FsxAircraftPackageLibrary {
             add(Paths.get(fileName))
             userDir?.let { add(Paths.get(it, fileName)) }
             home?.let { add(Paths.get(it, "Downloads", fileName)) }
+            home?.let { add(Paths.get(it, "Desktop", "My App Data", fileName)) }
+            home?.let { add(Paths.get(it, "Desktop", "My App Data", "ZIP Files", "Files", "Desktop", fileName)) }
             home?.let { add(Paths.get(it, "OneDrive", "Desktop", "My App Data", fileName)) }
             home?.let { add(Paths.get(it, "OneDrive", "Desktop", "My App Data", "ZIP Files", "Files", "Desktop", fileName)) }
         }.distinctBy { it.toAbsolutePath().normalize().toString().lowercase() }
@@ -164,6 +185,10 @@ internal object FsxAircraftPackageLibrary {
                 val preferredModel = modelEntries.firstOrNull() ?: return null
                 val aircraftCfg = aircraftCfgEntry?.let(zip::getEntry)
                     ?.let { entry -> zip.getInputStream(entry).use { it.readBytes().toString(Charsets.ISO_8859_1) } }
+                val panelEntries = entries.filter {
+                    it.startsWith("$aircraftRoot/", ignoreCase = true) &&
+                        it.substringAfter("$aircraftRoot/", "").startsWith("panel", ignoreCase = true)
+                }
                 FsxAircraftPackage(
                     id = known.id,
                     label = known.label,
@@ -174,10 +199,24 @@ internal object FsxAircraftPackageLibrary {
                     aircraftRoot = aircraftRoot,
                     aircraftCfgText = aircraftCfg,
                     textureCount = entries.count { it.endsWith(".bmp", ignoreCase = true) },
+                    liveryTitles = aircraftCfg?.let(::parseLiveryTitles).orEmpty(),
+                    panelConfigCount = panelEntries.count { it.endsWith("panel.cfg", ignoreCase = true) },
+                    panelBitmapCount = panelEntries.count { it.endsWith(".bmp", ignoreCase = true) },
+                    gaugeArchiveCount = panelEntries.count {
+                        it.endsWith(".gau", ignoreCase = true) || it.endsWith(".cab", ignoreCase = true)
+                    },
                     nativeModelSupported = isNativeMdl8(zip, preferredModel),
                 )
             }
         }.getOrNull()
+
+    private fun parseLiveryTitles(aircraftCfgText: String): List<String> =
+        Regex("""(?im)^\s*title\s*=\s*(.+?)\s*$""")
+            .findAll(aircraftCfgText)
+            .map { it.groupValues[1].trim().trim('"') }
+            .filter { it.isNotBlank() }
+            .distinct()
+            .toList()
 
     private fun genericKnown(fileName: String): KnownFsxAircraft =
         KnownFsxAircraft(

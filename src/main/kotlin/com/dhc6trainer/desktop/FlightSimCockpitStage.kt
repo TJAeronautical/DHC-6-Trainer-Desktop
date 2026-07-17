@@ -58,12 +58,9 @@ internal enum class Dhc6SimulatorView(val label: String) {
     OutsideAircraft("Outside aircraft"),
 }
 
-internal const val KennBorekAircraftRootPath =
-    "flight-sim/dhc6-kennborek-x/Simobjects/airplanes/dhc6_kennborek_x"
-internal const val KennBorekInsideCockpitPath =
-    "flight-sim/dhc6-kennborek-x/Simobjects/airplanes/dhc6_kennborek_x/dhc6_kennborek_VC.jpg"
-internal const val KennBorekOutsideAircraftPath =
-    "flight-sim/dhc6-kennborek-x/Simobjects/airplanes/dhc6_kennborek_x/dhc6_kennborek_tundra.jpg"
+internal const val PersonalizedDhc6AircraftRootPath = "flight-sim/dhc6"
+internal const val PersonalizedDhc6InsideCockpitPath = "$PersonalizedDhc6AircraftRootPath/Pics/cockpit01.jpg"
+internal const val PersonalizedDhc6OutsideAircraftPath = "$PersonalizedDhc6AircraftRootPath/Pics/wheels01.jpg"
 private const val CockpitSpritePackRootPath = "cockpit/sprite_pack"
 
 @Composable
@@ -102,7 +99,7 @@ internal fun FlightSimCockpitStage(
         cockpitSpritePack.entries.associate { entry -> entry.path to DesktopImages.image(entry.path) }
     }
     val outsideAircraftImage = remember {
-        DesktopImages.image(KennBorekOutsideAircraftPath)
+        DesktopImages.image(PersonalizedDhc6OutsideAircraftPath)
     }
     val environmentPackage = remember {
         FsxEnvironmentLibrary.loadAuto()
@@ -136,31 +133,37 @@ internal fun FlightSimCockpitStage(
                     } else {
                         null
                     }
-                    val control = when {
-                        spriteHitId != null -> FlightSimControlZones.firstOrNull { it.handlesSprite(spriteHitId) }
-                        else -> FlightSimControlZones.firstOrNull { it.rect.contains(normalizedOffset) }
+                    if (spriteHitId != null) {
+                        // Every switch/lever sprite with simulated state toggles
+                        // directly; the rest select their panel group.
+                        targetIdForSprite(spriteHitId)?.let(onSelectTargetId)
+                        spriteControlAction(spriteHitId)?.let { action -> onStateChange(action(state)) }
+                        return@detectTapGestures
                     }
+                    val control = FlightSimControlZones.firstOrNull { it.rect.contains(normalizedOffset) }
                     if (control != null) {
                         onSelectTargetId(control.targetId)
                         onStateChange(control.update(state))
                     } else {
-                        val targetId = spriteHitId?.let(::targetIdForSprite)
-                            ?: FlightSimTargetRects.entries
+                        FlightSimTargetRects.entries
                             .firstOrNull { it.value.contains(normalizedOffset) }
                             ?.key
-                        targetId?.let(onSelectTargetId)
+                            ?.let(onSelectTargetId)
                     }
                 }
             }
-            .pointerInput(Unit) {
+            .pointerInput(zoom) {
                 detectDragGestures { change, dragAmount ->
                     change.consume()
-                    onPan(dragAmount.x, dragAmount.y)
+                    // Pan lives inside the scaled layer, so convert the screen
+                    // drag to scene units to keep the image under the cursor.
+                    val scale = sceneScaleForPointer(zoom)
+                    onPan(dragAmount.x / scale, dragAmount.y / scale)
                 }
             },
         contentAlignment = Alignment.Center,
     ) {
-        val sceneScale = (0.95f * zoom).coerceIn(0.72f, 1.18f)
+        val sceneScale = sceneScaleForPointer(zoom)
 
         Box(
             modifier = Modifier
@@ -343,6 +346,44 @@ private val FlightSimControlZones = listOf(
     },
 )
 
+/**
+ * Direct click action for a cockpit sprite: every switch, lever and handle
+ * with simulated state responds; gauges and displays return null (select only).
+ */
+private fun spriteControlAction(spriteId: String): ((DesktopCockpitSimState) -> DesktopCockpitSimState)? =
+    when (spriteId) {
+        "BATTERY_MASTER" -> { s -> s.copy(batteryMaster = !s.batteryMaster) }
+        "AVIONICS_MASTER" -> { s -> s.copy(avionicsMaster = !s.avionicsMaster) }
+        "L_DC_GEN" -> { s -> s.copy(leftDcGenerator = !s.leftDcGenerator) }
+        "R_DC_GEN" -> { s -> s.copy(rightDcGenerator = !s.rightDcGenerator) }
+        "FWD_BOOST_PUMP" -> { s -> s.copy(fwdBoost1 = !s.fwdBoost1) }
+        "AFT_BOOST_PUMP" -> { s -> s.copy(aftBoost1 = !s.aftBoost1) }
+        "STBY_BOOST_PUMP_FWD" -> { s -> s.copy(fwdBoost2 = !s.fwdBoost2) }
+        "STBY_BOOST_PUMP_AFT" -> { s -> s.copy(aftBoost2 = !s.aftBoost2) }
+        "FUEL_LEVER_L", "FUEL_SOV_L", "EMERG_FUEL_SHUTOFF_L" -> { s -> s.copy(leftFuelLeverOn = !s.leftFuelLeverOn) }
+        "FUEL_LEVER_R", "FUEL_SOV_R", "EMERG_FUEL_SHUTOFF_R" -> { s -> s.copy(rightFuelLeverOn = !s.rightFuelLeverOn) }
+        "FUEL_SELECTOR" -> { s -> s.copy(crossfeed = s.crossfeed.next()) }
+        "POWER_LEVER_L" -> { s -> s.copy(leftPower = s.leftPower.next()) }
+        "POWER_LEVER_R" -> { s -> s.copy(rightPower = s.rightPower.next()) }
+        "FLAP_SELECTOR" -> { s -> s.copy(flaps = s.flaps.next()) }
+        "FIRE_DETECT_TEST" -> { s -> s.copy(fireDetectionArmed = !s.fireDetectionArmed) }
+        "FIRE_HANDLE_L", "FIRE_PUSH_SWITCH_L" -> { s ->
+            val nextPulled = !s.leftFireHandlePulled
+            s.copy(
+                leftFireHandlePulled = nextPulled,
+                leftFuelLeverOn = if (nextPulled) false else s.leftFuelLeverOn,
+            )
+        }
+        "FIRE_HANDLE_R", "FIRE_PUSH_SWITCH_R" -> { s ->
+            val nextPulled = !s.rightFireHandlePulled
+            s.copy(
+                rightFireHandlePulled = nextPulled,
+                rightFuelLeverOn = if (nextPulled) false else s.rightFuelLeverOn,
+            )
+        }
+        else -> null
+    }
+
 private fun targetIdForSprite(spriteId: String): String? = when {
     spriteId in setOf("MASTER_CAUTION", "MASTER_CAUTION_LEFT", "MASTER_CAUTION_RIGHT", "MASTER_WARNING_LEFT", "MASTER_WARNING_RIGHT", "CAUT_LT_TEST") ->
         "annunciators"
@@ -462,10 +503,14 @@ private fun DesktopCockpitSimState.activeCueSpriteIds(): Set<String> = buildSet 
     if (avionicsMaster) add("AVIONICS_MASTER")
     if (leftDcGenerator) add("L_DC_GEN")
     if (rightDcGenerator) add("R_DC_GEN")
-    if (fwdBoost1 || fwdBoost2) add("FWD_BOOST_PUMP")
-    if (aftBoost1 || aftBoost2) add("AFT_BOOST_PUMP")
+    if (fwdBoost1) add("FWD_BOOST_PUMP")
+    if (aftBoost1) add("AFT_BOOST_PUMP")
+    if (fwdBoost2) add("STBY_BOOST_PUMP_FWD")
+    if (aftBoost2) add("STBY_BOOST_PUMP_AFT")
     if (leftFuelLeverOn) add("FUEL_LEVER_L")
     if (rightFuelLeverOn) add("FUEL_LEVER_R")
+    if (crossfeed != CockpitCrossfeedPosition.NORMAL) add("FUEL_SELECTOR")
+    if (fireDetectionArmed) add("FIRE_DETECT_TEST")
     if (leftFireHandlePulled) {
         add("FIRE_HANDLE_L")
         add("FIRE_PUSH_SWITCH_L")
@@ -479,8 +524,10 @@ private fun DesktopCockpitSimState.activeCueSpriteIds(): Set<String> = buildSet 
     if (flaps != CockpitFlapSetting.UP) add("FLAP_SELECTOR")
 }
 
+// Full zoom range for panel study: pan compensates once the scene exceeds the
+// viewport, so the ceiling is only bounded by texture sharpness.
 private fun sceneScaleForPointer(zoom: Float): Float =
-    (0.95f * zoom).coerceIn(0.72f, 1.18f)
+    (0.95f * zoom).coerceIn(0.72f, 8f)
 
 private fun Offset.toSceneOffset(
     viewportWidth: Float,
@@ -489,11 +536,13 @@ private fun Offset.toSceneOffset(
     panX: Float,
     panY: Float,
 ): Offset {
+    // The scene layer applies scale about the viewport centre with the pan
+    // offset INSIDE the scaled layer: screen = centre + scale * (scene + pan - centre).
     val centerX = viewportWidth / 2f
     val centerY = viewportHeight / 2f
     return Offset(
-        x = ((x - panX - centerX) / sceneScale) + centerX,
-        y = ((y - panY - centerY) / sceneScale) + centerY,
+        x = ((x - centerX) / sceneScale) + centerX - panX,
+        y = ((y - centerY) / sceneScale) + centerY - panY,
     )
 }
 

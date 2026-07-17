@@ -76,6 +76,7 @@ private enum class DesktopSection(val title: String, val subtitle: String, val i
     DRILL(      "Drill",       "Multiple choice A/B/C/D knowledge check",    "D"),
     MCCALLOUT(  "MCC Callout", "PF/PM crew callout trainer",                 "M"),
     COCKPIT("Cockpit", "Interactive Legacy/G950 cockpit simulator", "C"),
+    FLIGHTGEAR("Full Simulator", "Launch the personalized FlightGear DHC-6 sim", "FG"),
     SYSTEMS("Technical Lab", "PT6A, electrical, fuel, hydraulic study", "S"),
     PERFORMANCE("Performance", "Takeoff, landing, climb planning",           "P"),
     LOGBOOK(    "Debrief Logbook", "Local attempt history and debrief notes",     "L"),
@@ -334,6 +335,7 @@ private fun MainShell(
                 DesktopSection.DRILL -> DrillScreen(flashcardSnapshot)
 
                 DesktopSection.COCKPIT -> CockpitScreen()
+                DesktopSection.FLIGHTGEAR -> FlightGearScreen()
                 DesktopSection.SYSTEMS -> SystemsLabScreen(assetSnapshot)
                 DesktopSection.PERFORMANCE -> PerformanceScreen(assetSnapshot)
                 DesktopSection.LOGBOOK -> LogbookScreen(onNavigate)
@@ -1546,6 +1548,7 @@ private fun SettingsScreen(
         DesktopProgressStore.mccSessions() + DesktopProgressStore.drillSessions()
     }
     val openSourceSim = remember { OpenSourceSimLibrary.loadAuto() }
+    val localAircraftReferences = remember { FsxAircraftPackageLibrary.loadAllAuto() }
     val loaderNotes = (procedures.loadNotes + flashcards.loadNotes)
         .distinct()
         .joinToString("\n")
@@ -1591,6 +1594,26 @@ private fun SettingsScreen(
             InfoCard(
                 "Open-source simulator packages",
                 openSourceSim.settingsSummary,
+                Modifier.fillMaxWidth()
+            )
+        }
+        item {
+            InfoCard(
+                "Local aircraft reference packs",
+                localAircraftReferences
+                    .joinToString("\n") { aircraft ->
+                        "${aircraft.label}: ${aircraft.referenceSummary}. Read in place from ${aircraft.zipPath}."
+                    }
+                    .ifBlank {
+                        "No optional local DHC-6 aircraft ZIPs detected. The desktop trainer continues with its independent packaged aircraft."
+                    },
+                Modifier.fillMaxWidth()
+            )
+        }
+        item {
+            InfoCard(
+                "Replaceable aircraft 3D models",
+                LocalAircraftModelLibrary.settingsSummary(),
                 Modifier.fillMaxWidth()
             )
         }

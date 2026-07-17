@@ -323,14 +323,16 @@ private fun systemGlbSceneSpec(
 ): JmeSceneSpec = JmeSceneSpec(
     initialYaw = -0.35f,
     initialPitch = 0.22f,
-    initialDist = parseCamDist(cameraMetadata?.cameraPosition) ?: 3.8f,
+    // Models are normalized to radius 1.85 by prepareGlbModel, so a start
+    // distance in this band always frames the whole model; metadata presets
+    // are clamped into it (some were tuned for the old, uncentered layout).
+    initialDist = (parseCamDist(cameraMetadata?.cameraPosition) ?: 5.2f).coerceIn(4.2f, 8.5f),
     minDist = 1.2f,
     maxDist = 16f,
     autoRotate = true,
     build = { app ->
         val keyLight = JmeFlightSimScene.installLightRig(app.rootNode)
         runCatching { app.rootNode.attachChild(JmeFlightSimScene.buildSkyDome(app.assetManager)) }
-        runCatching { app.rootNode.attachChild(JmeFlightSimScene.buildGroundStage(app.assetManager)) }
         runCatching { JmeFlightSimScene.installPostFx(app, keyLight) }
 
         val raw = runCatching { app.assetManager.loadModel(normalizeAssetPath(modelPath)) }.getOrNull()
@@ -355,8 +357,12 @@ private fun prepareGlbModel(app: com.jme3.app.SimpleApplication, model: Spatial)
         else -> 1f
     }.coerceAtLeast(0.05f)
 
-    model.setLocalTranslation(center.negate())
-    model.setLocalScale((1.85f / radius).coerceIn(0.05f, 30f))
+    // A spatial's own localScale does not scale its localTranslation, so the
+    // centering offset must be expressed in scaled units - otherwise models
+    // authored away from their origin end up far off-camera.
+    val scale = (1.85f / radius).coerceIn(0.05f, 30f)
+    model.setLocalScale(scale)
+    model.setLocalTranslation(center.negate().multLocal(scale))
 
     // Fix any geometry with null material - PBR so it matches GLB parts
     // and picks up the baked environment reflections

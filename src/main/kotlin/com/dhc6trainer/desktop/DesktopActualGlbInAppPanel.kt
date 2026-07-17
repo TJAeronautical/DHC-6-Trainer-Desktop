@@ -44,7 +44,6 @@ private fun actualGlbSceneSpec(modelPath: String, title: String): JmeSceneSpec {
         build = { app ->
             val keyLight = JmeFlightSimScene.installLightRig(app.rootNode)
             runCatching { app.rootNode.attachChild(JmeFlightSimScene.buildSkyDome(app.assetManager)) }
-            runCatching { app.rootNode.attachChild(JmeFlightSimScene.buildGroundStage(app.assetManager)) }
             runCatching { JmeFlightSimScene.installPostFx(app, keyLight) }
 
             val model = runCatching {
@@ -75,8 +74,11 @@ private fun prepareActualGlbModel(app: SimpleApplication, model: Spatial) {
         else -> 1f
     }.takeIf { it > 0.001f } ?: 1f
 
-    model.setLocalTranslation(center.negate())
-    model.setLocalScale(1.85f / radius)
+    // Scale first: a spatial's own localScale does not scale its
+    // localTranslation, so the centering offset must be in scaled units.
+    val scale = 1.85f / radius
+    model.setLocalScale(scale)
+    model.setLocalTranslation(center.negate().multLocal(scale))
 
     runCatching {
         model.depthFirstTraversal { spatial ->

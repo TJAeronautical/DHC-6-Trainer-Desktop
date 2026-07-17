@@ -15,8 +15,8 @@ import kotlin.math.tan
    Point-mass force model (lift/drag/thrust/gravity) with attitude
    kinematics, angle-of-attack driven lift with stall, flap effects,
    dynamic-pressure-scaled control authority, and ground roll handling.
-   Aerodynamic reference data comes from the bundled Kenn Borek
-   Aircraft.cfg (weights, wing geometry, stall speeds, PT6A-27 power).
+   Aerodynamic reference data comes from the personalized FlightGear DHC-6
+   package when available, with type-specific defaults for offline fallback.
 
    Conventions (matches the jME scene):
      world: X east, Y up, Z south; aircraft heading 0 flies toward -Z.
@@ -117,16 +117,7 @@ internal class Dhc6Params(
                 sourceLabel = "JSBSim ${profile.aircraftName} DHC-6 data",
             )
 
-        /** Parses the bundled Aircraft.cfg, falling back to type defaults. */
-        fun fromBundledAircraftCfg(): Dhc6Params {
-            val text = runCatching {
-                val loader = Thread.currentThread().contextClassLoader
-                    ?: Dhc6Params::class.java.classLoader
-                loader.getResourceAsStream("$KennBorekAircraftResourceRoot/Aircraft.cfg")
-                    ?.use { it.readBytes().toString(Charsets.ISO_8859_1) }
-            }.getOrNull() ?: return Dhc6Params()
-            return fromAircraftCfgText(text)
-        }
+        fun fromBundledAircraftCfg(): Dhc6Params = Dhc6Params()
     }
 }
 

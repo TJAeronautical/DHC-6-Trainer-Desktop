@@ -118,32 +118,6 @@ fun main() {
     }
 
     println()
-    println("=== FSX Kenn Borek MDL aircraft ===")
-    check("dhc6_tundra.mdl parse") {
-        val bytes = object {}.javaClass.classLoader
-            .getResourceAsStream(KennBorekTundraMdlPath)!!.readBytes()
-        val parsed = FsxMdlParser.parse(bytes)
-        "${parsed.vertices.size} verts, ${parsed.batches.sumOf { it.indices.size } / 3} tris, " +
-            "${parsed.textureNames.distinct().size} textures, ${parsed.materials.size} materials"
-    }
-    check("dhc6_tundra.mdl full jME load") {
-        val model = assets.loadModel(KennBorekTundraMdlPath)
-        model.depthFirstTraversal { spatial ->
-            val geom = spatial as? com.jme3.scene.Geometry ?: return@depthFirstTraversal
-            if (geom.name.contains("VCpan") || geom.name.contains("interior") ||
-                geom.name.contains("pilots") || geom.name.contains("prop")
-            ) {
-                val b = geom.mesh.bound as? com.jme3.bounding.BoundingBox ?: return@depthFirstTraversal
-                println(
-                    "      ${geom.name}: centre(%.2f %.2f %.2f) extents(%.2f %.2f %.2f)"
-                        .format(b.center.x, b.center.y, b.center.z, b.xExtent, b.yExtent, b.zExtent),
-                )
-            }
-        }
-        "${countGeometries(model)} geometries"
-    }
-
-    println()
     println("=== Local simulator packages (Downloads detection) ===")
     check("FSX environment package") {
         val env = FsxEnvironmentLibrary.loadAuto()
@@ -176,14 +150,28 @@ fun main() {
         }
         "${countGeometries(model)} geometries from ${aircraft.visualEntries.size} .ac files"
     }
-    check("FSX Twin Otter aircraft package") {
-        val aircraft = FsxAircraftPackageLibrary.loadAuto() ?: return@check "not present (skipped)"
-        "${aircraft.statusBadge}, nativeModelSupported=${aircraft.nativeModelSupported}"
+    check("Personalized DHC-6 airframe variants") {
+        FreeFlightDhc6Variant.entries.joinToString { "${it.aircraftId}=${it.label}" }
     }
-    check("X-Plane variant packages") {
-        val variants = XPlaneTwinOtterVariantLibrary.loadAuto()
-        "${variants.size} variants: ${variants.joinToString { it.id }}"
+    val localFsxAircraft = FsxAircraftPackageLibrary.loadAllAuto()
+    check("Local FSX Twin Otter reference packs") {
+        if (localFsxAircraft.isEmpty()) {
+            "not present (skipped)"
+        } else {
+            localFsxAircraft.joinToString {
+                "${it.id}: native=${it.nativeModelSupported}, liveries=${it.liveryTitles.size}"
+            }
+        }
     }
+    localFsxAircraft
+        .filter { it.nativeModelSupported && it.id != "air-alpes-fsx" }
+        .forEach { aircraft ->
+            check("${aircraft.label} local reference data") {
+                val replacement = LocalAircraftModelLibrary.replacementFor(aircraft.id)
+                val visual = replacement?.path?.let { "custom GLB $it" } ?: "trainer 3D model fallback"
+                "${aircraft.liveryTitles.size} liveries, ${aircraft.panelConfigCount} panel configs, visual=$visual"
+            }
+        }
     check("X-Plane VRMM scenery package") {
         val scenery = XPlaneSceneryLibrary.loadAuto() ?: return@check "not present (skipped)"
         "${scenery.statusBadge}, ${scenery.pavements.size} pavements"

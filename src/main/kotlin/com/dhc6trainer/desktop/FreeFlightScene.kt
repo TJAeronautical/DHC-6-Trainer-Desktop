@@ -45,7 +45,7 @@ import kotlin.random.Random
 /* =====================================================================
    FreeFlightScene - real-time flyable DHC-6 world.
 
-   A genuine flight-simulator scene: the parsed Kenn Borek MDL aircraft
+   A genuine flight-simulator scene: the personalized FlightGear DHC-6
    flying over a 3D airfield world (runway, apron, hangars, town,
    mountains, clouds) textured or preview-backed from local FSX environment
    packages when present. The Dhc6FlightModel integrates
@@ -63,40 +63,66 @@ internal enum class FreeFlightCameraMode(val label: String) {
 
 internal enum class FreeFlightReset { None, Runway, Final, Cruise }
 
+internal enum class FreeFlightDhc6Variant(
+    val aircraftId: String,
+    val label: String,
+    val gearModelFile: String,
+) {
+    Wheels("dhc6", "Wheels", "wheels.ac"),
+    Floats("dhc6F", "Floats", "floats.ac"),
+    Skis("dhc6S", "Skis", "wheels.ac");
+
+    companion object {
+        fun fromAircraftId(id: String): FreeFlightDhc6Variant? =
+            entries.firstOrNull { it.aircraftId == id }
+    }
+}
+
+internal data class FreeFlightAircraftOption(
+    val id: String,
+    val label: String,
+)
+
 /** Shared state bridge between the Compose UI and the render thread. */
 internal class FreeFlightSession {
     val controls = Dhc6FlightControls()
     val openSourceSim = OpenSourceSimLibrary.loadAuto()
-    val fsxAircraftPackage = FsxAircraftPackageLibrary.loadAuto()
+    val fsxAircraftPackages = FsxAircraftPackageLibrary.loadAllAuto()
+    val fsxAircraftPackage =
+        fsxAircraftPackages.firstOrNull { it.nativeModelSupported }
+            ?: fsxAircraftPackages.firstOrNull()
     val environmentPackage = FsxEnvironmentLibrary.loadAuto()
     val model = Dhc6FlightModel(
         openSourceSim.primaryDhc6Profile?.let(Dhc6Params::fromJsbsimProfile)
             ?: fsxAircraftPackage?.aircraftCfgText?.let(Dhc6Params::fromAircraftCfgText)
             ?: Dhc6Params.fromBundledAircraftCfg(),
     )
-    val variantPackages = XPlaneTwinOtterVariantLibrary.loadAuto()
-    val sceneryPackage = XPlaneSceneryLibrary.loadAuto()
+    val sceneryPackage: XPlaneSceneryPackage? = null
 
     @Volatile var cameraMode = FreeFlightCameraMode.Chase
     @Volatile var pendingReset = FreeFlightReset.None
     @Volatile var sceneStatus = "Starting flight sim..."
-    @Volatile var selectedVariantId =
-        openSourceSim.flightGearAircraft?.id
-            ?: fsxAircraftPackage?.takeIf { it.nativeModelSupported }?.id
-            ?: variantPackages.firstOrNull()?.id
-            ?: KennBorekVariantId
+    @Volatile var selectedVariantId = FreeFlightDhc6Variant.Wheels.aircraftId
 
     val telemetry: Dhc6Telemetry get() = model.telemetry
     val selectedFlightGearAircraftPackage: FlightGearAircraftPackage?
-        get() = openSourceSim.flightGearAircraft?.takeIf { it.id == selectedVariantId }
+        get() = openSourceSim.flightGearAircraft
+            ?.takeIf { FreeFlightDhc6Variant.fromAircraftId(selectedVariantId) != null }
+    val selectedFlightGearVariant: FreeFlightDhc6Variant?
+        get() = FreeFlightDhc6Variant.fromAircraftId(selectedVariantId)
     val selectedFsxAircraftPackage: FsxAircraftPackage?
-        get() = fsxAircraftPackage?.takeIf { it.nativeModelSupported && it.id == selectedVariantId }
-    val selectedVariantPackage: XPlaneTwinOtterVariantPackage?
-        get() = variantPackages.firstOrNull { it.id == selectedVariantId }
-
-    companion object {
-        const val KennBorekVariantId = "kennborek-mdl"
-    }
+        get() = fsxAircraftPackages.firstOrNull {
+            it.id == selectedVariantId && it.nativeModelSupported && it.id != "air-alpes-fsx"
+        }
+    val availableAircraftOptions: List<FreeFlightAircraftOption>
+        get() = buildList {
+            if (openSourceSim.flightGearAircraft != null) {
+                FreeFlightDhc6Variant.entries.forEach { add(FreeFlightAircraftOption(it.aircraftId, it.label)) }
+            }
+            fsxAircraftPackages
+                .filter { it.nativeModelSupported && it.id != "air-alpes-fsx" }
+                .forEach { add(FreeFlightAircraftOption(it.id, "${it.label.removeSuffix(" FSX")} local")) }
+        }
 }
 
 internal fun freeFlightSceneSpec(session: FreeFlightSession): JmeSceneSpec {
@@ -118,6 +144,7 @@ private class FreeFlightWorld(private val session: FreeFlightSession) {
 
     private lateinit var aircraftNode: Node
     private var modelSpatial: Spatial? = null
+    private var fgExteriorNodes = listOf<Spatial>()
     private var propMeshGeometries = listOf<Geometry>()
     private var propDiscs = listOf<Geometry>()
     private var skyNode: Node? = null
@@ -187,21 +214,12 @@ private class FreeFlightWorld(private val session: FreeFlightSession) {
         installPostFx(app, sun)
 
         val aircraftLabel = session.selectedFlightGearAircraftPackage
-            ?.takeIf { loadedVariantId == it.id }
-            ?.statusBadge
+            ?.takeIf { loadedVariantId == session.selectedFlightGearVariant?.aircraftId }
+            ?.let { "${it.statusBadge} - ${session.selectedFlightGearVariant?.label}" }
             ?: session.selectedFsxAircraftPackage
-            ?.takeIf { loadedVariantId == it.id }
-            ?.statusBadge
-            ?: session.selectedVariantPackage
-            ?.takeIf { loadedVariantId == it.id }
-            ?.statusBadge
-            ?: if (session.fsxAircraftPackage?.nativeModelSupported == false && modelSpatial != null) {
-                "${session.fsxAircraftPackage.statusBadge} cfg, bundled visual"
-            } else if (modelSpatial != null) {
-                "Kenn Borek MDL loaded"
-            } else {
-                "Aircraft stand-in"
-            }
+                ?.takeIf { loadedVariantId == it.id }
+                ?.let { "${it.label} data - ${LocalAircraftModelLibrary.sourceLabel(it.id)}" }
+            ?: "Aircraft stand-in"
         session.sceneStatus = buildString {
             append(aircraftLabel)
             append(" - ")
@@ -219,61 +237,58 @@ private class FreeFlightWorld(private val session: FreeFlightSession) {
     private fun loadAircraft(assets: AssetManager) {
         aircraftNode.detachAllChildren()
         modelSpatial = null
+        fgExteriorNodes = emptyList()
         propMeshGeometries = emptyList()
         propDiscs = emptyList()
         cockpitEyeLocal = Vector3f(0f, 1.75f, -3.1f)
+        loadedVariantId = null
 
         session.selectedFlightGearAircraftPackage?.let { aircraftPackage ->
-            val model = FlightGearAc3dLoader.loadAircraft(assets, aircraftPackage)
+            val variant = session.selectedFlightGearVariant ?: FreeFlightDhc6Variant.Wheels
+            val model = FlightGearAc3dLoader.loadAircraft(assets, aircraftPackage, variant)
             if (model != null) {
-                attachFlightGearAircraftModel(assets, model, aircraftPackage)
+                attachFlightGearAircraftModel(assets, model, aircraftPackage, variant)
                 return
             }
         }
 
         session.selectedFsxAircraftPackage?.let { aircraftPackage ->
-            val model = aircraftPackage.loadModel(assets)
-            if (model != null) {
-                attachFsxAircraftModel(
-                    assets = assets,
-                    model = model,
+            val replacement = LocalAircraftModelLibrary.replacementFor(aircraftPackage.id)
+            val customModel = replacement?.load(assets)
+            if (
+                customModel != null &&
+                attachExternalGlbAircraftModel(
+                    model = customModel,
                     variantId = aircraftPackage.id,
-                    statusBadge = aircraftPackage.statusBadge,
+                    statusBadge = "${aircraftPackage.label} custom GLB loaded",
+                )
+            ) return
+
+            val trainerPackage = session.openSourceSim.flightGearAircraft
+            val trainerModel = trainerPackage?.let {
+                FlightGearAc3dLoader.loadAircraft(assets, it, FreeFlightDhc6Variant.Wheels)
+            }
+            if (trainerPackage != null && trainerModel != null) {
+                attachFlightGearAircraftModel(
+                    assets = assets,
+                    model = trainerModel,
+                    aircraftPackage = trainerPackage,
+                    variant = FreeFlightDhc6Variant.Wheels,
+                    variantId = aircraftPackage.id,
+                    statusBadge = "${aircraftPackage.label} data - trainer 3D model loaded",
                 )
                 return
             }
         }
-
-        session.selectedVariantPackage?.let { variantPackage ->
-            val xPlaneModel = XPlaneObj8Loader.loadAircraft(assets, variantPackage)
-            if (xPlaneModel != null) {
-                xPlaneModel.updateModelBound()
-                xPlaneModel.updateGeometricState()
-                val gearDrop = groundOffsetFor(xPlaneModel)
-                xPlaneModel.setLocalTranslation(0f, gearDrop, 0f)
-                aircraftNode.attachChild(xPlaneModel)
-                modelSpatial = xPlaneModel
-                loadedVariantId = variantPackage.id
-                cockpitEyeLocal = Vector3f(-0.42f, 1.62f, 2.35f)
-                buildXPlanePropDiscs(assets, gearDrop)
-                session.sceneStatus = "${variantPackage.statusBadge} loaded"
-                return
-            }
-        }
-
-        val model = runCatching { assets.loadModel(KennBorekTundraMdlPath) }.getOrNull() ?: return
-        attachFsxAircraftModel(
-            assets = assets,
-            model = model,
-            variantId = FreeFlightSession.KennBorekVariantId,
-            statusBadge = "Kenn Borek MDL",
-        )
     }
 
     private fun attachFlightGearAircraftModel(
         assets: AssetManager,
         model: Spatial,
         aircraftPackage: FlightGearAircraftPackage,
+        variant: FreeFlightDhc6Variant,
+        variantId: String = variant.aircraftId,
+        statusBadge: String = "${aircraftPackage.statusBadge} - ${variant.label} loaded",
     ) {
         model.updateModelBound()
         model.updateGeometricState()
@@ -281,7 +296,15 @@ private class FreeFlightWorld(private val session: FreeFlightSession) {
         model.setLocalTranslation(0f, gearDrop, 0f)
         aircraftNode.attachChild(model)
         modelSpatial = model
-        loadedVariantId = aircraftPackage.id
+        loadedVariantId = variantId
+
+        // Exterior shell/cabin/wheels obstruct the pilot's view from inside
+        // (their interior faces render as untextured white); collect them so
+        // cockpit view can hide everything except the flight deck.
+        val exteriorNames = setOf("dhc-6.ac", "cabin.ac", "wheels.ac", "floats.ac")
+        fgExteriorNodes = (model as? Node)?.children
+            ?.filter { it.name in exteriorNames }
+            .orEmpty()
 
         // Pilot eye: derive from the flightdeck sub-model bounds (left seat,
         // eye level, slightly aft of the deck centre so the panel is in view).
@@ -300,7 +323,39 @@ private class FreeFlightWorld(private val session: FreeFlightSession) {
             }
         }
         buildFlightGearPropDiscs(assets, gearDrop)
-        session.sceneStatus = "${aircraftPackage.statusBadge} AC3D loaded"
+        session.sceneStatus = statusBadge
+    }
+
+    private fun attachExternalGlbAircraftModel(
+        model: Spatial,
+        variantId: String,
+        statusBadge: String,
+    ): Boolean {
+        model.setLocalScale(1f)
+        model.setLocalTranslation(0f, 0f, 0f)
+        model.updateModelBound()
+        model.updateGeometricState()
+
+        val bound = model.worldBound as? com.jme3.bounding.BoundingBox ?: return false
+        val wingspan = (bound.xExtent * 2f).coerceAtLeast(0.01f)
+        val scale = (19.812f / wingspan).coerceIn(0.001f, 100f)
+        val bottom = bound.center.y - bound.yExtent
+        model.setLocalScale(scale)
+        model.setLocalTranslation(
+            -bound.center.x * scale,
+            -bottom * scale,
+            -bound.center.z * scale,
+        )
+        model.shadowMode = RenderQueue.ShadowMode.CastAndReceive
+        model.updateModelBound()
+        model.updateGeometricState()
+
+        aircraftNode.attachChild(model)
+        modelSpatial = model
+        loadedVariantId = variantId
+        cockpitEyeLocal = Vector3f(-0.4f, 1.65f, -3.1f)
+        session.sceneStatus = statusBadge
+        return true
     }
 
     private fun attachFsxAircraftModel(
@@ -472,15 +527,15 @@ private class FreeFlightWorld(private val session: FreeFlightSession) {
         aircraftNode.setLocalRotation(model.attitude())
 
         val running = session.controls.enginesRunning
-        // The FSX MDL has no usable virtual cockpit (FSX positioned it via
-        // animation transforms), so in cockpit view the own-aircraft shell is
-        // hidden for a clear panoramic pilot view; the FlightGear model has a
-        // real modelled flight deck and stays visible.
         val cockpitView = session.cameraMode == FreeFlightCameraMode.Cockpit
-        val hideShellInCockpit = cockpitView &&
-            session.selectedFlightGearAircraftPackage?.id != loadedVariantId
+        val hideShellInCockpit = cockpitView && session.selectedFlightGearAircraftPackage == null
         modelSpatial?.cullHint =
             if (hideShellInCockpit) Spatial.CullHint.Always else Spatial.CullHint.Inherit
+        // FlightGear model: hide the exterior shell in cockpit view so the
+        // flight deck and instruments are unobstructed.
+        fgExteriorNodes.forEach {
+            it.cullHint = if (cockpitView) Spatial.CullHint.Always else Spatial.CullHint.Inherit
+        }
         propDiscs.forEach {
             it.cullHint = if (running && !hideShellInCockpit) Spatial.CullHint.Dynamic else Spatial.CullHint.Always
         }
