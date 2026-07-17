@@ -1,5 +1,26 @@
 # Replacing the DHC-6-300 and DHC-6-400 Models
 
+## Supplied float model
+
+The **Floats** selector uses the optimized desktop copy of
+`assets-source/aircraft/dhc-6_float.blend`. Its runtime model is:
+
+`src/main/resources/assets/models/systems_lab/aircraft_variants/dhc6_float_user.glb`
+
+The supplied model is an exterior shell with floats. It has no cockpit cabin,
+transparent windshield, dashboard, or instrument geometry. In cockpit view,
+the app hides that opaque shell and shows its live IAS, pitch, bank, altitude,
+vertical speed, heading, torque, and throttle instruments.
+
+Rebuild the runtime model with Blender 5.1 or newer:
+
+```powershell
+& "C:\Program Files\Blender Foundation\Blender 5.1\blender.exe" `
+  --background "assets-source\aircraft\dhc-6_float.blend" `
+  --python "tools\blender_prepare_dhc6_float.py" -- `
+  "src\main\resources\assets\models\systems_lab\aircraft_variants\dhc6_float_user.glb"
+```
+
 The desktop trainer reads the FSX ZIP files as local reference and aircraft
 configuration data. Their compiled MDL visuals are not used because the old
 format depends on animation transforms that the desktop renderer cannot

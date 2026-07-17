@@ -1,6 +1,7 @@
 package com.dhc6trainer.desktop
 
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -11,6 +12,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.FilterChip
@@ -29,8 +31,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ImageBitmap
+import androidx.compose.ui.graphics.StrokeCap
+import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.graphics.drawscope.rotate
 import androidx.compose.ui.input.key.Key
 import androidx.compose.ui.input.key.KeyEventType
 import androidx.compose.ui.input.key.key
@@ -178,29 +184,36 @@ internal fun FreeFlightScreen(
             )
         }
 
-        // Instrument strip.
-        Row(
-            modifier = Modifier.align(Alignment.BottomStart).padding(12.dp),
-            horizontalArrangement = Arrangement.spacedBy(7.dp),
-        ) {
-            FlightInstrument("IAS", "${telemetry.iasKnots.roundToInt()} kt")
-            FlightInstrument("ALT", "${telemetry.altitudeFt.roundToInt()} ft")
-            FlightInstrument("VS", "${(telemetry.verticalSpeedFpm / 10).roundToInt() * 10} fpm")
-            FlightInstrument("HDG", "${telemetry.headingDeg.roundToInt() % 360}")
-            FlightInstrument("PITCH", "${telemetry.pitchDeg.roundToInt()}")
-            FlightInstrument("BANK", "${telemetry.bankDeg.roundToInt()}")
-            FlightInstrument("TRQ", "${telemetry.torquePercent.roundToInt()}%")
-            FlightInstrument("FLAP", "${telemetry.flapsDeg.roundToInt()}")
-            FlightInstrument(if (telemetry.onGround) "GND" else "AIR", if (telemetry.onGround) "ON" else "${telemetry.groundSpeedKt.roundToInt()} GS")
-        }
+        if (cameraMode == FreeFlightCameraMode.Cockpit) {
+            FreeFlightCockpitInstrumentPanel(
+                telemetry = telemetry,
+                throttle = session.controls.throttle,
+                modifier = Modifier.align(Alignment.BottomCenter).padding(12.dp),
+            )
+        } else {
+            // Compact telemetry strip for unobstructed exterior views.
+            Row(
+                modifier = Modifier.align(Alignment.BottomStart).padding(12.dp),
+                horizontalArrangement = Arrangement.spacedBy(7.dp),
+            ) {
+                FlightInstrument("IAS", "${telemetry.iasKnots.roundToInt()} kt")
+                FlightInstrument("ALT", "${telemetry.altitudeFt.roundToInt()} ft")
+                FlightInstrument("VS", "${(telemetry.verticalSpeedFpm / 10).roundToInt() * 10} fpm")
+                FlightInstrument("HDG", "${telemetry.headingDeg.roundToInt() % 360}")
+                FlightInstrument("PITCH", "${telemetry.pitchDeg.roundToInt()}")
+                FlightInstrument("BANK", "${telemetry.bankDeg.roundToInt()}")
+                FlightInstrument("TRQ", "${telemetry.torquePercent.roundToInt()}%")
+                FlightInstrument("FLAP", "${telemetry.flapsDeg.roundToInt()}")
+                FlightInstrument(if (telemetry.onGround) "GND" else "AIR", if (telemetry.onGround) "ON" else "${telemetry.groundSpeedKt.roundToInt()} GS")
+            }
 
-        // Throttle/controls state, bottom right.
-        Row(
-            modifier = Modifier.align(Alignment.BottomEnd).padding(12.dp),
-            horizontalArrangement = Arrangement.spacedBy(7.dp),
-        ) {
-            FlightInstrument("THR", "${(session.controls.throttle * 100).roundToInt()}%")
-            if (session.controls.brakes) FreeFlightBadge("BRAKES", warn = true)
+            Row(
+                modifier = Modifier.align(Alignment.BottomEnd).padding(12.dp),
+                horizontalArrangement = Arrangement.spacedBy(7.dp),
+            ) {
+                FlightInstrument("THR", "${(session.controls.throttle * 100).roundToInt()}%")
+                if (session.controls.brakes) FreeFlightBadge("BRAKES", warn = true)
+            }
         }
 
         if (showHelp) {
@@ -310,6 +323,116 @@ private fun integrateKeyControls(controls: Dhc6FlightControls, pressed: Set<Key>
 }
 
 /* ---- Overlay widgets ---------------------------------------------------- */
+
+@Composable
+private fun FreeFlightCockpitInstrumentPanel(
+    telemetry: Dhc6Telemetry,
+    throttle: Float,
+    modifier: Modifier = Modifier,
+) {
+    Row(
+        modifier = modifier
+            .clip(RoundedCornerShape(8.dp))
+            .background(Color(0xF2050B10))
+            .border(BorderStroke(1.dp, Color(0xFF637482)), RoundedCornerShape(8.dp))
+            .padding(horizontal = 8.dp, vertical = 7.dp),
+        horizontalArrangement = Arrangement.spacedBy(5.dp),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        FlightDial("IAS", telemetry.iasKnots, 0f, 180f, "${telemetry.iasKnots.roundToInt()} KT")
+        FlightDial("PITCH", telemetry.pitchDeg, -30f, 30f, "${telemetry.pitchDeg.roundToInt()} DEG")
+        FlightDial("BANK", telemetry.bankDeg, -45f, 45f, "${telemetry.bankDeg.roundToInt()} DEG")
+        FlightDial("ALT", telemetry.altitudeFt, 0f, 12_000f, "${telemetry.altitudeFt.roundToInt()} FT")
+        FlightDial(
+            "VSI",
+            telemetry.verticalSpeedFpm,
+            -2_000f,
+            2_000f,
+            "${(telemetry.verticalSpeedFpm / 10).roundToInt() * 10} FPM",
+        )
+        FlightDial("HDG", telemetry.headingDeg % 360f, 0f, 360f, "${telemetry.headingDeg.roundToInt() % 360}")
+        FlightDial(
+            "TRQ",
+            telemetry.torquePercent,
+            0f,
+            110f,
+            "${telemetry.torquePercent.roundToInt()}%",
+            warning = telemetry.torquePercent > 90f,
+        )
+        FlightDial("THR", throttle * 100f, 0f, 100f, "${(throttle * 100).roundToInt()}%")
+    }
+}
+
+@Composable
+private fun FlightDial(
+    label: String,
+    value: Float,
+    minimum: Float,
+    maximum: Float,
+    valueText: String,
+    warning: Boolean = false,
+) {
+    val accent = if (warning) Color(0xFFFFB14A) else Color(0xFF55C7FF)
+    Column(
+        modifier = Modifier.widthIn(min = 72.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        Text(
+            text = label,
+            color = Color(0xFFAFC0CD),
+            fontSize = 9.sp,
+            fontWeight = FontWeight.Black,
+            maxLines = 1,
+        )
+        Box(
+            modifier = Modifier.size(68.dp),
+            contentAlignment = Alignment.Center,
+        ) {
+            Canvas(Modifier.fillMaxSize()) {
+                val radius = size.minDimension * 0.47f
+                val center = Offset(size.width / 2f, size.height / 2f)
+                drawCircle(Color(0xFF010407), radius, center)
+                drawCircle(Color(0xFF556874), radius, center, style = Stroke(width = 1.5f))
+                drawArc(
+                    color = accent.copy(alpha = 0.55f),
+                    startAngle = 140f,
+                    sweepAngle = 260f,
+                    useCenter = false,
+                    style = Stroke(width = 2f, cap = StrokeCap.Round),
+                )
+                repeat(11) { index ->
+                    rotate(degrees = -130f + index * 26f, pivot = center) {
+                        drawLine(
+                            color = if (index % 5 == 0) Color.White else Color(0xFF728591),
+                            start = Offset(center.x, center.y - radius * 0.82f),
+                            end = Offset(center.x, center.y - radius * if (index % 5 == 0) 0.64f else 0.70f),
+                            strokeWidth = if (index % 5 == 0) 2f else 1f,
+                            cap = StrokeCap.Round,
+                        )
+                    }
+                }
+                val fraction = ((value - minimum) / (maximum - minimum)).coerceIn(0f, 1f)
+                rotate(degrees = -130f + fraction * 260f, pivot = center) {
+                    drawLine(
+                        color = accent,
+                        start = center,
+                        end = Offset(center.x, center.y - radius * 0.68f),
+                        strokeWidth = 2.5f,
+                        cap = StrokeCap.Round,
+                    )
+                }
+                drawCircle(accent, radius = 3.5f, center = center)
+            }
+            Text(
+                text = valueText,
+                color = Color.White,
+                fontSize = 8.sp,
+                fontWeight = FontWeight.Black,
+                maxLines = 1,
+            )
+        }
+    }
+}
 
 @Composable
 private fun FlightInstrument(label: String, value: String) {

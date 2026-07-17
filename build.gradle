@@ -38,6 +38,7 @@ def coreAssetsDir = coreAssetsCandidates.find { it.exists() } ?: coreAssetsCandi
 
 tasks.register("generateDesktopProcedureIndex") {
     def outputFile = layout.buildDirectory.file("generated/desktopResources/desktop-procedure-index.txt")
+    inputs.files(fileTree(coreAssetsDir) { include "procedures/**/*.json" })
     outputs.file(outputFile)
 
     doLast {
@@ -63,6 +64,7 @@ tasks.register("generateDesktopProcedureIndex") {
 
 tasks.register("generateDesktopFlashcardIndex") {
     def outputFile = layout.buildDirectory.file("generated/desktopResources/desktop-flashcard-index.txt")
+    inputs.files(fileTree(coreAssetsDir) { include "flashcards/**/*.json" })
     outputs.file(outputFile)
 
     doLast {
@@ -88,6 +90,7 @@ tasks.register("generateDesktopFlashcardIndex") {
 
 tasks.register("generateDesktopAssetIndex") {
     def outputFile = layout.buildDirectory.file("generated/desktopResources/desktop-asset-index.txt")
+    inputs.files(fileTree(coreAssetsDir))
     outputs.file(outputFile)
 
     doLast {
@@ -112,6 +115,12 @@ tasks.register("generateDesktopAssetIndex") {
 
 tasks.register("generateDesktopCockpitIndex") {
     def outputFile = layout.buildDirectory.file("generated/desktopResources/cockpit-source-exact-index.txt")
+    inputs.files(
+        fileTree(coreAssetsDir) {
+            include "cockpit/source_exact/**/*"
+            include "cockpit/images/**/*"
+        },
+    )
     outputs.file(outputFile)
 
     doLast {

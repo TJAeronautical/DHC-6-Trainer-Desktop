@@ -151,6 +151,8 @@ private class FreeFlightWorld(private val session: FreeFlightSession) {
     private var cockpitEyeLocal = Vector3f(0f, 1.75f, -3.1f)
     private var lastCameraMode: FreeFlightCameraMode? = null
     private var loadedVariantId: String? = null
+    private var loadedAircraftLabel: String? = null
+    private var hideWholeModelInCockpit = false
 
     private val scratchEye = Vector3f()
     private val scratchDir = Vector3f()
@@ -213,7 +215,8 @@ private class FreeFlightWorld(private val session: FreeFlightSession) {
         )
         installPostFx(app, sun)
 
-        val aircraftLabel = session.selectedFlightGearAircraftPackage
+        val aircraftLabel = loadedAircraftLabel
+            ?: session.selectedFlightGearAircraftPackage
             ?.takeIf { loadedVariantId == session.selectedFlightGearVariant?.aircraftId }
             ?.let { "${it.statusBadge} - ${session.selectedFlightGearVariant?.label}" }
             ?: session.selectedFsxAircraftPackage
@@ -242,6 +245,21 @@ private class FreeFlightWorld(private val session: FreeFlightSession) {
         propDiscs = emptyList()
         cockpitEyeLocal = Vector3f(0f, 1.75f, -3.1f)
         loadedVariantId = null
+        loadedAircraftLabel = null
+        hideWholeModelInCockpit = false
+
+        if (session.selectedVariantId == FreeFlightDhc6Variant.Floats.aircraftId) {
+            val floatModel = LocalAircraftModelLibrary.loadBundledFloat(assets)
+            if (
+                floatModel != null &&
+                attachExternalGlbAircraftModel(
+                    model = floatModel,
+                    variantId = FreeFlightDhc6Variant.Floats.aircraftId,
+                    statusBadge = "Desktop DHC-6 float model + live flight instruments",
+                    yawCorrection = FastMath.HALF_PI,
+                )
+            ) return
+        }
 
         session.selectedFlightGearAircraftPackage?.let { aircraftPackage ->
             val variant = session.selectedFlightGearVariant ?: FreeFlightDhc6Variant.Wheels
@@ -297,6 +315,8 @@ private class FreeFlightWorld(private val session: FreeFlightSession) {
         aircraftNode.attachChild(model)
         modelSpatial = model
         loadedVariantId = variantId
+        loadedAircraftLabel = statusBadge
+        hideWholeModelInCockpit = false
 
         // Exterior shell/cabin/wheels obstruct the pilot's view from inside
         // (their interior faces render as untextured white); collect them so
@@ -330,9 +350,11 @@ private class FreeFlightWorld(private val session: FreeFlightSession) {
         model: Spatial,
         variantId: String,
         statusBadge: String,
+        yawCorrection: Float = 0f,
     ): Boolean {
         model.setLocalScale(1f)
         model.setLocalTranslation(0f, 0f, 0f)
+        model.setLocalRotation(Quaternion().fromAngleAxis(yawCorrection, Vector3f.UNIT_Y))
         model.updateModelBound()
         model.updateGeometricState()
 
@@ -353,6 +375,8 @@ private class FreeFlightWorld(private val session: FreeFlightSession) {
         aircraftNode.attachChild(model)
         modelSpatial = model
         loadedVariantId = variantId
+        loadedAircraftLabel = statusBadge
+        hideWholeModelInCockpit = true
         cockpitEyeLocal = Vector3f(-0.4f, 1.65f, -3.1f)
         session.sceneStatus = statusBadge
         return true
@@ -373,6 +397,8 @@ private class FreeFlightWorld(private val session: FreeFlightSession) {
         aircraftNode.attachChild(model)
         modelSpatial = model
         loadedVariantId = variantId
+        loadedAircraftLabel = statusBadge
+        hideWholeModelInCockpit = true
 
         // FS2004 MDLs model animated/instanced parts (props, VC panel, pilot
         // figures, some interior plates) AT THE ORIGIN and position them via
@@ -528,7 +554,7 @@ private class FreeFlightWorld(private val session: FreeFlightSession) {
 
         val running = session.controls.enginesRunning
         val cockpitView = session.cameraMode == FreeFlightCameraMode.Cockpit
-        val hideShellInCockpit = cockpitView && session.selectedFlightGearAircraftPackage == null
+        val hideShellInCockpit = cockpitView && hideWholeModelInCockpit
         modelSpatial?.cullHint =
             if (hideShellInCockpit) Spatial.CullHint.Always else Spatial.CullHint.Inherit
         // FlightGear model: hide the exterior shell in cockpit view so the

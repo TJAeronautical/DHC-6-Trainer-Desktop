@@ -61,6 +61,17 @@ fun main() {
     val freeFlightSession = FreeFlightSession()
     testScene("freeflight", freeFlightSceneSpec(freeFlightSession))
 
+    val floatVariantSession = FreeFlightSession().apply {
+        selectedVariantId = FreeFlightDhc6Variant.Floats.aircraftId
+    }
+    testScene("freeflight-dhc6-float-user", freeFlightSceneSpec(floatVariantSession))
+    if (floatVariantSession.sceneStatus.contains("Desktop DHC-6 float model", ignoreCase = true)) {
+        println("OK    supplied float visual -> ${floatVariantSession.sceneStatus}")
+    } else {
+        failures++
+        println("FAIL  supplied float visual -> ${floatVariantSession.sceneStatus}")
+    }
+
     FsxAircraftPackageLibrary.loadAllAuto()
         .filter { it.id == "dhc6-300-fsx-pad" || it.id == "dhc6-400-fsx-pad" }
         .forEach { aircraft ->

@@ -29,6 +29,9 @@ internal data class LocalAircraftModelReplacement(
 }
 
 internal object LocalAircraftModelLibrary {
+    const val BundledFloatModelPath =
+        "assets/models/systems_lab/aircraft_variants/dhc6_float_user.glb"
+
     private const val SystemPropertyDirectory = "dhc6.aircraft.models.dir"
     private const val EnvironmentDirectory = "DHC6_AIRCRAFT_MODELS_DIR"
 
@@ -71,7 +74,11 @@ internal object LocalAircraftModelLibrary {
     fun sourceLabel(aircraftId: String): String =
         replacementFor(aircraftId)?.sourceLabel ?: "trainer 3D model"
 
+    fun loadBundledFloat(assetManager: AssetManager): Spatial? =
+        runCatching { assetManager.loadModel(BundledFloatModelPath) }.getOrNull()
+
     fun settingsSummary(): String = buildString {
+        append("Floats: desktop-owned optimized model with live cockpit instruments. ")
         append("Optional replacement folder: ")
         append(preferredDirectory.toAbsolutePath().normalize())
         append(". ")
