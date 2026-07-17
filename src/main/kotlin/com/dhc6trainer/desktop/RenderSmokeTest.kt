@@ -81,7 +81,8 @@ fun main() {
             testScene("freeflight-${aircraft.id}", freeFlightSceneSpec(localVariantSession))
             val replacementActive =
                 localVariantSession.sceneStatus.contains("trainer 3D model", ignoreCase = true) ||
-                    localVariantSession.sceneStatus.contains("custom GLB", ignoreCase = true)
+                    localVariantSession.sceneStatus.contains("custom GLB", ignoreCase = true) ||
+                    localVariantSession.sceneStatus.contains("SketchUp exterior", ignoreCase = true)
             if (replacementActive) {
                 println("OK    ${aircraft.label} visual -> ${localVariantSession.sceneStatus}")
             } else {
@@ -89,6 +90,18 @@ fun main() {
                 println("FAIL  ${aircraft.label} visual -> ${localVariantSession.sceneStatus}")
             }
         }
+
+    val dhc6300CockpitSession = FreeFlightSession().apply {
+        selectedVariantId = "dhc6-300-fsx-pad"
+        cameraMode = FreeFlightCameraMode.Cockpit
+    }
+    testScene("freeflight-dhc6-300-cockpit", freeFlightSceneSpec(dhc6300CockpitSession))
+    if (dhc6300CockpitSession.sceneStatus.contains("SketchUp exterior", ignoreCase = true)) {
+        println("OK    DHC-6-300 cockpit shell hidden -> ${dhc6300CockpitSession.sceneStatus}")
+    } else {
+        failures++
+        println("FAIL  DHC-6-300 cockpit variant -> ${dhc6300CockpitSession.sceneStatus}")
+    }
 
     // Same scene from the pilot's seat: switch camera, wait, dump a frame.
     run {

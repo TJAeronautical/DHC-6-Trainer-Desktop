@@ -29,9 +29,12 @@ internal data class LocalAircraftModelReplacement(
 }
 
 internal object LocalAircraftModelLibrary {
+    const val BundledDhc6300ModelPath =
+        "assets/models/systems_lab/aircraft_variants/dhc6_300_skp.glb"
     const val BundledFloatModelPath =
         "assets/models/systems_lab/aircraft_variants/dhc6_float_user.glb"
 
+    private const val BundledDhc6300AircraftId = "dhc6-300-fsx-pad"
     private const val SystemPropertyDirectory = "dhc6.aircraft.models.dir"
     private const val EnvironmentDirectory = "DHC6_AIRCRAFT_MODELS_DIR"
 
@@ -71,13 +74,23 @@ internal object LocalAircraftModelLibrary {
         )
     }
 
-    fun sourceLabel(aircraftId: String): String =
-        replacementFor(aircraftId)?.sourceLabel ?: "trainer 3D model"
+    fun sourceLabel(aircraftId: String): String {
+        val replacement = replacementFor(aircraftId)
+        return when {
+            replacement?.isCustom == true -> replacement.sourceLabel
+            aircraftId == BundledDhc6300AircraftId -> "bundled SketchUp exterior"
+            else -> "trainer 3D model"
+        }
+    }
+
+    fun loadBundledDhc6300(assetManager: AssetManager): Spatial? =
+        runCatching { assetManager.loadModel(BundledDhc6300ModelPath) }.getOrNull()
 
     fun loadBundledFloat(assetManager: AssetManager): Spatial? =
         runCatching { assetManager.loadModel(BundledFloatModelPath) }.getOrNull()
 
     fun settingsSummary(): String = buildString {
+        append("DHC-6-300: desktop-owned SketchUp exterior with live cockpit instruments. ")
         append("Floats: desktop-owned optimized model with live cockpit instruments. ")
         append("Optional replacement folder: ")
         append(preferredDirectory.toAbsolutePath().normalize())
@@ -87,6 +100,8 @@ internal object LocalAircraftModelLibrary {
                 val replacement = replacementFor(known.aircraftId)
                 if (replacement?.path != null) {
                     "${known.label}: custom GLB loaded from ${replacement.path}"
+                } else if (known.aircraftId == BundledDhc6300AircraftId) {
+                    "${known.label}: bundled SketchUp exterior; add ${known.fileName} to replace it"
                 } else {
                     "${known.label}: using the clean trainer 3D model; add ${known.fileName} to replace it"
                 }

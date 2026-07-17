@@ -1,5 +1,42 @@
 # Replacing the DHC-6-300 and DHC-6-400 Models
 
+## Supplied DHC-6-300 model
+
+The **DHC-6-300 local** selector uses the desktop-owned copy of:
+
+`assets-source/aircraft/Twin_Otter_300_WIP.skp`
+
+Its converted runtime model is:
+
+`src/main/resources/assets/models/systems_lab/aircraft_variants/dhc6_300_skp.glb`
+
+This SketchUp model is an exterior-only, low-poly wheel aircraft. It has no
+usable cockpit, cabin, dashboard, or instrument geometry. The app therefore
+uses it only in Outside view. Inside view hides the entire shell and displays
+the app's unobstructed live flight instruments.
+
+The conversion keeps the source proportions, normalizes millimetres to metres,
+preserves the per-face colors, centers the aircraft, and places its wheels on
+the ground. The finished GLB is about 168 KB and 5,810 faces.
+
+Rebuild it locally:
+
+```powershell
+python -m pip install --target "build\openskp-python" `
+  openskp==0.2.0 scipy==1.16.3
+
+$env:PYTHONPATH = (Resolve-Path "build\openskp-python").Path
+python "tools\convert_skp_to_glb.py" `
+  "assets-source\aircraft\Twin_Otter_300_WIP.skp" `
+  "build\aircraft-convert\twin_otter_300_raw.glb"
+
+& "C:\Program Files\Blender Foundation\Blender 5.1\blender.exe" `
+  --background `
+  --python "tools\blender_prepare_dhc6_300.py" -- `
+  "build\aircraft-convert\twin_otter_300_raw.glb" `
+  "src\main\resources\assets\models\systems_lab\aircraft_variants\dhc6_300_skp.glb"
+```
+
 ## Supplied float model
 
 The **Floats** selector uses the optimized desktop copy of
@@ -37,8 +74,9 @@ Use these exact file names:
 - `dhc6-300.glb`
 - `dhc6-400.glb`
 
-The app checks this folder at startup. When a file is absent, the corresponding
-archive variant uses the clean trainer DHC-6 airframe.
+The app checks this folder at startup. A custom `dhc6-300.glb` takes priority
+over the bundled SketchUp model. When `dhc6-400.glb` is absent, the 400 archive
+variant uses the clean trainer DHC-6 airframe.
 
 For a portable development checkout, the app also checks:
 

@@ -1,4 +1,22 @@
-# DHC-6 Float Model Source
+# DHC-6 Aircraft Model Sources
+
+## DHC-6-300 SketchUp exterior
+
+`Twin_Otter_300_WIP.skp` is an independent working copy of the SketchUp file
+supplied by the project owner on 2026-07-17. The original remains unchanged in
+its original Downloads location.
+
+The source is a low-poly DHC-6-300 wheel exterior. It does not contain a usable
+cockpit, cabin, dashboard, or instrument panel. The desktop app uses its
+converted GLB only for Outside view and hides the shell in Inside view.
+
+`tools/convert_skp_to_glb.py` creates an intermediate GLB with the local
+OpenSKP parser. `tools/blender_prepare_dhc6_300.py` then normalizes its scale,
+axes, origin, surface colors, and ground position into:
+
+`src/main/resources/assets/models/systems_lab/aircraft_variants/dhc6_300_skp.glb`
+
+## DHC-6 float exterior
 
 `dhc-6_float.blend` is an independent working copy of the Blender file supplied
 by the project owner on 2026-07-17. The original file remains unchanged in its

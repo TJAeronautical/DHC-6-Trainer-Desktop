@@ -167,8 +167,7 @@ fun main() {
         .filter { it.nativeModelSupported && it.id != "air-alpes-fsx" }
         .forEach { aircraft ->
             check("${aircraft.label} local reference data") {
-                val replacement = LocalAircraftModelLibrary.replacementFor(aircraft.id)
-                val visual = replacement?.path?.let { "custom GLB $it" } ?: "trainer 3D model fallback"
+                val visual = LocalAircraftModelLibrary.sourceLabel(aircraft.id)
                 "${aircraft.liveryTitles.size} liveries, ${aircraft.panelConfigCount} panel configs, visual=$visual"
             }
         }

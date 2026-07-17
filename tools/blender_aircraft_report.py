@@ -49,6 +49,14 @@ def render_preview(output_path: Path, location: Vector, target: Vector) -> None:
     scene.display.shading.show_shadows = True
     scene.display.shading.show_cavity = True
     scene.display.shading.cavity_type = "WORLD"
+    scene.display.shading.color_type = (
+        "VERTEX"
+        if any(
+            obj.type == "MESH" and len(obj.data.color_attributes) > 0
+            for obj in scene.objects
+        )
+        else "MATERIAL"
+    )
     scene.render.resolution_x = 960
     scene.render.resolution_y = 640
     scene.render.resolution_percentage = 100
@@ -65,6 +73,7 @@ def render_preview(output_path: Path, location: Vector, target: Vector) -> None:
 def main() -> None:
     args = script_arguments()
     output_dir = Path(args[0]) if args else Path.cwd()
+    y_up = len(args) > 1 and args[1].lower() == "y-up"
     output_dir.mkdir(parents=True, exist_ok=True)
 
     meshes = [obj for obj in bpy.context.scene.objects if obj.type == "MESH"]
@@ -100,23 +109,42 @@ def main() -> None:
         json.dumps(report, indent=2), encoding="utf-8"
     )
 
-    distance = max(size.x, size.y) * 0.9
-    height = center.z + size.z * 0.35
-    render_preview(
-        output_dir / "aircraft-front-left.png",
-        Vector((center.x - distance * 0.7, center.y - distance, height)),
-        center,
-    )
-    render_preview(
-        output_dir / "aircraft-front-right.png",
-        Vector((center.x + distance * 0.7, center.y - distance, height)),
-        center,
-    )
-    render_preview(
-        output_dir / "aircraft-rear-left.png",
-        Vector((center.x - distance * 0.7, center.y + distance, height)),
-        center,
-    )
+    if y_up:
+        distance = max(size.x, size.z) * 0.9
+        height = center.y + size.y * 0.35
+        render_preview(
+            output_dir / "aircraft-front-left.png",
+            Vector((center.x - distance * 0.7, height, center.z - distance)),
+            center,
+        )
+        render_preview(
+            output_dir / "aircraft-front-right.png",
+            Vector((center.x + distance * 0.7, height, center.z - distance)),
+            center,
+        )
+        render_preview(
+            output_dir / "aircraft-rear-left.png",
+            Vector((center.x - distance * 0.7, height, center.z + distance)),
+            center,
+        )
+    else:
+        distance = max(size.x, size.y) * 0.9
+        height = center.z + size.z * 0.35
+        render_preview(
+            output_dir / "aircraft-front-left.png",
+            Vector((center.x - distance * 0.7, center.y - distance, height)),
+            center,
+        )
+        render_preview(
+            output_dir / "aircraft-front-right.png",
+            Vector((center.x + distance * 0.7, center.y - distance, height)),
+            center,
+        )
+        render_preview(
+            output_dir / "aircraft-rear-left.png",
+            Vector((center.x - distance * 0.7, center.y + distance, height)),
+            center,
+        )
 
     print(
         "CODEX_AIRCRAFT_REPORT="

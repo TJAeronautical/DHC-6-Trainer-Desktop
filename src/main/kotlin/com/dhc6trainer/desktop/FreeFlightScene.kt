@@ -153,6 +153,7 @@ private class FreeFlightWorld(private val session: FreeFlightSession) {
     private var loadedVariantId: String? = null
     private var loadedAircraftLabel: String? = null
     private var hideWholeModelInCockpit = false
+    private var preferredChaseDistance = 24f
 
     private val scratchEye = Vector3f()
     private val scratchDir = Vector3f()
@@ -247,6 +248,8 @@ private class FreeFlightWorld(private val session: FreeFlightSession) {
         loadedVariantId = null
         loadedAircraftLabel = null
         hideWholeModelInCockpit = false
+        preferredChaseDistance = 24f
+        lastCameraMode = null
 
         if (session.selectedVariantId == FreeFlightDhc6Variant.Floats.aircraftId) {
             val floatModel = LocalAircraftModelLibrary.loadBundledFloat(assets)
@@ -281,6 +284,18 @@ private class FreeFlightWorld(private val session: FreeFlightSession) {
                     statusBadge = "${aircraftPackage.label} custom GLB loaded",
                 )
             ) return
+
+            if (aircraftPackage.id == "dhc6-300-fsx-pad") {
+                val bundledModel = LocalAircraftModelLibrary.loadBundledDhc6300(assets)
+                if (
+                    bundledModel != null &&
+                    attachExternalGlbAircraftModel(
+                        model = bundledModel,
+                        variantId = aircraftPackage.id,
+                        statusBadge = "DHC-6-300 SketchUp exterior + live flight instruments",
+                    )
+                ) return
+            }
 
             val trainerPackage = session.openSourceSim.flightGearAircraft
             val trainerModel = trainerPackage?.let {
@@ -362,6 +377,7 @@ private class FreeFlightWorld(private val session: FreeFlightSession) {
         val wingspan = (bound.xExtent * 2f).coerceAtLeast(0.01f)
         val scale = (19.812f / wingspan).coerceIn(0.001f, 100f)
         val bottom = bound.center.y - bound.yExtent
+        preferredChaseDistance = 24f + bound.zExtent * scale
         model.setLocalScale(scale)
         model.setLocalTranslation(
             -bound.center.x * scale,
@@ -577,14 +593,14 @@ private class FreeFlightWorld(private val session: FreeFlightSession) {
         if (mode != lastCameraMode) {
             when (mode) {
                 FreeFlightCameraMode.Cockpit -> host?.resetOrbit(0f, 0f, 12f)
-                FreeFlightCameraMode.Chase -> host?.resetOrbit(0f, 0.22f, 24f)
+                FreeFlightCameraMode.Chase -> host?.resetOrbit(0f, 0.22f, preferredChaseDistance)
                 FreeFlightCameraMode.Tower -> Unit
             }
             lastCameraMode = mode
         }
         val orbitYaw = host?.orbitYaw ?: 0f
         val orbitPitch = host?.orbitPitch ?: 0.2f
-        val orbitDist = host?.orbitDist ?: 24f
+        val orbitDist = host?.orbitDist ?: preferredChaseDistance
         val model = session.model
         val cam = app.camera
 
