@@ -72,17 +72,8 @@ internal fun Dhc6CockpitScreen(modifier: Modifier = Modifier) {
                     onLayoutChange = { layout = it },
                     modifier = stageModifier,
                 )
-                CockpitTab.INSIDE_3D -> CockpitPlaceholder(
-                    "Inside 3D cockpit",
-                    "The interactive 3D cockpit (click switches/levers) is coming next. " +
-                        "It needs a working cockpit-interior model export.",
-                    stageModifier,
-                )
-                CockpitTab.OUTSIDE_3D -> CockpitPlaceholder(
-                    "Outside 3D view",
-                    "The exterior DHC-6 Twin Otter (wheels) 3D view is coming next.",
-                    stageModifier,
-                )
+                CockpitTab.INSIDE_3D -> Dhc6InteriorStage(stageModifier)
+                CockpitTab.OUTSIDE_3D -> Dhc6ExteriorStage(stageModifier)
             }
         }
 

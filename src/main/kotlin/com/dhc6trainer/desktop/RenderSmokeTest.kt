@@ -220,6 +220,9 @@ fun main() {
         ),
     )
 
+    testScene("dhc6-exterior", dhc6ExteriorSpec())
+    testScene("dhc6-interior", dhc6InteriorSpec())
+
     println(if (failures == 0) "RENDER CHECKS PASSED" else "$failures RENDER CHECK(S) FAILED")
     exitProcess(if (failures == 0) 0 else 1)
 }
