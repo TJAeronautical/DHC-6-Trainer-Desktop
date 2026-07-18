@@ -71,7 +71,13 @@ internal fun Dhc6CockpitScreen(modifier: Modifier = Modifier) {
                     onLayoutChange = { layout = it },
                     modifier = stageModifier,
                 )
-                CockpitTab.INSIDE_3D -> Dhc6InteriorStage(stageModifier)
+                CockpitTab.INSIDE_3D -> Dhc6InstrumentedInteriorStage(
+                    state = simState,
+                    selectedTarget = legacyTarget,
+                    onStateChange = { simState = it },
+                    onSelectTarget = { legacyTarget = it },
+                    modifier = stageModifier,
+                )
                 CockpitTab.OUTSIDE_3D -> Dhc6ExteriorStage(stageModifier)
             }
         }
@@ -85,10 +91,10 @@ internal fun Dhc6CockpitScreen(modifier: Modifier = Modifier) {
                 Text("Selected control", color = Color.White, fontSize = 16.sp, fontWeight = FontWeight.Black)
                 Spacer(Modifier.height(6.dp))
                 val lt = legacyTarget
-                if (tab == CockpitTab.PANEL_2D) {
+                if (tab == CockpitTab.PANEL_2D || tab == CockpitTab.INSIDE_3D) {
                     if (lt == null) {
                         Text(
-                            "Click a control area on the cockpit to identify it and see its state.",
+                            if (tab == CockpitTab.PANEL_2D) "Click a control area on the cockpit to identify it and see its state." else "Click a 3D overlay gauge, switch, fire handle, or lever to identify it and actuate the shared cockpit state.",
                             color = Dhc6DesktopColors.TextMuted, fontSize = 13.sp,
                         )
                     } else {
@@ -135,15 +141,22 @@ internal fun Dhc6CockpitScreen(modifier: Modifier = Modifier) {
                 }
             }
 
-            if (tab == CockpitTab.PANEL_2D) {
+            if (tab == CockpitTab.PANEL_2D || tab == CockpitTab.INSIDE_3D) {
                 DetailCard {
-                    Text("Drill training", color = Color.White, fontSize = 16.sp, fontWeight = FontWeight.Black)
+                    Text(if (tab == CockpitTab.PANEL_2D) "Drill training" else "3D instrument overlay", color = Color.White, fontSize = 16.sp, fontWeight = FontWeight.Black)
                     Spacer(Modifier.height(6.dp))
                     Text(
-                        "The Legacy DHC-6 Twin Otter cockpit: overhead, circuit-breaker panels, main " +
-                            "instrument panel and pedestal. Scroll to zoom, drag to pan, and click the " +
-                            "electrical, fuel, fire and flap/hydraulic areas to actuate them for drills. " +
-                            "Use Edit panel to build a custom layout instead.",
+                        if (tab == CockpitTab.PANEL_2D) {
+                            "The Legacy DHC-6 Twin Otter cockpit: overhead, circuit-breaker panels, main " +
+                                "instrument panel and pedestal. Scroll to zoom, drag to pan, and click the " +
+                                "electrical, fuel, fire and flap/hydraulic areas to actuate them for drills. " +
+                                "Use Edit panel to build a custom layout instead."
+                        } else {
+                            "Inside (3D) now carries an animated 2D instrument stack over the imported cockpit: " +
+                                "six-pack flight instruments, engine gauges, annunciators, electrical/fuel switches, " +
+                                "fire handles, power levers, fuel levers and flap lever. These controls use the same " +
+                                "sim state as the Legacy 2D panel, so either view stays synchronized."
+                        },
                         color = Dhc6DesktopColors.TextMuted, fontSize = 13.sp,
                     )
                     Spacer(Modifier.height(8.dp))
