@@ -395,9 +395,22 @@ internal class TwinOtterSimModel {
     }
 
     private fun stepAutofeather() {
-        val armed = controls.autofeatherArmed
-        val active = armed && controls.powerLever[0] > 0.8f && controls.powerLever[1] > 0.8f
-        if (!active) return
+        // Manually selecting feather clears an autofeather latch (confirm-feather).
+        for (i in 0..1) {
+            if (controls.propLever[i] <= PropFeatherDetent) engines[i].autofeathered = false
+        }
+        val active = controls.autofeatherArmed &&
+            controls.powerLever[0] > 0.8f && controls.powerLever[1] > 0.8f
+        if (!active) {
+            afTorqueSeen[0] = false
+            afTorqueSeen[1] = false
+            return
+        }
+        // Like the aircraft, the system only arms once BOTH engines have
+        // developed takeoff torque - otherwise a normal asymmetric spool-up
+        // would feather the slower engine.
+        for (i in 0..1) if (torquePsi(i) > 25f) afTorqueSeen[i] = true
+        if (!(afTorqueSeen[0] && afTorqueSeen[1])) return
         for (i in 0..1) {
             val other = 1 - i
             if (!engines[i].autofeathered &&
@@ -407,6 +420,8 @@ internal class TwinOtterSimModel {
             }
         }
     }
+
+    private val afTorqueSeen = booleanArrayOf(false, false)
 
     private fun stepAirframe(dt: Float) {
         val flapsDeg = SimFlapDetents[controls.flapsIndex.coerceIn(0, SimFlapDetents.lastIndex)]
