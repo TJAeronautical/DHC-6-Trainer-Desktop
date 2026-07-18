@@ -80,18 +80,9 @@ private fun prepareActualGlbModel(app: SimpleApplication, model: Spatial) {
     model.setLocalScale(scale)
     model.setLocalTranslation(center.negate().multLocal(scale))
 
-    runCatching {
-        model.depthFirstTraversal { spatial ->
-            val geometry = spatial as? Geometry ?: return@depthFirstTraversal
-            if (geometry.material == null) {
-                geometry.material = Material(app.assetManager, "Common/MatDefs/Light/PBRLighting.j3md").apply {
-                    setColor("BaseColor", ColorRGBA(0.72f, 0.90f, 1.00f, 1.00f))
-                    setFloat("Metallic", 0.65f)
-                    setFloat("Roughness", 0.38f)
-                }
-            }
-        }
-    }
+    // Paint the untextured airframe (flat grey with no textures) so it reads
+    // as a real painted aircraft.
+    Dhc6AircraftPaint.applyLivery(app.assetManager, model)
 
     model.updateModelBound()
     model.updateGeometricState()

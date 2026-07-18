@@ -52,6 +52,8 @@ private fun frameModel(model: Spatial, targetRadius: Float) {
     model.setLocalTranslation(center.negate().multLocal(scale))
 }
 
+private const val ExteriorGlbPath = "assets/models/systems_lab/aircraft_variants/dhc6_wheels_painted_training.glb"
+
 internal fun dhc6ExteriorSpec(): JmeSceneSpec = JmeSceneSpec(
     initialYaw = -0.7f,
     initialPitch = 0.28f,
@@ -64,14 +66,13 @@ internal fun dhc6ExteriorSpec(): JmeSceneSpec = JmeSceneSpec(
         app.rootNode.addLight(com.jme3.light.AmbientLight(com.jme3.math.ColorRGBA(0.62f, 0.66f, 0.72f, 1f)))
         runCatching { app.rootNode.attachChild(JmeFlightSimScene.buildSkyDome(app.assetManager)) }
         runCatching { JmeFlightSimScene.installPostFx(app, key) }
-        val pkg = wheelsPackage()
-        val loaded = pkg?.let { XPlaneObj8Loader.loadAircraft(app.assetManager, it) }
-        if (loaded != null) {
-            loaded.interiorNodes.forEach { it.cullHint = Spatial.CullHint.Always }
-            loaded.cockpitNode.cullHint = Spatial.CullHint.Always
-            frameModel(loaded.root, targetRadius = 2.2f)
-            loaded.root.shadowMode = com.jme3.renderer.queue.RenderQueue.ShadowMode.CastAndReceive
-            app.rootNode.attachChild(loaded.root)
+        // Use the higher-quality GLB airframe (painted) for the exterior shell.
+        val model = runCatching { app.assetManager.loadModel(ExteriorGlbPath) }.getOrNull()
+        if (model != null) {
+            Dhc6AircraftPaint.applyLivery(app.assetManager, model)
+            frameModel(model, targetRadius = 2.4f)
+            model.shadowMode = com.jme3.renderer.queue.RenderQueue.ShadowMode.CastAndReceive
+            app.rootNode.attachChild(model)
         }
     },
 )
