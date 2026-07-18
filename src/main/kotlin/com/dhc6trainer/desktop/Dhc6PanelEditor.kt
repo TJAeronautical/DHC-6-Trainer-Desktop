@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -42,13 +43,14 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.FilterQuality
 import androidx.compose.ui.graphics.ImageBitmap
+import androidx.compose.ui.input.pointer.PointerEventType
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import kotlin.math.roundToInt
 
-private enum class DragMode { NONE, MOVE, RESIZE }
+private enum class DragMode { NONE, MOVE, RESIZE, PAN }
 
 /**
  * In-app visual panel editor: place instrument/control art from the palette,
@@ -73,6 +75,13 @@ internal fun Dhc6PanelEditor(
     val dragId = remember { mutableStateOf<String?>(null) }
     val images = remember { HashMap<String, ImageBitmap?>() }
     fun imageFor(item: PanelItem): ImageBitmap? = images.getOrPut(item.image) { DesktopImages.image(item.resourcePath) }
+
+    var zoom by remember { mutableStateOf(1f) }
+    var panX by remember { mutableStateOf(0f) }
+    var panY by remember { mutableStateOf(0f) }
+    val zoomState = rememberUpdatedState(zoom)
+    val panXState = rememberUpdatedState(panX)
+    val panYState = rememberUpdatedState(panY)
 
     fun apply(newLayout: PanelLayout) { layout = newLayout; onLayoutChange(newLayout) }
     val selected = layout.items.firstOrNull { it.id == selectedId }
@@ -103,64 +112,103 @@ internal fun Dhc6PanelEditor(
         }
 
         // ---- Canvas ----
-        Canvas(
-            modifier = Modifier
-                .weight(1f)
-                .fillMaxHeight()
-                .background(Color(0xFF02070B), RoundedCornerShape(14.dp))
-                .border(BorderStroke(1.dp, Color(0xFF55C7FF)), RoundedCornerShape(14.dp))
-                .pointerInput(Unit) {
-                    detectTapGestures { tap ->
-                        val view = PanelViewTransform.compute(size.width.toFloat(), size.height.toFloat(), layoutState.value, 1f, 0f, 0f)
-                        val canvas = view.screenToCanvas(tap.x, tap.y)
-                        selectedId = layoutState.value.hitTest(canvas)?.id
-                    }
-                }
-                .pointerInput(Unit) {
-                    detectDragGestures(
-                        onDragStart = { start ->
-                            val view = PanelViewTransform.compute(size.width.toFloat(), size.height.toFloat(), layoutState.value, 1f, 0f, 0f)
-                            val sel = layoutState.value.items.firstOrNull { it.id == selectedIdState.value }
-                            if (sel != null) {
-                                val br = view.canvasToScreen(sel.x + sel.w, sel.y + sel.h)
-                                if ((start - br).getDistance() < 30f) {
-                                    dragMode.value = DragMode.RESIZE; dragId.value = sel.id; return@detectDragGestures
+        Box(Modifier.weight(1f).fillMaxHeight()) {
+            Canvas(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(Color(0xFF02070B), RoundedCornerShape(14.dp))
+                    .border(BorderStroke(1.dp, Color(0xFF55C7FF)), RoundedCornerShape(14.dp))
+                    // Scroll wheel zooms about the viewport centre.
+                    .pointerInput(Unit) {
+                        awaitPointerEventScope {
+                            while (true) {
+                                val event = awaitPointerEvent()
+                                if (event.type == PointerEventType.Scroll) {
+                                    val dy = event.changes.firstOrNull()?.scrollDelta?.y ?: 0f
+                                    if (dy != 0f) {
+                                        zoom = (zoom * if (dy < 0f) 1.12f else 0.89f).coerceIn(0.4f, 8f)
+                                        event.changes.forEach { it.consume() }
+                                    }
                                 }
                             }
-                            val hit = layoutState.value.hitTest(view.screenToCanvas(start.x, start.y))
-                            if (hit != null) {
-                                selectedId = hit.id; dragMode.value = DragMode.MOVE; dragId.value = hit.id
-                            } else {
-                                dragMode.value = DragMode.NONE; dragId.value = null
-                            }
-                        },
-                        onDrag = { change, amount ->
-                            change.consume()
-                            val view = PanelViewTransform.compute(size.width.toFloat(), size.height.toFloat(), layoutState.value, 1f, 0f, 0f)
-                            val dx = amount.x / view.scale
-                            val dy = amount.y / view.scale
-                            val id = dragId.value ?: return@detectDragGestures
-                            val item = layoutState.value.items.firstOrNull { it.id == id } ?: return@detectDragGestures
-                            when (dragMode.value) {
-                                DragMode.MOVE -> apply(layoutState.value.withItem(item.copy(x = item.x + dx, y = item.y + dy)))
-                                DragMode.RESIZE -> apply(layoutState.value.withItem(item.copy(
-                                    w = (item.w + dx).coerceAtLeast(24f),
-                                    h = (item.h + dy).coerceAtLeast(24f),
-                                )))
-                                DragMode.NONE -> Unit
-                            }
-                        },
-                        onDragEnd = { dragMode.value = DragMode.NONE; dragId.value = null },
-                    )
-                },
-        ) {
-            val view = PanelViewTransform.compute(size.width, size.height, layoutState.value, 1f, 0f, 0f)
-            drawPanel(layoutState.value, DesktopCockpitSimState.beforeStart(), view, selectedIdState.value, ::imageFor)
-            selected?.let {
-                val br = view.canvasToScreen(it.x + it.w, it.y + it.h)
-                drawCircle(Color(0xFF55C7FF), radius = 11f, center = br)
-                drawCircle(Color(0xFF02070B), radius = 5f, center = br)
+                        }
+                    }
+                    .pointerInput(Unit) {
+                        detectTapGestures { tap ->
+                            val view = PanelViewTransform.compute(size.width.toFloat(), size.height.toFloat(), layoutState.value, zoomState.value, panXState.value, panYState.value)
+                            val canvas = view.screenToCanvas(tap.x, tap.y)
+                            selectedId = layoutState.value.hitTest(canvas)?.id
+                        }
+                    }
+                    .pointerInput(Unit) {
+                        detectDragGestures(
+                            onDragStart = { start ->
+                                val view = PanelViewTransform.compute(size.width.toFloat(), size.height.toFloat(), layoutState.value, zoomState.value, panXState.value, panYState.value)
+                                val sel = layoutState.value.items.firstOrNull { it.id == selectedIdState.value }
+                                if (sel != null) {
+                                    val br = view.canvasToScreen(sel.x + sel.w, sel.y + sel.h)
+                                    if ((start - br).getDistance() < 30f) {
+                                        dragMode.value = DragMode.RESIZE; dragId.value = sel.id; return@detectDragGestures
+                                    }
+                                }
+                                val hit = layoutState.value.hitTest(view.screenToCanvas(start.x, start.y))
+                                if (hit != null) {
+                                    selectedId = hit.id; dragMode.value = DragMode.MOVE; dragId.value = hit.id
+                                } else {
+                                    // Empty space: pan the view.
+                                    dragMode.value = DragMode.PAN; dragId.value = null
+                                }
+                            },
+                            onDrag = { change, amount ->
+                                change.consume()
+                                if (dragMode.value == DragMode.PAN) {
+                                    panX += amount.x; panY += amount.y
+                                    return@detectDragGestures
+                                }
+                                val view = PanelViewTransform.compute(size.width.toFloat(), size.height.toFloat(), layoutState.value, zoomState.value, panXState.value, panYState.value)
+                                val dx = amount.x / view.scale
+                                val dy = amount.y / view.scale
+                                val id = dragId.value ?: return@detectDragGestures
+                                val item = layoutState.value.items.firstOrNull { it.id == id } ?: return@detectDragGestures
+                                when (dragMode.value) {
+                                    DragMode.MOVE -> apply(layoutState.value.withItem(item.copy(x = item.x + dx, y = item.y + dy)))
+                                    DragMode.RESIZE -> apply(layoutState.value.withItem(item.copy(
+                                        w = (item.w + dx).coerceAtLeast(24f),
+                                        h = (item.h + dy).coerceAtLeast(24f),
+                                    )))
+                                    else -> Unit
+                                }
+                            },
+                            onDragEnd = { dragMode.value = DragMode.NONE; dragId.value = null },
+                        )
+                    },
+            ) {
+                val view = PanelViewTransform.compute(size.width, size.height, layoutState.value, zoomState.value, panXState.value, panYState.value)
+                drawPanel(layoutState.value, DesktopCockpitSimState.beforeStart(), view, selectedIdState.value, ::imageFor)
+                selected?.let {
+                    val br = view.canvasToScreen(it.x + it.w, it.y + it.h)
+                    drawCircle(Color(0xFF55C7FF), radius = 11f, center = br)
+                    drawCircle(Color(0xFF02070B), radius = 5f, center = br)
+                }
             }
+
+            // Zoom controls + hint.
+            Row(
+                modifier = Modifier.align(Alignment.BottomCenter).padding(10.dp),
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
+            ) {
+                PanelChip("Fit") { zoom = 1f; panX = 0f; panY = 0f }
+                PanelChip("-") { zoom = (zoom - 0.2f).coerceAtLeast(0.4f) }
+                PanelChip("${(zoom * 100).roundToInt()}%") { zoom = 1f; panX = 0f; panY = 0f }
+                PanelChip("+") { zoom = (zoom + 0.2f).coerceAtMost(8f) }
+                PanelChip("Max") { zoom = 8f }
+            }
+            Text(
+                "scroll = zoom · drag empty space = pan",
+                color = Dhc6DesktopColors.TextMuted,
+                fontSize = 10.sp,
+                modifier = Modifier.align(Alignment.TopCenter).padding(8.dp),
+            )
         }
 
         // ---- Inspector ----
