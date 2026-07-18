@@ -112,9 +112,7 @@ internal data class JmeFrameHealth(
 private object JmeDiagnostics {
     private val logger = Logger.getLogger("JmeHostApplication")
     private val logFile: File by lazy {
-        val base = FlightGearInstallation.root
-            ?.let { File(it, "app-data") }
-            ?: File(System.getProperty("user.home"), "DHC-6 Trainer Desktop")
+        val base = File(System.getProperty("user.home"), "DHC-6 Trainer Desktop")
         File(base, "logs/desktop-3d.log")
     }
 

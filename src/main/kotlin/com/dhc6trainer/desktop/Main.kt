@@ -75,8 +75,7 @@ private enum class DesktopSection(val title: String, val subtitle: String, val i
     STUDY(      "Flashcards",  "Browse and review shared flashcard decks",   "F"),
     DRILL(      "Drill",       "Multiple choice A/B/C/D knowledge check",    "D"),
     MCCALLOUT(  "MCC Callout", "PF/PM crew callout trainer",                 "M"),
-    COCKPIT("Cockpit", "Interactive Legacy/G950 cockpit simulator", "C"),
-    FLIGHTGEAR("Full Simulator", "Launch the personalized FlightGear DHC-6 sim", "FG"),
+    COCKPIT("Cockpit", "Interactive DHC-6 Twin Otter cockpit and drill panel", "C"),
     SYSTEMS("Technical Lab", "PT6A, electrical, fuel, hydraulic study", "S"),
     PERFORMANCE("Performance", "Takeoff, landing, climb planning",           "P"),
     LOGBOOK(    "Debrief Logbook", "Local attempt history and debrief notes",     "L"),
@@ -335,7 +334,6 @@ private fun MainShell(
                 DesktopSection.DRILL -> DrillScreen(flashcardSnapshot)
 
                 DesktopSection.COCKPIT -> CockpitScreen()
-                DesktopSection.FLIGHTGEAR -> FlightGearScreen()
                 DesktopSection.SYSTEMS -> SystemsLabScreen(assetSnapshot)
                 DesktopSection.PERFORMANCE -> PerformanceScreen(assetSnapshot)
                 DesktopSection.LOGBOOK -> LogbookScreen(onNavigate)
@@ -1226,16 +1224,7 @@ private fun BrowseCardList(deck: FlashcardDeckSummary) {
 
 @Composable
 private fun CockpitScreen() {
-    Column(
-        modifier = Modifier.fillMaxSize(),
-        verticalArrangement = Arrangement.spacedBy(14.dp),
-    ) {
-        CockpitSpriteAndHitboxViewer(
-            modifier = Modifier
-                .fillMaxWidth()
-                .weight(1f),
-        )
-    }
+    Dhc6CockpitScreen(modifier = Modifier.fillMaxSize())
 }
 @Composable
 private fun SystemsLabScreen(assetSnapshot: DesktopAssetCatalogSnapshot) {

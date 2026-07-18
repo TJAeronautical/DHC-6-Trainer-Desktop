@@ -261,10 +261,9 @@ internal object OpenSourceSimLibrary {
 
     private fun loadFlightGearAircraft(): FlightGearAircraftPackage? {
         // The corrected/personalized aircraft vendored with this trainer
-        // (flight-sim/dhc6, also deployed into the FlightGear workspace) is the
-        // primary source; legacy dhc6-master.zip downloads remain a fallback.
-        val correctedDir = (Dhc6AircraftDeployment.sourceDir ?: Dhc6AircraftDeployment.deployedDir())
-            ?.takeIf { java.io.File(it, "dhc6-set.xml").isFile }
+        // (src/main/resources/flight-sim/dhc6) is the primary source; legacy
+        // dhc6-master.zip downloads remain a fallback.
+        val correctedDir = vendoredDhc6Dir()?.takeIf { java.io.File(it, "dhc6-set.xml").isFile }
         if (correctedDir != null) {
             parseFlightGearAircraft(correctedDir.toPath(), sourceIsDirectory = true, label = "Personalized DHC-6")
                 ?.let { return it }
@@ -274,6 +273,17 @@ internal object OpenSourceSimLibrary {
             ?: candidatePaths("dhc6-master.zip").firstOrNull(Files::isRegularFile)
             ?: return null
         return parseFlightGearAircraft(zipPath, sourceIsDirectory = false, label = "FlightGear DHC-6")
+    }
+
+    /** Locates the vendored flight-sim/dhc6 aircraft directory when running from source. */
+    private fun vendoredDhc6Dir(): java.io.File? {
+        var dir: java.io.File? = System.getProperty("user.dir")?.let { java.io.File(it).absoluteFile }
+        while (dir != null) {
+            val candidate = java.io.File(dir, "src/main/resources/flight-sim/dhc6")
+            if (java.io.File(candidate, "dhc6-set.xml").isFile) return candidate
+            dir = dir.parentFile
+        }
+        return null
     }
 
     private fun parseFlightGearAircraft(

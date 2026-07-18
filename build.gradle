@@ -194,14 +194,11 @@ tasks.register("runRenderSmokeTest", JavaExec) {
     }
 }
 
-tasks.register("runFlightGearSmokeTest", JavaExec) {
+tasks.register("runPanelSmokeTest", JavaExec) {
     group = "verification"
-    description = "Headless check of the Full Simulator integration (FGDesktop detection, DHC-6 deployment state)."
+    description = "Composites the 2D panel layout to a PNG and checks every instrument image resolves."
     classpath = sourceSets.main.runtimeClasspath
-    mainClass = "com.dhc6trainer.desktop.FlightGearSmokeTestKt"
-    if (project.hasProperty("smokeDeploy")) {
-        systemProperty("smoke.deploy", project.property("smokeDeploy"))
-    }
+    mainClass = "com.dhc6trainer.desktop.Dhc6PanelSmokeTestKt"
 }
 
 tasks.register("runAssetSmokeTest", JavaExec) {
