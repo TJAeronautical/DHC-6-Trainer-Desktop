@@ -269,7 +269,9 @@ object DesktopCockpitSpriteCatalog {
     }
 }
 
-internal enum class CockpitStageMode { FreeFlight, Panel2d }
+// The 3D free-flight stage was removed: the offscreen OpenGL renderer it
+// relied on crashed on too many machines. The interactive flight deck now
+// lives in SimCockpitScreen (pure Compose); this viewer is 2D-panel only.
 
 @Composable
 fun CockpitSpriteAndHitboxViewer(
@@ -279,16 +281,6 @@ fun CockpitSpriteAndHitboxViewer(
     var selectedTarget by remember { mutableStateOf(DefaultCockpitTargets.first()) }
     var simulatorState by remember { mutableStateOf(DesktopCockpitSimState.beforeStart()) }
     var simulatorScenario by remember { mutableStateOf(CockpitSimScenario.BEFORE_START) }
-    var stageMode by remember { mutableStateOf(CockpitStageMode.FreeFlight) }
-    val freeFlightSession = remember { FreeFlightSession() }
-    var freeFlightCamera by remember { mutableStateOf(freeFlightSession.cameraMode) }
-    // The camera can also change from inside the sim (C key); mirror it so the
-    // Inside/Outside chips stay in sync.
-    LaunchedEffect(freeFlightSession) {
-        while (true) {
-            withFrameNanos { freeFlightCamera = freeFlightSession.cameraMode }
-        }
-    }
     var zoom by remember { mutableFloatStateOf(1.0f) }
     var panX by remember { mutableFloatStateOf(0f) }
     var panY by remember { mutableFloatStateOf(0f) }
@@ -331,28 +323,6 @@ fun CockpitSpriteAndHitboxViewer(
                         panX = 0f
                         panY = 0f
                     }
-                    CockpitChip("Free flight", selected = stageMode == CockpitStageMode.FreeFlight) {
-                        stageMode = CockpitStageMode.FreeFlight
-                    }
-                    CockpitChip(
-                        "Inside",
-                        selected = stageMode == CockpitStageMode.FreeFlight &&
-                            freeFlightCamera == FreeFlightCameraMode.Cockpit,
-                    ) {
-                        stageMode = CockpitStageMode.FreeFlight
-                        freeFlightSession.cameraMode = FreeFlightCameraMode.Cockpit
-                    }
-                    CockpitChip(
-                        "Outside",
-                        selected = stageMode == CockpitStageMode.FreeFlight &&
-                            freeFlightCamera != FreeFlightCameraMode.Cockpit,
-                    ) {
-                        stageMode = CockpitStageMode.FreeFlight
-                        freeFlightSession.cameraMode = FreeFlightCameraMode.Chase
-                    }
-                    CockpitChip("2D panel", selected = stageMode == CockpitStageMode.Panel2d) {
-                        stageMode = CockpitStageMode.Panel2d
-                    }
                 }
                 Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
                     CockpitChip(
@@ -392,12 +362,9 @@ fun CockpitSpriteAndHitboxViewer(
                 )
             }
 
-            when (stageMode) {
-                CockpitStageMode.FreeFlight -> FreeFlightScreen(stageModifier, freeFlightSession)
-                CockpitStageMode.Panel2d -> flightSim2dStage(stageModifier)
-            }
+            flightSim2dStage(stageModifier)
 
-            if (stageMode == CockpitStageMode.Panel2d) {
+            run {
                 Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
                     CockpitChip("Fit", selected = zoom == 0.85f && panX == 0f && panY == 0f) {
                         zoom = 0.85f

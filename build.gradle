@@ -176,6 +176,13 @@ tasks.register("runRenderSmokeTest", JavaExec) {
     mainClass = "com.dhc6trainer.desktop.RenderSmokeTestKt"
 }
 
+tasks.register("runSimSmokeTest", JavaExec) {
+    group = "verification"
+    description = "Headless check of the Twin Otter systems model (torque/governor/start behavior)."
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = "com.dhc6trainer.desktop.SimSmokeTestKt"
+}
+
 tasks.register("runAssetSmokeTest", JavaExec) {
     group = "verification"
     description = "Headless check that every 3D model/asset pipeline loads."
