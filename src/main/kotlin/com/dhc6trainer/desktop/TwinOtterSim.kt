@@ -204,8 +204,7 @@ internal class TwinOtterSimModel {
             it.shaftPowerHp = 0f
         }
         iasMps = 0f; altitudeM = 0f; vsMps = 0f; onGround = true; elapsed = 0f
-        masterWarnLatched = false; masterCautionLatched = false
-        publish()
+        publishPreset()
     }
 
     fun resetReadyForTakeoff() {
@@ -221,7 +220,7 @@ internal class TwinOtterSimModel {
             it.running = true; it.ng = NgIdle; it.np = 950f; it.itt = 460f
             it.oilPress = 92f; it.oilTemp = 62f
         }
-        publish()
+        publishPreset()
     }
 
     fun resetCruise() {
@@ -236,7 +235,7 @@ internal class TwinOtterSimModel {
         altitudeM = 8000f / MToFt
         onGround = false
         engines.forEach { it.ng = 85f; it.np = 1930f; it.itt = 620f }
-        publish()
+        publishPreset()
     }
 
     /* ------------------------------------------------------------------ */
@@ -505,6 +504,17 @@ internal class TwinOtterSimModel {
             fuelPressLow = controls.fuelLever[i] && !boostPressureOk(i),
             startIttExceeded = e.startIttExceeded,
         )
+    }
+
+    /** Publish a preset state without latching the alerts the preset itself
+     *  creates (e.g. DC BUS OFF in cold-and-dark, or the intermediate
+     *  cold-and-dark pass inside the ready presets). Only NEW alerts after
+     *  the preset should light the master lamps. */
+    private fun publishPreset() {
+        publish()
+        masterWarnLatched = false
+        masterCautionLatched = false
+        publish()
     }
 
     private fun publish() {

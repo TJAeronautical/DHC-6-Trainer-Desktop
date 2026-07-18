@@ -15,6 +15,13 @@ fun main() {
     sim.resetReadyForTakeoff()
     fun run(sec: Float) { var t = 0f; while (t < sec) { sim.update(1f / 30f); t += 1f / 30f } }
 
+    // Presets must not open with a stale latched master caution.
+    println("READY PRESET     : masterCaution=%b masterWarning=%b".format(
+        sim.snapshot.masterCaution, sim.snapshot.masterWarning))
+    check(!sim.snapshot.masterCaution && !sim.snapshot.masterWarning) {
+        "Ready preset should not latch master caution from the intermediate cold state"
+    }
+
     // Climb power, props full forward.
     sim.controls.powerLever[0] = 0.75f; sim.controls.powerLever[1] = 0.75f
     sim.controls.propLever[0] = 1f; sim.controls.propLever[1] = 1f
