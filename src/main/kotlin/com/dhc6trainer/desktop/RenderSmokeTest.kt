@@ -91,6 +91,24 @@ fun main() {
 
     val freeFlightSession = FreeFlightSession()
     testScene("freeflight", freeFlightSceneSpec(freeFlightSession))
+    if (freeFlightSession.xPlaneAircraftPackages.isNotEmpty()) {
+        val expectedDefault = freeFlightSession.xPlaneAircraftPackages
+            .firstOrNull { it.id == XPlaneTwinOtterVariantLibrary.preferredVariantId }
+            ?.id
+            ?: freeFlightSession.xPlaneAircraftPackages.first().id
+        if (
+            freeFlightSession.selectedVariantId == expectedDefault &&
+            freeFlightSession.sceneStatus.contains("local 3D cockpit", ignoreCase = true)
+        ) {
+            println("OK    X-Plane primary route -> ${freeFlightSession.sceneStatus}")
+        } else {
+            failures++
+            println(
+                "FAIL  X-Plane primary route -> selected=${freeFlightSession.selectedVariantId}, " +
+                    "expected=$expectedDefault, status=${freeFlightSession.sceneStatus}",
+            )
+        }
+    }
 
     val floatVariantSession = FreeFlightSession().apply {
         selectedVariantId = FreeFlightDhc6Variant.Floats.aircraftId

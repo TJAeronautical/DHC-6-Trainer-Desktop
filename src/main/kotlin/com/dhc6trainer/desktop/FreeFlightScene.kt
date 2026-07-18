@@ -103,7 +103,12 @@ internal class FreeFlightSession {
     @Volatile var cameraMode = FreeFlightCameraMode.Chase
     @Volatile var pendingReset = FreeFlightReset.None
     @Volatile var sceneStatus = "Starting flight sim..."
-    @Volatile var selectedVariantId = FreeFlightDhc6Variant.Wheels.aircraftId
+    @Volatile var selectedVariantId =
+        xPlaneAircraftPackages
+            .firstOrNull { it.id == XPlaneTwinOtterVariantLibrary.preferredVariantId }
+            ?.id
+            ?: xPlaneAircraftPackages.firstOrNull()?.id
+            ?: FreeFlightDhc6Variant.Wheels.aircraftId
 
     val telemetry: Dhc6Telemetry get() = model.telemetry
     val selectedFlightGearAircraftPackage: FlightGearAircraftPackage?
@@ -119,31 +124,35 @@ internal class FreeFlightSession {
         get() = xPlaneAircraftPackages.firstOrNull { it.id == selectedVariantId }
     val availableAircraftOptions: List<FreeFlightAircraftOption>
         get() = buildList {
+            xPlaneAircraftPackages
+                .forEach { add(FreeFlightAircraftOption(it.id, it.label)) }
             add(
                 FreeFlightAircraftOption(
                     FreeFlightDhc6Variant.Wheels.aircraftId,
-                    FreeFlightDhc6Variant.Wheels.label,
+                    "Trainer wheels",
                 ),
             )
             add(
                 FreeFlightAircraftOption(
                     FreeFlightDhc6Variant.Floats.aircraftId,
-                    FreeFlightDhc6Variant.Floats.label,
+                    "Trainer floats",
                 ),
             )
             if (openSourceSim.flightGearAircraft != null) {
                 add(
                     FreeFlightAircraftOption(
                         FreeFlightDhc6Variant.Skis.aircraftId,
-                        FreeFlightDhc6Variant.Skis.label,
+                        "Trainer skis",
                     ),
                 )
             }
-            fsxAircraftPackages
-                .filter { it.nativeModelSupported && it.id != "air-alpes-fsx" }
-                .forEach { add(FreeFlightAircraftOption(it.id, "${it.label.removeSuffix(" FSX")} local")) }
-            xPlaneAircraftPackages
-                .forEach { add(FreeFlightAircraftOption(it.id, it.label)) }
+            if (xPlaneAircraftPackages.isEmpty()) {
+                fsxAircraftPackages
+                    .filter { it.nativeModelSupported && it.id != "air-alpes-fsx" }
+                    .forEach {
+                        add(FreeFlightAircraftOption(it.id, "${it.label.removeSuffix(" FSX")} local"))
+                    }
+            }
         }
 }
 
@@ -358,7 +367,72 @@ private class FreeFlightWorld(private val session: FreeFlightSession) {
             }
         }
     }
+    private fun attachExternalGlbAircraftModel(
+        model: Spatial,
+        variantId: String,
+        statusBadge: String,
+        yawCorrection: Float = 0f,
+    ): Boolean {
+        model.setLocalScale(1f)
+        model.setLocalTranslation(0f, 0f, 0f)
+        model.setLocalRotation(
+            Quaternion().fromAngleAxis(
+                yawCorrection,
+                Vector3f.UNIT_Y,
+            ),
+        )
+        model.updateModelBound()
+        model.updateGeometricState()
 
+        val bound =
+            model.worldBound as? com.jme3.bounding.BoundingBox
+                ?: return false
+
+        val wingspan =
+            (bound.xExtent * 2f).coerceAtLeast(0.01f)
+
+        val scale =
+            (19.812f / wingspan).coerceIn(
+                0.001f,
+                100f,
+            )
+
+        val bottom =
+            bound.center.y - bound.yExtent
+
+        preferredChaseDistance = 22f
+
+        model.setLocalScale(scale)
+        model.setLocalTranslation(
+            -bound.center.x * scale,
+            -bottom * scale,
+            -bound.center.z * scale,
+        )
+
+        model.shadowMode =
+            RenderQueue.ShadowMode.CastAndReceive
+
+        model.updateModelBound()
+        model.updateGeometricState()
+
+        aircraftNode.attachChild(model)
+
+        modelSpatial = model
+        loadedVariantId = variantId
+        loadedAircraftLabel = statusBadge
+        hideWholeModelInCockpit = true
+
+        cockpitEyeLocal =
+            Vector3f(
+                -0.4f,
+                1.65f,
+                -3.1f,
+            )
+
+        session.sceneStatus = statusBadge
+
+        return true
+    }
     private fun attachXPlaneAircraftModel(
         assets: AssetManager,
         loadedAircraft: XPlaneLoadedAircraft,
@@ -387,8 +461,13 @@ private class FreeFlightWorld(private val session: FreeFlightSession) {
 
         aircraftNode.attachChild(model)
         modelSpatial = model
-        fgExteriorNodes = loadedAircraft.exteriorNodes
-        cockpitOnlyNodes = listOf(loadedAircraft.cockpitNode)
+        fgExteriorNodes = loadedAircraft.exteriorNodes + loadedAircraft.interiorNodes
+        val cockpitLayers = (loadedAircraft.cockpitNode as? Node)?.children.orEmpty()
+        val panelLayers = cockpitLayers.filter { it.name.contains("-panel", ignoreCase = true) }
+        cockpitLayers
+            .filterNot { it in panelLayers }
+            .forEach { it.cullHint = Spatial.CullHint.Always }
+        cockpitOnlyNodes = panelLayers.ifEmpty { listOf(loadedAircraft.cockpitNode) }
         loadedVariantId = aircraftPackage.id
         loadedAircraftLabel = "${aircraftPackage.label} local 3D cockpit"
         hideWholeModelInCockpit = false
@@ -396,11 +475,12 @@ private class FreeFlightWorld(private val session: FreeFlightSession) {
         // Transform the X-Plane pilot-eye point through the same centering
         // operation used for the aircraft.
         cockpitEyeLocal = Vector3f(
-            (-0.78f - bound.center.x) * scale,
-            (1.45f - bottom) * scale,
-            (3.65f - bound.center.z) * scale,
+            (-0.36f - bound.center.x) * scale,
+            (1.04f - bottom) * scale,
+            (3.62f - bound.center.z) * scale,
         )
-        loadedAircraft.cockpitNode.cullHint = Spatial.CullHint.Always
+        loadedAircraft.cockpitNode.cullHint = Spatial.CullHint.Inherit
+        cockpitOnlyNodes.forEach { it.cullHint = Spatial.CullHint.Always }
         buildXPlanePropDiscs(assets, scale, bottom, bound.center.z)
         session.sceneStatus = loadedAircraftLabel!!
         return true
@@ -452,96 +532,6 @@ private class FreeFlightWorld(private val session: FreeFlightSession) {
         session.sceneStatus = statusBadge
     }
 
-    private fun attachExternalGlbAircraftModel(
-        model: Spatial,
-        variantId: String,
-        statusBadge: String,
-        yawCorrection: Float = 0f,
-    ): Boolean {
-        model.setLocalScale(1f)
-        model.setLocalTranslation(0f, 0f, 0f)
-        model.setLocalRotation(Quaternion().fromAngleAxis(yawCorrection, Vector3f.UNIT_Y))
-        model.updateModelBound()
-        model.updateGeometricState()
-
-        val bound = model.worldBound as? com.jme3.bounding.BoundingBox ?: return false
-        val wingspan = (bound.xExtent * 2f).coerceAtLeast(0.01f)
-        val scale = (19.812f / wingspan).coerceIn(0.001f, 100f)
-        val bottom = bound.center.y - bound.yExtent
-        preferredChaseDistance = 22f
-        model.setLocalScale(scale)
-        model.setLocalTranslation(
-            -bound.center.x * scale,
-            -bottom * scale,
-            -bound.center.z * scale,
-        )
-        model.shadowMode = RenderQueue.ShadowMode.CastAndReceive
-        model.updateModelBound()
-        model.updateGeometricState()
-
-        aircraftNode.attachChild(model)
-        modelSpatial = model
-        loadedVariantId = variantId
-        loadedAircraftLabel = statusBadge
-        hideWholeModelInCockpit = true
-        cockpitEyeLocal = Vector3f(-0.4f, 1.65f, -3.1f)
-        session.sceneStatus = statusBadge
-        return true
-    }
-
-    private fun attachFsxAircraftModel(
-        assets: AssetManager,
-        model: Spatial,
-        variantId: String,
-        statusBadge: String,
-    ) {
-        model.updateModelBound()
-        model.updateGeometricState()
-
-        // Rest the gear on y=0 of the aircraft node.
-        val gearDrop = groundOffsetFor(model)
-        model.setLocalTranslation(0f, gearDrop, 0f)
-        aircraftNode.attachChild(model)
-        modelSpatial = model
-        loadedVariantId = variantId
-        loadedAircraftLabel = statusBadge
-        hideWholeModelInCockpit = true
-
-        // FS2004 MDLs model animated/instanced parts (props, VC panel, pilot
-        // figures, some interior plates) AT THE ORIGIN and position them via
-        // animation transforms this static parser does not interpret. Left
-        // visible they form a polygon cluster at the CG, so hide them, and
-        // derive prop-disc positions from the engine nacelle geometry instead.
-        val props = mutableListOf<Geometry>()
-        val nacelles = mutableListOf<Geometry>()
-        model.depthFirstTraversal { spatial ->
-            val geom = spatial as? Geometry ?: return@depthFirstTraversal
-            val bound = geom.mesh.bound as? com.jme3.bounding.BoundingBox
-            val nearOrigin = bound != null && bound.center.length() < 1.2f
-            when {
-                geom.name.startsWith("fsx-tex-prop") -> {
-                    props += geom
-                    geom.cullHint = Spatial.CullHint.Always
-                }
-                geom.name.startsWith("fsx-tex-VCpan") ||
-                    geom.name.startsWith("fsx-tex-pilots") -> {
-                    geom.cullHint = Spatial.CullHint.Always
-                }
-                geom.name.startsWith("fsx-tex-interiors") && nearOrigin -> {
-                    geom.cullHint = Spatial.CullHint.Always
-                }
-                geom.name.startsWith("fsx-tex-Twin_engine") -> nacelles += geom
-            }
-        }
-        propMeshGeometries = emptyList()
-
-        // Pilot eye in the exterior shell's cockpit section (windshield area).
-        cockpitEyeLocal = Vector3f(-0.4f, gearDrop + 0.85f, -2.75f)
-
-        buildFsxPropDiscs(assets, nacelles, gearDrop)
-        session.sceneStatus = "$statusBadge loaded"
-    }
-
     private fun groundOffsetFor(model: Spatial): Float {
         val bound = model.worldBound
         return if (bound is com.jme3.bounding.BoundingBox) {
@@ -557,48 +547,6 @@ private class FreeFlightWorld(private val session: FreeFlightSession) {
      * the engine-nacelle geometry: cluster nacelle vertices by side, disc at
      * each cluster's centre, just ahead of its foremost point.
      */
-    private fun buildFsxPropDiscs(assets: AssetManager, nacelles: List<Geometry>, gearDrop: Float) {
-        var leftSum = Vector3f(); var leftCount = 0; var leftMinZ = Float.MAX_VALUE
-        var rightSum = Vector3f(); var rightCount = 0; var rightMinZ = Float.MAX_VALUE
-        nacelles.forEach { geom ->
-            val positions = geom.mesh.getFloatBuffer(com.jme3.scene.VertexBuffer.Type.Position) ?: return@forEach
-            positions.rewind()
-            while (positions.remaining() >= 3) {
-                val x = positions.get(); val y = positions.get(); val z = positions.get()
-                if (kotlin.math.abs(x) < 1.2f || kotlin.math.abs(x) > 5f) continue
-                if (x < 0f) {
-                    leftSum.addLocal(x, y, z); leftCount++
-                    if (z < leftMinZ) leftMinZ = z
-                } else {
-                    rightSum.addLocal(x, y, z); rightCount++
-                    if (z < rightMinZ) rightMinZ = z
-                }
-            }
-        }
-        if (leftCount == 0 || rightCount == 0) return
-        val left = leftSum.divideLocal(leftCount.toFloat())
-        val right = rightSum.divideLocal(rightCount.toFloat())
-        val centers = listOf(
-            Vector3f(left.x, left.y + gearDrop, leftMinZ - 0.18f),
-            Vector3f(right.x, right.y + gearDrop, rightMinZ - 0.18f),
-        )
-        val discs = centers.mapIndexed { i, center ->
-            Geometry("PropDisc$i", com.jme3.scene.shape.Cylinder(2, 32, 1.29f, 0.015f, true)).apply {
-                material = Material(assets, "Common/MatDefs/Misc/Unshaded.j3md").apply {
-                    setColor("Color", ColorRGBA(0.06f, 0.06f, 0.07f, 0.30f))
-                    additionalRenderState.blendMode = RenderState.BlendMode.Alpha
-                    additionalRenderState.isDepthWrite = false
-                }
-                queueBucket = RenderQueue.Bucket.Transparent
-                shadowMode = RenderQueue.ShadowMode.Off
-                setLocalTranslation(center)
-                cullHint = Spatial.CullHint.Always
-            }
-        }
-        discs.forEach(aircraftNode::attachChild)
-        propDiscs = discs
-    }
-
     private fun buildFlightGearPropDiscs(assets: AssetManager, gearDrop: Float) {
         val material = Material(assets, "Common/MatDefs/Misc/Unshaded.j3md").apply {
             setColor("Color", ColorRGBA(0.06f, 0.06f, 0.07f, 0.24f))
@@ -676,8 +624,8 @@ private class FreeFlightWorld(private val session: FreeFlightSession) {
         val hideShellInCockpit = cockpitView && hideWholeModelInCockpit
         modelSpatial?.cullHint =
             if (hideShellInCockpit) Spatial.CullHint.Always else Spatial.CullHint.Inherit
-        // FlightGear model: hide the exterior shell in cockpit view so the
-        // flight deck and instruments are unobstructed.
+        // Hide exterior, cabin, and seat geometry in cockpit view so the
+        // flight deck and instruments remain unobstructed.
         fgExteriorNodes.forEach {
             it.cullHint = if (cockpitView) Spatial.CullHint.Always else Spatial.CullHint.Inherit
         }
@@ -819,7 +767,8 @@ private class FreeFlightWorld(private val session: FreeFlightSession) {
     }
 
     private fun buildFsxPreviewEnvironment(assets: AssetManager, environment: FsxEnvironmentPackage): Node {
-        val texture = previewTexture(assets, environment) ?: return Node("FSX preview environment empty")
+        val texture = previewTexture(environment)
+            ?: return Node("FSX preview environment empty")
         val node = Node("FSX preview environment ${environment.id}")
         val mat = Material(assets, "Common/MatDefs/Misc/Unshaded.j3md").apply {
             setTexture("ColorMap", texture)
@@ -854,16 +803,37 @@ private class FreeFlightWorld(private val session: FreeFlightSession) {
         return node
     }
 
-    private fun previewTexture(assets: AssetManager, environment: FsxEnvironmentPackage): Texture2D? {
-        val zipPath = environment.zipPath ?: return null
-        val entryName = environment.previewEntry.takeIf { it.isNotBlank() } ?: return null
-        val image = runCatching {
-            java.util.zip.ZipFile(zipPath.toFile()).use { zip ->
-                val entry = zip.getEntry(entryName) ?: return@use null
-                zip.getInputStream(entry).use(ImageIO::read)
-            }
-        }.getOrNull() ?: return null
-        return Texture2D(awtToJmeImage(image)).apply {
+    private fun previewTexture(
+        environment: FsxEnvironmentPackage,
+    ): Texture2D? {
+        val zipPath =
+            environment.zipPath
+                ?: return null
+
+        val entryName =
+            environment.previewEntry
+                .takeIf { it.isNotBlank() }
+                ?: return null
+
+        val image =
+            runCatching {
+                java.util.zip.ZipFile(
+                    zipPath.toFile(),
+                ).use { zip ->
+                    val entry =
+                        zip.getEntry(entryName)
+                            ?: return@use null
+
+                    zip.getInputStream(entry).use(
+                        ImageIO::read,
+                    )
+                }
+            }.getOrNull()
+                ?: return null
+
+        return Texture2D(
+            awtToJmeImage(image),
+        ).apply {
             setWrap(Texture.WrapMode.EdgeClamp)
             minFilter = Texture.MinFilter.Trilinear
             anisotropicFilter = 4
@@ -1006,7 +976,11 @@ private class FreeFlightWorld(private val session: FreeFlightSession) {
             setFloat("Shininess", 2f)
         }
         scenery.pavements.take(90).forEachIndexed { index, polygon ->
-            val mesh = pavementMesh(scenery, polygon.points, 0.045f) ?: return@forEachIndexed
+            val mesh =
+                pavementMesh(
+                    scenery,
+                    polygon.points,
+                ) ?: return@forEachIndexed
             node.attachChild(
                 Geometry("VRMM pavement $index", mesh).apply {
                     this.material = material
@@ -1059,16 +1033,33 @@ private class FreeFlightWorld(private val session: FreeFlightSession) {
         return groundMesh(listOf(p0, p1, p2, p3), intArrayOf(0, 1, 2, 0, 2, 3))
     }
 
-    private fun pavementMesh(scenery: XPlaneSceneryPackage, points: List<XPlaneGeoPoint>, y: Float): Mesh? {
-        if (points.size < 3) return null
-        val vertices = points.map { scenery.localPoint(it).apply { this.y = y } }
-        val indices = ArrayList<Int>()
-        for (i in 1 until vertices.lastIndex) {
-            indices += 0
-            indices += i
-            indices += i + 1
+    private fun pavementMesh(
+        scenery: XPlaneSceneryPackage,
+        points: List<XPlaneGeoPoint>,
+    ): Mesh? {
+        if (points.size < 3) {
+            return null
         }
-        return groundMesh(vertices, indices.toIntArray())
+
+        val vertices =
+            points.map { point ->
+                scenery.localPoint(point).apply {
+                    y = 0.045f
+                }
+            }
+
+        val indices = ArrayList<Int>()
+
+        for (index in 1 until vertices.lastIndex) {
+            indices += 0
+            indices += index
+            indices += index + 1
+        }
+
+        return groundMesh(
+            vertices,
+            indices.toIntArray(),
+        )
     }
 
     private fun groundMesh(vertices: List<Vector3f>, indices: IntArray): Mesh {

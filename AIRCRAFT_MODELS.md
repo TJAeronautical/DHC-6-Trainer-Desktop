@@ -136,10 +136,18 @@ The app can use these archives directly from `%USERPROFILE%\Downloads`:
 - `DHC63L Twin Otter LP_1.zip`
 - `DHC63S Twin Otter FP_1.zip`
 
-When present, they appear as DHC-6-100 tundra, DHC-6-300 long nose, and
-DHC-6-300 float choices. Each option uses the archive's OBJ8 exterior,
-variant-specific landing gear or floats, cabin, seats, glass, panel texture,
-and `Twin Otter_cockpit.obj`.
+When present, the X-Plane aircraft are the primary simulator choices. The
+DHC-6-300 long nose is selected by default, followed by the DHC-6-300 float
+and DHC-6-100 tundra. The app-owned wheels, floats, and skis remain available
+as fallback choices. The unreliable FSX visual choices are hidden while the
+X-Plane archives are available.
+
+Each X-Plane option uses the archive's OBJ8 exterior, variant-specific landing
+gear or floats, cabin, seats, glass, cockpit-region panel texture, and
+`Twin Otter_cockpit.obj`. In cockpit view, the archive's overlapping exterior,
+cabin, seat, and generic cockpit surface layers are hidden so they cannot
+block the pilot view. The cockpit-region panel remains available and the app
+adds its live flight-instrument overlay.
 
 These freeware archives prohibit redistribution and derivative uploads without
 written permission. They remain in Downloads and are not copied into the
