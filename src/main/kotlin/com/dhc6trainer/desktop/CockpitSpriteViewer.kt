@@ -85,7 +85,7 @@ data class CockpitSpriteAsset(
     val bitmap: ImageBitmap?,
 )
 
-private val DefaultCockpitTargets = listOf(
+internal val DefaultCockpitTargets = listOf(
     CockpitHitboxTarget(
         id = "power-levers",
         title = "Power lever quadrant",

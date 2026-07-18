@@ -48,6 +48,7 @@ internal fun Dhc6CockpitScreen(modifier: Modifier = Modifier) {
     var layout by remember { mutableStateOf(Dhc6UserData.loadPanelLayoutOrDefault()) }
     var simState by remember { mutableStateOf(DesktopCockpitSimState.beforeStart()) }
     var selected by remember { mutableStateOf<PanelItem?>(null) }
+    var legacyTarget by remember { mutableStateOf<CockpitHitboxTarget?>(null) }
 
     Row(modifier = modifier.fillMaxSize(), horizontalArrangement = Arrangement.spacedBy(16.dp)) {
         Column(Modifier.weight(1.85f).fillMaxHeight(), verticalArrangement = Arrangement.spacedBy(12.dp)) {
@@ -59,12 +60,10 @@ internal fun Dhc6CockpitScreen(modifier: Modifier = Modifier) {
 
             val stageModifier = Modifier.fillMaxWidth().weight(1f)
             when (tab) {
-                CockpitTab.PANEL_2D -> Dhc6PanelStage(
-                    layout = layout,
+                CockpitTab.PANEL_2D -> LegacyCockpitPanel(
                     state = simState,
                     onStateChange = { simState = it },
-                    selectedId = selected?.id,
-                    onSelect = { selected = it },
+                    onSelectTarget = { legacyTarget = it },
                     modifier = stageModifier,
                 )
                 CockpitTab.EDIT -> Dhc6PanelEditor(
@@ -85,21 +84,34 @@ internal fun Dhc6CockpitScreen(modifier: Modifier = Modifier) {
             DetailCard {
                 Text("Selected control", color = Color.White, fontSize = 16.sp, fontWeight = FontWeight.Black)
                 Spacer(Modifier.height(6.dp))
-                val sel = selected
-                if (sel == null) {
-                    Text(
-                        "Click an instrument or control on the panel to identify it and see its state.",
-                        color = Dhc6DesktopColors.TextMuted, fontSize = 13.sp,
-                    )
-                } else {
-                    InspectorRow("Role", sel.role.ifBlank { sel.id })
-                    InspectorRow("Action", sel.action.name)
-                    if (sel.stateKey.isNotBlank()) {
-                        InspectorRow("Binding", sel.stateKey)
-                        InspectorRow("State", panelStateLabel(simState, sel) ?: "-")
+                val lt = legacyTarget
+                if (tab == CockpitTab.PANEL_2D) {
+                    if (lt == null) {
+                        Text(
+                            "Click a control area on the cockpit to identify it and see its state.",
+                            color = Dhc6DesktopColors.TextMuted, fontSize = 13.sp,
+                        )
+                    } else {
+                        InspectorRow("Target", lt.title)
+                        InspectorRow("Area", lt.area)
+                        Spacer(Modifier.height(6.dp))
+                        Text(lt.purpose, color = Dhc6DesktopColors.TextMuted, fontSize = 12.sp, lineHeight = 16.sp)
                     }
-                    Spacer(Modifier.height(8.dp))
-                    Text(sel.image, color = Dhc6DesktopColors.TextMuted, fontSize = 11.sp)
+                } else {
+                    val sel = selected
+                    if (sel == null) {
+                        Text(
+                            "Click an instrument or control on the panel to identify it and see its state.",
+                            color = Dhc6DesktopColors.TextMuted, fontSize = 13.sp,
+                        )
+                    } else {
+                        InspectorRow("Role", sel.role.ifBlank { sel.id })
+                        InspectorRow("Action", sel.action.name)
+                        if (sel.stateKey.isNotBlank()) {
+                            InspectorRow("Binding", sel.stateKey)
+                            InspectorRow("State", panelStateLabel(simState, sel) ?: "-")
+                        }
+                    }
                 }
             }
 
@@ -128,8 +140,10 @@ internal fun Dhc6CockpitScreen(modifier: Modifier = Modifier) {
                     Text("Drill training", color = Color.White, fontSize = 16.sp, fontWeight = FontWeight.Black)
                     Spacer(Modifier.height(6.dp))
                     Text(
-                        "This panel is built from the X-Plane DHC-6 Twin Otter. Use the Edit panel tab " +
-                            "to place and label instruments/controls yourself, then drill by clicking them.",
+                        "The Legacy DHC-6 Twin Otter cockpit: overhead, circuit-breaker panels, main " +
+                            "instrument panel and pedestal. Scroll to zoom, drag to pan, and click the " +
+                            "electrical, fuel, fire and flap/hydraulic areas to actuate them for drills. " +
+                            "Use Edit panel to build a custom layout instead.",
                         color = Dhc6DesktopColors.TextMuted, fontSize = 13.sp,
                     )
                     Spacer(Modifier.height(8.dp))
