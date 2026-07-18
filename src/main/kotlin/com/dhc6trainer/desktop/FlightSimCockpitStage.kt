@@ -1080,7 +1080,7 @@ private fun DrawScope.drawCleanSpriteCockpit(
     )
     spritePack.activeEntries().forEach { entry ->
         spriteImages[entry.path]?.let { sprite ->
-            drawCockpitSprite(sprite, entry, spritePack, bounds)
+            drawCockpitSprite(sprite, entry, spritePack, bounds, state)
         }
     }
     drawSpriteStateCues(spritePack, bounds, state)
@@ -1093,14 +1093,70 @@ private fun DrawScope.drawCockpitSprite(
     entry: CockpitSpriteEntry,
     spritePack: CockpitSpritePack,
     bounds: Rect,
+    state: DesktopCockpitSimState,
 ) {
     val rect = entry.renderRect.toViewportRect(spritePack, bounds)
+    // Actuate the control: translate its handle/lever along its throw so it
+    // visibly moves when toggled, like the sim's 2D panel.
+    val offset = spriteActuationOffset(entry.id, state, rect.width, rect.height)
     drawImage(
         image = image,
-        dstOffset = IntOffset(rect.left.roundToInt(), rect.top.roundToInt()),
+        dstOffset = IntOffset((rect.left + offset.x).roundToInt(), (rect.top + offset.y).roundToInt()),
         dstSize = IntSize(rect.width.roundToInt().coerceAtLeast(1), rect.height.roundToInt().coerceAtLeast(1)),
         filterQuality = FilterQuality.High,
     )
+}
+
+/**
+ * How far (viewport px) to translate a control's handle sprite from its
+ * authored rest position given the current state, so switches/levers visibly
+ * actuate. Sprites are authored at their "on/forward" extreme, so OFF states
+ * slide the handle back toward its rest; toggles nudge up/down like a flipped
+ * switch. Unmapped controls do not move.
+ */
+private fun spriteActuationOffset(id: String, state: DesktopCockpitSimState, w: Float, h: Float): Offset {
+    fun flip(on: Boolean) = if (on) Offset(0f, -h * 0.16f) else Offset.Zero
+    return when (id) {
+        // Fuel levers: knob authored up (ON); slide down to cutoff when OFF.
+        "FUEL_LEVER_L", "FUEL_SOV_L", "EMERG_FUEL_SHUTOFF_L" ->
+            if (state.leftFuelLeverOn) Offset.Zero else Offset(0f, h * 0.62f)
+        "FUEL_LEVER_R", "FUEL_SOV_R", "EMERG_FUEL_SHUTOFF_R" ->
+            if (state.rightFuelLeverOn) Offset.Zero else Offset(0f, h * 0.62f)
+        // Fire handles: pull outward when actuated.
+        "FIRE_HANDLE_L", "FIRE_PUSH_SWITCH_L" ->
+            if (state.leftFireHandlePulled) Offset(-w * 0.30f, 0f) else Offset.Zero
+        "FIRE_HANDLE_R", "FIRE_PUSH_SWITCH_R" ->
+            if (state.rightFireHandlePulled) Offset(w * 0.30f, 0f) else Offset.Zero
+        // Flap selector rides down its gate with more flap.
+        "FLAP_SELECTOR" -> Offset(
+            0f,
+            h * when (state.flaps) {
+                CockpitFlapSetting.UP -> 0f
+                CockpitFlapSetting.TAKEOFF -> 0.35f
+                CockpitFlapSetting.LANDING -> 0.70f
+            },
+        )
+        // Power / prop levers advance forward (up) with the lever position.
+        "POWER_LEVER_L" -> Offset(0f, -h * powerFrac(state.leftPower))
+        "POWER_LEVER_R" -> Offset(0f, -h * powerFrac(state.rightPower))
+        "BATTERY_MASTER" -> flip(state.batteryMaster)
+        "AVIONICS_MASTER" -> flip(state.avionicsMaster)
+        "L_DC_GEN" -> flip(state.leftDcGenerator)
+        "R_DC_GEN" -> flip(state.rightDcGenerator)
+        "BUS_TIE" -> flip(state.crossfeed != CockpitCrossfeedPosition.NORMAL)
+        "FWD_BOOST_PUMP" -> flip(state.fwdBoost1 || state.fwdBoost2)
+        "AFT_BOOST_PUMP" -> flip(state.aftBoost1 || state.aftBoost2)
+        "IGNITION_ARM" -> flip(state.fireDetectionArmed)
+        else -> Offset.Zero
+    }
+}
+
+private fun powerFrac(pos: CockpitPowerLeverPosition): Float = when (pos) {
+    CockpitPowerLeverPosition.REVERSE -> 0f
+    CockpitPowerLeverPosition.IDLE -> 0.10f
+    CockpitPowerLeverPosition.CRUISE -> 0.45f
+    CockpitPowerLeverPosition.CLIMB -> 0.70f
+    CockpitPowerLeverPosition.MAX -> 0.92f
 }
 
 private fun DrawScope.drawSpriteStateCues(
