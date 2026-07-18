@@ -75,7 +75,7 @@ private enum class DesktopSection(val title: String, val subtitle: String, val i
     STUDY(      "Flashcards",  "Browse and review shared flashcard decks",   "F"),
     DRILL(      "Drill",       "Multiple choice A/B/C/D knowledge check",    "D"),
     MCCALLOUT(  "MCC Callout", "PF/PM crew callout trainer",                 "M"),
-    COCKPIT("Cockpit", "Interactive Legacy/G950 cockpit simulator", "C"),
+    COCKPIT("Cockpit", "Interactive Twin Otter flight deck sim", "C"),
     SYSTEMS("Technical Lab", "PT6A, electrical, fuel, hydraulic study", "S"),
     PERFORMANCE("Performance", "Takeoff, landing, climb planning",           "P"),
     LOGBOOK(    "Debrief Logbook", "Local attempt history and debrief notes",     "L"),
@@ -419,29 +419,11 @@ private fun DashboardScreen(
                                 DashPill("${assetSnapshot.systemGroups.size} systems", Dhc6DesktopColors.Green)
                             }
                         }
-                        Card(
+                        // Pure-Compose preview: no offscreen OpenGL at startup.
+                        SimCockpitPreviewCard(
+                            onOpen = { onNavigate(DesktopSection.COCKPIT) },
                             modifier = Modifier.width(300.dp).height(130.dp),
-                            shape = RoundedCornerShape(20.dp),
-                            border = BorderStroke(1.dp, Dhc6DesktopColors.BorderBright),
-                            colors = CardDefaults.cardColors(containerColor = Dhc6DesktopColors.Overlay),
-                        ) {
-                            Box(
-                                modifier = Modifier
-                                    .fillMaxSize()
-                                    .background(
-                                        Brush.verticalGradient(
-                                            listOf(Color(0xFF102030), Color(0xFF050E18))
-                                        )
-                                    ),
-                                contentAlignment = Alignment.Center,
-                            ) {
-                                DesktopActualGlbInAppPanel(
-                                    modelPath = "models/systems_lab/aircraft_variants/dhc6_wheels_painted_training.glb",
-                                    title = "DHC-6 Series 300 Wheels",
-                                    modifier = Modifier.fillMaxSize(),
-                                )
-                            }
-                        }
+                        )
                     }
                 }
             }
@@ -1222,17 +1204,31 @@ private fun BrowseCardList(deck: FlashcardDeckSummary) {
     }
 }
 
+private enum class CockpitTab { FLIGHT_DECK, PANEL_EXPLORER }
+
 @Composable
 private fun CockpitScreen() {
+    var tab by remember { mutableStateOf(CockpitTab.FLIGHT_DECK) }
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.spacedBy(14.dp),
     ) {
-        CockpitSpriteAndHitboxViewer(
-            modifier = Modifier
-                .fillMaxWidth()
-                .weight(1f),
-        )
+        Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+            FilterChipLike("Flight deck sim", tab == CockpitTab.FLIGHT_DECK) { tab = CockpitTab.FLIGHT_DECK }
+            FilterChipLike("Panel explorer", tab == CockpitTab.PANEL_EXPLORER) { tab = CockpitTab.PANEL_EXPLORER }
+        }
+        when (tab) {
+            CockpitTab.FLIGHT_DECK -> Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .weight(1f),
+            ) { SimCockpitScreen() }
+            CockpitTab.PANEL_EXPLORER -> CockpitSpriteAndHitboxViewer(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .weight(1f),
+            )
+        }
     }
 }
 @Composable
