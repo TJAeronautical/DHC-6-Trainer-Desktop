@@ -17,6 +17,13 @@ internal const val PanelResourceRoot = "assets/aircraft/dhc6_wheels/panel"
 /** Click behaviour of a placed control. */
 internal enum class PanelAction { NONE, TOGGLE, CYCLE }
 
+/**
+ * What a placed item is. IMAGE draws an instrument texture; SWITCH, CB_PANEL and
+ * LABEL are drawn procedurally (no X-Plane art exists for cockpit switches or
+ * circuit-breaker panels, which X-Plane models as 3D geometry).
+ */
+internal enum class PanelItemKind { IMAGE, SWITCH, CB_PANEL, LABEL }
+
 internal data class PanelItem(
     val id: String,
     val image: String,
@@ -29,8 +36,12 @@ internal data class PanelItem(
     val action: PanelAction = PanelAction.NONE,
     /** Field of [DesktopCockpitSimState] this control drives (empty = inert). */
     val stateKey: String = "",
+    val kind: PanelItemKind = PanelItemKind.IMAGE,
+    /** CB_PANEL: comma-separated breaker names. LABEL: the caption text. */
+    val text: String = "",
 ) {
     val resourcePath: String get() = "$PanelResourceRoot/$image"
+    val cbBreakers: List<String> get() = text.split(',').map { it.trim() }.filter { it.isNotEmpty() }
 }
 
 internal data class PanelLayout(
@@ -62,6 +73,8 @@ internal data class PanelLayout(
             append(", \"role\": ").append(item.role.jsonStr())
             append(", \"action\": ").append(item.action.name.jsonStr())
             append(", \"stateKey\": ").append(item.stateKey.jsonStr())
+            append(", \"kind\": ").append(item.kind.name.jsonStr())
+            append(", \"text\": ").append(item.text.jsonStr())
             append("}")
             if (index != items.lastIndex) append(",")
             append("\n")
@@ -86,6 +99,8 @@ internal data class PanelLayout(
                     role = m.str("role").orEmpty(),
                     action = runCatching { PanelAction.valueOf(m.str("action") ?: "NONE") }.getOrDefault(PanelAction.NONE),
                     stateKey = m.str("stateKey").orEmpty(),
+                    kind = runCatching { PanelItemKind.valueOf(m.str("kind") ?: "IMAGE") }.getOrDefault(PanelItemKind.IMAGE),
+                    text = m.str("text").orEmpty(),
                 )
             }
             PanelLayout(
@@ -102,12 +117,44 @@ internal data class PanelLayout(
          */
         fun default(): PanelLayout {
             val items = mutableListOf<PanelItem>()
-            val canvasW = 2048f
-            val canvasH = 1152f
+            val canvasW = 2600f
+            val canvasH = 1600f
 
             fun inst(file: String) = "instruments/$file"
 
-            // Standard six across the top, 6 x 236px, centred.
+            // --- Overhead switch panel (top): electrical, fuel, start, deice ---
+            items += PanelItem("lbl_ovhd", "", 40f, 20f, 2520f, 44f, role = "Overhead panel",
+                kind = PanelItemKind.LABEL, text = "OVERHEAD  ·  ELECTRICAL / FUEL / START / DE-ICE")
+            data class Sw(val id: String, val label: String, val key: String = "")
+            val overhead = listOf(
+                Sw("sw_batt", "BATTERY", "batteryMaster"), Sw("sw_dcmaster", "DC MASTER"),
+                Sw("sw_lgen", "L GEN", "leftDcGenerator"), Sw("sw_rgen", "R GEN", "rightDcGenerator"),
+                Sw("sw_bustie", "BUS TIE"), Sw("sw_inv", "INVERTER"),
+                Sw("sw_fwdboost", "FWD BOOST", "fwdBoost1"), Sw("sw_aftboost", "AFT BOOST", "aftBoost1"),
+                Sw("sw_lfuel", "L FUEL", "leftFuelLeverOn"), Sw("sw_rfuel", "R FUEL", "rightFuelLeverOn"),
+                Sw("sw_lign", "L IGNITER"), Sw("sw_rign", "R IGNITER"),
+                Sw("sw_lstart", "L START"), Sw("sw_rstart", "R START"),
+                Sw("sw_propdeice", "PROP DEICE"), Sw("sw_intake", "INTAKE A/I"),
+                Sw("sw_pitot", "PITOT HEAT"), Sw("sw_nav", "NAV LT"),
+                Sw("sw_beacon", "BEACON"), Sw("sw_land", "LANDING LT"),
+            )
+            val swW = 232f; val swH = 118f; val swGapX = 20f; val swGapY = 16f
+            val perRow = 10
+            overhead.forEachIndexed { i, sw ->
+                val col = i % perRow; val row = i / perRow
+                val sx = 60f + col * (swW + swGapX)
+                val sy = 76f + row * (swH + swGapY)
+                items += PanelItem(
+                    sw.id, "", sx, sy, swW, swH, role = sw.label,
+                    kind = PanelItemKind.SWITCH,
+                    action = if (sw.key.isBlank()) PanelAction.NONE else PanelAction.TOGGLE,
+                    stateKey = sw.key,
+                )
+            }
+
+            // --- Main instrument panel: standard six (big) + engine cluster ---
+            items += PanelItem("lbl_main", "", 40f, 372f, 2520f, 40f, role = "Main panel",
+                kind = PanelItemKind.LABEL, text = "MAIN INSTRUMENT PANEL")
             val six = listOf(
                 Triple("asi", "ASI_adap_GA_dig.png", "Airspeed indicator"),
                 Triple("ai", "horizon_GA_elec_flag_adj.png", "Attitude indicator"),
@@ -116,45 +163,47 @@ internal data class PanelLayout(
                 Triple("hsi", "HSI_1_GA.png", "HSI / heading"),
                 Triple("vsi", "VVI_3000_GA.png", "Vertical speed"),
             )
-            val sixW = 236f
-            val sixGap = 24f
+            val sixW = 300f; val sixGap = 28f
             val sixTotal = six.size * sixW + (six.size - 1) * sixGap
             var sx = (canvasW - sixTotal) / 2f
             six.forEach { (id, img, role) ->
-                items += PanelItem(id, inst(img), sx, 70f, sixW, sixW, role = role)
+                items += PanelItem(id, inst(img), sx, 430f, sixW, sixW, role = role)
                 sx += sixW + sixGap
             }
-
-            // Engine gauges row, 7 x 168px.
             val eng = listOf(
                 "trq" to "engine_TRQ.png", "itt" to "engine_ITT.png", "n1" to "engine_N1.png",
                 "prop_rpm" to "engine_RPM_prop.png", "ff" to "engine_FF.png",
-                "oilp" to "engine_OILP.png", "oilt" to "engine_OILT.png",
+                "oilp" to "engine_OILP.png", "oilt" to "engine_OILT.png", "fuel_qty" to "fuel_round_GA.png",
             )
-            val engW = 168f
-            val engGap = 18f
+            val engW = 220f; val engGap = 20f
             val engTotal = eng.size * engW + (eng.size - 1) * engGap
             var ex = (canvasW - engTotal) / 2f
             eng.forEach { (id, img) ->
-                items += PanelItem(id, inst(img), ex, 360f, engW, engW, role = "Engine ${id.uppercase()}")
+                items += PanelItem(id, inst(img), ex, 760f, engW, engW, role = "Engine ${id.uppercase()}")
                 ex += engW + engGap
             }
+            items += PanelItem("compass", inst("compass_GA.png"), 300f, 760f, 220f, 220f, role = "Magnetic compass")
+            items += PanelItem("clock", inst("clock_GA.png"), 2080f, 760f, 220f, 220f, role = "Clock")
 
-            // Nav / compass / fuel row.
-            items += PanelItem("compass", inst("compass_GA.png"), 300f, 590f, 200f, 200f, role = "Magnetic compass")
-            items += PanelItem("hsi2", inst("HSI_1_GA.png"), 540f, 590f, 200f, 200f, role = "Course / OBS")
-            items += PanelItem("fuel_qty", inst("fuel_round_GA.png"), 1310f, 590f, 200f, 200f, role = "Fuel quantity")
-            items += PanelItem("clock", inst("clock_GA.png"), 1550f, 590f, 200f, 200f, role = "Clock")
+            // --- Interactive control row (fire/hyd/flaps drills) ---
+            items += PanelItem("fire_l", inst("but_fire_extinguisher.png"), 1040f, 1010f, 150f, 150f, role = "L fire handle", action = PanelAction.TOGGLE, stateKey = "leftFireHandlePulled")
+            items += PanelItem("fire_r", inst("but_fire_extinguisher.png"), 1210f, 1010f, 150f, 150f, role = "R fire handle", action = PanelAction.TOGGLE, stateKey = "rightFireHandlePulled")
+            items += PanelItem("hyd", inst("but_hydraulic_pump.png"), 1400f, 1010f, 150f, 150f, role = "Hydraulic pump", action = PanelAction.TOGGLE, stateKey = "fwdBoost1")
+            items += PanelItem("flaps", inst("indicate_flap_linear-1.png"), 1580f, 1010f, 120f, 160f, role = "Flap selector", action = PanelAction.CYCLE, stateKey = "flaps")
 
-            // Interactive controls row (drive the shared sim state).
-            items += PanelItem("battery", inst("but_fuel_on_off.png"), 300f, 850f, 150f, 150f, role = "Battery master", action = PanelAction.TOGGLE, stateKey = "batteryMaster")
-            items += PanelItem("fuel_l", inst("but_fuel_on_off.png"), 480f, 850f, 150f, 150f, role = "L fuel lever", action = PanelAction.TOGGLE, stateKey = "leftFuelLeverOn")
-            items += PanelItem("fuel_r", inst("but_fuel_on_off.png"), 660f, 850f, 150f, 150f, role = "R fuel lever", action = PanelAction.TOGGLE, stateKey = "rightFuelLeverOn")
-            items += PanelItem("fire_l", inst("but_fire_extinguisher.png"), 900f, 850f, 150f, 150f, role = "L fire handle", action = PanelAction.TOGGLE, stateKey = "leftFireHandlePulled")
-            items += PanelItem("fire_r", inst("but_fire_extinguisher.png"), 1080f, 850f, 150f, 150f, role = "R fire handle", action = PanelAction.TOGGLE, stateKey = "rightFireHandlePulled")
-            items += PanelItem("hyd", inst("but_hydraulic_pump.png"), 1320f, 850f, 150f, 150f, role = "Hydraulic pump", action = PanelAction.TOGGLE, stateKey = "fwdBoost1")
-            items += PanelItem("brakes", inst("but_brakes.png"), 1500f, 850f, 150f, 150f, role = "Brakes", action = PanelAction.NONE)
-            items += PanelItem("flaps", inst("indicate_flap_linear-1.png"), 1700f, 850f, 120f, 150f, role = "Flap selector", action = PanelAction.CYCLE, stateKey = "flaps")
+            // --- Circuit-breaker panels (left DC/engine, right avionics) ---
+            items += PanelItem(
+                "cb_left", "", 60f, 1200f, 1220f, 360f, role = "Left CB panel (DC / engine / fuel)",
+                kind = PanelItemKind.CB_PANEL,
+                text = "BATT,L GEN,R GEN,INVERTER,BUS TIE,L FUEL PUMP,R FUEL PUMP,FWD BOOST,AFT BOOST," +
+                    "L START,R START,L IGN,R IGN,GEAR,FLAP MOTOR,HYD PUMP,STALL WARN,ANN LTS",
+            )
+            items += PanelItem(
+                "cb_right", "", 1320f, 1200f, 1220f, 360f, role = "Right CB panel (avionics / deice)",
+                kind = PanelItemKind.CB_PANEL,
+                text = "NAV 1,NAV 2,COMM 1,COMM 2,ADF,DME,XPDR,AUDIO,AUTOPILOT,GPS," +
+                    "PITOT HT,PROP DEICE,INTAKE,WSHLD HT,FIRE DET,FUEL QTY,ENG INST,PANEL LTS",
+            )
 
             return PanelLayout(canvasW, canvasH, items)
         }

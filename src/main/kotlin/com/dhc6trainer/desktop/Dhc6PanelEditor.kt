@@ -46,6 +46,7 @@ import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.input.pointer.PointerEventType
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.rememberTextMeasurer
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import kotlin.math.roundToInt
@@ -75,6 +76,7 @@ internal fun Dhc6PanelEditor(
     val dragId = remember { mutableStateOf<String?>(null) }
     val images = remember { HashMap<String, ImageBitmap?>() }
     fun imageFor(item: PanelItem): ImageBitmap? = images.getOrPut(item.image) { DesktopImages.image(item.resourcePath) }
+    val textMeasurer = rememberTextMeasurer()
 
     var zoom by remember { mutableStateOf(1f) }
     var panX by remember { mutableStateOf(0f) }
@@ -89,6 +91,24 @@ internal fun Dhc6PanelEditor(
     Row(modifier = modifier, horizontalArrangement = Arrangement.spacedBy(10.dp)) {
         // ---- Palette ----
         Column(Modifier.width(190.dp).fillMaxHeight()) {
+            Text("Add widget", color = Color.White, fontWeight = FontWeight.Black, fontSize = 14.sp)
+            Spacer(Modifier.height(4.dp))
+            fun addWidget(item: PanelItem) { apply(layout.addItem(item)); selectedId = item.id }
+            Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
+                SmallBtn("Switch") {
+                    addCounter++
+                    addWidget(PanelItem("sw_$addCounter", "", layout.canvasW / 2f - 116f, layout.canvasH / 2f - 59f, 232f, 118f, role = "SWITCH", kind = PanelItemKind.SWITCH))
+                }
+                SmallBtn("CB") {
+                    addCounter++
+                    addWidget(PanelItem("cb_$addCounter", "", layout.canvasW / 2f - 300f, layout.canvasH / 2f - 180f, 600f, 360f, role = "CB PANEL", kind = PanelItemKind.CB_PANEL, text = "CB 1,CB 2,CB 3,CB 4,CB 5,CB 6"))
+                }
+                SmallBtn("Label") {
+                    addCounter++
+                    addWidget(PanelItem("lbl_$addCounter", "", layout.canvasW / 2f - 200f, layout.canvasH / 2f - 22f, 400f, 44f, role = "Label", kind = PanelItemKind.LABEL, text = "SECTION"))
+                }
+            }
+            Spacer(Modifier.height(8.dp))
             Text("Instruments", color = Color.White, fontWeight = FontWeight.Black, fontSize = 14.sp)
             Spacer(Modifier.height(6.dp))
             LazyColumn(verticalArrangement = Arrangement.spacedBy(6.dp)) {
@@ -184,7 +204,7 @@ internal fun Dhc6PanelEditor(
                     },
             ) {
                 val view = PanelViewTransform.compute(size.width, size.height, layoutState.value, zoomState.value, panXState.value, panYState.value)
-                drawPanel(layoutState.value, DesktopCockpitSimState.beforeStart(), view, selectedIdState.value, ::imageFor)
+                drawPanel(layoutState.value, DesktopCockpitSimState.beforeStart(), view, selectedIdState.value, ::imageFor, textMeasurer)
                 selected?.let {
                     val br = view.canvasToScreen(it.x + it.w, it.y + it.h)
                     drawCircle(Color(0xFF55C7FF), radius = 11f, center = br)
@@ -220,10 +240,26 @@ internal fun Dhc6PanelEditor(
                 OutlinedTextField(
                     value = selected.role,
                     onValueChange = { apply(layout.withItem(selected.copy(role = it))) },
-                    label = { Text("Role / label") },
+                    label = { Text(if (selected.kind == PanelItemKind.SWITCH) "Switch label" else "Role / title") },
                     singleLine = true,
                     modifier = Modifier.fillMaxWidth(),
                 )
+                if (selected.kind == PanelItemKind.CB_PANEL) {
+                    OutlinedTextField(
+                        value = selected.text,
+                        onValueChange = { apply(layout.withItem(selected.copy(text = it))) },
+                        label = { Text("Breakers (comma-separated)") },
+                        modifier = Modifier.fillMaxWidth(),
+                    )
+                } else if (selected.kind == PanelItemKind.LABEL) {
+                    OutlinedTextField(
+                        value = selected.text,
+                        onValueChange = { apply(layout.withItem(selected.copy(text = it))) },
+                        label = { Text("Caption") },
+                        singleLine = true,
+                        modifier = Modifier.fillMaxWidth(),
+                    )
+                }
                 LabeledDropdown("Action", selected.action.name, PanelAction.entries.map { it.name }) { picked ->
                     apply(layout.withItem(selected.copy(action = PanelAction.valueOf(picked))))
                 }

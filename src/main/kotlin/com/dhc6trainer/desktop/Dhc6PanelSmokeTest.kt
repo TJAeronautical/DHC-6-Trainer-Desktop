@@ -27,21 +27,59 @@ fun main() {
 
     val loader = Thread.currentThread().contextClassLoader
     layout.items.forEach { item ->
-        val stream = loader?.getResourceAsStream(item.resourcePath)
-        if (stream == null) {
-            println("MISSING  ${item.id} -> ${item.resourcePath}")
-            failures++
-            g.color = Color(0x33, 0x40, 0x4A)
-            g.fillRect(item.x.toInt(), item.y.toInt(), item.w.toInt(), item.h.toInt())
-            return@forEach
+        val ix = item.x.toInt(); val iy = item.y.toInt(); val iw = item.w.toInt(); val ih = item.h.toInt()
+        when (item.kind) {
+            PanelItemKind.IMAGE -> {
+                val stream = loader?.getResourceAsStream(item.resourcePath)
+                if (stream == null) {
+                    println("MISSING  ${item.id} -> ${item.resourcePath}"); failures++
+                    g.color = Color(0x33, 0x40, 0x4A); g.fillRect(ix, iy, iw, ih)
+                    return@forEach
+                }
+                val tex = stream.use { ImageIO.read(it) }
+                if (tex == null) { println("UNREADABLE ${item.id} -> ${item.resourcePath}"); failures++; return@forEach }
+                g.drawImage(tex, ix, iy, iw, ih, null)
+            }
+            PanelItemKind.LABEL -> {
+                g.color = Color(0x0C, 0x16, 0x1F); g.fillRect(ix, iy, iw, ih)
+                g.color = Color(0x9F, 0xD6, 0xF0)
+                g.font = java.awt.Font(java.awt.Font.SANS_SERIF, java.awt.Font.BOLD, (ih * 0.5f).toInt().coerceAtLeast(8))
+                val t = item.text.ifBlank { item.role }
+                g.drawString(t, ix + (iw - g.fontMetrics.stringWidth(t)) / 2, iy + (ih * 0.68f).toInt())
+            }
+            PanelItemKind.SWITCH -> {
+                g.color = Color(0x10, 0x18, 0x1F); g.fillRect(ix, iy, iw, ih)
+                g.color = Color(0x3A, 0x46, 0x50); g.drawRect(ix, iy, iw, ih)
+                g.color = Color(0xDC, 0xE7, 0xF0)
+                g.font = java.awt.Font(java.awt.Font.SANS_SERIF, java.awt.Font.BOLD, (ih * 0.18f).toInt().coerceAtLeast(7))
+                g.drawString(item.role, ix + (iw - g.fontMetrics.stringWidth(item.role)) / 2, iy + (ih * 0.26f).toInt())
+                val on = item.action != PanelAction.NONE
+                g.color = if (on) Color(0x6B, 0xE6, 0x75) else Color(0x6B, 0x76, 0x80)
+                g.fillRoundRect(ix + (iw * 0.4f).toInt(), iy + (ih * 0.42f).toInt(), (iw * 0.2f).toInt(), (ih * 0.36f).toInt(), 8, 8)
+            }
+            PanelItemKind.CB_PANEL -> {
+                g.color = Color(0x14, 0x1A, 0x20); g.fillRect(ix, iy, iw, ih)
+                g.color = Color(0x3A, 0x46, 0x50); g.drawRect(ix, iy, iw, ih)
+                val titleH = (ih * 0.13f).toInt()
+                g.color = Color(0x0C, 0x16, 0x1F); g.fillRect(ix, iy, iw, titleH)
+                g.color = Color(0x9F, 0xD6, 0xF0)
+                g.font = java.awt.Font(java.awt.Font.SANS_SERIF, java.awt.Font.BOLD, (titleH * 0.6f).toInt().coerceAtLeast(8))
+                g.drawString(item.role, ix + 8, iy + (titleH * 0.78f).toInt())
+                val breakers = item.cbBreakers
+                val cols = 6; val rows = (breakers.size + cols - 1) / cols
+                val cellW = iw / cols; val cellH = if (rows > 0) (ih - titleH) / rows else ih
+                g.font = java.awt.Font(java.awt.Font.SANS_SERIF, java.awt.Font.PLAIN, (cellH * 0.16f).toInt().coerceIn(6, 16))
+                breakers.forEachIndexed { i, name ->
+                    val c = i % cols; val r = i / cols
+                    val cx = ix + c * cellW + cellW / 2; val cy = iy + titleH + r * cellH + (cellH * 0.34f).toInt()
+                    val rad = (minOf(cellW, cellH) * 0.16f).toInt().coerceAtLeast(3)
+                    g.color = Color(0x05, 0x09, 0x0D); g.fillOval(cx - rad, cy - rad, rad * 2, rad * 2)
+                    g.color = Color(0x5A, 0x6A, 0x75); g.drawOval(cx - rad, cy - rad, rad * 2, rad * 2)
+                    g.color = Color(0xB9, 0xC6, 0xD1)
+                    g.drawString(name, cx - g.fontMetrics.stringWidth(name) / 2, cy + rad + (cellH * 0.18f).toInt())
+                }
+            }
         }
-        val tex = stream.use { ImageIO.read(it) }
-        if (tex == null) {
-            println("UNREADABLE ${item.id} -> ${item.resourcePath}")
-            failures++
-            return@forEach
-        }
-        g.drawImage(tex, item.x.toInt(), item.y.toInt(), item.w.toInt(), item.h.toInt(), null)
     }
     g.dispose()
 
