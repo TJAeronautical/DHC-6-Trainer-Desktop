@@ -254,7 +254,7 @@ private fun QrhProcedureDetail(procedure: ProcedureSummary?, favorite: Boolean, 
                 Text("QUICK REFERENCE PROCEDURE", color = Dhc6DesktopColors.TextMuted, fontSize = 11.sp, fontWeight = FontWeight.Black)
                 Spacer(Modifier.height(13.dp))
                 HorizontalDivider(color = Dhc6DesktopColors.BorderSoft)
-                LazyColumn(Modifier.fillMaxSize(), contentPadding = PaddingValues(vertical = 8.dp, bottom = 24.dp)) {
+                LazyColumn(Modifier.fillMaxSize(), contentPadding = PaddingValues(start = 0.dp, top = 8.dp, end = 0.dp, bottom = 24.dp)) {
                     items(procedure.steps) { step -> QrhStep(step, group.accent) }
                     item {
                         Spacer(Modifier.height(10.dp))
