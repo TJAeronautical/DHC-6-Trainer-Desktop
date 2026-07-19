@@ -1,0 +1,21 @@
+name: Fix Preview Mobile Scaler V2
+on:
+  pull_request:
+    branches: [main]
+    paths: [.github/workflows/fix-preview-mobile-scaler-v2.yml]
+permissions:
+  contents: write
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/preview-mobile-scaler-v2
+          fetch-depth: 0
+      - name: Replace preview scaling geometry
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+         
