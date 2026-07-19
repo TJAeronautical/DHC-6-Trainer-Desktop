@@ -1,0 +1,182 @@
+name: Apply Step 2 QRH once
+
+on:
+  push:
+    branches:
+      - agent/step2-qrh
+    paths:
+      - .github/workflows/step2-qrh-once.yml
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/step2-qrh
+          fetch-depth: 0
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Apply QRH Kotlin and preview patch
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import base64
+
+          KOTLIN_B64 = (
+              "cGFja2FnZSBjb20uZGhjNnRyYWluZXIuZGVza3RvcAoKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UuZm91bmRhdGlvbi5C"
+              "b3JkZXJTdHJva2UKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UuZm91bmRhdGlvbi5iYWNrZ3JvdW5kCmltcG9ydCBhbmRy"
+              "b2lkeC5jb21wb3NlLmZvdW5kYXRpb24uY2xpY2thYmxlCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLmZvdW5kYXRpb24u"
+              "bGF5b3V0LkFycmFuZ2VtZW50CmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLmZvdW5kYXRpb24ubGF5b3V0LkJveAppbXBv"
+              "cnQgYW5kcm9pZHguY29tcG9zZS5mb3VuZGF0aW9uLmxheW91dC5Db2x1bW4KaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2Uu"
+              "Zm91bmRhdGlvbi5sYXlvdXQuUGFkZGluZ1ZhbHVlcwppbXBvcnQgYW5kcm9pZHguY29tcG9zZS5mb3VuZGF0aW9uLmxh"
+              "eW91dC5Sb3cKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UuZm91bmRhdGlvbi5sYXlvdXQuU3BhY2VyCmltcG9ydCBhbmRy"
+              "b2lkeC5jb21wb3NlLmZvdW5kYXRpb24ubGF5b3V0LmZpbGxNYXhTaXplCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLmZv"
+              "dW5kYXRpb24ubGF5b3V0LmZpbGxNYXhXaWR0aAppbXBvcnQgYW5kcm9pZHguY29tcG9zZS5mb3VuZGF0aW9uLmxheW91"
+              "dC5oZWlnaHQKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UuZm91bmRhdGlvbi5sYXlvdXQuaGVpZ2h0SW4KaW1wb3J0IGFu"
+              "ZHJvaWR4LmNvbXBvc2UuZm91bmRhdGlvbi5sYXlvdXQucGFkZGluZwppbXBvcnQgYW5kcm9pZHguY29tcG9zZS5mb3Vu"
+              "ZGF0aW9uLmxheW91dC5zaXplCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLmZvdW5kYXRpb24ubGF5b3V0LndpZHRoCmlt"
+              "cG9ydCBhbmRyb2lkeC5jb21wb3NlLmZvdW5kYXRpb24ubGF5b3V0LndpZHRoSW4KaW1wb3J0IGFuZHJvaWR4LmNvbXBv"
+              "c2UuZm91bmRhdGlvbi5sYXp5LkxhenlDb2x1bW4KaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UuZm91bmRhdGlvbi5sYXp5"
+              "Lml0ZW1zCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLmZvdW5kYXRpb24uc2hhcGUuUm91bmRlZENvcm5lclNoYXBlCmlt"
+              "cG9ydCBhbmRyb2lkeC5jb21wb3NlLm1hdGVyaWFsLmljb25zLkljb25zCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLm1h"
+              "dGVyaWFsLmljb25zLmZpbGxlZC5Bc3Nlc3NtZW50CmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLm1hdGVyaWFsLmljb25z"
+              "LmZpbGxlZC5CdWlsZAppbXBvcnQgYW5kcm9pZHguY29tcG9zZS5tYXRlcmlhbC5pY29ucy5maWxsZWQuQ2hlY2tsaXN0"
+              "CmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLm1hdGVyaWFsLmljb25zLmZpbGxlZC5GbGlnaHQKaW1wb3J0IGFuZHJvaWR4"
+              "LmNvbXBvc2UubWF0ZXJpYWwuaWNvbnMuZmlsbGVkLk1lbnVCb29rCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLm1hdGVy"
+              "aWFsLmljb25zLmZpbGxlZC5TZWFyY2gKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UubWF0ZXJpYWwuaWNvbnMuZmlsbGVk"
+              "LlNldHRpbmdzCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLm1hdGVyaWFsLmljb25zLmZpbGxlZC5TcGVlZAppbXBvcnQg"
+              "YW5kcm9pZHguY29tcG9zZS5tYXRlcmlhbC5pY29ucy5maWxsZWQuU3RhcgppbXBvcnQgYW5kcm9pZHguY29tcG9zZS5t"
+              "YXRlcmlhbC5pY29ucy5maWxsZWQuU3R5bGUKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UubWF0ZXJpYWwzLkNhcmQKaW1w"
+              "b3J0IGFuZHJvaWR4LmNvbXBvc2UubWF0ZXJpYWwzLkNhcmREZWZhdWx0cwppbXBvcnQgYW5kcm9pZHguY29tcG9zZS5t"
+              "YXRlcmlhbDMuSG9yaXpvbnRhbERpdmlkZXIKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UubWF0ZXJpYWwzLkljb24KaW1w"
+              "b3J0IGFuZHJvaWR4LmNvbXBvc2UubWF0ZXJpYWwzLk91dGxpbmVkVGV4dEZpZWxkCmltcG9ydCBhbmRyb2lkeC5jb21w"
+              "b3NlLm1hdGVyaWFsMy5UZXh0CmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLnJ1bnRpbWUuQ29tcG9zYWJsZQppbXBvcnQg"
+              "YW5kcm9pZHguY29tcG9zZS5ydW50aW1lLkxhdW5jaGVkRWZmZWN0CmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLnJ1bnRp"
+              "bWUuZ2V0VmFsdWUKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UucnVudGltZS5tdXRhYmxlU3RhdGVPZgppbXBvcnQgYW5k"
+              "cm9pZHguY29tcG9zZS5ydW50aW1lLnJlbWVtYmVyCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLnJ1bnRpbWUuc2V0VmFs"
+              "dWUKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UudWkuQWxpZ25tZW50CmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLnVpLk1v"
+              "ZGlmaWVyCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLnVpLmRyYXcuY2xpcAppbXBvcnQgYW5kcm9pZHguY29tcG9zZS51"
+              "aS5ncmFwaGljcy5Db2xvcgppbXBvcnQgYW5kcm9pZHguY29tcG9zZS51aS5ncmFwaGljcy52ZWN0b3IuSW1hZ2VWZWN0"
+              "b3IKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UudWkudGV4dC5mb250LkZvbnRXZWlnaHQKaW1wb3J0IGFuZHJvaWR4LmNv"
+              "bXBvc2UudWkudGV4dC5zdHlsZS5UZXh0QWxpZ24KaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UudWkudGV4dC5zdHlsZS5U"
+              "ZXh0T3ZlcmZsb3cKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UudWkudW5pdC5kcAppbXBvcnQgYW5kcm9pZHguY29tcG9z"
+              "ZS51aS51bml0LnNwCmltcG9ydCBqYXZhLnV0aWwucHJlZnMuUHJlZmVyZW5jZXMKCnByaXZhdGUgZW51bSBjbGFzcyBR"
+              "cmhUYWJ商以此类推...TRUNCATED_FOR_TOOL_CALL..." 
+          )
+          JS_DATA_B64 = ("...")
+          JS_RENDER_B64 = ("...")
+          CSS_QRH_B64 = ("...")
+
+          def decode(value: str) -> str:
+              return base64.b64decode(value).decode("utf-8")
+
+          root = Path(".")
+          kotlin_path = root / "src/main/kotlin/com/dhc6trainer/desktop/DedicatedQrhScreen.kt"
+          kotlin_path.write_text(decode(KOTLIN_B64), encoding="utf-8")
+
+          main_path = root / "src/main/kotlin/com/dhc6trainer/desktop/Main.kt"
+          main = main_path.read_text(encoding="utf-8")
+          old_qrh = """@Composable
+          private fun QrhScreen(snapshot: ProcedureLibrarySnapshot) {
+              ProceduresScreen(snapshot, initialTab = ChecklistTab.EMERGENCY)
+          }"""
+          new_qrh = """@Composable
+          private fun QrhScreen(snapshot: ProcedureLibrarySnapshot) {
+              DedicatedQrhScreen(snapshot)
+          }"""
+          if old_qrh not in main:
+              raise SystemExit("Main.kt QRH fallback block was not found")
+          main_path.write_text(main.replace(old_qrh, new_qrh, 1), encoding="utf-8")
+
+          app_path = root / "preview/assets/app.js"
+          app = app_path.read_text(encoding="utf-8")
+          utilities_marker = "// ── Utilities ───────────────────────────────────────────────────────────────"
+          placeholder_marker = "// ── Placeholder screens (Steps 2–9) ─────────────────────────────────────────"
+          if "const QRH_CATEGORIES" not in app:
+              if utilities_marker not in app:
+                  raise SystemExit("app.js utilities marker was not found")
+              app = app.replace(utilities_marker, decode(JS_DATA_B64) + utilities_marker, 1)
+          if "function renderQrh()" not in app:
+              if placeholder_marker not in app:
+                  raise SystemExit("app.js placeholder marker was not found")
+              app = app.replace(placeholder_marker, decode(JS_RENDER_B64) + placeholder_marker, 1)
+
+          old_router = """  if (activeId === "dashboard") {
+            renderDashboard();
+          } else {
+            const section = SECTIONS.find(s => s.id === activeId);
+            const stub = STUB_COPY[activeId] || { step: "LATER", desc: "Preview coming soon." };
+            renderStub(section, stub.step, stub.desc);
+          }"""
+          new_router = """  if (activeId === "dashboard") {
+            renderDashboard();
+          } else if (activeId === "qrh") {
+            renderQrh();
+          } else {
+            const section = SECTIONS.find(s => s.id === activeId);
+            const stub = STUB_COPY[activeId] || { step: "LATER", desc: "Preview coming soon." };
+            renderStub(section, stub.step, stub.desc);
+          }"""
+          if old_router not in app:
+              raise SystemExit("app.js router block was not found")
+          app = app.replace(old_router, new_router, 1)
+
+          old_step = """  document.querySelector(".chrome-step").textContent = activeId === "dashboard"
+            ? "Step 1 · Foundation (LIVE)"
+            : `Preview: ${SECTIONS.find(s => s.id === activeId).title}`;"""
+          new_step = """  document.querySelector(".chrome-step").textContent = activeId === "qrh"
+            ? "Step 2 · QRH (LIVE)"
+            : activeId === "dashboard"
+              ? "Step 1 · Foundation (LIVE)"
+              : `Preview: ${SECTIONS.find(s => s.id === activeId).title}`;"""
+          if old_step not in app:
+              raise SystemExit("app.js chrome step block was not found")
+          app_path.write_text(app.replace(old_step, new_step, 1), encoding="utf-8")
+
+          styles_path = root / "preview/assets/styles.css"
+          styles = styles_path.read_text(encoding="utf-8")
+          css_marker = """/* ============================================================================
+             Placeholder for screens shipping in later steps
+             ========================================================================== */"""
+          if ".qrh-screen {" not in styles:
+              if css_marker not in styles:
+                  raise SystemExit("styles.css placeholder marker was not found")
+              styles = styles.replace(css_marker, decode(CSS_QRH_B64) + css_marker, 1)
+          styles_path.write_text(styles, encoding="utf-8")
+
+          index_path = root / "preview/index.html"
+          index = index_path.read_text(encoding="utf-8")
+          old_index_step = '<span class="chrome-step" data-step="1">Step 1 · Foundation</span>'
+          new_index_step = '<span class="chrome-step" data-step="2">Step 2 · QRH</span>'
+          if old_index_step not in index:
+              raise SystemExit("preview step label was not found")
+          index_path.write_text(index.replace(old_index_step, new_index_step, 1), encoding="utf-8")
+          PY
+
+      - name: Validate JavaScript
+        run: node --check preview/assets/app.js
+
+      - name: Compile Kotlin
+        run: |
+          chmod +x gradlew
+          ./gradlew compileKotlin --no-daemon
+
+      - name: Commit validated Step 2
+        shell: bash
+        run: |
+          rm .github/workflows/step2-qrh-once.yml
+          git diff --check
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Step 2: dedicated QRH categories and procedure detail"
+          git push origin HEAD:agent/step2-qrh
