@@ -34,9 +34,7 @@ jobs:
           main.write_text(text)
 
           qrh = Path("src/main/kotlin/com/dhc6trainer/desktop/DedicatedQrhScreen.kt")
-          text = qrh.read_text()
-          if 'import androidx.compose.foundation.layout.weight' not in text:
-              text = text.replace('import androidx.compose.foundation.layout.widthIn\n', 'import androidx.compose.foundation.layout.widthIn\nimport androidx.compose.foundation.layout.weight\n', 1)
+          text = qrh.read_text().replace('import androidx.compose.foundation.layout.weight\n', '')
           text = text.replace('''                onToggleFavorite = {
                     val id = selected?.id ?: return@QrhDetailPane
                     favorites = if (id in favorites) favorites - id else favorites + id
@@ -47,6 +45,7 @@ jobs:
                         QrhFavoriteStore.save(favorites)
                     }
                 },''', 1)
+          text = text.replace('favorite = selected?.id in favorites,', 'favorite = selected?.id?.let { it in favorites } == true,', 1)
           qrh.write_text(text)
 
           index = Path("preview/index.html")
@@ -72,25 +71,11 @@ jobs:
       - name: Validate preview JavaScript
         run: node --check preview/assets/qrh.js && node --check preview/assets/app.js
       - name: Compile desktop Kotlin
-        shell: bash
-        run: |
-          set -o pipefail
-          chmod +x gradlew
-          ./gradlew compileKotlin --no-daemon 2>&1 | tee kotlin-build.log
-      - name: Persist compiler diagnostics
-        if: failure()
-        shell: bash
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          grep -E "(^e: |error:|FAILED|What went wrong|Compilation error)" kotlin-build.log > kotlin-compile-errors.txt || tail -n 120 kotlin-build.log > kotlin-compile-errors.txt
-          git add kotlin-compile-errors.txt
-          git commit -m "Record Step 2 Kotlin compiler diagnostics"
-          git push origin HEAD:agent/step2-qrh
+        run: chmod +x gradlew && ./gradlew compileKotlin --no-daemon
       - name: Commit validated wiring
         shell: bash
         run: |
-          rm .github/workflows/finish-step2-qrh.yml kotlin-build.log
+          rm .github/workflows/finish-step2-qrh.yml
           git diff --check
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
