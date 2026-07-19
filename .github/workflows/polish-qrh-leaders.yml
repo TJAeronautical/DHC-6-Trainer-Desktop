@@ -1,9 +1,10 @@
 # Validation workflow for the isolated QRH leader polish.
 name: Polish QRH Dotted Leaders
 on:
+  push:
+    branches: [agent/step11-qrh-leaders]
   pull_request:
     branches: [main]
-    paths: [.github/workflows/polish-qrh-leaders.yml]
 permissions:
   contents: write
 jobs:
