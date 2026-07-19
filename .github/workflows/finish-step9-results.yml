@@ -25,9 +25,7 @@ jobs:
           import re
 
           shared = Path('src/main/kotlin/com/dhc6trainer/desktop/SessionCompleteScreen.kt')
-          text = shared.read_text()
-          if 'import androidx.compose.foundation.layout.weight' not in text:
-              text = text.replace('import androidx.compose.foundation.layout.widthIn\n', 'import androidx.compose.foundation.layout.widthIn\nimport androidx.compose.foundation.layout.weight\n')
+          text = shared.read_text().replace('import androidx.compose.foundation.layout.weight\n', '')
           shared.write_text(text)
 
           mcc = Path('src/main/kotlin/com/dhc6trainer/desktop/MccCalloutScreen.kt')
@@ -178,6 +176,7 @@ jobs:
       - name: Commit validated Step 9
         run: |
           rm .github/workflows/finish-step9-results.yml
+          rm -f .github/workflows/fix-step9-weight.yml .github/workflows/diagnose-step9.yml step9-compile-errors.txt
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
           git add -A
