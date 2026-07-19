@@ -1,0 +1,55 @@
+# Deploys the /preview folder to GitHub Pages on every push to main.
+# After the first successful run, the site is live at:
+#   https://tjaeronautical.github.io/DHC-6-Trainer-Desktop/
+#
+# ONE-TIME SETUP (in the GitHub UI, after this file is on main):
+#   1. Go to repo Settings → Pages
+#   2. Under "Build and deployment", set Source = "GitHub Actions"
+#   3. That's it. The workflow below handles the rest.
+
+name: Deploy preview to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'preview/**'
+      - '.github/workflows/pages.yml'
+  workflow_dispatch:
+
+# Only one Pages deploy at a time; cancel any older run in progress.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      # .nojekyll tells Pages "don't run Jekyll on this site" so files/folders
+      # starting with underscores are served correctly.
+      - name: Add .nojekyll
+        run: touch preview/.nojekyll
+      - name: Upload preview artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: preview
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

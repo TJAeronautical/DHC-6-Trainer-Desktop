@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DHC-6 Trainer Desktop — Preview</title>
+  <meta name="description" content="Live design preview of the DHC-6 Trainer Desktop app UI." />
+  <meta name="theme-color" content="#020F1A" />
+
+  <!-- Inter matches Compose Desktop's default sans-serif closely.
+       Weights: 400 body, 600 semibold, 700 bold, 900 black (FontWeight.Black). -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+
+  <!-- Material Symbols Rounded — one-for-one match with Icons.Filled from
+       compose.materialIconsExtended (Home, MenuBook, Speed, etc.). -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <!-- Chrome bar: viewport toggle + step indicator + repo link -->
+  <header class="chrome">
+    <div class="chrome-brand">
+      <span class="material-symbols-rounded chrome-brand-icon">flight</span>
+      <span class="chrome-brand-text">
+        <strong>DHC-6 Trainer Desktop</strong>
+        <span class="chrome-brand-sub">Live UI preview</span>
+      </span>
+    </div>
+    <nav class="chrome-nav" aria-label="Preview step navigation">
+      <span class="chrome-step" data-step="1">Step 1 · Foundation</span>
+    </nav>
+    <div class="chrome-actions">
+      <a class="chrome-link" href="https://github.com/TJAeronautical/DHC-6-Trainer-Desktop" target="_blank" rel="noopener">
+        <span class="material-symbols-rounded">code</span> Repo
+      </a>
+    </div>
+  </header>
+
+  <!-- Scaled desktop stage: fixed 1440×900 canvas that transforms to fit -->
+  <div class="stage-wrap" id="stageWrap">
+    <div class="stage" id="stage" aria-label="DHC-6 Trainer desktop app preview">
+      <!-- ── App shell ──────────────────────────────────────────────── -->
+      <div class="app-bg">
+        <div class="app" id="app">
+          <!-- Nav rail (left) -->
+          <aside class="nav-rail" id="navRail"></aside>
+          <!-- Main shell (right) -->
+          <main class="main-shell" id="mainShell"></main>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="chrome-foot">
+    <span>Preview built by the Kotlin design system tokens — every screen ships here as it lands in the repo.</span>
+  </footer>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>
