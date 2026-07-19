@@ -31,9 +31,25 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.Icon
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Assessment
+import androidx.compose.material.icons.filled.Build
+import androidx.compose.material.icons.filled.Checklist
+import androidx.compose.material.icons.filled.Flight
+import androidx.compose.material.icons.filled.History
+import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.MenuBook
+import androidx.compose.material.icons.filled.RecordVoiceOver
+import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material.icons.filled.Speed
+import androidx.compose.material.icons.filled.Star
+import androidx.compose.material.icons.filled.Style
+import androidx.compose.material.icons.filled.SupportAgent
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -68,19 +84,24 @@ import kotlinx.coroutines.delay
 
 private val DesktopVersion = DesktopBuildInfo.VersionName
 
-private enum class DesktopSection(val title: String, val subtitle: String, val icon: String) {
-    DASHBOARD("Dashboard", "Training overview and quick launch", "H"),
-    PROCEDURES( "Checklists",  "Full normal, abnormal and emergency procedures", "C"),
-    QRH(        "QRH",         "Memory items and immediate-action recall",    "Q"),
-    STUDY(      "Flashcards",  "Browse and review shared flashcard decks",   "F"),
-    DRILL(      "Drill",       "Multiple choice A/B/C/D knowledge check",    "D"),
-    MCCALLOUT(  "MCC Callout", "PF/PM crew callout trainer",                 "M"),
-    COCKPIT("Cockpit", "Interactive Twin Otter flight deck sim", "C"),
-    SYSTEMS("Technical Lab", "PT6A, electrical, fuel, hydraulic study", "S"),
-    PERFORMANCE("Performance", "Takeoff, landing, climb planning",           "P"),
-    LOGBOOK(    "Debrief Logbook", "Local attempt history and debrief notes",     "L"),
-    INSTRUCTOR( "Instructor",  "Corporate and instructor workflow",          "I"),
-    SETTINGS("Settings", "Desktop diagnostics and configuration", "G"),
+private enum class DesktopSection(
+    val title: String,
+    val subtitle: String,
+    val icon: String,
+    val iconVector: ImageVector,
+) {
+    DASHBOARD("Dashboard", "Training overview and quick launch", "H", Icons.Filled.Home),
+    PROCEDURES("Checklists", "Full normal, abnormal and emergency procedures", "C", Icons.Filled.Checklist),
+    QRH("QRH", "Memory items and immediate-action recall", "Q", Icons.Filled.MenuBook),
+    STUDY("Flashcards", "Browse and review shared flashcard decks", "F", Icons.Filled.Style),
+    DRILL("Drill", "Multiple choice A/B/C/D knowledge check", "D", Icons.Filled.Speed),
+    MCCALLOUT("MCC Callout", "PF/PM crew callout trainer", "M", Icons.Filled.RecordVoiceOver),
+    COCKPIT("Cockpit", "Interactive Twin Otter flight deck sim", "C", Icons.Filled.Flight),
+    SYSTEMS("Technical Lab", "PT6A, electrical, fuel, hydraulic study", "S", Icons.Filled.Build),
+    PERFORMANCE("Performance", "Takeoff, landing, climb planning", "P", Icons.Filled.Assessment),
+    LOGBOOK("Debrief Logbook", "Local attempt history and debrief notes", "L", Icons.Filled.History),
+    INSTRUCTOR("Instructor", "Corporate and instructor workflow", "I", Icons.Filled.SupportAgent),
+    SETTINGS("Settings", "Desktop diagnostics and configuration", "G", Icons.Filled.Settings),
 }
 
 private enum class StudyMode { BROWSE, REVIEW }
@@ -255,7 +276,12 @@ private fun NavButton(
                     ),
                 contentAlignment = Alignment.Center,
             ) {
-                Text(item.icon, color = if (selected) Color.White else Dhc6DesktopColors.Accent, fontWeight = FontWeight.Black, fontSize = 13.sp)
+                Icon(
+                    imageVector = item.iconVector,
+                    contentDescription = item.title,
+                    tint = if (selected) Color.White else Dhc6DesktopColors.Accent,
+                    modifier = Modifier.size(18.dp),
+                )
             }
             Column {
                 Text(item.title, color = Color.White, fontSize = 15.sp, fontWeight = FontWeight.Black)
@@ -373,111 +399,184 @@ private fun DashboardScreen(
 
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
-        verticalArrangement = Arrangement.spacedBy(18.dp),
-        contentPadding = PaddingValues(bottom = 32.dp),
+        verticalArrangement = Arrangement.spacedBy(Dhc6Space.xl),
+        contentPadding = PaddingValues(bottom = Dhc6Space.xxxl),
     ) {
-        // Section
+        // ── Welcome hero (mirrors "Welcome, Pilot" mockup) ────────────────────
         item {
             Card(
-                shape = RoundedCornerShape(26.dp),
+                shape = RoundedCornerShape(Dhc6Radius.xxl),
                 border = BorderStroke(1.dp, Dhc6DesktopColors.Border),
                 colors = CardDefaults.cardColors(containerColor = Color.Transparent),
             ) {
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .height(200.dp)
-                        .background(
-                            Brush.linearGradient(
-                                listOf(Color(0xFF0A2540), Color(0xFF061828), Color(0xFF0F2030), Color(0xFF05121E))
-                            )
-                        )
-                        .padding(28.dp),
+                        .height(240.dp)
+                        .background(Dhc6Gradients.HeroBanner)
+                        .padding(Dhc6Space.xxxl),
                 ) {
-                    Row(Modifier.fillMaxSize(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
-                        Column(Modifier.weight(1f)) {
+                    Row(
+                        modifier = Modifier.fillMaxSize(),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        verticalAlignment = Alignment.CenterVertically,
+                    ) {
+                        Column(
+                            modifier = Modifier.weight(1f),
+                            verticalArrangement = Arrangement.spacedBy(Dhc6Space.md),
+                        ) {
                             Text(
-                                "DHC-6 Trainer Desktop",
+                                "Welcome, Pilot",
                                 color = Color.White,
                                 fontWeight = FontWeight.Black,
-                                fontSize = 34.sp,
+                                fontSize = Dhc6Type.DisplayLg,
                                 maxLines = 1,
-                                overflow = TextOverflow.Ellipsis
+                                overflow = TextOverflow.Ellipsis,
                             )
                             Text(
-                                "Large-screen offline trainer for Windows",
+                                "DHC-6 Series 300 Twin Otter",
                                 color = Dhc6DesktopColors.TextSecondary,
                                 fontWeight = FontWeight.SemiBold,
-                                fontSize = 17.sp,
+                                fontSize = Dhc6Type.TitleSm,
                                 maxLines = 1,
-                                overflow = TextOverflow.Ellipsis
+                                overflow = TextOverflow.Ellipsis,
                             )
-                            Spacer(Modifier.height(14.dp))
-                            Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                            Spacer(Modifier.height(Dhc6Space.sm))
+                            Row(horizontalArrangement = Arrangement.spacedBy(Dhc6Space.sm)) {
                                 DashPill("${procedureSnapshot.procedures.size} procedures", Dhc6DesktopColors.Red)
                                 DashPill("${flashcardSnapshot.totalCards} flashcards", Dhc6DesktopColors.Accent)
                                 DashPill("${assetSnapshot.systemGroups.size} systems", Dhc6DesktopColors.Green)
                             }
                         }
-                        // Pure-Compose preview: no offscreen OpenGL at startup.
+                        // Aircraft preview from cockpit sim
                         SimCockpitPreviewCard(
                             onOpen = { onNavigate(DesktopSection.COCKPIT) },
-                            modifier = Modifier.width(300.dp).height(130.dp),
+                            modifier = Modifier.width(320.dp).height(160.dp),
                         )
                     }
                 }
             }
         }
 
-        // Section
+        // ── Primary tile grid: 2×2 (QRH / Drill / Checklists / Performance) ──
+        //   Matches the four large cards in the "Welcome, Pilot" mockup.
         item {
-            Row(horizontalArrangement = Arrangement.spacedBy(14.dp), modifier = Modifier.fillMaxWidth()) {
-                DashQuickCard("Debrief", "Attempt History\n& Training Notes", Dhc6DesktopColors.Accent, "L", { onNavigate(DesktopSection.LOGBOOK) }, Modifier.weight(1f))
-                DashQuickCard("QRH", "Memory Items\nImmediate Recall", Dhc6DesktopColors.Red, "Q", { onNavigate(DesktopSection.QRH) }, Modifier.weight(1f))
-                DashQuickCard("Drill", "Practice\nQuestions", Dhc6DesktopColors.Accent, "D", { onNavigate(DesktopSection.DRILL) }, Modifier.weight(1f))
-                DashQuickCard("Checklists", "Full Procedure\nFlows", Dhc6DesktopColors.Green, "C", { onNavigate(DesktopSection.PROCEDURES) }, Modifier.weight(1f))
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(Dhc6Space.lg),
+                modifier = Modifier.fillMaxWidth(),
+            ) {
                 DashQuickCard(
-                    "Perf",
-                    "Takeoff, Landing\n& Climb Data",
-                    Dhc6DesktopColors.Gold,
-                    "P",
-                    { onNavigate(DesktopSection.PERFORMANCE) },
-                    Modifier.weight(1f)
+                    title = "QRH",
+                    subtitle = "Quick Reference
+Handbook",
+                    accent = Dhc6DesktopColors.Red,
+                    iconVector = Icons.Filled.MenuBook,
+                    onClick = { onNavigate(DesktopSection.QRH) },
+                    modifier = Modifier.weight(1f),
+                )
+                DashQuickCard(
+                    title = "Drill",
+                    subtitle = "Practice
+Questions",
+                    accent = Dhc6DesktopColors.Accent,
+                    iconVector = Icons.Filled.Speed,
+                    onClick = { onNavigate(DesktopSection.DRILL) },
+                    modifier = Modifier.weight(1f),
+                )
+            }
+        }
+        item {
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(Dhc6Space.lg),
+                modifier = Modifier.fillMaxWidth(),
+            ) {
+                DashQuickCard(
+                    title = "Checklists",
+                    subtitle = "Normal & Emergency
+Checklists",
+                    accent = Dhc6DesktopColors.Green,
+                    iconVector = Icons.Filled.Checklist,
+                    onClick = { onNavigate(DesktopSection.PROCEDURES) },
+                    modifier = Modifier.weight(1f),
+                )
+                DashQuickCard(
+                    title = "Performance",
+                    subtitle = "Takeoff, Landing &
+Climb Data",
+                    accent = Dhc6DesktopColors.Gold,
+                    iconVector = Icons.Filled.Assessment,
+                    onClick = { onNavigate(DesktopSection.PERFORMANCE) },
+                    modifier = Modifier.weight(1f),
                 )
             }
         }
 
-        // Section
+        // ── Secondary tile row: MCC Callout + Flashcards ─────────────────────
         item {
-            Row(horizontalArrangement = Arrangement.spacedBy(14.dp), modifier = Modifier.fillMaxWidth()) {
-                StatCard("Procs", procedureSnapshot.procedures.size.toString(),   "Loaded",            Modifier.weight(1f))
-                StatCard("Norm",     procedureSnapshot.normalCount.toString(),        "Norm",            Modifier.weight(1f))
-                StatCard("Abn",   procedureSnapshot.abnormalCount.toString(),      "Abn",          Modifier.weight(1f))
-                StatCard("Emerg",  procedureSnapshot.emergencyCount.toString(),     "Emerg",         Modifier.weight(1f))
-                StatCard("Cards",      flashcardSnapshot.totalCards.toString(),         "Cards",        Modifier.weight(1f))
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(Dhc6Space.lg),
+                modifier = Modifier.fillMaxWidth(),
+            ) {
+                DashQuickCard(
+                    title = "MCC Callout",
+                    subtitle = "Master Cockpit Callouts
+for DHC-6 Series 300",
+                    accent = Dhc6DesktopColors.AccentBlue,
+                    iconVector = Icons.Filled.RecordVoiceOver,
+                    onClick = { onNavigate(DesktopSection.MCCALLOUT) },
+                    modifier = Modifier.weight(1f),
+                )
+                DashQuickCard(
+                    title = "Flashcards",
+                    subtitle = "Study decks by
+system and topic",
+                    accent = Dhc6DesktopColors.Warning,
+                    iconVector = Icons.Filled.Style,
+                    onClick = { onNavigate(DesktopSection.STUDY) },
+                    modifier = Modifier.weight(1f),
+                )
+            }
+        }
+
+        // ── Stat strip: same content, tighter styling ────────────────────────
+        item {
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(Dhc6Space.md),
+                modifier = Modifier.fillMaxWidth(),
+            ) {
+                StatCard("Procs", procedureSnapshot.procedures.size.toString(), "Loaded", Modifier.weight(1f))
+                StatCard("Norm", procedureSnapshot.normalCount.toString(), "Norm", Modifier.weight(1f))
+                StatCard("Abn", procedureSnapshot.abnormalCount.toString(), "Abn", Modifier.weight(1f))
+                StatCard("Emerg", procedureSnapshot.emergencyCount.toString(), "Emerg", Modifier.weight(1f))
+                StatCard("Cards", flashcardSnapshot.totalCards.toString(), "Cards", Modifier.weight(1f))
                 StatCard(
                     "Ckpt",
                     assetSnapshot.cockpitTargets.size.toString(),
                     "Assets",
-                    Modifier.weight(1f)
+                    Modifier.weight(1f),
                 )
             }
         }
 
-        // Section
+        // ── Recent Activity ──────────────────────────────────────────────────
         item {
-            Row(horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically, modifier = Modifier.fillMaxWidth()) {
+            Row(
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.fillMaxWidth(),
+            ) {
                 Text(
                     "RECENT ACTIVITY",
                     color = Dhc6DesktopColors.TextMuted,
                     fontWeight = FontWeight.Black,
-                    fontSize = 12.sp
+                    fontSize = Dhc6Type.LabelMd,
                 )
                 Text(
                     "VIEW ALL",
                     color = Dhc6DesktopColors.Accent,
                     fontWeight = FontWeight.Black,
-                    fontSize = 12.sp
+                    fontSize = Dhc6Type.LabelMd,
+                    modifier = Modifier.clickable { onNavigate(DesktopSection.LOGBOOK) },
                 )
             }
         }
@@ -486,31 +585,32 @@ private fun DashboardScreen(
                 modifier = Modifier.fillMaxWidth().clickable {
                     onNavigate(if (latestAttempt == null) DesktopSection.MCCALLOUT else DesktopSection.LOGBOOK)
                 },
-                shape = RoundedCornerShape(18.dp),
+                shape = RoundedCornerShape(Dhc6Radius.lg),
                 border = BorderStroke(1.dp, Dhc6DesktopColors.Border),
                 colors = CardDefaults.cardColors(containerColor = Dhc6DesktopColors.SurfaceDark),
             ) {
-                Row(Modifier.padding(16.dp), horizontalArrangement = Arrangement.spacedBy(14.dp), verticalAlignment = Alignment.CenterVertically) {
-                    val cardColor = when (latestAttempt?.type) {
-                        AttemptType.MCC -> Dhc6DesktopColors.Accent
-                        AttemptType.DRILL -> Dhc6DesktopColors.Green
-                        null -> Dhc6DesktopColors.Gold
+                Row(
+                    Modifier.padding(Dhc6Space.lg),
+                    horizontalArrangement = Arrangement.spacedBy(Dhc6Space.md),
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    val (cardColor, activityIcon) = when (latestAttempt?.type) {
+                        AttemptType.MCC -> Dhc6DesktopColors.Accent to Icons.Filled.RecordVoiceOver
+                        AttemptType.DRILL -> Dhc6DesktopColors.Green to Icons.Filled.Speed
+                        null -> Dhc6DesktopColors.Gold to Icons.Filled.Flight
                     }
                     Box(
                         Modifier.size(44.dp).background(
                             cardColor.copy(alpha = 0.18f),
-                            RoundedCornerShape(12.dp)
-                        ), contentAlignment = Alignment.Center
+                            RoundedCornerShape(Dhc6Radius.md),
+                        ),
+                        contentAlignment = Alignment.Center,
                     ) {
-                        Text(
-                            when (latestAttempt?.type) {
-                                AttemptType.MCC -> "M"
-                                AttemptType.DRILL -> "D"
-                                null -> "S"
-                            },
-                            color = cardColor,
-                            fontWeight = FontWeight.Black,
-                            fontSize = 18.sp
+                        Icon(
+                            imageVector = activityIcon,
+                            contentDescription = null,
+                            tint = cardColor,
+                            modifier = Modifier.size(22.dp),
                         )
                     }
                     Column(Modifier.weight(1f)) {
@@ -518,13 +618,13 @@ private fun DashboardScreen(
                             latestAttempt?.title?.cleanDisplay() ?: "Start a training session",
                             color = Color.White,
                             fontWeight = FontWeight.Black,
-                            fontSize = 16.sp
+                            fontSize = Dhc6Type.BodyLg,
                         )
                         Text(
                             latestAttempt?.let { "${it.correct}/${it.total} - ${it.pct}% - ${it.type.name}" }
                                 ?: "MCC callouts and drills will be recorded in the debrief logbook.",
                             color = Dhc6DesktopColors.TextSecondary,
-                            fontSize = 13.sp
+                            fontSize = Dhc6Type.BodySm,
                         )
                     }
                     Text(
@@ -533,35 +633,44 @@ private fun DashboardScreen(
                                 .format(java.util.Date(it.epochMillis))
                         } ?: "Ready",
                         color = Dhc6DesktopColors.TextMuted,
-                        fontSize = 12.sp
+                        fontSize = Dhc6Type.BodyXs,
                     )
                 }
             }
         }
 
-        // Section
+        // ── Sync status footer ───────────────────────────────────────────────
         item {
             Card(
                 modifier = Modifier.fillMaxWidth(),
-                shape = RoundedCornerShape(18.dp),
+                shape = RoundedCornerShape(Dhc6Radius.lg),
                 border = BorderStroke(1.dp, Dhc6DesktopColors.BorderSoft),
                 colors = CardDefaults.cardColors(containerColor = Dhc6DesktopColors.Background),
             ) {
-                Row(Modifier.padding(14.dp), horizontalArrangement = Arrangement.spacedBy(10.dp), verticalAlignment = Alignment.CenterVertically) {
+                Row(
+                    Modifier.padding(Dhc6Space.md),
+                    horizontalArrangement = Arrangement.spacedBy(Dhc6Space.sm),
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
                     Box(Modifier.size(10.dp).background(Dhc6DesktopColors.Green, RoundedCornerShape(50)))
                     Text(
                         "SYNC STATUS",
                         color = Dhc6DesktopColors.TextMuted,
                         fontWeight = FontWeight.Black,
-                        fontSize = 11.sp
+                        fontSize = Dhc6Type.LabelSm,
                     )
                     Text(
                         "Up to date - Offline-first - ${procedureSnapshot.procedures.size} procedures - ${flashcardSnapshot.totalCards} cards",
                         color = Dhc6DesktopColors.TextSecondary,
-                        fontSize = 13.sp
+                        fontSize = Dhc6Type.BodySm,
                     )
                     Spacer(Modifier.weight(1f))
-                    Text("Desktop $DesktopVersion", color = Dhc6DesktopColors.TextMuted, fontSize = 12.sp, fontWeight = FontWeight.Bold)
+                    Text(
+                        "Desktop $DesktopVersion",
+                        color = Dhc6DesktopColors.TextMuted,
+                        fontSize = Dhc6Type.BodyXs,
+                        fontWeight = FontWeight.Bold,
+                    )
                 }
             }
         }
@@ -588,22 +697,56 @@ private fun DashQuickCard(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
+    // Back-compat overload: existing call sites pass a single-letter `icon`
+    // string; forward to a placeholder star icon so nothing breaks visually
+    // during Step 1 migration. Update those call sites to the vector overload
+    // in a follow-up patch.
+    DashQuickCard(
+        title = title,
+        subtitle = subtitle,
+        accent = accent,
+        iconVector = Icons.Filled.Star,
+        onClick = onClick,
+        modifier = modifier,
+    )
+}
+
+@Composable
+private fun DashQuickCard(
+    title: String,
+    subtitle: String,
+    accent: Color,
+    iconVector: ImageVector,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
     Card(
         modifier = modifier.clickable(onClick = onClick),
         shape = RoundedCornerShape(22.dp),
-        border   = BorderStroke(1.dp, Dhc6DesktopColors.Border),
-        colors   = CardDefaults.cardColors(containerColor = Dhc6DesktopColors.SurfaceDark),
+        border = BorderStroke(1.dp, Dhc6DesktopColors.Border),
+        colors = CardDefaults.cardColors(containerColor = Dhc6DesktopColors.SurfaceDark),
     ) {
         Column(Modifier.padding(20.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
             Box(
-                modifier = Modifier.size(48.dp)
-                    .background(accent.copy(alpha = 0.18f), RoundedCornerShape(14.dp)),
+                modifier = Modifier.size(56.dp)
+                    .background(accent.copy(alpha = 0.18f), RoundedCornerShape(16.dp)),
                 contentAlignment = Alignment.Center,
             ) {
-                Text(icon, color = accent, fontWeight = FontWeight.Black, fontSize = 22.sp)
+                Icon(
+                    imageVector = iconVector,
+                    contentDescription = title,
+                    tint = accent,
+                    modifier = Modifier.size(28.dp),
+                )
             }
-            Text(title,    color = Color.White,                     fontWeight = FontWeight.Black,   fontSize = 18.sp)
-            Text(subtitle, color = Dhc6DesktopColors.TextSecondary, fontWeight = FontWeight.SemiBold, fontSize = 13.sp, lineHeight = 18.sp)
+            Text(title, color = Color.White, fontWeight = FontWeight.Black, fontSize = 18.sp)
+            Text(
+                subtitle,
+                color = Dhc6DesktopColors.TextSecondary,
+                fontWeight = FontWeight.SemiBold,
+                fontSize = 13.sp,
+                lineHeight = 18.sp,
+            )
         }
     }
 }

@@ -13,6 +13,10 @@ dependencies {
     // Do not use Android-only AAR artifacts in this JVM desktop module.
     implementation(compose.desktop.currentOs)
     implementation(compose.material3)
+    // Material icons extended - provides real glyphs (Home, MenuBook, Speed,
+    // Checklist, Assessment, Description, Style, Settings, etc.) used across
+    // the nav rail and screen headers. Multiplatform-safe (not an Android AAR).
+    implementation(compose.materialIconsExtended)
 
     // jMonkeyEngine - real-time 3D GLB/GLTF model viewer (Systems Lab)
     // Rendering runs OFFSCREEN (hidden GLFW window via jme3-lwjgl3) and frames
