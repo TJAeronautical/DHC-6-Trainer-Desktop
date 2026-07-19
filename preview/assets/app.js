@@ -307,9 +307,11 @@ function fitStage() {
   const available = Math.min(wrap.clientWidth, window.innerWidth) - padL - padR;
   const scale = Math.min(1, available / 1440);
   stage.style.transform = `scale(${scale})`;
-  // Constrain the wrap's height to the visible (scaled) height of the stage
-  // so nothing after the wrap is pushed off-screen.
+  stage.style.marginLeft = '0';
+  stage.style.marginRight = '0';
+  wrap.style.justifyContent = scale < 1 ? 'flex-start' : 'center';
   wrap.style.height = `${900 * scale + padT + padB}px`;
+  wrap.style.width = '100%';
 }
 
 // ── Boot ────────────────────────────────────────────────────────────────────
