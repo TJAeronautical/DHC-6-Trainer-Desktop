@@ -5,6 +5,8 @@ on:
     branches: [main]
     paths:
       - .github/workflows/finish-step2-qrh.yml
+      - src/main/kotlin/com/dhc6trainer/desktop/DedicatedQrhScreen.kt
+      - preview/**
 
 permissions:
   contents: write
@@ -32,21 +34,6 @@ jobs:
           text, count = re.subn(pattern, r'\1\n    DedicatedQrhScreen(snapshot)\n\2', text, count=1)
           if count != 1: raise SystemExit(f"QRH fallback replacements: {count}")
           main.write_text(text)
-
-          qrh = Path("src/main/kotlin/com/dhc6trainer/desktop/DedicatedQrhScreen.kt")
-          text = qrh.read_text().replace('import androidx.compose.foundation.layout.weight\n', '')
-          text = text.replace('''                onToggleFavorite = {
-                    val id = selected?.id ?: return@QrhDetailPane
-                    favorites = if (id in favorites) favorites - id else favorites + id
-                    QrhFavoriteStore.save(favorites)
-                },''', '''                onToggleFavorite = {
-                    selected?.id?.let { id ->
-                        favorites = if (id in favorites) favorites - id else favorites + id
-                        QrhFavoriteStore.save(favorites)
-                    }
-                },''', 1)
-          text = text.replace('favorite = selected?.id in favorites,', 'favorite = selected?.id?.let { it in favorites } == true,', 1)
-          qrh.write_text(text)
 
           index = Path("preview/index.html")
           text = index.read_text()
