@@ -28,7 +28,6 @@ internal fun DedicatedLogbookScreen(onStartMcc: () -> Unit, onStartDrill: () -> 
     var filter by remember { mutableStateOf(LogbookFilter.ALL) }
     var selected by remember { mutableStateOf<DrillAttempt?>(null) }
     var confirmClear by remember { mutableStateOf(false) }
-
     val attempts = remember(refresh) { DesktopProgressStore.recentAttempts() }
     val shown = remember(attempts, filter) {
         attempts.filter {
@@ -42,9 +41,7 @@ internal fun DedicatedLogbookScreen(onStartMcc: () -> Unit, onStartDrill: () -> 
         .map { (title, records) -> Triple(title, records.map { it.pct }.average().toInt(), records.size) }
         .sortedBy { it.second }.take(4)
 
-    LaunchedEffect(shown) {
-        if (selected !in shown) selected = shown.firstOrNull()
-    }
+    LaunchedEffect(shown) { if (selected !in shown) selected = shown.firstOrNull() }
 
     Column(Modifier.fillMaxSize(), verticalArrangement = Arrangement.spacedBy(14.dp)) {
         Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(12.dp)) {
@@ -53,19 +50,15 @@ internal fun DedicatedLogbookScreen(onStartMcc: () -> Unit, onStartDrill: () -> 
             LogbookSummary("MCC BEST", if (DesktopProgressStore.mccSessions() == 0) "-" else "${DesktopProgressStore.mccBest()}%", Modifier.weight(1f))
             LogbookSummary("DRILL BEST", if (DesktopProgressStore.drillSessions() == 0) "-" else "${DesktopProgressStore.drillBest()}%", Modifier.weight(1f))
         }
-
         Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
             Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                LogbookFilter.entries.forEach { option ->
-                    FilterChipLike(option.name, filter == option) { filter = option }
-                }
+                LogbookFilter.entries.forEach { option -> FilterChipLike(option.name, filter == option) { filter = option } }
                 Badge("${shown.size} shown", false)
             }
             OutlinedButton(onClick = { confirmClear = true }, enabled = attempts.isNotEmpty()) {
                 Text("CLEAR HISTORY", color = Dhc6DesktopColors.Red, fontWeight = FontWeight.Black)
             }
         }
-
         if (attempts.isEmpty()) {
             Card(
                 modifier = Modifier.fillMaxSize(),
@@ -95,13 +88,10 @@ internal fun DedicatedLogbookScreen(onStartMcc: () -> Unit, onStartDrill: () -> 
                     Column(Modifier.fillMaxSize().padding(18.dp), verticalArrangement = Arrangement.spacedBy(10.dp)) {
                         Text("ATTEMPT HISTORY", color = Dhc6DesktopColors.Accent, fontWeight = FontWeight.Black, fontSize = 11.sp)
                         LazyColumn(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                            items(shown, key = { it.epochMillis }) { attempt ->
-                                AttemptRow(attempt, selected?.epochMillis == attempt.epochMillis) { selected = attempt }
-                            }
+                            items(shown, key = { it.epochMillis }) { attempt -> AttemptRow(attempt, selected?.epochMillis == attempt.epochMillis) { selected = attempt } }
                         }
                     }
                 }
-
                 Column(Modifier.weight(0.85f).fillMaxHeight(), verticalArrangement = Arrangement.spacedBy(14.dp)) {
                     AttemptDetail(selected, Modifier.weight(1f))
                     if (weak.isNotEmpty()) {
@@ -126,7 +116,6 @@ internal fun DedicatedLogbookScreen(onStartMcc: () -> Unit, onStartDrill: () -> 
             }
         }
     }
-
     if (confirmClear) {
         AlertDialog(
             onDismissRequest = { confirmClear = false },
@@ -144,7 +133,12 @@ internal fun DedicatedLogbookScreen(onStartMcc: () -> Unit, onStartDrill: () -> 
 
 @Composable
 private fun LogbookSummary(label: String, value: String, modifier: Modifier) {
-    Card(modifier, RoundedCornerShape(16.dp), CardDefaults.cardColors(containerColor = Dhc6DesktopColors.SurfaceDark), BorderStroke(1.dp, Dhc6DesktopColors.BorderSoft)) {
+    Card(
+        modifier = modifier,
+        shape = RoundedCornerShape(16.dp),
+        colors = CardDefaults.cardColors(containerColor = Dhc6DesktopColors.SurfaceDark),
+        border = BorderStroke(1.dp, Dhc6DesktopColors.BorderSoft),
+    ) {
         Column(Modifier.padding(14.dp)) {
             Text(label, color = Dhc6DesktopColors.TextMuted, fontSize = 10.sp, fontWeight = FontWeight.Black)
             Text(value, color = Color.White, fontSize = 24.sp, fontWeight = FontWeight.Black)
@@ -177,7 +171,12 @@ private fun AttemptRow(attempt: DrillAttempt, selected: Boolean, onClick: () -> 
 
 @Composable
 private fun AttemptDetail(attempt: DrillAttempt?, modifier: Modifier) {
-    Card(modifier.fillMaxWidth(), RoundedCornerShape(22.dp), CardDefaults.cardColors(containerColor = Dhc6DesktopColors.SurfaceDark), BorderStroke(1.dp, Dhc6DesktopColors.Border)) {
+    Card(
+        modifier = modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(22.dp),
+        colors = CardDefaults.cardColors(containerColor = Dhc6DesktopColors.SurfaceDark),
+        border = BorderStroke(1.dp, Dhc6DesktopColors.Border),
+    ) {
         if (attempt == null) {
             Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) { EmptyState("Select an attempt", "Choose a recorded session to inspect its factual debrief.") }
         } else {
@@ -204,7 +203,11 @@ private fun AttemptDetail(attempt: DrillAttempt?, modifier: Modifier) {
 
 @Composable
 private fun DetailFact(label: String, value: String, modifier: Modifier) {
-    Card(modifier, RoundedCornerShape(12.dp), CardDefaults.cardColors(containerColor = Dhc6DesktopColors.Background)) {
+    Card(
+        modifier = modifier,
+        shape = RoundedCornerShape(12.dp),
+        colors = CardDefaults.cardColors(containerColor = Dhc6DesktopColors.Background),
+    ) {
         Column(Modifier.padding(12.dp), horizontalAlignment = Alignment.CenterHorizontally) {
             Text(label, color = Dhc6DesktopColors.TextMuted, fontSize = 9.sp, fontWeight = FontWeight.Black)
             Text(value, color = Color.White, fontSize = 18.sp, fontWeight = FontWeight.Black)
