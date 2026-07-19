@@ -25,60 +25,38 @@ jobs:
         shell: python
         run: |
           from pathlib import Path
+          import re
 
           main = Path("src/main/kotlin/com/dhc6trainer/desktop/Main.kt")
           text = main.read_text()
-          old = """@Composable
-          private fun QrhScreen(snapshot: ProcedureLibrarySnapshot) {
-              ProceduresScreen(snapshot, initialTab = ChecklistTab.EMERGENCY)
-          }"""
-          new = """@Composable
-          private fun QrhScreen(snapshot: ProcedureLibrarySnapshot) {
-              DedicatedQrhScreen(snapshot)
-          }"""
-          if old not in text:
-              raise SystemExit("QRH fallback not found")
-          main.write_text(text.replace(old, new, 1))
+          pattern = r'(@Composable\s+private fun QrhScreen\(snapshot: ProcedureLibrarySnapshot\)\s*\{)\s*ProceduresScreen\(snapshot, initialTab = ChecklistTab\.EMERGENCY\)\s*(\})'
+          text, count = re.subn(pattern, r'\1\n    DedicatedQrhScreen(snapshot)\n\2', text, count=1)
+          if count != 1:
+              raise SystemExit(f"QRH fallback replacements: {count}")
+          main.write_text(text)
 
           index = Path("preview/index.html")
           text = index.read_text()
-          text = text.replace('<link rel="stylesheet" href="assets/styles.css" />', '<link rel="stylesheet" href="assets/styles.css" />\n  <link rel="stylesheet" href="assets/qrh.css" />', 1)
-          text = text.replace('<script src="assets/app.js"></script>', '<script src="assets/qrh.js"></script>\n  <script src="assets/app.js"></script>', 1)
-          text = text.replace('data-step="1">Step 1 · Foundation', 'data-step="2">Step 2 · QRH', 1)
+          if 'assets/qrh.css' not in text:
+              text = text.replace('<link rel="stylesheet" href="assets/styles.css" />', '<link rel="stylesheet" href="assets/styles.css" />\n  <link rel="stylesheet" href="assets/qrh.css" />', 1)
+          if 'assets/qrh.js' not in text:
+              text = text.replace('<script src="assets/app.js"></script>', '<script src="assets/qrh.js"></script>\n  <script src="assets/app.js"></script>', 1)
+          text = re.sub(r'data-step="1">Step 1 · Foundation', 'data-step="2">Step 2 · QRH', text, count=1)
           index.write_text(text)
 
           app = Path("preview/assets/app.js")
           text = app.read_text()
-          old_router = '''  if (activeId === "dashboard") {
-            renderDashboard();
-          } else {
-            const section = SECTIONS.find(s => s.id === activeId);
-            const stub = STUB_COPY[activeId] || { step: "LATER", desc: "Preview coming soon." };
-            renderStub(section, stub.step, stub.desc);
-          }'''
-          new_router = '''  if (activeId === "dashboard") {
-            renderDashboard();
-          } else if (activeId === "qrh") {
-            renderQrh();
-          } else {
-            const section = SECTIONS.find(s => s.id === activeId);
-            const stub = STUB_COPY[activeId] || { step: "LATER", desc: "Preview coming soon." };
-            renderStub(section, stub.step, stub.desc);
-          }'''
-          if old_router not in text:
-              raise SystemExit("Preview router not found")
-          text = text.replace(old_router, new_router, 1)
-          old_step = '''  document.querySelector(".chrome-step").textContent = activeId === "dashboard"
-            ? "Step 1 · Foundation (LIVE)"
-            : `Preview: ${SECTIONS.find(s => s.id === activeId).title}`;'''
-          new_step = '''  document.querySelector(".chrome-step").textContent = activeId === "qrh"
-            ? "Step 2 · QRH (LIVE)"
-            : activeId === "dashboard"
-              ? "Step 1 · Foundation (LIVE)"
-              : `Preview: ${SECTIONS.find(s => s.id === activeId).title}`;'''
-          if old_step not in text:
-              raise SystemExit("Preview step label not found")
-          app.write_text(text.replace(old_step, new_step, 1))
+          if 'activeId === "qrh"' not in text:
+              marker = '  } else {\n    const section = SECTIONS.find(s => s.id === activeId);'
+              replacement = '  } else if (activeId === "qrh") {\n    renderQrh();\n  } else {\n    const section = SECTIONS.find(s => s.id === activeId);'
+              if marker not in text:
+                  raise SystemExit("Preview router marker not found")
+              text = text.replace(marker, replacement, 1)
+          old = '  document.querySelector(".chrome-step").textContent = activeId === "dashboard"\n    ? "Step 1 · Foundation (LIVE)"\n    : `Preview: ${SECTIONS.find(s => s.id === activeId).title}`;'
+          new = '  document.querySelector(".chrome-step").textContent = activeId === "qrh"\n    ? "Step 2 · QRH (LIVE)"\n    : activeId === "dashboard"\n      ? "Step 1 · Foundation (LIVE)"\n      : `Preview: ${SECTIONS.find(s => s.id === activeId).title}`;'
+          if old not in text:
+              raise SystemExit("Preview step marker not found")
+          app.write_text(text.replace(old, new, 1))
       - name: Validate preview JavaScript
         run: node --check preview/assets/qrh.js && node --check preview/assets/app.js
       - name: Compile desktop Kotlin
