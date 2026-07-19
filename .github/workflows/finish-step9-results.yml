@@ -15,4 +15,171 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-java@v4
         with:
-          distribution
+          distribution: temurin
+          java-version: '17'
+      - name: Integrate shared results screen
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          shared = Path('src/main/kotlin/com/dhc6trainer/desktop/SessionCompleteScreen.kt')
+          text = shared.read_text()
+          if 'import androidx.compose.foundation.layout.weight' not in text:
+              text = text.replace('import androidx.compose.foundation.layout.widthIn\n', 'import androidx.compose.foundation.layout.widthIn\nimport androidx.compose.foundation.layout.weight\n')
+          shared.write_text(text)
+
+          mcc = Path('src/main/kotlin/com/dhc6trainer/desktop/MccCalloutScreen.kt')
+          text = mcc.read_text()
+          start = text.index('@Composable\nprivate fun MccCompleteView(')
+          end = text.index('@Composable\nprivate fun MccStat', start)
+          replacement = '''@Composable
+          private fun MccCompleteView(
+              procedureTitle: String,
+              correct: Int,
+              total: Int,
+              elapsed: Int,
+              prompts: Int,
+              onReview: () -> Unit,
+              onTryAgain: () -> Unit,
+              onHome: () -> Unit,
+          ) {
+              SessionCompleteScreen(
+                  title = procedureTitle,
+                  modeLabel = "MCC Callout",
+                  correct = correct,
+                  total = total,
+                  elapsedSeconds = elapsed,
+                  promptsUsed = prompts,
+                  focusItems = if (prompts > 0) listOf("$prompts prompted or incorrect response${if (prompts == 1) "" else "s"} require review.") else emptyList(),
+                  onReview = onReview,
+                  onRetry = onTryAgain,
+                  onHome = onHome,
+              )
+          }
+
+          '''
+          text = text[:start] + replacement + text[end:]
+          mcc.write_text(text)
+
+          drill = Path('src/main/kotlin/com/dhc6trainer/desktop/DedicatedDrillScreen.kt')
+          text = drill.read_text()
+          text = text.replace(
+              'var recorded by remember { mutableStateOf(false) }',
+              'var recorded by remember { mutableStateOf(false) }\n    var completed by remember { mutableStateOf(false) }\n    var missedItems by remember { mutableStateOf(emptyList<String>()) }'
+          )
+          text = text.replace(
+              'recorded = false\n    }',
+              'recorded = false\n        completed = false\n        missedItems = emptyList()\n    }',
+              1
+          )
+          text = text.replace(
+              'LaunchedEffect(Unit) {\n        while (true) {\n            delay(1_000)\n            elapsed = ((System.currentTimeMillis() - startMs) / 1_000).toInt()\n        }\n    }',
+              'LaunchedEffect(startMs, completed) {\n        while (!completed) {\n            delay(1_000)\n            elapsed = ((System.currentTimeMillis() - startMs) / 1_000).toInt()\n        }\n    }'
+          )
+          marker = '    Row(Modifier.fillMaxSize(), horizontalArrangement = Arrangement.spacedBy(18.dp)) {'
+          completion = '''    if (completed && selectedDeck != null) {
+              SessionCompleteScreen(
+                  title = selectedDeck!!.deckName,
+                  modeLabel = "Knowledge Drill",
+                  correct = score,
+                  total = cards.size,
+                  elapsedSeconds = elapsed,
+                  focusItems = missedItems,
+                  onReview = {
+                      completed = false
+                      questionIndex = 0
+                      selectedAnswer = null
+                      score = 0
+                      startMs = System.currentTimeMillis()
+                      elapsed = 0
+                      recorded = false
+                      missedItems = emptyList()
+                  },
+                  onRetry = { reset(selectedDeck) },
+                  onHome = { reset(null) },
+              )
+              return
+          }
+
+          '''
+          if marker not in text:
+              raise SystemExit('Drill row marker not found')
+          text = text.replace(marker, completion + marker, 1)
+          text = text.replace(
+              'score = nextScore\n                                        if (questionIndex == cards.lastIndex && !recorded) {',
+              'score = nextScore\n                                        if (option != correct) missedItems = missedItems + card.front.cleanDisplay()\n                                        if (questionIndex == cards.lastIndex && !recorded) {'
+          )
+          text = text.replace('} else reset(selectedDeck)', '} else completed = true')
+          text = text.replace('DrillStat("SCORE", "$score/${index + if (index == 0) 0 else 0}")', 'DrillStat("SCORE", "$score/${index + 1}")')
+          drill.write_text(text)
+
+          results_css = '''.result-preview{display:grid;grid-template-columns:.9fr 1.1fr;gap:20px;flex:1;min-height:0}.result-score,.result-debrief{border:1px solid var(--border);border-radius:24px;padding:28px;background:var(--bg)}.result-score{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}.result-score h2{margin:8px 0 0;font-size:28px}.result-ring{width:190px;height:190px;border-radius:50%;display:grid;place-items:center;margin:24px;background:conic-gradient(var(--green) 0 75%,#16273a 75% 100%);position:relative}.result-ring:after{content:"";position:absolute;inset:18px;border-radius:50%;background:var(--bg)}.result-ring strong{position:relative;z-index:1;font-size:44px}.result-facts{display:flex;gap:12px}.result-fact{padding:12px 18px;min-width:82px;border:1px solid var(--border-soft);border-radius:14px;background:var(--surface-dark)}.result-fact strong,.result-fact small{display:block}.result-debrief{background:var(--surface-dark);display:flex;flex-direction:column;gap:16px}.result-outcome,.result-focus{padding:16px;border:1px solid var(--border-soft);border-radius:16px;background:var(--bg)}.result-focus-list{display:flex;flex-direction:column;gap:8px;flex:1}.result-actions{display:flex;gap:10px}.result-actions button{flex:1;height:50px;border:1px solid var(--border);border-radius:14px;font-weight:900}.result-actions .primary{background:var(--accent-strong)}'''
+          Path('preview/assets/results.css').write_text(results_css)
+
+          results_js = '''function renderSessionResultPreview({title,mode,correct,total,elapsed,prompts=null,focus=[],onReview=null,onRetry,onHome}){const pct=total?Math.round(correct/total*100):0;const incorrect=Math.max(0,total-correct);const fact=(v,l)=>el('div',{class:'result-fact'},[el('strong',{},v),el('small',{},l)]);const actions=[];if(onReview)actions.push(el('button',{onclick:onReview},'REVIEW'));actions.push(el('button',{class:'primary',onclick:onRetry},'TRY AGAIN'));actions.push(el('button',{onclick:onHome},'HOME'));return el('div',{class:'result-preview'},[el('section',{class:'result-score'},[el('small',{},'SESSION COMPLETE'),el('h2',{},title),el('p',{},mode.toUpperCase()),el('div',{class:'result-ring',style:`background:conic-gradient(var(--green) 0 ${pct}%,#16273a ${pct}% 100%)`},el('strong',{},`${pct}%`)),el('div',{class:'result-facts'},[fact(`${correct} / ${total}`,'Correct'),fact(incorrect,'Incorrect'),fact(elapsed,'Time'),prompts===null?null:fact(prompts,'Prompts')])]),el('section',{class:'result-debrief'},[el('h2',{},'Debrief'),el('p',{},'Only recorded session facts are shown. Review missed or prompted items against the approved training material.'),el('div',{class:'result-outcome'},incorrect===0?'All assessed items were correct.':`${incorrect} assessed item${incorrect===1?'':'s'} require review.`),el('div',{class:'result-focus-list'},(focus.length?focus:['Maintain proficiency with another session.']).map(x=>el('div',{class:'result-focus'},`• ${x}`))),el('div',{class:'result-actions'},actions)])]);}'''
+          Path('preview/assets/results.js').write_text(results_js)
+
+          index = Path('preview/index.html')
+          html = index.read_text()
+          if 'assets/results.css' not in html:
+              html = html.replace('<link rel="stylesheet" href="assets/mcc.css?v=20260719-step8" />', '<link rel="stylesheet" href="assets/mcc.css?v=20260719-step8" />\n  <link rel="stylesheet" href="assets/results.css?v=20260719-step9" />')
+          if 'assets/results.js' not in html:
+              html = html.replace('<script src="assets/mcc.js?v=20260719-step8"></script>', '<script src="assets/results.js?v=20260719-step9"></script>\n  <script src="assets/mcc.js?v=20260719-step8"></script>')
+          index.write_text(html)
+
+          mccjs = Path('preview/assets/mcc.js')
+          text = mccjs.read_text()
+          pattern = r"if\(MCC\.phase==='complete'\)\{.*?return;\}"
+          replacement = "if(MCC.phase==='complete'){shell.replaceChildren(headerBar('MCC Callout','Session complete'),renderSessionResultPreview({title:'MCC Callout Session',mode:MCC.track,correct:MCC.score,total:MCC.steps.length,elapsed:'00:42',prompts:MCC.steps.length-MCC.score,focus:MCC.score===MCC.steps.length?[]:['Review missed PF/PM responses.'],onReview:()=>{MCC.phase='session';MCC.index=0;MCC.score=0;MCC.answered=null;renderMcc();},onRetry:()=>{MCC.phase='session';MCC.index=0;MCC.score=0;MCC.answered=null;MCC.started=Date.now();renderMcc();},onHome:()=>{MCC.phase='home';renderMcc();}}));return;}"
+          text, count = re.subn(pattern, replacement, text, count=1)
+          if count != 1:
+              raise SystemExit('MCC completion preview patch failed')
+          mccjs.write_text(text)
+
+          drilljs = Path('preview/assets/drill.js')
+          text = drilljs.read_text()
+          text = text.replace('answered: null,', 'answered: null,\n  complete: false,\n  missed: [],', 1)
+          marker = '  const item = DRILL_PREVIEW.questions[DRILL_PREVIEW.index];'
+          completion = '''  if (DRILL_PREVIEW.complete) {
+              shell.replaceChildren(headerBar("Drill", "Session complete"), renderSessionResultPreview({
+                title: "Knowledge Drill", mode: "Drill", correct: DRILL_PREVIEW.score,
+                total: DRILL_PREVIEW.questions.length, elapsed: "00:36",
+                focus: DRILL_PREVIEW.missed,
+                onReview: () => { DRILL_PREVIEW.complete=false; DRILL_PREVIEW.index=0; DRILL_PREVIEW.score=0; DRILL_PREVIEW.answered=null; DRILL_PREVIEW.missed=[]; renderDrill(); },
+                onRetry: () => { DRILL_PREVIEW.complete=false; DRILL_PREVIEW.index=0; DRILL_PREVIEW.score=0; DRILL_PREVIEW.answered=null; DRILL_PREVIEW.missed=[]; DRILL_PREVIEW.started=Date.now(); renderDrill(); },
+                onHome: () => { location.hash="#/dashboard"; }
+              }));
+              return;
+            }
+          '''
+          text = text.replace(marker, completion + marker, 1)
+          text = text.replace('if (i === item.correct) DRILL_PREVIEW.score++;', 'if (i === item.correct) DRILL_PREVIEW.score++; else DRILL_PREVIEW.missed.push(item.q);')
+          old = '''      } else {
+                  DRILL_PREVIEW.index = 0;
+                  DRILL_PREVIEW.score = 0;
+                  DRILL_PREVIEW.answered = null;
+                  DRILL_PREVIEW.started = Date.now();
+                }'''
+          text = text.replace(old, '''      } else {
+                  DRILL_PREVIEW.complete = true;
+                }''')
+          drilljs.write_text(text)
+          PY
+      - name: Validate preview JavaScript
+        run: |
+          node --check preview/assets/results.js
+          node --check preview/assets/drill.js
+          node --check preview/assets/mcc.js
+          node --check preview/assets/app.js
+      - name: Compile desktop Kotlin
+        run: gradle compileKotlin --no-daemon
+      - name: Commit validated Step 9
+        run: |
+          rm .github/workflows/finish-step9-results.yml
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add -A
+          git commit -m "Step 9: unify factual session results"
+          git push origin agent/step9-session-results
