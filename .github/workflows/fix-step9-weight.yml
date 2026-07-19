@@ -2,7 +2,6 @@ name: Repair Step 9 Compose Weight
 on:
   pull_request:
     branches: [main]
-    paths: [.github/workflows/fix-step9-weight.yml]
 permissions:
   contents: write
 jobs:
