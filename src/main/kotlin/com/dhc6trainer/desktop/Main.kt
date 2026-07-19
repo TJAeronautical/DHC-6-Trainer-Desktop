@@ -467,8 +467,7 @@ private fun DashboardScreen(
             ) {
                 DashQuickCard(
                     title = "QRH",
-                    subtitle = "Quick Reference
-Handbook",
+                    subtitle = "Quick Reference\nHandbook",
                     accent = Dhc6DesktopColors.Red,
                     iconVector = Icons.Filled.MenuBook,
                     onClick = { onNavigate(DesktopSection.QRH) },
@@ -476,8 +475,7 @@ Handbook",
                 )
                 DashQuickCard(
                     title = "Drill",
-                    subtitle = "Practice
-Questions",
+                    subtitle = "Practice\nQuestions",
                     accent = Dhc6DesktopColors.Accent,
                     iconVector = Icons.Filled.Speed,
                     onClick = { onNavigate(DesktopSection.DRILL) },
@@ -492,8 +490,7 @@ Questions",
             ) {
                 DashQuickCard(
                     title = "Checklists",
-                    subtitle = "Normal & Emergency
-Checklists",
+                    subtitle = "Normal & Emergency\nChecklists",
                     accent = Dhc6DesktopColors.Green,
                     iconVector = Icons.Filled.Checklist,
                     onClick = { onNavigate(DesktopSection.PROCEDURES) },
@@ -501,8 +498,7 @@ Checklists",
                 )
                 DashQuickCard(
                     title = "Performance",
-                    subtitle = "Takeoff, Landing &
-Climb Data",
+                    subtitle = "Takeoff, Landing &\nClimb Data",
                     accent = Dhc6DesktopColors.Gold,
                     iconVector = Icons.Filled.Assessment,
                     onClick = { onNavigate(DesktopSection.PERFORMANCE) },
@@ -519,8 +515,7 @@ Climb Data",
             ) {
                 DashQuickCard(
                     title = "MCC Callout",
-                    subtitle = "Master Cockpit Callouts
-for DHC-6 Series 300",
+                    subtitle = "Master Cockpit Callouts\nfor DHC-6 Series 300",
                     accent = Dhc6DesktopColors.AccentBlue,
                     iconVector = Icons.Filled.RecordVoiceOver,
                     onClick = { onNavigate(DesktopSection.MCCALLOUT) },
@@ -528,8 +523,7 @@ for DHC-6 Series 300",
                 )
                 DashQuickCard(
                     title = "Flashcards",
-                    subtitle = "Study decks by
-system and topic",
+                    subtitle = "Study decks by\nsystem and topic",
                     accent = Dhc6DesktopColors.Warning,
                     iconVector = Icons.Filled.Style,
                     onClick = { onNavigate(DesktopSection.STUDY) },
@@ -783,7 +777,7 @@ private enum class ChecklistTab { NORMAL, EMERGENCY }
 
 @Composable
 private fun QrhScreen(snapshot: ProcedureLibrarySnapshot) {
-    ProceduresScreen(snapshot, initialTab = ChecklistTab.EMERGENCY)
+    DedicatedQrhScreen(snapshot)
 }
 
 @Composable
