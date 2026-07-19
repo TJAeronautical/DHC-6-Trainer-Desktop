@@ -23,8 +23,11 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ChevronRight
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -149,7 +152,12 @@ private fun ChecklistProcedureRow(procedure: ProcedureSummary, selected: Boolean
                     overflow = TextOverflow.Ellipsis,
                 )
             }
-            Text(">", color = Dhc6DesktopColors.TextMuted, fontSize = 20.sp, fontWeight = FontWeight.Black)
+            Icon(
+                imageVector = Icons.Filled.ChevronRight,
+                contentDescription = null,
+                tint = Dhc6DesktopColors.TextMuted,
+                modifier = Modifier.size(20.dp),
+            )
         }
     }
 }
