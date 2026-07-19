@@ -35,6 +35,22 @@ jobs:
               raise SystemExit(f"QRH fallback replacements: {count}")
           main.write_text(text)
 
+          qrh = Path("src/main/kotlin/com/dhc6trainer/desktop/DedicatedQrhScreen.kt")
+          text = qrh.read_text()
+          if 'import androidx.compose.foundation.layout.weight' not in text:
+              text = text.replace('import androidx.compose.foundation.layout.widthIn\n', 'import androidx.compose.foundation.layout.widthIn\nimport androidx.compose.foundation.layout.weight\n', 1)
+          text = text.replace('''                onToggleFavorite = {
+                    val id = selected?.id ?: return@QrhDetailPane
+                    favorites = if (id in favorites) favorites - id else favorites + id
+                    QrhFavoriteStore.save(favorites)
+                },''', '''                onToggleFavorite = {
+                    selected?.id?.let { id ->
+                        favorites = if (id in favorites) favorites - id else favorites + id
+                        QrhFavoriteStore.save(favorites)
+                    }
+                },''', 1)
+          qrh.write_text(text)
+
           index = Path("preview/index.html")
           text = index.read_text()
           if 'assets/qrh.css' not in text:
