@@ -76,11 +76,21 @@ jobs:
       - name: Validate preview JavaScript
         run: node --check preview/assets/qrh.js && node --check preview/assets/app.js
       - name: Compile desktop Kotlin
-        run: chmod +x gradlew && ./gradlew compileKotlin --no-daemon
+        shell: bash
+        run: |
+          set -o pipefail
+          chmod +x gradlew
+          ./gradlew compileKotlin --no-daemon 2>&1 | tee kotlin-build.log
+      - name: Upload compiler diagnostics
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: kotlin-build-log
+          path: kotlin-build.log
       - name: Commit validated wiring
         shell: bash
         run: |
-          rm .github/workflows/finish-step2-qrh.yml
+          rm .github/workflows/finish-step2-qrh.yml kotlin-build.log
           git diff --check
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
