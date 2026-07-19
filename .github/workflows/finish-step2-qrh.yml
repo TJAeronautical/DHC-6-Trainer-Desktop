@@ -25,9 +25,8 @@ jobs:
           PY
           node --check preview/assets/qrh.js
           node --check preview/assets/app.js
-          chmod +x gradlew
           set +e
-          ./gradlew compileKotlin --no-daemon > build.log 2>&1
+          gradle compileKotlin --no-daemon > build.log 2>&1
           status=$?
           grep -E "(^e: |error:|Compilation error|What went wrong|FAILED)" build.log || tail -n 40 build.log
           exit $status
