@@ -274,15 +274,26 @@ function render() {
 }
 
 // ── Scale-to-fit — the 1440×900 stage transforms to fit any viewport ────────
+// After transform:scale, the browser still lays out the stage at its
+// pre-scale (1440×900) size, so the wrap must have its height forced to the
+// *scaled* height, otherwise it either wastes space (large scale) or the
+// stage spills past narrow viewports (small scale).
 function fitStage() {
   const stage = document.getElementById("stage");
   const wrap = document.getElementById("stageWrap");
   if (!stage || !wrap) return;
-  const available = wrap.clientWidth - 8;
+  // How much horizontal room does the wrap actually have?
+  const style = window.getComputedStyle(wrap);
+  const padL = parseFloat(style.paddingLeft) || 0;
+  const padR = parseFloat(style.paddingRight) || 0;
+  const padT = parseFloat(style.paddingTop) || 0;
+  const padB = parseFloat(style.paddingBottom) || 0;
+  const available = Math.min(wrap.clientWidth, window.innerWidth) - padL - padR;
   const scale = Math.min(1, available / 1440);
   stage.style.transform = `scale(${scale})`;
-  // Reserve vertical space equal to the scaled height so the footer sits right.
-  stage.style.marginBottom = `${900 * scale - 900}px`;
+  // Constrain the wrap's height to the visible (scaled) height of the stage
+  // so nothing after the wrap is pushed off-screen.
+  wrap.style.height = `${900 * scale + padT + padB}px`;
 }
 
 // ── Boot ────────────────────────────────────────────────────────────────────
