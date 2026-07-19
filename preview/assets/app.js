@@ -298,20 +298,27 @@ function fitStage() {
   const stage = document.getElementById("stage");
   const wrap = document.getElementById("stageWrap");
   if (!stage || !wrap) return;
-  // How much horizontal room does the wrap actually have?
+
   const style = window.getComputedStyle(wrap);
   const padL = parseFloat(style.paddingLeft) || 0;
   const padR = parseFloat(style.paddingRight) || 0;
   const padT = parseFloat(style.paddingTop) || 0;
   const padB = parseFloat(style.paddingBottom) || 0;
-  const available = Math.min(wrap.clientWidth, window.innerWidth) - padL - padR;
+  const available = Math.max(1, window.innerWidth - padL - padR);
   const scale = Math.min(1, available / 1440);
+  const visibleWidth = 1440 * scale;
+  const visibleHeight = 900 * scale;
+
+  wrap.style.position = "relative";
+  wrap.style.display = "block";
+  wrap.style.width = "100%";
+  wrap.style.height = `${visibleHeight + padT + padB}px`;
+  stage.style.position = "absolute";
+  stage.style.top = `${padT}px`;
+  stage.style.left = scale < 1 ? `${padL}px` : `calc(50% - ${visibleWidth / 2}px)`;
+  stage.style.margin = "0";
+  stage.style.transformOrigin = "top left";
   stage.style.transform = `scale(${scale})`;
-  stage.style.marginLeft = '0';
-  stage.style.marginRight = '0';
-  wrap.style.justifyContent = scale < 1 ? 'flex-start' : 'center';
-  wrap.style.height = `${900 * scale + padT + padB}px`;
-  wrap.style.width = '100%';
 }
 
 // ── Boot ────────────────────────────────────────────────────────────────────

@@ -163,7 +163,8 @@ a { color: var(--accent); text-decoration: none; }
   width: 100%;
   max-width: 100vw;
   padding: var(--sp-lg);
-  display: flex; justify-content: flex-start;
+  position: relative;
+  display: block;
   overflow: hidden;
 }
 .stage {
@@ -484,7 +485,3 @@ a { color: var(--accent); text-decoration: none; }
   .chrome-link span:not(.material-symbols-rounded) { display: none; }
 }
 
-@media (max-width: 900px) {
-  .stage-wrap { align-items: flex-start; justify-content: flex-start; }
-  .stage { transform-origin: top left; }
-}
