@@ -356,7 +356,7 @@ private fun MainShell(
                 DesktopSection.PROCEDURES -> DedicatedChecklistScreen(procedureSnapshot)
                 DesktopSection.QRH -> QrhScreen(procedureSnapshot)
                 DesktopSection.STUDY -> StudyScreen(flashcardSnapshot)
-                DesktopSection.MCCALLOUT -> MccCalloutScreen(procedureSnapshot)
+                DesktopSection.MCCALLOUT -> DedicatedMccCalloutScreen(procedureSnapshot)
                 DesktopSection.DRILL -> DrillScreen(flashcardSnapshot)
 
                 DesktopSection.COCKPIT -> CockpitScreen()
