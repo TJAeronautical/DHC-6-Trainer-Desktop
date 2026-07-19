@@ -264,17 +264,21 @@ function render() {
     renderDashboard();
   } else if (activeId === "qrh") {
     renderQrh();
+  } else if (activeId === "drill") {
+    renderDrill();
   } else {
     const section = SECTIONS.find(s => s.id === activeId);
     const stub = STUB_COPY[activeId] || { step: "LATER", desc: "Preview coming soon." };
     renderStub(section, stub.step, stub.desc);
   }
   document.getElementById("stage").scrollTop = 0;
-  document.querySelector(".chrome-step").textContent = activeId === "qrh"
-    ? "Step 2 · QRH (LIVE)"
-    : activeId === "dashboard"
-      ? "Step 1 · Foundation (LIVE)"
-      : `Preview: ${SECTIONS.find(s => s.id === activeId).title}`;
+  document.querySelector(".chrome-step").textContent = activeId === "drill"
+    ? "Step 5 · Drill (LIVE)"
+    : activeId === "qrh"
+      ? "Step 2 · QRH (LIVE)"
+      : activeId === "dashboard"
+        ? "Step 1 · Foundation (LIVE)"
+        : `Preview: ${SECTIONS.find(s => s.id === activeId).title}`;
 }
 
 // ── Scale-to-fit — the 1440×900 stage transforms to fit any viewport ────────
