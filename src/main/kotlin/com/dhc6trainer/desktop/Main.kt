@@ -42,6 +42,7 @@ import androidx.compose.material.icons.filled.Checklist
 import androidx.compose.material.icons.filled.Flight
 import androidx.compose.material.icons.filled.History
 import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.ChevronRight
 import androidx.compose.material.icons.automirrored.filled.MenuBook
 import androidx.compose.material.icons.filled.RecordVoiceOver
 import androidx.compose.material.icons.filled.Settings
@@ -383,7 +384,11 @@ private fun HeaderBar(title: String, subtitle: String) {
         }
         Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
             Badge("Offline $DesktopVersion", selected = false)
-            Badge(DesktopBuildInfo.BuildLabel, selected = true)
+            // Was: Badge(DesktopBuildInfo.BuildLabel, selected = true)
+            // BuildLabel reads "Upgrade build", which looks like a CTA even
+            // though Badge isn't clickable. Swapped to a static edition tag
+            // that matches the "Series 300" pill on the Dashboard hero.
+            Badge("Series 300", selected = true)
         }
     }
 }
@@ -904,11 +909,11 @@ private fun ChecklistItemRow(
                     fontSize = 12.sp,
                 )
             }
-            Text(
-                ">",
-                color = Dhc6DesktopColors.TextMuted,
-                fontSize = 22.sp,
-                fontWeight = FontWeight.Black
+            Icon(
+                imageVector = Icons.Filled.ChevronRight,
+                contentDescription = null,
+                tint = Dhc6DesktopColors.TextMuted,
+                modifier = Modifier.size(22.dp),
             )
         }
     }
