@@ -2,6 +2,8 @@ const DRILL_PREVIEW = {
   index: 0,
   score: 0,
   answered: null,
+  complete: false,
+  missed: [],
   started: Date.now(),
   questions: [
     { q: "What is the first action following an engine fire warning in flight?", answers: ["Power lever — IDLE", "Fuel lever — OFF", "Generator — OFF", "Propeller — FEATHER"], correct: 0, explanation: "Reduce power on the affected engine first, then continue the approved memory sequence." },
@@ -12,6 +14,17 @@ const DRILL_PREVIEW = {
 
 function renderDrill() {
   const shell = document.getElementById("mainShell");
+  if (DRILL_PREVIEW.complete) {
+    shell.replaceChildren(headerBar("Drill", "Session complete"), renderSessionResultPreview({
+      title: "Knowledge Drill", mode: "Drill", correct: DRILL_PREVIEW.score,
+      total: DRILL_PREVIEW.questions.length, elapsed: "00:36",
+      focus: DRILL_PREVIEW.missed,
+      onReview: () => { DRILL_PREVIEW.complete=false; DRILL_PREVIEW.index=0; DRILL_PREVIEW.score=0; DRILL_PREVIEW.answered=null; DRILL_PREVIEW.missed=[]; renderDrill(); },
+      onRetry: () => { DRILL_PREVIEW.complete=false; DRILL_PREVIEW.index=0; DRILL_PREVIEW.score=0; DRILL_PREVIEW.answered=null; DRILL_PREVIEW.missed=[]; DRILL_PREVIEW.started=Date.now(); renderDrill(); },
+      onHome: () => { location.hash="#/dashboard"; }
+    }));
+    return;
+  }
   const item = DRILL_PREVIEW.questions[DRILL_PREVIEW.index];
   const elapsed = Math.floor((Date.now() - DRILL_PREVIEW.started) / 1000);
   const labels = ["A", "B", "C", "D"];
@@ -25,7 +38,7 @@ function renderDrill() {
       onclick: () => {
         if (DRILL_PREVIEW.answered !== null) return;
         DRILL_PREVIEW.answered = i;
-        if (i === item.correct) DRILL_PREVIEW.score++;
+        if (i === item.correct) DRILL_PREVIEW.score++; else DRILL_PREVIEW.missed.push(item.q);
         renderDrill();
       },
     }, [el("span", { class: "drill-letter" }, labels[i]), el("strong", {}, answer)]);
@@ -45,10 +58,7 @@ function renderDrill() {
         DRILL_PREVIEW.index++;
         DRILL_PREVIEW.answered = null;
       } else {
-        DRILL_PREVIEW.index = 0;
-        DRILL_PREVIEW.score = 0;
-        DRILL_PREVIEW.answered = null;
-        DRILL_PREVIEW.started = Date.now();
+        DRILL_PREVIEW.complete = true;
       }
       renderDrill();
     } }, DRILL_PREVIEW.index < DRILL_PREVIEW.questions.length - 1 ? "NEXT QUESTION" : "RESTART DRILL"),
