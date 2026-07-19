@@ -23,7 +23,17 @@ import androidx.compose.material.Text
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AcUnit
+import androidx.compose.material.icons.filled.Bolt
+import androidx.compose.material.icons.filled.Compress
+import androidx.compose.material.icons.filled.ControlCamera
+import androidx.compose.material.icons.filled.LocalFireDepartment
+import androidx.compose.material.icons.filled.LocalGasStation
+import androidx.compose.material.icons.filled.MoreHoriz
+import androidx.compose.material.icons.filled.Warning
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -34,6 +44,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
@@ -46,20 +57,20 @@ private enum class QrhMode(val label: String) {
 
 private data class QrhGroup(
     val title: String,
-    val symbol: String,
+    val symbol: ImageVector,
     val accent: Color,
     val keywords: List<String>,
 )
 
 private val QrhGroups = listOf(
-    QrhGroup("Engine Fire", "F", Color(0xFFE53935), listOf("engine fire", "fire engine", "fire in flight")),
-    QrhGroup("Engine Failure", "!", Color(0xFFFF8A00), listOf("engine failure", "engine fail", "flameout", "single engine", "engine shutdown")),
-    QrhGroup("Fuel", "D", Color(0xFFF0B429), listOf("fuel", "boost pump", "crossfeed")),
-    QrhGroup("Electrical", "E", Color(0xFF247BFF), listOf("electrical", "generator", "battery", "bus", "inverter")),
-    QrhGroup("Flight Controls", "C", Color(0xFF19C3D6), listOf("flight control", "rudder", "aileron", "elevator", "flap", "trim")),
-    QrhGroup("Pressurization", "P", Color(0xFF9C6ADE), listOf("pressur", "cabin altitude", "decompression")),
-    QrhGroup("Ice & Rain", "I", Color(0xFF64C8FF), listOf("ice", "icing", "de-ice", "anti-ice", "rain", "windshield")),
-    QrhGroup("Miscellaneous", "M", Color(0xFF8FA7B5), emptyList()),
+    QrhGroup("Engine Fire", Icons.Filled.LocalFireDepartment, Color(0xFFE53935), listOf("engine fire", "fire engine", "fire in flight")),
+    QrhGroup("Engine Failure", Icons.Filled.Warning, Color(0xFFFF8A00), listOf("engine failure", "engine fail", "flameout", "single engine", "engine shutdown")),
+    QrhGroup("Fuel", Icons.Filled.LocalGasStation, Color(0xFFF0B429), listOf("fuel", "boost pump", "crossfeed")),
+    QrhGroup("Electrical", Icons.Filled.Bolt, Color(0xFF247BFF), listOf("electrical", "generator", "battery", "bus", "inverter")),
+    QrhGroup("Flight Controls", Icons.Filled.ControlCamera, Color(0xFF19C3D6), listOf("flight control", "rudder", "aileron", "elevator", "flap", "trim")),
+    QrhGroup("Pressurization", Icons.Filled.Compress, Color(0xFF9C6ADE), listOf("pressur", "cabin altitude", "decompression")),
+    QrhGroup("Ice & Rain", Icons.Filled.AcUnit, Color(0xFF64C8FF), listOf("ice", "icing", "de-ice", "anti-ice", "rain", "windshield")),
+    QrhGroup("Miscellaneous", Icons.Filled.MoreHoriz, Color(0xFF8FA7B5), emptyList()),
 )
 
 private fun qrhGroup(procedure: ProcedureSummary): QrhGroup {
@@ -227,7 +238,12 @@ private fun QrhSymbol(group: QrhGroup, size: Int = 42) {
         modifier = Modifier.size(size.dp).background(group.accent.copy(alpha = 0.18f), RoundedCornerShape(10.dp)),
         contentAlignment = Alignment.Center,
     ) {
-        Text(group.symbol, color = group.accent, fontWeight = FontWeight.Black, fontSize = if (size < 40) 14.sp else 17.sp)
+        Icon(
+            imageVector = group.symbol,
+            contentDescription = group.title,
+            tint = group.accent,
+            modifier = Modifier.size((if (size < 40) 18 else 22).dp),
+        )
     }
 }
 

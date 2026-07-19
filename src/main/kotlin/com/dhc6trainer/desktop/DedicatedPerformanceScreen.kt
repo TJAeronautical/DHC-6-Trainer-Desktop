@@ -35,8 +35,8 @@ internal fun DedicatedPerformanceScreen(assetSnapshot: DesktopAssetCatalogSnapsh
     val valid = elev != null && temp != null && mass != null && windValue != null && runwayFt != null &&
         elev in -1000..15000 && temp in -60..60 && mass in 5000..13000 && windValue in 0..40 && runwayFt in 500..15000
     val signedWind = when (windMode) { "HEADWIND" -> windValue ?: 0; "TAILWIND" -> -(windValue ?: 0); else -> 0 }
-    val takeoff = if (valid) PerformanceEngine.computeTakeoff(elev!!, temp!!, mass!!, signedWind, surface) else null
-    val landing = if (valid) PerformanceEngine.computeLanding(elev!!, temp!!, mass!!, signedWind, flaps) else null
+    val takeoff = if (valid) PerformanceEngine.computeTakeoff(elev, temp, mass, signedWind, surface) else null
+    val landing = if (valid) PerformanceEngine.computeLanding(elev, temp, mass, signedWind, flaps) else null
 
     Row(Modifier.fillMaxSize(), horizontalArrangement = Arrangement.spacedBy(18.dp)) {
         DetailCard(Modifier.width(430.dp)) {
@@ -78,11 +78,11 @@ internal fun DedicatedPerformanceScreen(assetSnapshot: DesktopAssetCatalogSnapsh
                 if (!valid) item { EmptyState("Check the inputs", "Results appear when all values are inside the supported ranges.") }
                 if (valid && phase == PerfPhase.TAKEOFF && takeoff != null) {
                     item { PerfResultGrid(listOf("GROUND ROLL" to "${"%,d".format(takeoff.groundRollFt)} FT", "TO 50 FT" to "${"%,d".format(takeoff.distanceTo50Ft)} FT", "VLOF / V1" to "${takeoff.vLofKt} KT", "V2" to "${takeoff.v2Kt} KT")) }
-                    item { PerfMargin(runwayFt!!, takeoff.distanceTo50Ft) }
+                    item { PerfMargin(runwayFt, takeoff.distanceTo50Ft) }
                 }
                 if (valid && phase == PerfPhase.LANDING && landing != null) {
                     item { PerfResultGrid(listOf("FROM 50 FT" to "${"%,d".format(landing.distanceFrom50Ft)} FT", "VREF" to "${landing.vRefKt} KT")) }
-                    item { PerfMargin(runwayFt!!, landing.distanceFrom50Ft) }
+                    item { PerfMargin(runwayFt, landing.distanceFrom50Ft) }
                 }
                 if (valid && phase == PerfPhase.CLIMB) item {
                     Card(shape = RoundedCornerShape(18.dp), border = BorderStroke(1.dp, Dhc6DesktopColors.Gold), colors = CardDefaults.cardColors(containerColor = Dhc6DesktopColors.Gold.copy(alpha = .08f))) {

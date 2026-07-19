@@ -42,7 +42,7 @@ import androidx.compose.material.icons.filled.Checklist
 import androidx.compose.material.icons.filled.Flight
 import androidx.compose.material.icons.filled.History
 import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.MenuBook
+import androidx.compose.material.icons.automirrored.filled.MenuBook
 import androidx.compose.material.icons.filled.RecordVoiceOver
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.Speed
@@ -92,7 +92,7 @@ private enum class DesktopSection(
 ) {
     DASHBOARD("Dashboard", "Training overview and quick launch", "H", Icons.Filled.Home),
     PROCEDURES("Checklists", "Full normal, abnormal and emergency procedures", "C", Icons.Filled.Checklist),
-    QRH("QRH", "Memory items and immediate-action recall", "Q", Icons.Filled.MenuBook),
+    QRH("QRH", "Memory items and immediate-action recall", "Q", Icons.AutoMirrored.Filled.MenuBook),
     STUDY("Flashcards", "Browse and review shared flashcard decks", "F", Icons.Filled.Style),
     DRILL("Drill", "Multiple choice A/B/C/D knowledge check", "D", Icons.Filled.Speed),
     MCCALLOUT("MCC Callout", "PF/PM crew callout trainer", "M", Icons.Filled.RecordVoiceOver),
@@ -469,7 +469,7 @@ private fun DashboardScreen(
                     title = "QRH",
                     subtitle = "Quick Reference\nHandbook",
                     accent = Dhc6DesktopColors.Red,
-                    iconVector = Icons.Filled.MenuBook,
+                    iconVector = Icons.AutoMirrored.Filled.MenuBook,
                     onClick = { onNavigate(DesktopSection.QRH) },
                     modifier = Modifier.weight(1f),
                 )
