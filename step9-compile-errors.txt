@@ -1,0 +1,1 @@
+e: file:///home/runner/work/DHC-6-Trainer-Desktop/DHC-6-Trainer-Desktop/src/main/kotlin/com/dhc6trainer/desktop/SessionCompleteScreen.kt:17:43 Cannot access 'val RowColumnParentData?.weight: Float': it is internal in file.
