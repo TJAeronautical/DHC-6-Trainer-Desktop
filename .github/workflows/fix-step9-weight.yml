@@ -1,0 +1,44 @@
+name: Repair Step 9 Compose Weight
+on:
+  pull_request:
+    branches: [main]
+    paths: [.github/workflows/fix-step9-weight.yml]
+permissions:
+  contents: write
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/step9-session-results
+          fetch-depth: 0
+      - name: Remove invalid weight import injection
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('.github/workflows/finish-step9-results.yml')
+          text = path.read_text()
+          old = """          if 'import androidx.compose.foundation.layout.weight' not in text:
+              text = text.replace('import androidx.compose.foundation.layout.widthIn\\n', 'import androidx.compose.foundation.layout.widthIn\\nimport androidx.compose.foundation.layout.weight\\n')
+          shared.write_text(text)
+"""
+          new = """          text = text.replace('import androidx.compose.foundation.layout.weight\\n', '')
+          shared.write_text(text)
+"""
+          if old not in text:
+              raise SystemExit('Weight import injection block not found')
+          path.write_text(text.replace(old, new, 1))
+          PY
+      - name: Remove temporary diagnostics
+        run: |
+          rm -f .github/workflows/fix-step9-weight.yml
+          rm -f .github/workflows/diagnose-step9.yml
+          rm -f step9-compile-errors.txt
+      - name: Commit repair
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add -A
+          git commit -m "Fix Step 9 Compose weight resolution"
+          git push origin agent/step9-session-results
