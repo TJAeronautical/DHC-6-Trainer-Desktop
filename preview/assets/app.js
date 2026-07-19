@@ -270,13 +270,17 @@ function render() {
     renderChecklists();
   } else if (activeId === "performance") {
     renderPerformance();
+  } else if (activeId === "mccallout") {
+    renderMcc();
   } else {
     const section = SECTIONS.find(s => s.id === activeId);
     const stub = STUB_COPY[activeId] || { step: "LATER", desc: "Preview coming soon." };
     renderStub(section, stub.step, stub.desc);
   }
   document.getElementById("stage").scrollTop = 0;
-  document.querySelector(".chrome-step").textContent = activeId === "performance"
+  document.querySelector(".chrome-step").textContent = activeId === "mccallout"
+    ? "Step 8 · MCC Callout (LIVE)"
+    : activeId === "performance"
     ? "Step 7 · Performance (LIVE)"
     : activeId === "procedures"
     ? "Step 6 · Checklists (LIVE)"
