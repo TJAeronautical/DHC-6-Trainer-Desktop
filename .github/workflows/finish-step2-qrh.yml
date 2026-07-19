@@ -26,13 +26,11 @@ jobs:
         run: |
           from pathlib import Path
           import re
-
           main = Path("src/main/kotlin/com/dhc6trainer/desktop/Main.kt")
           text = main.read_text()
           pattern = r'(@Composable\s+private fun QrhScreen\(snapshot: ProcedureLibrarySnapshot\)\s*\{)\s*ProceduresScreen\(snapshot, initialTab = ChecklistTab\.EMERGENCY\)\s*(\})'
           text, count = re.subn(pattern, r'\1\n    DedicatedQrhScreen(snapshot)\n\2', text, count=1)
-          if count != 1:
-              raise SystemExit(f"QRH fallback replacements: {count}")
+          if count != 1: raise SystemExit(f"QRH fallback replacements: {count}")
           main.write_text(text)
 
           qrh = Path("src/main/kotlin/com/dhc6trainer/desktop/DedicatedQrhScreen.kt")
@@ -65,13 +63,11 @@ jobs:
           if 'activeId === "qrh"' not in text:
               marker = '  } else {\n    const section = SECTIONS.find(s => s.id === activeId);'
               replacement = '  } else if (activeId === "qrh") {\n    renderQrh();\n  } else {\n    const section = SECTIONS.find(s => s.id === activeId);'
-              if marker not in text:
-                  raise SystemExit("Preview router marker not found")
+              if marker not in text: raise SystemExit("Preview router marker not found")
               text = text.replace(marker, replacement, 1)
           old = '  document.querySelector(".chrome-step").textContent = activeId === "dashboard"\n    ? "Step 1 · Foundation (LIVE)"\n    : `Preview: ${SECTIONS.find(s => s.id === activeId).title}`;'
           new = '  document.querySelector(".chrome-step").textContent = activeId === "qrh"\n    ? "Step 2 · QRH (LIVE)"\n    : activeId === "dashboard"\n      ? "Step 1 · Foundation (LIVE)"\n      : `Preview: ${SECTIONS.find(s => s.id === activeId).title}`;'
-          if old not in text:
-              raise SystemExit("Preview step marker not found")
+          if old not in text: raise SystemExit("Preview step marker not found")
           app.write_text(text.replace(old, new, 1))
       - name: Validate preview JavaScript
         run: node --check preview/assets/qrh.js && node --check preview/assets/app.js
@@ -81,12 +77,16 @@ jobs:
           set -o pipefail
           chmod +x gradlew
           ./gradlew compileKotlin --no-daemon 2>&1 | tee kotlin-build.log
-      - name: Upload compiler diagnostics
+      - name: Persist compiler diagnostics
         if: failure()
-        uses: actions/upload-artifact@v4
-        with:
-          name: kotlin-build-log
-          path: kotlin-build.log
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          grep -E "(^e: |error:|FAILED|What went wrong|Compilation error)" kotlin-build.log > kotlin-compile-errors.txt || tail -n 120 kotlin-build.log > kotlin-compile-errors.txt
+          git add kotlin-compile-errors.txt
+          git commit -m "Record Step 2 Kotlin compiler diagnostics"
+          git push origin HEAD:agent/step2-qrh
       - name: Commit validated wiring
         shell: bash
         run: |
