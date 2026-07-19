@@ -54,6 +54,8 @@ internal fun DedicatedDrillScreen(snapshot: FlashcardLibrarySnapshot) {
     var startMs by remember { mutableLongStateOf(System.currentTimeMillis()) }
     var elapsed by remember { mutableIntStateOf(0) }
     var recorded by remember { mutableStateOf(false) }
+    var completed by remember { mutableStateOf(false) }
+    var missedItems by remember { mutableStateOf(emptyList<String>()) }
 
     fun reset(deck: FlashcardDeckSummary? = selectedDeck) {
         selectedDeck = deck
@@ -64,10 +66,12 @@ internal fun DedicatedDrillScreen(snapshot: FlashcardLibrarySnapshot) {
         startMs = System.currentTimeMillis()
         elapsed = 0
         recorded = false
+        completed = false
+        missedItems = emptyList()
     }
 
-    LaunchedEffect(Unit) {
-        while (true) {
+    LaunchedEffect(startMs, completed) {
+        while (!completed) {
             delay(1_000)
             elapsed = ((System.currentTimeMillis() - startMs) / 1_000).toInt()
         }
@@ -88,6 +92,30 @@ internal fun DedicatedDrillScreen(snapshot: FlashcardLibrarySnapshot) {
             .toList()
         (listOf(answer) + distractors).shuffled()
     }
+
+    if (completed && selectedDeck != null) {
+    SessionCompleteScreen(
+        title = selectedDeck!!.deckName,
+        modeLabel = "Knowledge Drill",
+        correct = score,
+        total = cards.size,
+        elapsedSeconds = elapsed,
+        focusItems = missedItems,
+        onReview = {
+            completed = false
+            questionIndex = 0
+            selectedAnswer = null
+            score = 0
+            startMs = System.currentTimeMillis()
+            elapsed = 0
+            recorded = false
+            missedItems = emptyList()
+        },
+        onRetry = { reset(selectedDeck) },
+        onHome = { reset(null) },
+    )
+    return
+}
 
     Row(Modifier.fillMaxSize(), horizontalArrangement = Arrangement.spacedBy(18.dp)) {
         DrillDeckRail(snapshot, selectedDeck) { reset(it) }
@@ -139,6 +167,7 @@ internal fun DedicatedDrillScreen(snapshot: FlashcardLibrarySnapshot) {
                                         selectedAnswer = optionIndex
                                         val nextScore = score + if (option == correct) 1 else 0
                                         score = nextScore
+                                        if (option != correct) missedItems = missedItems + card.front.cleanDisplay()
                                         if (questionIndex == cards.lastIndex && !recorded) {
                                             DesktopProgressStore.record(
                                                 AttemptType.DRILL,
@@ -168,7 +197,7 @@ internal fun DedicatedDrillScreen(snapshot: FlashcardLibrarySnapshot) {
                                     if (questionIndex < cards.lastIndex) {
                                         questionIndex++
                                         selectedAnswer = null
-                                    } else reset(selectedDeck)
+                                    } else completed = true
                                 },
                                 colors = ButtonDefaults.buttonColors(containerColor = Dhc6DesktopColors.AccentStrong),
                             ) {
@@ -215,7 +244,7 @@ private fun DrillHeader(index: Int, total: Int, elapsed: Int, score: Int) {
         }
         Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
             DrillStat("TIME", "%02d:%02d".format(elapsed / 60, elapsed % 60))
-            DrillStat("SCORE", "$score/${index + if (index == 0) 0 else 0}")
+            DrillStat("SCORE", "$score/${index + 1}")
         }
     }
 }

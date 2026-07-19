@@ -658,73 +658,19 @@ private fun MccCompleteView(
     onTryAgain: () -> Unit,
     onHome: () -> Unit,
 ) {
-    val pct        = if (total > 0) (correct * 100 / total) else 0
-    val grade      = when { pct >= 90 -> "EXCELLENT"; pct >= 75 -> "GOOD JOB!"; pct >= 60 -> "KEEP PRACTISING"; else -> "REVIEW REQUIRED" }
-    val gradeColor = when { pct >= 90 -> Dhc6DesktopColors.Green; pct >= 75 -> Dhc6DesktopColors.Gold; else -> Dhc6DesktopColors.Red }
-    val timeFmt    = "%02d:%02d".format(elapsed / 60, elapsed % 60)
-
-    Column(
-        modifier = Modifier.fillMaxSize(),
-        verticalArrangement = Arrangement.spacedBy(20.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
-    ) {
-        Text("SESSION COMPLETE", color = Color.White, fontWeight = FontWeight.Black, fontSize = 30.sp)
-        Text(procedureTitle, color = Dhc6DesktopColors.TextSecondary, fontWeight = FontWeight.Bold, fontSize = 17.sp)
-
-        // â”€â”€ Score ring â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-        Box(contentAlignment = Alignment.Center, modifier = Modifier.size(190.dp)) {
-            Canvas(Modifier.size(190.dp)) {
-                val stroke = Stroke(width = 18.dp.toPx(), cap = StrokeCap.Round)
-                drawArc(color = Color(0xFF16273A), startAngle = -90f, sweepAngle = 360f, useCenter = false, style = stroke)
-                drawArc(color = gradeColor, startAngle = -90f, sweepAngle = 360f * (pct / 100f), useCenter = false, style = stroke)
-            }
-            Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                Text("$pct%", color = Color.White, fontWeight = FontWeight.Black, fontSize = 44.sp)
-                Text(grade,   color = gradeColor,  fontWeight = FontWeight.Black, fontSize = 13.sp)
-            }
-        }
-
-        // â”€â”€ Stats row â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-        Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
-            MccStat("$correct / $total", "Correct")
-            MccStat(timeFmt,             "Time")
-            MccStat("$prompts",          "Prompts Used")
-        }
-
-        // â”€â”€ Breakdown â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-        Card(
-            modifier = Modifier.fillMaxWidth(0.68f),
-            shape    = RoundedCornerShape(22.dp),
-            border   = BorderStroke(1.dp, Dhc6DesktopColors.Border),
-            colors   = CardDefaults.cardColors(containerColor = Dhc6DesktopColors.SurfaceDark),
-        ) {
-            Column(Modifier.padding(20.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
-                Text("PERFORMANCE BREAKDOWN", color = Dhc6DesktopColors.TextMuted, fontWeight = FontWeight.Black, fontSize = 11.sp)
-                MccBar("Accuracy",          (pct / 100f).coerceIn(0f, 1f),                "$pct%")
-                MccBar("Call Flow",         ((pct - 5).coerceAtLeast(0) / 100f),           "${(pct - 5).coerceAtLeast(0)}%")
-                MccBar("Crew Coordination", ((pct + 5).coerceAtMost(100) / 100f),          "${(pct + 5).coerceAtMost(100)}%")
-            }
-        }
-
-        // â”€â”€ Actions â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-        Row(horizontalArrangement = Arrangement.spacedBy(14.dp)) {
-            OutlinedButton(onClick = onReview,   modifier = Modifier.widthIn(min = 180.dp).height(50.dp)) {
-                Text("REVIEW SESSION", color = Color.White, fontWeight = FontWeight.Black)
-            }
-            Button(onClick = onTryAgain, modifier = Modifier.widthIn(min = 180.dp).height(50.dp),
-                colors = ButtonDefaults.buttonColors(containerColor = Dhc6DesktopColors.AccentStrong)) {
-                Text("TRY AGAIN", color = Color.White, fontWeight = FontWeight.Black)
-            }
-            OutlinedButton(onClick = onHome, modifier = Modifier.widthIn(min = 120.dp).height(50.dp)) {
-                Text("HOME", color = Dhc6DesktopColors.Accent, fontWeight = FontWeight.Black)
-            }
-        }
-    }
+    SessionCompleteScreen(
+        title = procedureTitle,
+        modeLabel = "MCC Callout",
+        correct = correct,
+        total = total,
+        elapsedSeconds = elapsed,
+        promptsUsed = prompts,
+        focusItems = if (prompts > 0) listOf("$prompts prompted or incorrect response${if (prompts == 1) "" else "s"} require review.") else emptyList(),
+        onReview = onReview,
+        onRetry = onTryAgain,
+        onHome = onHome,
+    )
 }
-
-// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-// Small helpers
-// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 @Composable
 private fun MccStat(value: String, label: String) {
