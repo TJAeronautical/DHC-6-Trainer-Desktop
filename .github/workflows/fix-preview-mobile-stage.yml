@@ -1,0 +1,67 @@
+name: Fix Preview Mobile Stage
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - .github/workflows/fix-preview-mobile-stage.yml
+permissions:
+  contents: write
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/preview-mobile-stage-fix
+          fetch-depth: 0
+      - name: Patch preview geometry and cache busting
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          css_path = Path('preview/assets/styles.css')
+          css = css_path.read_text()
+          css = css.replace(
+              'display: flex; justify-content: center;\n  overflow: hidden;',
+              'display: flex; justify-content: flex-start;\n  overflow: hidden;'
+          )
+          mobile = '''\n@media (max-width: 900px) {\n  .stage-wrap { align-items: flex-start; justify-content: flex-start; }\n  .stage { transform-origin: top left; }\n}\n'''
+          if 'align-items: flex-start; justify-content: flex-start' not in css:
+              css += mobile
+          css_path.write_text(css)
+
+          app_path = Path('preview/assets/app.js')
+          app = app_path.read_text()
+          old = '''  const scale = Math.min(1, available / 1440);\n  stage.style.transform = `scale(${scale})`;\n  // Constrain the wrap's height to the visible (scaled) height of the stage\n  // so nothing after the wrap is pushed off-screen.\n  wrap.style.height = `${900 * scale + padT + padB}px`;'''
+          new = '''  const scale = Math.min(1, available / 1440);\n  stage.style.transform = `scale(${scale})`;\n  stage.style.marginLeft = '0';\n  stage.style.marginRight = '0';\n  wrap.style.justifyContent = scale < 1 ? 'flex-start' : 'center';\n  wrap.style.height = `${900 * scale + padT + padB}px`;\n  wrap.style.width = '100%';'''
+          if old in app:
+              app = app.replace(old, new, 1)
+          elif "wrap.style.justifyContent = scale < 1 ? 'flex-start' : 'center';" not in app:
+              raise SystemExit('fitStage patch target not found')
+          app_path.write_text(app)
+
+          index_path = Path('preview/index.html')
+          html = index_path.read_text()
+          version = '20260719-mobilefix1'
+          for asset in ['styles.css','qrh.css','drill.css','checklists.css','performance.css','qrh.js','drill.js','checklists.js','performance.js','app.js']:
+              html = html.replace(f'assets/{asset}"', f'assets/{asset}?v={version}"')
+          index_path.write_text(html)
+          PY
+      - name: Validate JavaScript
+        run: node --check preview/assets/app.js
+      - name: Validate mobile geometry contract
+        shell: bash
+        run: |
+          grep -q "justifyContent = scale < 1 ? 'flex-start' : 'center'" preview/assets/app.js
+          grep -q "justify-content: flex-start" preview/assets/styles.css
+          grep -q "20260719-mobilefix1" preview/index.html
+      - name: Remove temporary workflow and commit
+        shell: bash
+        run: |
+          rm .github/workflows/fix-preview-mobile-stage.yml
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add preview/assets/styles.css preview/assets/app.js preview/index.html .github/workflows/fix-preview-mobile-stage.yml
+          git commit -m "Fix mobile preview stage alignment"
+          git push origin HEAD:agent/preview-mobile-stage-fix
