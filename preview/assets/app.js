@@ -272,6 +272,8 @@ function render() {
     renderPerformance();
   } else if (activeId === "mccallout") {
     renderMcc();
+  } else if (activeId === 'logbook') {
+    renderLogbook();
   } else {
     const section = SECTIONS.find(s => s.id === activeId);
     const stub = STUB_COPY[activeId] || { step: "LATER", desc: "Preview coming soon." };
@@ -288,7 +290,9 @@ function render() {
     ? "Step 5 · Drill (LIVE)"
     : activeId === "qrh"
       ? "Step 2 · QRH (LIVE)"
-      : activeId === "dashboard"
+      : activeId === "logbook"
+        ? "Step 10 · Debrief Logbook (LIVE)"
+        : activeId === "dashboard"
         ? "Step 1 · Foundation (LIVE)"
         : `Preview: ${SECTIONS.find(s => s.id === activeId).title}`;
 }
