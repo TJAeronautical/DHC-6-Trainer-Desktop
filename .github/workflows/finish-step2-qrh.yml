@@ -1,79 +1,33 @@
 name: Finish Step 2 QRH
-
 on:
   pull_request:
     branches: [main]
-    paths:
-      - .github/workflows/finish-step2-qrh.yml
-      - src/main/kotlin/com/dhc6trainer/desktop/DedicatedQrhScreen.kt
-      - preview/**
-
+    paths: [.github/workflows/finish-step2-qrh.yml]
 permissions:
-  contents: write
-
+  contents: read
 jobs:
-  finish:
+  validate:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: agent/step2-qrh
-          fetch-depth: 1
-          show-progress: false
-      - uses: actions/setup-java@v4
-        with:
-          distribution: temurin
-          java-version: "17"
-      - name: Wire dedicated QRH
-        shell: python
+      - name: Clone and validate
+        shell: bash
         run: |
+          git clone -q --depth 1 --branch agent/step2-qrh https://github.com/TJAeronautical/DHC-6-Trainer-Desktop.git repo
+          cd repo
+          python - <<'PY'
           from pathlib import Path
           import re
-          main = Path("src/main/kotlin/com/dhc6trainer/desktop/Main.kt")
-          text = main.read_text()
-          pattern = r'(@Composable\s+private fun QrhScreen\(snapshot: ProcedureLibrarySnapshot\)\s*\{)\s*ProceduresScreen\(snapshot, initialTab = ChecklistTab\.EMERGENCY\)\s*(\})'
-          text, count = re.subn(pattern, r'\1\n    DedicatedQrhScreen(snapshot)\n\2', text, count=1)
-          if count != 1: raise SystemExit(f"QRH fallback replacements: {count}")
-          main.write_text(text)
-
-          index = Path("preview/index.html")
-          text = index.read_text()
-          if 'assets/qrh.css' not in text:
-              text = text.replace('<link rel="stylesheet" href="assets/styles.css" />', '<link rel="stylesheet" href="assets/styles.css" />\n  <link rel="stylesheet" href="assets/qrh.css" />', 1)
-          if 'assets/qrh.js' not in text:
-              text = text.replace('<script src="assets/app.js"></script>', '<script src="assets/qrh.js"></script>\n  <script src="assets/app.js"></script>', 1)
-          text = re.sub(r'data-step="1">Step 1 · Foundation', 'data-step="2">Step 2 · QRH', text, count=1)
-          index.write_text(text)
-
-          app = Path("preview/assets/app.js")
-          text = app.read_text()
-          if 'activeId === "qrh"' not in text:
-              marker = '  } else {\n    const section = SECTIONS.find(s => s.id === activeId);'
-              replacement = '  } else if (activeId === "qrh") {\n    renderQrh();\n  } else {\n    const section = SECTIONS.find(s => s.id === activeId);'
-              if marker not in text: raise SystemExit("Preview router marker not found")
-              text = text.replace(marker, replacement, 1)
-          old = '  document.querySelector(".chrome-step").textContent = activeId === "dashboard"\n    ? "Step 1 · Foundation (LIVE)"\n    : `Preview: ${SECTIONS.find(s => s.id === activeId).title}`;'
-          new = '  document.querySelector(".chrome-step").textContent = activeId === "qrh"\n    ? "Step 2 · QRH (LIVE)"\n    : activeId === "dashboard"\n      ? "Step 1 · Foundation (LIVE)"\n      : `Preview: ${SECTIONS.find(s => s.id === activeId).title}`;'
-          if old not in text: raise SystemExit("Preview step marker not found")
-          app.write_text(text.replace(old, new, 1))
-      - name: Validate preview JavaScript
-        run: node --check preview/assets/qrh.js && node --check preview/assets/app.js
-      - name: Compile desktop Kotlin
-        shell: bash
-        run: |
-          set +e
+          p=Path('src/main/kotlin/com/dhc6trainer/desktop/Main.kt'); t=p.read_text()
+          t,n=re.subn(r'(@Composable\s+private fun QrhScreen\(snapshot: ProcedureLibrarySnapshot\)\s*\{)\s*ProceduresScreen\(snapshot, initialTab = ChecklistTab\.EMERGENCY\)\s*(\})',r'\1\n    DedicatedQrhScreen(snapshot)\n\2',t,count=1)
+          assert n==1; p.write_text(t)
+          p=Path('preview/index.html'); t=p.read_text().replace('<link rel="stylesheet" href="assets/styles.css" />','<link rel="stylesheet" href="assets/styles.css" />\n  <link rel="stylesheet" href="assets/qrh.css" />',1).replace('<script src="assets/app.js"></script>','<script src="assets/qrh.js"></script>\n  <script src="assets/app.js"></script>',1); p.write_text(t)
+          p=Path('preview/assets/app.js'); t=p.read_text(); t=t.replace('  } else {\n    const section = SECTIONS.find(s => s.id === activeId);','  } else if (activeId === "qrh") {\n    renderQrh();\n  } else {\n    const section = SECTIONS.find(s => s.id === activeId);',1); p.write_text(t)
+          PY
+          node --check preview/assets/qrh.js
+          node --check preview/assets/app.js
           chmod +x gradlew
-          ./gradlew compileKotlin --no-daemon > kotlin-build.log 2>&1
+          set +e
+          ./gradlew compileKotlin --no-daemon > build.log 2>&1
           status=$?
-          grep -E "(^e: |error:|Compilation error|What went wrong|FAILED)" kotlin-build.log || tail -n 60 kotlin-build.log
+          grep -E "(^e: |error:|Compilation error|What went wrong|FAILED)" build.log || tail -n 40 build.log
           exit $status
-      - name: Commit validated wiring
-        shell: bash
-        run: |
-          rm .github/workflows/finish-step2-qrh.yml kotlin-build.log
-          git diff --check
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A
-          git commit -m "Step 2: wire dedicated QRH and live preview"
-          git push origin HEAD:agent/step2-qrh
