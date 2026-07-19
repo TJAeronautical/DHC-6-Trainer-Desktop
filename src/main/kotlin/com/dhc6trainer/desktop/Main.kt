@@ -361,7 +361,7 @@ private fun MainShell(
 
                 DesktopSection.COCKPIT -> CockpitScreen()
                 DesktopSection.SYSTEMS -> SystemsLabScreen(assetSnapshot)
-                DesktopSection.PERFORMANCE -> PerformanceScreen(assetSnapshot)
+                DesktopSection.PERFORMANCE -> DedicatedPerformanceScreen(assetSnapshot)
                 DesktopSection.LOGBOOK -> LogbookScreen(onNavigate)
                 DesktopSection.INSTRUCTOR -> InstructorScreen(onNavigate)
                 DesktopSection.SETTINGS -> SettingsScreen(procedureSnapshot, flashcardSnapshot, assetSnapshot)
