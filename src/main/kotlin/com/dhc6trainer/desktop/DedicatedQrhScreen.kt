@@ -286,11 +286,11 @@ private fun QrhProcedureDetail(procedure: ProcedureSummary?, favorite: Boolean, 
 private fun QrhStep(step: ProcedureStep, accent: Color) {
     Row(Modifier.fillMaxWidth().padding(vertical = 10.dp), verticalAlignment = Alignment.CenterVertically) {
         Text("${step.number ?: "-"}", color = Dhc6DesktopColors.TextMuted, fontWeight = FontWeight.Bold, modifier = Modifier.width(28.dp))
-        Text(step.action, color = Color.White, fontWeight = FontWeight.SemiBold, fontSize = 14.sp, lineHeight = 20.sp, modifier = Modifier.weight(1f))
+        Text(step.action, color = Color.White, fontWeight = FontWeight.SemiBold, fontSize = 14.sp, lineHeight = 20.sp, modifier = Modifier.weight(2f))
         val reference = step.reference
         if (!reference.isNullOrBlank()) {
-            Text("......", color = Dhc6DesktopColors.BorderSoft, modifier = Modifier.padding(horizontal = 8.dp))
-            Text(reference.uppercase(), color = accent, fontWeight = FontWeight.Black, fontSize = 13.sp, textAlign = TextAlign.End, modifier = Modifier.widthIn(min = 70.dp))
+            Text("·".repeat(200), color = Dhc6DesktopColors.TextMuted, maxLines = 1, overflow = TextOverflow.Clip, modifier = Modifier.weight(1f).padding(horizontal = 8.dp))
+            Text(reference.uppercase(), color = accent, fontWeight = FontWeight.Black, fontSize = 13.sp, textAlign = TextAlign.End, modifier = Modifier.widthIn(min = 70.dp, max = 200.dp))
         }
     }
 }
