@@ -1,0 +1,57 @@
+name: Finish Step 6 Checklists
+on:
+  pull_request:
+    branches: [main]
+    paths: [.github/workflows/finish-step6-checklists.yml]
+permissions:
+  contents: write
+jobs:
+  finish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/step6-checklists
+          fetch-depth: 0
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Wire checklist screen and preview
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          p=Path('src/main/kotlin/com/dhc6trainer/desktop/Main.kt'); t=p.read_text()
+          t,n=re.subn(r'DesktopSection\.PROCEDURES -> ProceduresScreen\(procedureSnapshot\)', 'DesktopSection.PROCEDURES -> DedicatedChecklistScreen(procedureSnapshot)', t, count=1)
+          assert n==1 or 'DesktopSection.PROCEDURES -> DedicatedChecklistScreen(procedureSnapshot)' in t
+          p.write_text(t)
+          p=Path('preview/index.html'); t=p.read_text()
+          if 'assets/checklists.css' not in t: t=t.replace('<link rel="stylesheet" href="assets/drill.css" />','<link rel="stylesheet" href="assets/drill.css" />\n  <link rel="stylesheet" href="assets/checklists.css" />',1)
+          if 'assets/checklists.js' not in t: t=t.replace('<script src="assets/drill.js"></script>','<script src="assets/drill.js"></script>\n  <script src="assets/checklists.js"></script>',1)
+          p.write_text(t)
+          p=Path('preview/assets/app.js'); t=p.read_text()
+          if 'renderChecklists();' not in t:
+              t=t.replace('  } else if (activeId === "drill") {\n    renderDrill();','  } else if (activeId === "drill") {\n    renderDrill();\n  } else if (activeId === "procedures") {\n    renderChecklists();',1)
+          old='document.querySelector(".chrome-step").textContent = activeId === "drill"'
+          if old in t and 'Step 6 · Checklists (LIVE)' not in t:
+              t=t.replace(old,'document.querySelector(".chrome-step").textContent = activeId === "procedures"\n    ? "Step 6 · Checklists (LIVE)"\n    : activeId === "drill"',1)
+          p.write_text(t)
+          PY
+      - name: Validate preview JavaScript
+        run: |
+          node --check preview/assets/checklists.js
+          node --check preview/assets/app.js
+      - name: Compile desktop Kotlin
+        run: gradle compileKotlin --no-daemon
+      - name: Commit validated Step 6
+        shell: bash
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add src/main/kotlin/com/dhc6trainer/desktop/Main.kt preview/index.html preview/assets/app.js
+          if ! git diff --cached --quiet; then
+            git commit -m "Wire validated Step 6 checklists"
+            git push origin HEAD:agent/step6-checklists
+          fi

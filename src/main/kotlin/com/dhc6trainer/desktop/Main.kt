@@ -353,7 +353,7 @@ private fun MainShell(
 
             when (section) {
                 DesktopSection.DASHBOARD -> DashboardScreen(procedureSnapshot, flashcardSnapshot, assetSnapshot, onNavigate)
-                DesktopSection.PROCEDURES -> ProceduresScreen(procedureSnapshot)
+                DesktopSection.PROCEDURES -> DedicatedChecklistScreen(procedureSnapshot)
                 DesktopSection.QRH -> QrhScreen(procedureSnapshot)
                 DesktopSection.STUDY -> StudyScreen(flashcardSnapshot)
                 DesktopSection.MCCALLOUT -> MccCalloutScreen(procedureSnapshot)

@@ -266,13 +266,17 @@ function render() {
     renderQrh();
   } else if (activeId === "drill") {
     renderDrill();
+  } else if (activeId === "procedures") {
+    renderChecklists();
   } else {
     const section = SECTIONS.find(s => s.id === activeId);
     const stub = STUB_COPY[activeId] || { step: "LATER", desc: "Preview coming soon." };
     renderStub(section, stub.step, stub.desc);
   }
   document.getElementById("stage").scrollTop = 0;
-  document.querySelector(".chrome-step").textContent = activeId === "drill"
+  document.querySelector(".chrome-step").textContent = activeId === "procedures"
+    ? "Step 6 · Checklists (LIVE)"
+    : activeId === "drill"
     ? "Step 5 · Drill (LIVE)"
     : activeId === "qrh"
       ? "Step 2 · QRH (LIVE)"
