@@ -1,0 +1,38 @@
+name: Diagnose Step 9 Results
+on:
+  pull_request:
+    branches: [main]
+    paths: [.github/workflows/diagnose-step9.yml]
+permissions:
+  contents: read
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/step9-session-results
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Apply Step 9 patch script
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import textwrap
+          source = Path('.github/workflows/finish-step9-results.yml').read_text()
+          body = source.split("python - <<'PY'", 1)[1].split('\n          PY', 1)[0]
+          exec(textwrap.dedent(body), {})
+          PY
+      - name: Show compiler diagnostics
+        shell: bash
+        run: |
+          set +e
+          gradle compileKotlin --no-daemon > compile.log 2>&1
+          status=$?
+          if [ $status -ne 0 ]; then
+            grep -E "(^e:|error:|Unresolved reference|Cannot access|Type mismatch|Expecting)" compile.log | tail -80
+            exit $status
+          fi
+          echo "Kotlin compile passed"
