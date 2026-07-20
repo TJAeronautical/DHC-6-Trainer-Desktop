@@ -361,7 +361,7 @@ private fun MainShell(
                 DesktopSection.DRILL -> DrillScreen(flashcardSnapshot)
 
                 DesktopSection.COCKPIT -> CockpitScreen()
-                DesktopSection.SYSTEMS -> SystemsLabScreen(assetSnapshot)
+                DesktopSection.SYSTEMS -> DedicatedSystemsLabScreen(assetSnapshot)
                 DesktopSection.PERFORMANCE -> DedicatedPerformanceScreen(assetSnapshot)
                 DesktopSection.LOGBOOK -> DedicatedLogbookScreen(onStartMcc = { onNavigate(DesktopSection.MCCALLOUT) }, onStartDrill = { onNavigate(DesktopSection.DRILL) })
                 DesktopSection.INSTRUCTOR -> InstructorScreen(onNavigate)
