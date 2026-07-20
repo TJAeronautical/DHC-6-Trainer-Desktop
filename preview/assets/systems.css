@@ -1,0 +1,21 @@
+/* Step 11 — Systems Lab live preview */
+.systems-layout {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 390px 1fr;
+  gap: 16px;
+}
+.systems-rail,
+.systems-detail {
+  min-height: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  background: var(--bg);
+  overflow: hidden;
+}
+.systems-rail {
+  display: flex;
+  flex-direction: column;
+  background: transparent;
+ 
