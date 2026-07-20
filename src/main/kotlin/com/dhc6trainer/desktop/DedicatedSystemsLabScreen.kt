@@ -55,7 +55,9 @@ internal fun DedicatedSystemsLabScreen(assetSnapshot: DesktopAssetCatalogSnapsho
     var tab by remember { mutableStateOf(SystemsLabTab.OVERVIEW) }
 
     LaunchedEffect(assetSnapshot.systemGroups) {
-        if (selected !in assetSnapshot.systemGroups) selected = assetSnapshot.systemGroups.firstOrNull()
+        if (selected == null || selected !in assetSnapshot.systemGroups) {
+            selected = assetSnapshot.systemGroups.firstOrNull()
+        }
     }
 
     Row(Modifier.fillMaxSize(), horizontalArrangement = Arrangement.spacedBy(16.dp)) {
