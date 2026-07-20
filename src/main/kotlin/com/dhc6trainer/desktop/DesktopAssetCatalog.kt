@@ -205,12 +205,6 @@ internal object DesktopAssetCatalog {
             ),
         ),
         SystemAssetGroup(
-            name = "Flight controls",
-            family = "FlightControls",
-            description = "Cable/pulley primary controls, control surfaces, trim/servo tabs and hydraulic flap references.",
-            matchedAssets = matchAssets(paths, "flight_controls", "aileron", "elevator", "rudder", "trim"),
-        ),
-        SystemAssetGroup(
             name = "Fire protection",
             family = "Fire",
             description = "Detection, extinguishing, bottle/agent awareness and engine-fire QRH bridge.",

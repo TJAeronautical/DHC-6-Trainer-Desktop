@@ -274,6 +274,8 @@ function render() {
     renderMcc();
   } else if (activeId === 'logbook') {
     renderLogbook();
+  } else if (activeId === "systems") {
+    renderSystems();
   } else {
     const section = SECTIONS.find(s => s.id === activeId);
     const stub = STUB_COPY[activeId] || { step: "LATER", desc: "Preview coming soon." };
@@ -292,6 +294,8 @@ function render() {
       ? "Step 2 · QRH (LIVE)"
       : activeId === "logbook"
         ? "Step 10 · Debrief Logbook (LIVE)"
+        : activeId === "systems"
+        ? "Step 11 · Systems Lab (LIVE)"
         : activeId === "dashboard"
         ? "Step 1 · Foundation (LIVE)"
         : `Preview: ${SECTIONS.find(s => s.id === activeId).title}`;
