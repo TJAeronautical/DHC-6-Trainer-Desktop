@@ -46,6 +46,14 @@ import androidx.compose.ui.unit.sp
 
 private enum class ChecklistMode { NORMAL, NON_NORMAL }
 
+private fun checklistApplicability(procedure: ProcedureSummary): String? =
+    when (procedure.rawName) {
+        "Engine Failure Airborne, After VMC" ->
+            "Before completion of the AFTER TAKE-OFF checklist, with PROP AUTOFEATHER selected ON."
+        "Engine Failure During Flight" ->
+            "After completion of the AFTER TAKE-OFF checklist, with PROP AUTOFEATHER selected OFF."
+        else -> null
+    }
 @Composable
 internal fun DedicatedChecklistScreen(snapshot: ProcedureLibrarySnapshot) {
     var mode by remember { mutableStateOf(ChecklistMode.NORMAL) }
@@ -129,6 +137,7 @@ private fun ChecklistTabs(mode: ChecklistMode, snapshot: ProcedureLibrarySnapsho
 @Composable
 private fun ChecklistProcedureRow(procedure: ProcedureSummary, selected: Boolean, onClick: () -> Unit) {
     val accent = checklistAccent(procedure.category)
+    val displayStepCount = procedure.steps.withoutDuplicateVariantSteps().size
     Card(
         modifier = Modifier.fillMaxWidth().clickable(onClick = onClick),
         shape = RoundedCornerShape(16.dp),
@@ -145,7 +154,7 @@ private fun ChecklistProcedureRow(procedure: ProcedureSummary, selected: Boolean
             Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(4.dp)) {
                 Text(procedure.rawName.cleanDisplay(), color = Color.White, fontWeight = FontWeight.Black, fontSize = 15.sp, maxLines = 2, overflow = TextOverflow.Ellipsis)
                 Text(
-                    "${procedure.stepCount} items · ${procedure.context.cleanDisplay()}",
+                    "${displayStepCount} items \u00B7 ${procedure.context.cleanDisplay()}",
                     color = Dhc6DesktopColors.TextSecondary,
                     fontSize = 11.sp,
                     maxLines = 1,
@@ -170,24 +179,56 @@ private fun ChecklistProcedureDetail(procedure: ProcedureSummary?, modifier: Mod
             return@DetailCard
         }
         val accent = checklistAccent(procedure.category)
+        val displaySteps = procedure.steps.withoutDuplicateVariantSteps()
+        val applicability = checklistApplicability(procedure)
         Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
             CategoryPill(procedure.category)
             Spacer(Modifier.width(10.dp))
             Text(procedure.context.cleanDisplay().uppercase(), color = Dhc6DesktopColors.TextMuted, fontSize = 11.sp, fontWeight = FontWeight.Black)
             Spacer(Modifier.weight(1f))
-            Text("${procedure.stepCount} ITEMS", color = accent, fontSize = 11.sp, fontWeight = FontWeight.Black)
+            Text("${displaySteps.size} ITEMS", color = accent, fontSize = 11.sp, fontWeight = FontWeight.Black)
         }
         Spacer(Modifier.height(12.dp))
         Text(procedure.rawName.cleanDisplay(), color = Color.White, fontSize = 28.sp, lineHeight = 34.sp, fontWeight = FontWeight.Black)
         Text(
-            "${procedure.memoryCount} memory · ${procedure.flowCount} flow · ${procedure.variants.joinToString(" / ").cleanDisplay()}",
+            "${procedure.memoryCount} memory \u00B7 ${procedure.flowCount} flow \u00B7 ${procedure.variants.joinToString(" / ").cleanDisplay()}",
             color = Dhc6DesktopColors.TextSecondary,
             fontSize = 12.sp,
         )
+        if (applicability != null) {
+            Spacer(Modifier.height(12.dp))
+            Card(
+                modifier = Modifier.fillMaxWidth(),
+                shape = RoundedCornerShape(12.dp),
+                border = BorderStroke(1.dp, accent.copy(alpha = 0.55f)),
+                colors = CardDefaults.cardColors(
+                    containerColor = accent.copy(alpha = 0.10f),
+                ),
+            ) {
+                Column(
+                    Modifier.padding(horizontal = 14.dp, vertical = 10.dp),
+                    verticalArrangement = Arrangement.spacedBy(3.dp),
+                ) {
+                    Text(
+                        "APPLICABILITY",
+                        color = accent,
+                        fontWeight = FontWeight.Black,
+                        fontSize = 10.sp,
+                    )
+                    Text(
+                        applicability,
+                        color = Color.White,
+                        fontWeight = FontWeight.SemiBold,
+                        fontSize = 12.sp,
+                        lineHeight = 17.sp,
+                    )
+                }
+            }
+        }
         Spacer(Modifier.height(14.dp))
         HorizontalDivider(color = Dhc6DesktopColors.BorderSoft)
         LazyColumn(Modifier.fillMaxSize(), verticalArrangement = Arrangement.spacedBy(0.dp)) {
-            items(procedure.steps) { step -> ChecklistActionRow(step, accent) }
+            items(displaySteps) { step -> ChecklistActionRow(step, accent) }
             item {
                 Spacer(Modifier.height(14.dp))
                 Card(

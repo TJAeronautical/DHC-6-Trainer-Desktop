@@ -3,137 +3,153 @@
   "drillName": "Uncommanded Feathering [Airborne]",
   "category": "ABNORMAL",
   "context": "Airborne",
+  "sourceNote": "AFM-only training transcription from Viking Air PSM 1-63-1A Revision 53, Section 3.11.2, pages 3-36 to 3-37. The memory list contains only the first three immediate actions printed in bold. Troubleshooting is attempted only when the affected-engine operating parameters are within limits; otherwise, or if the troubleshooting actions do not resolve the problem, the affected engine is shut down. Crew-role fields are trainer UI assignments only; they are not approved PF/PM callouts or operator SOP. Verify applicability against the aircraft-specific AFM, amendments, supplements, and operator procedures.",
   "variants": {
     "LEGACY": {
-      "memory": [],
-      "flow": [
+      "memory": [
         {
           "stepNumber": 1,
-          "action": "Uncommanded Feathering.",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE",
+          "action": "Advance the unaffected engine power lever to the torque, T5, or NG limit, whichever is reached first; ensure its PROP lever is at MAX RPM (96% NP).",
+          "crewRole": "PF",
           "requiresConfirmation": false,
-          "reference": "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.11.2; PM_CALLOUT"
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.11.2, p. 3-36"
         },
         {
           "stepNumber": 2,
-          "action": "I have control, maintain flight path.",
+          "action": "Aircraft control — Adjust pitch attitude to maintain altitude; maintain directional control with rudder.",
           "crewRole": "PF",
-          "intent": "ANNOUNCE",
           "requiresConfirmation": false,
-          "reference": "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.11.2; PF_COMMAND"
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.11.2, p. 3-36"
         },
         {
           "stepNumber": 3,
-          "action": "Confirm condition and affected system.",
+          "action": "Power lever of affected engine — IDLE.",
           "crewRole": "PF",
-          "intent": "ANNOUNCE",
-          "requiresConfirmation": true,
-          "reference": "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.11.2; PF_COMMAND"
+          "requiresConfirmation": false,
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.11.2, p. 3-36"
+        }
+      ],
+      "flow": [
+        {
+          "stepNumber": 1,
+          "action": "Trim aircraft as required. Flaps may remain retracted or be extended to 10° if necessary.",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.11.2, p. 3-36"
+        },
+        {
+          "stepNumber": 2,
+          "action": "Compute and, if necessary, set Maximum Continuous Power on the operating engine.",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.11.2, p. 3-36"
+        },
+        {
+          "stepNumber": 3,
+          "action": "Operating parameters of affected engine — CHECK.",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.11.2, p. 3-36"
         },
         {
           "stepNumber": 4,
-          "action": "Condition confirmed, affected system identified.",
+          "action": "If affected-engine operating parameters are within limits, attempt to determine the cause: check the BETA light for the affected engine. If illuminated, complete the Steady Beta Light checklist, AFM 3.11.5.",
           "crewRole": "PM",
-          "intent": "ANNOUNCE",
-          "requiresConfirmation": true,
-          "reference": "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.11.2; PM_RESPONSE"
+          "requiresConfirmation": false,
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.11.2, pp. 3-36 to 3-37"
         },
         {
           "stepNumber": 5,
-          "action": "Monitor aircraft state, engine/system indications, terrain, traffic, and configuration.",
+          "action": "If the autofeather system is selected ON, as shown by the green autofeather SELECT light, turn the autofeather system OFF.",
           "crewRole": "PM",
-          "intent": "ANNOUNCE",
           "requiresConfirmation": false,
-          "reference": "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.11.2; PM_ACTION"
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.11.2, p. 3-37"
         },
         {
           "stepNumber": 6,
-          "action": "Uncommanded Feathering checklist.",
+          "action": "If affected-engine operating parameters are not within limits, or if the preceding actions do not resolve the problem, shut down the affected engine using Engine Shutdown in Flight, AFM 3.10.1.",
           "crewRole": "PM",
-          "intent": "ANNOUNCE",
           "requiresConfirmation": false,
-          "reference": "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.11.2; PM_RESPONSE"
-        },
-        {
-          "stepNumber": 7,
-          "action": "Uncommanded Feathering checklist complete.",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE",
-          "requiresConfirmation": false,
-          "reference": "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.11.2; PM_COMPLETION"
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.11.2, p. 3-37"
         }
       ]
     },
     "G950": {
-      "memory": [],
-      "flow": [
+      "memory": [
         {
           "stepNumber": 1,
-          "action": "Uncommanded Feathering.",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE",
+          "action": "Advance the unaffected engine power lever to the torque, T5, or NG limit, whichever is reached first; ensure its PROP lever is at MAX RPM (96% NP).",
+          "crewRole": "PF",
           "requiresConfirmation": false,
-          "reference": "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.11.2; PM_CALLOUT"
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.11.2, p. 3-36"
         },
         {
           "stepNumber": 2,
-          "action": "I have control, maintain flight path.",
+          "action": "Aircraft control — Adjust pitch attitude to maintain altitude; maintain directional control with rudder.",
           "crewRole": "PF",
-          "intent": "ANNOUNCE",
           "requiresConfirmation": false,
-          "reference": "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.11.2; PF_COMMAND"
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.11.2, p. 3-36"
         },
         {
           "stepNumber": 3,
-          "action": "Confirm condition and affected system.",
+          "action": "Power lever of affected engine — IDLE.",
           "crewRole": "PF",
-          "intent": "ANNOUNCE",
-          "requiresConfirmation": true,
-          "reference": "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.11.2; PF_COMMAND"
+          "requiresConfirmation": false,
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.11.2, p. 3-36"
+        }
+      ],
+      "flow": [
+        {
+          "stepNumber": 1,
+          "action": "Trim aircraft as required. Flaps may remain retracted or be extended to 10° if necessary.",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.11.2, p. 3-36"
+        },
+        {
+          "stepNumber": 2,
+          "action": "Compute and, if necessary, set Maximum Continuous Power on the operating engine.",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.11.2, p. 3-36"
+        },
+        {
+          "stepNumber": 3,
+          "action": "Operating parameters of affected engine — CHECK.",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.11.2, p. 3-36"
         },
         {
           "stepNumber": 4,
-          "action": "Condition confirmed, affected system identified.",
+          "action": "If affected-engine operating parameters are within limits, attempt to determine the cause: check the BETA light for the affected engine. If illuminated, complete the Steady Beta Light checklist, AFM 3.11.5.",
           "crewRole": "PM",
-          "intent": "ANNOUNCE",
-          "requiresConfirmation": true,
-          "reference": "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.11.2; PM_RESPONSE"
+          "requiresConfirmation": false,
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.11.2, pp. 3-36 to 3-37"
         },
         {
           "stepNumber": 5,
-          "action": "Monitor aircraft state, engine/system indications, terrain, traffic, and configuration.",
+          "action": "If the autofeather system is selected ON, as shown by the green autofeather SELECT light, turn the autofeather system OFF.",
           "crewRole": "PM",
-          "intent": "ANNOUNCE",
           "requiresConfirmation": false,
-          "reference": "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.11.2; PM_ACTION"
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.11.2, p. 3-37"
         },
         {
           "stepNumber": 6,
-          "action": "Uncommanded Feathering checklist.",
+          "action": "If affected-engine operating parameters are not within limits, or if the preceding actions do not resolve the problem, shut down the affected engine using Engine Shutdown in Flight, AFM 3.10.1.",
           "crewRole": "PM",
-          "intent": "ANNOUNCE",
           "requiresConfirmation": false,
-          "reference": "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.11.2; PM_RESPONSE"
-        },
-        {
-          "stepNumber": 7,
-          "action": "Uncommanded Feathering checklist complete.",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE",
-          "requiresConfirmation": false,
-          "reference": "DHC-6 Abnormal MCC PF/PM callout pack; Section 3.11.2; PM_COMPLETION"
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.11.2, p. 3-37"
         }
       ]
     }
   },
-  "sourceNote": "Procedure identity/category/order normalized from 'DHC-6 Full Drill Procedure Index Normal Split.xlsx'. Excel is the governing app display allow-list. Existing procedure steps preserved for later content review. Previous note: Generic MCC callout shell generated from procedure titles only. This is not an approved AFM/POH/QRH/checklist replacement. Curated to the DHC-6 Trainer Abnormal/Emergency procedure allow-list.",
   "phaseTag": "Airborne",
   "displayLabel": "Uncommanded Feathering [Airborne]",
   "sortOrder": 30,
   "sourceSection": "3.11.2",
   "procedureGroup": "Propeller Abnormalities",
   "manualSection": "Section 3",
-  "sequenceBasis": "User-approved working order",
+  "sequenceBasis": "Viking Air PSM 1-63-1A Revision 53",
   "normalSplit": null
 }

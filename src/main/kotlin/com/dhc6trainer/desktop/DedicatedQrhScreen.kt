@@ -18,6 +18,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Text
 import androidx.compose.material3.Card
@@ -81,6 +82,31 @@ private fun qrhGroup(procedure: ProcedureSummary): QrhGroup {
     return QrhGroups.dropLast(1).firstOrNull { group ->
         group.keywords.any { keyword -> keyword in text }
     } ?: QrhGroups.last()
+}
+
+private fun qrhApplicability(procedure: ProcedureSummary): String? = when (procedure.rawName) {
+    "Engine Failure Airborne, After VMC" ->
+        "Before completion of the AFTER TAKE-OFF checklist, with PROP AUTOFEATHER selected ON."
+    "Engine Failure During Flight" ->
+        "After completion of the AFTER TAKE-OFF checklist, with PROP AUTOFEATHER selected OFF."
+    else -> null
+}
+
+// Safe interim ordered presentation. The loader currently flattens memory first
+// and flow second. These counts preserve that approved order in the QRH while
+// clearly separating immediate actions from the checklist continuation.
+private fun qrhImmediateActionCount(procedure: ProcedureSummary): Int? = when (procedure.rawName) {
+    "Engine Failure Prior to Rotation" -> 2
+    "Engine Failure Airborne, Prior to VMC" -> 2
+    "Engine Failure Airborne, After VMC" -> 4
+    "Engine Failure During Flight" -> 5
+    "Engine Flameout" -> 0
+    "Engine Fire on Ground" -> 3
+    "Engine Fire in Flight" -> 2
+    "Total Electrical Failure" -> 0
+    "Uncommanded Feathering" -> 3
+    "One Engine Inoperative Landing" -> 0
+    else -> null
 }
 
 @Composable
@@ -228,7 +254,7 @@ private fun QrhItemRow(procedure: ProcedureSummary, selected: Boolean, favorite:
             QrhSymbol(group, 34)
             Column(Modifier.weight(1f)) {
                 Text(procedure.rawName, color = Color.White, fontWeight = FontWeight.Black, fontSize = 14.sp, maxLines = 2, overflow = TextOverflow.Ellipsis)
-                Text("${procedure.stepCount} items - ${group.title}", color = Dhc6DesktopColors.TextSecondary, fontSize = 11.sp)
+                Text("${procedure.steps.withoutDuplicateVariantSteps().size} items - ${group.title}", color = Dhc6DesktopColors.TextSecondary, fontSize = 11.sp)
             }
             if (favorite) Text("*", color = Dhc6DesktopColors.Gold, fontSize = 22.sp, fontWeight = FontWeight.Black)
         }
@@ -262,6 +288,10 @@ private fun QrhProcedureDetail(procedure: ProcedureSummary?, favorite: Boolean, 
             Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) { QrhEmpty("Select a QRH category or procedure") }
         } else {
             val group = qrhGroup(procedure)
+            val applicability = qrhApplicability(procedure)
+            val orderedSteps = procedure.steps.withoutDuplicateVariantSteps()
+            val immediateActionCount = qrhImmediateActionCount(procedure)
+            val splitIndex = immediateActionCount?.coerceIn(0, orderedSteps.size)
             Column(Modifier.fillMaxSize().padding(20.dp)) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Text(group.title.uppercase(), color = group.accent, fontWeight = FontWeight.Black, fontSize = 11.sp, modifier = Modifier.weight(1f))
@@ -275,6 +305,33 @@ private fun QrhProcedureDetail(procedure: ProcedureSummary?, favorite: Boolean, 
                 Spacer(Modifier.height(8.dp))
                 Text(procedure.rawName, color = Color.White, fontSize = 25.sp, lineHeight = 30.sp, fontWeight = FontWeight.Black)
                 Text("QUICK REFERENCE PROCEDURE", color = Dhc6DesktopColors.TextMuted, fontSize = 11.sp, fontWeight = FontWeight.Black)
+
+                if (applicability != null) {
+                    Spacer(Modifier.height(12.dp))
+                    Card(
+                        modifier = Modifier.fillMaxWidth(),
+                        shape = RoundedCornerShape(12.dp),
+                        border = BorderStroke(1.dp, group.accent.copy(alpha = 0.55f)),
+                        colors = CardDefaults.cardColors(containerColor = group.accent.copy(alpha = 0.10f)),
+                    ) {
+                        Column(Modifier.padding(horizontal = 14.dp, vertical = 11.dp)) {
+                            Text(
+                                "APPLICABILITY",
+                                color = group.accent,
+                                fontWeight = FontWeight.Black,
+                                fontSize = 11.sp,
+                            )
+                            Spacer(Modifier.height(3.dp))
+                            Text(
+                                applicability,
+                                color = Color.White,
+                                fontWeight = FontWeight.SemiBold,
+                                fontSize = 13.sp,
+                                lineHeight = 18.sp,
+                            )
+                        }
+                    }
+                }
 
                 // ── Placeholder warning ──────────────────────────────────
                 // When the underlying JSON's sourceNote flags this procedure
@@ -323,7 +380,61 @@ private fun QrhProcedureDetail(procedure: ProcedureSummary?, favorite: Boolean, 
                 Spacer(Modifier.height(13.dp))
                 HorizontalDivider(color = Dhc6DesktopColors.BorderSoft)
                 LazyColumn(Modifier.fillMaxSize(), contentPadding = PaddingValues(start = 0.dp, top = 8.dp, end = 0.dp, bottom = 24.dp)) {
-                    items(procedure.steps) { step -> QrhStep(step, group.accent) }
+                    when {
+                        splitIndex == null -> {
+                            itemsIndexed(orderedSteps) { index, step ->
+                                QrhStep(step, step.number ?: index + 1, group.accent)
+                            }
+                        }
+                        splitIndex == 0 -> {
+                            item {
+                                Text(
+                                    "CHECKLIST PROCEDURE",
+                                    color = group.accent,
+                                    fontWeight = FontWeight.Black,
+                                    fontSize = 11.sp,
+                                    modifier = Modifier.fillMaxWidth().padding(top = 10.dp, bottom = 3.dp),
+                                )
+                            }
+                            itemsIndexed(orderedSteps) { index, step ->
+                                QrhStep(step, index + 1, group.accent)
+                            }
+                        }
+                        else -> {
+                            item {
+                                Text(
+                                    "IMMEDIATE ACTIONS",
+                                    color = group.accent,
+                                    fontWeight = FontWeight.Black,
+                                    fontSize = 11.sp,
+                                    modifier = Modifier.fillMaxWidth().padding(top = 10.dp, bottom = 3.dp),
+                                )
+                            }
+                            val immediateSteps = orderedSteps.take(splitIndex)
+                            val continuationSteps = orderedSteps.drop(splitIndex)
+                            itemsIndexed(immediateSteps) { index, step ->
+                                QrhStep(step, index + 1, group.accent)
+                            }
+                            if (continuationSteps.isNotEmpty()) {
+                                item {
+                                    HorizontalDivider(
+                                        color = Dhc6DesktopColors.BorderSoft,
+                                        modifier = Modifier.padding(top = 10.dp, bottom = 12.dp),
+                                    )
+                                    Text(
+                                        "CHECKLIST CONTINUATION",
+                                        color = group.accent,
+                                        fontWeight = FontWeight.Black,
+                                        fontSize = 11.sp,
+                                        modifier = Modifier.fillMaxWidth().padding(bottom = 3.dp),
+                                    )
+                                }
+                                itemsIndexed(continuationSteps) { index, step ->
+                                    QrhStep(step, splitIndex + index + 1, group.accent)
+                                }
+                            }
+                        }
+                    }
                     item {
                         Spacer(Modifier.height(10.dp))
                         Text("Training reference only. Use the approved AFM/QRH and operator procedures for operational use.", color = Dhc6DesktopColors.TextMuted, fontSize = 12.sp, lineHeight = 17.sp)
@@ -335,9 +446,9 @@ private fun QrhProcedureDetail(procedure: ProcedureSummary?, favorite: Boolean, 
 }
 
 @Composable
-private fun QrhStep(step: ProcedureStep, accent: Color) {
+private fun QrhStep(step: ProcedureStep, displayNumber: Int, accent: Color) {
     Row(Modifier.fillMaxWidth().padding(vertical = 10.dp), verticalAlignment = Alignment.CenterVertically) {
-        Text("${step.number ?: "-"}", color = Dhc6DesktopColors.TextMuted, fontWeight = FontWeight.Bold, modifier = Modifier.width(28.dp))
+        Text("$displayNumber", color = Dhc6DesktopColors.TextMuted, fontWeight = FontWeight.Bold, modifier = Modifier.width(28.dp))
         Text(step.action, color = Color.White, fontWeight = FontWeight.SemiBold, fontSize = 14.sp, lineHeight = 20.sp, modifier = Modifier.weight(2f))
         val reference = step.reference
         if (!reference.isNullOrBlank()) {

@@ -3,225 +3,57 @@
   "drillName": "Engine Flameout [Airborne]",
   "category": "EMERGENCY",
   "context": "Airborne",
-  "sourceNote": "Authored from POH/AFM PSM 1-63-1A Revision 53, Section 3.10.4 (Engine Flameout). The POH treats Engine Flameout as a short diagnostic/routing procedure that delegates to either 'Engine Failure During Flight' (POH 3.3.4, already implemented as engine_failure_during_flight.json) or 'Normal Airstart' (POH 3.3.5) depending on whether the flameout cause is correctable. Correctable causes cited by the POH: improper fuel management, or failure to extend intake deflectors in visible moisture at temperatures of +5°C or less. This procedure ONLY covers the identification-and-route phase. Once routed, the crew runs the appropriate downstream procedure. FIRST-PASS DRAFT — needs SME review.",
+  "sourceNote": "AFM-only training transcription from Viking Air PSM 1-63-1A Revision 53, Section 3.10.4, page 3-34. This subsection contains no bold memory actions. An engine flameout is first handled using Engine Failure During Flight; a normal airstart is considered only after a correctable cause is corrected. Crew-role fields are trainer UI assignments only; they are not approved PF/PM callouts or operator SOP. Verify applicability against the aircraft-specific AFM, amendments, supplements, and operator procedures.",
   "variants": {
     "LEGACY": {
-      "memory": [
-        {
-          "stepNumber": 1,
-          "action": "ENGINE FLAMEOUT L/R — sudden loss of thrust, engine instruments similar to normal shutdown",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE",
-          "requiresConfirmation": false,
-          "reference": "POH/AFM Section 3.10.4"
-        },
-        {
-          "stepNumber": 2,
-          "action": "CONFIRMED L/R FLAMEOUT — I have control, maintaining flight path, asymmetric thrust identified",
-          "crewRole": "PF",
-          "intent": "ANNOUNCE",
-          "requiresConfirmation": false,
-          "reference": "POH/AFM Section 3.10.4"
-        },
-        {
-          "stepNumber": 3,
-          "action": "POWER (UNAFFECTED ENGINE) — SET as required to arrest yaw and hold pitch",
-          "crewRole": "PF",
-          "intent": "ANNOUNCE_AND_DO",
-          "requiresConfirmation": false,
-          "reference": "POH/AFM Section 3.10.4; standard OEI handling"
-        }
-      ],
+      "memory": [],
       "flow": [
         {
           "stepNumber": 1,
-          "action": "ENGINE FLAMEOUT L/R — thrust loss confirmed, engine gauges show flame-out signature (Ng decay, T5 falling, torque zero, oil pressure falling toward idle)",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE_AND_DO",
+          "action": "Complete the Engine Failure During Flight checklist, AFM 3.3.4.",
+          "crewRole": "PF",
           "requiresConfirmation": false,
-          "reference": "POH/AFM Section 3.10.4"
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.10.4, p. 3-34"
         },
         {
           "stepNumber": 2,
-          "action": "CONFIRMED — I have control, maintaining flight path, aircraft trimmed for asymmetric thrust",
-          "crewRole": "PF",
-          "intent": "ANNOUNCE_AND_DO",
+          "action": "If the cause of the flameout can be corrected, correct it. Examples include improper fuel management or failure to extend the intake deflectors in visible moisture at +5°C or less.",
+          "crewRole": "PM",
           "requiresConfirmation": false,
-          "reference": "POH/AFM Section 3.10.4"
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.10.4, p. 3-34"
         },
         {
           "stepNumber": 3,
-          "action": "IDENTIFY CAUSE — was flameout preceded by [FUEL MANAGEMENT ERROR / INTAKE DEFLECTORS NOT EXTENDED IN VISIBLE MOISTURE ≤+5°C / OTHER CAUSE]?",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE_AND_DO",
-          "requiresConfirmation": true,
-          "reference": "POH/AFM Section 3.10.4"
-        },
-        {
-          "stepNumber": 4,
-          "action": "CAUSE REPORTED — [fuel management corrected / intake deflectors now extended / cause unknown or not correctable]",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE_AND_DO",
-          "requiresConfirmation": true,
-          "reference": "POH/AFM Section 3.10.4"
-        },
-        {
-          "stepNumber": 5,
-          "action": "DECISION — IF CAUSE CORRECTABLE: airstart per POH 3.3.5. IF CAUSE NOT CORRECTABLE OR UNKNOWN: shut down per POH 3.3.4.",
+          "action": "After correcting the cause, a normal airstart may be attempted using AFM 3.3.5.",
           "crewRole": "PF",
-          "intent": "ANNOUNCE",
-          "requiresConfirmation": true,
-          "reference": "POH/AFM Section 3.10.4"
-        },
-        {
-          "stepNumber": 6,
-          "action": "DECISION REPORTED — proceeding with [NORMAL AIRSTART / ENGINE SHUTDOWN IN FLIGHT / ENGINE FAILURE DURING FLIGHT]",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE_AND_DO",
-          "requiresConfirmation": true,
-          "reference": "POH/AFM Section 3.10.4"
-        },
-        {
-          "stepNumber": 7,
-          "action": "IF ATTEMPTING AIRSTART — run NORMAL AIRSTART checklist per POH 3.3.5. If unsuccessful, revert to ENGINE FAILURE DURING FLIGHT (POH 3.3.4).",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE",
           "requiresConfirmation": false,
-          "reference": "POH/AFM Section 3.10.4; Section 3.3.5"
-        },
-        {
-          "stepNumber": 8,
-          "action": "IF NOT ATTEMPTING AIRSTART — run ENGINE FAILURE DURING FLIGHT checklist per POH 3.3.4 (feather, secure, cool, monitor).",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE",
-          "requiresConfirmation": false,
-          "reference": "POH/AFM Section 3.10.4; Section 3.3.4"
-        },
-        {
-          "stepNumber": 9,
-          "action": "ATC ADVISED — [CALLSIGN] declaring PAN PAN (engine flameout, attempting airstart) or MAYDAY (unable to restart), request routing/priority",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE_AND_DO",
-          "requiresConfirmation": false,
-          "reference": "POH/AFM Section 3.10.4; ICAO Annex 10"
-        },
-        {
-          "stepNumber": 10,
-          "action": "ENGINE FLAMEOUT CHECKLIST COMPLETE — transitioning to downstream checklist ({airstart or engine failure during flight})",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE",
-          "requiresConfirmation": false,
-          "reference": "POH/AFM Section 3.10.4"
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.10.4, p. 3-34"
         }
       ]
     },
     "G950": {
-      "memory": [
-        {
-          "stepNumber": 1,
-          "action": "ENGINE FLAMEOUT L/R — sudden loss of thrust, EIS engine indications show shutdown signature",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE",
-          "requiresConfirmation": false,
-          "reference": "POH/AFM Section 3.10.4; HBFO-002 QRH G950"
-        },
-        {
-          "stepNumber": 2,
-          "action": "CONFIRMED L/R FLAMEOUT — I have control, maintaining flight path, asymmetric thrust identified",
-          "crewRole": "PF",
-          "intent": "ANNOUNCE",
-          "requiresConfirmation": false,
-          "reference": "POH/AFM Section 3.10.4"
-        },
-        {
-          "stepNumber": 3,
-          "action": "POWER (UNAFFECTED ENGINE) — SET as required to arrest yaw and hold pitch",
-          "crewRole": "PF",
-          "intent": "ANNOUNCE_AND_DO",
-          "requiresConfirmation": false,
-          "reference": "POH/AFM Section 3.10.4; standard OEI handling"
-        }
-      ],
+      "memory": [],
       "flow": [
         {
           "stepNumber": 1,
-          "action": "ENGINE FLAMEOUT L/R — thrust loss confirmed, EIS engine gauges show flame-out signature (Ng decay, T5 falling, torque zero, oil pressure falling toward idle)",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE_AND_DO",
+          "action": "Complete the Engine Failure During Flight checklist, AFM 3.3.4.",
+          "crewRole": "PF",
           "requiresConfirmation": false,
-          "reference": "POH/AFM Section 3.10.4"
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.10.4, p. 3-34"
         },
         {
           "stepNumber": 2,
-          "action": "CONFIRMED — I have control, maintaining flight path, aircraft trimmed for asymmetric thrust",
-          "crewRole": "PF",
-          "intent": "ANNOUNCE_AND_DO",
+          "action": "If the cause of the flameout can be corrected, correct it. Examples include improper fuel management or failure to extend the intake deflectors in visible moisture at +5°C or less.",
+          "crewRole": "PM",
           "requiresConfirmation": false,
-          "reference": "POH/AFM Section 3.10.4"
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.10.4, p. 3-34"
         },
         {
           "stepNumber": 3,
-          "action": "IDENTIFY CAUSE — was flameout preceded by [FUEL MANAGEMENT ERROR / INTAKE DEFLECTORS NOT EXTENDED IN VISIBLE MOISTURE ≤+5°C / OTHER CAUSE]?",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE_AND_DO",
-          "requiresConfirmation": true,
-          "reference": "POH/AFM Section 3.10.4"
-        },
-        {
-          "stepNumber": 4,
-          "action": "CAUSE REPORTED — [fuel management corrected / intake deflectors now extended / cause unknown or not correctable]",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE_AND_DO",
-          "requiresConfirmation": true,
-          "reference": "POH/AFM Section 3.10.4"
-        },
-        {
-          "stepNumber": 5,
-          "action": "DECISION — IF CAUSE CORRECTABLE: airstart per POH 3.3.5. IF CAUSE NOT CORRECTABLE OR UNKNOWN: shut down per POH 3.3.4.",
+          "action": "After correcting the cause, a normal airstart may be attempted using AFM 3.3.5.",
           "crewRole": "PF",
-          "intent": "ANNOUNCE",
-          "requiresConfirmation": true,
-          "reference": "POH/AFM Section 3.10.4"
-        },
-        {
-          "stepNumber": 6,
-          "action": "DECISION REPORTED — proceeding with [NORMAL AIRSTART / ENGINE SHUTDOWN IN FLIGHT / ENGINE FAILURE DURING FLIGHT]",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE_AND_DO",
-          "requiresConfirmation": true,
-          "reference": "POH/AFM Section 3.10.4"
-        },
-        {
-          "stepNumber": 7,
-          "action": "IF ATTEMPTING AIRSTART — run NORMAL AIRSTART checklist per POH 3.3.5. G950 EIS airstart indications confirmed. If unsuccessful, revert to ENGINE FAILURE DURING FLIGHT (POH 3.3.4).",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE",
           "requiresConfirmation": false,
-          "reference": "POH/AFM Section 3.10.4; Section 3.3.5"
-        },
-        {
-          "stepNumber": 8,
-          "action": "IF NOT ATTEMPTING AIRSTART — run ENGINE FAILURE DURING FLIGHT checklist per POH 3.3.4 (feather, secure, cool, monitor).",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE",
-          "requiresConfirmation": false,
-          "reference": "POH/AFM Section 3.10.4; Section 3.3.4"
-        },
-        {
-          "stepNumber": 9,
-          "action": "ATC ADVISED — [CALLSIGN] declaring PAN PAN (engine flameout, attempting airstart) or MAYDAY (unable to restart), request routing/priority",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE_AND_DO",
-          "requiresConfirmation": false,
-          "reference": "POH/AFM Section 3.10.4; ICAO Annex 10"
-        },
-        {
-          "stepNumber": 10,
-          "action": "ENGINE FLAMEOUT CHECKLIST COMPLETE — transitioning to downstream checklist ({airstart or engine failure during flight})",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE",
-          "requiresConfirmation": false,
-          "reference": "POH/AFM Section 3.10.4"
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.10.4, p. 3-34"
         }
       ]
     }
@@ -232,6 +64,6 @@
   "sourceSection": "3.10.4",
   "procedureGroup": "Engine",
   "manualSection": "Section 3",
-  "sequenceBasis": "POH PSM 1-63-1A Revision 53, Section 3.10.4 authoring pass",
+  "sequenceBasis": "PSM 1-63-1A Revision 53, Section 3.10.4",
   "normalSplit": null
 }

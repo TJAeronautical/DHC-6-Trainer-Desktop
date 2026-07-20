@@ -3,641 +3,155 @@
   "drillName": "Total Electrical Failure [Airborne]",
   "category": "EMERGENCY",
   "context": "Airborne",
-  "sourceNote": "Authored from POH/AFM PSM 1-63-1A Revision 53, Section 3.12.3 (Total Electrical Failure). 10 POH steps translated into PF/PM challenge-response MCC callout format matching engine_fire_in_flight schema. All electrical actions are memory items because a total electrical failure removes panel lighting, EFB power, and QRH backlighting — the crew cannot rely on QRH access during initial recovery. Post-memory flow includes CAS acknowledgement, ATC advisory, land-as-soon-as-practical decision. Reviewed against Viking POH copyright provision allowing DHC-6 training material excerpts. FIRST-PASS DRAFT — needs SME review before merge.",
+  "sourceNote": "AFM-only training transcription from Viking Air PSM 1-63-1A Revision 53, Section 3.12.3, page 3-41. This subsection contains no bold memory actions. The procedure is configuration-sensitive at the reverse-current circuit-breaker step, which applies only pre Mod 6/1651. Crew-role fields are trainer UI assignments only; they are not approved PF/PM callouts or operator SOP. Verify applicability against the aircraft-specific AFM, amendments, supplements, and operator procedures.",
   "variants": {
     "LEGACY": {
-      "memory": [
-        {
-          "stepNumber": 1,
-          "action": "TOTAL ELECTRICAL FAILURE",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE",
-          "requiresConfirmation": false,
-          "reference": "POH/AFM Section 3.12.3"
-        },
-        {
-          "stepNumber": 2,
-          "action": "CONFIRMED — INITIATING MEMORY ITEMS, MAINTAINING FLIGHT PATH",
-          "crewRole": "PF",
-          "intent": "ANNOUNCE",
-          "requiresConfirmation": false,
-          "reference": "POH/AFM Section 3.12.3"
-        },
-        {
-          "stepNumber": 3,
-          "action": "CONFIRM BUS TIE SWITCH — OPEN",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE",
-          "requiresConfirmation": true,
-          "reference": "POH/AFM Section 3.12.3, step 1"
-        },
-        {
-          "stepNumber": 4,
-          "action": "CONFIRMED",
-          "crewRole": "PF",
-          "intent": "ANNOUNCE",
-          "requiresConfirmation": false,
-          "reference": "POH/AFM Section 3.12.3, step 1"
-        },
-        {
-          "stepNumber": 5,
-          "action": "OPEN",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE_AND_DO",
-          "requiresConfirmation": false,
-          "reference": "POH/AFM Section 3.12.3, step 1"
-        },
-        {
-          "stepNumber": 6,
-          "action": "CONFIRM BOTH GENERATOR SWITCHES — OFF",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE",
-          "requiresConfirmation": true,
-          "reference": "POH/AFM Section 3.12.3, step 2"
-        },
-        {
-          "stepNumber": 7,
-          "action": "CONFIRMED",
-          "crewRole": "PF",
-          "intent": "ANNOUNCE",
-          "requiresConfirmation": false,
-          "reference": "POH/AFM Section 3.12.3, step 2"
-        },
-        {
-          "stepNumber": 8,
-          "action": "BOTH OFF",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE_AND_DO",
-          "requiresConfirmation": false,
-          "reference": "POH/AFM Section 3.12.3, step 2"
-        },
-        {
-          "stepNumber": 9,
-          "action": "CONFIRM GENERATOR SWITCHES — RESET INDIVIDUALLY, MAXIMUM TWO ATTEMPTS",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE",
-          "requiresConfirmation": true,
-          "reference": "POH/AFM Section 3.12.3, step 3"
-        },
-        {
-          "stepNumber": 10,
-          "action": "CONFIRMED",
-          "crewRole": "PF",
-          "intent": "ANNOUNCE",
-          "requiresConfirmation": false,
-          "reference": "POH/AFM Section 3.12.3, step 3"
-        },
-        {
-          "stepNumber": 11,
-          "action": "RESET LEFT — attempt 1",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE_AND_DO",
-          "requiresConfirmation": false,
-          "reference": "POH/AFM Section 3.12.3, step 3"
-        },
-        {
-          "stepNumber": 12,
-          "action": "RESET RIGHT — attempt 1",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE_AND_DO",
-          "requiresConfirmation": false,
-          "reference": "POH/AFM Section 3.12.3, step 3"
-        },
-        {
-          "stepNumber": 13,
-          "action": "DC LOADMETER — CHECK TO DETERMINE WHICH GENERATOR(S) ARE PRODUCING POWER",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE_AND_DO",
-          "requiresConfirmation": true,
-          "reference": "POH/AFM Section 3.12.3, step 4"
-        },
-        {
-          "stepNumber": 14,
-          "action": "INVERTER SWITCH — SELECT NO. 1 OR NO. 2 TO MATCH OPERATING GENERATOR",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE_AND_DO",
-          "requiresConfirmation": true,
-          "reference": "POH/AFM Section 3.12.3, step 5"
-        },
-        {
-          "stepNumber": 15,
-          "action": "IF BOTH GENERATORS RESET: LEAVE BUS TIE SWITCH OPEN",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE",
-          "requiresConfirmation": true,
-          "reference": "POH/AFM Section 3.12.3, step 6"
-        },
-        {
-          "stepNumber": 16,
-          "action": "IF ONE GENERATOR DOES NOT RESET — CONTINUE",
-          "crewRole": "PF",
-          "intent": "ANNOUNCE",
-          "requiresConfirmation": false,
-          "reference": "POH/AFM Section 3.12.3, branch"
-        },
-        {
-          "stepNumber": 17,
-          "action": "CONFIRM GENERATOR SWITCH (MALFUNCTIONING SYSTEM) — OFF",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE",
-          "requiresConfirmation": true,
-          "reference": "POH/AFM Section 3.12.3, step 7"
-        },
-        {
-          "stepNumber": 18,
-          "action": "CONFIRMED",
-          "crewRole": "PF",
-          "intent": "ANNOUNCE",
-          "requiresConfirmation": false,
-          "reference": "POH/AFM Section 3.12.3, step 7"
-        },
-        {
-          "stepNumber": 19,
-          "action": "OFF",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE_AND_DO",
-          "requiresConfirmation": false,
-          "reference": "POH/AFM Section 3.12.3, step 7"
-        },
-        {
-          "stepNumber": 20,
-          "action": "CONFIRM BUS TIE SWITCH — NORMAL",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE",
-          "requiresConfirmation": true,
-          "reference": "POH/AFM Section 3.12.3, step 8"
-        },
-        {
-          "stepNumber": 21,
-          "action": "CONFIRMED",
-          "crewRole": "PF",
-          "intent": "ANNOUNCE",
-          "requiresConfirmation": false,
-          "reference": "POH/AFM Section 3.12.3, step 8"
-        },
-        {
-          "stepNumber": 22,
-          "action": "NORMAL",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE_AND_DO",
-          "requiresConfirmation": false,
-          "reference": "POH/AFM Section 3.12.3, step 8"
-        },
-        {
-          "stepNumber": 23,
-          "action": "REVERSE CURRENT CIRCUIT BREAKER (PRE MOD 6/1651) — RESET IF NECESSARY",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE_AND_DO",
-          "requiresConfirmation": true,
-          "reference": "POH/AFM Section 3.12.3, step 9"
-        },
-        {
-          "stepNumber": 24,
-          "action": "DC LOADMETER — CHECK",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE_AND_DO",
-          "requiresConfirmation": true,
-          "reference": "POH/AFM Section 3.12.3, step 10"
-        },
-        {
-          "stepNumber": 25,
-          "action": "MEMORY ITEMS COMPLETE",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE",
-          "requiresConfirmation": false,
-          "reference": "POH/AFM Section 3.12.3"
-        }
-      ],
+      "memory": [],
       "flow": [
         {
           "stepNumber": 1,
-          "action": "TOTAL ELECTRICAL FAILURE — CAS message, panel lighting, DC LOADMETER indications reviewed",
+          "action": "BUS TIE switch — OPEN.",
           "crewRole": "PM",
-          "intent": "ANNOUNCE_AND_DO",
           "requiresConfirmation": false,
-          "reference": "POH/AFM Section 3.12.3"
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.12.3, p. 3-41"
         },
         {
           "stepNumber": 2,
-          "action": "CONFIRMED TOTAL ELECTRICAL FAILURE — I have control, maintaining flight path, initiating memory items",
-          "crewRole": "PF",
-          "intent": "ANNOUNCE_AND_DO",
+          "action": "GENERATOR switches — Both OFF.",
+          "crewRole": "PM",
           "requiresConfirmation": false,
-          "reference": "POH/AFM Section 3.12.3"
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.12.3, p. 3-41"
         },
         {
           "stepNumber": 3,
-          "action": "MEMORY ITEMS FOR TOTAL ELECTRICAL FAILURE",
-          "crewRole": "PF",
-          "intent": "ANNOUNCE",
+          "action": "GENERATOR switches — RESET individually, maximum two attempts.",
+          "crewRole": "PM",
           "requiresConfirmation": false,
-          "reference": "POH/AFM Section 3.12.3"
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.12.3, p. 3-41"
         },
         {
           "stepNumber": 4,
-          "action": "INITIATING MEMORY ITEMS — monitoring DC LOADMETER, INVERTER indications, panel restoration",
+          "action": "DC LOADMETER — Check to determine which generator or generators are producing power.",
           "crewRole": "PM",
-          "intent": "ANNOUNCE_AND_DO",
           "requiresConfirmation": false,
-          "reference": "POH/AFM Section 3.12.3"
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.12.3, p. 3-41"
         },
         {
           "stepNumber": 5,
-          "action": "BUS TIE — OPEN, GENERATORS BOTH OFF, RESET INDIVIDUALLY (max 2 attempts each), DC LOADMETER checked, INVERTER matched to operating generator",
+          "action": "INVERTER switch — Select NO. 1 or NO. 2 to match the operating generator.",
           "crewRole": "PM",
-          "intent": "ANNOUNCE_AND_DO",
           "requiresConfirmation": false,
-          "reference": "POH/AFM Section 3.12.3, steps 1-5"
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.12.3, p. 3-41"
         },
         {
           "stepNumber": 6,
-          "action": "CONFIRM RESET OUTCOME — BOTH RESET or SINGLE RESET or NEITHER RESET?",
-          "crewRole": "PF",
-          "intent": "ANNOUNCE",
-          "requiresConfirmation": true,
-          "reference": "POH/AFM Section 3.12.3, step 6"
+          "action": "If both generators reset, leave the BUS TIE switch OPEN.",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.12.3, p. 3-41"
         },
         {
           "stepNumber": 7,
-          "action": "RESET OUTCOME REPORTED — [BOTH / LEFT / RIGHT / NEITHER] generator producing power, INVERTER set to [1/2], BUS TIE [OPEN or NORMAL]",
+          "action": "If one generator does not reset — GENERATOR switch for the malfunctioning system OFF.",
           "crewRole": "PM",
-          "intent": "ANNOUNCE_AND_DO",
-          "requiresConfirmation": true,
-          "reference": "POH/AFM Section 3.12.3, step 6"
+          "requiresConfirmation": false,
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.12.3, p. 3-41"
         },
         {
           "stepNumber": 8,
-          "action": "IF SINGLE GENERATOR RESET — MALFUNCTIONING GENERATOR OFF, BUS TIE NORMAL, RCCB reset (Pre Mod 6/1651), DC LOADMETER rechecked",
+          "action": "BUS TIE switch — NORMAL.",
           "crewRole": "PM",
-          "intent": "ANNOUNCE_AND_DO",
           "requiresConfirmation": false,
-          "reference": "POH/AFM Section 3.12.3, steps 7-10"
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.12.3, p. 3-41"
         },
         {
           "stepNumber": 9,
-          "action": "CAS ANNUNCIATOR STATE — CONFIRMED [GEN 1 / GEN 2 / BUS TIE / 400 CYCLE / other] indications acknowledged",
+          "action": "Reverse Current Circuit Breaker, pre Mod 6/1651 — Reset if necessary.",
           "crewRole": "PM",
-          "intent": "ANNOUNCE_AND_DO",
-          "requiresConfirmation": true,
-          "reference": "POH/AFM Section 3.12.3"
+          "requiresConfirmation": false,
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.12.3, p. 3-41"
         },
         {
           "stepNumber": 10,
-          "action": "SYSTEMS STATUS — CONFIRM operable services: [avionics / autopilot / fuel boost pumps / anti-ice / lighting] on remaining generator(s)",
+          "action": "DC LOADMETER — CHECK.",
           "crewRole": "PM",
-          "intent": "ANNOUNCE_AND_DO",
-          "requiresConfirmation": true,
-          "reference": "POH/AFM Section 3.12.3"
-        },
-        {
-          "stepNumber": 11,
-          "action": "ATC ADVISED — [CALLSIGN] declaring PAN PAN or MAYDAY (per severity), electrical malfunction, request routing/priority",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE_AND_DO",
           "requiresConfirmation": false,
-          "reference": "POH/AFM Section 3.12.3; ICAO Annex 10"
-        },
-        {
-          "stepNumber": 12,
-          "action": "LAND-DECISION — CONFIRM land as soon as practical if unable to restore both generators, or land at nearest suitable if remaining electrical load-shedding warrants",
-          "crewRole": "PF",
-          "intent": "ANNOUNCE",
-          "requiresConfirmation": true,
-          "reference": "POH/AFM Section 3.12.3"
-        },
-        {
-          "stepNumber": 13,
-          "action": "LAND-DECISION CONFIRMED — diverting to [AIRFIELD], briefing single-generator approach, MEL/CDL constraints reviewed",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE_AND_DO",
-          "requiresConfirmation": true,
-          "reference": "POH/AFM Section 3.12.3"
-        },
-        {
-          "stepNumber": 14,
-          "action": "TOTAL ELECTRICAL FAILURE CHECKLIST COMPLETE — monitoring DC LOADMETER, INVERTER, and CAS annunciators for further degradation",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE",
-          "requiresConfirmation": false,
-          "reference": "POH/AFM Section 3.12.3"
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.12.3, p. 3-41"
         }
       ]
     },
     "G950": {
-      "memory": [
-        {
-          "stepNumber": 1,
-          "action": "TOTAL ELECTRICAL FAILURE",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE",
-          "requiresConfirmation": false,
-          "reference": "POH/AFM Section 3.12.3; HBFO-002 QRH G950"
-        },
-        {
-          "stepNumber": 2,
-          "action": "CONFIRMED — INITIATING MEMORY ITEMS, MAINTAINING FLIGHT PATH",
-          "crewRole": "PF",
-          "intent": "ANNOUNCE",
-          "requiresConfirmation": false,
-          "reference": "POH/AFM Section 3.12.3; HBFO-002 QRH G950"
-        },
-        {
-          "stepNumber": 3,
-          "action": "CONFIRM BUS TIE SWITCH — OPEN",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE",
-          "requiresConfirmation": true,
-          "reference": "POH/AFM Section 3.12.3, step 1"
-        },
-        {
-          "stepNumber": 4,
-          "action": "CONFIRMED",
-          "crewRole": "PF",
-          "intent": "ANNOUNCE",
-          "requiresConfirmation": false,
-          "reference": "POH/AFM Section 3.12.3, step 1"
-        },
-        {
-          "stepNumber": 5,
-          "action": "OPEN",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE_AND_DO",
-          "requiresConfirmation": false,
-          "reference": "POH/AFM Section 3.12.3, step 1"
-        },
-        {
-          "stepNumber": 6,
-          "action": "CONFIRM BOTH GENERATOR SWITCHES — OFF",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE",
-          "requiresConfirmation": true,
-          "reference": "POH/AFM Section 3.12.3, step 2"
-        },
-        {
-          "stepNumber": 7,
-          "action": "CONFIRMED",
-          "crewRole": "PF",
-          "intent": "ANNOUNCE",
-          "requiresConfirmation": false,
-          "reference": "POH/AFM Section 3.12.3, step 2"
-        },
-        {
-          "stepNumber": 8,
-          "action": "BOTH OFF",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE_AND_DO",
-          "requiresConfirmation": false,
-          "reference": "POH/AFM Section 3.12.3, step 2"
-        },
-        {
-          "stepNumber": 9,
-          "action": "CONFIRM GENERATOR SWITCHES — RESET INDIVIDUALLY, MAXIMUM TWO ATTEMPTS",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE",
-          "requiresConfirmation": true,
-          "reference": "POH/AFM Section 3.12.3, step 3"
-        },
-        {
-          "stepNumber": 10,
-          "action": "CONFIRMED",
-          "crewRole": "PF",
-          "intent": "ANNOUNCE",
-          "requiresConfirmation": false,
-          "reference": "POH/AFM Section 3.12.3, step 3"
-        },
-        {
-          "stepNumber": 11,
-          "action": "RESET LEFT — attempt 1",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE_AND_DO",
-          "requiresConfirmation": false,
-          "reference": "POH/AFM Section 3.12.3, step 3"
-        },
-        {
-          "stepNumber": 12,
-          "action": "RESET RIGHT — attempt 1",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE_AND_DO",
-          "requiresConfirmation": false,
-          "reference": "POH/AFM Section 3.12.3, step 3"
-        },
-        {
-          "stepNumber": 13,
-          "action": "DC LOADMETER — CHECK TO DETERMINE WHICH GENERATOR(S) ARE PRODUCING POWER",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE_AND_DO",
-          "requiresConfirmation": true,
-          "reference": "POH/AFM Section 3.12.3, step 4"
-        },
-        {
-          "stepNumber": 14,
-          "action": "INVERTER SWITCH — SELECT NO. 1 OR NO. 2 TO MATCH OPERATING GENERATOR",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE_AND_DO",
-          "requiresConfirmation": true,
-          "reference": "POH/AFM Section 3.12.3, step 5"
-        },
-        {
-          "stepNumber": 15,
-          "action": "IF BOTH GENERATORS RESET: LEAVE BUS TIE SWITCH OPEN",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE",
-          "requiresConfirmation": true,
-          "reference": "POH/AFM Section 3.12.3, step 6"
-        },
-        {
-          "stepNumber": 16,
-          "action": "IF ONE GENERATOR DOES NOT RESET — CONTINUE",
-          "crewRole": "PF",
-          "intent": "ANNOUNCE",
-          "requiresConfirmation": false,
-          "reference": "POH/AFM Section 3.12.3, branch"
-        },
-        {
-          "stepNumber": 17,
-          "action": "CONFIRM GENERATOR SWITCH (MALFUNCTIONING SYSTEM) — OFF",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE",
-          "requiresConfirmation": true,
-          "reference": "POH/AFM Section 3.12.3, step 7"
-        },
-        {
-          "stepNumber": 18,
-          "action": "CONFIRMED",
-          "crewRole": "PF",
-          "intent": "ANNOUNCE",
-          "requiresConfirmation": false,
-          "reference": "POH/AFM Section 3.12.3, step 7"
-        },
-        {
-          "stepNumber": 19,
-          "action": "OFF",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE_AND_DO",
-          "requiresConfirmation": false,
-          "reference": "POH/AFM Section 3.12.3, step 7"
-        },
-        {
-          "stepNumber": 20,
-          "action": "CONFIRM BUS TIE SWITCH — NORMAL",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE",
-          "requiresConfirmation": true,
-          "reference": "POH/AFM Section 3.12.3, step 8"
-        },
-        {
-          "stepNumber": 21,
-          "action": "CONFIRMED",
-          "crewRole": "PF",
-          "intent": "ANNOUNCE",
-          "requiresConfirmation": false,
-          "reference": "POH/AFM Section 3.12.3, step 8"
-        },
-        {
-          "stepNumber": 22,
-          "action": "NORMAL",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE_AND_DO",
-          "requiresConfirmation": false,
-          "reference": "POH/AFM Section 3.12.3, step 8"
-        },
-        {
-          "stepNumber": 23,
-          "action": "REVERSE CURRENT CIRCUIT BREAKER (PRE MOD 6/1651) — RESET IF NECESSARY. NOTE: G950 aircraft with Mod 6/1651 have no RCCB — SKIP this step.",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE_AND_DO",
-          "requiresConfirmation": true,
-          "reference": "POH/AFM Section 3.12.3, step 9; G950 Mod 6/1651"
-        },
-        {
-          "stepNumber": 24,
-          "action": "DC LOADMETER — CHECK",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE_AND_DO",
-          "requiresConfirmation": true,
-          "reference": "POH/AFM Section 3.12.3, step 10"
-        },
-        {
-          "stepNumber": 25,
-          "action": "MEMORY ITEMS COMPLETE",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE",
-          "requiresConfirmation": false,
-          "reference": "POH/AFM Section 3.12.3"
-        }
-      ],
+      "memory": [],
       "flow": [
         {
           "stepNumber": 1,
-          "action": "TOTAL ELECTRICAL FAILURE — CAS message, EIS/PFD blank, panel lighting, DC LOADMETER indications reviewed",
+          "action": "BUS TIE switch — OPEN.",
           "crewRole": "PM",
-          "intent": "ANNOUNCE_AND_DO",
           "requiresConfirmation": false,
-          "reference": "POH/AFM Section 3.12.3; HBFO-002 QRH G950"
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.12.3, p. 3-41"
         },
         {
           "stepNumber": 2,
-          "action": "CONFIRMED TOTAL ELECTRICAL FAILURE — I have control, maintaining flight path (attitude via standby AI), initiating memory items",
-          "crewRole": "PF",
-          "intent": "ANNOUNCE_AND_DO",
+          "action": "GENERATOR switches — Both OFF.",
+          "crewRole": "PM",
           "requiresConfirmation": false,
-          "reference": "POH/AFM Section 3.12.3"
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.12.3, p. 3-41"
         },
         {
           "stepNumber": 3,
-          "action": "MEMORY ITEMS FOR TOTAL ELECTRICAL FAILURE",
-          "crewRole": "PF",
-          "intent": "ANNOUNCE",
+          "action": "GENERATOR switches — RESET individually, maximum two attempts.",
+          "crewRole": "PM",
           "requiresConfirmation": false,
-          "reference": "POH/AFM Section 3.12.3"
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.12.3, p. 3-41"
         },
         {
           "stepNumber": 4,
-          "action": "INITIATING MEMORY ITEMS — monitoring DC LOADMETER, INVERTER indications, panel and PFD restoration",
+          "action": "DC LOADMETER — Check to determine which generator or generators are producing power.",
           "crewRole": "PM",
-          "intent": "ANNOUNCE_AND_DO",
           "requiresConfirmation": false,
-          "reference": "POH/AFM Section 3.12.3"
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.12.3, p. 3-41"
         },
         {
           "stepNumber": 5,
-          "action": "BUS TIE — OPEN, GENERATORS BOTH OFF, RESET INDIVIDUALLY (max 2 attempts each), DC LOADMETER checked, INVERTER matched to operating generator",
+          "action": "INVERTER switch — Select NO. 1 or NO. 2 to match the operating generator.",
           "crewRole": "PM",
-          "intent": "ANNOUNCE_AND_DO",
           "requiresConfirmation": false,
-          "reference": "POH/AFM Section 3.12.3, steps 1-5"
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.12.3, p. 3-41"
         },
         {
           "stepNumber": 6,
-          "action": "CONFIRM RESET OUTCOME — BOTH RESET or SINGLE RESET or NEITHER RESET?",
-          "crewRole": "PF",
-          "intent": "ANNOUNCE",
-          "requiresConfirmation": true,
-          "reference": "POH/AFM Section 3.12.3, step 6"
+          "action": "If both generators reset, leave the BUS TIE switch OPEN.",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.12.3, p. 3-41"
         },
         {
           "stepNumber": 7,
-          "action": "RESET OUTCOME REPORTED — [BOTH / LEFT / RIGHT / NEITHER] generator producing power, INVERTER set to [1/2], BUS TIE [OPEN or NORMAL], PFD/EIS restored",
+          "action": "If one generator does not reset — GENERATOR switch for the malfunctioning system OFF.",
           "crewRole": "PM",
-          "intent": "ANNOUNCE_AND_DO",
-          "requiresConfirmation": true,
-          "reference": "POH/AFM Section 3.12.3, step 6"
+          "requiresConfirmation": false,
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.12.3, p. 3-41"
         },
         {
           "stepNumber": 8,
-          "action": "IF SINGLE GENERATOR RESET — MALFUNCTIONING GENERATOR OFF, BUS TIE NORMAL, DC LOADMETER rechecked. (Mod 6/1651 aircraft: no RCCB reset required.)",
+          "action": "BUS TIE switch — NORMAL.",
           "crewRole": "PM",
-          "intent": "ANNOUNCE_AND_DO",
           "requiresConfirmation": false,
-          "reference": "POH/AFM Section 3.12.3, steps 7-10; Mod 6/1651"
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.12.3, p. 3-41"
         },
         {
           "stepNumber": 9,
-          "action": "G950 CAS ANNUNCIATOR STATE — CONFIRMED [GEN 1 / GEN 2 / BUS TIE / 400 CYCLE / other] indications acknowledged on EIS",
+          "action": "Reverse Current Circuit Breaker, pre Mod 6/1651 — Reset if necessary.",
           "crewRole": "PM",
-          "intent": "ANNOUNCE_AND_DO",
-          "requiresConfirmation": true,
-          "reference": "POH/AFM Section 3.12.3; HBFO-002 QRH G950"
+          "requiresConfirmation": false,
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.12.3, p. 3-41"
         },
         {
           "stepNumber": 10,
-          "action": "SYSTEMS STATUS — CONFIRM operable services: [PFD / MFD / autopilot / fuel boost pumps / anti-ice / lighting] on remaining generator(s)",
+          "action": "DC LOADMETER — CHECK.",
           "crewRole": "PM",
-          "intent": "ANNOUNCE_AND_DO",
-          "requiresConfirmation": true,
-          "reference": "POH/AFM Section 3.12.3"
-        },
-        {
-          "stepNumber": 11,
-          "action": "ATC ADVISED — [CALLSIGN] declaring PAN PAN or MAYDAY (per severity), electrical malfunction, request routing/priority",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE_AND_DO",
           "requiresConfirmation": false,
-          "reference": "POH/AFM Section 3.12.3; ICAO Annex 10"
-        },
-        {
-          "stepNumber": 12,
-          "action": "LAND-DECISION — CONFIRM land as soon as practical if unable to restore both generators, or land at nearest suitable if remaining electrical load-shedding warrants",
-          "crewRole": "PF",
-          "intent": "ANNOUNCE",
-          "requiresConfirmation": true,
-          "reference": "POH/AFM Section 3.12.3"
-        },
-        {
-          "stepNumber": 13,
-          "action": "LAND-DECISION CONFIRMED — diverting to [AIRFIELD], briefing single-generator approach, MEL/CDL constraints reviewed",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE_AND_DO",
-          "requiresConfirmation": true,
-          "reference": "POH/AFM Section 3.12.3"
-        },
-        {
-          "stepNumber": 14,
-          "action": "TOTAL ELECTRICAL FAILURE CHECKLIST COMPLETE — monitoring DC LOADMETER, INVERTER, and G950 CAS annunciators for further degradation",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE",
-          "requiresConfirmation": false,
-          "reference": "POH/AFM Section 3.12.3"
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.12.3, p. 3-41"
         }
       ]
     }
@@ -648,6 +162,6 @@
   "sourceSection": "3.12.3",
   "procedureGroup": "Electrical",
   "manualSection": "Section 3",
-  "sequenceBasis": "POH PSM 1-63-1A Revision 53, Section 3.12.3 authoring pass",
+  "sequenceBasis": "PSM 1-63-1A Revision 53, Section 3.12.3",
   "normalSplit": null
 }
