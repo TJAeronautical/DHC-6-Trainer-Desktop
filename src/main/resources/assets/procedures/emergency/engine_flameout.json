@@ -3,137 +3,235 @@
   "drillName": "Engine Flameout [Airborne]",
   "category": "EMERGENCY",
   "context": "Airborne",
-  "sourceNote": "Procedure identity/category/order normalized from 'DHC-6 Full Drill Procedure Index Normal Split.xlsx'. Excel is the governing app display allow-list. Existing procedure steps preserved for later content review. Previous note: Generic MCC callout shell generated from procedure titles only. This is not an approved AFM/POH/QRH/checklist replacement. Curated to the DHC-6 Trainer Abnormal/Emergency procedure allow-list.",
+  "sourceNote": "Authored from POH/AFM PSM 1-63-1A Revision 53, Section 3.10.4 (Engine Flameout). The POH treats Engine Flameout as a short diagnostic/routing procedure that delegates to either 'Engine Failure During Flight' (POH 3.3.4, already implemented as engine_failure_during_flight.json) or 'Normal Airstart' (POH 3.3.5) depending on whether the flameout cause is correctable. Correctable causes cited by the POH: improper fuel management, or failure to extend intake deflectors in visible moisture at temperatures of +5°C or less. This procedure ONLY covers the identification-and-route phase. Once routed, the crew runs the appropriate downstream procedure. FIRST-PASS DRAFT — needs SME review.",
   "variants": {
     "LEGACY": {
-      "memory": [],
-      "flow": [
+      "memory": [
         {
           "stepNumber": 1,
-          "action": "Engine Flameout.",
+          "action": "ENGINE FLAMEOUT L/R — sudden loss of thrust, engine instruments similar to normal shutdown",
           "crewRole": "PM",
           "intent": "ANNOUNCE",
           "requiresConfirmation": false,
-          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.10.4; PM_CALLOUT"
+          "reference": "POH/AFM Section 3.10.4"
         },
         {
           "stepNumber": 2,
-          "action": "I have control, maintain flight path.",
+          "action": "CONFIRMED L/R FLAMEOUT — I have control, maintaining flight path, asymmetric thrust identified",
           "crewRole": "PF",
           "intent": "ANNOUNCE",
           "requiresConfirmation": false,
-          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.10.4; PF_COMMAND"
+          "reference": "POH/AFM Section 3.10.4"
         },
         {
           "stepNumber": 3,
-          "action": "Confirm condition and affected system.",
+          "action": "POWER (UNAFFECTED ENGINE) — SET as required to arrest yaw and hold pitch",
           "crewRole": "PF",
-          "intent": "ANNOUNCE",
+          "intent": "ANNOUNCE_AND_DO",
+          "requiresConfirmation": false,
+          "reference": "POH/AFM Section 3.10.4; standard OEI handling"
+        }
+      ],
+      "flow": [
+        {
+          "stepNumber": 1,
+          "action": "ENGINE FLAMEOUT L/R — thrust loss confirmed, engine gauges show flame-out signature (Ng decay, T5 falling, torque zero, oil pressure falling toward idle)",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE_AND_DO",
+          "requiresConfirmation": false,
+          "reference": "POH/AFM Section 3.10.4"
+        },
+        {
+          "stepNumber": 2,
+          "action": "CONFIRMED — I have control, maintaining flight path, aircraft trimmed for asymmetric thrust",
+          "crewRole": "PF",
+          "intent": "ANNOUNCE_AND_DO",
+          "requiresConfirmation": false,
+          "reference": "POH/AFM Section 3.10.4"
+        },
+        {
+          "stepNumber": 3,
+          "action": "IDENTIFY CAUSE — was flameout preceded by [FUEL MANAGEMENT ERROR / INTAKE DEFLECTORS NOT EXTENDED IN VISIBLE MOISTURE ≤+5°C / OTHER CAUSE]?",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE_AND_DO",
           "requiresConfirmation": true,
-          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.10.4; PF_COMMAND"
+          "reference": "POH/AFM Section 3.10.4"
         },
         {
           "stepNumber": 4,
-          "action": "Condition confirmed, affected system identified.",
+          "action": "CAUSE REPORTED — [fuel management corrected / intake deflectors now extended / cause unknown or not correctable]",
           "crewRole": "PM",
-          "intent": "ANNOUNCE",
+          "intent": "ANNOUNCE_AND_DO",
           "requiresConfirmation": true,
-          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.10.4; PM_RESPONSE"
+          "reference": "POH/AFM Section 3.10.4"
         },
         {
           "stepNumber": 5,
-          "action": "Monitor aircraft state, engine/system indications, terrain, traffic, and configuration.",
-          "crewRole": "PM",
+          "action": "DECISION — IF CAUSE CORRECTABLE: airstart per POH 3.3.5. IF CAUSE NOT CORRECTABLE OR UNKNOWN: shut down per POH 3.3.4.",
+          "crewRole": "PF",
           "intent": "ANNOUNCE",
-          "requiresConfirmation": false,
-          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.10.4; PM_ACTION"
+          "requiresConfirmation": true,
+          "reference": "POH/AFM Section 3.10.4"
         },
         {
           "stepNumber": 6,
-          "action": "Engine Flameout checklist.",
+          "action": "DECISION REPORTED — proceeding with [NORMAL AIRSTART / ENGINE SHUTDOWN IN FLIGHT / ENGINE FAILURE DURING FLIGHT]",
           "crewRole": "PM",
-          "intent": "ANNOUNCE",
-          "requiresConfirmation": false,
-          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.10.4; PM_RESPONSE"
+          "intent": "ANNOUNCE_AND_DO",
+          "requiresConfirmation": true,
+          "reference": "POH/AFM Section 3.10.4"
         },
         {
           "stepNumber": 7,
-          "action": "Engine Flameout checklist complete.",
+          "action": "IF ATTEMPTING AIRSTART — run NORMAL AIRSTART checklist per POH 3.3.5. If unsuccessful, revert to ENGINE FAILURE DURING FLIGHT (POH 3.3.4).",
           "crewRole": "PM",
           "intent": "ANNOUNCE",
           "requiresConfirmation": false,
-          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.10.4; PM_COMPLETION"
+          "reference": "POH/AFM Section 3.10.4; Section 3.3.5"
+        },
+        {
+          "stepNumber": 8,
+          "action": "IF NOT ATTEMPTING AIRSTART — run ENGINE FAILURE DURING FLIGHT checklist per POH 3.3.4 (feather, secure, cool, monitor).",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "POH/AFM Section 3.10.4; Section 3.3.4"
+        },
+        {
+          "stepNumber": 9,
+          "action": "ATC ADVISED — [CALLSIGN] declaring PAN PAN (engine flameout, attempting airstart) or MAYDAY (unable to restart), request routing/priority",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE_AND_DO",
+          "requiresConfirmation": false,
+          "reference": "POH/AFM Section 3.10.4; ICAO Annex 10"
+        },
+        {
+          "stepNumber": 10,
+          "action": "ENGINE FLAMEOUT CHECKLIST COMPLETE — transitioning to downstream checklist ({airstart or engine failure during flight})",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "POH/AFM Section 3.10.4"
         }
       ]
     },
     "G950": {
-      "memory": [],
-      "flow": [
+      "memory": [
         {
           "stepNumber": 1,
-          "action": "Engine Flameout.",
+          "action": "ENGINE FLAMEOUT L/R — sudden loss of thrust, EIS engine indications show shutdown signature",
           "crewRole": "PM",
           "intent": "ANNOUNCE",
           "requiresConfirmation": false,
-          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.10.4; PM_CALLOUT"
+          "reference": "POH/AFM Section 3.10.4; HBFO-002 QRH G950"
         },
         {
           "stepNumber": 2,
-          "action": "I have control, maintain flight path.",
+          "action": "CONFIRMED L/R FLAMEOUT — I have control, maintaining flight path, asymmetric thrust identified",
           "crewRole": "PF",
           "intent": "ANNOUNCE",
           "requiresConfirmation": false,
-          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.10.4; PF_COMMAND"
+          "reference": "POH/AFM Section 3.10.4"
         },
         {
           "stepNumber": 3,
-          "action": "Confirm condition and affected system.",
+          "action": "POWER (UNAFFECTED ENGINE) — SET as required to arrest yaw and hold pitch",
           "crewRole": "PF",
-          "intent": "ANNOUNCE",
+          "intent": "ANNOUNCE_AND_DO",
+          "requiresConfirmation": false,
+          "reference": "POH/AFM Section 3.10.4; standard OEI handling"
+        }
+      ],
+      "flow": [
+        {
+          "stepNumber": 1,
+          "action": "ENGINE FLAMEOUT L/R — thrust loss confirmed, EIS engine gauges show flame-out signature (Ng decay, T5 falling, torque zero, oil pressure falling toward idle)",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE_AND_DO",
+          "requiresConfirmation": false,
+          "reference": "POH/AFM Section 3.10.4"
+        },
+        {
+          "stepNumber": 2,
+          "action": "CONFIRMED — I have control, maintaining flight path, aircraft trimmed for asymmetric thrust",
+          "crewRole": "PF",
+          "intent": "ANNOUNCE_AND_DO",
+          "requiresConfirmation": false,
+          "reference": "POH/AFM Section 3.10.4"
+        },
+        {
+          "stepNumber": 3,
+          "action": "IDENTIFY CAUSE — was flameout preceded by [FUEL MANAGEMENT ERROR / INTAKE DEFLECTORS NOT EXTENDED IN VISIBLE MOISTURE ≤+5°C / OTHER CAUSE]?",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE_AND_DO",
           "requiresConfirmation": true,
-          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.10.4; PF_COMMAND"
+          "reference": "POH/AFM Section 3.10.4"
         },
         {
           "stepNumber": 4,
-          "action": "Condition confirmed, affected system identified.",
+          "action": "CAUSE REPORTED — [fuel management corrected / intake deflectors now extended / cause unknown or not correctable]",
           "crewRole": "PM",
-          "intent": "ANNOUNCE",
+          "intent": "ANNOUNCE_AND_DO",
           "requiresConfirmation": true,
-          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.10.4; PM_RESPONSE"
+          "reference": "POH/AFM Section 3.10.4"
         },
         {
           "stepNumber": 5,
-          "action": "Monitor aircraft state, engine/system indications, terrain, traffic, and configuration.",
-          "crewRole": "PM",
+          "action": "DECISION — IF CAUSE CORRECTABLE: airstart per POH 3.3.5. IF CAUSE NOT CORRECTABLE OR UNKNOWN: shut down per POH 3.3.4.",
+          "crewRole": "PF",
           "intent": "ANNOUNCE",
-          "requiresConfirmation": false,
-          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.10.4; PM_ACTION"
+          "requiresConfirmation": true,
+          "reference": "POH/AFM Section 3.10.4"
         },
         {
           "stepNumber": 6,
-          "action": "Engine Flameout checklist.",
+          "action": "DECISION REPORTED — proceeding with [NORMAL AIRSTART / ENGINE SHUTDOWN IN FLIGHT / ENGINE FAILURE DURING FLIGHT]",
           "crewRole": "PM",
-          "intent": "ANNOUNCE",
-          "requiresConfirmation": false,
-          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.10.4; PM_RESPONSE"
+          "intent": "ANNOUNCE_AND_DO",
+          "requiresConfirmation": true,
+          "reference": "POH/AFM Section 3.10.4"
         },
         {
           "stepNumber": 7,
-          "action": "Engine Flameout checklist complete.",
+          "action": "IF ATTEMPTING AIRSTART — run NORMAL AIRSTART checklist per POH 3.3.5. G950 EIS airstart indications confirmed. If unsuccessful, revert to ENGINE FAILURE DURING FLIGHT (POH 3.3.4).",
           "crewRole": "PM",
           "intent": "ANNOUNCE",
           "requiresConfirmation": false,
-          "reference": "DHC-6 Emergency MCC PF/PM callout pack; Section 3.10.4; PM_COMPLETION"
+          "reference": "POH/AFM Section 3.10.4; Section 3.3.5"
+        },
+        {
+          "stepNumber": 8,
+          "action": "IF NOT ATTEMPTING AIRSTART — run ENGINE FAILURE DURING FLIGHT checklist per POH 3.3.4 (feather, secure, cool, monitor).",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "POH/AFM Section 3.10.4; Section 3.3.4"
+        },
+        {
+          "stepNumber": 9,
+          "action": "ATC ADVISED — [CALLSIGN] declaring PAN PAN (engine flameout, attempting airstart) or MAYDAY (unable to restart), request routing/priority",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE_AND_DO",
+          "requiresConfirmation": false,
+          "reference": "POH/AFM Section 3.10.4; ICAO Annex 10"
+        },
+        {
+          "stepNumber": 10,
+          "action": "ENGINE FLAMEOUT CHECKLIST COMPLETE — transitioning to downstream checklist ({airstart or engine failure during flight})",
+          "crewRole": "PM",
+          "intent": "ANNOUNCE",
+          "requiresConfirmation": false,
+          "reference": "POH/AFM Section 3.10.4"
         }
       ]
     }
   },
   "phaseTag": "Airborne",
   "displayLabel": "Engine Flameout [Airborne]",
-  "sortOrder": 48,
+  "sortOrder": 210,
   "sourceSection": "3.10.4",
-  "procedureGroup": "Engine Abnormalities in Flight",
+  "procedureGroup": "Engine",
   "manualSection": "Section 3",
-  "sequenceBasis": "User-approved working order",
+  "sequenceBasis": "POH PSM 1-63-1A Revision 53, Section 3.10.4 authoring pass",
   "normalSplit": null
 }
