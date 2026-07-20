@@ -76,6 +76,25 @@ internal enum class MccCategory(
 
 private enum class MccPhase { HOME, SESSION, COMPLETE }
 
+// Safe interim: AFM-only transcriptions and known placeholder shells are not
+// operator MCC callout material. A future content-model revision should replace
+// this allow/deny gate with explicit reviewed per-step callout data.
+private val AfmOnlyProcedureNames = setOf(
+    "Engine Failure Prior to Rotation",
+    "Engine Failure Airborne, Prior to VMC",
+    "Engine Failure Airborne, After VMC",
+    "Engine Failure During Flight",
+    "Engine Flameout",
+    "Engine Fire on Ground",
+    "Engine Fire in Flight",
+    "Total Electrical Failure",
+    "Uncommanded Feathering",
+    "One Engine Inoperative Landing",
+)
+
+private fun ProcedureSummary.hasReviewedMccOverlay(): Boolean =
+    !isPlaceholder && rawName !in AfmOnlyProcedureNames
+
 // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 // Single state holder avoids "assigned value never read" warnings that
 // arise when multiple mutableStateOf delegates are written inside a local fun.
@@ -134,15 +153,18 @@ internal fun MccCalloutScreen(procedureSnapshot: ProcedureLibrarySnapshot) {
     }
 
     fun startSession(cat: MccCategory) {
+        val eligibleProcedures = procedureSnapshot.procedures.filter {
+            it.hasReviewedMccOverlay()
+        }
         val candidates = when (cat) {
-            MccCategory.STANDARD     -> procedureSnapshot.procedures.filter { it.category == ProcedureCategory.NORMAL }
-            MccCategory.ABNORMAL_EMG -> procedureSnapshot.procedures.filter {
+            MccCategory.STANDARD     -> eligibleProcedures.filter { it.category == ProcedureCategory.NORMAL }
+            MccCategory.ABNORMAL_EMG -> eligibleProcedures.filter {
                 it.category == ProcedureCategory.EMERGENCY || it.category == ProcedureCategory.ABNORMAL
             }
-            MccCategory.CREW_COORD   -> procedureSnapshot.procedures
+            MccCategory.CREW_COORD   -> eligibleProcedures
         }
         val proc = candidates.filter { it.steps.size >= 3 }.randomOrNull()
-            ?: procedureSnapshot.procedures.filter { it.steps.size >= 3 }.randomOrNull()
+            ?: eligibleProcedures.filter { it.steps.size >= 3 }.randomOrNull()
             ?: return
         // Single assignment avoids the per-property "assigned value never read" warnings.
         s = MccState(
@@ -180,7 +202,7 @@ internal fun MccCalloutScreen(procedureSnapshot: ProcedureLibrarySnapshot) {
             selectedCat    = s.selectedCat,
             onCatSelect    = { s = s.copy(selectedCat = it) },
             onStart        = { startSession(s.selectedCat) },
-            procedureCount = procedureSnapshot.procedures.size,
+            procedureCount = procedureSnapshot.procedures.count { it.hasReviewedMccOverlay() },
             sessions       = DesktopProgressStore.mccSessions(),
             bestPct        = DesktopProgressStore.mccBest(),
         )

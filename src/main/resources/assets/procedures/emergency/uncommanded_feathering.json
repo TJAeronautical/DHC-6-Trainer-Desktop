@@ -3,7 +3,7 @@
   "drillName": "Uncommanded Feather [Airborne]",
   "category": "EMERGENCY",
   "context": "Airborne",
-  "sourceNote": "AFM-only training transcription from Viking Air PSM 1-63-1A Revision 53, Section 3.11.2, pages 3-36 to 3-37. The memory list contains only the first three actions printed in bold. The subsequent troubleshooting checks the affected BETA light and autofeather selection before directing an engine shutdown. Crew-role fields are trainer UI assignments only; they are not approved PF/PM callouts or operator SOP. Verify applicability against the aircraft-specific AFM, amendments, supplements, and operator procedures.",
+  "sourceNote": "AFM-only training transcription from Viking Air PSM 1-63-1A Revision 53, Section 3.11.2, pages 3-36 to 3-37. The memory list contains only the first three immediate actions printed in bold. Troubleshooting is attempted only when the affected-engine operating parameters are within limits; otherwise, or if the troubleshooting actions do not resolve the problem, the affected engine is shut down. Crew-role fields are trainer UI assignments only; they are not approved PF/PM callouts or operator SOP. Verify applicability against the aircraft-specific AFM, amendments, supplements, and operator procedures.",
   "variants": {
     "LEGACY": {
       "memory": [
@@ -46,21 +46,28 @@
         },
         {
           "stepNumber": 3,
-          "action": "Check the BETA light for the affected engine. If illuminated, complete the Steady Beta Light checklist, AFM 3.11.5.",
+          "action": "Operating parameters of affected engine — CHECK.",
           "crewRole": "PM",
           "requiresConfirmation": false,
           "reference": "PSM 1-63-1A Rev 53, AFM 3.11.2, p. 3-36"
         },
         {
           "stepNumber": 4,
+          "action": "If affected-engine operating parameters are within limits, attempt to determine the cause: check the BETA light for the affected engine. If illuminated, complete the Steady Beta Light checklist, AFM 3.11.5.",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.11.2, pp. 3-36 to 3-37"
+        },
+        {
+          "stepNumber": 5,
           "action": "If the autofeather system is selected ON, as shown by the green autofeather SELECT light, turn the autofeather system OFF.",
           "crewRole": "PM",
           "requiresConfirmation": false,
           "reference": "PSM 1-63-1A Rev 53, AFM 3.11.2, p. 3-37"
         },
         {
-          "stepNumber": 5,
-          "action": "If neither action resolves the problem, shut down the affected engine using Engine Shutdown in Flight, AFM 3.10.1.",
+          "stepNumber": 6,
+          "action": "If affected-engine operating parameters are not within limits, or if the preceding actions do not resolve the problem, shut down the affected engine using Engine Shutdown in Flight, AFM 3.10.1.",
           "crewRole": "PM",
           "requiresConfirmation": false,
           "reference": "PSM 1-63-1A Rev 53, AFM 3.11.2, p. 3-37"
@@ -108,21 +115,28 @@
         },
         {
           "stepNumber": 3,
-          "action": "Check the BETA light for the affected engine. If illuminated, complete the Steady Beta Light checklist, AFM 3.11.5.",
+          "action": "Operating parameters of affected engine — CHECK.",
           "crewRole": "PM",
           "requiresConfirmation": false,
           "reference": "PSM 1-63-1A Rev 53, AFM 3.11.2, p. 3-36"
         },
         {
           "stepNumber": 4,
+          "action": "If affected-engine operating parameters are within limits, attempt to determine the cause: check the BETA light for the affected engine. If illuminated, complete the Steady Beta Light checklist, AFM 3.11.5.",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.11.2, pp. 3-36 to 3-37"
+        },
+        {
+          "stepNumber": 5,
           "action": "If the autofeather system is selected ON, as shown by the green autofeather SELECT light, turn the autofeather system OFF.",
           "crewRole": "PM",
           "requiresConfirmation": false,
           "reference": "PSM 1-63-1A Rev 53, AFM 3.11.2, p. 3-37"
         },
         {
-          "stepNumber": 5,
-          "action": "If neither action resolves the problem, shut down the affected engine using Engine Shutdown in Flight, AFM 3.10.1.",
+          "stepNumber": 6,
+          "action": "If affected-engine operating parameters are not within limits, or if the preceding actions do not resolve the problem, shut down the affected engine using Engine Shutdown in Flight, AFM 3.10.1.",
           "crewRole": "PM",
           "requiresConfirmation": false,
           "reference": "PSM 1-63-1A Rev 53, AFM 3.11.2, p. 3-37"

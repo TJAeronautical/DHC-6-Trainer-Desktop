@@ -3,7 +3,7 @@
   "drillName": "Engine Failure Airborne — After VMC [Airborne]",
   "category": "EMERGENCY",
   "context": "Airborne",
-  "sourceNote": "AFM-only training transcription from Viking Air PSM 1-63-1A Revision 53, Section 3.3.3, pages 3-12 to 3-14. Memory items reproduce the bold immediate and conditional actions. Secondary actions begin only after reaching a safe altitude, typically several thousand feet AGL. Crew-role fields are trainer UI assignments only; they are not approved PF/PM callouts or operator SOP. Verify applicability against the aircraft-specific AFM, amendments, supplements, and operator procedures.",
+  "sourceNote": "AFM-only training transcription from Viking Air PSM 1-63-1A Revision 53, Section 3.3.3, pages 3-12 to 3-14. The memory list follows the four numbered immediate actions in the AFM; the conditional partial/total-power and manual-feather logic remains nested within action 4. Secondary actions begin only after reaching a safe altitude, typically several thousand feet AGL. Crew-role fields are trainer UI assignments only; they are not approved PF/PM callouts or operator SOP. Verify applicability against the aircraft-specific AFM, amendments, supplements, and operator procedures.",
   "variants": {
     "LEGACY": {
       "memory": [
@@ -30,24 +30,10 @@
         },
         {
           "stepNumber": 4,
-          "action": "Propeller of inoperative engine — Confirm that the propeller has automatically feathered.",
+          "action": "Propeller of inoperative engine — Confirm that the propeller has automatically feathered. If it has not, determine whether the power loss is partial or total. If the loss is partial, it may be appropriate to leave the affected engine operating if it is contributing thrust. If the loss is total, manually FEATHER the propeller of the inoperative engine.",
           "crewRole": "PF",
           "requiresConfirmation": false,
-          "reference": "PSM 1-63-1A Rev 53, AFM 3.3.3, p. 3-12"
-        },
-        {
-          "stepNumber": 5,
-          "action": "If the propeller has not automatically feathered — Determine whether the power loss is partial or total. If partial, it may be appropriate to leave the affected engine operating if it is contributing thrust.",
-          "crewRole": "PF",
-          "requiresConfirmation": false,
-          "reference": "PSM 1-63-1A Rev 53, AFM 3.3.3, p. 3-13"
-        },
-        {
-          "stepNumber": 6,
-          "action": "If the power loss is total and the propeller has not automatically feathered — Propeller of inoperative engine FEATHER manually.",
-          "crewRole": "PF",
-          "requiresConfirmation": false,
-          "reference": "PSM 1-63-1A Rev 53, AFM 3.3.3, p. 3-13"
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.3.3, pp. 3-12 to 3-13"
         }
       ],
       "flow": [
@@ -162,24 +148,10 @@
         },
         {
           "stepNumber": 4,
-          "action": "Propeller of inoperative engine — Confirm that the propeller has automatically feathered.",
+          "action": "Propeller of inoperative engine — Confirm that the propeller has automatically feathered. If it has not, determine whether the power loss is partial or total. If the loss is partial, it may be appropriate to leave the affected engine operating if it is contributing thrust. If the loss is total, manually FEATHER the propeller of the inoperative engine.",
           "crewRole": "PF",
           "requiresConfirmation": false,
-          "reference": "PSM 1-63-1A Rev 53, AFM 3.3.3, p. 3-12"
-        },
-        {
-          "stepNumber": 5,
-          "action": "If the propeller has not automatically feathered — Determine whether the power loss is partial or total. If partial, it may be appropriate to leave the affected engine operating if it is contributing thrust.",
-          "crewRole": "PF",
-          "requiresConfirmation": false,
-          "reference": "PSM 1-63-1A Rev 53, AFM 3.3.3, p. 3-13"
-        },
-        {
-          "stepNumber": 6,
-          "action": "If the power loss is total and the propeller has not automatically feathered — Propeller of inoperative engine FEATHER manually.",
-          "crewRole": "PF",
-          "requiresConfirmation": false,
-          "reference": "PSM 1-63-1A Rev 53, AFM 3.3.3, p. 3-13"
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.3.3, pp. 3-12 to 3-13"
         }
       ],
       "flow": [
