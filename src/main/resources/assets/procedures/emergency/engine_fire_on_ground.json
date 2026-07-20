@@ -3,236 +3,89 @@
   "drillName": "Engine Fire on Ground [Ground / Water]",
   "category": "EMERGENCY",
   "context": "Ground or Water",
-  "mccGroup": "No MCC group classification — PIC memory items on ground after securing aircraft",
-  "mccReference": "FCTM DHC-6 WIPLINE/G950 HBTS-001 ISS03 REV02 Section 5.4.1 Engine Fire On Ground",
+  "mccGroup": "AFM-only procedure; no operator MCC callout overlay assigned",
+  "mccReference": "Not assigned — requires operator SOP/FCTM source",
   "variants": {
     "LEGACY": {
       "memory": [
         {
           "stepNumber": 1,
-          "action": "BOTH POWER LEVERS — IDLE",
+          "action": "Bring the aircraft to a complete stop.",
           "crewRole": "PF",
-          "intent": "MEMORY",
           "requiresConfirmation": false,
-          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-33/5-34/5-35; OM-B Ch 3 Sec 3.10.1; POH/AFM Sec 3.4.1"
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.4.1, p. 3-17"
         },
         {
           "stepNumber": 2,
-          "action": "BOTH PROP LEVERS — FEATHER",
+          "action": "PARKING BRAKE — Set.",
           "crewRole": "PF",
-          "intent": "MEMORY",
           "requiresConfirmation": false,
-          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-33/5-34/5-35; OM-B Ch 3 Sec 3.10.1; POH/AFM Sec 3.4.1"
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.4.1, p. 3-17"
         },
         {
           "stepNumber": 3,
-          "action": "FUEL LEVER (AFFECTED ENGINE) — OFF",
+          "action": "FIRE BELL MUTE switch — Lift up to mute bell.",
           "crewRole": "PF",
-          "intent": "MEMORY",
           "requiresConfirmation": false,
-          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-33/5-34/5-35; OM-B Ch 3 Sec 3.10.1; POH/AFM Sec 3.4.1"
-        },
-        {
-          "stepNumber": 4,
-          "action": "FUEL SOV SWITCH (AFFECTED ENGINE) — OFF",
-          "crewRole": "PF",
-          "intent": "MEMORY",
-          "requiresConfirmation": false,
-          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-33/5-34/5-35; OM-B Ch 3 Sec 3.10.1; POH/AFM Sec 3.4.1"
-        },
-        {
-          "stepNumber": 5,
-          "action": "ENGINE FIRE EXTINGUISHER (AFFECTED ENGINE) — PUSH",
-          "crewRole": "PF",
-          "intent": "MEMORY",
-          "requiresConfirmation": false,
-          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-33/5-34/5-35; OM-B Ch 3 Sec 3.10.1; POH/AFM Sec 3.4.1"
-        },
-        {
-          "stepNumber": 6,
-          "action": "FUEL BOOST PUMP #1 (AFFECTED ENGINE) — OFF",
-          "crewRole": "PF",
-          "intent": "MEMORY",
-          "requiresConfirmation": false,
-          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-33/5-34/5-35; OM-B Ch 3 Sec 3.10.1; POH/AFM Sec 3.4.1"
-        },
-        {
-          "stepNumber": 7,
-          "action": "FUEL LEVER (UNAFFECTED ENGINE) — OFF",
-          "crewRole": "PF",
-          "intent": "MEMORY",
-          "requiresConfirmation": false,
-          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-33/5-34/5-35; OM-B Ch 3 Sec 3.10.1; POH/AFM Sec 3.4.1"
-        },
-        {
-          "stepNumber": 8,
-          "action": "DC MASTER SWITCH — OFF",
-          "crewRole": "PF",
-          "intent": "MEMORY",
-          "requiresConfirmation": false,
-          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-33/5-34/5-35; OM-B Ch 3 Sec 3.10.1; POH/AFM Sec 3.4.1"
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.4.1, p. 3-17"
         }
       ],
       "flow": [
         {
           "stepNumber": 1,
-          "action": "SIC hands controls to PIC occupying left seat — PIC takes control",
-          "crewRole": "BOTH",
-          "intent": "ANNOUNCE_AND_DO",
+          "action": "Power levers, both engines — IDLE.",
+          "crewRole": "PM",
           "requiresConfirmation": false,
-          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-33/5-34/5-35; OM-B Ch 3 Sec 3.10.1; POH/AFM Sec 3.4.1"
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.4.1, p. 3-17"
         },
         {
           "stepNumber": 2,
-          "action": "MEMORY ITEMS FOR ENGINE FIRE ON GROUND — taxi/water-taxi to secure aircraft. PIC initiates memory items.",
-          "crewRole": "PF",
-          "intent": "ANNOUNCE_AND_DO",
+          "action": "PROP levers, both engines — FEATHER.",
+          "crewRole": "PM",
           "requiresConfirmation": false,
-          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-33/5-34/5-35; OM-B Ch 3 Sec 3.10.1; POH/AFM Sec 3.4.1"
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.4.1, p. 3-17"
         },
         {
           "stepNumber": 3,
-          "action": "Advise ATC and company. Monitor affected engine. Advise cabin crew of securing plan — passengers to remain seated.",
+          "action": "FUEL levers, both engines — OFF.",
           "crewRole": "PM",
-          "intent": "DO",
           "requiresConfirmation": false,
-          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-33/5-34/5-35; OM-B Ch 3 Sec 3.10.1; POH/AFM Sec 3.4.1"
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.4.1, p. 3-17"
         },
         {
           "stepNumber": 4,
-          "action": "BOTH POWER LEVERS IDLE — positions hands on both power levers — IDLE",
-          "crewRole": "PF",
-          "intent": "ANNOUNCE_AND_DO",
-          "requiresConfirmation": true,
-          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-33/5-34/5-35; OM-B Ch 3 Sec 3.10.1; POH/AFM Sec 3.4.1"
+          "action": "FUEL OFF emergency switch, affected engine only — OFF.",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.4.1, p. 3-17"
         },
         {
           "stepNumber": 5,
-          "action": "Monitor affected engine",
+          "action": "FIRE PULL handle, affected engine only — Pull to discharge extinguisher.",
           "crewRole": "PM",
-          "intent": "DO",
           "requiresConfirmation": false,
-          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-33/5-34/5-35; OM-B Ch 3 Sec 3.10.1; POH/AFM Sec 3.4.1"
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.4.1, p. 3-17"
         },
         {
           "stepNumber": 6,
-          "action": "BOTH PROP LEVERS FEATHER — positions hands on both prop levers — FEATHER",
-          "crewRole": "PF",
-          "intent": "ANNOUNCE_AND_DO",
-          "requiresConfirmation": true,
-          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-33/5-34/5-35; OM-B Ch 3 Sec 3.10.1; POH/AFM Sec 3.4.1"
+          "action": "BOOST PUMP switches, both engines — OFF.",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.4.1, p. 3-17"
         },
         {
           "stepNumber": 7,
-          "action": "Monitor affected engine",
-          "crewRole": "PM",
-          "intent": "DO",
+          "action": "Evacuate aircraft. This may not always be appropriate for floatplanes unless at the dock.",
+          "crewRole": "PF",
           "requiresConfirmation": false,
-          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-33/5-34/5-35; OM-B Ch 3 Sec 3.10.1; POH/AFM Sec 3.4.1"
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.4.1, p. 3-17"
         },
         {
           "stepNumber": 8,
-          "action": "CONFIRM AFFECTED ENGINE FUEL LEVER OFF — moves affected fuel lever to OFF — OFF",
+          "action": "When electrical power is no longer required for communication or illumination and evacuation is complete, DC MASTER switch — OFF.",
           "crewRole": "PF",
-          "intent": "ANNOUNCE_AND_DO",
-          "requiresConfirmation": true,
-          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-33/5-34/5-35; OM-B Ch 3 Sec 3.10.1; POH/AFM Sec 3.4.1"
-        },
-        {
-          "stepNumber": 9,
-          "action": "CONFIRMED",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE",
           "requiresConfirmation": false,
-          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-33/5-34/5-35; OM-B Ch 3 Sec 3.10.1; POH/AFM Sec 3.4.1"
-        },
-        {
-          "stepNumber": 10,
-          "action": "CONFIRM AFFECTED ENGINE FUEL SOV SWITCH OFF — pushes FUEL SOV SWITCH to OFF — OFF",
-          "crewRole": "PF",
-          "intent": "ANNOUNCE_AND_DO",
-          "requiresConfirmation": true,
-          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-33/5-34/5-35; OM-B Ch 3 Sec 3.10.1; POH/AFM Sec 3.4.1"
-        },
-        {
-          "stepNumber": 11,
-          "action": "CONFIRMED",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE",
-          "requiresConfirmation": false,
-          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-33/5-34/5-35; OM-B Ch 3 Sec 3.10.1; POH/AFM Sec 3.4.1"
-        },
-        {
-          "stepNumber": 12,
-          "action": "CONFIRM AFFECTED ENGINE FIRE EXTINGUISHER PUSH — pushes fire extinguisher switch to discharge — DISCHARGED",
-          "crewRole": "PF",
-          "intent": "ANNOUNCE_AND_DO",
-          "requiresConfirmation": true,
-          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-33/5-34/5-35; OM-B Ch 3 Sec 3.10.1; POH/AFM Sec 3.4.1"
-        },
-        {
-          "stepNumber": 13,
-          "action": "CONFIRMED",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE",
-          "requiresConfirmation": false,
-          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-33/5-34/5-35; OM-B Ch 3 Sec 3.10.1; POH/AFM Sec 3.4.1"
-        },
-        {
-          "stepNumber": 14,
-          "action": "CONFIRM AFFECTED FUEL BOOST PUMP OFF — moves boost pump #1 to OFF — OFF",
-          "crewRole": "PF",
-          "intent": "ANNOUNCE_AND_DO",
-          "requiresConfirmation": true,
-          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-33/5-34/5-35; OM-B Ch 3 Sec 3.10.1; POH/AFM Sec 3.4.1"
-        },
-        {
-          "stepNumber": 15,
-          "action": "CONFIRMED",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE",
-          "requiresConfirmation": false,
-          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-33/5-34/5-35; OM-B Ch 3 Sec 3.10.1; POH/AFM Sec 3.4.1"
-        },
-        {
-          "stepNumber": 16,
-          "action": "CONFIRM UNAFFECTED ENGINE FUEL LEVER OFF — moves unaffected fuel lever to OFF — OFF",
-          "crewRole": "PF",
-          "intent": "ANNOUNCE_AND_DO",
-          "requiresConfirmation": true,
-          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-33/5-34/5-35; OM-B Ch 3 Sec 3.10.1; POH/AFM Sec 3.4.1"
-        },
-        {
-          "stepNumber": 17,
-          "action": "CONFIRMED",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE",
-          "requiresConfirmation": false,
-          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-33/5-34/5-35; OM-B Ch 3 Sec 3.10.1; POH/AFM Sec 3.4.1"
-        },
-        {
-          "stepNumber": 18,
-          "action": "DC MASTER SWITCH OFF",
-          "crewRole": "PF",
-          "intent": "ANNOUNCE_AND_DO",
-          "requiresConfirmation": false,
-          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-33/5-34/5-35; OM-B Ch 3 Sec 3.10.1; POH/AFM Sec 3.4.1"
-        },
-        {
-          "stepNumber": 19,
-          "action": "QRH FOR ENGINE FIRE ON GROUND",
-          "crewRole": "PF",
-          "intent": "ANNOUNCE",
-          "requiresConfirmation": false,
-          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-33/5-34/5-35; OM-B Ch 3 Sec 3.10.1; POH/AFM Sec 3.4.1"
-        },
-        {
-          "stepNumber": 20,
-          "action": "Actions QRH — QRH FOR ENGINE FIRE ON GROUND COMPLETE",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE_AND_DO",
-          "requiresConfirmation": false,
-          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-33/5-34/5-35; OM-B Ch 3 Sec 3.10.1; POH/AFM Sec 3.4.1"
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.4.1, p. 3-17"
         }
       ]
     },
@@ -240,240 +93,93 @@
       "memory": [
         {
           "stepNumber": 1,
-          "action": "BOTH POWER LEVERS — IDLE",
+          "action": "Bring the aircraft to a complete stop.",
           "crewRole": "PF",
-          "intent": "MEMORY",
           "requiresConfirmation": false,
-          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-33/5-34/5-35; OM-B Ch 3 Sec 3.10.1; POH/AFM Sec 3.4.1"
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.4.1, p. 3-17"
         },
         {
           "stepNumber": 2,
-          "action": "BOTH PROP LEVERS — FEATHER",
+          "action": "PARKING BRAKE — Set.",
           "crewRole": "PF",
-          "intent": "MEMORY",
           "requiresConfirmation": false,
-          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-33/5-34/5-35; OM-B Ch 3 Sec 3.10.1; POH/AFM Sec 3.4.1"
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.4.1, p. 3-17"
         },
         {
           "stepNumber": 3,
-          "action": "FUEL LEVER (AFFECTED ENGINE) — OFF",
+          "action": "FIRE BELL MUTE switch — Lift up to mute bell.",
           "crewRole": "PF",
-          "intent": "MEMORY",
           "requiresConfirmation": false,
-          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-33/5-34/5-35; OM-B Ch 3 Sec 3.10.1; POH/AFM Sec 3.4.1"
-        },
-        {
-          "stepNumber": 4,
-          "action": "FUEL SOV SWITCH (AFFECTED ENGINE) — OFF",
-          "crewRole": "PF",
-          "intent": "MEMORY",
-          "requiresConfirmation": false,
-          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-33/5-34/5-35; OM-B Ch 3 Sec 3.10.1; POH/AFM Sec 3.4.1"
-        },
-        {
-          "stepNumber": 5,
-          "action": "ENGINE FIRE EXTINGUISHER (AFFECTED ENGINE) — PUSH",
-          "crewRole": "PF",
-          "intent": "MEMORY",
-          "requiresConfirmation": false,
-          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-33/5-34/5-35; OM-B Ch 3 Sec 3.10.1; POH/AFM Sec 3.4.1"
-        },
-        {
-          "stepNumber": 6,
-          "action": "FUEL BOOST PUMP #1 (AFFECTED ENGINE) — OFF",
-          "crewRole": "PF",
-          "intent": "MEMORY",
-          "requiresConfirmation": false,
-          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-33/5-34/5-35; OM-B Ch 3 Sec 3.10.1; POH/AFM Sec 3.4.1"
-        },
-        {
-          "stepNumber": 7,
-          "action": "FUEL LEVER (UNAFFECTED ENGINE) — OFF",
-          "crewRole": "PF",
-          "intent": "MEMORY",
-          "requiresConfirmation": false,
-          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-33/5-34/5-35; OM-B Ch 3 Sec 3.10.1; POH/AFM Sec 3.4.1"
-        },
-        {
-          "stepNumber": 8,
-          "action": "DC MASTER SWITCH — OFF",
-          "crewRole": "PF",
-          "intent": "MEMORY",
-          "requiresConfirmation": false,
-          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-33/5-34/5-35; OM-B Ch 3 Sec 3.10.1; POH/AFM Sec 3.4.1"
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.4.1, p. 3-17"
         }
       ],
       "flow": [
         {
           "stepNumber": 1,
-          "action": "SIC hands controls to PIC occupying left seat — PIC takes control",
-          "crewRole": "BOTH",
-          "intent": "ANNOUNCE_AND_DO",
+          "action": "Power levers, both engines — IDLE.",
+          "crewRole": "PM",
           "requiresConfirmation": false,
-          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-33/5-34/5-35; OM-B Ch 3 Sec 3.10.1; POH/AFM Sec 3.4.1"
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.4.1, p. 3-17"
         },
         {
           "stepNumber": 2,
-          "action": "MEMORY ITEMS FOR ENGINE FIRE ON GROUND — taxi/water-taxi to secure aircraft. PIC initiates memory items.",
-          "crewRole": "PF",
-          "intent": "ANNOUNCE_AND_DO",
+          "action": "PROP levers, both engines — FEATHER.",
+          "crewRole": "PM",
           "requiresConfirmation": false,
-          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-33/5-34/5-35; OM-B Ch 3 Sec 3.10.1; POH/AFM Sec 3.4.1"
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.4.1, p. 3-17"
         },
         {
           "stepNumber": 3,
-          "action": "Advise ATC and company. Monitor affected engine. Advise cabin crew of securing plan — passengers to remain seated.",
+          "action": "FUEL levers, both engines — OFF.",
           "crewRole": "PM",
-          "intent": "DO",
           "requiresConfirmation": false,
-          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-33/5-34/5-35; OM-B Ch 3 Sec 3.10.1; POH/AFM Sec 3.4.1"
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.4.1, p. 3-17"
         },
         {
           "stepNumber": 4,
-          "action": "BOTH POWER LEVERS IDLE — positions hands on both power levers — IDLE",
-          "crewRole": "PF",
-          "intent": "ANNOUNCE_AND_DO",
-          "requiresConfirmation": true,
-          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-33/5-34/5-35; OM-B Ch 3 Sec 3.10.1; POH/AFM Sec 3.4.1"
+          "action": "FUEL OFF emergency switch, affected engine only — OFF.",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.4.1, p. 3-17"
         },
         {
           "stepNumber": 5,
-          "action": "Monitor affected engine",
+          "action": "FIRE PULL handle, affected engine only — Pull to discharge extinguisher.",
           "crewRole": "PM",
-          "intent": "DO",
           "requiresConfirmation": false,
-          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-33/5-34/5-35; OM-B Ch 3 Sec 3.10.1; POH/AFM Sec 3.4.1"
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.4.1, p. 3-17"
         },
         {
           "stepNumber": 6,
-          "action": "BOTH PROP LEVERS FEATHER — positions hands on both prop levers — FEATHER",
-          "crewRole": "PF",
-          "intent": "ANNOUNCE_AND_DO",
-          "requiresConfirmation": true,
-          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-33/5-34/5-35; OM-B Ch 3 Sec 3.10.1; POH/AFM Sec 3.4.1"
+          "action": "BOOST PUMP switches, both engines — OFF.",
+          "crewRole": "PM",
+          "requiresConfirmation": false,
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.4.1, p. 3-17"
         },
         {
           "stepNumber": 7,
-          "action": "Monitor affected engine",
-          "crewRole": "PM",
-          "intent": "DO",
+          "action": "Evacuate aircraft. This may not always be appropriate for floatplanes unless at the dock.",
+          "crewRole": "PF",
           "requiresConfirmation": false,
-          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-33/5-34/5-35; OM-B Ch 3 Sec 3.10.1; POH/AFM Sec 3.4.1"
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.4.1, p. 3-17"
         },
         {
           "stepNumber": 8,
-          "action": "CONFIRM AFFECTED ENGINE FUEL LEVER OFF — moves affected fuel lever to OFF — OFF",
+          "action": "When electrical power is no longer required for communication or illumination and evacuation is complete, DC MASTER switch — OFF.",
           "crewRole": "PF",
-          "intent": "ANNOUNCE_AND_DO",
-          "requiresConfirmation": true,
-          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-33/5-34/5-35; OM-B Ch 3 Sec 3.10.1; POH/AFM Sec 3.4.1"
-        },
-        {
-          "stepNumber": 9,
-          "action": "CONFIRMED",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE",
           "requiresConfirmation": false,
-          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-33/5-34/5-35; OM-B Ch 3 Sec 3.10.1; POH/AFM Sec 3.4.1"
-        },
-        {
-          "stepNumber": 10,
-          "action": "CONFIRM AFFECTED ENGINE FUEL SOV SWITCH OFF — pushes FUEL SOV SWITCH to OFF — OFF",
-          "crewRole": "PF",
-          "intent": "ANNOUNCE_AND_DO",
-          "requiresConfirmation": true,
-          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-33/5-34/5-35; OM-B Ch 3 Sec 3.10.1; POH/AFM Sec 3.4.1"
-        },
-        {
-          "stepNumber": 11,
-          "action": "CONFIRMED",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE",
-          "requiresConfirmation": false,
-          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-33/5-34/5-35; OM-B Ch 3 Sec 3.10.1; POH/AFM Sec 3.4.1"
-        },
-        {
-          "stepNumber": 12,
-          "action": "CONFIRM AFFECTED ENGINE FIRE EXTINGUISHER PUSH — pushes fire extinguisher switch to discharge — DISCHARGED",
-          "crewRole": "PF",
-          "intent": "ANNOUNCE_AND_DO",
-          "requiresConfirmation": true,
-          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-33/5-34/5-35; OM-B Ch 3 Sec 3.10.1; POH/AFM Sec 3.4.1"
-        },
-        {
-          "stepNumber": 13,
-          "action": "CONFIRMED",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE",
-          "requiresConfirmation": false,
-          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-33/5-34/5-35; OM-B Ch 3 Sec 3.10.1; POH/AFM Sec 3.4.1"
-        },
-        {
-          "stepNumber": 14,
-          "action": "CONFIRM AFFECTED FUEL BOOST PUMP OFF — moves boost pump #1 to OFF — OFF",
-          "crewRole": "PF",
-          "intent": "ANNOUNCE_AND_DO",
-          "requiresConfirmation": true,
-          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-33/5-34/5-35; OM-B Ch 3 Sec 3.10.1; POH/AFM Sec 3.4.1"
-        },
-        {
-          "stepNumber": 15,
-          "action": "CONFIRMED",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE",
-          "requiresConfirmation": false,
-          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-33/5-34/5-35; OM-B Ch 3 Sec 3.10.1; POH/AFM Sec 3.4.1"
-        },
-        {
-          "stepNumber": 16,
-          "action": "CONFIRM UNAFFECTED ENGINE FUEL LEVER OFF — moves unaffected fuel lever to OFF — OFF",
-          "crewRole": "PF",
-          "intent": "ANNOUNCE_AND_DO",
-          "requiresConfirmation": true,
-          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-33/5-34/5-35; OM-B Ch 3 Sec 3.10.1; POH/AFM Sec 3.4.1"
-        },
-        {
-          "stepNumber": 17,
-          "action": "CONFIRMED",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE",
-          "requiresConfirmation": false,
-          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-33/5-34/5-35; OM-B Ch 3 Sec 3.10.1; POH/AFM Sec 3.4.1"
-        },
-        {
-          "stepNumber": 18,
-          "action": "DC MASTER SWITCH OFF",
-          "crewRole": "PF",
-          "intent": "ANNOUNCE_AND_DO",
-          "requiresConfirmation": false,
-          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-33/5-34/5-35; OM-B Ch 3 Sec 3.10.1; POH/AFM Sec 3.4.1"
-        },
-        {
-          "stepNumber": 19,
-          "action": "QRH FOR ENGINE FIRE ON GROUND",
-          "crewRole": "PF",
-          "intent": "ANNOUNCE",
-          "requiresConfirmation": false,
-          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-33/5-34/5-35; OM-B Ch 3 Sec 3.10.1; POH/AFM Sec 3.4.1"
-        },
-        {
-          "stepNumber": 20,
-          "action": "Actions QRH — QRH FOR ENGINE FIRE ON GROUND COMPLETE",
-          "crewRole": "PM",
-          "intent": "ANNOUNCE_AND_DO",
-          "requiresConfirmation": false,
-          "reference": "MCC CALLS AND MEMORY ITEMS.pdf p.5-33/5-34/5-35; OM-B Ch 3 Sec 3.10.1; POH/AFM Sec 3.4.1"
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.4.1, p. 3-17"
         }
       ]
     }
   },
-  "sourceNote": "Airline-quality MCC callouts from MCC CALLS AND MEMORY ITEMS.pdf DHC-6 WIPLINE/G950 HBTS-001 ISS03 REV02. Not an approved AFM/POH/QRH replacement.",
+  "sourceNote": "AFM-only training transcription from Viking Air PSM 1-63-1A Revision 53, Section 3.4.1, page 3-17. The first three bold actions are grouped as memory items. The later bold evacuation action remains in the flow so the approved sequence is preserved. Crew-role fields are trainer UI assignments only; they are not approved PF/PM callouts or operator SOP. Verify applicability against the aircraft-specific AFM, amendments, supplements, and operator procedures.",
   "phaseTag": "Ground",
   "displayLabel": "Engine Fire on Ground",
   "sortOrder": 51,
   "sourceSection": "3.4.1",
   "procedureGroup": "Smoke and Fire",
   "manualSection": "Section 3",
-  "sequenceBasis": "MCC CALLS AND MEMORY ITEMS.pdf 5.4.1 Engine Fire On Ground",
+  "sequenceBasis": "PSM 1-63-1A Revision 53, Section 3.4.1",
   "normalSplit": null
 }

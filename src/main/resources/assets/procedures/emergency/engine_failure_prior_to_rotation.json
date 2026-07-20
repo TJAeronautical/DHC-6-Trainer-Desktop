@@ -3,275 +3,45 @@
   "drillName": "Rejected Take-Off [Ground]",
   "category": "EMERGENCY",
   "context": "Ground",
-  "sourceNote": "Full MCC callout drill from FCTM HBTS-001 ISS03 Section 5.3.1. PF initiates reject. PM advises ATC. Evacuation and no-evacuation branches included. Note: prohibited to use reverse when only one engine is operative.",
+  "sourceNote": "AFM-only training transcription from Viking Air PSM 1-63-1A Revision 53, Section 3.3.1, page 3-12. The memory list contains the complete actions printed in bold. Crew-role fields are trainer UI assignments only; they are not approved PF/PM callouts or operator SOP. Verify applicability against the aircraft-specific AFM, amendments, supplements, and operator procedures.",
   "variants": {
     "LEGACY": {
       "memory": [
         {
           "stepNumber": 1,
-          "action": "REJECT, REJECT, REJECT",
+          "action": "Power levers — IDLE",
           "crewRole": "PF",
           "requiresConfirmation": false,
-          "reference": "FCTM HBTS-001 ISS03 Section 5.3.1; MCC Callouts"
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.3.1, p. 3-12"
         },
         {
           "stepNumber": 2,
-          "action": "POWER LEVERS — IDLE",
+          "action": "Brakes — APPLY",
           "crewRole": "PF",
           "requiresConfirmation": false,
-          "reference": "FCTM HBTS-001 ISS03 Section 5.3.1; MCC Callouts"
-        },
-        {
-          "stepNumber": 3,
-          "action": "REVERSE — AS REQUIRED",
-          "crewRole": "PF",
-          "requiresConfirmation": false,
-          "reference": "FCTM HBTS-001 ISS03 Section 5.3.1; MCC Callouts"
-        },
-        {
-          "stepNumber": 4,
-          "action": "IF INSUFFICIENT ROOM TO STOP:",
-          "crewRole": "PF",
-          "requiresConfirmation": false,
-          "reference": "FCTM HBTS-001 ISS03 Section 5.3.1; MCC Callouts"
-        },
-        {
-          "stepNumber": 5,
-          "action": "PROP LEVERS — BOTH FEATHER",
-          "crewRole": "PF",
-          "requiresConfirmation": false,
-          "reference": "FCTM HBTS-001 ISS03 Section 5.3.1; MCC Callouts"
-        },
-        {
-          "stepNumber": 6,
-          "action": "FUEL LEVERS — BOTH OFF",
-          "crewRole": "PF",
-          "requiresConfirmation": false,
-          "reference": "FCTM HBTS-001 ISS03 Section 5.3.1; MCC Callouts"
-        },
-        {
-          "stepNumber": 7,
-          "action": "FUEL SOV SWITCH — BOTH OFF",
-          "crewRole": "PF",
-          "requiresConfirmation": false,
-          "reference": "FCTM HBTS-001 ISS03 Section 5.3.1; MCC Callouts"
-        },
-        {
-          "stepNumber": 8,
-          "action": "DC MASTER SWITCH — OFF",
-          "crewRole": "PF",
-          "requiresConfirmation": false,
-          "reference": "FCTM HBTS-001 ISS03 Section 5.3.1; MCC Callouts"
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.3.1, p. 3-12"
         }
       ],
-      "flow": [
-        {
-          "stepNumber": 1,
-          "action": "REJECT, REJECT, REJECT",
-          "crewRole": "PF",
-          "requiresConfirmation": false,
-          "intent": "ANNOUNCE_AND_DO",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.3.1; MCC Callouts"
-        },
-        {
-          "stepNumber": 2,
-          "action": "POWER LEVERS — IDLE, REVERSE AS REQUIRED, LAND STRAIGHT AHEAD",
-          "crewRole": "PF",
-          "requiresConfirmation": false,
-          "intent": "DO",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.3.1; MCC Callouts"
-        },
-        {
-          "stepNumber": 3,
-          "action": "ATC ADVISED — [CALLSIGN] REJECTING",
-          "crewRole": "PM",
-          "requiresConfirmation": false,
-          "intent": "ANNOUNCE_AND_DO",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.3.1; MCC Callouts"
-        },
-        {
-          "stepNumber": 4,
-          "action": "IF INSUFFICIENT ROOM TO STOP: PROP LEVERS BOTH FEATHER, FUEL LEVERS BOTH OFF, FUEL SOV SWITCH BOTH OFF, DC MASTER SWITCH OFF",
-          "crewRole": "PF",
-          "requiresConfirmation": false,
-          "intent": "ANNOUNCE_AND_DO",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.3.1; MCC Callouts"
-        },
-        {
-          "stepNumber": 5,
-          "action": "TAKING CONTROL — establish nature of malfunction and take appropriate action. If engine fire: complete engine fire on ground memory items",
-          "crewRole": "PF",
-          "requiresConfirmation": false,
-          "intent": "ANNOUNCE_AND_DO",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.3.1; MCC Callouts"
-        },
-        {
-          "stepNumber": 6,
-          "action": "IF EVACUATION REQUIRED — ONCE PROPELLERS HAVE STOPPED: EVACUATE, EVACUATE, EVACUATE — LEFT/RIGHT/BOTH SIDES",
-          "crewRole": "PF",
-          "requiresConfirmation": false,
-          "intent": "ANNOUNCE_AND_DO",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.3.1; MCC Callouts"
-        },
-        {
-          "stepNumber": 7,
-          "action": "ATC ADVISED — [CALLSIGN] EVACUATING",
-          "crewRole": "PM",
-          "requiresConfirmation": false,
-          "intent": "ANNOUNCE_AND_DO",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.3.1; MCC Callouts"
-        },
-        {
-          "stepNumber": 8,
-          "action": "IF EVACUATION NOT REQUIRED: REMAIN SEATED",
-          "crewRole": "PF",
-          "requiresConfirmation": false,
-          "intent": "ANNOUNCE",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.3.1; MCC Callouts"
-        },
-        {
-          "stepNumber": 9,
-          "action": "PASSENGERS ADVISED TO REMAIN SEATED — ATC and company advised of situation",
-          "crewRole": "PM",
-          "requiresConfirmation": false,
-          "intent": "ANNOUNCE_AND_DO",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.3.1; MCC Callouts"
-        }
-      ]
+      "flow": []
     },
     "G950": {
       "memory": [
         {
           "stepNumber": 1,
-          "action": "REJECT, REJECT, REJECT",
+          "action": "Power levers — IDLE",
           "crewRole": "PF",
           "requiresConfirmation": false,
-          "reference": "FCTM HBTS-001 ISS03 Section 5.3.1; MCC Callouts"
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.3.1, p. 3-12"
         },
         {
           "stepNumber": 2,
-          "action": "POWER LEVERS — IDLE",
+          "action": "Brakes — APPLY",
           "crewRole": "PF",
           "requiresConfirmation": false,
-          "reference": "FCTM HBTS-001 ISS03 Section 5.3.1; MCC Callouts"
-        },
-        {
-          "stepNumber": 3,
-          "action": "REVERSE — AS REQUIRED",
-          "crewRole": "PF",
-          "requiresConfirmation": false,
-          "reference": "FCTM HBTS-001 ISS03 Section 5.3.1; MCC Callouts"
-        },
-        {
-          "stepNumber": 4,
-          "action": "IF INSUFFICIENT ROOM TO STOP:",
-          "crewRole": "PF",
-          "requiresConfirmation": false,
-          "reference": "FCTM HBTS-001 ISS03 Section 5.3.1; MCC Callouts"
-        },
-        {
-          "stepNumber": 5,
-          "action": "PROP LEVERS — BOTH FEATHER",
-          "crewRole": "PF",
-          "requiresConfirmation": false,
-          "reference": "FCTM HBTS-001 ISS03 Section 5.3.1; MCC Callouts"
-        },
-        {
-          "stepNumber": 6,
-          "action": "FUEL LEVERS — BOTH OFF",
-          "crewRole": "PF",
-          "requiresConfirmation": false,
-          "reference": "FCTM HBTS-001 ISS03 Section 5.3.1; MCC Callouts"
-        },
-        {
-          "stepNumber": 7,
-          "action": "FUEL SOV SWITCH — BOTH OFF",
-          "crewRole": "PF",
-          "requiresConfirmation": false,
-          "reference": "FCTM HBTS-001 ISS03 Section 5.3.1; MCC Callouts"
-        },
-        {
-          "stepNumber": 8,
-          "action": "DC MASTER SWITCH — OFF",
-          "crewRole": "PF",
-          "requiresConfirmation": false,
-          "reference": "FCTM HBTS-001 ISS03 Section 5.3.1; MCC Callouts"
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.3.1, p. 3-12"
         }
       ],
-      "flow": [
-        {
-          "stepNumber": 1,
-          "action": "REJECT, REJECT, REJECT",
-          "crewRole": "PF",
-          "requiresConfirmation": false,
-          "intent": "ANNOUNCE_AND_DO",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.3.1; MCC Callouts"
-        },
-        {
-          "stepNumber": 2,
-          "action": "POWER LEVERS — IDLE, REVERSE AS REQUIRED, LAND STRAIGHT AHEAD",
-          "crewRole": "PF",
-          "requiresConfirmation": false,
-          "intent": "DO",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.3.1; MCC Callouts"
-        },
-        {
-          "stepNumber": 3,
-          "action": "ATC ADVISED — [CALLSIGN] REJECTING",
-          "crewRole": "PM",
-          "requiresConfirmation": false,
-          "intent": "ANNOUNCE_AND_DO",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.3.1; MCC Callouts"
-        },
-        {
-          "stepNumber": 4,
-          "action": "IF INSUFFICIENT ROOM TO STOP: PROP LEVERS BOTH FEATHER, FUEL LEVERS BOTH OFF, FUEL SOV SWITCH BOTH OFF, DC MASTER SWITCH OFF",
-          "crewRole": "PF",
-          "requiresConfirmation": false,
-          "intent": "ANNOUNCE_AND_DO",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.3.1; MCC Callouts"
-        },
-        {
-          "stepNumber": 5,
-          "action": "TAKING CONTROL — establish nature of malfunction and take appropriate action. If engine fire: complete engine fire on ground memory items",
-          "crewRole": "PF",
-          "requiresConfirmation": false,
-          "intent": "ANNOUNCE_AND_DO",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.3.1; MCC Callouts"
-        },
-        {
-          "stepNumber": 6,
-          "action": "IF EVACUATION REQUIRED — ONCE PROPELLERS HAVE STOPPED: EVACUATE, EVACUATE, EVACUATE — LEFT/RIGHT/BOTH SIDES",
-          "crewRole": "PF",
-          "requiresConfirmation": false,
-          "intent": "ANNOUNCE_AND_DO",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.3.1; MCC Callouts"
-        },
-        {
-          "stepNumber": 7,
-          "action": "ATC ADVISED — [CALLSIGN] EVACUATING",
-          "crewRole": "PM",
-          "requiresConfirmation": false,
-          "intent": "ANNOUNCE_AND_DO",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.3.1; MCC Callouts"
-        },
-        {
-          "stepNumber": 8,
-          "action": "IF EVACUATION NOT REQUIRED: REMAIN SEATED",
-          "crewRole": "PF",
-          "requiresConfirmation": false,
-          "intent": "ANNOUNCE",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.3.1; MCC Callouts"
-        },
-        {
-          "stepNumber": 9,
-          "action": "PASSENGERS ADVISED TO REMAIN SEATED — ATC and company advised of situation",
-          "crewRole": "PM",
-          "requiresConfirmation": false,
-          "intent": "ANNOUNCE_AND_DO",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.3.1; MCC Callouts"
-        }
-      ]
+      "flow": []
     }
   }
 }

@@ -3,383 +3,67 @@
   "drillName": "Uncommanded Feather [Airborne]",
   "category": "EMERGENCY",
   "context": "Airborne",
-  "sourceNote": "Full MCC callout drill from FCTM HBTS-001 ISS03 Section 5.4.4, Group 2 procedure. Power lever goes to IDLE (not retard) to allow unfeather attempt. Autofeather switch OFF if applicable — no ▲ required. Propeller unfeather branch included. All ▲ critical actions requiresConfirmation=true.",
+  "sourceNote": "AFM-only training transcription from Viking Air PSM 1-63-1A Revision 53, Section 3.11.2, pages 3-36 to 3-37. The memory list contains only the first three actions printed in bold. The subsequent troubleshooting checks the affected BETA light and autofeather selection before directing an engine shutdown. Crew-role fields are trainer UI assignments only; they are not approved PF/PM callouts or operator SOP. Verify applicability against the aircraft-specific AFM, amendments, supplements, and operator procedures.",
   "variants": {
     "LEGACY": {
       "memory": [
         {
           "stepNumber": 1,
-          "action": "UNCOMMANDED FEATHER",
+          "action": "Advance the unaffected engine power lever to the torque, T5, or NG limit, whichever is reached first; ensure its PROP lever is at MAX RPM (96% NP).",
           "crewRole": "PF",
           "requiresConfirmation": false,
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.11.2, p. 3-36"
         },
         {
           "stepNumber": 2,
-          "action": "POWER AND PROP LEVERS (UNAFFECTED ENGINE) — MAX POWER",
+          "action": "Aircraft control — Adjust pitch attitude to maintain altitude; maintain directional control with rudder.",
           "crewRole": "PF",
           "requiresConfirmation": false,
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.11.2, p. 3-36"
         },
         {
           "stepNumber": 3,
-          "action": "CONFIRM L/R ENGINE POWER LEVER IDLE",
-          "crewRole": "PM",
-          "requiresConfirmation": true,
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 4,
-          "action": "CONFIRMED",
-          "crewRole": "PF",
-          "requiresConfirmation": true,
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 5,
-          "action": "IDLE",
-          "crewRole": "PM",
-          "requiresConfirmation": false,
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 6,
-          "action": "IF AUTOFEATHER SWITCH IS ON: AUTOFEATHER SWITCH — OFF (no confirmation required)",
-          "crewRole": "PM",
-          "requiresConfirmation": false,
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 7,
-          "action": "IF PROPELLER UNFEATHERS — END OF PROCEDURE / COMPLETE QRH",
+          "action": "Power lever of affected engine — IDLE.",
           "crewRole": "PF",
           "requiresConfirmation": false,
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 8,
-          "action": "IF PROPELLER DOES NOT UNFEATHER — IN-FLIGHT SHUTDOWN:",
-          "crewRole": "PF",
-          "requiresConfirmation": false,
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 9,
-          "action": "CONFIRM L/R PROP LEVER FEATHER",
-          "crewRole": "PM",
-          "requiresConfirmation": true,
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 10,
-          "action": "CONFIRMED",
-          "crewRole": "PF",
-          "requiresConfirmation": true,
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 11,
-          "action": "FEATHERED",
-          "crewRole": "PM",
-          "requiresConfirmation": false,
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 12,
-          "action": "CONFIRM L/R ENGINE FUEL LEVER OFF",
-          "crewRole": "PM",
-          "requiresConfirmation": true,
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 13,
-          "action": "CONFIRMED",
-          "crewRole": "PF",
-          "requiresConfirmation": true,
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 14,
-          "action": "OFF",
-          "crewRole": "PM",
-          "requiresConfirmation": false,
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 15,
-          "action": "CONFIRM L/R FUEL EMERGENCY SWITCH OFF",
-          "crewRole": "PM",
-          "requiresConfirmation": true,
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 16,
-          "action": "CONFIRMED",
-          "crewRole": "PF",
-          "requiresConfirmation": true,
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 17,
-          "action": "OFF",
-          "crewRole": "PM",
-          "requiresConfirmation": false,
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 18,
-          "action": "CONFIRM L/R FUEL BOOST PUMP OFF",
-          "crewRole": "PM",
-          "requiresConfirmation": true,
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 19,
-          "action": "CONFIRMED",
-          "crewRole": "PF",
-          "requiresConfirmation": true,
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 20,
-          "action": "OFF",
-          "crewRole": "PM",
-          "requiresConfirmation": false,
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.11.2, p. 3-36"
         }
       ],
       "flow": [
         {
           "stepNumber": 1,
-          "action": "CONFIRM L/R UNCOMMANDED FEATHER — acknowledging malfunction, maintaining directional control",
+          "action": "Trim aircraft as required. Flaps may remain retracted or be extended to 10° if necessary.",
           "crewRole": "PF",
-          "requiresConfirmation": true,
-          "intent": "ANNOUNCE_AND_DO",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
+          "requiresConfirmation": false,
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.11.2, p. 3-36"
         },
         {
           "stepNumber": 2,
-          "action": "CONFIRMED L/R PROPELLER HAS FEATHERED UNCOMMANDED — NP [check], T5 [check], Torque [check], WF [check], NG [check]",
-          "crewRole": "PM",
-          "requiresConfirmation": true,
-          "intent": "ANNOUNCE_AND_DO",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
+          "action": "Compute and, if necessary, set Maximum Continuous Power on the operating engine.",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.11.2, p. 3-36"
         },
         {
           "stepNumber": 3,
-          "action": "SET MAX POWER L/R ENGINE",
-          "crewRole": "PF",
+          "action": "Check the BETA light for the affected engine. If illuminated, complete the Steady Beta Light checklist, AFM 3.11.5.",
+          "crewRole": "PM",
           "requiresConfirmation": false,
-          "intent": "ANNOUNCE_AND_DO",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.11.2, p. 3-36"
         },
         {
           "stepNumber": 4,
-          "action": "MAX POWER SET — PROP LEVERS 96% NP, POWER LEVERS MAX unaffected engine confirmed",
+          "action": "If the autofeather system is selected ON, as shown by the green autofeather SELECT light, turn the autofeather system OFF.",
           "crewRole": "PM",
           "requiresConfirmation": false,
-          "intent": "ANNOUNCE_AND_DO",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.11.2, p. 3-37"
         },
         {
           "stepNumber": 5,
-          "action": "MEMORY ITEMS FOR UNCOMMANDED FEATHER",
-          "crewRole": "PF",
-          "requiresConfirmation": false,
-          "intent": "ANNOUNCE",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 6,
-          "action": "INITIATING MEMORY ITEMS",
+          "action": "If neither action resolves the problem, shut down the affected engine using Engine Shutdown in Flight, AFM 3.10.1.",
           "crewRole": "PM",
           "requiresConfirmation": false,
-          "intent": "ANNOUNCE",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 7,
-          "action": "CONFIRM L/R ENGINE POWER LEVER IDLE",
-          "crewRole": "PM",
-          "requiresConfirmation": true,
-          "intent": "ANNOUNCE",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 8,
-          "action": "CONFIRMED",
-          "crewRole": "PF",
-          "requiresConfirmation": true,
-          "intent": "ANNOUNCE",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 9,
-          "action": "IDLE — POWER LEVER AT IDLE",
-          "crewRole": "PM",
-          "requiresConfirmation": false,
-          "intent": "ANNOUNCE",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 10,
-          "action": "AUTOFEATHER SWITCH OFF — if autofeather system is selected ON (no confirmation required)",
-          "crewRole": "PM",
-          "requiresConfirmation": false,
-          "intent": "ANNOUNCE_AND_DO",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 11,
-          "action": "OFF — AUTOFEATHER SWITCH OFF",
-          "crewRole": "PM",
-          "requiresConfirmation": false,
-          "intent": "ANNOUNCE",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 12,
-          "action": "IF PROPELLER UNFEATHERS — END OF PROCEDURE, COMPLETE QRH CHECKLIST ONLY",
-          "crewRole": "PM",
-          "requiresConfirmation": false,
-          "intent": "ANNOUNCE",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 13,
-          "action": "IF PROPELLER DOES NOT UNFEATHER — CONTINUING WITH IN-FLIGHT SHUTDOWN",
-          "crewRole": "PM",
-          "requiresConfirmation": false,
-          "intent": "ANNOUNCE",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 14,
-          "action": "CONFIRM IN-FLIGHT SHUTDOWN",
-          "crewRole": "PM",
-          "requiresConfirmation": false,
-          "intent": "ANNOUNCE",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 15,
-          "action": "CONFIRM L/R PROP LEVER FEATHER",
-          "crewRole": "PM",
-          "requiresConfirmation": true,
-          "intent": "ANNOUNCE",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 16,
-          "action": "CONFIRMED",
-          "crewRole": "PF",
-          "requiresConfirmation": true,
-          "intent": "ANNOUNCE",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 17,
-          "action": "FEATHERED — PROP LEVER AT FEATHER",
-          "crewRole": "PM",
-          "requiresConfirmation": false,
-          "intent": "ANNOUNCE",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 18,
-          "action": "CONFIRM L/R ENGINE FUEL LEVER OFF",
-          "crewRole": "PM",
-          "requiresConfirmation": true,
-          "intent": "ANNOUNCE",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 19,
-          "action": "CONFIRMED",
-          "crewRole": "PF",
-          "requiresConfirmation": true,
-          "intent": "ANNOUNCE",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 20,
-          "action": "OFF — FUEL LEVER OFF",
-          "crewRole": "PM",
-          "requiresConfirmation": false,
-          "intent": "ANNOUNCE",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 21,
-          "action": "CONFIRM L/R FUEL EMERGENCY SWITCH OFF",
-          "crewRole": "PM",
-          "requiresConfirmation": true,
-          "intent": "ANNOUNCE",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 22,
-          "action": "CONFIRMED",
-          "crewRole": "PF",
-          "requiresConfirmation": true,
-          "intent": "ANNOUNCE",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 23,
-          "action": "OFF — FUEL EMERGENCY SWITCH OFF",
-          "crewRole": "PM",
-          "requiresConfirmation": false,
-          "intent": "ANNOUNCE",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 24,
-          "action": "CONFIRM L/R FUEL BOOST PUMP OFF",
-          "crewRole": "PM",
-          "requiresConfirmation": true,
-          "intent": "ANNOUNCE",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 25,
-          "action": "CONFIRMED",
-          "crewRole": "PF",
-          "requiresConfirmation": true,
-          "intent": "ANNOUNCE",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 26,
-          "action": "OFF — FUEL BOOST PUMP OFF",
-          "crewRole": "PM",
-          "requiresConfirmation": false,
-          "intent": "ANNOUNCE",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 27,
-          "action": "CHECKED — QRH FOR UNCOMMANDED FEATHER",
-          "crewRole": "PF",
-          "requiresConfirmation": false,
-          "intent": "ANNOUNCE",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 28,
-          "action": "MEMORY ITEMS COMPLETE",
-          "crewRole": "PM",
-          "requiresConfirmation": false,
-          "intent": "ANNOUNCE",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 29,
-          "action": "QRH FOR UNCOMMANDED FEATHER COMPLETE",
-          "crewRole": "PM",
-          "requiresConfirmation": false,
-          "intent": "ANNOUNCE",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.11.2, p. 3-37"
         }
       ]
     },
@@ -387,377 +71,61 @@
       "memory": [
         {
           "stepNumber": 1,
-          "action": "UNCOMMANDED FEATHER",
+          "action": "Advance the unaffected engine power lever to the torque, T5, or NG limit, whichever is reached first; ensure its PROP lever is at MAX RPM (96% NP).",
           "crewRole": "PF",
           "requiresConfirmation": false,
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.11.2, p. 3-36"
         },
         {
           "stepNumber": 2,
-          "action": "POWER AND PROP LEVERS (UNAFFECTED ENGINE) — MAX POWER",
+          "action": "Aircraft control — Adjust pitch attitude to maintain altitude; maintain directional control with rudder.",
           "crewRole": "PF",
           "requiresConfirmation": false,
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.11.2, p. 3-36"
         },
         {
           "stepNumber": 3,
-          "action": "CONFIRM L/R ENGINE POWER LEVER IDLE",
-          "crewRole": "PM",
-          "requiresConfirmation": true,
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 4,
-          "action": "CONFIRMED",
-          "crewRole": "PF",
-          "requiresConfirmation": true,
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 5,
-          "action": "IDLE",
-          "crewRole": "PM",
-          "requiresConfirmation": false,
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 6,
-          "action": "IF AUTOFEATHER SWITCH IS ON: AUTOFEATHER SWITCH — OFF (no confirmation required)",
-          "crewRole": "PM",
-          "requiresConfirmation": false,
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 7,
-          "action": "IF PROPELLER UNFEATHERS — END OF PROCEDURE / COMPLETE QRH",
+          "action": "Power lever of affected engine — IDLE.",
           "crewRole": "PF",
           "requiresConfirmation": false,
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 8,
-          "action": "IF PROPELLER DOES NOT UNFEATHER — IN-FLIGHT SHUTDOWN:",
-          "crewRole": "PF",
-          "requiresConfirmation": false,
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 9,
-          "action": "CONFIRM L/R PROP LEVER FEATHER",
-          "crewRole": "PM",
-          "requiresConfirmation": true,
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 10,
-          "action": "CONFIRMED",
-          "crewRole": "PF",
-          "requiresConfirmation": true,
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 11,
-          "action": "FEATHERED",
-          "crewRole": "PM",
-          "requiresConfirmation": false,
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 12,
-          "action": "CONFIRM L/R ENGINE FUEL LEVER OFF",
-          "crewRole": "PM",
-          "requiresConfirmation": true,
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 13,
-          "action": "CONFIRMED",
-          "crewRole": "PF",
-          "requiresConfirmation": true,
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 14,
-          "action": "OFF",
-          "crewRole": "PM",
-          "requiresConfirmation": false,
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 15,
-          "action": "CONFIRM L/R FUEL EMERGENCY SWITCH OFF",
-          "crewRole": "PM",
-          "requiresConfirmation": true,
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 16,
-          "action": "CONFIRMED",
-          "crewRole": "PF",
-          "requiresConfirmation": true,
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 17,
-          "action": "OFF",
-          "crewRole": "PM",
-          "requiresConfirmation": false,
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 18,
-          "action": "CONFIRM L/R FUEL BOOST PUMP OFF",
-          "crewRole": "PM",
-          "requiresConfirmation": true,
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 19,
-          "action": "CONFIRMED",
-          "crewRole": "PF",
-          "requiresConfirmation": true,
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 20,
-          "action": "OFF",
-          "crewRole": "PM",
-          "requiresConfirmation": false,
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.11.2, p. 3-36"
         }
       ],
       "flow": [
         {
           "stepNumber": 1,
-          "action": "CONFIRM L/R UNCOMMANDED FEATHER — acknowledging malfunction, maintaining directional control",
+          "action": "Trim aircraft as required. Flaps may remain retracted or be extended to 10° if necessary.",
           "crewRole": "PF",
-          "requiresConfirmation": true,
-          "intent": "ANNOUNCE_AND_DO",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
+          "requiresConfirmation": false,
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.11.2, p. 3-36"
         },
         {
           "stepNumber": 2,
-          "action": "CONFIRMED L/R PROPELLER HAS FEATHERED UNCOMMANDED — NP [check], T5 [check], Torque [check], WF [check], NG [check]",
-          "crewRole": "PM",
-          "requiresConfirmation": true,
-          "intent": "ANNOUNCE_AND_DO",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
+          "action": "Compute and, if necessary, set Maximum Continuous Power on the operating engine.",
+          "crewRole": "PF",
+          "requiresConfirmation": false,
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.11.2, p. 3-36"
         },
         {
           "stepNumber": 3,
-          "action": "SET MAX POWER L/R ENGINE",
-          "crewRole": "PF",
+          "action": "Check the BETA light for the affected engine. If illuminated, complete the Steady Beta Light checklist, AFM 3.11.5.",
+          "crewRole": "PM",
           "requiresConfirmation": false,
-          "intent": "ANNOUNCE_AND_DO",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.11.2, p. 3-36"
         },
         {
           "stepNumber": 4,
-          "action": "MAX POWER SET — PROP LEVERS 96% NP, POWER LEVERS MAX unaffected engine confirmed",
+          "action": "If the autofeather system is selected ON, as shown by the green autofeather SELECT light, turn the autofeather system OFF.",
           "crewRole": "PM",
           "requiresConfirmation": false,
-          "intent": "ANNOUNCE_AND_DO",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.11.2, p. 3-37"
         },
         {
           "stepNumber": 5,
-          "action": "MEMORY ITEMS FOR UNCOMMANDED FEATHER",
-          "crewRole": "PF",
-          "requiresConfirmation": false,
-          "intent": "ANNOUNCE",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 6,
-          "action": "INITIATING MEMORY ITEMS",
+          "action": "If neither action resolves the problem, shut down the affected engine using Engine Shutdown in Flight, AFM 3.10.1.",
           "crewRole": "PM",
           "requiresConfirmation": false,
-          "intent": "ANNOUNCE",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 7,
-          "action": "CONFIRM L/R ENGINE POWER LEVER IDLE",
-          "crewRole": "PM",
-          "requiresConfirmation": true,
-          "intent": "ANNOUNCE",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 8,
-          "action": "CONFIRMED",
-          "crewRole": "PF",
-          "requiresConfirmation": true,
-          "intent": "ANNOUNCE",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 9,
-          "action": "IDLE — POWER LEVER AT IDLE",
-          "crewRole": "PM",
-          "requiresConfirmation": false,
-          "intent": "ANNOUNCE",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 10,
-          "action": "AUTOFEATHER SWITCH OFF — if autofeather system is selected ON (no confirmation required)",
-          "crewRole": "PM",
-          "requiresConfirmation": false,
-          "intent": "ANNOUNCE_AND_DO",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 11,
-          "action": "OFF — AUTOFEATHER SWITCH OFF",
-          "crewRole": "PM",
-          "requiresConfirmation": false,
-          "intent": "ANNOUNCE",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 12,
-          "action": "IF PROPELLER UNFEATHERS — END OF PROCEDURE, COMPLETE QRH CHECKLIST ONLY",
-          "crewRole": "PM",
-          "requiresConfirmation": false,
-          "intent": "ANNOUNCE",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 13,
-          "action": "IF PROPELLER DOES NOT UNFEATHER — CONTINUING WITH IN-FLIGHT SHUTDOWN",
-          "crewRole": "PM",
-          "requiresConfirmation": false,
-          "intent": "ANNOUNCE",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 14,
-          "action": "CONFIRM IN-FLIGHT SHUTDOWN",
-          "crewRole": "PM",
-          "requiresConfirmation": false,
-          "intent": "ANNOUNCE",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 15,
-          "action": "CONFIRM L/R PROP LEVER FEATHER",
-          "crewRole": "PM",
-          "requiresConfirmation": true,
-          "intent": "ANNOUNCE",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 16,
-          "action": "CONFIRMED",
-          "crewRole": "PF",
-          "requiresConfirmation": true,
-          "intent": "ANNOUNCE",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 17,
-          "action": "FEATHERED — PROP LEVER AT FEATHER",
-          "crewRole": "PM",
-          "requiresConfirmation": false,
-          "intent": "ANNOUNCE",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 18,
-          "action": "CONFIRM L/R ENGINE FUEL LEVER OFF",
-          "crewRole": "PM",
-          "requiresConfirmation": true,
-          "intent": "ANNOUNCE",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 19,
-          "action": "CONFIRMED",
-          "crewRole": "PF",
-          "requiresConfirmation": true,
-          "intent": "ANNOUNCE",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 20,
-          "action": "OFF — FUEL LEVER OFF",
-          "crewRole": "PM",
-          "requiresConfirmation": false,
-          "intent": "ANNOUNCE",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 21,
-          "action": "CONFIRM L/R FUEL EMERGENCY SWITCH OFF",
-          "crewRole": "PM",
-          "requiresConfirmation": true,
-          "intent": "ANNOUNCE",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 22,
-          "action": "CONFIRMED",
-          "crewRole": "PF",
-          "requiresConfirmation": true,
-          "intent": "ANNOUNCE",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 23,
-          "action": "OFF — FUEL EMERGENCY SWITCH OFF",
-          "crewRole": "PM",
-          "requiresConfirmation": false,
-          "intent": "ANNOUNCE",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 24,
-          "action": "CONFIRM L/R FUEL BOOST PUMP OFF",
-          "crewRole": "PM",
-          "requiresConfirmation": true,
-          "intent": "ANNOUNCE",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 25,
-          "action": "CONFIRMED",
-          "crewRole": "PF",
-          "requiresConfirmation": true,
-          "intent": "ANNOUNCE",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 26,
-          "action": "OFF — FUEL BOOST PUMP OFF",
-          "crewRole": "PM",
-          "requiresConfirmation": false,
-          "intent": "ANNOUNCE",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 27,
-          "action": "CHECKED — QRH FOR UNCOMMANDED FEATHER",
-          "crewRole": "PF",
-          "requiresConfirmation": false,
-          "intent": "ANNOUNCE",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 28,
-          "action": "MEMORY ITEMS COMPLETE",
-          "crewRole": "PM",
-          "requiresConfirmation": false,
-          "intent": "ANNOUNCE",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
-        },
-        {
-          "stepNumber": 29,
-          "action": "QRH FOR UNCOMMANDED FEATHER COMPLETE",
-          "crewRole": "PM",
-          "requiresConfirmation": false,
-          "intent": "ANNOUNCE",
-          "reference": "FCTM HBTS-001 ISS03 Section 5.4.4; MCC Callouts; QRH EN-10 to EN-11"
+          "reference": "PSM 1-63-1A Rev 53, AFM 3.11.2, p. 3-37"
         }
       ]
     }
