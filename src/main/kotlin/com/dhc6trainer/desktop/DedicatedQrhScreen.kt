@@ -254,7 +254,7 @@ private fun QrhItemRow(procedure: ProcedureSummary, selected: Boolean, favorite:
             QrhSymbol(group, 34)
             Column(Modifier.weight(1f)) {
                 Text(procedure.rawName, color = Color.White, fontWeight = FontWeight.Black, fontSize = 14.sp, maxLines = 2, overflow = TextOverflow.Ellipsis)
-                Text("${procedure.stepCount} items - ${group.title}", color = Dhc6DesktopColors.TextSecondary, fontSize = 11.sp)
+                Text("${procedure.steps.withoutDuplicateVariantSteps().size} items - ${group.title}", color = Dhc6DesktopColors.TextSecondary, fontSize = 11.sp)
             }
             if (favorite) Text("*", color = Dhc6DesktopColors.Gold, fontSize = 22.sp, fontWeight = FontWeight.Black)
         }
@@ -289,8 +289,9 @@ private fun QrhProcedureDetail(procedure: ProcedureSummary?, favorite: Boolean, 
         } else {
             val group = qrhGroup(procedure)
             val applicability = qrhApplicability(procedure)
+            val orderedSteps = procedure.steps.withoutDuplicateVariantSteps()
             val immediateActionCount = qrhImmediateActionCount(procedure)
-            val splitIndex = immediateActionCount?.coerceIn(0, procedure.steps.size)
+            val splitIndex = immediateActionCount?.coerceIn(0, orderedSteps.size)
             Column(Modifier.fillMaxSize().padding(20.dp)) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Text(group.title.uppercase(), color = group.accent, fontWeight = FontWeight.Black, fontSize = 11.sp, modifier = Modifier.weight(1f))
@@ -381,7 +382,7 @@ private fun QrhProcedureDetail(procedure: ProcedureSummary?, favorite: Boolean, 
                 LazyColumn(Modifier.fillMaxSize(), contentPadding = PaddingValues(start = 0.dp, top = 8.dp, end = 0.dp, bottom = 24.dp)) {
                     when {
                         splitIndex == null -> {
-                            itemsIndexed(procedure.steps) { index, step ->
+                            itemsIndexed(orderedSteps) { index, step ->
                                 QrhStep(step, step.number ?: index + 1, group.accent)
                             }
                         }
@@ -395,7 +396,7 @@ private fun QrhProcedureDetail(procedure: ProcedureSummary?, favorite: Boolean, 
                                     modifier = Modifier.fillMaxWidth().padding(top = 10.dp, bottom = 3.dp),
                                 )
                             }
-                            itemsIndexed(procedure.steps) { index, step ->
+                            itemsIndexed(orderedSteps) { index, step ->
                                 QrhStep(step, index + 1, group.accent)
                             }
                         }
@@ -409,8 +410,8 @@ private fun QrhProcedureDetail(procedure: ProcedureSummary?, favorite: Boolean, 
                                     modifier = Modifier.fillMaxWidth().padding(top = 10.dp, bottom = 3.dp),
                                 )
                             }
-                            val immediateSteps = procedure.steps.take(splitIndex)
-                            val continuationSteps = procedure.steps.drop(splitIndex)
+                            val immediateSteps = orderedSteps.take(splitIndex)
+                            val continuationSteps = orderedSteps.drop(splitIndex)
                             itemsIndexed(immediateSteps) { index, step ->
                                 QrhStep(step, index + 1, group.accent)
                             }

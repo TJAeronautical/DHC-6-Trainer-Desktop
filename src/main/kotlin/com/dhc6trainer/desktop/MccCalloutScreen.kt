@@ -26,6 +26,8 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.OutlinedButton
@@ -103,6 +105,7 @@ private fun ProcedureSummary.hasReviewedMccOverlay(): Boolean =
 private data class MccState(
     val phase: MccPhase = MccPhase.HOME,
     val selectedCat: MccCategory = MccCategory.STANDARD,
+    val selectedProcedureId: String? = null,
     val sessionSteps: List<ProcedureStep> = emptyList(),
     val procedureTitle: String = "",
     val currentStep: Int = 0,
@@ -152,25 +155,38 @@ internal fun MccCalloutScreen(procedureSnapshot: ProcedureLibrarySnapshot) {
         }
     }
 
-    fun startSession(cat: MccCategory) {
-        val eligibleProcedures = procedureSnapshot.procedures.filter {
+    fun proceduresFor(cat: MccCategory): List<ProcedureSummary> {
+        val eligible = procedureSnapshot.procedures.filter {
             it.hasReviewedMccOverlay()
         }
-        val candidates = when (cat) {
-            MccCategory.STANDARD     -> eligibleProcedures.filter { it.category == ProcedureCategory.NORMAL }
-            MccCategory.ABNORMAL_EMG -> eligibleProcedures.filter {
-                it.category == ProcedureCategory.EMERGENCY || it.category == ProcedureCategory.ABNORMAL
+        return when (cat) {
+            MccCategory.STANDARD -> eligible.filter {
+                it.category == ProcedureCategory.NORMAL
             }
-            MccCategory.CREW_COORD   -> eligibleProcedures
+            MccCategory.ABNORMAL_EMG -> eligible.filter {
+                it.category == ProcedureCategory.EMERGENCY ||
+                    it.category == ProcedureCategory.ABNORMAL
+            }
+            MccCategory.CREW_COORD -> eligible
+        }.filter {
+            it.steps.withoutDuplicateVariantSteps().size >= 3
+        }.sortedBy {
+            it.rawName.cleanDisplay()
         }
-        val proc = candidates.filter { it.steps.size >= 3 }.randomOrNull()
-            ?: eligibleProcedures.filter { it.steps.size >= 3 }.randomOrNull()
+    }
+
+    fun startSession(cat: MccCategory, selectedProcedureId: String? = null) {
+        val candidates = proceduresFor(cat)
+        val proc = selectedProcedureId?.let { selectedId ->
+            candidates.firstOrNull { it.id == selectedId }
+        } ?: candidates.randomOrNull()
             ?: return
-        // Single assignment avoids the per-property "assigned value never read" warnings.
+
         s = MccState(
-            phase          = MccPhase.SESSION,
-            selectedCat    = cat,
-            sessionSteps   = proc.steps.take(12),
+            phase = MccPhase.SESSION,
+            selectedCat = cat,
+            selectedProcedureId = proc.id,
+            sessionSteps = proc.steps.withoutDuplicateVariantSteps().take(12),
             procedureTitle = proc.rawName,
         )
     }
@@ -198,16 +214,36 @@ internal fun MccCalloutScreen(procedureSnapshot: ProcedureLibrarySnapshot) {
         }
 
         // â”€â”€ Home â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-        s.phase == MccPhase.HOME -> MccHomeView(
-            selectedCat    = s.selectedCat,
-            onCatSelect    = { s = s.copy(selectedCat = it) },
-            onStart        = { startSession(s.selectedCat) },
-            procedureCount = procedureSnapshot.procedures.count { it.hasReviewedMccOverlay() },
-            sessions       = DesktopProgressStore.mccSessions(),
-            bestPct        = DesktopProgressStore.mccBest(),
-        )
+        s.phase == MccPhase.HOME -> {
+            val homeProcedures = proceduresFor(s.selectedCat)
+            val selectedId = s.selectedProcedureId?.takeIf { id ->
+                homeProcedures.any { it.id == id }
+            }
+            MccHomeView(
+                selectedCat = s.selectedCat,
+                onCatSelect = { category ->
+                    s = s.copy(
+                        selectedCat = category,
+                        selectedProcedureId = null,
+                    )
+                },
+                procedures = homeProcedures,
+                selectedProcedureId = selectedId,
+                onProcedureSelect = { id ->
+                    s = s.copy(selectedProcedureId = id)
+                },
+                onStart = {
+                    startSession(s.selectedCat, selectedId)
+                },
+                procedureCount = procedureSnapshot.procedures.count {
+                    it.hasReviewedMccOverlay()
+                },
+                sessions = DesktopProgressStore.mccSessions(),
+                bestPct = DesktopProgressStore.mccBest(),
+            )
+        }
 
-        // â”€â”€ Session â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// â”€â”€ Session â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
         s.phase == MccPhase.SESSION -> {
             // Speak PM call whenever step changes
             val currentCallText = s.sessionSteps.getOrNull(s.currentStep)?.action?.cleanDisplay() ?: ""
@@ -243,8 +279,13 @@ internal fun MccCalloutScreen(procedureSnapshot: ProcedureLibrarySnapshot) {
             elapsed        = s.elapsed,
             prompts        = s.promptsUsed,
             onReview       = { s = s.copy(currentStep = 0, lastCorrect = null, phase = MccPhase.SESSION) },
-            onTryAgain     = { startSession(s.selectedCat) },
-            onHome         = { s = MccState(selectedCat = s.selectedCat) },
+            onTryAgain = { startSession(s.selectedCat, s.selectedProcedureId) },
+            onHome = {
+                s = MccState(
+                    selectedCat = s.selectedCat,
+                    selectedProcedureId = s.selectedProcedureId,
+                )
+            },
         )
     }
 }
@@ -257,14 +298,22 @@ internal fun MccCalloutScreen(procedureSnapshot: ProcedureLibrarySnapshot) {
 private fun MccHomeView(
     selectedCat: MccCategory,
     onCatSelect: (MccCategory) -> Unit,
+    procedures: List<ProcedureSummary>,
+    selectedProcedureId: String?,
+    onProcedureSelect: (String?) -> Unit,
     onStart: () -> Unit,
     procedureCount: Int,
     sessions: Int,
     bestPct: Int,
 ) {
+    var procedureMenuExpanded by remember(selectedCat) { mutableStateOf(false) }
+    val selectedProcedure = procedures.firstOrNull {
+        it.id == selectedProcedureId
+    }
+
     Column(
         modifier = Modifier.fillMaxSize(),
-        verticalArrangement = Arrangement.spacedBy(20.dp),
+        verticalArrangement = Arrangement.spacedBy(10.dp),
     ) {
         // â”€â”€ Hero â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
         Card(
@@ -275,7 +324,7 @@ private fun MccHomeView(
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(190.dp)
+                    .height(165.dp)
                     .background(
                         Brush.linearGradient(
                             listOf(Color(0xFF0A2540), Color(0xFF05121E), Color(0xFF0D1E30))
@@ -286,16 +335,16 @@ private fun MccHomeView(
                 Column {
                     Text(
                         "MCC CALLOUT TRAINER",
-                        color = Color.White, fontSize = 36.sp, fontWeight = FontWeight.Black,
+                        color = Color.White, fontSize = 30.sp, fontWeight = FontWeight.Black,
                         letterSpacing = 1.sp,
                     )
                     Spacer(Modifier.height(8.dp))
                     Text(
                         "Master Cockpit Callouts for DHC-6 Series 300",
-                        color = Dhc6DesktopColors.TextSecondary, fontSize = 17.sp,
+                        color = Dhc6DesktopColors.TextSecondary, fontSize = 15.sp,
                         fontWeight = FontWeight.SemiBold,
                     )
-                    Spacer(Modifier.height(14.dp))
+                    Spacer(Modifier.height(8.dp))
                     Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
                         MccPill("$procedureCount procedures", Dhc6DesktopColors.Accent)
                         MccPill("PF / PM drill",             Color(0xFF22C55E))
@@ -308,7 +357,7 @@ private fun MccHomeView(
                     contentScale = ContentScale.Fit,
                     modifier = Modifier
                         .align(Alignment.CenterEnd)
-                        .size(150.dp)
+                        .size(118.dp)
                         .clip(RoundedCornerShape(20.dp)),
                 )
             }
@@ -321,75 +370,199 @@ private fun MccHomeView(
         ) {
             MccCategory.entries.forEach { cat ->
                 MccCategoryCard(
-                    cat      = cat,
+                    cat = cat,
                     selected = cat == selectedCat,
-                    onClick  = { onCatSelect(cat) },
+                    onClick = { onCatSelect(cat) },
                     modifier = Modifier.weight(1f),
                 )
             }
         }
 
-        // â”€â”€ Progress + Start â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-        Row(horizontalArrangement = Arrangement.spacedBy(16.dp), modifier = Modifier.fillMaxWidth()) {
+        Box(Modifier.fillMaxWidth()) {
+            Card(
+                modifier = Modifier.fillMaxWidth().clickable {
+                    procedureMenuExpanded = true
+                },
+                shape = RoundedCornerShape(18.dp),
+                border = BorderStroke(
+                    1.dp,
+                    selectedCat.accent.copy(alpha = 0.65f),
+                ),
+                colors = CardDefaults.cardColors(
+                    containerColor = Dhc6DesktopColors.SurfaceDark,
+                ),
+            ) {
+                Row(
+                    modifier = Modifier.fillMaxWidth()
+                        .padding(horizontal = 18.dp, vertical = 9.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(14.dp),
+                ) {
+                    Column(
+                        modifier = Modifier.weight(1f),
+                        verticalArrangement = Arrangement.spacedBy(3.dp),
+                    ) {
+                        Text(
+                            "PROCEDURE SELECTION",
+                            color = selectedCat.accent,
+                            fontWeight = FontWeight.Black,
+                            fontSize = 11.sp,
+                        )
+                        Text(
+                            selectedProcedure?.rawName?.cleanDisplay()
+                                ?: "Random eligible procedure",
+                            color = Color.White,
+                            fontWeight = FontWeight.Black,
+                            fontSize = 16.sp,
+                            maxLines = 1,
+                        )
+                        Text(
+                            "${procedures.size} reviewed procedures available. " +
+                                "AFM-only procedures are excluded from MCC/TTS.",
+                            color = Dhc6DesktopColors.TextSecondary,
+                            fontSize = 11.sp,
+                        )
+                    }
+                    Text(
+                        "SELECT",
+                        color = selectedCat.accent,
+                        fontWeight = FontWeight.Black,
+                        fontSize = 12.sp,
+                    )
+                }
+            }
+
+            DropdownMenu(
+                expanded = procedureMenuExpanded,
+                onDismissRequest = { procedureMenuExpanded = false },
+                modifier = Modifier.width(700.dp).heightIn(max = 280.dp),
+            ) {
+                DropdownMenuItem(
+                    text = {
+                        Text(
+                            "Random eligible procedure",
+                            fontWeight = FontWeight.Bold,
+                        )
+                    },
+                    onClick = {
+                        onProcedureSelect(null)
+                        procedureMenuExpanded = false
+                    },
+                )
+                procedures.forEach { procedure ->
+                    DropdownMenuItem(
+                        text = {
+                            Text(
+                                procedure.rawName.cleanDisplay(),
+                                maxLines = 1,
+                            )
+                        },
+                        onClick = {
+                            onProcedureSelect(procedure.id)
+                            procedureMenuExpanded = false
+                        },
+                    )
+                }
+            }
+        }
+
+        // Progress + Start        Row(horizontalArrangement = Arrangement.spacedBy(16.dp), modifier = Modifier.fillMaxWidth()) {
             Card(
                 modifier = Modifier.weight(1f),
                 shape    = RoundedCornerShape(22.dp),
                 border   = BorderStroke(1.dp, Dhc6DesktopColors.BorderSoft),
                 colors   = CardDefaults.cardColors(containerColor = Dhc6DesktopColors.SurfaceDark),
             ) {
-                Column(Modifier.padding(20.dp), verticalArrangement = Arrangement.spacedBy(10.dp)) {
-                    Text("PROGRESS OVERVIEW", color = Dhc6DesktopColors.Accent, fontWeight = FontWeight.Black, fontSize = 11.sp)
-                    Text("Overall Progress", color = Color.White, fontWeight = FontWeight.Bold)
+                Column(
+                    Modifier.padding(horizontal = 16.dp, vertical = 12.dp),
+                    verticalArrangement = Arrangement.spacedBy(6.dp),
+                ) {
+                    Text(
+                        "PROGRESS OVERVIEW",
+                        color = Dhc6DesktopColors.Accent,
+                        fontWeight = FontWeight.Black,
+                        fontSize = 10.sp,
+                    )
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        verticalAlignment = Alignment.CenterVertically,
+                    ) {
+                        Text(
+                            "Overall Progress",
+                            color = Color.White,
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 14.sp,
+                        )
+                        Text(
+                            if (sessions > 0) "$bestPct%" else "-",
+                            color = Color.White,
+                            fontWeight = FontWeight.Black,
+                            fontSize = 16.sp,
+                        )
+                    }
                     LinearProgressIndicator(
-                        progress   = { (bestPct / 100f).coerceIn(0f, 1f) },
-                        modifier   = Modifier.fillMaxWidth().height(8.dp).clip(RoundedCornerShape(4.dp)),
-                        color      = Dhc6DesktopColors.Accent,
+                        progress = { (bestPct / 100f).coerceIn(0f, 1f) },
+                        modifier = Modifier.fillMaxWidth()
+                            .height(6.dp)
+                            .clip(RoundedCornerShape(3.dp)),
+                        color = Dhc6DesktopColors.Accent,
                         trackColor = Dhc6DesktopColors.Border,
                     )
-                    Row(horizontalArrangement = Arrangement.spacedBy(28.dp)) {
-                        Column {
-                            Text("Sessions", color = Dhc6DesktopColors.TextSecondary, fontSize = 12.sp)
-                            Text("$sessions", color = Color.White, fontWeight = FontWeight.Black, fontSize = 24.sp)
-                        }
-                        Column {
-                            Text("Best Score", color = Dhc6DesktopColors.TextSecondary, fontSize = 12.sp)
-                            Text(
-                                if (sessions > 0) "$bestPct%" else "-",
-                                color = Color.White,
-                                fontWeight = FontWeight.Black,
-                                fontSize = 24.sp
-                            )
-                        }
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                    ) {
+                        Text(
+                            "Sessions: $sessions",
+                            color = Dhc6DesktopColors.TextSecondary,
+                            fontSize = 11.sp,
+                        )
+                        Text(
+                            "Best: ${if (sessions > 0) "$bestPct%" else "-"}",
+                            color = Dhc6DesktopColors.TextSecondary,
+                            fontSize = 11.sp,
+                        )
                     }
                 }
             }
             Button(
-                onClick  = onStart,
-                modifier = Modifier.weight(1f).height(130.dp),
-                shape    = RoundedCornerShape(22.dp),
-                colors   = ButtonDefaults.buttonColors(containerColor = Dhc6DesktopColors.AccentStrong),
+                onClick = onStart,
+                enabled = procedures.isNotEmpty(),
+                modifier = Modifier.weight(1f).height(108.dp),
+                shape = RoundedCornerShape(22.dp),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = Dhc6DesktopColors.AccentStrong,
+                ),
             ) {
                 Text(
-                    "START PRACTICE\nSESSION",
-                    color = Color.White, fontWeight = FontWeight.Black, fontSize = 18.sp,
-                    letterSpacing = 1.sp, textAlign = TextAlign.Center, lineHeight = 26.sp,
+                    if (selectedProcedure == null) {
+                        "START RANDOM\nSESSION"
+                    } else {
+                        "START SELECTED\nPROCEDURE"
+                    },
+                    color = Color.White,
+                    fontWeight = FontWeight.Black,
+                    fontSize = 18.sp,
+                    letterSpacing = 1.sp,
+                    textAlign = TextAlign.Center,
+                    lineHeight = 26.sp,
                 )
             }
         }
     }
-}
 
 @Composable
 private fun MccCategoryCard(
     cat: MccCategory, selected: Boolean, onClick: () -> Unit, modifier: Modifier = Modifier,
 ) {
     Card(
-        modifier = modifier.clickable(onClick = onClick).heightIn(min = 150.dp),
+        modifier = modifier.clickable(onClick = onClick).heightIn(min = 116.dp),
         shape    = RoundedCornerShape(22.dp),
         border   = BorderStroke(if (selected) 2.dp else 1.dp, if (selected) cat.accent else Dhc6DesktopColors.Border),
         colors   = CardDefaults.cardColors(containerColor = if (selected) Dhc6DesktopColors.CardSelected else Dhc6DesktopColors.SurfaceDark),
     ) {
-        Column(Modifier.padding(18.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
+        Column(Modifier.padding(14.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
             Box(
                 modifier = Modifier.size(44.dp).background(cat.accent.copy(alpha = 0.18f), RoundedCornerShape(12.dp)),
                 contentAlignment = Alignment.Center,
