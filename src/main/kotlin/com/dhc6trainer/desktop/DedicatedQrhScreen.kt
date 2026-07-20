@@ -33,6 +33,9 @@ import androidx.compose.material.icons.filled.ControlCamera
 import androidx.compose.material.icons.filled.LocalFireDepartment
 import androidx.compose.material.icons.filled.LocalGasStation
 import androidx.compose.material.icons.filled.MoreHoriz
+import androidx.compose.material.icons.filled.ReportProblem
+import androidx.compose.material.icons.filled.Star
+import androidx.compose.material.icons.filled.StarBorder
 import androidx.compose.material.icons.filled.Warning
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -262,12 +265,61 @@ private fun QrhProcedureDetail(procedure: ProcedureSummary?, favorite: Boolean, 
             Column(Modifier.fillMaxSize().padding(20.dp)) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Text(group.title.uppercase(), color = group.accent, fontWeight = FontWeight.Black, fontSize = 11.sp, modifier = Modifier.weight(1f))
-                    Text(if (favorite) "★" else "☆", color = if (favorite) Dhc6DesktopColors.Gold else Dhc6DesktopColors.TextSubtle,
-                        fontSize = 25.sp, modifier = Modifier.clickable(onClick = onFavorite))
+                    Icon(
+                        imageVector = if (favorite) Icons.Filled.Star else Icons.Filled.StarBorder,
+                        contentDescription = if (favorite) "Remove favorite" else "Add favorite",
+                        tint = if (favorite) Dhc6DesktopColors.Gold else Dhc6DesktopColors.TextSubtle,
+                        modifier = Modifier.size(26.dp).clickable(onClick = onFavorite),
+                    )
                 }
                 Spacer(Modifier.height(8.dp))
                 Text(procedure.rawName, color = Color.White, fontSize = 25.sp, lineHeight = 30.sp, fontWeight = FontWeight.Black)
                 Text("QUICK REFERENCE PROCEDURE", color = Dhc6DesktopColors.TextMuted, fontSize = 11.sp, fontWeight = FontWeight.Black)
+
+                // ── Placeholder warning ──────────────────────────────────
+                // When the underlying JSON's sourceNote flags this procedure
+                // as a generic MCC callout shell, surface a visible warning
+                // instead of letting users treat scaffolding as authoritative
+                // content. See docs/CONTENT-AUDIT.md for the full list of
+                // 56 procedures currently affected.
+                if (procedure.isPlaceholder) {
+                    Spacer(Modifier.height(12.dp))
+                    Card(
+                        modifier = Modifier.fillMaxWidth(),
+                        shape = RoundedCornerShape(12.dp),
+                        border = BorderStroke(1.dp, Dhc6DesktopColors.Red.copy(alpha = 0.5f)),
+                        colors = CardDefaults.cardColors(containerColor = Dhc6DesktopColors.Red.copy(alpha = 0.10f)),
+                    ) {
+                        Row(
+                            modifier = Modifier.padding(horizontal = 14.dp, vertical = 12.dp),
+                            verticalAlignment = Alignment.Top,
+                            horizontalArrangement = Arrangement.spacedBy(10.dp),
+                        ) {
+                            Icon(
+                                imageVector = Icons.Filled.ReportProblem,
+                                contentDescription = null,
+                                tint = Dhc6DesktopColors.Red,
+                                modifier = Modifier.size(22.dp),
+                            )
+                            Column {
+                                Text(
+                                    "PLACEHOLDER — NOT AN APPROVED PROCEDURE",
+                                    color = Dhc6DesktopColors.Red,
+                                    fontWeight = FontWeight.Black,
+                                    fontSize = 11.sp,
+                                )
+                                Spacer(Modifier.height(2.dp))
+                                Text(
+                                    "The steps below are a generic MCC callout shell auto-generated from the procedure title. They are NOT DHC-6 specific and must not be used for operational reference. Real content is pending author review.",
+                                    color = Dhc6DesktopColors.TextSecondary,
+                                    fontSize = 12.sp,
+                                    lineHeight = 17.sp,
+                                )
+                            }
+                        }
+                    }
+                }
+
                 Spacer(Modifier.height(13.dp))
                 HorizontalDivider(color = Dhc6DesktopColors.BorderSoft)
                 LazyColumn(Modifier.fillMaxSize(), contentPadding = PaddingValues(start = 0.dp, top = 8.dp, end = 0.dp, bottom = 24.dp)) {

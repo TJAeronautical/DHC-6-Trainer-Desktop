@@ -42,7 +42,26 @@ internal data class ProcedureSummary(
     val stepCount: Int,
     val sourcePath: String,
     val steps: List<ProcedureStep>,
-)
+    /**
+     * The `sourceNote` field carried through from the procedure JSON. Empty
+     * for procedures that don't have one (rare — usually because the file
+     * pre-dates the metadata convention). Preserved verbatim so the UI can
+     * inspect it (e.g. for the placeholder-content warning banner).
+     */
+    val sourceNote: String,
+) {
+    /**
+     * True when this procedure's `sourceNote` explicitly marks it as a
+     * generic MCC callout shell — i.e. not real DHC-6 content. Surfaced in
+     * the QRH detail view so users are not misled into treating placeholder
+     * scaffolding as an approved procedure. See docs/CONTENT-AUDIT.md.
+     */
+    val isPlaceholder: Boolean
+        get() = sourceNote.contains(
+            "Generic MCC callout shell generated from procedure titles only",
+            ignoreCase = false,
+        )
+}
 
 internal data class ProcedureLibrarySnapshot(
     val procedures: List<ProcedureSummary>,
@@ -146,6 +165,7 @@ internal object DesktopProcedureContentLoader {
         val memoryCount = sectionActionCount(json, "memory")
         val flowCount = sectionActionCount(json, "flow")
         val steps = parseSteps(json)
+        val sourceNote = json.stringValue("sourceNote").orEmpty()
 
         return ProcedureSummary(
             id = path.substringAfter("assets/procedures/").removeSuffix(".json"),
@@ -159,6 +179,7 @@ internal object DesktopProcedureContentLoader {
             stepCount = steps.size,
             sourcePath = path,
             steps = steps,
+            sourceNote = sourceNote,
         )
     }
 
