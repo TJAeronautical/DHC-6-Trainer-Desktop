@@ -76,6 +76,8 @@ import kotlin.math.sin
    ===================================================================== */
 
 internal const val TwinOtterCockpitModelPath = "assets/models/cockpit/twin_otter_cockpit.glb"
+// User-supplied full Twin Otter cockpit set (Draco-decoded + decimated for jME3).
+internal const val CockpitSetModelPath = "assets/models/cockpit/cockpit_set.glb"
 
 internal enum class CockpitObservationSeat(val label: String, val lateralOffset: Float) {
     LeftSeat("Left seat", -0.34f),
@@ -1213,10 +1215,14 @@ private fun cockpit3dSceneSpec(observationSeat: CockpitObservationSeat): JmeScen
     build = { app ->
         val keyLight = JmeFlightSimScene.installLightRig(app.rootNode)
         runCatching { app.rootNode.attachChild(JmeFlightSimScene.buildSkyDome(app.assetManager)) }
+        // Auto-generated outside environment (runtime terrain inside the sky dome).
+        runCatching { app.rootNode.attachChild(JmeFlightSimScene.buildAutoTerrain(app.assetManager)) }
         runCatching { app.rootNode.attachChild(buildApron(app)) }
         runCatching { JmeFlightSimScene.installPostFx(app, keyLight) }
 
-        val model = runCatching { app.assetManager.loadModel(TwinOtterCockpitModelPath) }.getOrNull()
+        // Prefer the user-supplied cockpit set; fall back to the bundled cockpit.
+        val model = runCatching { app.assetManager.loadModel(CockpitSetModelPath) }.getOrNull()
+            ?: runCatching { app.assetManager.loadModel(TwinOtterCockpitModelPath) }.getOrNull()
         if (model != null) {
             prepareCockpitModel(app, model)
             model.shadowMode = RenderQueue.ShadowMode.CastAndReceive

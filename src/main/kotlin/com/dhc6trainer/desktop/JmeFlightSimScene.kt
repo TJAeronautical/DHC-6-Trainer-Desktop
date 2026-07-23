@@ -19,8 +19,10 @@ import com.jme3.post.filters.FXAAFilter
 import com.jme3.post.ssao.SSAOFilter
 import com.jme3.renderer.queue.RenderQueue
 import com.jme3.scene.Geometry
+import com.jme3.scene.Mesh
 import com.jme3.scene.Node
 import com.jme3.scene.Spatial
+import com.jme3.scene.VertexBuffer
 import com.jme3.scene.shape.Cylinder
 import com.jme3.scene.shape.Sphere
 import com.jme3.scene.shape.Torus
@@ -236,6 +238,79 @@ internal object JmeFlightSimScene {
             ),
         )
         return stage
+    }
+
+    /* ---- Auto-generated outside terrain ------------------------------ */
+
+    /**
+     * Runtime-generated outside-world ground: a large, gently noise-displaced
+     * grid with a vegetation→tundra vertex gradient. No external assets, so it
+     * frames any loaded cockpit / aircraft model as a believable outside
+     * environment inside the sky dome. Sized to sit within [buildSkyDome]'s
+     * 160-unit radius. Call after the sky dome; guard at the call site.
+     */
+    fun buildAutoTerrain(
+        assetManager: AssetManager,
+        extent: Float = 150f,
+        floorY: Float = -3.0f,
+    ): Geometry {
+        val n = 96                       // 97x97 = 9409 verts (fits u16 indices)
+        val step = (extent * 2f) / n
+        val stride = n + 1
+        val pos = FloatArray(stride * stride * 3)
+        val col = FloatArray(stride * stride * 4)
+        val idx = ShortArray(n * n * 6)
+
+        fun height(x: Float, z: Float): Float =
+            FastMath.sin(x * 0.017f) * 3.2f +
+                FastMath.sin(z * 0.021f) * 2.6f +
+                FastMath.sin((x + z) * 0.009f) * 4.4f +
+                FastMath.sin((x - z) * 0.033f) * 1.1f
+
+        val low = ColorRGBA(0.17f, 0.24f, 0.15f, 1f)   // vegetation
+        val high = ColorRGBA(0.46f, 0.42f, 0.30f, 1f)  // tundra / rock
+        var p = 0
+        var c = 0
+        for (i in 0..n) {
+            for (j in 0..n) {
+                val x = -extent + i * step
+                val z = -extent + j * step
+                val hgt = height(x, z)
+                pos[p++] = x
+                pos[p++] = floorY + hgt
+                pos[p++] = z
+                val t = ((hgt + 6f) / 12f).coerceIn(0f, 1f)
+                col[c++] = FastMath.interpolateLinear(t, low.r, high.r)
+                col[c++] = FastMath.interpolateLinear(t, low.g, high.g)
+                col[c++] = FastMath.interpolateLinear(t, low.b, high.b)
+                col[c++] = 1f
+            }
+        }
+        var k = 0
+        for (i in 0 until n) {
+            for (j in 0 until n) {
+                val a = i * stride + j
+                val b = i * stride + j + 1
+                val d = (i + 1) * stride + j
+                val e = (i + 1) * stride + j + 1
+                idx[k++] = a.toShort(); idx[k++] = d.toShort(); idx[k++] = b.toShort()
+                idx[k++] = b.toShort(); idx[k++] = d.toShort(); idx[k++] = e.toShort()
+            }
+        }
+
+        val mesh = Mesh().apply {
+            setBuffer(VertexBuffer.Type.Position, 3, BufferUtils.createFloatBuffer(*pos))
+            setBuffer(VertexBuffer.Type.Color, 4, BufferUtils.createFloatBuffer(*col))
+            setBuffer(VertexBuffer.Type.Index, 3, BufferUtils.createShortBuffer(*idx))
+            updateBound()
+        }
+        return Geometry("FlightSimAutoTerrain", mesh).apply {
+            material = Material(assetManager, "Common/MatDefs/Misc/Unshaded.j3md").apply {
+                setBoolean("VertexColor", true)
+            }
+            queueBucket = RenderQueue.Bucket.Opaque
+            shadowMode = RenderQueue.ShadowMode.Receive
+        }
     }
 
     /* ---- PBR environment probe --------------------------------------- */
